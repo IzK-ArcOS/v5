@@ -1,0 +1,62 @@
+@import url("./progress.css");
+
+div.boot {
+  background-color: #000;
+}
+
+div.boot * {
+  transition: opacity 0.75s;
+  opacity: 0;
+}
+
+div.boot.fadein * {
+  opacity: 1;
+}
+
+div.boot.fadeout * {
+  opacity: 0;
+}
+
+div.boot * {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+div.boot div.center-absolute img.logo {
+  height: 150px;
+}
+
+div.slider.userdefined {
+  width: 150px;
+  border-radius: 3.5px;
+  background-color: #111;
+  height: 7px;
+  transition: opacity 1.5s;
+  margin-top: 20px;
+}
+
+div.line.dark {
+  background-color: transparent;
+  border-radius: 3.5px;
+  height: 7px;
+}
+
+div.subline.dark.inc {
+  background-color: #aaa;
+  /*border-radius: 3.5px;*/
+  height: 7px;
+}
+
+div.subline.dark.dec {
+  background-color: #aaa;
+  /*border-radius: 3.5px;*/
+  height: 7px;
+}
+
+p.status {
+  margin-top: 50px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  color: #eee;
+  font-family: 13px;
+}

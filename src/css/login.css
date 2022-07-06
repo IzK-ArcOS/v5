@@ -1,0 +1,124 @@
+div.login {
+  background-color: #000;
+  background-image: url("../assets/bg/img16.png");
+  background-position: center;
+  background-size: cover;
+  transition:opacity 0.3s;  
+  opacity: 0;
+}
+
+div.login > * {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+div.login.show > * {
+  opacity: 1;
+}
+
+div.login.show {
+    opacity: 1;
+  
+}
+
+div.login *:not(.material-icons) {
+  color: #ccc;
+  font-family: "Inter", sans-serif;
+}
+
+div.login a {
+  color: deepskyblue !important;
+  text-decoration: none;
+}
+
+div.login button:not(.user) {
+  padding: 10px 20px;
+  background-color: #0003;
+  border: none;
+  border-radius: 7.5px;
+  transition: background-color 0.3s, opacity 0.15s;
+  backdrop-filter: blur(7.5px);
+}
+
+div.login button:not(.user):hover {
+  background-color: #0005;
+}
+
+div.login button:not(.user):active {
+  opacity: 0.4;
+}
+
+div.login div.topbar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 35px;
+  background-color: #0002;
+  box-sizing: border-box;
+  padding: 7px 10px;
+  opacity: 0;
+  transition: opacity 0.4s, top 0.4s;
+  top: -17.5px;
+}
+
+div.login div.topbar.show {
+  opacity: 1;
+  top: 0px;
+}
+
+div.login div.topbar div.clock {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  font-weight: bold;
+}
+/* 
+div.login div.center-absolute {
+    min-width:640px;
+    max-width:70%;
+    width:70%;
+} */
+
+div.login div.center-absolute div.user-selector {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+div.login div.center-absolute div.user-selector button.user {
+  background-color: transparent;
+  border: none;
+  margin: 15px;
+  width: 100px;
+  box-sizing: border-box;
+  padding: 0;
+  text-shadow: #000 0px 0 5px;
+  border-radius: 10px;
+  padding: 10px 0px;
+  transition: background-color 0.15s;
+}
+
+div.login div.center-absolute div.user-selector button.user:hover {
+  background-color: #0006;
+}
+
+div.login div.center-absolute div.user-selector button.user:active {
+  background-color: #0008;
+}
+
+div.login div.center-absolute div.user-selector button.user img {
+  border-radius: 50%;
+  height: 75px;
+}
+
+div.login div.center-absolute div.user-selector button.user p {
+  margin-bottom: 0;
+}

@@ -1,0 +1,12 @@
+div.userlogin {
+    text-align: center;
+}
+
+div.userlogin img {
+    height:150px;
+    border-radius: 50%;
+}
+
+div.userlogin h1 {
+    font-size: 24px;
+}

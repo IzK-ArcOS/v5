@@ -1,0 +1,53 @@
+div.bugrep {
+  background-color: #0007;
+  color: #ccc;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  backdrop-filter: blur(7.5px);
+}
+
+div.bugrep *,
+div.bugrep {
+  transition: opacity 0.4s;
+  opacity: 0;
+}
+
+div.bugrep.show *,
+div.bugrep.show {
+  opacity: 1;
+}
+
+div.bugrep a {
+  color: deepskyblue;
+  text-decoration: none;
+}
+
+div.bugrep a:hover {
+  color: rgb(94, 215, 255);
+}
+
+div.bugrep a:active {
+  color: rgb(0, 111, 148);
+}
+
+div.bugrep button {
+  padding: 10px 20px;
+  background-color: #fff1;
+  border: none;
+  border-radius: 7.5px;
+  transition: background-color 0.3s, opacity 0.15s;
+  backdrop-filter: blur(7.5px);
+  color: white;
+}
+
+div.bugrep button:hover {
+  background-color: #fff2;
+}
+
+div.bugrep button:active {
+  opacity: 0.4;
+}
+
+div.bugrep pre.details {
+    opacity: 0.4;
+}

@@ -1,0 +1,172 @@
+.slider.halfwidth {
+  position: absolute;
+  width: 50%;
+  height: 5px;
+  overflow-x: hidden;
+}
+
+.line.dark {
+  position: absolute;
+  opacity: 0.4;
+  background: transparent;
+  width: 150%;
+  height: 5px;
+}
+
+.subline.dark {
+  position: absolute;
+  background: #115cd6;
+  height: 5px;
+}
+
+.slider.fullwidth {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  overflow-x: hidden;
+}
+
+.slider.userdefined {
+  position: absolute;
+  width: 0px;
+  height: 5px;
+  overflow-x: hidden;
+}
+
+.slider.w80 {
+  position: absolute;
+  width: 80%;
+  height: 5px;
+  overflow-x: hidden;
+}
+
+.slider {
+  width: 250px;
+}
+
+.line.light {
+  position: absolute;
+  opacity: 0.4;
+  background: #4a8df8;
+  width: 150%;
+  height: 5px;
+}
+
+.subline.light {
+  position: absolute;
+  background: #4a8df8;
+  height: 5px;
+}
+
+.inc {
+  animation: increase 2s infinite;
+}
+
+.dec {
+  animation: decrease 2s 0.5s infinite;
+}
+
+@keyframes increase {
+  from {
+    left: -5%;
+    width: 5%;
+  }
+  to {
+    left: 130%;
+    width: 100%;
+  }
+}
+
+@keyframes decrease {
+  from {
+    left: -80%;
+    width: 80%;
+  }
+  to {
+    left: 110%;
+    width: 10%;
+  }
+}
+
+.slider.fixed_bottom {
+  bottom: 0px;
+  margin-bottom: 20px;
+}
+
+.cp-spinner {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cp-round:before {
+  border-radius: 50%;
+  content: " ";
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  box-sizing: border-box;
+  border-top: solid 6px #111;
+  border-right: solid 6px #111;
+  border-bottom: solid 6px #111;
+  border-left: solid 6px #111;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cp-round:after {
+  border-radius: 50%;
+  content: " ";
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  box-sizing: border-box;
+  border-top: solid 6px #00aeff;
+  border-right: solid 6px transparent;
+  border-bottom: solid 6px transparent;
+  border-left: solid 6px transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: cp-round-animate 1s ease-in-out infinite;
+}
+
+.cp-round.big:before,
+.cp-round.big:after,
+.cp-spinner.big {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+@keyframes cp-round-animate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+progress {
+  -webkit-appearance: none;
+  height: 7px;
+}
+
+progress::-webkit-progress-value:indeterminate {
+  background-color: gray;
+}
+
+progress::-webkit-progress-bar {
+  background: var(--buttonBackgroundColor);
+  border-radius: 50px;
+}
+
+/* Now the value part */
+progress::-webkit-progress-value {
+  border-radius: 50px;
+  background-color: deepskyblue;
+}
