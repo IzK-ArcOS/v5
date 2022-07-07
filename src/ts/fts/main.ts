@@ -2,25 +2,25 @@ import { writable } from "svelte/store";
 import { InvalidStateBugrep } from "../bugrep";
 import { Log, LogLevel } from "../console";
 import type { State } from "../state/interfaces";
-import { LoginStates } from "./store";
+import { FTSStates } from "./store";
 
-export const CurrentLoginState = writable<State>();
+export const CurrentFTSState = writable<State>();
 export const loginUsername = writable<string>();
 
-export function applyLoginState(stateKey: string) {
-  if (LoginStates.has(stateKey)) {
+export function applyFTSState(stateKey: string) {
+  if (FTSStates.has(stateKey)) {
     Log({
       level: LogLevel.info,
-      source: "applyLoginState",
+      source: "applyFTSState",
       msg: `Applying state ${stateKey}`,
     });
 
-    const state = LoginStates.get(stateKey);
+    const state = FTSStates.get(stateKey);
 
-    CurrentLoginState.set(state);
+    CurrentFTSState.set(state);
 
     return;
   }
 
-  InvalidStateBugrep("Login",stateKey);
+  InvalidStateBugrep("FirstTimeSetup",stateKey);
 }

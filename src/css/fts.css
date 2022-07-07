@@ -1,22 +1,27 @@
+@import url("../css/fts/page/welcome.css");
 div.fts {
   background-position: center;
   background-size: cover;
   background-image: url("../assets/bg/img17.png");
   opacity: 0;
-  transition:opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+div.fts:not(.material-icons) {
+  font-family: "Inter", sans-serif;
 }
 
 div.fts.show {
-    opacity: 1;
+  opacity: 1;
 }
 
-div.fts div.center-absolute {
+div.fts > div.center-absolute {
   width: 800px;
   height: 500px;
   border-radius: 20px;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5);
   padding: 40px;
-  color: white;
+  color: #ccc;
   background-color: #0005;
 }
 
@@ -34,17 +39,96 @@ div.fts div.center-absolute div.left {
   padding: 40px;
 }
 
+div.fts div.center-absolute div.left > div.center-absolute {
+  width: fit-content;
+  text-align: center;
+}
+
 div.fts div.center-absolute div.left img {
-  width: 40%;
+  width: 50%;
+}
+
+div.fts div.center-absolute div.left h2 {
+  /*   margin-top:10px;
+  margin-bottom: 0; */
+  margin: 0;
+  font-weight: 100;
 }
 
 div.fts div.center-absolute div.right {
   right: 20px;
   top: 20px;
   background-color: #0002;
-  height:calc(100% - 40px);
-  width:calc(50% - 40px);
-  padding:20px;
+  height: calc(100% - 40px);
+  width: calc(50% - 40px);
+  padding: 20px;
   border-radius: 15px;
-  font-family: "Inter", sans-serif;
+}
+
+div.page div.header * {
+  margin:0;
+  text-align: center;
+  font-weight: 100;
+}
+
+div.page div.header p.subtitle {
+  opacity: 0.4;
+}
+
+div.fts div.center-absolute div.right * {
+  color: #ccc;
+}
+
+div.fts div.center-absolute div.right button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #fff1;
+  border-radius: 5px;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+div.fts div.center-absolute div.right button:disabled {
+  opacity: 0.3;
+}
+
+div.fts div.center-absolute div.right button.nopad {
+  padding: 10px;
+}
+
+div.fts div.center-absolute div.right button.nopad span.material-icons {
+  margin: 0;
+}
+
+div.fts div.center-absolute div.right div.nav {
+  position:absolute;
+  bottom:0px;
+  left:0px;
+  width:100%;
+  display:grid;
+  grid-template-columns: auto auto;
+}
+
+div.fts div.center-absolute div.right div.nav div {
+  padding:20px;
+  box-sizing: border-box;
+}
+
+div.fts div.center-absolute div.right div.nav div.alnr{
+  text-align: right;
+}
+
+button.fullwidth {
+  display:block;
+  width:100%;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+
+div.fts button:hover {
+  background-color: #fff2 !important;
+}
+
+div.fts button:active {
+  opacity: 0.5;
 }

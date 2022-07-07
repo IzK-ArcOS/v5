@@ -12,6 +12,10 @@
     -webkit-transform:translate(-50%,-50%);
 }
 
+.centertext {
+    text-align: center;
+}
+
 .fullscreen {
     position:fixed;
     top:0px;
