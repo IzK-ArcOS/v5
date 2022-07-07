@@ -6,6 +6,8 @@
   import { applyState } from "../../ts/state/main";
   import Topbar from "./Login/Topbar.svelte";
   import Center from "./Login/Center.svelte";
+  import Darken from "./Login/Darken.svelte";
+  import Background from "./Login/Background.svelte";
 
   let show = false;
 
@@ -27,6 +29,8 @@
 </script>
 
 <div class="login fullscreen" class:show>
+  <Background />
+  <Darken />
   <Topbar />
   <Center />
 </div>

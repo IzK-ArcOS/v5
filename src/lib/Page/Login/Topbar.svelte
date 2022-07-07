@@ -20,5 +20,13 @@
     <div class="clock">
       {time}
     </div>
+    <div class="right">
+      <button class="nopad">
+        <span class="material-icons">power_settings_new</span>
+      </button>
+      <button class="nopad">
+        <span class="material-icons">restart_alt</span>
+      </button>
+    </div>
   </div>
 {/if}

@@ -1,6 +1,7 @@
 import Login from "../../lib/Page/Login.svelte";
 import Boot from "../../lib/Page/Boot.svelte";
 import type { State } from "./interfaces";
+import FirstTimeSetup from "../../lib/Page/FirstTimeSetup.svelte";
 
 export const States = new Map<string, State>([
   [
@@ -16,6 +17,14 @@ export const States = new Map<string, State>([
     {
       name: "Login",
       content: Login,
+      attribs: {},
+    },
+  ],
+  [
+    "fts",
+    {
+      name: "First Time Setup",
+      content: FirstTimeSetup,
       attribs: {},
     },
   ],

@@ -10,6 +10,7 @@ export const LoginStates = new Map<string, State>([
       content: Selector,
       attribs: {
         topbar: true,
+        darken: false,
       },
     },
   ],
@@ -20,6 +21,7 @@ export const LoginStates = new Map<string, State>([
       content: UserLogin,
       attribs: {
         topbar: false,
+        darken: true,
       },
     },
   ],

@@ -1,0 +1,50 @@
+div.fts {
+  background-position: center;
+  background-size: cover;
+  background-image: url("../assets/bg/img17.png");
+  opacity: 0;
+  transition:opacity 0.4s;
+}
+
+div.fts.show {
+    opacity: 1;
+}
+
+div.fts div.center-absolute {
+  width: 800px;
+  height: 500px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  color: white;
+  background-color: #0005;
+}
+
+div.fts div.center-absolute div.left,
+div.fts div.center-absolute div.right {
+  position: absolute;
+  top: 0px;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+div.fts div.center-absolute div.left {
+  left: 0px;
+  padding: 40px;
+}
+
+div.fts div.center-absolute div.left img {
+  width: 40%;
+}
+
+div.fts div.center-absolute div.right {
+  right: 20px;
+  top: 20px;
+  background-color: #0002;
+  height:calc(100% - 40px);
+  width:calc(50% - 40px);
+  padding:20px;
+  border-radius: 15px;
+  font-family: "Inter", sans-serif;
+}

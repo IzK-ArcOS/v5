@@ -1,10 +1,18 @@
 div.login {
   background-color: #000;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+div.login div.background {
   background-image: url("../assets/bg/img16.png");
   background-position: center;
   background-size: cover;
-  transition:opacity 0.3s;  
-  opacity: 0;
+  transition: transform 0.6s;
+}
+
+div.login div.background.zoom {
+  transform: scale(1.05);
 }
 
 div.login > * {
@@ -17,8 +25,7 @@ div.login.show > * {
 }
 
 div.login.show {
-    opacity: 1;
-  
+  opacity: 1;
 }
 
 div.login *:not(.material-icons) {
@@ -46,6 +53,28 @@ div.login button:not(.user):hover {
 
 div.login button:not(.user):active {
   opacity: 0.4;
+}
+
+div.login button.nopad {
+  padding: 0;
+}
+
+div.login div.topbar div.right button.nopad {
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  border-radius: 11px;
+  background-color: transparent;
+  margin-left:5px;
+}
+
+div.login div.topbar div.right button.nopad:hover {
+  background-color: #0003;
+}
+
+div.login div.topbar div.right button.nopad span.material-icons {
+  padding:0;
+  margin:0;
 }
 
 div.login div.topbar {
@@ -78,6 +107,14 @@ div.login div.topbar div.clock {
   -webkit-transform: translateX(-50%);
   font-weight: bold;
 }
+
+div.login div.topbar div.right {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 15px;
+}
+
 /* 
 div.login div.center-absolute {
     min-width:640px;
@@ -103,22 +140,35 @@ div.login div.center-absolute div.user-selector button.user {
   text-shadow: #000 0px 0 5px;
   border-radius: 10px;
   padding: 10px 0px;
-  transition: background-color 0.15s;
+  transition: background-color 0.15s, opacity 0.3s;
 }
 
 div.login div.center-absolute div.user-selector button.user:hover {
-  background-color: #0006;
+  background-color: #0005;
 }
 
 div.login div.center-absolute div.user-selector button.user:active {
-  background-color: #0008;
+  opacity: 0.4;
 }
 
 div.login div.center-absolute div.user-selector button.user img {
   border-radius: 50%;
   height: 75px;
+  box-shadow: 0px 0px 10px #000a;
 }
 
 div.login div.center-absolute div.user-selector button.user p {
   margin-bottom: 0;
+}
+
+div.login div.darken {
+  background-color: #0007;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s, visibility 0.6s;
+}
+
+div.login div.darken.show {
+  opacity: 1;
+  visibility: visible;
 }
