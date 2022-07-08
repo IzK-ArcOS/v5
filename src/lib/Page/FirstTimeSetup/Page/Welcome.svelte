@@ -22,5 +22,9 @@
       disabled: false,
       redir: "servconn",
     },
+    prog: {
+      max: 4,
+      val: 1,
+    },
   }}
 />

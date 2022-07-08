@@ -7,4 +7,8 @@ export interface NavData {
     disabled: boolean;
     redir: string;
   };
+  prog: {
+    val: number;
+    max: number;
+  };
 }

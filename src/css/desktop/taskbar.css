@@ -1,0 +1,9 @@
+div.taskbar {
+    position:fixed;
+    bottom:10px;
+    left:10px;
+    width:calc(100% - 20px);
+    height:45px;
+    background-color: var(--win-bg);
+    border-radius: var(--win-border-rad);
+}

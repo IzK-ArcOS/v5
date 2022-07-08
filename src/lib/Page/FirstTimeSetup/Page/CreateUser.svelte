@@ -1,6 +1,18 @@
 <script lang="ts">
+import { applyFTSState } from "../../../../ts/fts/main";
+
+import { createUser } from "../../../../ts/userlogic/main";
+
   import { projName } from "../../../../ts/env/main";
   import Nav from "../Nav.svelte";
+
+  let username = "";
+  
+  function cre() {
+    createUser(username);
+
+    applyFTSState("finish")
+  }
 </script>
 
 <div class="header">
@@ -8,9 +20,10 @@
   <p class="subtitle">This is the first account.</p>
 </div>
 <br />
+<p>Enter your username.</p>
 <p>
-  Username:
-  <input />
+  <input class="fullwidth" placeholder="Username" bind:value={username}/>
+  <button class="fullwidth option" disabled={!username} on:click={cre}>Create Account</button>
 </p>
 <Nav
   data={{
@@ -19,8 +32,12 @@
       redir: "servconn",
     },
     forw: {
-      disabled: false,
-      redir: "j",
+      disabled: true,
+      redir: "finish",
+    },
+    prog: {
+      max: 4,
+      val: 3,
     },
   }}
 />

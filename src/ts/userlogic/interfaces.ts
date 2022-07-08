@@ -1,3 +1,5 @@
+import { writable } from "svelte/store";
+
 export interface UserData {
   sh: {
     taskbar: {
@@ -61,3 +63,4 @@ export const defaultUserData: UserData = {
 };
 
 export type AllUsers = { [name: string]: UserData };
+export const UserData = writable<UserData>();

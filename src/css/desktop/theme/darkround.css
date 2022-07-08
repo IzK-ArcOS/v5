@@ -1,0 +1,10 @@
+*:root {
+    --fg: #ccc;
+    --win-bg: #222;
+    --win-border-rad: 7.5px;
+    --glass-bg: #222a;
+}
+
+* {
+    border: #f0f 1px solid;
+}

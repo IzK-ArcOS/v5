@@ -2,6 +2,7 @@
   import { applyFTSState } from "../../../ts/fts/main";
 
   import type { NavData } from "../../../ts/fts/nav";
+import ProgressBar from "./Nav/ProgressBar.svelte";
 
   export let data: NavData;
 
@@ -20,6 +21,7 @@
       <span class="material-icons">arrow_back_ios_new</span>
     </button>
   </div>
+  <ProgressBar val={data.prog.val} max={data.prog.max}/>
   <div class="alnr">
     <button class="nopad" disabled={data.forw.disabled} on:click={forw}>
       <span class="material-icons">arrow_forward_ios</span>
