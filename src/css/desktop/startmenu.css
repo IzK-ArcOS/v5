@@ -1,0 +1,30 @@
+div.startmenu {
+    position:absolute;
+    bottom:calc(10px + 45px + 10px);
+    opacity:0;
+    visibility: hidden;
+    margin-bottom: -50px;
+    width:500px;
+    height:600px;
+    border-radius: var(--win-border-rad);
+    border: var(--win-border);
+    box-sizing: border-box;
+    transition:bottom 0.3s, border-radius 0.3s, width 0.3s, height 0.3s, opacity 0.3s, visibility 0.3s, margin-bottom 0.3s;
+    background-color: var(--win-bg);
+    left:10px;
+}
+
+div.startmenu.open {
+    opacity:1;
+    visibility: visible;
+    margin-bottom: 0;
+}
+
+div.desktop.tbdocked div.startmenu {
+    bottom:calc(45px + 10px);
+}
+
+div.startmenu.small {
+    width:405px;
+    height:405px;
+}

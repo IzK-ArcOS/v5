@@ -6,4 +6,16 @@ div.taskbar {
     height:45px;
     background-color: var(--win-bg);
     border-radius: var(--win-border-rad);
+    border: var(--win-border);
+    box-sizing: border-box;
+    transition:border 0.3s, width 0.3s, bottom 0.3s, left 0.3s, border-radius 0.3s;
+}
+
+div.desktop.tbdocked div.taskbar {
+    bottom:0;
+    left:0;
+    width:100%;
+    border-radius: 0;
+    border:transparent 1px solid;
+    border-top: var(--win-border)
 }

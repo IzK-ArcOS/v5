@@ -1,10 +1,7 @@
-*:root {
+:root .desktop.theme-darkround {
     --fg: #ccc;
     --win-bg: #222;
     --win-border-rad: 7.5px;
+    --win-border: #555 1px solid;
     --glass-bg: #222a;
-}
-
-* {
-    border: #f0f 1px solid;
 }

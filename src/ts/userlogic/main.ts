@@ -1,6 +1,7 @@
+import { get } from "svelte/store";
 import { Log, LogLevel } from "../console";
 import { userDataKey } from "../env/main";
-import { AllUsers, defaultUserData, UserData } from "./interfaces";
+import { AllUsers, defaultUserData, UserData, UserName } from "./interfaces";
 
 export function getUsers() {
   const users = localStorage.getItem(userDataKey);
@@ -44,3 +45,44 @@ export function getUserdata(name: string) {
 
   return defaultUserData;
 }
+
+export function setUserdata(name: string, data: UserData): boolean {
+  const users = getUsers();
+
+  if (!users[name]) return false;
+
+  users[name] = data;
+
+  setUsers(users);
+
+  return true;
+}
+
+UserData.subscribe((v) => {
+  const source = "UserLogic: UserData watch";
+  
+  if (get(UserName)) {
+    Log({
+      level: LogLevel.info,
+      msg: "Change Detected, committing",
+      source,
+    });
+
+    const changed = setUserdata(get(UserName), v);
+
+    if (!changed)
+      Log({
+        level: LogLevel.error,
+        msg: "Commit failed, setter returned false",
+        source,
+      });
+
+    return;
+  }
+
+  Log({
+    level: LogLevel.warn,
+    msg: "Not committing, no username",
+    source,
+  });
+});

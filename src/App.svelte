@@ -1,6 +1,7 @@
 <script lang="ts">
   import "./css/main.css";
   import BugReport from "./lib/BugReport.svelte";
+  import MobileBlock from "./lib/MobileBlock.svelte";
   import { applyState, CurrentState } from "./ts/state/main";
   import { createUser } from "./ts/userlogic/main";
 
@@ -14,4 +15,6 @@
     <svelte:component this={$CurrentState.content} />
   {/if}
   <BugReport />
+  
 </div>
+<MobileBlock />

@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
   import { get } from "svelte/store";
   import { applyLoginState, loginUsername } from "../../../../ts/login/main";
-  import { UserData } from "../../../../ts/userlogic/interfaces";
+  import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getUserdata } from "../../../../ts/userlogic/main";
   import profile from "../../../../assets/pfp/null.png";
   import Spinner from "../../../../lib/Spinner.svelte";
@@ -19,6 +19,7 @@ import { applyState } from "../../../../ts/state/main";
 
       setTimeout(() => {
         UserData.set(getUserdata(name));
+        UserName.set(name);
 
         applyState("desktop");
       }, 2000);

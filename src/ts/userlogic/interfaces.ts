@@ -64,3 +64,4 @@ export const defaultUserData: UserData = {
 
 export type AllUsers = { [name: string]: UserData };
 export const UserData = writable<UserData>();
+export const UserName = writable<string>();

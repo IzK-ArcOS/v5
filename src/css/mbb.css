@@ -1,0 +1,39 @@
+div.mbb {
+    background-color: #000;
+    visibility: hidden;
+    opacity:0;
+    transition:opacity 0.4s, visibility 0.4s;
+}
+
+div.mbb div.center-absolute img {
+    height:150px;
+}
+
+div.mbb div.center-absolute {
+    text-align: center;    
+    width:400px;
+    max-width: 100%;
+}
+
+div.mbb div.center-absolute * {
+    margin:0;
+    font-family: "Inter", sans-serif;
+    color:#aaa;
+}
+div.mbb div.center-absolute p {
+    margin-bottom: 20px;
+}
+
+div.mbb div.center-absolute button {
+    padding:10px 20px;
+    background-color: #fff1;
+    border: none;
+    border-radius: 7.5px;
+}
+
+@media screen and (max-width:1000px) {
+    div.mbb{
+        visibility:visible;
+        opacity:1;
+    }
+}

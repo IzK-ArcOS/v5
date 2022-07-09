@@ -5,7 +5,6 @@ import type { State } from "../state/interfaces";
 import { FTSStates } from "./store";
 
 export const CurrentFTSState = writable<State>();
-export const loginUsername = writable<string>();
 
 export function applyFTSState(stateKey: string) {
   if (FTSStates.has(stateKey)) {

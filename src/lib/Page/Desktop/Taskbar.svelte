@@ -9,5 +9,7 @@
 </script>
 
 {#if userdata}
-  <div class="taskbar">{userdata.sh.taskbar.docked}</div>
+  <div class="taskbar" class:docked={userdata.sh.taskbar.docked}>
+    <slot />
+  </div>
 {/if}
