@@ -16,3 +16,64 @@ export interface State {
 | `name`    | `string`                                        | Contains the display name (like `First Time Setup`) |
 | `content` | `SvelteComponent \| any`                        | The actual body of the state                        |
 | `attribs` | `{ [key:string]: boolean \| string \| number }` | Additional attributes different state types can use |
+
+## The user system
+As of right now, we only have LocalStorage to store userdata for ArcOS we **do not** yet have the backend API which will handle userdata storage, permissions and filesystem access. What we do have though, is a decoupled method of writing the data to LocalStorage. We need to change just one function in `src/ts/userlogic/main.ts` to change where the data is uploaded to:
+```ts
+export function setUserdata(name: string, data: UserData): boolean
+```
+Speaking of, this is the `UserData` interface which contains all personal and administrative preferences for a user:
+```ts
+export interface UserData {
+  sh: {
+    taskbar: {
+      centered: boolean;
+      labels: boolean;
+      pos: "top" | "bottom";
+      docked: boolean;
+    };
+
+    desktop: {
+      wallpaper: string | null;
+      icons: boolean;
+    };
+
+    start: {
+      small: boolean;
+    };
+
+    anim: boolean;
+    titleButtonsLeft: boolean;
+  };
+
+  acc: {
+    enabled: boolean;
+    admin: boolean;
+    profilePicture: string | number | null;
+  };
+  volume: {
+    level: number;
+    muted: boolean;
+  };
+}
+
+```
+Overview of what preferences have implementations in ArcOS:
+| property                        | Friendly Name                     | status                                                                  |
+|---------------------------------|-----------------------------------|-------------------------------------------------------------------------|
+| `UserData.sh.taskbar.centered`  | Center taskbar buttons            | not implemented                                                         |
+| `UserData.sh.taskbar.labels`    | Show taskbar button labels        | not implemented                                                         |
+| `UserData.sh.taskbar.pos`       | Taskbar position                  | not implemented                                                         |
+| `UserData.sh.taskbar.docked`    | Dock the taskbar                  | implemented: `src/lib/Page/Desktop/Taskbar.svelte` in `div.taskbar`     |
+| `UserData.sh.desktop.wallpaper` | Wallpaper                         | not implemented                                                         |
+| `UserData.sh.desktop.icons`     | Show the desktop icons            | not implemented                                                         |
+| `UserData.sh.start.small`       | Small start menu                  | implemented: `src/lib/Page/Desktop/StartMenu.svelte` in `div.startmenu` |
+| `UserData.sh.anim`              | Enable animations                 | implemented: `src/lib/Page/Desktop.svelte` in `UserData.subscribe`      |
+| `UserData.sh.titleButtonsLeft`  | Titlebar buttons on the left side | not implemented                                                         |
+| `UserData.acc.enabled`          | Is the user enabled?              | (partially) implemented: `src/lib/Page/Login/User.svelte` in `{#if}`    |
+| `UserData.acc.admin`            | Is the user an administrator?     | not implemented                                                         |
+| `UserData.acc.profilePicture`   | The user profile picture          | not implemented                                                         |
+| `UserData.volume.level`         | The ArcOS desktop volume          | not implemented                                                         |
+| `UserData.volume.muted`         | Mute ArcOS                        | not implemented                                                         | 
+## Plans for the future
+In the future I want to implement a backend API to allow for me to restore some of the key initial features of ArcOS. One of these include the file explorer, because that was vanilla-JS, electron only FS interaction functionality, which we can't get with TS in a browser without some kind of backend.
