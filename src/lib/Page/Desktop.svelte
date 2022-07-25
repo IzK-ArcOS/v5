@@ -2,9 +2,7 @@
   import "../../css/desktop.css";
   import { onMount } from "svelte";
   import { UserData } from "../../ts/userlogic/interfaces";
-  import Taskbar from "./Desktop/Taskbar.svelte";
   import Wallpaper from "./Desktop/Wallpaper.svelte";
-  import StartMenu from "./Desktop/StartMenu.svelte";
 import Shell from "./Desktop/Shell.svelte";
 
   let show = false;
@@ -17,6 +15,7 @@ import Shell from "./Desktop/Shell.svelte";
     classes = "";
 
     if (udata.sh.taskbar.docked) classes += `tbdocked `;
+    if (!udata.sh.anim) classes += `noani `;
   });
 
   onMount(() => setTimeout(() => (show = true), 1000));

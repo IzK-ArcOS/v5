@@ -1,1 +1,6 @@
 @import url("./theme/darkround.css");
+@import url("./theme/noani.css");
+
+:root {
+    --glass-blur: 10px
+}

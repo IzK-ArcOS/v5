@@ -3,16 +3,14 @@
   import Taskbar from "./Taskbar.svelte";
   import { startOpened } from "../../../ts/desktop/main";
 
-  let startButton: HTMLButtonElement;
-
   function startTog() {
     startOpened.set(!$startOpened);
   }
 </script>
 
-<StartMenu excludes={[startButton]} />
+<StartMenu />
 <Taskbar>
-  <button on:click={startTog} bind:this={startButton}>
+  <button on:click={startTog}>
     StartOpened: {$startOpened}
   </button>
 </Taskbar>

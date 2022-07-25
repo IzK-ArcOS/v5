@@ -1,30 +1,99 @@
+div.startframe {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+  /* backdrop-filter: blur(2px); */
+  /* background-color: #0006; */
+}
+
+div.startframe.present {
+  visibility: visible;
+  opacity: 1;
+}
+
 div.startmenu {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  margin-bottom: -50px;
+  width: 500px;
+  height: 600px;
+  border-radius: var(--win-border-rad);
+  border: var(--win-border);
+  box-sizing: border-box;
+  transition: bottom 0.3s, border-radius 0.3s, width 0.3s, height 0.3s,
+    opacity 0.3s, visibility 0.3s, margin-bottom 0.34s;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  left: 10px;
+  bottom: calc(10px + 45px + 10px);
+}
+
+div.startmenu * {
+    transition: top 0.3s, left 0.3s, opacity 0.3s, visibility 0.3s, width 0.3s,
+      height 0.3s, border-radius 0.3s, padding 0.3s;
+}
+
+div.startmenu div.left {
     position:absolute;
-    bottom:calc(10px + 45px + 10px);
-    opacity:0;
-    visibility: hidden;
-    margin-bottom: -50px;
-    width:500px;
-    height:600px;
-    border-radius: var(--win-border-rad);
-    border: var(--win-border);
-    box-sizing: border-box;
-    transition:bottom 0.3s, border-radius 0.3s, width 0.3s, height 0.3s, opacity 0.3s, visibility 0.3s, margin-bottom 0.3s;
+    width:300px;
+    top:0px;
+    left:0px;
+    height:calc(100% - 75px);
     background-color: var(--win-bg);
-    left:10px;
+    border-radius: var(--win-border-rad);
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    transition: top 0.3s, left 0.3s, opacity 0.3s, visibility 0.3s, width 0.3s,
+      height 0.3s, border-radius 0.3s, padding 0.3s;
+}
+
+div.startmenu div.right {
+    position:absolute;
+    width:200px;
+    top:0px;
+    right:0px;
+    height:calc(100% - 75px);
+    box-sizing: border-box;
+    padding:20px;
+}
+
+div.startmenu div.bottom {
+    position:absolute;
+    width:100%;
+    bottom:0px;
+    left:0px;
+    height:75px;
+    box-sizing: border-box;
 }
 
 div.startmenu.open {
-    opacity:1;
-    visibility: visible;
-    margin-bottom: 0;
+  opacity: 1;
+  visibility: visible;
+  margin-bottom: 0;
 }
 
 div.desktop.tbdocked div.startmenu {
-    bottom:calc(45px + 10px);
+  bottom: calc(45px + 10px);
 }
 
 div.startmenu.small {
-    width:405px;
-    height:405px;
+  width: 330px;
+  height: 405px;
+}
+
+div.startmenu.small>div.left {
+    width:calc(100% - 50px);
+    height:calc(100% - 50px);
+}
+
+div.startmenu.small>div.right {
+    width:50px;
+    height:calc(100% - 50px);   
+    padding:10px;
+    text-align: center;
+}
+
+div.startmenu.small>div.bottom {
+    height:50px;
 }

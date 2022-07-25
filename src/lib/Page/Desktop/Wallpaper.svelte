@@ -20,6 +20,14 @@
 
     UserData.set(udata);
   }
+
+  function togani() {
+    const udata = get(UserData);
+
+    udata.sh.anim = !udata.sh.anim;
+
+    UserData.set(udata);
+  }
 </script>
 
 <div class="wallpaper fullscreen">
@@ -28,6 +36,9 @@
   </button><br/>
   <button on:click={tog}>
     UserData.sh.taskbar.docked: {$UserData.sh.taskbar.docked}
+  </button><br />
+  <button on:click={togani}>
+    UserData.sh.anim: {$UserData.sh.anim}
   </button><br />
 
 </div>

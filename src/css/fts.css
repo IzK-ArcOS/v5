@@ -140,6 +140,7 @@ div.fts div.center-absolute div.right div.nav div div.progress div.inner {
   border-radius: inherit;
   background-color: deepskyblue;
   padding: 0;
+  transition:width 0.5s;
 }
 
 button.fullwidth {

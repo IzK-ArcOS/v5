@@ -1,4 +1,5 @@
 import { get } from "svelte/store";
+import { BugReportData } from "../bugrep";
 import { Log, LogLevel } from "../console";
 import { userDataKey } from "../env/main";
 import { AllUsers, defaultUserData, UserData, UserName } from "./interfaces";
@@ -60,7 +61,7 @@ export function setUserdata(name: string, data: UserData): boolean {
 
 UserData.subscribe((v) => {
   const source = "UserLogic: UserData watch";
-  
+
   if (get(UserName)) {
     Log({
       level: LogLevel.info,
@@ -70,12 +71,29 @@ UserData.subscribe((v) => {
 
     const changed = setUserdata(get(UserName), v);
 
-    if (!changed)
+    if (!changed) {
       Log({
         level: LogLevel.error,
         msg: "Commit failed, setter returned false",
         source,
       });
+
+      if (BugReportData)
+        BugReportData.set([
+          true,
+          {
+            icon: "person_off",
+            title: "User data commit failed",
+            message:
+              "The user data could not be saved. This happens if the<br>user data is altered while ArcOS is running.",
+            details: "UserLogic: UserData watch: setter returned false",
+            button: {
+              action: () => {},
+              caption: "Close",
+            },
+          },
+        ]);
+    }
 
     return;
   }

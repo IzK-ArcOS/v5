@@ -6,7 +6,7 @@ export interface UserData {
       centered: boolean;
       labels: boolean;
       pos: "top" | "bottom";
-      docked: boolean;
+      docked: boolean; //done
     };
 
     desktop: {
@@ -15,10 +15,10 @@ export interface UserData {
     };
 
     start: {
-      small: boolean;
+      small: boolean; //done
     };
 
-    anim: boolean;
+    anim: boolean; //done                   
     titleButtonsLeft: boolean;
   };
 
