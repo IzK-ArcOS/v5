@@ -24,7 +24,16 @@ interface App {
 ```
 
 The `content` attribute contains the actual Svelte component that will be displayed using a `svelte:component` element. The `AppStates`, `Size`, `XY`, `ControlsState`, `WindowMenuBar` and `GeneralAppInfo` names are interfaces and types used to make them more accessible to the rest of the code. Here they are:
-
+### General App Info (`interface GeneralAppInfo`)
+```ts
+interface GeneralAppInfo {
+  name: string;
+  description: string;
+  builtin: boolean;
+  version: string;
+  author?: string;
+}
+```
 ### Application States (`interface AppStates`)
 ```ts
 interface AppStates {

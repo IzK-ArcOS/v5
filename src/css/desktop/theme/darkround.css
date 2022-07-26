@@ -1,7 +1,10 @@
 :root .desktop.theme-darkround {
     --fg: #ccc;
-    --win-bg: #222;
+    --win-bg: #353535;
     --win-border-rad: 7.5px;
     --win-border: #555 1px solid;
-    --glass-bg: #222222a2;
+    --glass-bg: #353535a2;
+    --glass-alt-bg: #414141a2;
+    --darkened-overlay: #0002;
+    --darkened-overlay-alt: #0004;
 }

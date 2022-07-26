@@ -1,6 +1,7 @@
 <script lang="ts">
+  import { WindowStore } from "../../../ts/applogic/store";
   import { startOpened } from "../../../ts/desktop/main";
-  import { UserData } from "../../../ts/userlogic/interfaces";
+  import { UserData, UserName } from "../../../ts/userlogic/interfaces";
 
   function closeStart() {
     $startOpened = false;
@@ -18,8 +19,14 @@
     class:open={$startOpened}
     class:small={$UserData.sh.start.small}
   >
-    <div class="left" />
+    <div class="left">
+      {#each [...WindowStore] as [key, value]}
+        <button>{value.info.name} ({key})</button>
+      {/each}
+    </div>
     <div class="right"><span class="material-icons">palette</span></div>
-    <div class="bottom" />
+    <div class="bottom">
+      <h1 class="username">{$UserName}</h1>
+    </div>
   </div>
 {/if}
