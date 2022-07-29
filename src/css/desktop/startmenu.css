@@ -23,7 +23,7 @@ div.startmenu {
   box-sizing: border-box;
   transition: bottom 0.3s, border-radius 0.3s, width 0.3s, height 0.3s,
     opacity 0.3s, visibility 0.3s, margin-bottom 0.34s;
-  background-color: var(--glass-bg);
+  background-color: var(--glass-ultradark);
   backdrop-filter: blur(var(--glass-blur));
   left: 10px;
   bottom: calc(10px + 45px + 10px);
