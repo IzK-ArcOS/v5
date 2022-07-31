@@ -20,3 +20,31 @@ div.desktop.tbdocked div.taskbar {
     border:transparent 1px solid;
     border-top: var(--win-border);
 }
+
+div.taskbar button.start {
+    height:100%;
+    border-radius: var(--win-border-rad);
+    border:none;
+    background-color: var(--startmenu-applist-item-bg);
+    color:var(--fg);
+    padding:0;
+    margin:0;
+    margin-right: 10px;
+    width:43px;
+}
+
+div.taskbar button.start:hover {
+    background-color: var(--startmenu-applist-item-bg-hover);
+}
+
+div.taskbar button.start:active {
+    background-color: var(--startmenu-applist-item-bg-active);
+}
+
+div.taskbar button.start.open {
+    opacity: 0.5;
+}
+
+div.taskbar button.start img {
+    height:25px;
+}

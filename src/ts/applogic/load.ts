@@ -1,10 +1,16 @@
+import { get } from "svelte/store";
 import { Log, LogLevel } from "../console";
+import { isLoaded } from "./checks";
 import type { App } from "./interface";
 import { WindowStore } from "./store";
 
 export function loadWindow(id: string, app: App) {
-  if (!WindowStore.has(id)) {
-    WindowStore.set(id, app);
+  if (!isLoaded(id)) {
+    const ws = get(WindowStore);
+
+    ws.push({ ...app, id });
+
+    WindowStore.set(ws);
 
     Log({
       level: LogLevel.info,

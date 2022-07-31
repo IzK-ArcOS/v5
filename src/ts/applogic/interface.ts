@@ -3,12 +3,14 @@ import type { SvelteComponentDev } from "svelte/internal";
 export interface App {
   info: GeneralAppInfo;
   pos: XY;
+  size: Size;
   minSize: Size;
   maxSize: Size;
   controls: ControlsState;
   menubar?: WindowMenuBar;
   state: AppStates;
   content: typeof SvelteComponentDev;
+  id?:string;
 }
 
 export interface GeneralAppInfo {

@@ -10,6 +10,8 @@
     --glass-ultradark: #0008;
     --darkened-overlay: #0002;
     --darkened-overlay-alt: #0004;
-    
+    --startmenu-applist-item-bg: transparent;
+    --startmenu-applist-item-bg-hover:#ffffff05;
+    --startmenu-applist-item-bg-active: #0001;
     
 }
