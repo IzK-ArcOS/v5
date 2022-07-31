@@ -39,14 +39,14 @@ export const defaultUserData: UserData = {
       centered: false,
       labels: false,
       pos: "bottom",
-      docked: false,
+      docked: true,
     },
     desktop: {
       wallpaper: null,
       icons: true,
     },
     start: {
-      small: true,
+      small: false,
     },
     anim: true,
     titleButtonsLeft: false,

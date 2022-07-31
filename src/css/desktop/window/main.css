@@ -1,0 +1,65 @@
+div.window {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  background-color: var(--win-bg);
+  color: var(--fg);
+  border-radius: var(--win-border-rad);
+  border: var(--win-border);
+  overflow: hidden;
+  transition: all 0.2s, width 0s, height 0s, top 0s, left 0s;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(90%);
+}
+
+div.window.glass {
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+}
+
+div.window.max {
+  top: 0px !important;
+  left: 0px !important;
+  width: 100% !important;
+
+  max-width: unset !important;
+  max-height: unset !important;
+  min-width: unset;
+  min-height: unset;
+  border-radius: 0;
+  border: transparent 1px solid;
+  resize: none;
+  transition: all 0.2s;
+}
+
+div.window.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+div.window.nobg {
+  background-color: transparent;
+}
+
+div.window.resizable {
+  resize: both;
+}
+
+div.window.min {
+  opacity: 0 !important;
+  margin-top: 20px;
+}
+
+div.desktop.tbdocked div.window.max {
+  height: calc(100% - 45px) !important;
+}
+
+div.desktop:not(.tbdocked) div.window.max {
+  height: calc(100% - 65px) !important;
+}
+
+div.window.exttransition {
+  transition: all 0.2s;
+}

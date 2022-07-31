@@ -1,6 +1,7 @@
 import { get } from "svelte/store";
 import { startOpened } from "../desktop/main";
 import { isLoaded, isOpened } from "./checks";
+import type { App } from "./interface";
 import { getWindow, OpenApps, updateStores, WindowStore } from "./store";
 
 export function openWindow(id: string) {
@@ -10,7 +11,9 @@ export function openWindow(id: string) {
 
   const oa = get(OpenApps);
 
-  oa.push(getWindow(id));
+  const window = {...getWindow(id), id};
+
+  oa.push(window);
 
   OpenApps.set(oa);
 
@@ -29,17 +32,39 @@ export function closeWindow(id: string) {
   const oa = get(OpenApps);
 
   for (let i = 0; i < oa.length; i++) {
-    if (oa[i].id == id) {
-      oa.splice(i, 1);
+    if (oa[i] && oa[i].id == id) {
+      oa[i] = null;
       break;
     }
   }
 
   OpenApps.set(oa);
 
-  updateStores();
-
   return true;
+}
+
+export function maximizeWindow(app: App) {
+  app.state.windowState.max = !app.state.windowState.max;
+
+  updateStores();
+}
+
+export function minimizeWindow(app: App) {
+  app.state.windowState.min = !app.state.windowState.min;
+
+  updateStores();
+}
+
+export function fullscreenWindow(app: App) {
+  app.state.windowState.fll = !app.state.windowState.fll;
+
+  updateStores();
+}
+
+export function headlessToggle(win: App) {
+  win.state.headless = !win.state.headless;
+
+  updateStores();
 }
 
 //OpenApps.subscribe(updateStores);

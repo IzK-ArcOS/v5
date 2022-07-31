@@ -11,8 +11,5 @@ import StartButton from "./Taskbar/StartButton.svelte";
 
 <StartMenu />
 <Taskbar>
-  <!-- <button on:click={startTog}>
-    StartOpened: {$startOpened}
-  </button> -->
   <StartButton/>
 </Taskbar>

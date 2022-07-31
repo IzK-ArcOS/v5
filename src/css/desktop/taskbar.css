@@ -1,6 +1,5 @@
 div.taskbar {
     position:fixed;
-    bottom:10px;
     left:10px;
     width:calc(100% - 20px);
     height:45px;
@@ -12,13 +11,26 @@ div.taskbar {
     transition:border 0.3s, width 0.3s, bottom 0.3s, left 0.3s, border-radius 0.3s;
 }
 
-div.desktop.tbdocked div.taskbar {
+div.taskbar:not(.fullscreen) {
+    bottom:10px;
+}
+
+div.taskbar.fullscreen {
+    top:unset;
+    bottom:-50px;
+}
+
+div.desktop.tbdocked div.taskbar:not(.fullscreen) {
     bottom:0;
     left:0;
     width:100%;
     border-radius: 0;
     border:transparent 1px solid;
     border-top: var(--win-border);
+}
+
+div.taskbar button {
+    vertical-align: middle;
 }
 
 div.taskbar button.start {
@@ -29,8 +41,38 @@ div.taskbar button.start {
     color:var(--fg);
     padding:0;
     margin:0;
-    margin-right: 10px;
     width:43px;
+    transition: opacity 0.3s, background-color 0.2s;
+}
+
+div.taskbar button.appbutton {
+    height:100%;
+    max-height: 100%;
+    border-radius: var(--win-border-rad);
+    border:none;
+    background-color: var(--startmenu-applist-item-bg);
+    color:var(--fg);
+    padding:0;
+    margin:0;
+    margin-right: 5px;
+    transition: opacity 0.3s, background-color 0.2s;
+    padding: 0 7.5px;
+}
+
+div.taskbar button.appbutton span {
+    margin-top:2px;
+}
+
+div.taskbar button.appbutton.minimized {
+    opacity: 0.5;
+}
+
+div.taskbar button.appbutton:hover {
+    background-color: var(--startmenu-applist-item-bg-hover);
+}
+
+div.taskbar button.appbutton:active {
+    background-color: var(--startmenu-applist-item-bg-active);
 }
 
 div.taskbar button.start:hover {

@@ -1,0 +1,25 @@
+div.window div.titlebar div.controls {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+}
+
+div.window div.titlebar div.controls button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--fg);
+  transition: opacity 0.2s;
+}
+
+div.window div.titlebar div.controls button:hover {
+  opacity: 0.5;
+}
+
+div.window div.titlebar div.controls button:disabled {
+  opacity: 0.2;
+}

@@ -11,6 +11,7 @@ export interface App {
   state: AppStates;
   content: typeof SvelteComponentDev;
   id?:string;
+  glass: boolean;
 }
 
 export interface GeneralAppInfo {

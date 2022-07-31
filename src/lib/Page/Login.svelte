@@ -1,13 +1,14 @@
 <script lang="ts">
   import "../../css/login.css";
   import { onMount } from "svelte";
-  import { applyLoginState } from "../../ts/login/main";
+  import { applyLoginState, CurrentLoginState } from "../../ts/login/main";
   import { getUsers } from "../../ts/userlogic/main";
   import { applyState } from "../../ts/state/main";
   import Topbar from "./Login/Topbar.svelte";
   import Center from "./Login/Center.svelte";
   import Darken from "./Login/Darken.svelte";
   import Background from "./Login/Background.svelte";
+  import { LoginStates } from "../../ts/login/store";
 
   let show = false;
 
@@ -20,7 +21,7 @@
       return;
     }
 
-    applyLoginState("selector");
+    if (!$CurrentLoginState) applyLoginState("selector");
 
     setTimeout(() => {
       show = true;

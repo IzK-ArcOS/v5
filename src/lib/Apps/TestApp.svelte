@@ -1,42 +1,43 @@
 <script lang="ts">
-  import { updateStores } from "../../ts/applogic/store";
   import type { App } from "../../ts/applogic/interface";
-  import { closeWindow } from "../../ts/applogic/events";
-import { UserData } from "../../ts/userlogic/interfaces";
-import { get } from "svelte/store";
+  import {
+    closeWindow,
+    fullscreenWindow,
+    headlessToggle,
+    maximizeWindow,
+    minimizeWindow,
+  } from "../../ts/applogic/events";
+  import { UserData } from "../../ts/userlogic/interfaces";
+  import { get } from "svelte/store";
+  import { applyState } from "../../ts/state/main";
+  import { logoff } from "../../ts/desktop/power";
+  import { updateStores } from "../../ts/applogic/store";
 
   export let app: App;
 
+  let state: string;
+
   function toggleHeadless() {
-    app.state.headless = !app.state.headless;
-
-    console.log(app);
-
-    updateStores();
+    headlessToggle(app);
   }
 
   function min() {
-    app.state.windowState.min = !app.state.windowState.min;
-
-    updateStores();
+    minimizeWindow(app);
   }
 
   function max() {
-    app.state.windowState.max = !app.state.windowState.max;
-
-    updateStores();
+    maximizeWindow(app);
   }
+
   function cls() {
     closeWindow(app.id);
   }
 
-  function fll () {
-    app.state.windowState.fll = !app.state.windowState.fll;
-
-    updateStores();
+  function fll() {
+    fullscreenWindow(app);
   }
-  
-  function tog() {
+
+  function toggleTaskbarDocked() {
     const udata = get(UserData);
 
     udata.sh.taskbar.docked = !udata.sh.taskbar.docked;
@@ -44,9 +45,7 @@ import { get } from "svelte/store";
     UserData.set(udata);
   }
 
-  
-
-  function startSizTog() {
+  function toggleStartSmall() {
     const udata = get(UserData);
 
     udata.sh.start.small = !udata.sh.start.small;
@@ -54,28 +53,67 @@ import { get } from "svelte/store";
     UserData.set(udata);
   }
 
-  function togani() {
+  function toggleAnimations() {
     const udata = get(UserData);
 
     udata.sh.anim = !udata.sh.anim;
 
     UserData.set(udata);
   }
+
+  function toggleTaskbarLabels() {
+    const udata = get(UserData);
+
+    udata.sh.taskbar.labels = !udata.sh.taskbar.labels;
+
+    UserData.set(udata);
+  }
+
+  function updateState() {
+    applyState(state);
+  }
+
+  function toggleGlass() {
+    app.glass = !app.glass;
+
+    updateStores();
+  }
 </script>
 
-<h1>Testing...</h1>
-<button on:click={toggleHeadless}> headless toggle </button>
-<button on:click={min}>min</button>
-<button on:click={max}>max</button>
-<button on:click={cls}>cls</button>
-<button on:click={fll}>fll</button>
-<button on:click={startSizTog}>
+<h1>Testing...<input /></h1>
+<p>Headless</p>
+<button on:click={toggleHeadless}> headless toggle </button><br />
+<p>Window Controls</p>
+<button
+  on:click={min}
+  disabled={app.state.windowState.min || !app.controls.min}
+>
+  app.state.windowState.min: {app.state.windowState.min}
+</button><br>
+<button
+  on:click={max}
+  disabled={app.state.windowState.fll || !app.controls.max}
+>
+app.state.windowState.max: {app.state.windowState.max}
+</button><br>
+<button on:click={fll} disabled={app.state.windowState.max}>app.state.windowState.fll: {app.state.windowState.fll}</button><br>
+<button on:click={cls} disabled={!app.controls.cls}>AppLogic.closeWindow</button><br>
+<p>User Data</p>
+<button on:click={toggleStartSmall}>
   UserData.sh.start.small: {$UserData.sh.start.small}
-</button><br/>
-<button on:click={tog}>
+</button><br />
+<button on:click={toggleTaskbarDocked}>
   UserData.sh.taskbar.docked: {$UserData.sh.taskbar.docked}
 </button><br />
-<button on:click={togani}>
+<button on:click={toggleAnimations}>
   UserData.sh.anim: {$UserData.sh.anim}
 </button><br />
-<input />
+<button on:click={toggleTaskbarLabels}>
+  UserData.sh.taskbar.labels: {$UserData.sh.taskbar.labels}
+</button>
+<p>Change ArcOS State</p>
+<input bind:value={state} /><button on:click={updateState}>Update State</button>
+<p>Power</p>
+<button on:click={logoff}>ArcOS.Desktop.power.logoff</button>
+<p>Glass</p>
+<button on:click={toggleGlass}>App.glass: {app.glass}</button>

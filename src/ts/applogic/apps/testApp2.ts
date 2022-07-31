@@ -1,24 +1,24 @@
-import TestAppSvelte from "../../../lib/Apps/TestApp.svelte";
+import TestApp2 from "../../../lib/Apps/TestApp2.svelte";
 import type { App } from "../interface";
 
-export const TestApp: App = {
+export const UITester: App = {
   info: {
-    name: "TestApp",
-    description: "First test application for ArcOS",
+    name: "UI Tester",
+    description: "Test the UI",
     builtin: true,
-    version: "0.0.0",
+    version: "1.0.0",
     author: "Izaak Kuipers",
   },
   size: { w: 640, h: 480 },
   pos: { x: 30, y: 40 },
-  minSize: { w: 400, h: 300 },
+  minSize: { w: 800, h: 300 },
   maxSize: { w: 800, h: 600 },
-  controls: { min: true, max: false, cls: true },
+  controls: { min: true, max: true, cls: true },
   state: {
     headless: false,
     resizable: false,
     windowState: { min: false, max: false, fll: false },
   },
-  content: TestAppSvelte,
-  glass:true
+  content: TestApp2,
+  glass: true,
 };

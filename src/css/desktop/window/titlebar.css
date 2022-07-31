@@ -1,0 +1,13 @@
+@import url("./titlebar/controls.css");
+@import url("./titlebar/title.css");
+
+div.window div.titlebar div.controls button:active {
+  opacity: 0.2;
+}
+
+div.window div.titlebar {
+  height: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+}

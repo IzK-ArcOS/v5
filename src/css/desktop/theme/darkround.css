@@ -2,7 +2,7 @@
     --fg: #ccc;
     --win-bg: #353535;
     --win-border-rad: 7.5px;
-    --win-border: #555 1px solid;
+    --win-border: rgb(107, 107, 107) 1px solid;
     --win-border-light: #5554 1px solid;
     --glass-bg: #353535a2;
     --glass-alt-bg: #414141a2;
@@ -13,5 +13,11 @@
     --startmenu-applist-item-bg: transparent;
     --startmenu-applist-item-bg-hover:#ffffff05;
     --startmenu-applist-item-bg-active: #0001;
-    
+    --button-border-rad: 4px;
+    --button-bg: #4a4a4a;
+    --button-hover-bg: #555555;
+    --button-active-bg: #2a2a2a;
+    --button-glass-bg: #fff1;
+    --button-glass-hover-bg: #fff3;
+    --button-glass-active-bg: #0005;
 }

@@ -1,0 +1,31 @@
+div.window div.body {
+  height: calc(100% - 30px);
+  width: 100%;
+  background-color: transparent;
+  box-sizing: border-box;
+  padding: 10px;
+  overflow: auto;
+  font-size: 13px;
+}
+
+div.window.headless div.titlebar {
+  display: none;
+}
+
+div.window.headless div.body {
+  height: calc(100%);
+}
+
+div.window.fullscreen {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+  border: none !important;
+  z-index: inherit;
+  max-width: unset !important;
+  max-height: unset !important;
+  min-width: unset !important;
+  min-height: unset !important;
+}

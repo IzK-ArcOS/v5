@@ -1,6 +1,6 @@
 <script lang="ts">
   import dayjs from "dayjs";
-  import { CurrentLoginState } from "../../../ts/login/main";
+  import { applyLoginState, CurrentLoginState, loginUsername } from "../../../ts/login/main";
   import { onMount } from "svelte";
 
   let time: string = "";
@@ -10,6 +10,17 @@
     setInterval(() => (time = dayjs().format("HH:mm")), 500);
     setTimeout(() => (show = true), 750);
   });
+
+  function shutdown() {
+    loginUsername.set("ArcOS");
+    applyLoginState("shutdown");
+  }
+
+  function restart() {
+    loginUsername.set("ArcOS");
+    applyLoginState("restart");
+  }
+
 </script>
 
 {#if $CurrentLoginState}
@@ -21,10 +32,10 @@
       {time}
     </div>
     <div class="right">
-      <button class="nopad">
+      <button class="nopad" on:click={shutdown}>
         <span class="material-icons">power_settings_new</span>
       </button>
-      <button class="nopad">
+      <button class="nopad" on:click={restart}>
         <span class="material-icons">restart_alt</span>
       </button>
     </div>

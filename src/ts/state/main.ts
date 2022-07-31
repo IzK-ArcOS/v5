@@ -17,12 +17,18 @@ export function applyState(stateKey: string) {
 
     const state = States.get(stateKey);
 
-    CurrentState.set(state);
+    if (state.onload) state.onload();
 
-    document.title = `${Var.getValue("osname")} | ${state.name}`;
+    setTimeout(() => {
+      CurrentState.set(state);
+
+      document.title = `${Var.getValue("osname")} | ${state.name}`;
+
+      
+    }, 250);
 
     return;
   }
 
-  InvalidStateBugrep("ArcOS",stateKey);
+  InvalidStateBugrep("ArcOS", stateKey);
 }
