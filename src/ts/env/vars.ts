@@ -1,3 +1,5 @@
+import { ArcOSVersion } from "./main";
+
 export interface Variable {
   value: VariableValue;
   readonly: boolean;
@@ -16,7 +18,7 @@ export const Variables = new Map<string, Variable>([
   [
     "version",
     {
-      value: "v3r1",
+      value: ArcOSVersion,
       readonly: true,
     },
   ],

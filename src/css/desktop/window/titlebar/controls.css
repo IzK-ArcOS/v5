@@ -9,7 +9,7 @@ div.window div.titlebar div.controls button {
   padding: 0;
   background-color: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 15px;
   width: 18px;
   height: 18px;
   color: var(--fg);

@@ -11,6 +11,7 @@ div.window {
   opacity: 0;
   visibility: hidden;
   transform: scale(90%);
+  font-size: 13px;
 }
 
 div.window.glass {

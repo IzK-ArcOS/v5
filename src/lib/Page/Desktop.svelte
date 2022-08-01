@@ -24,6 +24,10 @@
     updateStores,
     WindowStore as WStore,
   } from "../../ts/applogic/store";
+  import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
+  import { errorMessage } from "../../ts/errorlogic/main";
+  import { ErrorCreator } from "../../ts/applogic/apps/ErrorCreator";
+  import { ErrorMessages } from "../../ts/errorlogic/app";
 
   let show = false;
   let classes = "";
@@ -48,6 +52,7 @@
       loadWindow("appman", AppManager);
       loadWindow("uitester", UITester);
       loadWindow("exit", Exit);
+      loadWindow("errcre", ErrorCreator);
     }, 1000);
 
     resetDesktopState();
@@ -95,6 +100,7 @@
     updateStores();
     startOpened.set(false);
     loggingOff.set(false);
+    ErrorMessages.set([]);
   }
 
   resetDesktopState();
@@ -104,6 +110,7 @@
   {#if udata}
     <Wallpaper />
     <WindowStore />
+    <ErrorDialogStore />
     <Shell />
   {/if}
 </div>

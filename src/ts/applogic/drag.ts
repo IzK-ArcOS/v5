@@ -3,12 +3,11 @@ import { updateStores } from "./store";
 
 export function dragWindow(
   app: App,
-  elmnt: HTMLDivElement,
+  window: HTMLDivElement,
   titlebar: HTMLDivElement
 ) {
-  elmnt.addEventListener("mousedown", (e: MouseEvent) => {
+  window.addEventListener("mousedown", (e: MouseEvent) => {
     if (e.composedPath().includes(titlebar)) {
-      const target = elmnt;
       let xA: number, yA: number, xB: number, yB: number;
 
       e.preventDefault();
@@ -20,11 +19,11 @@ export function dragWindow(
         xB = e.clientX;
         yB = e.clientY;
 
-        target.style.top = target.offsetTop - yA + "px";
-        target.style.left = target.offsetLeft - xA + "px";
+        window.style.top = window.offsetTop - yA + "px";
+        window.style.left = window.offsetLeft - xA + "px";
 
-        app.pos.x = target.offsetLeft - xA;
-        app.pos.y = target.offsetTop - yA;
+        app.pos.x = window.offsetLeft - xA;
+        app.pos.y = window.offsetTop - yA;
 
         updateStores();
       };

@@ -5,14 +5,14 @@
   import Content from "./Window/Content.svelte";
   import Titlebar from "./Window/Titlebar.svelte";
 
-  export let app: App;
+  export let app: App = null;
 
   let cssString = "";
   let window: HTMLDivElement;
-  let exttransition = false;
   let posUsed = false;
-  let opened = false;
   let titlebar: HTMLDivElement;
+  export let exttransition = false;
+  export let opened = false;
 
   onMount(() => {
     setTimeout(() => {
@@ -58,5 +58,7 @@
   bind:this={window}
 >
   <Titlebar {app} bind:exttransition bind:opened bind:titlebar />
-  <Content {app} />
+  <Content {app}>
+    <slot />
+  </Content>
 </div>

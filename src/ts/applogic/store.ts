@@ -33,7 +33,7 @@ export function getOpenedStore() {
 
 export function updateStores() {
   const ws = get(WindowStore);
-  const oa = get(OpenApps);
+  const oa = getOpenedStore();
 
   isFullscreenWindow.set(false);
 
