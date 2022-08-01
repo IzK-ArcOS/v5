@@ -34,4 +34,5 @@ export function dragWindow(
       };
     }
   });
+  updateStores();
 }

@@ -1,0 +1,74 @@
+div.notification {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  background-color: var(--glass-bg);
+  border-radius: var(--win-border-rad);
+  border:var(--win-border);
+  transition: margin-top 0.3s, opacity 0.3s, visibility 0.3s;
+  min-width: 350px;
+  min-height: 130px;
+  max-width: 450px;
+  max-height: 200px;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-bottom: 55px;
+  padding-right: 45px;
+}
+
+div.notification.hidden {
+  margin-top: -50px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+div.notification p {
+  margin: 0;
+}
+
+div.notification p.title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+div.notification div.buttons {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+div.notification button.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  color: var(--fg);
+  border: none;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+div.notification button {
+  margin: 2.5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: var(--button-border-rad);
+  background-color: var(--button-glass-bg);
+  color: var(--fg);
+
+  transition: background-color 0.3s;
+}
+
+div.notification button:hover {
+    background-color: var(--button-glass-hover-bg);
+}
+
+div.notification button:active {
+    background-color: var(--button-glass-active-bg);
+}

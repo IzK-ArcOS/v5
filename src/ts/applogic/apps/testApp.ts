@@ -20,5 +20,5 @@ export const TestApp: App = {
     windowState: { min: false, max: false, fll: false },
   },
   content: TestAppSvelte,
-  glass:true
+  glass: true,
 };

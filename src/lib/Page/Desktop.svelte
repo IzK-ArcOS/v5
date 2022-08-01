@@ -28,6 +28,8 @@
   import { errorMessage } from "../../ts/errorlogic/main";
   import { ErrorCreator } from "../../ts/applogic/apps/ErrorCreator";
   import { ErrorMessages } from "../../ts/errorlogic/app";
+  import PushNotification from "./Desktop/PushNotification.svelte";
+  import { makeNotification } from "../../ts/notiflogic/main";
 
   let show = false;
   let classes = "";
@@ -53,6 +55,29 @@
       loadWindow("uitester", UITester);
       loadWindow("exit", Exit);
       loadWindow("errcre", ErrorCreator);
+
+      setTimeout(() => {
+        makeNotification({
+          title: "Test",
+          message: "This is a test notification",
+          buttons: [
+            {
+              capt: "OK",
+              action: () => {
+                console.log("OK");
+              },
+            },
+            {
+              capt: "Cancel",
+              action: () => {
+                console.log("Cancel");
+              },
+            },
+          ],
+          icon: "warning",
+          timeout: 3000,
+        });
+      }, 1000);
     }, 1000);
 
     resetDesktopState();
@@ -112,5 +137,6 @@
     <WindowStore />
     <ErrorDialogStore />
     <Shell />
+    <PushNotification />
   {/if}
 </div>
