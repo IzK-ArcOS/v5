@@ -1,52 +1,48 @@
+import { OpenApps } from "./../applogic/store";
 import { get } from "svelte/store";
 import { closeWindow } from "../applogic/events";
 import { WindowStore } from "../applogic/store";
+import { CurrentNotification, NotificationStore } from "../notiflogic/main";
 import { loggingOff, restarting, shuttingDown } from "./main";
 
 export function logoff() {
-  let maxTimeout = 0;
-
-  const ws = get(WindowStore);
-
-  for (let i = 0; i < ws.length; i++) {
-    maxTimeout += 50;
-
-    setTimeout(() => {
-      closeWindow(ws[i].id);
-    }, maxTimeout);
-  }
+  closeAllWindows();
+  resetVars();
 
   loggingOff.set(true);
 }
 
 export function shutdown() {
-  let maxTimeout = 0;
-
-  const ws = get(WindowStore);
-
-  for (let i = 0; i < ws.length; i++) {
-    maxTimeout += 50;
-
-    setTimeout(() => {
-      closeWindow(ws[i].id);
-    }, maxTimeout);
-  }
+  closeAllWindows();
+  resetVars();
 
   shuttingDown.set(true);
 }
 
 export function restart() {
+  closeAllWindows();
+  resetVars();
+
+  restarting.set(true);
+}
+
+function closeAllWindows() {
   let maxTimeout = 0;
-
   const ws = get(WindowStore);
+  const windows = Object.values(ws);
 
-  for (let i = 0; i < ws.length; i++) {
+  for (let i = 0; i < windows.length; i++) {
     maxTimeout += 50;
 
     setTimeout(() => {
       closeWindow(ws[i].id);
     }, maxTimeout);
   }
+}
 
-  restarting.set(true);
+function resetVars() {
+  CurrentNotification.set(undefined);
+  NotificationStore.set({});
+  WindowStore.set({});
+  OpenApps.set({});
 }

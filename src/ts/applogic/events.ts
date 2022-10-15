@@ -11,9 +11,11 @@ export function openWindow(id: string) {
 
   const oa = get(OpenApps);
 
-  const window = {...getWindow(id), id};
+  const window = { ...getWindow(id), id };
 
-  oa.push(window);
+  oa[id] = window;
+
+  console.log(oa, oa[id], window);
 
   OpenApps.set(oa);
 
@@ -30,10 +32,14 @@ export function closeWindow(id: string) {
   }
 
   const oa = get(OpenApps);
+  const oaKeys = Object.keys(oa);
 
-  for (let i = 0; i < oa.length; i++) {
-    if (oa[i] && oa[i].id == id) {
-      oa[i] = null;
+  for (let i = 0; i < oaKeys.length; i++) {
+    const key = oaKeys[i];
+
+    if (oa[key] && oa[key].id == id) {
+      delete oa[key];
+
       break;
     }
   }

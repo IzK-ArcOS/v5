@@ -24,7 +24,7 @@
   }
 </script>
 
-<button class="appbutton" class:minimized on:click={e}>
+<button class="appbutton" class:minimized on:click={e} title={app.info.name}>
   <span class="material-icons">web_asset</span>
   {#if showLabel}
     <span>{app.info.name}</span>

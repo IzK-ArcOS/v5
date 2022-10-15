@@ -8,7 +8,7 @@ export function loadWindow(id: string, app: App) {
   if (!isLoaded(id)) {
     const ws = get(WindowStore);
 
-    ws.push({ ...app, id });
+    ws[id] = { ...app, id };
 
     WindowStore.set(ws);
 

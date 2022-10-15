@@ -1,15 +1,18 @@
 import { get, writable, Writable } from "svelte/store";
 import type { App } from "./interface";
 
-export const WindowStore: Writable<App[]> = writable<App[]>([]);
-export const OpenApps: Writable<App[]> = writable<App[]>([]);
+export type WS = { [key: string]: App };
+
+export const WindowStore: Writable<WS> = writable<WS>({});
+export const OpenApps: Writable<WS> = writable<WS>({});
 export const isFullscreenWindow: Writable<boolean> = writable<boolean>(false);
 
 export function getWindow(id: string): App {
   const ws = get(WindowStore);
+  const keys = Object.keys(ws);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i] && ws[i].id == id) return ws[i];
+  for (let i = 0; i < keys.length; i++) {
+    if (keys[i] == id) return ws[keys[i]];
   }
 
   return null;
@@ -18,15 +21,11 @@ export function getWindow(id: string): App {
 export function getStore() {
   let ws = get(WindowStore);
 
-  ws = ws.filter(w => w != null);
-
   return ws;
 }
 
 export function getOpenedStore() {
   let oa = get(OpenApps);
-
-  oa = oa.filter(w => w != null);
 
   return oa;
 }
@@ -35,14 +34,22 @@ export function updateStores() {
   const ws = get(WindowStore);
   const oa = getOpenedStore();
 
+  const oaKeys = Object.keys(oa);
+
   isFullscreenWindow.set(false);
 
-  for (let i = 0; i < oa.length; i++) {
-    const windowData = getWindow(oa[i].id);
+  for (let i = 0; i < oaKeys.length; i++) {
+    const key = oaKeys[i];
+    const windowData = getWindow(key);
 
-    if (windowData) oa[i] = windowData;
+    if (windowData) oa[key] = windowData;
 
-    if (oa[i] && oa[i] && oa[i].state.windowState.fll && !oa[i].state.windowState.min) {
+    if (
+      oa[key] &&
+      key &&
+      oa[key].state.windowState.fll &&
+      !oa[key].state.windowState.min
+    ) {
       isFullscreenWindow.set(true);
     }
   }

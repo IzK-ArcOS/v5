@@ -5,6 +5,7 @@
     getOpenedStore,
     isFullscreenWindow,
     OpenApps,
+    WS,
   } from "../../../ts/applogic/store";
 
   import TaskbarButton from "./Taskbar/TaskbarButton.svelte";
@@ -15,10 +16,12 @@
     userdata = v;
   });
 
-  let oa: App[] = [];
+  let oa: WS = {};
+  let oaKeys: string[] = [];
 
   OpenApps.subscribe(() => {
     oa = getOpenedStore();
+    oaKeys = Object.keys(oa);
   });
 </script>
 
@@ -29,8 +32,8 @@
     class:fullscreen={$isFullscreenWindow}
   >
     <slot />
-    {#each oa as app}
-      <TaskbarButton {app} />
+    {#each oaKeys as id}
+      <TaskbarButton app={oa[id]} />
     {/each}
   </div>
 {/if}
