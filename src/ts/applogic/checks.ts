@@ -1,36 +1,31 @@
 import { get } from "svelte/store";
-import { WindowStore } from "./store";
+import { OpenApps, WindowStore } from "./store";
 
 export function isLoaded(id: string): boolean {
   const ws = get(WindowStore);
-  const wsKeys = Object.keys(ws);
 
-  for (let i = 0; i < wsKeys.length; i++) {
-    const key = wsKeys[i];
-
-    if (ws[key] && key == id) return true;
+  for (let i = 0; i < ws.length; i++) {
+    if (ws[i] && ws[i].id == id) return true;
   }
 
   return false;
 }
 
 export function isOpened(id: string): boolean {
-  const ws = get(WindowStore);
+  const oa = get(OpenApps);
 
-  if (!ws[id]) return false;
+  for (let i = 0; i < oa.length; i++) {
+    if (oa[i] && oa[i].id == id) return true;
+  }
 
-  return !ws[id].state.windowState.cls;
+  return false;
 }
 
 export function isMinimized(id: string): boolean {
   const ws = get(WindowStore);
-  const wsKeys = Object.keys(ws);
 
-  for (let i = 0; i < wsKeys.length; i++) {
-    const key = wsKeys[i];
-    const win = ws[key];
-
-    if (win && key == id && win.state.windowState.min) return true;
+  for (let i = 0; i < ws.length; i++) {
+    if (ws[i] && ws[i].id == id && ws[i].state.windowState.min) return true;
   }
 
   return false;

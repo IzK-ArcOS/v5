@@ -1,22 +1,22 @@
 <script lang="ts">
-  import { WindowStore, WS } from "../../../ts/applogic/store";
+  import type { App } from "../../../ts/applogic/interface";
+
+  import { OpenApps } from "../../../ts/applogic/store";
   import Window from "./WindowStore/Window.svelte";
 
-  let oa: WS = {};
-  let oaKeys: string[];
+  let oa: App[] = [];
 
-  WindowStore.subscribe((v) => {
-    oa = {};
+  OpenApps.subscribe((v) => {
+    oa = [];
 
-    if (v) {
-      oa = v;
-      oaKeys = Object.keys(oa);
-    }
+    if (v) oa = v;
   });
 </script>
 
 <div class="winstore">
-  {#each oaKeys as id}
-    <Window {id} />
+  {#each oa as app}
+    {#if app}
+      <Window {app} />
+    {/if}
   {/each}
 </div>

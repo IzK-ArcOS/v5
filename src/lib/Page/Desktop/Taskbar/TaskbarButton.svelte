@@ -1,6 +1,6 @@
 <script lang="ts">
   import { isMinimized } from "../../../../ts/applogic/checks";
-  import { updateStores, WindowStore } from "../../../../ts/applogic/store";
+  import { OpenApps, updateStores } from "../../../../ts/applogic/store";
   import type { App } from "../../../../ts/applogic/interface";
   import { UserData } from "../../../../ts/userlogic/interfaces";
 
@@ -13,7 +13,7 @@
     showLabel = v.sh.taskbar.labels;
   });
 
-  WindowStore.subscribe(() => {
+  OpenApps.subscribe(() => {
     minimized = isMinimized(app.id);
   });
 
@@ -24,7 +24,7 @@
   }
 </script>
 
-<button class="appbutton" class:minimized on:click={e} title={app.info.name}>
+<button class="appbutton" class:minimized on:click={e}>
   <span class="material-icons">web_asset</span>
   {#if showLabel}
     <span>{app.info.name}</span>

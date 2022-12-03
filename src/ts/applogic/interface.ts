@@ -34,7 +34,6 @@ export interface WindowState {
   min: boolean; // Minimized
   max: boolean; // Maximized
   fll: boolean; // Fullscreen
-  cls: boolean; // IsClosed
 }
 
 export interface ControlsState {

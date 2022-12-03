@@ -1,14 +1,14 @@
 <script lang="ts">
+import type { App } from "../../ts/applogic/interface";
+
   import { closeWindow } from "../../ts/applogic/events";
-  import { getOpenedStore, WindowStore, WS } from "../../ts/applogic/store";
+  import { getOpenedStore, OpenApps } from "../../ts/applogic/store";
 
-  let oa: WS = {};
-  let oaKeys: string[] = [];
+  let oa: App[] = [];
 
-  WindowStore.subscribe(() => {
+  OpenApps.subscribe(() => {
     oa = getOpenedStore();
-    oaKeys = Object.keys(oa);
-  });
+  })
 </script>
 
 <table>
@@ -19,20 +19,18 @@
     <td>Close</td>
   </tr>
 
-  {#each oaKeys as key}
+  {#each oa as app}
     <tr>
-      <td>{oa[key].info.name}</td>
-      <td>{oa[key].id}</td>
-      <td>{oa[key].info.builtin}</td>
-      <td>
-        <button
+      <td>{app.info.name}</td>
+      <td>{app.id}</td>
+      <td>{app.info.builtin}</td>
+      <td
+        ><button
           on:click={() => {
-            closeWindow(oa[key].id);
-          }}
-        >
-          Close
-        </button>
-      </td>
+            closeWindow(app.id);
+          }}>Close</button
+        ></td
+      >
     </tr>
   {/each}
 </table>

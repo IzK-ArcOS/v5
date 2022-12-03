@@ -1,6 +1,6 @@
 <script lang="ts">
   import { openWindow } from "../../../../ts/applogic/events";
-  import { updateStores, WindowStore } from "../../../../ts/applogic/store";
+  import { OpenApps, updateStores } from "../../../../ts/applogic/store";
   import { startOpened } from "../../../../ts/desktop/main";
   import type { App } from "../../../../ts/applogic/interface";
   import { isOpened } from "../../../../ts/applogic/checks";
@@ -16,8 +16,8 @@
     startOpened.set(false);
   }
 
-  WindowStore.subscribe(() => {
-    opened = !isOpened(app.id);
+  OpenApps.subscribe(() => {
+    opened = isOpened(app.id);
   });
 </script>
 

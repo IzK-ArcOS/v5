@@ -20,6 +20,7 @@
   import { applyState } from "../../ts/state/main";
   import {
     isFullscreenWindow,
+    OpenApps,
     updateStores,
     WindowStore as WStore,
   } from "../../ts/applogic/store";
@@ -118,7 +119,8 @@
   });
 
   function resetDesktopState() {
-    WStore.set({});
+    WStore.set([]);
+    OpenApps.set([]);
     isFullscreenWindow.set(false);
     updateStores();
     startOpened.set(false);

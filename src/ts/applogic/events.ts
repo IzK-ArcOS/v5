@@ -2,35 +2,45 @@ import { get } from "svelte/store";
 import { startOpened } from "../desktop/main";
 import { isLoaded, isOpened } from "./checks";
 import type { App } from "./interface";
-import { getWindow, updateStores, WindowStore } from "./store";
+import { getWindow, OpenApps, updateStores, WindowStore } from "./store";
 
 export function openWindow(id: string) {
-  if (!isLoaded(id) || !isOpened(id)) {
-    console.error(id + "is opened.");
+  if (!isLoaded(id) || isOpened(id)) {
     return false;
   }
 
-  const ws = get(WindowStore);
+  const oa = get(OpenApps);
 
-  if (!ws[id]) return console.error(id + " not in ws");
+  const window = {...getWindow(id), id};
 
-  ws[id].state.windowState.cls = false;
+  oa.push(window);
 
-  WindowStore.set(ws);
+  OpenApps.set(oa);
+
+  startOpened.set(false);
 
   updateStores();
+
+  return true;
 }
 
 export function closeWindow(id: string) {
-  if (!isLoaded(id) || !isOpened(id)) return false;
+  if (!isOpened(id)) {
+    return false;
+  }
 
-  const ws = get(WindowStore);
+  const oa = get(OpenApps);
 
-  if (!ws[id]) return;
+  for (let i = 0; i < oa.length; i++) {
+    if (oa[i] && oa[i].id == id) {
+      oa[i] = null;
+      break;
+    }
+  }
 
-  ws[id].state.windowState.cls = true;
+  OpenApps.set(oa);
 
-  WindowStore.set(ws);
+  return true;
 }
 
 export function maximizeWindow(app: App) {
@@ -56,3 +66,5 @@ export function headlessToggle(win: App) {
 
   updateStores();
 }
+
+//OpenApps.subscribe(updateStores);

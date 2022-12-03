@@ -4,41 +4,56 @@
   import { onMount } from "svelte";
   import Content from "./Window/Content.svelte";
   import Titlebar from "./Window/Titlebar.svelte";
-  import { get } from "svelte/store";
-  import { Log, LogLevel } from "../../../../ts/console";
-  import { WindowStore } from "../../../../ts/applogic/store";
+  import { BugReportData } from "../../../../ts/bugrep";
+  import { restart } from "../../../../ts/desktop/power";
 
-  let app: App = null;
-  export let id: string;
+  export let app: App = null;
 
   let cssString = "";
   let window: HTMLDivElement;
   let posUsed = false;
   let titlebar: HTMLDivElement;
-  let gotten = false;
   export let exttransition = false;
   export let opened = false;
 
-  let windowId: number = 0;
-
   onMount(() => {
-    app = $WindowStore[id];
+    setTimeout(() => {
+      opened = true;
+    }, 250);
+
+    update();
   });
 
-  WindowStore.subscribe(update);
-
   function update() {
-    if (!app) {
-      Log({
-        level: LogLevel.warn,
-        source: "Window: update: " + id,
-        msg: "Attempted impossible update, aborting",
-      });
+    if (app.minSize.w > app.size.w || app.minSize.h > app.size.h)
+      return BugReportData.set([
+        true,
+        {
+          icon: "screenshot_monitor",
+          title: `Unable to render ${app.info.name}`,
+          message: `The minimal size exceeds the literal size. This should not be possible.`,
+          details: `Can't render <${app.id}>: minimal size is bigger than the literal size.`,
+          button: {
+            action: restart,
+            caption: "Restart ArcOS",
+          },
+        },
+      ]);
 
-      app = $WindowStore[id];
-
-      console.log(app, $WindowStore);
-    }
+    if (app.maxSize.w < app.minSize.w || app.maxSize.h < app.minSize.h)
+      return BugReportData.set([
+        true,
+        {
+          icon: "screenshot_monitor",
+          title: `Unable to render ${app.info.name}`,
+          message: `The minimal size exceeds the maximal size. This should not be possible.`,
+          details: `Can't render <${app.id}>: minimal size is bigger than the maximal size.`,
+          button: {
+            action: restart,
+            caption: "Restart ArcOS",
+          },
+        },
+      ]);
 
     cssString = "";
 
@@ -53,32 +68,29 @@
         cssString += `left: ${app.pos.x}px;`;
         cssString += `top: ${app.pos.y}px;`;
       }
-      cssString += `width: ${app.size.w}px`;
-      cssString += `height: ${app.size.h}px`;
+      cssString += `width: ${app.size.w}px;`;
+      cssString += `height: ${app.size.h}px;`;
     }
 
-    if (window && titlebar && app) dragWindow(app, window, titlebar);
+    dragWindow(app, window, titlebar);
   }
 </script>
 
-{#if app}
-  <div
-    id={windowId.toString()}
-    class="window"
-    class:headless={app.state.headless || app.state.windowState.fll}
-    class:resizable={app.state.resizable}
-    class:min={app.state.windowState.min}
-    class:max={app.state.windowState.max}
-    class:visible={!app.state.windowState.cls || !app.state.windowState.min}
-    class:exttransition
-    class:fullscreen={app.state.windowState.fll}
-    class:glass={app.glass}
-    style={cssString}
-    bind:this={window}
-  >
-    <Titlebar {app} bind:exttransition bind:opened bind:titlebar />
-    <Content {app}>
-      <slot />
-    </Content>
-  </div>
-{/if}
+<div
+  class="window"
+  class:headless={app.state.headless || app.state.windowState.fll}
+  class:resizable={app.state.resizable}
+  class:min={app.state.windowState.min}
+  class:max={app.state.windowState.max}
+  class:visible={opened}
+  class:exttransition
+  class:fullscreen={app.state.windowState.fll}
+  class:glass={app.glass}
+  style={cssString}
+  bind:this={window}
+>
+  <Titlebar {app} bind:exttransition bind:opened bind:titlebar />
+  <Content {app}>
+    <slot />
+  </Content>
+</div>

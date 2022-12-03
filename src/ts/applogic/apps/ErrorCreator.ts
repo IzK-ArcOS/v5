@@ -10,7 +10,7 @@ export const ErrorCreator: App = {
     version: ArcOSVersion,
     author: "Izaak Kuipers",
   },
-  size: { w: 300, h: 253 },
+  size: { w: 300, h: 255 },
   pos: { x: 30, y: 40 },
   minSize: { w: 300, h: 253 },
   maxSize: { w: 300, h: 253 },
@@ -18,7 +18,7 @@ export const ErrorCreator: App = {
   state: {
     headless: false,
     resizable: false,
-    windowState: { min: false, max: false, fll: false, cls: true },
+    windowState: { min: false, max: false, fll: false },
   },
   content: ErrorCreatorSvelte,
   glass: true,

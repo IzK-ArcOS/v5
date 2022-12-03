@@ -4,7 +4,7 @@
 </script>
 
 <div class="left">
-  {#each Object.values($WindowStore) as window}
+  {#each $WindowStore as window}
     <AppListItem app={window} />
   {/each}
 </div>

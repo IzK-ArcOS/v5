@@ -17,7 +17,7 @@ export const UITester: App = {
   state: {
     headless: false,
     resizable: false,
-    windowState: { min: false, max: false, fll: false, cls: true },
+    windowState: { min: false, max: false, fll: false },
   },
   content: TestApp2,
   glass: true,

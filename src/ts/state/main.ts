@@ -4,9 +4,9 @@ import { Log, LogLevel } from "../console";
 import { Var } from "../env/vars";
 import type { State } from "./interfaces";
 import { States } from "./store";
-import Desktop from "../../lib/Page/Desktop.svelte";
 
 export const CurrentState = writable<State>();
+
 export function applyState(stateKey: string) {
   if (States.has(stateKey)) {
     Log({
