@@ -1,4 +1,3 @@
-import { OpenApps } from "./../applogic/store";
 import { get } from "svelte/store";
 import { closeWindow } from "../applogic/events";
 import { WindowStore } from "../applogic/store";
@@ -44,5 +43,4 @@ function resetVars() {
   CurrentNotification.set(undefined);
   NotificationStore.set({});
   WindowStore.set({});
-  OpenApps.set({});
 }

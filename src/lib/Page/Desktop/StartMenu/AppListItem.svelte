@@ -1,10 +1,6 @@
 <script lang="ts">
   import { openWindow } from "../../../../ts/applogic/events";
-  import {
-    OpenApps,
-    updateStores,
-    WindowStore,
-  } from "../../../../ts/applogic/store";
+  import { updateStores, WindowStore } from "../../../../ts/applogic/store";
   import { startOpened } from "../../../../ts/desktop/main";
   import type { App } from "../../../../ts/applogic/interface";
   import { isOpened } from "../../../../ts/applogic/checks";

@@ -6,7 +6,7 @@ export function dragWindow(
   window: HTMLDivElement,
   titlebar: HTMLDivElement
 ) {
-  window.addEventListener("mousedown", (e: MouseEvent) => {
+  /* window.addEventListener("mousedown", (e: MouseEvent) => {
     if (e.composedPath().includes(titlebar)) {
       let xA: number, yA: number, xB: number, yB: number;
 
@@ -34,5 +34,5 @@ export function dragWindow(
       };
     }
   });
-  updateStores();
+  updateStores(); */
 }

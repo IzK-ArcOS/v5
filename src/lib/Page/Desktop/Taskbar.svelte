@@ -4,7 +4,7 @@
   import {
     getOpenedStore,
     isFullscreenWindow,
-    OpenApps,
+    WindowStore,
     WS,
   } from "../../../ts/applogic/store";
 
@@ -19,7 +19,7 @@
   let oa: WS = {};
   let oaKeys: string[] = [];
 
-  OpenApps.subscribe(() => {
+  WindowStore.subscribe(() => {
     oa = getOpenedStore();
     oaKeys = Object.keys(oa);
   });

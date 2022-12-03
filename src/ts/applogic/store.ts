@@ -4,7 +4,6 @@ import type { App } from "./interface";
 export type WS = { [key: string]: App };
 
 export const WindowStore: Writable<WS> = writable<WS>({});
-export const OpenApps: Writable<WS> = writable<WS>({});
 export const isFullscreenWindow: Writable<boolean> = writable<boolean>(false);
 
 export function getWindow(id: string): App {
@@ -41,7 +40,7 @@ export function getOpenedStore() {
 }
 
 export function updateStores() {
-  /*   const ws = get(WindowStore);
+  const ws = get(WindowStore);
   const oa = getOpenedStore();
 
   const oaKeys = Object.keys(oa);
@@ -64,5 +63,5 @@ export function updateStores() {
     }
   }
 
-  WindowStore.set(ws); */
+  WindowStore.set(ws);
 }

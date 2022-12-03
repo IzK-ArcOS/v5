@@ -20,7 +20,6 @@
   import { applyState } from "../../ts/state/main";
   import {
     isFullscreenWindow,
-    OpenApps,
     updateStores,
     WindowStore as WStore,
   } from "../../ts/applogic/store";

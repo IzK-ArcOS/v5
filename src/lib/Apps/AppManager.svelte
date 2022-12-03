@@ -1,11 +1,11 @@
 <script lang="ts">
   import { closeWindow } from "../../ts/applogic/events";
-  import { getOpenedStore, OpenApps, WS } from "../../ts/applogic/store";
+  import { getOpenedStore, WindowStore, WS } from "../../ts/applogic/store";
 
   let oa: WS = {};
   let oaKeys: string[] = [];
 
-  OpenApps.subscribe(() => {
+  WindowStore.subscribe(() => {
     oa = getOpenedStore();
     oaKeys = Object.keys(oa);
   });

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { OpenApps, WindowStore, WS } from "../../../ts/applogic/store";
+  import { WindowStore, WS } from "../../../ts/applogic/store";
   import Window from "./WindowStore/Window.svelte";
 
   let oa: WS = {};
