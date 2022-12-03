@@ -18,7 +18,7 @@ export const ErrorCreator: App = {
   state: {
     headless: false,
     resizable: false,
-    windowState: { min: false, max: false, fll: false },
+    windowState: { min: false, max: false, fll: false, cls: true },
   },
   content: ErrorCreatorSvelte,
   glass: true,

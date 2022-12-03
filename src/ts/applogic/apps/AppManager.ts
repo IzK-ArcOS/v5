@@ -18,7 +18,7 @@ export const AppManager: App = {
   state: {
     headless: false,
     resizable: false,
-    windowState: { min: false, max: false, fll: false },
+    windowState: { min: false, max: false, fll: false, cls: true },
   },
   content: AppManagerSvelte,
   glass: false,

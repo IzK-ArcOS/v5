@@ -25,13 +25,23 @@ export function getStore() {
 }
 
 export function getOpenedStore() {
-  let oa = get(OpenApps);
+  const ws = get(WindowStore);
 
-  return oa;
+  const entries = Object.entries(ws);
+
+  let end: WS = {};
+
+  for (let i = 0; i < entries.length; i++) {
+    if (!entries[i][1].state.windowState.cls) {
+      end[entries[i][0]] = entries[i][1];
+    }
+  }
+
+  return end;
 }
 
 export function updateStores() {
-  const ws = get(WindowStore);
+  /*   const ws = get(WindowStore);
   const oa = getOpenedStore();
 
   const oaKeys = Object.keys(oa);
@@ -54,6 +64,5 @@ export function updateStores() {
     }
   }
 
-  OpenApps.set(oa);
-  WindowStore.set(ws);
+  WindowStore.set(ws); */
 }

@@ -17,8 +17,8 @@ export const Exit: App = {
   state: {
     headless: true,
     resizable: false,
-    windowState: { min: false, max: false, fll: false },
+    windowState: { min: false, max: false, fll: false, cls: true },
   },
   content: ExitSvelte,
-  glass:true
+  glass: true,
 };

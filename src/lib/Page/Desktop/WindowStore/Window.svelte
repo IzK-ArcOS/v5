@@ -4,9 +4,9 @@
   import { onMount } from "svelte";
   import Content from "./Window/Content.svelte";
   import Titlebar from "./Window/Titlebar.svelte";
-  import { OpenApps } from "../../../../ts/applogic/store";
   import { get } from "svelte/store";
   import { Log, LogLevel } from "../../../../ts/console";
+  import { WindowStore } from "../../../../ts/applogic/store";
 
   let app: App = null;
   export let id: string;
@@ -15,41 +15,29 @@
   let window: HTMLDivElement;
   let posUsed = false;
   let titlebar: HTMLDivElement;
+  let gotten = false;
   export let exttransition = false;
   export let opened = false;
 
   let windowId: number = 0;
 
   onMount(() => {
-    const oa = get(OpenApps);
-    app = oa[id];
-
-    setTimeout(() => {
-      opened = true;
-    }, 250);
-
-    windowId = Math.floor(Math.random() * 1e9);
-
-    update();
+    app = $WindowStore[id];
   });
 
-  OpenApps.subscribe((v) => {
-    if (v) {
-      app = v[id];
-    }
-  });
+  WindowStore.subscribe(update);
 
   function update() {
     if (!app) {
       Log({
         level: LogLevel.warn,
-        source: "Window: update",
-        msg: "Attempted impossible update, retrieving from OpenApps",
+        source: "Window: update: " + id,
+        msg: "Attempted impossible update, aborting",
       });
 
-      app = get(OpenApps)[id];
+      app = $WindowStore[id];
 
-      console.log(app, get(OpenApps));
+      console.log(app, $WindowStore);
     }
 
     cssString = "";
@@ -69,7 +57,7 @@
       cssString += `height: ${app.size.h}px`;
     }
 
-    dragWindow(app, window, titlebar);
+    if (window && titlebar && app) dragWindow(app, window, titlebar);
   }
 </script>
 
@@ -81,7 +69,7 @@
     class:resizable={app.state.resizable}
     class:min={app.state.windowState.min}
     class:max={app.state.windowState.max}
-    class:visible={opened || !app.state.windowState.min}
+    class:visible={!app.state.windowState.cls || !app.state.windowState.min}
     class:exttransition
     class:fullscreen={app.state.windowState.fll}
     class:glass={app.glass}

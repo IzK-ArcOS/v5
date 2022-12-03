@@ -15,16 +15,11 @@ export function isLoaded(id: string): boolean {
 }
 
 export function isOpened(id: string): boolean {
-  const oa = get(OpenApps);
-  const oaKeys = Object.keys(oa);
+  const ws = get(WindowStore);
 
-  for (let i = 0; i < oaKeys.length; i++) {
-    const key = oaKeys[i];
+  if (!ws[id]) return false;
 
-    if (oa[key] && key == id) return true;
-  }
-
-  return false;
+  return !ws[id].state.windowState.cls
 }
 
 export function isMinimized(id: string): boolean {

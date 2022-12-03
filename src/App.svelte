@@ -3,9 +3,13 @@
   import BugReport from "./lib/BugReport.svelte";
   import MobileBlock from "./lib/MobileBlock.svelte";
   import { applyState, CurrentState } from "./ts/state/main";
-  import { createUser } from "./ts/userlogic/main";
+  import { UserData, UserName } from "./ts/userlogic/interfaces";
+  import { createUser, getUserdata } from "./ts/userlogic/main";
 
-  applyState("boot");
+  UserData.set(getUserdata("Izaak"));
+  UserName.set("Izaak");
+
+  applyState("desktop");
 
   //createUser("IzK");
 </script>
@@ -15,6 +19,5 @@
     <svelte:component this={$CurrentState.content} />
   {/if}
   <BugReport />
-  
 </div>
 <MobileBlock />

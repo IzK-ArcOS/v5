@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { OpenApps, WS } from "../../../ts/applogic/store";
+  import { OpenApps, WindowStore, WS } from "../../../ts/applogic/store";
   import Window from "./WindowStore/Window.svelte";
 
   let oa: WS = {};
   let oaKeys: string[];
 
-  OpenApps.subscribe((v) => {
+  WindowStore.subscribe((v) => {
     oa = {};
 
     if (v) {

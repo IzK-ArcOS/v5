@@ -119,8 +119,7 @@
   });
 
   function resetDesktopState() {
-    WStore.set([]);
-    OpenApps.set([]);
+    WStore.set({});
     isFullscreenWindow.set(false);
     updateStores();
     startOpened.set(false);
