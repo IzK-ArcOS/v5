@@ -1,0 +1,9 @@
+div.alc div.progress {
+  height: 7px;
+  border-radius: 3.5px;
+  background-color: #fff1;
+}
+
+div.alc div.progress div.inner {
+  background-color: deepskyblue;
+}

@@ -1,4 +1,7 @@
 @import url("../css/fts/page/welcome.css");
+@import url("./fts/progress.css");
+@import url("./desktop/themes.css");
+
 div.fts {
   background-position: center;
   background-size: cover;
@@ -140,7 +143,7 @@ div.fts div.center-absolute div.right div.nav div div.progress div.inner {
   border-radius: inherit;
   background-color: deepskyblue;
   padding: 0;
-  transition:width 0.5s;
+  transition: width 0.5s;
 }
 
 button.fullwidth {
@@ -186,6 +189,6 @@ div.fts input:focus {
 }
 div.fts input.fullwidth {
   width: 100%;
-  display:block;
+  display: block;
   margin-bottom: 5px;
 }

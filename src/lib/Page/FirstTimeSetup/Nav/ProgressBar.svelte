@@ -12,7 +12,7 @@
     const totalWidth = outer.offsetWidth;
     const width = (totalWidth / max) * val;
 
-    css = `width: ${width}px;`;
+    css = `width: ${width}px; height: 5px;`;
   });
 </script>
 

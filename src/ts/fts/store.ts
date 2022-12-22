@@ -10,6 +10,7 @@ export const FTSStates = new Map<string, State>([
       name: "Welcome to ArcOS",
       content: Welcome,
       attribs: {},
+      key: "welcome",
     },
   ],
   [
@@ -18,6 +19,7 @@ export const FTSStates = new Map<string, State>([
       name: "Server Connect",
       content: ServerConnect,
       attribs: {},
+      key: "servconn",
     },
   ],
   [
@@ -26,6 +28,7 @@ export const FTSStates = new Map<string, State>([
       name: "createlocalaccount",
       content: CreateUser,
       attribs: {},
+      key: "crelocalacc",
     },
   ],
   [
@@ -34,6 +37,7 @@ export const FTSStates = new Map<string, State>([
       name: "finishsetup",
       content: Finish,
       attribs: {},
+      key: "finish",
     },
   ],
 ]);
