@@ -11,7 +11,7 @@ export function openWindow(id: string) {
 
   const oa = get(OpenApps);
 
-  const window = {...getWindow(id), id};
+  const window = { ...getWindow(id), id };
 
   oa.push(window);
 

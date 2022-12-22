@@ -24,8 +24,6 @@ export function dragWindow(
 
         app.pos.x = window.offsetLeft - xA;
         app.pos.y = window.offsetTop - yA;
-
-        updateStores();
       };
 
       document.onmouseup = () => {

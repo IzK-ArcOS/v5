@@ -15,6 +15,8 @@
   }
 
   function max() {
+    if (!app.controls.max) return;
+
     app.state.windowState.max = !app.state.windowState.max;
 
     if (app.state.windowState.max) exttransition = true;
