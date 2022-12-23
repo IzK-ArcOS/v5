@@ -1,6 +1,6 @@
 import { get } from "svelte/store";
 import type { App } from "./interface";
-import { maxZIndex, updateStores } from "./store";
+import { focusedWindowId, maxZIndex, updateStores } from "./store";
 
 export function dragWindow(
   app: App,
@@ -9,6 +9,7 @@ export function dragWindow(
 ) {
   window.addEventListener("mousedown", (e: MouseEvent) => {
     maxZIndex.set(get(maxZIndex) + 1);
+    focusedWindowId.set(app.id);
 
     window.style.zIndex = get(maxZIndex).toString();
 

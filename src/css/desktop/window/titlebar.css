@@ -10,4 +10,22 @@ div.window div.titlebar {
   width: 100%;
   box-sizing: border-box;
   padding: 5px;
+  opacity: 0.6;
+  display: flex;
+}
+
+div.window.focused div.titlebar {
+  opacity: 1;
+}
+
+div.desktop.bigtitlebars div.window div.titlebar {
+  padding-left: 13px;
+  padding-top: 9px;
+  padding-bottom: 5px;
+  height: 40px;
+  padding-right: 10px;
+}
+
+div.desktop.bigtitlebars div.window:not(.headless) div.body {
+  height: calc(100% - 39px);
 }

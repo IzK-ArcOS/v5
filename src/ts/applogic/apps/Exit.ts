@@ -13,12 +13,12 @@ export const Exit: App = {
   pos: { x: 30, y: 40 },
   minSize: { w: 280, h: 50 },
   maxSize: { w: 280, h: 50 },
-  controls: { min: true, max: false, cls: true },
+  controls: { min: false, max: false, cls: true },
   state: {
     headless: true,
     resizable: false,
-    windowState: { min: false, max: false, fll: false },
+    windowState: { min: false, max: false, fll: true },
   },
   content: ExitSvelte,
-  glass:true
+  glass: true,
 };

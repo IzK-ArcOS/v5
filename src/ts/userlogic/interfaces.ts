@@ -9,6 +9,10 @@ export interface UserData {
       docked: boolean; //done
     };
 
+    window: {
+      bigtb: boolean;
+    };
+
     desktop: {
       wallpaper: string | null;
       icons: boolean;
@@ -42,6 +46,9 @@ export const defaultUserData: UserData = {
       pos: "bottom",
       docked: true,
     },
+    window: {
+      bigtb: true,
+    },
     desktop: {
       wallpaper: null,
       icons: true,
@@ -51,6 +58,7 @@ export const defaultUserData: UserData = {
     },
     anim: true,
     titleButtonsLeft: false,
+    noGlass: false,
   },
   acc: {
     enabled: true,

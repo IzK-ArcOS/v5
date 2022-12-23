@@ -101,6 +101,14 @@
 
     UserData.set(udata);
   }
+
+  function toggleLargeTitlebar() {
+    const udata = get(UserData);
+
+    udata.sh.window.bigtb = !udata.sh.window.bigtb;
+
+    UserData.set(udata);
+  }
 </script>
 
 <h2>ArcOS Testing Application</h2>
@@ -123,6 +131,7 @@
 <button on:click={toggleAnimations}>Animations</button>
 <button on:click={toggleTaskbarLabels}>Taskbar Labels</button>
 <button on:click={removeAllGlass}>Remove All Glass</button>
+<button on:click={toggleLargeTitlebar}>Toggle large titlebar</button>
 <h3>Window Controls</h3>
 <button on:click={toggleMinimizeButton}>Min Button</button>
 <button on:click={toggleMaximizeButton}>Max Button</button>
@@ -164,6 +173,10 @@
   <tr>
     <td>UserData.sh.noGlass</td>
     <td>{$UserData.sh.noGlass}</td>
+  </tr><br />
+  <tr>
+    <td>UserData.sh.window.bigtb</td>
+    <td>{$UserData.sh.window.bigtb}</td>
   </tr><br />
   <tr>
     <td>App.controls.min</td>

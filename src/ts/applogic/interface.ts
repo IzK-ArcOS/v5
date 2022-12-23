@@ -1,5 +1,4 @@
 import type { SvelteComponentDev } from "svelte/internal";
-
 export interface App {
   info: GeneralAppInfo;
   pos: XY;
@@ -10,8 +9,9 @@ export interface App {
   menubar?: WindowMenuBar;
   state: AppStates;
   content: typeof SvelteComponentDev;
-  id?:string;
+  id?: string;
   glass: boolean;
+  events?: AppEvents;
 }
 
 export interface GeneralAppInfo {
@@ -20,6 +20,8 @@ export interface GeneralAppInfo {
   builtin: boolean;
   version: string;
   author?: string;
+  hidden?: boolean;
+  titleSuffix?: string;
 }
 
 export interface AppStates {
@@ -54,6 +56,15 @@ export interface WindowMenuItem {
   caption?: string;
   click?: (e: MouseEvent) => void;
   menuItems?: WindowMenuItem[];
+}
+
+export interface AppEvents {
+  open?(app: App): void;
+  close?(app: App): void;
+  maximize?(app: App): void;
+  minimize?(app: App): void;
+  enterFullscreen?(app: App): void;
+  leaveFullscreen?(app: App): void;
 }
 
 /**

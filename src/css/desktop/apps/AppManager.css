@@ -1,0 +1,7 @@
+div.window#appman table {
+  width: 100%;
+}
+
+div.window#appman tr.head * {
+  font-weight: bold;
+}

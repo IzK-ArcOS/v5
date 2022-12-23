@@ -9,6 +9,7 @@
     minSizeExceedsLiteral,
   } from "../../../../ts/applogic/error";
   import { generateCSS } from "../../../../ts/applogic/css";
+  import { focusedWindowId } from "../../../../ts/applogic/store";
 
   export let app: App = null;
 
@@ -45,6 +46,7 @@
 
 <div
   class="window"
+  class:focused={app.id == $focusedWindowId}
   class:headless={app.state.headless || app.state.windowState.fll}
   class:resizable={app.state.resizable}
   class:min={app.state.windowState.min}

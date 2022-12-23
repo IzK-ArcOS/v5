@@ -1,7 +1,5 @@
 div.window div.titlebar div.controls {
-  position: absolute;
-  top: 4px;
-  right: 6px;
+  margin-left: auto;
 }
 
 div.window div.titlebar div.controls button {

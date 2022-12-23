@@ -5,6 +5,8 @@
 
 <div class="left">
   {#each $WindowStore as window}
-    <AppListItem app={window} />
+    {#if !window.info.hidden}
+      <AppListItem app={window} />
+    {/if}
   {/each}
 </div>

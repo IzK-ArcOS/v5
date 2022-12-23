@@ -1,8 +1,14 @@
 <script lang="ts">
   import { isMinimized } from "../../../../ts/applogic/checks";
-  import { OpenApps, updateStores } from "../../../../ts/applogic/store";
+  import {
+    focusedWindowId,
+    maxZIndex,
+    OpenApps,
+    updateStores,
+  } from "../../../../ts/applogic/store";
   import type { App } from "../../../../ts/applogic/interface";
   import { UserData } from "../../../../ts/userlogic/interfaces";
+  import { getWindowElement } from "../../../../ts/window/main";
 
   export let app: App;
 
@@ -18,9 +24,19 @@
   });
 
   function e() {
-    app.state.windowState.min = !app.state.windowState.min;
+    if ($focusedWindowId == app.id)
+      app.state.windowState.min = !app.state.windowState.min;
 
     updateStores();
+
+    if (app.state.windowState.min) return;
+
+    $maxZIndex++;
+    $focusedWindowId = app.id;
+
+    const window = getWindowElement(app);
+
+    window.style.zIndex = $maxZIndex.toString();
   }
 </script>
 

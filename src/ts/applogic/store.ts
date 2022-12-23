@@ -5,6 +5,7 @@ export const WindowStore: Writable<App[]> = writable<App[]>([]);
 export const OpenApps: Writable<App[]> = writable<App[]>([]);
 export const isFullscreenWindow: Writable<boolean> = writable<boolean>(false);
 export const maxZIndex = writable<number>(1e9);
+export const focusedWindowId: Writable<string> = writable<string>(null);
 
 export function getWindow(id: string): App {
   const ws = get(WindowStore);

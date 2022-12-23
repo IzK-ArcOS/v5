@@ -1,5 +1,4 @@
 import AppManagerSvelte from "../../../lib/Apps/AppManager.svelte";
-import TestAppSvelte from "../../../lib/Apps/TestApp.svelte";
 import type { App } from "../interface";
 
 export const AppManager: App = {
@@ -10,10 +9,10 @@ export const AppManager: App = {
     version: "1.0.0",
     author: "Izaak Kuipers",
   },
-  size: { w: 400, h: 250 },
+  size: { w: 500, h: 600 },
   pos: { x: 30, y: 40 },
-  minSize: { w: 400, h: 250 },
-  maxSize: { w: 400, h: 250 },
+  minSize: { w: 500, h: 600 },
+  maxSize: { w: 500, h: 600 },
   controls: { min: false, max: false, cls: true },
   state: {
     headless: false,

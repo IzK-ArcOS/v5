@@ -29,3 +29,15 @@ div.window.fullscreen {
   min-width: unset !important;
   min-height: unset !important;
 }
+
+div.window div.body div.center-flex {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.window div.body div.center-flex div.flex-stop {
+  display: block;
+}

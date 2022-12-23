@@ -1,22 +1,27 @@
 <script lang="ts">
-import type { App } from "../../ts/applogic/interface";
+  import "../../css/desktop/apps/AppManager.css";
+  import type { App } from "../../ts/applogic/interface";
 
   import { closeWindow } from "../../ts/applogic/events";
   import { getOpenedStore, OpenApps } from "../../ts/applogic/store";
+  import { AppManagerAppData } from "../../ts/applogic/apps/AppManager/Manager";
 
   let oa: App[] = [];
 
+  function manage(app: App) {
+    AppManagerAppData.set(app);
+  }
+
   OpenApps.subscribe(() => {
     oa = getOpenedStore();
-  })
+  });
 </script>
 
 <table>
-  <tr>
+  <tr class="head">
     <td>Name</td>
     <td>ID</td>
     <td>Built-in?</td>
-    <td>Close</td>
   </tr>
 
   {#each oa as app}
@@ -24,13 +29,23 @@ import type { App } from "../../ts/applogic/interface";
       <td>{app.info.name}</td>
       <td>{app.id}</td>
       <td>{app.info.builtin}</td>
-      <td
-        ><button
+      <td>
+        <button
           on:click={() => {
             closeWindow(app.id);
-          }}>Close</button
-        ></td
-      >
+          }}
+        >
+          Close
+        </button>
+        <button
+          on:click={() => {
+            manage(app);
+          }}
+          disabled={$AppManagerAppData && $AppManagerAppData.id == app.id}
+        >
+          Poke
+        </button>
+      </td>
     </tr>
   {/each}
 </table>
