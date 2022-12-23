@@ -93,12 +93,22 @@
 
     updateStores();
   }
+
+  function removeAllGlass() {
+    const udata = get(UserData);
+
+    udata.sh.noGlass = !udata.sh.noGlass;
+
+    UserData.set(udata);
+  }
 </script>
 
 <h2>ArcOS Testing Application</h2>
 <p>
-  This application is made to test ArcOS controls<br />and general
-  appearance-related functionality.
+  This application is made to test ArcOS controls and general appearance-related
+  functionality. This application is meant for developers that are actively
+  working on the project, and will generally not be revealed in any master
+  releases.
 </p>
 <h3>Window</h3>
 <button on:click={toggleHeadless}>Headless</button>
@@ -112,6 +122,7 @@
 <button on:click={toggleTaskbarDocked}>Docked Taskbar</button>
 <button on:click={toggleAnimations}>Animations</button>
 <button on:click={toggleTaskbarLabels}>Taskbar Labels</button>
+<button on:click={removeAllGlass}>Remove All Glass</button>
 <h3>Window Controls</h3>
 <button on:click={toggleMinimizeButton}>Min Button</button>
 <button on:click={toggleMaximizeButton}>Max Button</button>
@@ -149,7 +160,11 @@
   <tr>
     <td>UserData.sh.anim</td>
     <td>{$UserData.sh.anim}</td>
-  </tr><br>
+  </tr>
+  <tr>
+    <td>UserData.sh.noGlass</td>
+    <td>{$UserData.sh.noGlass}</td>
+  </tr><br />
   <tr>
     <td>App.controls.min</td>
     <td>{app.controls.min}</td>

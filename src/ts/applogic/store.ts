@@ -4,6 +4,7 @@ import type { App } from "./interface";
 export const WindowStore: Writable<App[]> = writable<App[]>([]);
 export const OpenApps: Writable<App[]> = writable<App[]>([]);
 export const isFullscreenWindow: Writable<boolean> = writable<boolean>(false);
+export const maxZIndex = writable<number>(1e9);
 
 export function getWindow(id: string): App {
   const ws = get(WindowStore);
@@ -18,7 +19,7 @@ export function getWindow(id: string): App {
 export function getStore() {
   let ws = get(WindowStore);
 
-  ws = ws.filter(w => w != null);
+  ws = ws.filter((w) => w != null);
 
   return ws;
 }
@@ -26,7 +27,7 @@ export function getStore() {
 export function getOpenedStore() {
   let oa = get(OpenApps);
 
-  oa = oa.filter(w => w != null);
+  oa = oa.filter((w) => w != null);
 
   return oa;
 }
@@ -42,7 +43,12 @@ export function updateStores() {
 
     if (windowData) oa[i] = windowData;
 
-    if (oa[i] && oa[i] && oa[i].state.windowState.fll && !oa[i].state.windowState.min) {
+    if (
+      oa[i] &&
+      oa[i] &&
+      oa[i].state.windowState.fll &&
+      !oa[i].state.windowState.min
+    ) {
       isFullscreenWindow.set(true);
     }
   }

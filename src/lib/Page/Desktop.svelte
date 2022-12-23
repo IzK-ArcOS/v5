@@ -25,7 +25,6 @@
     WindowStore as WStore,
   } from "../../ts/applogic/store";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
-  import { errorMessage } from "../../ts/errorlogic/main";
   import { ErrorCreator } from "../../ts/applogic/apps/ErrorCreator";
   import { ErrorMessages } from "../../ts/errorlogic/app";
   import PushNotification from "./Desktop/PushNotification.svelte";
@@ -43,6 +42,7 @@
 
       if (udata.sh.taskbar.docked) classes += `tbdocked `;
       if (!udata.sh.anim) classes += `noani `;
+      if (udata.sh.noGlass) classes += `noglass `;
     }
   });
 

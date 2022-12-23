@@ -1,4 +1,5 @@
 <script lang="ts">
+  import logo from "../assets/systemIcon.svg";
   import "../css/bugrep.css";
   import { BugReport, BugReportData } from "../ts/bugrep";
 
@@ -27,18 +28,24 @@
 
 {#if show}
   <div class="bugrep fullscreen {className}">
-    <div class="center-absolute">
+    <div class="content">
+      <img class="logo" src={logo} alt="ArcOS" />
       <h3><span class="material-icons">{data.icon}</span>{data.title}</h3>
       <p>{@html data.message}</p>
-      <!-- <p>
-        You can help solve this bug by creating an issue
-        <a href="https://www.github.com/TWI-ArcOS">on GitHub</a>.
-        {#if data.details}
-          <pre class="details">Technical details: {data.details}</pre>
-        {/if}
-      </p> --><br>
       {#if data.button}
         <button on:click={buttonEvent}>{data.button.caption}</button>
+      {/if}
+    </div>
+    <div class="details">
+      {#if data.details}
+        <p>
+          <span class="title">Source: </span>
+          {data.source || "<anonymous>"}
+        </p>
+        <p>
+          <span class="title">Details: </span>
+          <code>{data.details || "<anonymous>"}</code>
+        </p>
       {/if}
     </div>
   </div>

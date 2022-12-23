@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { WindowStore } from "../../../ts/applogic/store";
+  import { maxZIndex, WindowStore } from "../../../ts/applogic/store";
   import { startOpened } from "../../../ts/desktop/main";
   import { UserData } from "../../../ts/userlogic/interfaces";
   import BottomPane from "./StartMenu/BottomPane.svelte";
@@ -14,6 +14,7 @@
   <Frame />
   <div
     class="startmenu"
+    style="z-index: {$maxZIndex + 2};"
     class:open={$startOpened}
     class:small={$UserData.sh.start.small}
   >

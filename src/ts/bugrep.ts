@@ -7,6 +7,7 @@ export interface BugReport {
   title: string;
   message: string;
   details?: string;
+  source?: string;
   button?: {
     action: () => void;
     caption: string;
@@ -27,6 +28,7 @@ export function InvalidStateBugrep(stateSource: string, stateKey: string) {
         action: () => applyState("boot"),
         caption: "Restart",
       },
+      source: stateSource,
       details: `applyState for ${stateSource}: Can't apply a non-existent state '${stateKey}'.`,
     },
   ]);

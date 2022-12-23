@@ -4,6 +4,7 @@
   import {
     getOpenedStore,
     isFullscreenWindow,
+    maxZIndex,
     OpenApps,
   } from "../../../ts/applogic/store";
 
@@ -25,6 +26,7 @@
 {#if userdata}
   <div
     class="taskbar"
+    style="z-index: {$maxZIndex + 3};"
     class:docked={userdata.sh.taskbar.docked}
     class:fullscreen={$isFullscreenWindow}
   >

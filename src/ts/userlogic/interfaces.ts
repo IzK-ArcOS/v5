@@ -18,8 +18,9 @@ export interface UserData {
       small: boolean; //done
     };
 
-    anim: boolean; //done                   
+    anim: boolean; //done
     titleButtonsLeft: boolean;
+    noGlass: boolean;
   };
 
   acc: {
