@@ -2,10 +2,10 @@ div.window {
   position: absolute;
   top: 50px;
   left: 50px;
-  background-color: var(--win-bg);
-  color: var(--fg);
-  border-radius: var(--win-border-rad);
-  border: var(--win-border);
+  background-color: var(--win-bg, #353535);
+  color: var(--fg, #ccc);
+  border-radius: var(--win-border-rad, 7.5px);
+  border: var(--win-border, rgb(107, 107, 107) 1px solid);
   overflow: hidden;
   transition: all 0.2s, width 0s, height 0s, top 0s, left 0s;
   opacity: 0;
@@ -15,8 +15,8 @@ div.window {
 }
 
 div.window.glass {
-    background-color: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
+  background-color: var(--glass-bg, #353535a2);
+  backdrop-filter: blur(var(--glass-blur, 10px));
 }
 
 div.window.max {
@@ -53,11 +53,11 @@ div.window.min {
   margin-top: 20px;
 }
 
-div.desktop.tbdocked div.window.max {
+div.tbdocked div.window.max {
   height: calc(100% - 45px) !important;
 }
 
-div.desktop:not(.tbdocked) div.window.max {
+div:not(.tbdocked) div.window.max {
   height: calc(100% - 65px) !important;
 }
 

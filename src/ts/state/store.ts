@@ -14,6 +14,7 @@ export const States = new Map<string, State>([
       name: "Boot",
       content: Boot,
       attribs: {},
+      key: "boot",
     },
   ],
   [
@@ -22,6 +23,7 @@ export const States = new Map<string, State>([
       name: "Login",
       content: Login,
       attribs: {},
+      key: "login",
     },
   ],
   [
@@ -30,6 +32,7 @@ export const States = new Map<string, State>([
       name: "First Time Setup",
       content: FirstTimeSetup,
       attribs: {},
+      key: "fts",
     },
   ],
   [
@@ -38,6 +41,7 @@ export const States = new Map<string, State>([
       name: "Desktop",
       content: Desktop,
       attribs: {},
+      key: "desktop",
     },
   ],
   [
@@ -50,6 +54,7 @@ export const States = new Map<string, State>([
         applyLoginState("logoff");
         loginUsername.set(null);
       },
+      key: "logoff",
     },
   ],
   [
@@ -62,6 +67,7 @@ export const States = new Map<string, State>([
         applyLoginState("restart");
         loginUsername.set(null);
       },
+      key: "restart",
     },
   ],
   [
@@ -74,6 +80,7 @@ export const States = new Map<string, State>([
         applyLoginState("shutdown");
         loginUsername.set(null);
       },
+      key: "shutdown",
     },
   ],
   [
@@ -82,7 +89,7 @@ export const States = new Map<string, State>([
       name: "Blank",
       content: Blank,
       attribs: {},
-
-    }
-  ]
+      key: "blank",
+    },
+  ],
 ]);

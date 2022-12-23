@@ -2,6 +2,7 @@ import { get } from "svelte/store";
 import { BugReportData } from "../bugrep";
 import { Log, LogLevel } from "../console";
 import { userDataKey } from "../env/main";
+import { applyState } from "../state/main";
 import { AllUsers, defaultUserData, UserData, UserName } from "./interfaces";
 
 export function getUsers() {
@@ -88,8 +89,10 @@ UserData.subscribe((v) => {
               "The user data could not be saved. This happens if the<br>user data is altered while ArcOS is running.",
             details: "UserLogic: UserData watch: setter returned false",
             button: {
-              action: () => {},
-              caption: "Close",
+              action: () => {
+                applyState("fts");
+              },
+              caption: "Reset",
             },
           },
         ]);

@@ -1,4 +1,5 @@
-div.desktop.noani, div.desktop.noani * {
+div.noani,
+div.noani * {
   transition: none !important;
   animation: none !important;
 }

@@ -21,6 +21,7 @@
   });
 
   AppManagerAppData.subscribe((v) => {
+    if (!v) return;
     app.info.titleSuffix = ` - Managing ${v.info.name}`;
 
     updateStores();

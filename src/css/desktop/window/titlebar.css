@@ -18,7 +18,7 @@ div.window.focused div.titlebar {
   opacity: 1;
 }
 
-div.desktop.bigtitlebars div.window div.titlebar {
+div.bigtitlebars div.window div.titlebar {
   padding-left: 13px;
   padding-top: 9px;
   padding-bottom: 5px;
@@ -26,6 +26,6 @@ div.desktop.bigtitlebars div.window div.titlebar {
   padding-right: 10px;
 }
 
-div.desktop.bigtitlebars div.window:not(.headless) div.body {
+div.bigtitlebars div.window:not(.headless) div.body {
   height: calc(100% - 39px);
 }

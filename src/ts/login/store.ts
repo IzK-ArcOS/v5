@@ -15,6 +15,7 @@ export const LoginStates = new Map<string, State>([
         topbar: true,
         darken: false,
       },
+      key: "selector",
     },
   ],
   [
@@ -26,6 +27,7 @@ export const LoginStates = new Map<string, State>([
         topbar: false,
         darken: true,
       },
+      key: "todesktop",
     },
   ],
   [
@@ -37,6 +39,7 @@ export const LoginStates = new Map<string, State>([
         topbar: false,
         darken: true,
       },
+      key: "logoff",
     },
   ],
   [
@@ -48,6 +51,7 @@ export const LoginStates = new Map<string, State>([
         topbar: false,
         darken: true,
       },
+      key: "shutdown",
     },
   ],
   [
@@ -59,6 +63,7 @@ export const LoginStates = new Map<string, State>([
         topbar: false,
         darken: true,
       },
+      key: "restart",
     },
   ],
 ]);

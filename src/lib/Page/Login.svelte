@@ -8,7 +8,6 @@
   import Center from "./Login/Center.svelte";
   import Darken from "./Login/Darken.svelte";
   import Background from "./Login/Background.svelte";
-  import { LoginStates } from "../../ts/login/store";
 
   let show = false;
 

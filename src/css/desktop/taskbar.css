@@ -1,92 +1,93 @@
 div.taskbar {
-    position:fixed;
-    left:10px;
-    width:calc(100% - 20px);
-    height:45px;
-    background-color: var(--glass-ultradark);
-    backdrop-filter: blur(var(--glass-blur));
-    border-radius: var(--win-border-rad);
-    border: var(--win-border-light);
-    box-sizing: border-box;
-    transition:border 0.3s, width 0.3s, bottom 0.3s, left 0.3s, border-radius 0.3s;
+  position: fixed;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: 45px;
+  background-color: var(--glass-ultradark);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--win-border-rad);
+  border: var(--win-border-light);
+  box-sizing: border-box;
+  transition: border 0.3s, width 0.3s, bottom 0.3s, left 0.3s,
+    border-radius 0.3s;
 }
 
 div.taskbar:not(.fullscreen) {
-    bottom:10px;
+  bottom: 10px;
 }
 
 div.taskbar.fullscreen {
-    top:unset;
-    bottom:-50px;
+  top: unset;
+  bottom: -50px;
 }
 
-div.desktop.tbdocked div.taskbar:not(.fullscreen) {
-    bottom:0;
-    left:0;
-    width:100%;
-    border-radius: 0;
-    border:transparent 1px solid;
-    border-top: var(--win-border);
+div.tbdocked div.taskbar:not(.fullscreen) {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 0;
+  border: transparent 1px solid;
+  border-top: var(--win-border);
 }
 
 div.taskbar button {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 div.taskbar button.start {
-    height:100%;
-    border-radius: var(--win-border-rad);
-    border:none;
-    background-color: var(--startmenu-applist-item-bg);
-    color:var(--fg);
-    padding:0;
-    margin:0;
-    width:43px;
-    transition: opacity 0.3s, background-color 0.2s;
+  height: 100%;
+  border-radius: var(--win-border-rad);
+  border: none;
+  background-color: var(--startmenu-applist-item-bg);
+  color: var(--fg);
+  padding: 0;
+  margin: 0;
+  width: 43px;
+  transition: opacity 0.3s, background-color 0.2s;
 }
 
 div.taskbar button.appbutton {
-    height:100%;
-    max-height: 100%;
-    border-radius: var(--win-border-rad);
-    border:none;
-    background-color: var(--startmenu-applist-item-bg);
-    color:var(--fg);
-    padding:0;
-    margin:0;
-    margin-right: 5px;
-    transition: opacity 0.3s, background-color 0.2s;
-    padding: 0 7.5px;
+  height: 100%;
+  max-height: 100%;
+  border-radius: var(--win-border-rad);
+  border: none;
+  background-color: var(--startmenu-applist-item-bg);
+  color: var(--fg);
+  padding: 0;
+  margin: 0;
+  margin-right: 5px;
+  transition: opacity 0.3s, background-color 0.2s;
+  padding: 0 7.5px;
 }
 
 div.taskbar button.appbutton span {
-    margin-top:2px;
+  margin-top: 2px;
 }
 
 div.taskbar button.appbutton.minimized {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 div.taskbar button.appbutton:hover {
-    background-color: var(--startmenu-applist-item-bg-hover);
+  background-color: var(--startmenu-applist-item-bg-hover);
 }
 
 div.taskbar button.appbutton:active {
-    background-color: var(--startmenu-applist-item-bg-active);
+  background-color: var(--startmenu-applist-item-bg-active);
 }
 
 div.taskbar button.start:hover {
-    background-color: var(--startmenu-applist-item-bg-hover);
+  background-color: var(--startmenu-applist-item-bg-hover);
 }
 
 div.taskbar button.start:active {
-    background-color: var(--startmenu-applist-item-bg-active);
+  background-color: var(--startmenu-applist-item-bg-active);
 }
 
 div.taskbar button.start.open {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 div.taskbar button.start img {
-    height:25px;
+  height: 25px;
 }

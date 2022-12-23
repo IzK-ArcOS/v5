@@ -1,4 +1,4 @@
-:root .desktop.theme-darkround {
+:root .theme-darkround {
   --fg: #ccc;
   --win-bg: #353535;
   --win-border-rad: 7.5px;
@@ -22,7 +22,7 @@
   --button-glass-active-bg: #0005;
 }
 
-:root .desktop.theme-darkround.noglass {
+:root .theme-darkround.noglass {
   --glass-bg: #353535;
   --glass-alt-bg: #414141;
   --glass-ultralight: #838383;

@@ -1,32 +1,32 @@
 div.window div.body button {
   border: none;
-  border-radius: var(--button-border-rad);
+  border-radius: var(--button-border-rad, 4px);
   padding: 5px 15px;
-  background-color: var(--button-bg);
-  color: var(--fg);
+  background-color: var(--button-bg, #4a4a4a);
+  color: var(--fg, #ccc);
   transition: opacity 0.2s, background-color 0.2s;
   font-size: 13px;
   margin: 2px;
 }
 
 div.window.glass div.body button {
-  background-color: var(--button-glass-bg);
+  background-color: var(--button-glass-bg, #fff1);
 }
 
 div.window.glass div.body button:hover {
-  background-color: var(--button-glass-hover-bg);
+  background-color: var(--button-glass-hover-bg, #fff3);
 }
 
 div.window.glass div.body button:active {
-  background-color: var(--button-glass-active-bg);
+  background-color: var(--button-glass-active-bg, #0005);
 }
 
 div.window div.body button:hover {
-  background-color: var(--button-hover-bg);
+  background-color: var(--button-hover-bg, #555555);
 }
 
 div.window div.body button:active {
-  background-color: var(--button-active-bg);
+  background-color: var(--button-active-bg, #2a2a2a);
 }
 
 div.window div.body button:disabled {
@@ -35,16 +35,16 @@ div.window div.body button:disabled {
 
 div.window div.body input,
 div.window div.body select {
-  background-color: var(--button-active-bg);
+  background-color: var(--button-active-bg, #2a2a2a);
   border: var(--win-border);
   color: var(--fg);
-  border-radius: var(--button-border-rad);
+  border-radius: var(--button-border-rad, 4px);
   padding: 3.5px;
 }
 
 div.window.glass div.body input,
 div.window.glass div.body select {
-  background-color: var(--button-glass-active-bg);
+  background-color: var(--button-glass-active-bg, #0005);
 }
 
 div.window div.body h1,
@@ -61,7 +61,8 @@ div.window div.body p {
 }
 
 div.window button.fullwidth,
-div.window select.fullwidth, div.window input.fullwidth {
+div.window select.fullwidth,
+div.window input.fullwidth {
   width: 100%;
   text-align: left;
   box-sizing: border-box;
