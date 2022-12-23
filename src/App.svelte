@@ -3,11 +3,8 @@
   import BugReport from "./lib/BugReport.svelte";
   import MobileBlock from "./lib/MobileBlock.svelte";
   import { applyState, CurrentState } from "./ts/state/main";
-  import { createUser } from "./ts/userlogic/main";
 
   applyState("boot");
-
-  //createUser("IzK");
 </script>
 
 <div class="app fullscreen">
@@ -15,6 +12,5 @@
     <svelte:component this={$CurrentState.content} />
   {/if}
   <BugReport />
-  
 </div>
 <MobileBlock />

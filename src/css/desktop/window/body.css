@@ -1,5 +1,5 @@
 div.window div.body {
-  height: calc(100% - 30px);
+  height: calc(100% - 29px);
   width: 100%;
   background-color: transparent;
   box-sizing: border-box;

@@ -10,7 +10,7 @@ export const ErrorCreator: App = {
     version: ArcOSVersion,
     author: "Izaak Kuipers",
   },
-  size: { w: 300, h: 255 },
+  size: { w: 300, h: 267 },
   pos: { x: 30, y: 40 },
   minSize: { w: 300, h: 253 },
   maxSize: { w: 300, h: 253 },

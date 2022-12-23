@@ -107,8 +107,7 @@ div.fts div.center-absolute div.right div.nav {
   bottom: 0px;
   left: 0px;
   width: 100%;
-  display: grid;
-  grid-template-columns: auto 50% auto;
+  display: flex;
   height: 80px;
 }
 
@@ -118,7 +117,7 @@ div.fts div.center-absolute div.right div.nav > div {
 }
 
 div.fts div.center-absolute div.right div.nav div.alnr {
-  text-align: right;
+  margin-left: auto;
 }
 
 div.fts div.center-absolute div.right div.nav div.alc {

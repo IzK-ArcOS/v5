@@ -11,7 +11,7 @@ export const UITester: App = {
   },
   size: { w: 640, h: 480 },
   pos: { x: 30, y: 40 },
-  minSize: { w: 800, h: 300 },
+  minSize: { w: 640, h: 300 },
   maxSize: { w: 800, h: 600 },
   controls: { min: true, max: true, cls: true },
   state: {

@@ -1,0 +1,3 @@
+div.window[id*="error#"] {
+  height: max-content !important;
+}

@@ -13,7 +13,7 @@
   import { logoff } from "../../ts/desktop/power";
   import { updateStores } from "../../ts/applogic/store";
   import { makeNotification } from "../../ts/notiflogic/main";
-import { errorMessage } from "../../ts/errorlogic/main";
+  import { errorMessage } from "../../ts/errorlogic/main";
 
   export let app: App;
 
@@ -131,19 +131,26 @@ import { errorMessage } from "../../ts/errorlogic/main";
         {
           capt: "Learn more",
           action: () => {
-            errorMessage("This is a test error message", "This is a test error message to see how the ErrorLogic can work together with the NotificationLogic",{
-              caption:"Abort",
-              action: () => {}
-            },{
-              caption:"Retry",
-              action: () => {}
-            },{
-              caption:"Ignore",
-              action: () => {}
-            },{
-              caption:"Cancel",
-              action: () => {}
-            });
+            errorMessage(
+              "This is a test error message",
+              "This is a test error message to see how the ErrorLogic can work together with the NotificationLogic,This is a test error message to see how the ErrorLogic can work together with the NotificationLogic,This is a test error message to see how the ErrorLogic can work together with the NotificationLogic,This is a test error message to see how the ErrorLogic can work together with the NotificationLogic,This is a test error message to see how the ErrorLogic can work together with the NotificationLogic,",
+              {
+                caption: "Abort",
+                action: () => {},
+              },
+              {
+                caption: "Retry",
+                action: () => {},
+              },
+              {
+                caption: "Ignore",
+                action: () => {},
+              },
+              {
+                caption: "Cancel",
+                action: () => {},
+              }
+            );
           },
         },
       ],

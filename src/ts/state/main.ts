@@ -23,12 +23,10 @@ export function applyState(stateKey: string) {
       CurrentState.set(state);
 
       document.title = `${Var.getValue("osname")} | ${state.name}`;
-
-      
     }, 250);
 
     return;
   }
 
-  InvalidStateBugrep("ArcOS", stateKey);
+  InvalidStateBugrep("ArcOS State Switcher", stateKey);
 }

@@ -4,8 +4,10 @@
   import { onMount } from "svelte";
   import Content from "./Window/Content.svelte";
   import Titlebar from "./Window/Titlebar.svelte";
-  import { BugReportData } from "../../../../ts/bugrep";
-  import { restart } from "../../../../ts/desktop/power";
+  import {
+    maxSizeExceedsLiteral,
+    minSizeExceedsLiteral,
+  } from "../../../../ts/applogic/error";
 
   export let app: App = null;
 
@@ -13,6 +15,7 @@
   let window: HTMLDivElement;
   let posUsed = false;
   let titlebar: HTMLDivElement;
+
   export let exttransition = false;
   export let opened = false;
 
@@ -26,34 +29,10 @@
 
   function update() {
     if (app.minSize.w > app.size.w || app.minSize.h > app.size.h)
-      return BugReportData.set([
-        true,
-        {
-          icon: "screenshot_monitor",
-          title: `Unable to render ${app.info.name}`,
-          message: `The minimal size exceeds the literal size. This should not be possible.`,
-          details: `Can't render <${app.id}>: minimal size is bigger than the literal size.`,
-          button: {
-            action: restart,
-            caption: "Restart ArcOS",
-          },
-        },
-      ]);
+      return minSizeExceedsLiteral(app);
 
     if (app.maxSize.w < app.minSize.w || app.maxSize.h < app.minSize.h)
-      return BugReportData.set([
-        true,
-        {
-          icon: "screenshot_monitor",
-          title: `Unable to render ${app.info.name}`,
-          message: `The minimal size exceeds the maximal size. This should not be possible.`,
-          details: `Can't render <${app.id}>: minimal size is bigger than the maximal size.`,
-          button: {
-            action: restart,
-            caption: "Restart ArcOS",
-          },
-        },
-      ]);
+      return maxSizeExceedsLiteral(app);
 
     cssString = "";
 
@@ -87,6 +66,7 @@
   class:fullscreen={app.state.windowState.fll}
   class:glass={app.glass}
   style={cssString}
+  id={app.id}
   bind:this={window}
 >
   <Titlebar {app} bind:exttransition bind:opened bind:titlebar />

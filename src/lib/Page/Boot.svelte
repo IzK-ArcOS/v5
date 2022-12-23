@@ -7,7 +7,7 @@
   import { Log, LogLevel } from "../../ts/console";
   import { getUsers } from "../../ts/userlogic/main";
 
-  let status: string = "";
+  let status = "";
   let bootClass = "";
   let targetState = "login";
 
