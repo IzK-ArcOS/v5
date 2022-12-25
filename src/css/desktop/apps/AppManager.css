@@ -2,6 +2,19 @@ div.window#appman table {
   width: 100%;
 }
 
+div.window#appman table tr td {
+  padding-right: 10px;
+}
+
 div.window#appman tr.head * {
   font-weight: bold;
+}
+
+div.window#appman * {
+  vertical-align: middle;
+}
+
+div.window#appman table td img.icon {
+  height: 24px;
+  vertical-align: middle;
 }

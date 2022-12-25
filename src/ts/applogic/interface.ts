@@ -22,6 +22,7 @@ export interface GeneralAppInfo {
   author?: string;
   hidden?: boolean;
   titleSuffix?: string;
+  icon: string;
 }
 
 export interface AppStates {

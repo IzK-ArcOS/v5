@@ -5,7 +5,6 @@
 </script>
 
 <div class="body">
-  <svelte:component this={app.content} {app}>
-  </svelte:component>
+  <svelte:component this={app.content} {app} />
   <slot />
 </div>

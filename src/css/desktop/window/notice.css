@@ -1,0 +1,20 @@
+div.notice {
+  display: flex;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-bottom: 7.5px;
+}
+
+div.notice div {
+  vertical-align: top;
+}
+
+div.notice div span.material-icons {
+  font-size: 24px;
+  padding-right: 10px;
+}
+
+div.notice div p.title {
+  font-weight: bold;
+  margin-top: 0px;
+}

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { maxZIndex } from "../../../ts/applogic/store";
+
   import type { NotificationData } from "../../../ts/notiflogic/interfaces";
   import {
     closeNotification,
@@ -42,7 +44,11 @@
   }
 </script>
 
-<div class="notification" class:hidden={!data || hide}>
+<div
+  class="notification"
+  class:hidden={!data || hide}
+  style="z-index: {$maxZIndex + 4}"
+>
   {#if data}
     <p class="title">
       <span class="material-icons">{data.icon}</span>{data.title}

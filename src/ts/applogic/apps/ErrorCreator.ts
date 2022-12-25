@@ -1,6 +1,7 @@
 import ErrorCreatorSvelte from "../../../lib/Apps/ErrorCreator.svelte";
 import { ArcOSVersion } from "../../../ts/env/main";
 import type { App } from "../interface";
+import logo from "../../../assets/apps/error.svg";
 
 export const ErrorCreator: App = {
   info: {
@@ -9,6 +10,7 @@ export const ErrorCreator: App = {
     builtin: true,
     version: ArcOSVersion,
     author: "Izaak Kuipers",
+    icon: logo,
   },
   size: { w: 300, h: 267 },
   pos: { x: 30, y: 40 },

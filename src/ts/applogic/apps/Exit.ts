@@ -1,5 +1,6 @@
 import ExitSvelte from "../../../lib/Apps/Exit.svelte";
 import type { App } from "../interface";
+import logo from "../../../assets/apps/exit.svg";
 
 export const Exit: App = {
   info: {
@@ -8,6 +9,7 @@ export const Exit: App = {
     builtin: true,
     version: "1.0.0",
     author: "Izaak Kuipers",
+    icon: logo,
   },
   size: { w: 280, h: 50 },
   pos: { x: 30, y: 40 },

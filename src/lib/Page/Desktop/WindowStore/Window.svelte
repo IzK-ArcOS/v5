@@ -58,6 +58,7 @@
   style={cssString}
   id={app.id}
   bind:this={window}
+  on:mousedown={() => ($focusedWindowId = app.id)}
 >
   <Titlebar {app} bind:exttransition bind:opened bind:titlebar />
   <Content {app}>

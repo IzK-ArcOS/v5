@@ -1,5 +1,6 @@
 import AppManagerSvelte from "../../../lib/Apps/AppManager.svelte";
 import type { App } from "../interface";
+import logo from "../../../assets/apps/appmanager.svg";
 
 export const AppManager: App = {
   info: {
@@ -8,6 +9,7 @@ export const AppManager: App = {
     builtin: true,
     version: "1.0.0",
     author: "Izaak Kuipers",
+    icon: logo,
   },
   size: { w: 500, h: 600 },
   pos: { x: 30, y: 40 },

@@ -1,6 +1,5 @@
-import { get } from "svelte/store";
 import type { App } from "./interface";
-import { focusedWindowId, maxZIndex, updateStores } from "./store";
+import { focusedWindowId, updateStores } from "./store";
 
 export function dragWindow(
   app: App,
@@ -8,10 +7,7 @@ export function dragWindow(
   titlebar: HTMLDivElement
 ) {
   window.addEventListener("mousedown", (e: MouseEvent) => {
-    maxZIndex.set(get(maxZIndex) + 1);
     focusedWindowId.set(app.id);
-
-    window.style.zIndex = get(maxZIndex).toString();
 
     if (e.composedPath().includes(titlebar)) {
       let xA: number, yA: number, xB: number, yB: number;

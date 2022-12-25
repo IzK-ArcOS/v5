@@ -3,7 +3,13 @@ import { startOpened } from "../desktop/main";
 import { getWindowElement } from "../window/main";
 import { isLoaded, isOpened } from "./checks";
 import type { App } from "./interface";
-import { focusedWindowId, getWindow, OpenApps, updateStores } from "./store";
+import {
+  focusedWindowId,
+  getWindow,
+  maxZIndex,
+  OpenApps,
+  updateStores,
+} from "./store";
 
 export function openWindow(id: string) {
   if (!isLoaded(id) || isOpened(id)) {
@@ -17,6 +23,16 @@ export function openWindow(id: string) {
   oa.push(window);
 
   OpenApps.set(oa);
+
+  setTimeout(() => {
+    const el = getWindowElement(window);
+
+    if (!el) return;
+
+    maxZIndex.set(get(maxZIndex) + 1);
+
+    el.style.zIndex = `${get(maxZIndex)}`;
+  }, 10);
 
   startOpened.set(false);
 

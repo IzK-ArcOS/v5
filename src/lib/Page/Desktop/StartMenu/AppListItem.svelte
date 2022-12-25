@@ -22,8 +22,6 @@
 </script>
 
 <button class="item" on:click={open} disabled={opened}>
-  <span class="material-icons"
-    >{opened ? "domain_verification" : "web_asset"}</span
-  >
+  <img src={app.info.icon} class="icon" alt={app.info.name} />
   {app.info.name}
 </button>

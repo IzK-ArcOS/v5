@@ -39,7 +39,10 @@
 </script>
 
 <div class="titlebar" bind:this={titlebar} on:dblclick={max}>
-  <p class="title">{app.info.name}{app.info.titleSuffix || ""}</p>
+  <p class="title">
+    <img class="icon" src={app.info.icon} alt={app.info.name} />
+    {app.info.name}{app.info.titleSuffix || ""}
+  </p>
   <div class="controls">
     <button class="material-icons" on:click={min} disabled={!app.controls.min}>
       minimize

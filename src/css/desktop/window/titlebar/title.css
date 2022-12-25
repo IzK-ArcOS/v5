@@ -1,3 +1,14 @@
 div.window div.titlebar p.title {
   margin: 0;
 }
+
+div.window div.titlebar p.title img.icon {
+  height: 14px;
+  margin: 0 2px;
+}
+
+div.bigtitlebars div.window div.titlebar img.icon {
+  height: 16px;
+  margin: 0;
+  margin-right: 5px;
+}

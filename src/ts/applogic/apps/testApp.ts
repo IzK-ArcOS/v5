@@ -1,5 +1,6 @@
 import TestAppSvelte from "../../../lib/Apps/TestApp.svelte";
 import type { App } from "../interface";
+import logo from "../../../assets/apps/testapp.svg";
 
 export const TestApp: App = {
   info: {
@@ -8,6 +9,7 @@ export const TestApp: App = {
     builtin: true,
     version: "0.0.0",
     author: "Izaak Kuipers",
+    icon: logo,
   },
   size: { w: 640, h: 480 },
   pos: { x: 30, y: 40 },

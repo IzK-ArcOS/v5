@@ -40,8 +40,13 @@
   }
 </script>
 
-<button class="appbutton" class:minimized on:click={e}>
-  <span class="material-icons">web_asset</span>
+<button
+  class="appbutton"
+  class:minimized
+  on:click={e}
+  class:activated={app.id == $focusedWindowId}
+>
+  <img src={app.info.icon} alt={app.info.name} class="icon" />
   {#if showLabel}
     <span>{app.info.name}</span>
   {/if}

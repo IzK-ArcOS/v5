@@ -14,16 +14,17 @@ div.window div.titlebar {
   display: flex;
 }
 
+div.window div.titlebar * {
+  vertical-align: middle;
+}
+
 div.window.focused div.titlebar {
   opacity: 1;
 }
 
 div.bigtitlebars div.window div.titlebar {
-  padding-left: 13px;
-  padding-top: 9px;
-  padding-bottom: 5px;
+  padding: 10px;
   height: 40px;
-  padding-right: 10px;
 }
 
 div.bigtitlebars div.window:not(.headless) div.body {

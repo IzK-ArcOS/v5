@@ -19,6 +19,7 @@
 
 <table>
   <tr class="head">
+    <td />
     <td>Name</td>
     <td>ID</td>
     <td>Built-in?</td>
@@ -26,6 +27,7 @@
 
   {#each oa as app}
     <tr>
+      <td><img src={app.info.icon} alt={app.info.name} class="icon" /></td>
       <td>{app.info.name}</td>
       <td>{app.id}</td>
       <td>{app.info.builtin}</td>

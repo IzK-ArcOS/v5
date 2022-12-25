@@ -1,18 +1,23 @@
 import { writable, Writable } from "svelte/store";
 import { isOpened } from "../../checks";
-import { closeWindow, maximizeWindow, minimizeWindow } from "../../events";
+import {
+  closeWindow,
+  maximizeWindow,
+  minimizeWindow,
+  openWindow,
+} from "../../events";
 import type { App } from "../../interface";
 import { updateStores } from "../../store";
 
 export const AppManagerAppData: Writable<App> = writable<App>(null);
 
-export interface AppManagerManageable {
+export interface AppManagerManageableBool {
   caption: string;
   action: (app: App) => void;
   getter: (app: App) => boolean;
 }
 
-export const AppManagerManageOptions: AppManagerManageable[] = [
+export const AppManagerManageBools: AppManagerManageableBool[] = [
   {
     caption: "Minimize",
     action: (app: App) => {
@@ -34,7 +39,8 @@ export const AppManagerManageOptions: AppManagerManageable[] = [
   {
     caption: "Close",
     action: (app: App) => {
-      closeWindow(app.id);
+      if (isOpened(app.id)) closeWindow(app.id);
+      else openWindow(app.id);
     },
     getter: (app: App) => {
       return !isOpened(app.id);

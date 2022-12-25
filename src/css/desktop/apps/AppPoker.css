@@ -3,12 +3,14 @@ div.window#apppoker div.manager button {
   width: calc(100% - 10px);
   margin: 5px auto;
 }
+
+div.window#apppoker div.manager button.off {
+  opacity: 0.5;
+  font-style: italic;
+}
+
 div.window#apppoker div.manager {
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: repeat(9, auto);
-}
-
-div.window.glass#apppoker div.manager {
-  background-color: var(--glass-alt-bg);
 }

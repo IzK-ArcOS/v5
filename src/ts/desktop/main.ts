@@ -30,14 +30,6 @@ export function assignDesktopListeners() {
   });
 
   AppManagerAppData.subscribe((v) => {
-    makeNotification({
-      title: "App Manager App Data changed",
-      message: `App manager app data changed to: ${v ? v.id : "<none>"}.`,
-      icon: "warning",
-      buttons: [{ capt: "Close", action() {} }],
-      timeout: 3000,
-    });
-
     if (v) openWindow("apppoker");
     else closeWindow("apppoker");
   });

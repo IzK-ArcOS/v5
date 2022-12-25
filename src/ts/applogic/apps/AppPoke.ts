@@ -2,6 +2,7 @@ import AppManagerSvelte from "../../../lib/Apps/AppManager.svelte";
 import AppPokerSvelte from "../../../lib/Apps/AppPoker.svelte";
 import type { App } from "../interface";
 import { AppManagerAppData } from "./AppManager/Manager";
+import logo from "../../../assets/apps/apppoker.svg";
 
 export const AppPoker: App = {
   info: {
@@ -11,6 +12,7 @@ export const AppPoker: App = {
     version: "1.0.0",
     author: "Izaak Kuipers",
     hidden: true,
+    icon: logo,
   },
   size: { w: 500, h: 300 },
   pos: { x: 30, y: 40 },

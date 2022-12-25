@@ -12,6 +12,10 @@ div.taskbar {
     border-radius 0.3s;
 }
 
+div.taskbar * {
+  vertical-align: middle;
+}
+
 div.taskbar:not(.fullscreen) {
   bottom: 10px;
 }
@@ -58,6 +62,26 @@ div.taskbar button.appbutton {
   margin-right: 5px;
   transition: opacity 0.3s, background-color 0.2s;
   padding: 0 7.5px;
+  border-bottom: transparent 1px solid;
+}
+
+div.taskbar button.appbutton * {
+  vertical-align: middle;
+}
+
+div.taskbar button.appbutton img.icon {
+  height: 25px;
+  margin: 0;
+}
+
+div.taskbar button.appbutton.activated {
+  border-radius: 0px;
+  border-bottom: var(--fg) 1px solid;
+  background-color: var(--startmenu-applist-item-bg-hover);
+}
+
+div.taskbar button.appbutton img.icon + span {
+  margin-left: 5px;
 }
 
 div.taskbar button.appbutton span {

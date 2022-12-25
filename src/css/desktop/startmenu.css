@@ -30,36 +30,45 @@ div.startmenu {
 }
 
 div.startmenu * {
-    transition: top 0.3s, left 0.3s, opacity 0.3s, visibility 0.3s, width 0.3s,
-      height 0.3s, border-radius 0.3s, padding 0.3s, font-size 0.3s;
+  transition: top 0.3s, left 0.3s, opacity 0.3s, visibility 0.3s, width 0.3s,
+    height 0.3s, border-radius 0.3s, padding 0.3s, font-size 0.3s;
 }
 
 div.startmenu div.left {
-    position:absolute;
-    width:300px;
-    top:0px;
-    left:0px;
-    height:calc(100% - 75px);
-    border-radius: var(--win-border-rad);
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 0;
-    padding:15px;
-    box-sizing: border-box;
+  position: absolute;
+  width: 300px;
+  top: 0px;
+  left: 0px;
+  height: calc(100% - 75px);
+  border-radius: var(--win-border-rad);
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
 div.startmenu div.left button.item {
-    width:100%;
-    padding:10px;
-    border-radius: var(--win-border-rad);
-    margin-bottom: 5px;
-    text-align: left;
-    box-sizing: border-box;
-    background-color: var(--startmenu-applist-item-bg);
-    color:var(--fg);
-    border:none;
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--win-border-rad);
+  margin-bottom: 5px;
+  text-align: left;
+  box-sizing: border-box;
+  background-color: var(--startmenu-applist-item-bg);
+  color: var(--fg);
+  border: none;
 }
 
-div.startmenu div.left button.item:hover{
+div.startmenu div.left button.item * {
+  vertical-align: middle;
+}
+
+div.startmenu div.left button.item img.icon {
+  height: 24px;
+  margin-right: 5px;
+}
+
+div.startmenu div.left button.item:hover {
   background-color: var(--startmenu-applist-item-bg-hover);
 }
 
@@ -72,36 +81,36 @@ div.startmenu div.left button.item:disabled {
 }
 
 div.startmenu div.right {
-    position:absolute;
-    width:200px;
-    top:0px;
-    right:0px;
-    height:calc(100% - 75px);
-    box-sizing: border-box;
-    padding:20px;
-    background-color: var(--darkened-overlay);
-    border-top-right-radius: var(--win-border-rad);
+  position: absolute;
+  width: 200px;
+  top: 0px;
+  right: 0px;
+  height: calc(100% - 75px);
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: var(--darkened-overlay);
+  border-top-right-radius: var(--win-border-rad);
 }
 
 div.startmenu div.bottom {
-    position:absolute;
-    width:100%;
-    bottom:0px;
-    left:0px;
-    height:75px;
-    box-sizing: border-box;
-    background-color: var(--darkened-overlay-alt);
-    border-bottom-left-radius: var(--win-border-rad);
-    border-bottom-right-radius: var(--win-border-rad);
-    padding:25px;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  height: 75px;
+  box-sizing: border-box;
+  background-color: var(--darkened-overlay-alt);
+  border-bottom-left-radius: var(--win-border-rad);
+  border-bottom-right-radius: var(--win-border-rad);
+  padding: 25px;
 }
 
 div.startmenu div.bottom * {
-   vertical-align: middle;
+  vertical-align: middle;
 }
 
 div.startmenu div.bottom h1.username {
-  margin:0;
+  margin: 0;
   font-size: 19px;
 }
 
@@ -120,23 +129,23 @@ div.startmenu.small {
   height: 405px;
 }
 
-div.startmenu.small>div.left {
-    width:calc(100% - 50px);
-    height:calc(100% - 50px);
+div.startmenu.small > div.left {
+  width: calc(100% - 50px);
+  height: calc(100% - 50px);
 }
 
-div.startmenu.small>div.right {
-    width:50px;
-    height:calc(100% - 50px);   
-    padding:10px;
-    /* text-align: center; */
+div.startmenu.small > div.right {
+  width: 50px;
+  height: calc(100% - 50px);
+  padding: 10px;
+  /* text-align: center; */
 }
 
-div.startmenu.small>div.bottom {
-    height:50px;
-    padding:15px 20px;
+div.startmenu.small > div.bottom {
+  height: 50px;
+  padding: 15px 20px;
 }
 
-div.startmenu.small>div.bottom h1.username {
+div.startmenu.small > div.bottom h1.username {
   font-size: 16px;
 }

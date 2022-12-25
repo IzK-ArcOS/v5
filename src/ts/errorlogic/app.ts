@@ -1,4 +1,4 @@
-import { writable, Writable } from "svelte/store";
+import { get, writable, Writable } from "svelte/store";
 
 export const ErrorMessages: Writable<ErrorMessage[]> = writable<ErrorMessage[]>(
   []
@@ -12,6 +12,6 @@ export interface ErrorMessage {
 }
 
 export interface ErrorButton {
-    caption: string;
-    action: () => void;
+  caption: string;
+  action: () => void;
 }
