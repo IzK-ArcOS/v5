@@ -1,10 +1,178 @@
-div.window#settings div.content {
+div.window#SettingsApp div.titlebar {
+  padding: 10px !important;
+  height: 40px !important;
+}
+
+div.window#SettingsApp.lefttb div.titlebar div.controls {
+  left: 10px !important;
+}
+
+div.window#SettingsApp div.body {
+  height: calc(100% - 40px) !important;
+  margin-top: 40px !important;
+}
+
+div.window#SettingsApp div.content {
   position: absolute;
-  width: calc(100% - 200px);
+  width: calc(100% - 250px);
   height: 100%;
   padding: 15px;
   box-sizing: border-box;
-  background-color: var(--win-alt-bg);
+  background-color: var(--win-bg);
   top: 0px;
   right: 0px;
+  margin-left: 0px;
+  transition: all 0.3s, margin-left 0s;
+  overflow-y: scroll;
+}
+
+div.window#SettingsApp div.content div.inner {
+  white-space: nowrap;
+}
+
+div.window#SettingsApp div.content div.inner.transition {
+  opacity: 0;
+  margin-right: 30px;
+  margin-left: 30px;
+
+  min-width: inherit;
+}
+
+div.window#SettingsApp div.sidebar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 250px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  padding-top: 40px;
+  border-right: var(--win-border);
+}
+
+div.window#SettingsApp div.sidebar hr {
+  border: var(--button-glass-hover-bg) 1px solid;
+}
+
+div.window#SettingsApp div.sidebar button.page {
+  display: block;
+  text-align: left;
+  width: 100%;
+  background-color: transparent;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+div.window#SettingsApp div.sidebar button.page.selected,
+div.window#SettingsApp div.sidebar button.page:hover {
+  background-color: var(--button-glass-bg);
+}
+
+div.window#SettingsApp div.sidebar button.page:active {
+  background-color: var(--button-glass-active-bg);
+}
+
+div.window#SettingsApp div.sidebar button.page.selected {
+  font-weight: bold;
+}
+
+div.window#SettingsApp div.sidebar button.page img.icon {
+  height: 18px;
+  margin-right: 10px;
+}
+
+div.window#SettingsApp div.sidebar * {
+  vertical-align: middle;
+}
+
+div.window#SettingsApp section {
+  padding: 10px 0;
+}
+
+div.window#SettingsApp section.collapsible {
+  background-color: var(--button-active-bg);
+  padding: 10px;
+  padding-top: 0px;
+  border-radius: 5px;
+  transition: max-height 0.3s !important;
+  overflow: hidden;
+  max-height: 500px;
+  margin: 10px 0;
+}
+
+div.window#SettingsApp section.collapsible h3::after {
+  content: "expand_more";
+  font-family: "Material Icons";
+  position: absolute;
+  right: 10px;
+  font-size: 20px;
+  transition: transform 0.3s;
+}
+
+div.window#SettingsApp section.collapsible.collapsed h3::after {
+  transform: rotate(180deg);
+}
+
+div.window#SettingsApp section.collapsible h3 {
+  background-color: var(--button-bg);
+  width: calc(100% + 20px);
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-left: -10px;
+  font-weight: normal;
+  font-size: inherit;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 5px;
+  margin-top: 0;
+  position: relative;
+}
+
+div.window#SettingsApp section.collapsible * {
+  vertical-align: middle;
+}
+
+div.window#SettingsApp section.collapsible.collapsed {
+  max-height: 30px;
+}
+
+div.window#SettingsApp h3.header {
+  margin-bottom: 10px;
+}
+
+div.window#SettingsApp p.context {
+  margin-bottom: 10px;
+}
+
+.slide-in-left {
+  animation: slide-in-left forwards;
+  animation-duration: 0.3s;
+}
+
+.slide-out-right {
+  animation: slide-out-right forwards;
+  animation-duration: 0.3s;
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    margin-left: -20px;
+  }
+  to {
+    opacity: unset;
+    margin-left: initial;
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    opacity: 1;
+    margin-left: 0;
+  }
+  to {
+    opacity: 0;
+    margin-left: 20px;
+  }
 }

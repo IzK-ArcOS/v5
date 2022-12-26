@@ -26,11 +26,11 @@ div.window.max {
 
   max-width: unset !important;
   max-height: unset !important;
-  min-width: unset;
-  min-height: unset;
-  border-radius: 0;
+  min-width: unset !important;
+  min-height: unset !important;
+  border-radius: 0 !important;
   border: transparent 1px solid;
-  resize: none;
+  resize: none !important;
   transition: all 0.2s;
 }
 

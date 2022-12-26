@@ -9,7 +9,27 @@ div.taskbar {
   border: var(--win-border-light);
   box-sizing: border-box;
   transition: border 0.3s, width 0.3s, bottom 0.3s, left 0.3s,
-    border-radius 0.3s;
+    transform 0.3s border-radius 0.3s, background-color 0.3s, position 0.3s;
+}
+
+div.taskbar div.buttons {
+  display: inline-block;
+  height: 44px;
+  box-sizing: border-box;
+  transition: left 0.3s, position 0.3s, transform 0.3s;
+  position: absolute;
+  left: 40px;
+}
+
+div.taskbar.centered div.buttons {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
 }
 
 div.taskbar * {

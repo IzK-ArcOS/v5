@@ -30,8 +30,8 @@ export function assignDesktopListeners() {
   });
 
   AppManagerAppData.subscribe((v) => {
-    if (v) openWindow("apppoker");
-    else closeWindow("apppoker");
+    if (v) openWindow("AppPoker");
+    else closeWindow("AppPoker");
   });
 
   loggingOff.subscribe((v) => {

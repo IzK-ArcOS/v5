@@ -5,12 +5,13 @@ import logo from "../../../assets/apps/error.svg";
 
 export const ErrorCreator: App = {
   info: {
-    name: "Testing - Error Creator",
+    name: "Error Message Summoner",
     description: "Use for testing only -- error message creator",
     builtin: true,
     version: ArcOSVersion,
     author: "Izaak Kuipers",
     icon: logo,
+    hidden: true,
   },
   size: { w: 300, h: 267 },
   pos: { x: 30, y: 40 },

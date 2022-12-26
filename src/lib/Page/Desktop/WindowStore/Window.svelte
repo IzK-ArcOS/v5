@@ -10,6 +10,7 @@
   } from "../../../../ts/applogic/error";
   import { generateCSS } from "../../../../ts/applogic/css";
   import { focusedWindowId } from "../../../../ts/applogic/store";
+  import { UserData } from "../../../../ts/userlogic/interfaces";
 
   export let app: App = null;
 
@@ -55,6 +56,7 @@
   class:exttransition
   class:fullscreen={app.state.windowState.fll}
   class:glass={app.glass}
+  class:lefttb={$UserData.sh.window.lefttb}
   style={cssString}
   id={app.id}
   bind:this={window}

@@ -10,12 +10,6 @@
 
   import TaskbarButton from "./Taskbar/TaskbarButton.svelte";
 
-  let userdata: UserData;
-
-  UserData.subscribe((v) => {
-    userdata = v;
-  });
-
   let oa: App[] = [];
 
   OpenApps.subscribe(() => {
@@ -23,16 +17,19 @@
   });
 </script>
 
-{#if userdata}
+{#if $UserData}
   <div
     class="taskbar"
     style="z-index: {$maxZIndex + 3};"
-    class:docked={userdata.sh.taskbar.docked}
+    class:docked={$UserData.sh.taskbar.docked}
     class:fullscreen={$isFullscreenWindow}
+    class:centered={$UserData.sh.taskbar.centered}
   >
     <slot />
-    {#each oa as app}
-      <TaskbarButton {app} />
-    {/each}
+    <div class="buttons">
+      {#each oa as app}
+        <TaskbarButton {app} />
+      {/each}
+    </div>
   </div>
 {/if}

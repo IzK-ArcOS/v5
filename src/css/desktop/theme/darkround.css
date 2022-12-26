@@ -19,7 +19,7 @@
   --button-active-bg: #2a2a2a;
   --button-glass-bg: #fff1;
   --button-glass-hover-bg: #fff3;
-  --button-glass-active-bg: #0005;
+  --button-glass-active-bg: #0003;
 }
 
 :root .theme-darkround.noglass {

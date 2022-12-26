@@ -1,0 +1,32 @@
+/*///////scrollbars for days*/
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 5px;
+  cursor: default;
+  height: 5px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  cursor: default;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--button-glass-bg);
+  transition: background-color 0.25s;
+  cursor: default;
+  opacity: 0.5;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--button-glass-hover-bg);
+  cursor: default;
+}

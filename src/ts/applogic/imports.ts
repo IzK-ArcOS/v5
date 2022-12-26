@@ -2,6 +2,7 @@ import { AppManager } from "./apps/AppManager";
 import { AppPoker } from "./apps/AppPoke";
 import { ErrorCreator } from "./apps/ErrorCreator";
 import { Exit } from "./apps/Exit";
+import { ProfilePictureApp } from "./apps/ProfilePicture";
 import { SettingsApp } from "./apps/settings";
 import { TestApp } from "./apps/testApp";
 import { UITester } from "./apps/testApp2";
@@ -11,13 +12,14 @@ import { loadWindow } from "./load";
 import { updateStores } from "./store";
 
 export const DefaultApps: { [key: string]: App } = {
-  testapp: TestApp,
-  appman: AppManager,
-  apppoker: AppPoker,
-  uitester: UITester,
-  exit: Exit,
-  errcre: ErrorCreator,
-  settings: SettingsApp,
+  TestApp: TestApp,
+  AppMan: AppManager,
+  AppPoker: AppPoker,
+  UITroubleShooter: UITester,
+  Exit: Exit,
+  ErrCre: ErrorCreator,
+  SettingsApp: SettingsApp,
+  PfpSelector: ProfilePictureApp,
 };
 
 export async function importDefault(open = false) {

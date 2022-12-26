@@ -59,6 +59,7 @@ export const ProfilePictures: { [key: string]: string } = {
   pfp27,
   pfp28,
   pfp29,
+  def,
 };
 
 export function getProfilePicture(id: number) {

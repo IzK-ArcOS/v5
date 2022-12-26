@@ -1,0 +1,34 @@
+div.window#SettingsApp div.apps {
+  margin-top: 10px;
+}
+
+div.window#SettingsApp div.apps button.appbutton.hidden {
+  opacity: 0.5;
+}
+
+div.window#SettingsApp div.apps button.appbutton {
+  width: 100%;
+  display: block;
+  text-align: left;
+  background-color: transparent;
+  padding: 5px 0px;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+div.window#SettingsApp div.apps button.appbutton * {
+  vertical-align: middle;
+}
+
+div.window#SettingsApp div.apps button.appbutton img.icon {
+  height: 32px;
+  margin-right: 15px;
+}
+
+div.window#SettingsApp div.apps button.appbutton div.info p.title {
+  font-weight: bold;
+}
+
+div.window#SettingsApp div.apps button.appbutton div.info p {
+  margin: 0;
+}

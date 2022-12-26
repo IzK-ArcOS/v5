@@ -15,6 +15,7 @@ div.window.headless div.titlebar {
 
 div.window.headless div.body {
   height: calc(100%);
+  margin-top: 0px;
 }
 
 div.window.fullscreen {

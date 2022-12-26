@@ -42,8 +42,6 @@
 
     const element = getWindowElement(appData);
 
-    console.log(appData, element);
-
     if (!element) return;
 
     element.style.zIndex = `${$maxZIndex}`;

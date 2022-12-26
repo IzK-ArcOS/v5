@@ -1,3 +1,5 @@
+@import url("./elements/checkbox.css");
+
 div.window div.body button {
   border: none;
   border-radius: var(--button-border-rad, 4px);

@@ -4,12 +4,13 @@ import logo from "../../../assets/apps/testapp.svg";
 
 export const TestApp: App = {
   info: {
-    name: "TestApp",
+    name: "Preferences Troubleshooter",
     description: "First test application for ArcOS",
     builtin: true,
     version: "0.0.0",
     author: "Izaak Kuipers",
     icon: logo,
+    hidden: true,
   },
   size: { w: 640, h: 480 },
   pos: { x: 30, y: 40 },

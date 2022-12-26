@@ -4,12 +4,13 @@ import logo from "../../../assets/apps/testapp.svg";
 
 export const UITester: App = {
   info: {
-    name: "UI Tester",
+    name: "User Interface Troubleshooter",
     description: "Test the UI",
     builtin: true,
     version: "1.0.0",
     author: "Izaak Kuipers",
     icon: logo,
+    hidden: true,
   },
   size: { w: 640, h: 480 },
   pos: { x: 30, y: 40 },

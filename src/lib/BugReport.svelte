@@ -8,7 +8,6 @@
   let data: BugReport;
 
   function buttonEvent() {
-    console.log("trigger on bugrep action button");
     data.button.action();
 
     BugReportData.set([false, null]);

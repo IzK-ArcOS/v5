@@ -6,6 +6,7 @@
   import "../../css/boot.css";
   import { Log, LogLevel } from "../../ts/console";
   import { getUsers } from "../../ts/userlogic/main";
+  import { userDataKey } from "../../ts/env/main";
 
   let status = "";
   let bootClass = "";
@@ -13,6 +14,8 @@
 
   onMount(() => {
     status = "&nbsp;";
+
+    if (!localStorage.getItem(userDataKey)) status = "Preparing ArcOS";
 
     setTimeout(fadeIn, 500);
     setTimeout(fadeOut, 4000);

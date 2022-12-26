@@ -10,6 +10,7 @@ export const Exit: App = {
     version: "1.0.0",
     author: "Izaak Kuipers",
     icon: logo,
+    hidden: true,
   },
   size: { w: 280, h: 50 },
   pos: { x: 30, y: 40 },

@@ -3,14 +3,15 @@ import { writable } from "svelte/store";
 export interface UserData {
   sh: {
     taskbar: {
-      centered: boolean;
-      labels: boolean;
+      centered: boolean; //done
+      labels: boolean; //done
       pos: "top" | "bottom";
       docked: boolean; //done
     };
 
     window: {
-      bigtb: boolean;
+      bigtb: boolean; //done
+      lefttb: boolean; //done
     };
 
     desktop: {
@@ -23,8 +24,7 @@ export interface UserData {
     };
 
     anim: boolean; //done
-    titleButtonsLeft: boolean;
-    noGlass: boolean;
+    noGlass: boolean; //done
   };
 
   acc: {
@@ -47,6 +47,7 @@ export const defaultUserData: UserData = {
       docked: true,
     },
     window: {
+      lefttb: false,
       bigtb: true,
     },
     desktop: {
@@ -57,7 +58,7 @@ export const defaultUserData: UserData = {
       small: false,
     },
     anim: true,
-    titleButtonsLeft: false,
+
     noGlass: false,
   },
   acc: {

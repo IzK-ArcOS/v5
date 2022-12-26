@@ -1,26 +1,28 @@
 <script lang="ts">
   import { openWindow } from "../../../../ts/applogic/events";
   import { startOpened } from "../../../../ts/desktop/main";
-  import { UserName } from "../../../../ts/userlogic/interfaces";
-  import { getUserdata } from "../../../../ts/userlogic/main";
+  import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
 
   let pfp: string;
 
-  UserName.subscribe((v) => {
-    const data = getUserdata(v);
-
-    pfp = getProfilePicture(parseInt(data.acc.profilePicture as string));
-  });
-
   function exit() {
-    openWindow("exit");
+    openWindow("Exit");
     startOpened.set(false);
   }
+
+  function openPfp() {
+    openWindow("PfpSelector");
+    startOpened.set(false);
+  }
+
+  UserData.subscribe(() => {
+    pfp = getProfilePicture(parseInt($UserData.acc.profilePicture as string));
+  });
 </script>
 
 <div class="bottom">
-  <h1 class="username">
+  <h1 class="username" on:click={openPfp}>
     <img class="pfp" alt={$UserName} src={pfp} />{$UserName}
   </h1>
   <div class="options">
