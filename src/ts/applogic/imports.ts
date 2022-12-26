@@ -2,6 +2,7 @@ import { AppManager } from "./apps/AppManager";
 import { AppPoker } from "./apps/AppPoke";
 import { ErrorCreator } from "./apps/ErrorCreator";
 import { Exit } from "./apps/Exit";
+import { SettingsApp } from "./apps/settings";
 import { TestApp } from "./apps/testApp";
 import { UITester } from "./apps/testApp2";
 import { openWindow } from "./events";
@@ -16,6 +17,7 @@ export const DefaultApps: { [key: string]: App } = {
   uitester: UITester,
   exit: Exit,
   errcre: ErrorCreator,
+  settings: SettingsApp,
 };
 
 export async function importDefault(open = false) {

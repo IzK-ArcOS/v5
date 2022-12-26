@@ -1,0 +1,10 @@
+div.window#settings div.content {
+  position: absolute;
+  width: calc(100% - 200px);
+  height: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: var(--win-alt-bg);
+  top: 0px;
+  right: 0px;
+}

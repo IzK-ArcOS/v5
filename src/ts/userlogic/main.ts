@@ -38,12 +38,32 @@ export function createUser(name: string) {
   });
 }
 
+export function deleteUser(name: string) {
+  const users = getUsers();
+
+  if (!users[name]) return false;
+
+  delete users[name];
+
+  return setUsers(users);
+}
+
+export function resetUser(name: string) {
+  const users = getUsers();
+
+  if (!users[name]) return false;
+
+  users[name] = defaultUserData;
+
+  return setUsers(users);
+}
+
 export function getUserdata(name: string) {
   const users = getUsers();
 
   if (users[name]) return users[name];
 
-  createUser(name);
+  //createUser(name);
 
   return defaultUserData;
 }

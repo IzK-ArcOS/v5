@@ -2,41 +2,42 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); /* Material Icons */
 
 .center-absolute {
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    -o-transform:translate(-50%,-50%);
-    -ms-transform:translate(-50%,-50%);
-    -moz-transform:translate(-50%,-50%);
-    -webkit-transform:translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
 }
 
 .centertext {
-    text-align: center;
+  text-align: center;
 }
 
 .fullscreen {
-    position:fixed;
-    top:0px;
-    left:0px;
-    width:100%;
-    height:100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
 }
 
 * {
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
-    outline: none !important
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  outline: none !important;
+  transition: all 0.25s;
 }
 
 .material-icons {
-    vertical-align: middle;
-    margin:0 5px;
-    font-size: calc(1.4em);
+  vertical-align: middle;
+  margin: 0 5px;
+  font-size: calc(1.4em);
 }
 
 div.app {
-    background-color: #000;
+  background-color: #000;
 }

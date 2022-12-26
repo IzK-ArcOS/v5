@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import { applyLoginState, loginUsername } from "../../../ts/login/main";
   import type { UserData } from "../../../ts/userlogic/interfaces";
-  import pfp from "../../../assets/pfp/null.png";
+  import { getProfilePicture } from "../../../ts/userlogic/pfp";
+
+  let pfp = "";
 
   export let data: UserData;
   export let name: string;
@@ -10,6 +13,10 @@
     loginUsername.set(name);
     applyLoginState("todesktop");
   }
+
+  onMount(() => {
+    pfp = getProfilePicture(parseInt(data.acc.profilePicture as string));
+  });
 </script>
 
 {#if data.acc.enabled}

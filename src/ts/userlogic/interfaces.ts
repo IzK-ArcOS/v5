@@ -63,7 +63,7 @@ export const defaultUserData: UserData = {
   acc: {
     enabled: true,
     admin: false,
-    profilePicture: null,
+    profilePicture: 3,
   },
   volume: {
     level: 100,

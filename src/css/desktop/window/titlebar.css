@@ -12,6 +12,8 @@ div.window div.titlebar {
   padding: 5px;
   opacity: 0.6;
   display: flex;
+  position: absolute;
+  z-index: 100;
 }
 
 div.window div.titlebar * {
@@ -22,11 +24,16 @@ div.window.focused div.titlebar {
   opacity: 1;
 }
 
+div.window.glass:not(.focused) {
+  background: var(--win-bg);
+}
+
 div.bigtitlebars div.window div.titlebar {
   padding: 10px;
   height: 40px;
 }
 
 div.bigtitlebars div.window:not(.headless) div.body {
-  height: calc(100% - 39px);
+  height: calc(100% - 40px);
+  margin-top: 40px;
 }
