@@ -5,7 +5,7 @@
 
 <div class="left">
   {#each $WindowStore as app}
-    {#if !app.info.hidden && !app.disabled}
+    {#if !app.disabled && !app.info.hidden}
       <AppListItem {app} />
     {/if}
   {/each}

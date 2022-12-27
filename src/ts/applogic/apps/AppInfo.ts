@@ -27,9 +27,9 @@ export const AppInfo: App = {
   glass: false,
   events: {
     close() {
-      AppInfoData.set(null);
+      AppInfoId.set(null);
     },
   },
 };
 
-export const AppInfoData = writable<App>(null);
+export const AppInfoId = writable<string>(null);

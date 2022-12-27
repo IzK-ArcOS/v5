@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { AppInfoData } from "../../../../../ts/applogic/apps/AppInfo";
+  import { AppInfoId } from "../../../../../ts/applogic/apps/AppInfo";
   import { openWindow } from "../../../../../ts/applogic/events";
   import type { App } from "../../../../../ts/applogic/interface";
 
   export let app: App;
 
   function manage() {
-    AppInfoData.set(app);
+    AppInfoId.set(app.id);
     openWindow("AppInfo");
   }
 </script>
