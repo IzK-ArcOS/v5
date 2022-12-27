@@ -1,15 +1,15 @@
-div.window#AppPoker div.manager button {
+.window#AppPoker div.manager button {
   text-align: left;
   width: calc(100% - 10px);
   margin: 5px auto;
 }
 
-div.window#AppPoker div.manager button.off {
+.window#AppPoker div.manager button.off {
   opacity: 0.5;
   font-style: italic;
 }
 
-div.window#AppPoker div.manager {
+.window#AppPoker div.manager {
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: repeat(9, auto);

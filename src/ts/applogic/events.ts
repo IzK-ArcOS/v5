@@ -7,22 +7,32 @@ import {
   focusedWindowId,
   getWindow,
   maxZIndex,
-  OpenApps,
   updateStores,
+  WindowStore,
 } from "./store";
 
 export function openWindow(id: string) {
+  const window = getWindow(id);
+
   if (!isLoaded(id) || isOpened(id)) {
-    return false;
+    const el = getWindowElement(window);
+
+    if (!el) return;
+
+    maxZIndex.set(get(maxZIndex) + 1);
+
+    el.style.zIndex = `${get(maxZIndex)}`;
+
+    return;
   }
 
-  const oa = get(OpenApps);
+  const ws = get(WindowStore);
 
-  const window = { ...getWindow(id), id };
+  for (let i = 0; i < ws.length; i++) {
+    if (ws[i].id == id) ws[i].opened = true;
+  }
 
-  oa.push(window);
-
-  OpenApps.set(oa);
+  WindowStore.set(ws);
 
   setTimeout(() => {
     const el = getWindowElement(window);
@@ -50,17 +60,17 @@ export function closeWindow(id: string) {
     return false;
   }
 
+  const ws = get(WindowStore);
   const window = getWindow(id);
-  const oa = get(OpenApps);
 
-  for (let i = 0; i < oa.length; i++) {
-    if (oa[i] && oa[i].id == id) {
-      oa[i] = null;
+  for (let i = 0; i < ws.length; i++) {
+    if (ws[i] && ws[i].id == id) {
+      ws[i].opened = false;
       break;
     }
   }
 
-  OpenApps.set(oa);
+  WindowStore.set(ws);
 
   if (window.events && window.events.close) window.events.close(window);
 
@@ -114,5 +124,3 @@ export function headlessToggle(app: App) {
 
   updateStores();
 }
-
-//OpenApps.subscribe(updateStores);

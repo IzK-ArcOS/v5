@@ -1,21 +1,18 @@
 <script lang="ts">
-  import { get } from "svelte/store";
   import type { App } from "../../../ts/applogic/interface";
 
   import {
     focusedWindowId,
     getWindow,
     maxZIndex,
-    OpenApps,
     WindowStore,
   } from "../../../ts/applogic/store";
-  import { UserData } from "../../../ts/userlogic/interfaces";
   import { getWindowElement } from "../../../ts/window/main";
   import Window from "./WindowStore/Window.svelte";
 
   let oa: App[] = [];
 
-  OpenApps.subscribe((v) => {
+  WindowStore.subscribe((v) => {
     oa = [];
 
     if (v) oa = v;

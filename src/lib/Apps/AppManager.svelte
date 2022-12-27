@@ -1,9 +1,8 @@
 <script lang="ts">
   import "../../css/desktop/apps/AppManager.css";
   import type { App } from "../../ts/applogic/interface";
-
   import { closeWindow } from "../../ts/applogic/events";
-  import { getOpenedStore, OpenApps } from "../../ts/applogic/store";
+  import { getOpenedStore, WindowStore } from "../../ts/applogic/store";
   import { AppManagerAppData } from "../../ts/applogic/apps/AppManager/Manager";
 
   let oa: App[] = [];
@@ -12,7 +11,7 @@
     AppManagerAppData.set(app);
   }
 
-  OpenApps.subscribe(() => {
+  WindowStore.subscribe(() => {
     oa = getOpenedStore();
   });
 </script>

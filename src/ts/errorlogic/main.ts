@@ -1,13 +1,18 @@
 import { get } from "svelte/store";
 import type { App } from "../applogic/interface";
 import { ArcOSVersion } from "../env/main";
-import { ErrorButton, ErrorMessage, ErrorMessages } from "./app";
+import {
+  ErrorButton,
+  ErrorMessage,
+  ErrorMessages,
+  ErrorWindowStore,
+} from "./app";
 import icon from "../../assets/apps/errordialog.svg";
-import { Log, log, LogLevel } from "../console";
+import { Log, LogLevel } from "../console";
 import { maxZIndex } from "../applogic/store";
 
 export function getErrorElement(id: string): HTMLDivElement {
-  const el = document.querySelector(`div.window#${id}`);
+  const el = document.querySelector(`.window#${id}`);
 
   return el as HTMLDivElement;
 }
@@ -22,6 +27,7 @@ export function errorMessage(
     message,
     opened: false,
     buttons,
+    id: Math.floor(Math.random() * 1e10),
   };
 
   const em = get(ErrorMessages);
@@ -29,9 +35,31 @@ export function errorMessage(
   em.push(error);
 
   ErrorMessages.set(em);
+
+  createErrorAppData(error);
 }
 
-export function createErrorAppData(data: ErrorMessage): App {
+export function closeError(id: number) {
+  const ews = get(ErrorWindowStore);
+
+  for (let i = 0; i < ews.length; i++) {
+    if (ews[i].id == `error_${id}`) ews[i].opened = false;
+  }
+
+  ErrorWindowStore.set(ews);
+}
+
+export function openError(id: number) {
+  const ews = get(ErrorWindowStore);
+
+  for (let i = 0; i < ews.length; i++) {
+    if (ews[i].id == `error_${id}`) ews[i].opened = true;
+  }
+
+  ErrorWindowStore.set(ews);
+}
+
+export function createErrorAppData(data: ErrorMessage) {
   const error: App = {
     info: {
       name: data.title,
@@ -53,13 +81,20 @@ export function createErrorAppData(data: ErrorMessage): App {
     },
     content: null,
     glass: false,
-    id: `error_${Math.floor(Math.random() * 1e9)}`,
+    id: `error_${data.id}`,
+    opened: false,
   };
 
+  const ews = get(ErrorWindowStore);
+
+  ews.push(error);
+
+  ErrorWindowStore.set(ews);
+
   setTimeout(() => {
-    const el = document.querySelector(
-      `div.window#${error.id}`
-    ) as HTMLDivElement;
+    openError(data.id);
+
+    const el = document.querySelector(`.window#${error.id}`) as HTMLDivElement;
 
     if (!el)
       return Log({
@@ -72,6 +107,4 @@ export function createErrorAppData(data: ErrorMessage): App {
 
     el.style.zIndex = `${get(maxZIndex)}`;
   }, 5);
-
-  return error;
 }

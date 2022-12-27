@@ -1,15 +1,12 @@
 <script lang="ts">
-  import { get } from "svelte/store";
-
-  import {
+  import type {
     ErrorButton,
     ErrorMessage,
-    ErrorMessages,
   } from "../../../../../ts/errorlogic/app";
+  import { closeError } from "../../../../../ts/errorlogic/main";
 
   export let button: ErrorButton;
-  export let i: number;
-  export let opened: boolean = false;
+  export let msg: ErrorMessage;
 
   function act() {
     button.action();
@@ -18,15 +15,7 @@
   }
 
   function close() {
-    opened = false;
-
-    setTimeout(() => {
-      const errors = get(ErrorMessages);
-
-      errors[i] = null;
-
-      ErrorMessages.set(errors);
-    }, 250);
+    closeError(msg.id);
   }
 </script>
 

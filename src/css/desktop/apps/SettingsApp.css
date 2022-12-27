@@ -1,18 +1,18 @@
-div.window#SettingsApp div.titlebar {
+.window#SettingsApp div.titlebar {
   padding: 10px !important;
   height: 40px !important;
 }
 
-div.window#SettingsApp.lefttb div.titlebar div.controls {
+.window#SettingsApp.lefttb div.titlebar div.controls {
   left: 10px !important;
 }
 
-div.window#SettingsApp div.body {
+.window#SettingsApp div.body {
   height: calc(100% - 40px) !important;
   margin-top: 40px !important;
 }
 
-div.window#SettingsApp div.content {
+.window#SettingsApp div.content {
   position: absolute;
   width: calc(100% - 250px);
   height: 100%;
@@ -26,11 +26,11 @@ div.window#SettingsApp div.content {
   overflow-y: scroll;
 }
 
-div.window#SettingsApp div.content div.inner {
+.window#SettingsApp div.content div.inner {
   white-space: nowrap;
 }
 
-div.window#SettingsApp div.content div.inner.transition {
+.window#SettingsApp div.content div.inner.transition {
   opacity: 0;
   margin-right: 30px;
   margin-left: 30px;
@@ -38,7 +38,7 @@ div.window#SettingsApp div.content div.inner.transition {
   min-width: inherit;
 }
 
-div.window#SettingsApp div.sidebar {
+.window#SettingsApp div.sidebar {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -50,11 +50,11 @@ div.window#SettingsApp div.sidebar {
   border-right: var(--win-border);
 }
 
-div.window#SettingsApp div.sidebar hr {
+.window#SettingsApp div.sidebar hr {
   border: var(--button-glass-hover-bg) 1px solid;
 }
 
-div.window#SettingsApp div.sidebar button.page {
+.window#SettingsApp div.sidebar button.page {
   display: block;
   text-align: left;
   width: 100%;
@@ -63,33 +63,33 @@ div.window#SettingsApp div.sidebar button.page {
   margin-bottom: 5px;
 }
 
-div.window#SettingsApp div.sidebar button.page.selected,
-div.window#SettingsApp div.sidebar button.page:hover {
+.window#SettingsApp div.sidebar button.page.selected,
+.window#SettingsApp div.sidebar button.page:hover {
   background-color: var(--button-glass-bg);
 }
 
-div.window#SettingsApp div.sidebar button.page:active {
+.window#SettingsApp div.sidebar button.page:active {
   background-color: var(--button-glass-active-bg);
 }
 
-div.window#SettingsApp div.sidebar button.page.selected {
+.window#SettingsApp div.sidebar button.page.selected {
   font-weight: bold;
 }
 
-div.window#SettingsApp div.sidebar button.page img.icon {
+.window#SettingsApp div.sidebar button.page img.icon {
   height: 18px;
   margin-right: 10px;
 }
 
-div.window#SettingsApp div.sidebar * {
+.window#SettingsApp div.sidebar * {
   vertical-align: middle;
 }
 
-div.window#SettingsApp section {
+.window#SettingsApp section {
   padding: 10px 0;
 }
 
-div.window#SettingsApp section.collapsible {
+.window#SettingsApp section.collapsible {
   background-color: var(--button-active-bg);
   padding: 10px;
   padding-top: 0px;
@@ -100,7 +100,7 @@ div.window#SettingsApp section.collapsible {
   margin: 10px 0;
 }
 
-div.window#SettingsApp section.collapsible h3::after {
+.window#SettingsApp section.collapsible h3::after {
   content: "expand_more";
   font-family: "Material Icons";
   position: absolute;
@@ -109,11 +109,11 @@ div.window#SettingsApp section.collapsible h3::after {
   transition: transform 0.3s;
 }
 
-div.window#SettingsApp section.collapsible.collapsed h3::after {
+.window#SettingsApp section.collapsible.collapsed h3::after {
   transform: rotate(180deg);
 }
 
-div.window#SettingsApp section.collapsible h3 {
+.window#SettingsApp section.collapsible h3 {
   background-color: var(--button-bg);
   width: calc(100% + 20px);
   padding: 5px;
@@ -129,19 +129,19 @@ div.window#SettingsApp section.collapsible h3 {
   position: relative;
 }
 
-div.window#SettingsApp section.collapsible * {
+.window#SettingsApp section.collapsible * {
   vertical-align: middle;
 }
 
-div.window#SettingsApp section.collapsible.collapsed {
+.window#SettingsApp section.collapsible.collapsed {
   max-height: 30px;
 }
 
-div.window#SettingsApp h3.header {
+.window#SettingsApp h3.header {
   margin-bottom: 10px;
 }
 
-div.window#SettingsApp p.context {
+.window#SettingsApp p.context {
   margin-bottom: 10px;
 }
 

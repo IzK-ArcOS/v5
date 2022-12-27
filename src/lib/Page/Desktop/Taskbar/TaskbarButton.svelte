@@ -3,8 +3,8 @@
   import {
     focusedWindowId,
     maxZIndex,
-    OpenApps,
     updateStores,
+    WindowStore,
   } from "../../../../ts/applogic/store";
   import type { App } from "../../../../ts/applogic/interface";
   import { UserData } from "../../../../ts/userlogic/interfaces";
@@ -19,7 +19,7 @@
     showLabel = v.sh.taskbar.labels;
   });
 
-  OpenApps.subscribe(() => {
+  WindowStore.subscribe(() => {
     minimized = isMinimized(app.id);
   });
 

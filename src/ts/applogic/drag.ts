@@ -6,6 +6,8 @@ export function dragWindow(
   window: HTMLDivElement,
   titlebar: HTMLDivElement
 ) {
+  if (!app || !window || !titlebar) return console.debug(app, window, titlebar);
+
   window.addEventListener("mousedown", (e: MouseEvent) => {
     focusedWindowId.set(app.id);
 
@@ -34,6 +36,4 @@ export function dragWindow(
       };
     }
   });
-
-  updateStores();
 }

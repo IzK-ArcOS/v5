@@ -5,14 +5,14 @@
     getOpenedStore,
     isFullscreenWindow,
     maxZIndex,
-    OpenApps,
+    WindowStore,
   } from "../../../ts/applogic/store";
 
   import TaskbarButton from "./Taskbar/TaskbarButton.svelte";
 
   let oa: App[] = [];
 
-  OpenApps.subscribe(() => {
+  WindowStore.subscribe(() => {
     oa = getOpenedStore();
   });
 </script>

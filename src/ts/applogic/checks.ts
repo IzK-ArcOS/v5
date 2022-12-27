@@ -1,5 +1,5 @@
 import { get } from "svelte/store";
-import { OpenApps, WindowStore } from "./store";
+import { getWindow, WindowStore } from "./store";
 
 export function isLoaded(id: string): boolean {
   const ws = get(WindowStore);
@@ -12,13 +12,11 @@ export function isLoaded(id: string): boolean {
 }
 
 export function isOpened(id: string): boolean {
-  const oa = get(OpenApps);
+  const window = getWindow(id);
 
-  for (let i = 0; i < oa.length; i++) {
-    if (oa[i] && oa[i].id == id) return true;
-  }
+  if (!window) return false;
 
-  return false;
+  return window.opened;
 }
 
 export function isMinimized(id: string): boolean {

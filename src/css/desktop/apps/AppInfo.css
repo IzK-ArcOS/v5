@@ -1,37 +1,37 @@
-div.window#AppInfo div.name {
+.window#AppInfo div.name {
   display: flex;
 }
 
-div.window#AppInfo div.name img {
+.window#AppInfo div.name img {
   margin: 0 10px;
   height: 32px;
 }
 
-div.window#AppInfo div.actions {
+.window#AppInfo div.actions {
   margin-left: auto;
   padding: 8px 5px;
 }
 
-div.window#AppInfo div.name p.appname {
+.window#AppInfo div.name p.appname {
   font-weight: bold;
 }
 
-div.window#AppInfo div.name p {
+.window#AppInfo div.name p {
   margin: 0;
 }
 
-div.window#AppInfo div.properties div.property {
+.window#AppInfo div.properties div.property {
   width: 100%;
   display: flex;
   padding: 10px;
   box-sizing: border-box;
 }
 
-div.window#AppInfo div.properties div.property div.value {
+.window#AppInfo div.properties div.property div.value {
   margin-left: auto;
 }
 
-div.window#AppInfo div.properties div.property div.value div.controls button {
+.window#AppInfo div.properties div.property div.value div.controls button {
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -43,7 +43,7 @@ div.window#AppInfo div.properties div.property div.value div.controls button {
   transition: opacity 0.2s;
 }
 
-div.window#AppInfo
+.window#AppInfo
   div.properties
   div.property
   div.value
@@ -52,7 +52,7 @@ div.window#AppInfo
   opacity: 0.5;
 }
 
-div.window#AppInfo
+.window#AppInfo
   div.properties
   div.property
   div.value
@@ -61,7 +61,7 @@ div.window#AppInfo
   opacity: 0.2;
 }
 
-div.window#AppInfo hr {
+.window#AppInfo hr {
   margin: 5px;
   border: var(--win-border);
 }

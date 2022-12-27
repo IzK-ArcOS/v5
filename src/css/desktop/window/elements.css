@@ -1,6 +1,6 @@
 @import url("./elements/checkbox.css");
 
-div.window div.body button {
+.window div.body button {
   border: none;
   border-radius: var(--button-border-rad, 4px);
   padding: 5px 15px;
@@ -11,32 +11,32 @@ div.window div.body button {
   margin: 2px;
 }
 
-div.window.glass div.body button {
+.window.glass div.body button {
   background-color: var(--button-glass-bg, #fff1);
 }
 
-div.window.glass div.body button:hover {
+.window.glass div.body button:hover {
   background-color: var(--button-glass-hover-bg, #fff3);
 }
 
-div.window.glass div.body button:active {
+.window.glass div.body button:active {
   background-color: var(--button-glass-active-bg, #0005);
 }
 
-div.window div.body button:hover {
+.window div.body button:hover {
   background-color: var(--button-hover-bg, #555555);
 }
 
-div.window div.body button:active {
+.window div.body button:active {
   background-color: var(--button-active-bg, #2a2a2a);
 }
 
-div.window div.body button:disabled {
+.window div.body button:disabled {
   opacity: 0.3;
 }
 
-div.window div.body input,
-div.window div.body select {
+.window div.body input,
+.window div.body select {
   background-color: var(--button-active-bg, #2a2a2a);
   border: var(--win-border);
   color: var(--fg);
@@ -44,27 +44,27 @@ div.window div.body select {
   padding: 3.5px;
 }
 
-div.window.glass div.body input,
-div.window.glass div.body select {
+.window.glass div.body input,
+.window.glass div.body select {
   background-color: var(--button-glass-active-bg, #0005);
 }
 
-div.window div.body h1,
-div.window div.body h2,
-div.window div.body h3,
-div.window div.body h4,
-div.window div.body h5 {
+.window div.body h1,
+.window div.body h2,
+.window div.body h3,
+.window div.body h4,
+.window div.body h5 {
   margin: 5px 0;
 }
 
-div.window div.body p {
+.window div.body p {
   margin: 3px 0;
   font-size: inherit;
 }
 
-div.window button.fullwidth,
-div.window select.fullwidth,
-div.window input.fullwidth {
+.window button.fullwidth,
+.window select.fullwidth,
+.window input.fullwidth {
   width: 100%;
   text-align: left;
   box-sizing: border-box;

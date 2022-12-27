@@ -1,4 +1,4 @@
-div.window {
+.window {
   position: absolute;
   top: 50px;
   left: 50px;
@@ -14,12 +14,12 @@ div.window {
   font-size: 13px;
 }
 
-div.window.glass {
+.window.glass {
   background-color: var(--glass-bg, #353535a2);
   backdrop-filter: blur(var(--glass-blur, 10px));
 }
 
-div.window.max {
+.window.max {
   top: 0px !important;
   left: 0px !important;
   width: 100% !important;
@@ -34,33 +34,33 @@ div.window.max {
   transition: all 0.2s;
 }
 
-div.window.visible {
+.window.visible {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
 
-div.window.nobg {
+.window.nobg {
   background-color: transparent;
 }
 
-div.window.resizable {
+.window.resizable {
   resize: both;
 }
 
-div.window.min {
+.window.min {
   opacity: 0 !important;
   margin-top: 20px;
 }
 
-div.tbdocked div.window.max {
+div.tbdocked .window.max {
   height: calc(100% - 45px) !important;
 }
 
-div.desktop:not(.tbdocked) div.window.max {
+div.desktop:not(.tbdocked) .window.max {
   height: calc(100% - 65px) !important;
 }
 
-div.window.exttransition {
+.window.exttransition {
   transition: all 0.2s;
 }

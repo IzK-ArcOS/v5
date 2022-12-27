@@ -2,7 +2,6 @@ import { get, writable, Writable } from "svelte/store";
 import type { App } from "./interface";
 
 export const WindowStore: Writable<App[]> = writable<App[]>([]);
-export const OpenApps: Writable<App[]> = writable<App[]>([]);
 export const isFullscreenWindow: Writable<boolean> = writable<boolean>(false);
 export const maxZIndex = writable<number>(1e9);
 export const focusedWindowId: Writable<string> = writable<string>(null);
@@ -26,11 +25,14 @@ export function getStore() {
 }
 
 export function getOpenedStore() {
-  let oa = get(OpenApps);
+  const ws = get(WindowStore);
+  const x = [];
 
-  oa = oa.filter((w) => w != null);
+  for (let i = 0; i < ws.length; i++) {
+    if (ws[i].opened) x.push(ws[i]);
+  }
 
-  return oa;
+  return x;
 }
 
 export function updateStores() {
@@ -54,6 +56,5 @@ export function updateStores() {
     }
   }
 
-  OpenApps.set(oa);
   WindowStore.set(ws);
 }

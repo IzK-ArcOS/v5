@@ -1,8 +1,8 @@
-div.window div.titlebar div.controls {
+.window div.titlebar div.controls {
   margin-left: auto;
 }
 
-div.window div.titlebar div.controls button {
+.window div.titlebar div.controls button {
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -14,10 +14,10 @@ div.window div.titlebar div.controls button {
   transition: opacity 0.2s;
 }
 
-div.window div.titlebar div.controls button:hover {
+.window div.titlebar div.controls button:hover {
   opacity: 0.5;
 }
 
-div.window div.titlebar div.controls button:disabled {
+.window div.titlebar div.controls button:disabled {
   opacity: 0.2;
 }

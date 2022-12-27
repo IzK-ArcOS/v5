@@ -2,8 +2,8 @@
   import { updateStores } from "../../../../../ts/applogic/store";
   import type { App } from "../../../../../ts/applogic/interface";
   import { closeWindow } from "../../../../../ts/applogic/events";
+  import { closeError } from "../../../../../ts/errorlogic/main";
 
-  export let opened = false;
   export let exttransition = false;
   export let titlebar: HTMLDivElement;
   export let app: App;
@@ -30,11 +30,9 @@
   }
 
   function cls() {
-    opened = false;
-
-    setTimeout(() => {
-      closeWindow(app.id);
-    }, 250);
+    if (app.id.startsWith("error_"))
+      closeError(parseInt(app.id.replace("error_", "")));
+    else closeWindow(app.id);
   }
 </script>
 

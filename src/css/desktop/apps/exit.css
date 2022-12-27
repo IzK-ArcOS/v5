@@ -1,39 +1,39 @@
-div.window#Exit {
+.window#Exit {
   background-color: #000c;
   backdrop-filter: unset;
 }
 
-div.window#Exit button.option {
+.window#Exit button.option {
   text-align: center;
   padding: 20px 20px;
   background-color: transparent;
 }
 
-div.window#Exit button.option:hover {
+.window#Exit button.option:hover {
   opacity: 0.7;
 }
 
-div.window#Exit button.option:active {
+.window#Exit button.option:active {
   opacity: 0.4;
 }
 
-div.window#Exit button.option span.material-icons {
+.window#Exit button.option span.material-icons {
   display: block;
   font-size: 36px;
 }
 
-div.window#Exit button.option p.caption {
+.window#Exit button.option p.caption {
   margin: 0;
   margin-top: 15px;
 }
 
-div.window#Exit button.cancel {
+.window#Exit button.cancel {
   display: block;
   margin: 0 auto;
   margin-top: 30px;
 }
 
-div.window#Exit h3.header {
+.window#Exit h3.header {
   font-size: 1.5em;
   margin-bottom: 20px;
   width: 100%;

@@ -9,7 +9,7 @@
     minSizeExceedsLiteral,
   } from "../../../../ts/applogic/error";
   import { generateCSS } from "../../../../ts/applogic/css";
-  import { focusedWindowId } from "../../../../ts/applogic/store";
+  import { focusedWindowId, WindowStore } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
 
   export let app: App = null;
@@ -20,13 +20,8 @@
   let titlebar: HTMLDivElement;
 
   export let exttransition = false;
-  export let opened = false;
 
   onMount(() => {
-    setTimeout(() => {
-      opened = true;
-    }, 250);
-
     focusedWindowId.set(app.id);
 
     update();
@@ -45,27 +40,32 @@
 
     dragWindow(app, window, titlebar);
   }
+
+  WindowStore.subscribe(() => {
+    if (app.opened) dragWindow(app, window, titlebar);
+  });
 </script>
 
-<div
+<window
   class="window"
   class:focused={app.id == $focusedWindowId}
   class:headless={app.state.headless || app.state.windowState.fll}
   class:resizable={app.state.resizable}
   class:min={app.state.windowState.min}
   class:max={app.state.windowState.max}
-  class:visible={opened}
+  class:visible={app.opened}
   class:exttransition
   class:fullscreen={app.state.windowState.fll}
   class:glass={app.glass}
   class:lefttb={$UserData.sh.window.lefttb}
   style={cssString}
   id={app.id}
+  data-identifier={Math.floor(Math.random() * 1e10)}
   bind:this={window}
   on:mousedown={() => ($focusedWindowId = app.id)}
 >
-  <Titlebar {app} bind:exttransition bind:opened bind:titlebar />
+  <Titlebar {app} bind:exttransition bind:titlebar />
   <Content {app}>
     <slot />
   </Content>
-</div>
+</window>

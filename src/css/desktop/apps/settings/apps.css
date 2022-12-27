@@ -1,13 +1,13 @@
-div.window#SettingsApp div.apps {
+.window#SettingsApp div.apps {
   margin-top: 10px;
 }
 
-div.window#SettingsApp div.apps button.appbutton.disabled {
+.window#SettingsApp div.apps button.appbutton.disabled {
   opacity: 0.5;
   font-style: italic;
 }
 
-div.window#SettingsApp div.apps button.appbutton {
+.window#SettingsApp div.apps button.appbutton {
   width: 100%;
   display: block;
   text-align: left;
@@ -17,19 +17,19 @@ div.window#SettingsApp div.apps button.appbutton {
   margin-bottom: 5px;
 }
 
-div.window#SettingsApp div.apps button.appbutton * {
+.window#SettingsApp div.apps button.appbutton * {
   vertical-align: middle;
 }
 
-div.window#SettingsApp div.apps button.appbutton img.icon {
+.window#SettingsApp div.apps button.appbutton img.icon {
   height: 32px;
   margin-right: 15px;
 }
 
-div.window#SettingsApp div.apps button.appbutton div.info p.title {
+.window#SettingsApp div.apps button.appbutton div.info p.title {
   font-weight: bold;
 }
 
-div.window#SettingsApp div.apps button.appbutton div.info p {
+.window#SettingsApp div.apps button.appbutton div.info p {
   margin: 0;
 }

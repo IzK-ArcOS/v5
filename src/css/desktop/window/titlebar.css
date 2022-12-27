@@ -1,11 +1,11 @@
 @import url("./titlebar/controls.css");
 @import url("./titlebar/title.css");
 
-div.window div.titlebar div.controls button:active {
+.window div.titlebar div.controls button:active {
   opacity: 0.2;
 }
 
-div.window div.titlebar {
+.window div.titlebar {
   height: 30px;
   width: 100%;
   box-sizing: border-box;
@@ -16,38 +16,38 @@ div.window div.titlebar {
   z-index: 100;
 }
 
-div.window div.titlebar * {
+.window div.titlebar * {
   vertical-align: middle;
 }
 
-div.window.focused div.titlebar {
+.window.focused div.titlebar {
   opacity: 1;
 }
 
-div.window.glass:not(.focused) {
+.window.glass:not(.focused) {
   background: var(--win-bg);
 }
 
-div.bigtitlebars div.window div.titlebar {
+div.bigtitlebars .window div.titlebar {
   padding: 10px;
   height: 40px;
 }
 
-div.bigtitlebars div.window:not(.headless) div.body {
+div.bigtitlebars .window:not(.headless) div.body {
   height: calc(100% - 40px);
   margin-top: 40px;
 }
 
-div.window.lefttb div.titlebar p.title {
+.window.lefttb div.titlebar p.title {
   margin-left: auto;
 }
 
-div.window.lefttb div.titlebar div.controls {
+.window.lefttb div.titlebar div.controls {
   margin-left: unset;
   position: absolute;
   left: 5px;
 }
 
-div.bigtitlebars div.window.lefttb div.titlebar div.controls {
+div.bigtitlebars .window.lefttb div.titlebar div.controls {
   left: 10px;
 }

@@ -1,4 +1,4 @@
-div.window div.body {
+.window div.body {
   height: calc(100% - 30px);
   width: 100%;
   background-color: transparent;
@@ -9,16 +9,16 @@ div.window div.body {
   margin-top: 30px;
 }
 
-div.window.headless div.titlebar {
+.window.headless div.titlebar {
   display: none;
 }
 
-div.window.headless div.body {
+.window.headless div.body {
   height: calc(100%);
   margin-top: 0px;
 }
 
-div.window.fullscreen {
+.window.fullscreen {
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
@@ -32,7 +32,7 @@ div.window.fullscreen {
   min-height: unset !important;
 }
 
-div.window div.body div.center-flex {
+.window div.body div.center-flex {
   width: inherit;
   height: inherit;
   display: flex;
@@ -40,6 +40,6 @@ div.window div.body div.center-flex {
   justify-content: center;
 }
 
-div.window div.body div.center-flex div.flex-stop {
+.window div.body div.center-flex div.flex-stop {
   display: block;
 }

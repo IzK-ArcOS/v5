@@ -4,14 +4,14 @@
     AppManagerManageBools,
   } from "../../ts/applogic/apps/AppManager/Manager";
   import "../../css/desktop/apps/AppPoker.css";
-  import { OpenApps, updateStores } from "../../ts/applogic/store";
+  import { updateStores, WindowStore } from "../../ts/applogic/store";
   import type { App } from "../../ts/applogic/interface";
   import Notice from "../Page/Desktop/WindowStore/Window/Notice.svelte";
 
   export let app: App;
   let refresh = false;
 
-  OpenApps.subscribe((v) => {
+  WindowStore.subscribe((v) => {
     if (!v) return;
 
     refresh = true;
