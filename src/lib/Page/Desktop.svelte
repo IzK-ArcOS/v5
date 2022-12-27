@@ -22,6 +22,7 @@
   import { ErrorMessages } from "../../ts/errorlogic/app";
   import PushNotification from "./Desktop/PushNotification.svelte";
   import { importDefault } from "../../ts/applogic/imports";
+  import { errorMessage } from "../../ts/errorlogic/main";
 
   let show = false;
   let classes = "";
@@ -35,6 +36,12 @@
     resetDesktopState();
 
     setTimeout(() => (show = true), 1000);
+
+    errorMessage(
+      "Warning",
+      "Thank you for checking out ArcOS! Do note that the WindowStore is unstable at this point in development, some windows may like to inherit positional and sizing properties of others, try to ignore that for now.",
+      { caption: "OK", action: () => {} }
+    );
   });
 
   function resetDesktopState() {
