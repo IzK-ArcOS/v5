@@ -4,9 +4,9 @@
 </script>
 
 <div class="left">
-  {#each $WindowStore as window}
-    {#if !window.info.hidden}
-      <AppListItem app={window} />
+  {#each $WindowStore as app}
+    {#if !app.info.hidden && !app.disabled}
+      <AppListItem {app} />
     {/if}
   {/each}
 </div>

@@ -28,7 +28,9 @@
     <slot />
     <div class="buttons">
       {#each oa as app}
-        <TaskbarButton {app} />
+        {#if !app.disabled}
+          <TaskbarButton {app} />
+        {/if}
       {/each}
     </div>
   </div>

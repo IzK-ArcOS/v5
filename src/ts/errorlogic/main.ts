@@ -3,6 +3,8 @@ import type { App } from "../applogic/interface";
 import { ArcOSVersion } from "../env/main";
 import { ErrorButton, ErrorMessage, ErrorMessages } from "./app";
 import icon from "../../assets/apps/errordialog.svg";
+import { Log, log, LogLevel } from "../console";
+import { maxZIndex } from "../applogic/store";
 
 export function getErrorElement(id: string): HTMLDivElement {
   const el = document.querySelector(`div.window#${id}`);
@@ -53,6 +55,23 @@ export function createErrorAppData(data: ErrorMessage): App {
     glass: false,
     id: `error_${Math.floor(Math.random() * 1e9)}`,
   };
+
+  setTimeout(() => {
+    const el = document.querySelector(
+      `div.window#${error.id}`
+    ) as HTMLDivElement;
+
+    if (!el)
+      return Log({
+        level: LogLevel.error,
+        msg: `Can't bring window ${error.id} to front, no associated element could be found.`,
+        source: "ErrorLogic: createErrorAppData",
+      });
+
+    maxZIndex.set(get(maxZIndex) + 1);
+
+    el.style.zIndex = `${get(maxZIndex)}`;
+  }, 5);
 
   return error;
 }

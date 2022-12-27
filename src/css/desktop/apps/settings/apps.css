@@ -2,8 +2,9 @@ div.window#SettingsApp div.apps {
   margin-top: 10px;
 }
 
-div.window#SettingsApp div.apps button.appbutton.hidden {
+div.window#SettingsApp div.apps button.appbutton.disabled {
   opacity: 0.5;
+  font-style: italic;
 }
 
 div.window#SettingsApp div.apps button.appbutton {

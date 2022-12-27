@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { get } from "svelte/store";
   import type { App } from "../../../ts/applogic/interface";
 
   import {
@@ -6,11 +7,10 @@
     getWindow,
     maxZIndex,
     OpenApps,
+    WindowStore,
   } from "../../../ts/applogic/store";
-  import { ErrorMessages } from "../../../ts/errorlogic/app";
-  import { getErrorElement } from "../../../ts/errorlogic/main";
+  import { UserData } from "../../../ts/userlogic/interfaces";
   import { getWindowElement } from "../../../ts/window/main";
-  import ErrorDialogStore from "./ErrorDialogStore.svelte";
   import Window from "./WindowStore/Window.svelte";
 
   let oa: App[] = [];
@@ -50,7 +50,7 @@
 
 <div class="winstore">
   {#each oa as app}
-    {#if app}
+    {#if app && !app.disabled}
       <Window {app} />
     {/if}
   {/each}

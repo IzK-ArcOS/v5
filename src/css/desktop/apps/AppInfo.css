@@ -1,0 +1,26 @@
+div.window#AppInfo div.name {
+  display: flex;
+}
+
+div.window#AppInfo div.name img {
+  margin-right: 10px;
+}
+
+div.window#AppInfo div.name p.appname {
+  font-weight: bold;
+}
+
+div.window#AppInfo div.name p {
+  margin: 0;
+}
+
+div.window#AppInfo div.properties div.property {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+div.window#AppInfo div.properties div.property div.value {
+  margin-left: auto;
+}

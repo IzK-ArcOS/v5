@@ -27,6 +27,8 @@ export interface UserData {
     noGlass: boolean; //done
   };
 
+  disabledApps: string[];
+
   acc: {
     enabled: boolean;
     admin: boolean;
@@ -70,6 +72,7 @@ export const defaultUserData: UserData = {
     level: 100,
     muted: false,
   },
+  disabledApps: [],
 };
 
 export type AllUsers = { [name: string]: UserData };

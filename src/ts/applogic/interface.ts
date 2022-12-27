@@ -12,6 +12,7 @@ export interface App {
   id?: string;
   glass: boolean;
   events?: AppEvents;
+  disabled?: boolean;
 }
 
 export interface GeneralAppInfo {

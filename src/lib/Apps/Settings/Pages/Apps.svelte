@@ -2,6 +2,8 @@
   import "../../../../css/desktop/apps/settings/apps.css";
   import { WindowStore } from "../../../../ts/applogic/store";
   import Section from "../Section.svelte";
+  import AppButton from "./Apps/AppButton.svelte";
+  import HiddenAppButton from "./Apps/HiddenAppButton.svelte";
 
   let hidden = [];
   let visible = [];
@@ -23,24 +25,12 @@
 
   <Section collapsible collapsed={false} header="Normal applications">
     {#each visible as app}
-      <button class="appbutton">
-        <img src={app.info.icon} alt={app.info.name} class="icon" />
-        <div class="info">
-          <p class="title">{app.info.name}</p>
-          <p class="description">{app.info.description}</p>
-        </div>
-      </button>
+      <AppButton {app} />
     {/each}
   </Section>
   <Section collapsible header="System applications">
     {#each hidden as app}
-      <button class="appbutton">
-        <img src={app.info.icon} alt={app.info.name} class="icon" />
-        <div class="info">
-          <p class="title">ArcOS.{app.id}</p>
-          <p class="description">{app.info.name} (hidden)</p>
-        </div>
-      </button>
+      <HiddenAppButton {app} />
     {/each}
   </Section>
 </div>

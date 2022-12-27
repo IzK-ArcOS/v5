@@ -1,3 +1,4 @@
+import { AppInfo } from "./apps/AppInfo";
 import { AppManager } from "./apps/AppManager";
 import { AppPoker } from "./apps/AppPoke";
 import { ErrorCreator } from "./apps/ErrorCreator";
@@ -20,13 +21,22 @@ export const DefaultApps: { [key: string]: App } = {
   ErrCre: ErrorCreator,
   SettingsApp: SettingsApp,
   PfpSelector: ProfilePictureApp,
+  AppInfo,
 };
+
+export const SystemApps: string[] = [
+  "AppMan",
+  "Exit",
+  "SettingsApp",
+  "PfpSelector",
+  "AppInfo",
+];
 
 export async function importDefault(open = false) {
   const entries = Object.entries(DefaultApps);
 
   for (let i = 0; i < entries.length; i++) {
-    await loadWindow(entries[i][0], entries[i][1]);
+    await loadWindow(...entries[i]);
 
     if (open) openWindow(entries[i][0]);
   }

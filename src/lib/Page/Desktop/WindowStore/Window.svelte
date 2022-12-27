@@ -27,6 +27,8 @@
       opened = true;
     }, 250);
 
+    focusedWindowId.set(app.id);
+
     update();
   });
 
