@@ -11,7 +11,7 @@
   }
 </script>
 
-<button class="appbutton" on:click={manage}>
+<button class="appbutton" class:disabled={app.disabled} on:click={manage}>
   <img src={app.info.icon} alt={app.info.name} class="icon" />
   <div class="info">
     <p class="title">ArcOS.{app.id}</p>

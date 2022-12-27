@@ -2,23 +2,31 @@
   import "../../css/desktop/apps/AppInfo.css";
   import { AppInfoId as id } from "../../ts/applogic/apps/AppInfo";
   import { disableApp, enableApp } from "../../ts/applogic/enabling";
+  import { openWindow } from "../../ts/applogic/events";
+  import { SystemApps } from "../../ts/applogic/imports";
   import type { App } from "../../ts/applogic/interface";
   import { getWindow, WindowStore } from "../../ts/applogic/store";
-  import { UserData } from "../../ts/userlogic/interfaces";
 
   let data: App;
+  let isEnabled = true;
 
-  function disable() {
-    disableApp($id);
+  function updateState() {
+    if (isEnabled) enableApp($id);
+    else disableApp($id);
+
+    isEnabled = !getWindow($id).disabled;
   }
 
-  function enable() {
-    enableApp($id);
-  }
+  id.subscribe(update);
+  WindowStore.subscribe(update);
 
-  WindowStore.subscribe((v) => {
+  function update() {
+    if (!$id) return;
+
     data = getWindow($id);
-  });
+
+    isEnabled = !getWindow($id).disabled;
+  }
 </script>
 
 {#if data}
@@ -33,18 +41,13 @@
       </p>
     </div>
     <div class="actions">
-      <button
-        on:click={disable}
-        disabled={$UserData.disabledApps.includes(data.id)}
-      >
-        Disable
-      </button>
-      <button
-        on:click={enable}
-        disabled={!$UserData.disabledApps.includes(data.id)}
-      >
-        Enable
-      </button>
+      <input
+        type="checkbox"
+        class="switch"
+        disabled={SystemApps.includes($id)}
+        bind:checked={isEnabled}
+        on:change={updateState}
+      />
     </div>
   </div>
   <div class="properties">
@@ -69,15 +72,24 @@
     <div class="property">
       <div>Window controls:</div>
       <div class="value">
-        <button class="material-icons" disabled={!data.controls.min}>
-          minimize
-        </button>
-        <button class="material-icons" disabled={!data.controls.max}>
-          crop_square
-        </button>
-        <button class="material-icons" disabled={!data.controls.cls}>
-          close
-        </button>
+        <div class="controls">
+          <button class="material-icons" disabled={!data.controls.min}>
+            minimize
+          </button>
+          <button class="material-icons" disabled={!data.controls.max}>
+            crop_square
+          </button>
+          <button class="material-icons" disabled={!data.controls.cls}>
+            close
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="property">
+      <div>Actions</div>
+      <div class="value">
+        <button on:click={() => openWindow($id)}>Open</button>
+        <button>Poke</button>
       </div>
     </div>
   </div>

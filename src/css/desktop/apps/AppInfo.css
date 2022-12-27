@@ -3,7 +3,13 @@ div.window#AppInfo div.name {
 }
 
 div.window#AppInfo div.name img {
-  margin-right: 10px;
+  margin: 0 10px;
+  height: 32px;
+}
+
+div.window#AppInfo div.actions {
+  margin-left: auto;
+  padding: 8px 5px;
 }
 
 div.window#AppInfo div.name p.appname {
@@ -23,4 +29,39 @@ div.window#AppInfo div.properties div.property {
 
 div.window#AppInfo div.properties div.property div.value {
   margin-left: auto;
+}
+
+div.window#AppInfo div.properties div.property div.value div.controls button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+  width: 18px;
+  height: 18px;
+  color: var(--fg);
+  transition: opacity 0.2s;
+}
+
+div.window#AppInfo
+  div.properties
+  div.property
+  div.value
+  div.controls
+  button:hover {
+  opacity: 0.5;
+}
+
+div.window#AppInfo
+  div.properties
+  div.property
+  div.value
+  div.controls
+  button:disabled {
+  opacity: 0.2;
+}
+
+div.window#AppInfo hr {
+  margin: 5px;
+  border: var(--win-border);
 }

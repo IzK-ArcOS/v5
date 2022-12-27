@@ -11,10 +11,10 @@ export const AppManager: App = {
     author: "Izaak Kuipers",
     icon: logo,
   },
-  size: { w: 500, h: 600 },
+  size: { w: 600, h: 500 },
   pos: { x: 30, y: 40 },
-  minSize: { w: 500, h: 600 },
-  maxSize: { w: 500, h: 600 },
+  minSize: { w: 600, h: 500 },
+  maxSize: { w: 600, h: 500 },
   controls: { min: false, max: false, cls: true },
   state: {
     headless: false,

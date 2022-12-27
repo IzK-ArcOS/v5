@@ -20,7 +20,14 @@ export function disableApp(id: string) {
 
   if (!udata.disabledApps.includes(id)) udata.disabledApps.push(id);
 
+  const ws = get(WindowStore);
+
+  for (let i = 0; i < ws.length; i++) {
+    if (ws[i].id == id) ws[i].disabled = true;
+  }
+
   UserData.set(udata);
+  WindowStore.set(ws);
 
   updateStores();
 }
