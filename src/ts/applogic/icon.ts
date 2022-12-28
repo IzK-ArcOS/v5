@@ -6,7 +6,7 @@ export function hotSwapAppIcon(icon: string, appId: string) {
 
   for (let i = 0; i < ws.length; i++) {
     if (ws[i].id == appId) {
-      Originals[appId] = `${ws[i].info.icon}`;
+      if (!Originals[appId]) Originals[appId] = `${ws[i].info.icon}`;
 
       ws[i].info.icon = icon;
     }

@@ -23,8 +23,12 @@
 .window#AppInfo div.properties div.property {
   width: 100%;
   display: flex;
-  padding: 10px;
+  padding: 5px 15px;
   box-sizing: border-box;
+}
+
+.window#AppInfo div.properties div.property div {
+  line-height: 30px;
 }
 
 .window#AppInfo div.properties div.property div.value {

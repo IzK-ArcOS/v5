@@ -1,6 +1,7 @@
 <script lang="ts">
   import "../../css/desktop/apps/AppInfo.css";
   import { AppInfoId as id } from "../../ts/applogic/apps/AppInfo";
+  import { AppManagerAppData } from "../../ts/applogic/apps/AppManager/Manager";
   import { disableApp, enableApp } from "../../ts/applogic/enabling";
   import { openWindow } from "../../ts/applogic/events";
   import { SystemApps } from "../../ts/applogic/imports";
@@ -88,8 +89,18 @@
     <div class="property">
       <div>Actions</div>
       <div class="value">
-        <button on:click={() => openWindow($id)}>Open</button>
-        <button>Poke</button>
+        <button
+          on:click={() => openWindow($id)}
+          disabled={data.opened || data.disabled}
+        >
+          Open
+        </button>
+        <button
+          on:click={() => AppManagerAppData.set(data)}
+          disabled={data.disabled}
+        >
+          Poke
+        </button>
       </div>
     </div>
   </div>

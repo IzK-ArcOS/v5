@@ -25,28 +25,30 @@
   </tr>
 
   {#each oa as app}
-    <tr>
-      <td><img src={app.info.icon} alt={app.info.name} class="icon" /></td>
-      <td>{app.info.name}</td>
-      <td>{app.id}</td>
-      <td>{app.info.builtin}</td>
-      <td>
-        <button
-          on:click={() => {
-            closeWindow(app.id);
-          }}
-        >
-          Close
-        </button>
-        <button
-          on:click={() => {
-            manage(app);
-          }}
-          disabled={$AppManagerAppData && $AppManagerAppData.id == app.id}
-        >
-          Poke
-        </button>
-      </td>
-    </tr>
+    {#if !app.disabled}
+      <tr>
+        <td><img src={app.info.icon} alt={app.info.name} class="icon" /></td>
+        <td>{app.info.name}</td>
+        <td>{app.id}</td>
+        <td>{app.info.builtin}</td>
+        <td>
+          <button
+            on:click={() => {
+              closeWindow(app.id);
+            }}
+          >
+            Close
+          </button>
+          <button
+            on:click={() => {
+              manage(app);
+            }}
+            disabled={$AppManagerAppData && $AppManagerAppData.id == app.id}
+          >
+            Poke
+          </button>
+        </td>
+      </tr>
+    {/if}
   {/each}
 </table>
