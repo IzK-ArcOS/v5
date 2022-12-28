@@ -4,6 +4,10 @@
 
 <div class="tray">
   {#each $trayIcons as icon}
-    {icon.icon}
+    {#if icon.icon}
+      <span class="material-icons">{icon.icon}</span>
+    {:else}
+      <img src={icon.image} alt={icon.identifier} />
+    {/if}
   {/each}
 </div>

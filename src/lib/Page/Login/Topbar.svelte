@@ -1,6 +1,10 @@
 <script lang="ts">
   import dayjs from "dayjs";
-  import { applyLoginState, CurrentLoginState, loginUsername } from "../../../ts/login/main";
+  import {
+    applyLoginState,
+    CurrentLoginState,
+    loginUsername,
+  } from "../../../ts/login/main";
   import { onMount } from "svelte";
 
   let time: string = "";
@@ -20,7 +24,6 @@
     loginUsername.set("ArcOS");
     applyLoginState("restart");
   }
-
 </script>
 
 {#if $CurrentLoginState}
@@ -28,6 +31,9 @@
     class="topbar"
     class:show={($CurrentLoginState.attribs.topbar || false) && show}
   >
+    <div class="hostname">
+      {window.location.hostname}
+    </div>
     <div class="clock">
       {time}
     </div>

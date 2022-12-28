@@ -12,6 +12,23 @@ div.taskbar {
     transform 0.3s border-radius 0.3s, background-color 0.3s, position 0.3s;
 }
 
+div.taskbar div.tray {
+  position: absolute;
+  line-height: 43px;
+  right: 20px;
+  top: 0px;
+}
+
+div.taskbar div.tray img {
+  height: 18px;
+  margin: 0px 5px;
+}
+
+div.taskbar div.tray span.material-icons {
+  font-size: 16px;
+  margin: 0px 5px;
+}
+
 div.taskbar div.buttons {
   display: inline-block;
   height: 44px;
