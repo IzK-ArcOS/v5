@@ -18,9 +18,7 @@
       show = v[0];
       data = v[1];
 
-      setTimeout(() => {
-        className = show ? "show" : "";
-      }, 500);
+      className = show ? "show" : "";
     }
   });
 </script>

@@ -1,6 +1,7 @@
 import AppManagerSvelte from "../../../lib/Apps/AppManager.svelte";
 import type { App } from "../interface";
 import logo from "../../../assets/apps/appmanager.svg";
+import { createTrayIcon } from "../../desktop/tray/main";
 
 export const AppManager: App = {
   info: {
@@ -23,4 +24,13 @@ export const AppManager: App = {
   },
   content: AppManagerSvelte,
   glass: false,
+  events: {
+    open() {
+      createTrayIcon({
+        image: AppManager.info.icon,
+        identifier: "Application Manager",
+        onOpen() {},
+      });
+    },
+  },
 };

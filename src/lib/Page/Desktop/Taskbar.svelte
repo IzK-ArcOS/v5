@@ -9,6 +9,7 @@
   } from "../../../ts/applogic/store";
 
   import TaskbarButton from "./Taskbar/TaskbarButton.svelte";
+  import Tray from "./Taskbar/Tray.svelte";
 
   let oa: App[] = [];
 
@@ -33,5 +34,6 @@
         {/if}
       {/each}
     </div>
+    <Tray />
   </div>
 {/if}

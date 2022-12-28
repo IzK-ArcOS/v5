@@ -19,11 +19,9 @@ export function applyState(stateKey: string) {
 
     if (state.onload) state.onload();
 
-    setTimeout(() => {
-      CurrentState.set(state);
+    CurrentState.set(state);
 
-      document.title = `${Var.getValue("osname")} | ${state.name}`;
-    }, 250);
+    document.title = `${Var.getValue("osname")} | ${state.name}`;
 
     return;
   }
