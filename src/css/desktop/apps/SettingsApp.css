@@ -54,6 +54,8 @@ window#SettingsApp div.sidebar {
   padding: 15px;
   padding-top: 40px;
   border-right: var(--win-border);
+  display: flex;
+  flex-direction: column;
 }
 
 window#SettingsApp div.sidebar hr {
@@ -89,6 +91,35 @@ window#SettingsApp div.sidebar button.page img.icon {
 
 window#SettingsApp div.sidebar * {
   vertical-align: middle;
+}
+
+window#SettingsApp div.sidebar div.userprofile {
+  margin-top: auto;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+}
+
+window#SettingsApp div.sidebar div.userprofile * {
+  vertical-align: middle;
+}
+
+window#SettingsApp div.sidebar div.userprofile img {
+  border-radius: 50%;
+  height: 32px;
+
+  margin-right: 10px;
+}
+
+window#SettingsApp div.sidebar div.userprofile p {
+  display: block;
+  margin: 0;
+  opacity: 0.4;
+}
+
+window#SettingsApp div.sidebar div.userprofile p.name {
+  font-weight: bold;
+  opacity: 1;
 }
 
 window#SettingsApp section {
@@ -147,7 +178,7 @@ window#SettingsApp h3.header {
   margin-bottom: 10px;
 }
 
-window#SettingsApp p.context {
+window#SettingsApp div.context {
   margin-bottom: 10px;
 }
 
