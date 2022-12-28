@@ -1,8 +1,8 @@
 <script lang="ts">
   import { openWindow } from "../../../../ts/applogic/events";
+  import type { App } from "../../../../ts/applogic/interface";
   import { updateStores } from "../../../../ts/applogic/store";
   import { startOpened } from "../../../../ts/desktop/main";
-  import type { App } from "../../../../ts/applogic/interface";
 
   export let app: App;
 

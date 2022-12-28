@@ -1,8 +1,8 @@
 <script lang="ts">
+  import { startOpened } from "../../../ts/desktop/main";
   import StartMenu from "./StartMenu.svelte";
   import Taskbar from "./Taskbar.svelte";
-  import { startOpened } from "../../../ts/desktop/main";
-import StartButton from "./Taskbar/StartButton.svelte";
+  import StartButton from "./Taskbar/StartButton.svelte";
 
   function startTog() {
     startOpened.set(!$startOpened);
@@ -11,5 +11,5 @@ import StartButton from "./Taskbar/StartButton.svelte";
 
 <StartMenu />
 <Taskbar>
-  <StartButton/>
+  <StartButton />
 </Taskbar>

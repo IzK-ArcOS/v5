@@ -1,6 +1,6 @@
+import logo from "../../../assets/apps/testapp.svg";
 import TestAppSvelte from "../../../lib/Apps/TestApp.svelte";
 import type { App } from "../interface";
-import logo from "../../../assets/apps/testapp.svg";
 
 export const TestApp: App = {
   info: {

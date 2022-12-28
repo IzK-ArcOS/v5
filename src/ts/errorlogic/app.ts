@@ -1,4 +1,4 @@
-import { get, writable, Writable } from "svelte/store";
+import { writable, Writable } from "svelte/store";
 import type { App } from "../applogic/interface";
 
 export const ErrorMessages: Writable<ErrorMessage[]> = writable<ErrorMessage[]>(

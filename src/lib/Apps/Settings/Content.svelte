@@ -6,16 +6,24 @@
 
   let settingsPage;
 
+  let t;
+
   currentSettingsPage.subscribe((v) => {
+    clearTimeout(t);
+    cName = "static";
     if ($UserData && !$UserData.sh.anim && v) return (settingsPage = v);
     if (!v || (settingsPage && v.name == settingsPage.name)) return;
 
     cName = "slide-out-right";
 
-    setTimeout(() => {
+    t = setTimeout(() => {
       settingsPage = v;
 
       cName = "slide-in-left";
+
+      t = setTimeout(() => {
+        cName = "static";
+      }, 301);
     }, 500);
   });
 </script>

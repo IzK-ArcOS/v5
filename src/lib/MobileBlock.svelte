@@ -1,7 +1,7 @@
 <script lang="ts">
-  import "../css/mbb.css";
-  import systemIcon from "../assets/systemIcon.svg";
   import { onMount } from "svelte";
+  import systemIcon from "../assets/systemIcon.svg";
+  import "../css/mbb.css";
 
   let hide = false;
 

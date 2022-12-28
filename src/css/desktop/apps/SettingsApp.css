@@ -26,6 +26,12 @@
   overflow-y: scroll;
 }
 
+.window#SettingsApp div.content.static {
+  animation: none !important;
+  opacity: 1 !important;
+  margin-left: 0px !important;
+}
+
 .window#SettingsApp div.content div.inner {
   white-space: nowrap;
 }

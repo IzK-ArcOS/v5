@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { applyState } from "../../../../ts/state/main";
   import { projName } from "../../../../ts/env/main";
+  import { applyState } from "../../../../ts/state/main";
 
   import Nav from "../Nav.svelte";
 

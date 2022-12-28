@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { App } from "../../ts/applogic/interface";
+  import { get } from "svelte/store";
   import {
     closeWindow,
     fullscreenWindow,
@@ -7,13 +7,13 @@
     maximizeWindow,
     minimizeWindow,
   } from "../../ts/applogic/events";
-  import { UserData } from "../../ts/userlogic/interfaces";
-  import { get } from "svelte/store";
-  import { applyState } from "../../ts/state/main";
-  import { logoff } from "../../ts/desktop/power";
+  import type { App } from "../../ts/applogic/interface";
   import { updateStores } from "../../ts/applogic/store";
-  import { makeNotification } from "../../ts/notiflogic/main";
+  import { logoff } from "../../ts/desktop/power";
   import { errorMessage } from "../../ts/errorlogic/main";
+  import { makeNotification } from "../../ts/notiflogic/main";
+  import { applyState } from "../../ts/state/main";
+  import { UserData } from "../../ts/userlogic/interfaces";
 
   export let app: App;
 

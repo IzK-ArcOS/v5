@@ -1,9 +1,9 @@
 <script lang="ts">
   import "../../css/desktop/apps/AppManager.css";
-  import type { App } from "../../ts/applogic/interface";
-  import { closeWindow } from "../../ts/applogic/events";
-  import { getOpenedStore, WindowStore } from "../../ts/applogic/store";
   import { AppManagerAppData } from "../../ts/applogic/apps/AppManager/Manager";
+  import { closeWindow } from "../../ts/applogic/events";
+  import type { App } from "../../ts/applogic/interface";
+  import { getOpenedStore, WindowStore } from "../../ts/applogic/store";
 
   let oa: App[] = [];
 

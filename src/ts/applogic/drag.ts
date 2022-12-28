@@ -1,5 +1,5 @@
 import type { App } from "./interface";
-import { focusedWindowId, updateStores } from "./store";
+import { focusedWindowId } from "./store";
 
 export function dragWindow(
   app: App,

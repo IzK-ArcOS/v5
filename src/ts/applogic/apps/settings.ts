@@ -1,6 +1,6 @@
-import type { App } from "../interface";
 import logo from "../../../assets/apps/settings.svg";
 import SettingsAppSvelte from "../../../lib/Apps/SettingsApp.svelte";
+import type { App } from "../interface";
 import { currentSettingsPage, SettingsPages } from "./SettingsApp/main";
 
 export const SettingsApp: App = {

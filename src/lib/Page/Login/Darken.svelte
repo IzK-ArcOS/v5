@@ -5,5 +5,8 @@
 </script>
 
 {#if $CurrentLoginState}
-  <div class="fullscreen darken" class:show={$CurrentLoginState.attribs.darken} />
+  <div
+    class="fullscreen darken"
+    class:show={$CurrentLoginState.attribs.darken}
+  />
 {/if}

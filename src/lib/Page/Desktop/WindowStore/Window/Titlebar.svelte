@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { updateStores } from "../../../../../ts/applogic/store";
-  import type { App } from "../../../../../ts/applogic/interface";
   import { closeWindow } from "../../../../../ts/applogic/events";
+  import type { App } from "../../../../../ts/applogic/interface";
+  import { updateStores } from "../../../../../ts/applogic/store";
   import { closeError } from "../../../../../ts/errorlogic/main";
 
   export let exttransition = false;

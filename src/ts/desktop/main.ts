@@ -1,8 +1,6 @@
-import { get, writable } from "svelte/store";
+import { writable } from "svelte/store";
 import { AppManagerAppData } from "../applogic/apps/AppManager/Manager";
 import { closeWindow, openWindow } from "../applogic/events";
-import { WindowStore } from "../applogic/store";
-import { makeNotification } from "../notiflogic/main";
 import { applyState } from "../state/main";
 import { UserData } from "../userlogic/interfaces";
 

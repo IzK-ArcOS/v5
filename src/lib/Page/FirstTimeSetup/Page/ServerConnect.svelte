@@ -18,7 +18,8 @@
   You can choose to store userdata locally in your browser, or you can connect
   to an {projName} backend API to sync your user accounts and settings between devices.
 </p>
-<button class="fullwidth option" on:click={local}>Use {projName} Locally</button>
+<button class="fullwidth option" on:click={local}>Use {projName} Locally</button
+>
 <button class="fullwidth option" disabled>Connect to an {projName} API</button>
 <Nav
   data={{

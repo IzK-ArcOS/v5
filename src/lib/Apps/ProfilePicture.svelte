@@ -1,9 +1,9 @@
 <script lang="ts">
-  import "../../css/desktop/apps/ProfilePicture.css";
   import { onMount } from "svelte";
+  import "../../css/desktop/apps/ProfilePicture.css";
+  import { closeWindow } from "../../ts/applogic/events";
   import { UserData } from "../../ts/userlogic/interfaces";
   import { ProfilePictures } from "../../ts/userlogic/pfp";
-  import { closeWindow } from "../../ts/applogic/events";
 
   let pfps: string[] = [];
 

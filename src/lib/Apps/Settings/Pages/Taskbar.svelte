@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Section from "../Section.svelte";
   import { UserData } from "../../../../ts/userlogic/interfaces";
+  import Section from "../Section.svelte";
 </script>
 
 <h1>Taskbar</h1>

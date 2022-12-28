@@ -1,12 +1,12 @@
 <script lang="ts">
   import type { App } from "../../../ts/applogic/interface";
-  import { UserData } from "../../../ts/userlogic/interfaces";
   import {
     getOpenedStore,
     isFullscreenWindow,
     maxZIndex,
     WindowStore,
   } from "../../../ts/applogic/store";
+  import { UserData } from "../../../ts/userlogic/interfaces";
 
   import TaskbarButton from "./Taskbar/TaskbarButton.svelte";
   import Tray from "./Taskbar/Tray.svelte";

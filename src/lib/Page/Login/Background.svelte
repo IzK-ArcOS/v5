@@ -3,5 +3,8 @@
 </script>
 
 {#if $CurrentLoginState}
-  <div class="background fullscreen" class:zoom={$CurrentLoginState.attribs.darken} />
+  <div
+    class="background fullscreen"
+    class:zoom={$CurrentLoginState.attribs.darken}
+  />
 {/if}

@@ -115,6 +115,10 @@ div.login div.topbar div.right {
   font-size: 15px;
 }
 
+div.login div.hostname {
+  opacity: 0.3;
+}
+
 /* 
 div.login div.center-absolute {
     min-width:640px;

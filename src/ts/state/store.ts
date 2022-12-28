@@ -1,11 +1,11 @@
-import Login from "../../lib/Page/Login.svelte";
-import Boot from "../../lib/Page/Boot.svelte";
-import FirstTimeSetup from "../../lib/Page/FirstTimeSetup.svelte";
-import Desktop from "../../lib/Page/Desktop.svelte";
 import Blank from "../../lib/Page/Blank.svelte";
+import Boot from "../../lib/Page/Boot.svelte";
+import Desktop from "../../lib/Page/Desktop.svelte";
+import FirstTimeSetup from "../../lib/Page/FirstTimeSetup.svelte";
+import Login from "../../lib/Page/Login.svelte";
 
-import type { State } from "./interfaces";
 import { applyLoginState, loginUsername } from "../login/main";
+import type { State } from "./interfaces";
 
 export const States = new Map<string, State>([
   [

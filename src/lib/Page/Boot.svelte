@@ -5,8 +5,8 @@
   import logo from "../../assets/systemIcon.svg";
   import "../../css/boot.css";
   import { Log, LogLevel } from "../../ts/console";
-  import { getUsers } from "../../ts/userlogic/main";
   import { userDataKey } from "../../ts/env/main";
+  import { getUsers } from "../../ts/userlogic/main";
 
   let status = "";
   let bootClass = "";

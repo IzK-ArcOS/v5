@@ -1,9 +1,9 @@
-import UserLogin from "../../lib/Page/Login/Page/UserLogin.svelte";
-import Selector from "../../lib/Page/Login/Page/Selector.svelte";
 import Logoff from "../../lib/Page/Login/Page/Logoff.svelte";
-import type { State } from "../state/interfaces";
 import Restart from "../../lib/Page/Login/Page/Restart.svelte";
+import Selector from "../../lib/Page/Login/Page/Selector.svelte";
 import Shutdown from "../../lib/Page/Login/Page/Shutdown.svelte";
+import UserLogin from "../../lib/Page/Login/Page/UserLogin.svelte";
+import type { State } from "../state/interfaces";
 
 export const LoginStates = new Map<string, State>([
   [

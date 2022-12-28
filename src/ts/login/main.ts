@@ -22,5 +22,5 @@ export function applyLoginState(stateKey: string) {
     return;
   }
 
-  InvalidStateBugrep("Login",stateKey);
+  InvalidStateBugrep("Login", stateKey);
 }

@@ -1,11 +1,11 @@
 <script lang="ts">
   import dayjs from "dayjs";
+  import { onMount } from "svelte";
   import {
     applyLoginState,
     CurrentLoginState,
     loginUsername,
   } from "../../../ts/login/main";
-  import { onMount } from "svelte";
 
   let time: string = "";
   let show = false;

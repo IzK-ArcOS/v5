@@ -21,5 +21,5 @@ export function applyFTSState(stateKey: string) {
     return;
   }
 
-  InvalidStateBugrep("FirstTimeSetup",stateKey);
+  InvalidStateBugrep("FirstTimeSetup", stateKey);
 }

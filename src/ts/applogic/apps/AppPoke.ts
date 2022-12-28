@@ -1,8 +1,7 @@
-import AppManagerSvelte from "../../../lib/Apps/AppManager.svelte";
+import logo from "../../../assets/apps/AppPoker.svg";
 import AppPokerSvelte from "../../../lib/Apps/AppPoker.svelte";
 import type { App } from "../interface";
 import { AppManagerAppData } from "./AppManager/Manager";
-import logo from "../../../assets/apps/AppPoker.svg";
 
 export const AppPoker: App = {
   info: {

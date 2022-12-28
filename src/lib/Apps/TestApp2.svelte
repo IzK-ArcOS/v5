@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { updateStores } from "../../ts/applogic/store";
-  import type { App } from "../../ts/applogic/interface";
-  import { UserData } from "../../ts/userlogic/interfaces";
   import { get } from "svelte/store";
+  import type { App } from "../../ts/applogic/interface";
+  import { updateStores } from "../../ts/applogic/store";
+  import { UserData } from "../../ts/userlogic/interfaces";
 
   export let app: App;
 

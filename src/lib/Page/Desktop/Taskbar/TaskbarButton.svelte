@@ -1,12 +1,12 @@
 <script lang="ts">
   import { isMinimized } from "../../../../ts/applogic/checks";
+  import type { App } from "../../../../ts/applogic/interface";
   import {
     focusedWindowId,
     maxZIndex,
     updateStores,
     WindowStore,
   } from "../../../../ts/applogic/store";
-  import type { App } from "../../../../ts/applogic/interface";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import { getWindowElement } from "../../../../ts/window/main";
 

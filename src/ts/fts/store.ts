@@ -1,8 +1,8 @@
-import Welcome from "../../lib/Page/FirstTimeSetup/Page/Welcome.svelte";
-import type { State } from "../state/interfaces";
-import ServerConnect from "../../lib/Page/FirstTimeSetup/Page/ServerConnect.svelte";
 import CreateUser from "../../lib/Page/FirstTimeSetup/Page/CreateUser.svelte";
 import Finish from "../../lib/Page/FirstTimeSetup/Page/Finish.svelte";
+import ServerConnect from "../../lib/Page/FirstTimeSetup/Page/ServerConnect.svelte";
+import Welcome from "../../lib/Page/FirstTimeSetup/Page/Welcome.svelte";
+import type { State } from "../state/interfaces";
 export const FTSStates = new Map<string, State>([
   [
     "welcome",

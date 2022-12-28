@@ -1,6 +1,6 @@
+import logo from "../../../assets/apps/exit.svg";
 import ExitSvelte from "../../../lib/Apps/Exit.svelte";
 import type { App } from "../interface";
-import logo from "../../../assets/apps/exit.svg";
 
 export const Exit: App = {
   info: {

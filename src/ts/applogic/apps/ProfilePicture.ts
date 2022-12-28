@@ -1,6 +1,6 @@
-import type { App } from "../interface";
 import logo from "../../../assets/apps/pfpselector.svg";
 import ProfilePicture from "../../../lib/Apps/ProfilePicture.svelte";
+import type { App } from "../interface";
 
 export const ProfilePictureApp: App = {
   info: {

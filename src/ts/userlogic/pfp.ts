@@ -1,12 +1,4 @@
 import pfp1 from "../../assets/pfp/1.png";
-import pfp2 from "../../assets/pfp/2.png";
-import pfp3 from "../../assets/pfp/3.png";
-import pfp4 from "../../assets/pfp/4.png";
-import pfp5 from "../../assets/pfp/5.png";
-import pfp6 from "../../assets/pfp/6.png";
-import pfp7 from "../../assets/pfp/7.png";
-import pfp8 from "../../assets/pfp/8.png";
-import pfp9 from "../../assets/pfp/9.png";
 import pfp10 from "../../assets/pfp/10.png";
 import pfp11 from "../../assets/pfp/11.png";
 import pfp12 from "../../assets/pfp/12.png";
@@ -17,6 +9,7 @@ import pfp16 from "../../assets/pfp/16.png";
 import pfp17 from "../../assets/pfp/17.png";
 import pfp18 from "../../assets/pfp/18.png";
 import pfp19 from "../../assets/pfp/19.png";
+import pfp2 from "../../assets/pfp/2.png";
 import pfp20 from "../../assets/pfp/20.png";
 import pfp21 from "../../assets/pfp/21.png";
 import pfp22 from "../../assets/pfp/22.png";
@@ -27,6 +20,13 @@ import pfp26 from "../../assets/pfp/26.png";
 import pfp27 from "../../assets/pfp/27.png";
 import pfp28 from "../../assets/pfp/28.png";
 import pfp29 from "../../assets/pfp/29.png";
+import pfp3 from "../../assets/pfp/3.png";
+import pfp4 from "../../assets/pfp/4.png";
+import pfp5 from "../../assets/pfp/5.png";
+import pfp6 from "../../assets/pfp/6.png";
+import pfp7 from "../../assets/pfp/7.png";
+import pfp8 from "../../assets/pfp/8.png";
+import pfp9 from "../../assets/pfp/9.png";
 import def from "../../assets/pfp/null.png";
 
 export const ProfilePictures: { [key: string]: string } = {

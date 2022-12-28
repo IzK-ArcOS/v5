@@ -1,12 +1,12 @@
 <script lang="ts">
-    import spinner from "../assets/spinner.svg";
-    export let height:number;
+  import spinner from "../assets/spinner.svg";
+  export let height: number;
 </script>
 
-<img src={spinner} alt="spinner" style="height: {height}px;"/>
+<img src={spinner} alt="spinner" style="height: {height}px;" />
 
 <style scoped>
-    img[alt*="spinner"] {
-        vertical-align: middle;
-    }
+  img[alt*="spinner"] {
+    vertical-align: middle;
+  }
 </style>

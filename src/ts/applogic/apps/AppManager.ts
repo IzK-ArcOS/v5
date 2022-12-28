@@ -1,7 +1,7 @@
-import AppManagerSvelte from "../../../lib/Apps/AppManager.svelte";
-import type { App } from "../interface";
 import logo from "../../../assets/apps/appmanager.svg";
-import { createTrayIcon } from "../../desktop/tray/main";
+import AppManagerSvelte from "../../../lib/Apps/AppManager.svelte";
+import { createTrayIcon, disposeTrayIcon } from "../../desktop/tray/main";
+import type { App } from "../interface";
 
 export const AppManager: App = {
   info: {
@@ -37,6 +37,10 @@ export const AppManager: App = {
         identifier: "asdasf",
         onOpen() {},
       });
+    },
+    close() {
+      disposeTrayIcon("Application Manager");
+      disposeTrayIcon("asdasf");
     },
   },
 };

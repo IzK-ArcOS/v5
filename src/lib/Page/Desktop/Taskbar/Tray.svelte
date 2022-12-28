@@ -1,13 +1,26 @@
 <script lang="ts">
+  import dayjs from "dayjs";
+  import { onMount } from "svelte";
   import { trayIcons } from "../../../../ts/desktop/tray/main";
+
+  let time = "";
+
+  onMount(() => {
+    setInterval(() => {
+      time = dayjs().format("HH:mm");
+    });
+  });
 </script>
 
 <div class="tray">
   {#each $trayIcons as icon}
-    {#if icon.icon}
-      <span class="material-icons">{icon.icon}</span>
-    {:else}
-      <img src={icon.image} alt={icon.identifier} />
-    {/if}
+    <button class="icon" on:click={() => icon.onOpen(icon)}>
+      {#if icon.icon}
+        <span class="material-icons">{icon.icon}</span>
+      {:else}
+        <img src={icon.image} alt={icon.identifier} />
+      {/if}
+    </button>
   {/each}
+  <div class="clock">{time}</div>
 </div>

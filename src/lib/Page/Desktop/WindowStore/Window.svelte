@@ -1,16 +1,16 @@
 <script lang="ts">
-  import { dragWindow } from "../../../../ts/applogic/drag";
-  import type { App } from "../../../../ts/applogic/interface";
   import { onMount } from "svelte";
-  import Content from "./Window/Content.svelte";
-  import Titlebar from "./Window/Titlebar.svelte";
+  import { generateCSS } from "../../../../ts/applogic/css";
+  import { dragWindow } from "../../../../ts/applogic/drag";
   import {
     maxSizeExceedsLiteral,
     minSizeExceedsLiteral,
   } from "../../../../ts/applogic/error";
-  import { generateCSS } from "../../../../ts/applogic/css";
+  import type { App } from "../../../../ts/applogic/interface";
   import { focusedWindowId, WindowStore } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
+  import Content from "./Window/Content.svelte";
+  import Titlebar from "./Window/Titlebar.svelte";
 
   export let app: App = null;
 

@@ -1,7 +1,7 @@
-import type { App } from "../interface";
+import { writable } from "svelte/store";
 import logo from "../../../assets/apps/AppPoker.svg";
 import AppInfoSvelte from "../../../lib/Apps/AppInfo.svelte";
-import { writable } from "svelte/store";
+import type { App } from "../interface";
 
 export const AppInfo: App = {
   info: {

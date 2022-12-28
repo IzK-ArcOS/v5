@@ -1,13 +1,13 @@
 <script lang="ts">
-  import "../../../../css/login/userlogin.css";
   import { onMount } from "svelte";
   import { get } from "svelte/store";
-  import { applyLoginState } from "../../../../ts/login/main";
-  import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
-  import { getUserdata } from "../../../../ts/userlogic/main";
+  import "../../../../css/login/userlogin.css";
   import Spinner from "../../../../lib/Spinner.svelte";
   import { BugReportData } from "../../../../ts/bugrep";
+  import { applyLoginState } from "../../../../ts/login/main";
   import { applyState } from "../../../../ts/state/main";
+  import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
+  import { getUserdata } from "../../../../ts/userlogic/main";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
 
   let name: string;

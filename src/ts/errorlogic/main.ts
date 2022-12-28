@@ -1,5 +1,8 @@
 import { get } from "svelte/store";
+import icon from "../../assets/apps/errordialog.svg";
 import type { App } from "../applogic/interface";
+import { maxZIndex } from "../applogic/store";
+import { Log, LogLevel } from "../console";
 import { ArcOSVersion } from "../env/main";
 import {
   ErrorButton,
@@ -7,9 +10,6 @@ import {
   ErrorMessages,
   ErrorWindowStore,
 } from "./app";
-import icon from "../../assets/apps/errordialog.svg";
-import { Log, LogLevel } from "../console";
-import { maxZIndex } from "../applogic/store";
 
 export function getErrorElement(id: string): HTMLDivElement {
   const el = document.querySelector(`.window#${id}`);

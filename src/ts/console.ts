@@ -41,14 +41,18 @@ export function Log(data: LogItem) {
 
   const levelData = LogLevelData[LogLevel[data.level]];
 
-  const timeStampCSS = "color: #fff;padding:2.5px 5px;border-radius:2.5px;background-color:#666;margin-right:10px";
-  const dataSourceCSS = "color: #fff;padding:2.5px 5px;border-radius:2.5px;background-color:#555;";
+  const timeStampCSS =
+    "color: #fff;padding:2.5px 5px;border-radius:2.5px;background-color:#666;margin-right:10px";
+  const dataSourceCSS =
+    "color: #fff;padding:2.5px 5px;border-radius:2.5px;background-color:#555;";
 
   console.log(
-    `%c${dayjs(data.timestamp || 0).format("DD-MM-YYYY HH:mm:ss.mmm")}%c${levelData.capt}%c${data.source}%c${data.msg}`,
+    `%c${dayjs(data.timestamp || 0).format("DD-MM-YYYY HH:mm:ss.mmm")}%c${
+      levelData.capt
+    }%c${data.source}%c${data.msg}`,
     timeStampCSS,
     levelData.css,
     dataSourceCSS,
-    "margin-left:10px"    
+    "margin-left:10px"
   );
 }
