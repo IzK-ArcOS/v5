@@ -47,7 +47,7 @@
 </script>
 
 <window
-  class="window"
+  class:window={!app.info.custom}
   class:focused={app.id == $focusedWindowId}
   class:headless={app.state.headless || app.state.windowState.fll}
   class:resizable={app.state.resizable}
@@ -55,9 +55,10 @@
   class:max={app.state.windowState.max}
   class:visible={app.opened}
   class:exttransition
-  class:fullscreen={app.state.windowState.fll}
+  class:fullscreen={app.state.windowState.fll || app.info.custom}
   class:glass={app.glass}
   class:lefttb={$UserData.sh.window.lefttb}
+  class:custom={app.info.custom}
   style={cssString}
   id={app.id}
   data-identifier={Math.floor(Math.random() * 1e10)}

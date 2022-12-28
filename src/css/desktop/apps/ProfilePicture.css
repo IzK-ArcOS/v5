@@ -1,8 +1,8 @@
-.window#PfpSelector div.body button img {
+window#PfpSelector div.body button img {
   height: 48px;
 }
 
-.window#PfpSelector div.body button {
+window#PfpSelector div.body button {
   margin-bottom: 5px;
   padding: 10px;
   margin: 2.5px;

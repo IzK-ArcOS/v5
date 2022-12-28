@@ -29,7 +29,7 @@
 
     updateStores();
 
-    if (app.state.windowState.min) return;
+    if (!app.state.windowState.min && $focusedWindowId == app.id) return;
 
     $maxZIndex++;
     $focusedWindowId = app.id;

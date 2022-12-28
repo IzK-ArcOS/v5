@@ -1,20 +1,20 @@
-.window#AppMan table {
+window#AppMan table {
   width: 100%;
 }
 
-.window#AppMan table tr td {
+window#AppMan table tr td {
   padding-right: 10px;
 }
 
-.window#AppMan tr.head * {
+window#AppMan tr.head * {
   font-weight: bold;
 }
 
-.window#AppMan * {
+window#AppMan * {
   vertical-align: middle;
 }
 
-.window#AppMan table td img.icon {
+window#AppMan table td img.icon {
   height: 24px;
   vertical-align: middle;
 }

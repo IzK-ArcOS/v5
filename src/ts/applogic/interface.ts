@@ -25,6 +25,7 @@ export interface GeneralAppInfo {
   hidden?: boolean;
   titleSuffix?: string;
   icon: string;
+  custom?: boolean;
 }
 
 export interface AppStates {
