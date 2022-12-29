@@ -53,7 +53,7 @@ export const defaultUserData: UserData = {
       bigtb: true,
     },
     desktop: {
-      wallpaper: null,
+      wallpaper: "img11",
       icons: true,
     },
     start: {

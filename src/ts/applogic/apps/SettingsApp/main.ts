@@ -7,6 +7,7 @@ import startIcon from "../../../../assets/apps/settings/startmenu.svg";
 import taskbarIcon from "../../../../assets/apps/settings/taskbar.svg";
 import windowsIcon from "../../../../assets/apps/settings/windows.svg";
 import Apps from "../../../../lib/Apps/Settings/Pages/Apps.svelte";
+import Desktop from "../../../../lib/Apps/Settings/Pages/Desktop.svelte";
 import Personalization from "../../../../lib/Apps/Settings/Pages/Personalization.svelte";
 import StartMenu from "../../../../lib/Apps/Settings/Pages/StartMenu.svelte";
 import Taskbar from "../../../../lib/Apps/Settings/Pages/Taskbar.svelte";
@@ -57,8 +58,7 @@ export const SettingsPages: SettingsPage[] = [
   {
     name: "Desktop",
     icon: desktopIcon,
-    content: Personalization,
-    disabled: true,
+    content: Desktop,
     sep: true,
   },
   {

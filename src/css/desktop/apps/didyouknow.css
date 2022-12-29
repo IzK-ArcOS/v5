@@ -1,0 +1,23 @@
+window#DidYouKnow h2 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+window#DidYouKnow div.content {
+  width: 340px;
+  height: calc(100% - 40px);
+  background-color: var(--glass-alt-bg);
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+window#DidYouKnow div.actions {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+}
+
+window#DidYouKnow div.actions button {
+  width: 120px;
+}

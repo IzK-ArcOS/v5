@@ -1,6 +1,7 @@
 import { AppInfo } from "./apps/AppInfo";
 import { AppManager } from "./apps/AppManager";
 import { AppPoker } from "./apps/AppPoke";
+import { DidYouKnow } from "./apps/DidYouKnow";
 import { ErrorCreator } from "./apps/ErrorCreator";
 import { Exit } from "./apps/Exit";
 import { ProfilePictureApp } from "./apps/ProfilePicture";
@@ -22,6 +23,7 @@ export const DefaultApps: { [key: string]: App } = {
   SettingsApp: SettingsApp,
   PfpSelector: ProfilePictureApp,
   AppInfo,
+  DidYouKnow,
 };
 
 export const SystemApps: string[] = [
