@@ -7,18 +7,7 @@ The time has come to completely rethink the initial idea for the ArcOS project. 
 Before I go all technical and explain the inner workings of ArcOS, I must give credit where credit's due.
 
 - Big thanks to the **Papirus Development Team** for creating their icon pack, you can find the pack I used [here](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme).
-- The following ArcOS wallpaper were created by me:
-  - bgdark ([PNG](./src/assets/bg/bgdark.png), [SVG](./src/assets/bg/bgdark.svg))
-  - img06 ([PNG](./src/assets/bg/img06.png))
-  - img07 ([PNG](./src/assets/bg/img07.png))
-  - img08 ([PNG](./src/assets/bg/img08.png))
-  - img09 ([PNG](./src/assets/bg/img09.png))
-  - img10 ([JPEG](./src/assets/bg/img10.jpg))
-  - img11 ([JPEG](./src/assets/bg/img11.jpg))
-  - img12 ([PNG](./src/assets/bg/img12.png))
-  - img13 ([PNG](./src/assets/bg/img13.png))
-  - img17 ([PNG](./src/assets/bg/img17.png))
-  - walldark ([PNG](./src/assets/bg/walldark.png))
+- All ArcOS wallpapers were created or licensed to me.
 
 ## License
 

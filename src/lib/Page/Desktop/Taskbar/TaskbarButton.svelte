@@ -1,5 +1,6 @@
 <script lang="ts">
   import { isMinimized } from "../../../../ts/applogic/checks";
+  import { getOriginalIcon } from "../../../../ts/applogic/icon";
   import type { App } from "../../../../ts/applogic/interface";
   import {
     focusedWindowId,
@@ -46,7 +47,11 @@
   on:click={e}
   class:activated={app.id == $focusedWindowId}
 >
-  <img src={app.info.icon} alt={app.info.name} class="icon" />
+  <img
+    src={getOriginalIcon(app.id) || app.info.icon}
+    alt={app.info.name}
+    class="icon"
+  />
   {#if showLabel}
     <span>{app.info.name}</span>
   {/if}
