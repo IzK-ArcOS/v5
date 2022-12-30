@@ -99,7 +99,7 @@ div.startmenu div.bottom {
   left: 0px;
   height: 75px;
   box-sizing: border-box;
-  background-color: var(--darkened-overlay-alt);
+  background-color: var(--darkened-overlay);
   border-bottom-left-radius: var(--win-border-rad);
   border-bottom-right-radius: var(--win-border-rad);
   padding: 25px;
