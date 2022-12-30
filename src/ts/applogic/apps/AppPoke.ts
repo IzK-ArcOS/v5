@@ -1,4 +1,4 @@
-import logo from "../../../assets/apps/AppPoker.svg";
+import logo from "../../../assets/apps/apppoker.svg";
 import AppPokerSvelte from "../../../lib/Apps/AppPoker.svelte";
 import type { App } from "../interface";
 import { AppManagerAppData } from "./AppManager/Manager";

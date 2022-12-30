@@ -24,7 +24,7 @@
     setTimeout(() => {
       UserName.set(undefined);
 
-      BugReportData.set([
+      /* BugReportData.set([
         true,
         {
           icon: "power_settings_new",
@@ -38,9 +38,9 @@
             },
           },
         },
-      ]);
+      ]); */
 
-      applyState("blank");
+      applyState("turnedoff");
     }, 2000);
   });
 </script>
