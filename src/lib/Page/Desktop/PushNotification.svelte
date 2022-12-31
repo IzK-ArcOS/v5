@@ -52,6 +52,7 @@
   {#if data}
     <p class="title">
       <span class="material-icons">{data.icon}</span>{data.title}
+      <button class="close material-icons" on:click={close}> close </button>
     </p>
     <p class="message">{data.message}</p>
     <div class="buttons">
@@ -59,6 +60,5 @@
         <button on:click={buttonEvent(btn.action)}>{btn.capt}</button>
       {/each}
     </div>
-    <button class="close material-icons" on:click={close}> close </button>
   {/if}
 </div>

@@ -18,15 +18,13 @@ div.notification {
   box-sizing: border-box;
   padding: 20px;
   padding-bottom: 55px;
-  padding-right: 45px;
+  padding-right: 20px;
 }
 
 div.notification.ac {
   background-color: transparent;
   border: none;
-  padding: 20px;
-  padding-bottom: 65px;
-  padding-top: 10px;
+  padding: 0px 10px;
   min-height: unset;
   max-height: unset;
   position: relative;
@@ -36,16 +34,25 @@ div.notification.ac {
   -moz-transform: unset;
   -webkit-transform: unset;
   left: 0;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: var(--win-border-light);
+  border-radius: 0;
 }
 
 div.notification.ac div.buttons {
-  bottom: 20px;
-  right: 20px;
+  display: flex;
+  position: static;
+  margin: 15px 0;
+}
+
+div.notification.ac div.buttons div.inner {
+  margin-left: auto;
 }
 
 div.notification.ac button.close {
-  top: 10px;
-  right: 20px;
+  top: 0px;
+  right: 0px;
 }
 
 div.notification.hidden {
@@ -61,6 +68,7 @@ div.notification p {
 div.notification p.title {
   font-weight: bold;
   margin-bottom: 10px;
+  display: flex;
 }
 
 div.notification p.title span.material-icons {
@@ -74,15 +82,13 @@ div.notification div.buttons {
 }
 
 div.notification button.close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
   background-color: transparent;
   color: var(--fg);
   border: none;
   font-size: 18px;
-  padding: 0;
   margin: 0;
+  margin-left: auto;
+  padding: 0;
 }
 
 div.notification button {
