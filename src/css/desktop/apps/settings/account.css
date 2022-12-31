@@ -1,0 +1,19 @@
+window#SettingsApp div.settingspage-account div.info {
+  display: flex;
+}
+
+window#SettingsApp div.settingspage-account div.info div img {
+  border-radius: 50%;
+  height: 52px;
+  margin-right: 15px;
+}
+
+window#SettingsApp div.settingspage-account div.info div p.username {
+  font-weight: bold;
+  font-size: 23px;
+  margin: 0;
+}
+
+window#SettingsApp div.settingspage-account div.info div p.host {
+  opacity: 0.5;
+}

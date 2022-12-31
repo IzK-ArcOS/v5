@@ -47,69 +47,69 @@ export const QuickSettings: QuickSetting[] = [
     caption: "Reload Apps",
   },
   {
-    icon: "question_mark",
-    iconOff: "question_mark",
+    icon: "",
+    iconOff: "",
     getter() {
       return false;
     },
     setter() {
       return false;
     },
-    caption: "Nothing",
+    caption: "",
   },
   {
-    icon: "question_mark",
-    iconOff: "question_mark",
+    icon: "",
+    iconOff: "",
     getter() {
       return false;
     },
     setter() {
       return false;
     },
-    caption: "Nothing",
+    caption: "",
   },
   {
-    icon: "question_mark",
-    iconOff: "question_mark",
+    icon: "",
+    iconOff: "",
     getter() {
       return false;
     },
     setter() {
       return false;
     },
-    caption: "Nothing",
+    caption: "",
   },
   {
-    icon: "question_mark",
-    iconOff: "question_mark",
+    icon: "",
+    iconOff: "",
     getter() {
       return false;
     },
     setter() {
       return false;
     },
-    caption: "Nothing",
+    caption: "",
   },
   {
-    icon: "question_mark",
-    iconOff: "question_mark",
+    icon: "",
+    iconOff: "",
     getter() {
       return false;
     },
     setter() {
       return false;
     },
-    caption: "Nothing",
+    caption: "",
   },
   {
-    icon: "question_mark",
-    iconOff: "question_mark",
+    icon: "",
+    iconOff: "",
     getter() {
       return false;
     },
     setter() {
       return false;
     },
-    caption: "Nothing",
+    caption: "",
   },
 ];

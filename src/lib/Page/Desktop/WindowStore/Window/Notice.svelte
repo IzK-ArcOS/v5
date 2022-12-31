@@ -11,6 +11,6 @@
   </div>
   <div>
     <p class="title">{title}</p>
-    <p class="message">{text}</p>
+    <p class="message">{@html text}</p>
   </div>
 </div>
