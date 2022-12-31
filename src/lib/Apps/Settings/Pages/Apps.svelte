@@ -36,8 +36,8 @@
   </Section>
   <Section header="Reload apps">
     <p class="context">
-      Click the button below to reload all applications into the WindowStore, in
-      case something didn't load properly.
+      Click the button below to reload all applications into the<br
+      />WindowStore, in case something didn't load properly.
     </p>
     <button class="reload" on:click={() => importDefault()}> Reload </button>
   </Section>
