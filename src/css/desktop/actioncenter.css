@@ -1,0 +1,33 @@
+div.actioncenter {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  height: calc(100% - 75px);
+  width: 400px;
+  background-color: var(--glass-ultradark);
+  border: var(--win-border-light);
+  box-sizing: border-box;
+  border-radius: var(--win-border-rad);
+  backdrop-filter: blur(var(--glass-blur));
+  right: -420px;
+  opacity: 0;
+}
+
+div.actioncenter-shade {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: #0000;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+div.actioncenter-shade.opened {
+  display: block;
+}
+
+div.actioncenter.opened {
+  right: 10px;
+  opacity: 1;
+}

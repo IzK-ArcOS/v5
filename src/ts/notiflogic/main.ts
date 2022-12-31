@@ -25,11 +25,14 @@ export function makeNotification(data: NotificationData) {
     }, data.timeout);
 }
 
-export function closeNotification(id: string) {
+export function closeNotification() {
+  CurrentNotification.set(null);
+}
+
+export function deleteNotification(id: string) {
   const ns = get(NotificationStore);
 
   delete ns[id];
 
   NotificationStore.set(ns);
-  CurrentNotification.set(null);
 }

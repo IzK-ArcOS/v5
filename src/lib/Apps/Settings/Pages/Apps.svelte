@@ -1,5 +1,6 @@
 <script lang="ts">
   import "../../../../css/desktop/apps/settings/apps.css";
+  import { importDefault } from "../../../../ts/applogic/imports";
   import { WindowStore } from "../../../../ts/applogic/store";
   import Section from "../Section.svelte";
   import AppButton from "./Apps/AppButton.svelte";
@@ -32,5 +33,12 @@
     {#each hidden as app}
       <HiddenAppButton {app} />
     {/each}
+  </Section>
+  <Section header="Reload apps">
+    <p class="context">
+      Click the button below to reload all applications into the WindowStore, in
+      case something didn't load properly.
+    </p>
+    <button class="reload" on:click={() => importDefault()}> Reload </button>
   </Section>
 </div>

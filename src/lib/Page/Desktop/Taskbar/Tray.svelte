@@ -1,6 +1,10 @@
 <script lang="ts">
   import dayjs from "dayjs";
   import { onMount } from "svelte";
+  import {
+    ActionCenterOpened,
+    toggleActionCenter,
+  } from "../../../../ts/desktop/actioncenter/main";
   import { trayIcons } from "../../../../ts/desktop/tray/main";
 
   let time = "";
@@ -23,4 +27,11 @@
     </button>
   {/each}
   <div class="clock">{time}</div>
+  <button
+    class="material-icons ac-open"
+    on:click={toggleActionCenter}
+    class:opened={$ActionCenterOpened}
+  >
+    notifications
+  </button>
 </div>

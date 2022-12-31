@@ -8,14 +8,14 @@ div.taskbar {
   border-radius: var(--win-border-rad);
   border: var(--win-border-light);
   box-sizing: border-box;
-  transition: border 0.3s, width 0.3s, bottom 0.3s, left 0.3s,
-    transform 0.3s border-radius 0.3s, background-color 0.3s, position 0.3s;
+  transition: border 0.3s, width 0.3s, bottom 0.3s, left 0.3s, transform 0.3s,
+    border-radius 0.3s, background-color 0.3s, position 0.3s;
 }
 
 div.taskbar div.tray {
   position: absolute;
   line-height: 43px;
-  right: 20px;
+  right: 5px;
   top: 0px;
 }
 
@@ -53,6 +53,29 @@ div.taskbar div.tray div.clock {
   display: inline-block;
   margin-left: 5px;
   font-size: 14px;
+}
+
+div.taskbar div.tray button.ac-open {
+  background-color: transparent;
+  color: var(--fg);
+  border: none;
+  height: inherit;
+  margin: 0;
+  padding: 0 12px;
+  font-size: 18px;
+  height: 44px;
+}
+
+div.taskbar div.tray button.ac-open:hover {
+  background-color: var(--startmenu-applist-item-bg-hover);
+}
+
+div.taskbar div.tray button.ac-open:active {
+  background-color: var(--startmenu-applist-item-bg-active);
+}
+
+div.taskbar div.tray button.ac-open.opened {
+  background-color: var(--startmenu-applist-item-bg-active);
 }
 
 div.taskbar div.buttons {

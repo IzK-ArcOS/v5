@@ -32,7 +32,7 @@
   });
 
   function close() {
-    closeNotification($CurrentNotification);
+    closeNotification();
   }
 
   function buttonEvent(e: () => void) {
