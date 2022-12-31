@@ -45,18 +45,18 @@ Speaking of, this is the `UserData` interface which contains all personal and ad
 export interface UserData {
   sh: {
     taskbar: {
-      centered: boolean;
-      labels: boolean;
+      centered: boolean; //done
+      labels: boolean; //done
       pos: "top" | "bottom";
       docked: boolean; //done
     };
 
     window: {
-      bigtb: boolean;
+      bigtb: boolean; //done
     };
 
     desktop: {
-      wallpaper: string | null;
+      wallpaper: string | null; //done
       icons: boolean;
     };
 
@@ -65,37 +65,39 @@ export interface UserData {
     };
 
     anim: boolean; //done
-    titleButtonsLeft: boolean;
-    noGlass: boolean;
+    titleButtonsLeft: boolean; //done
+    noGlass: boolean; //done
   };
 
   acc: {
     enabled: boolean;
     admin: boolean;
-    profilePicture: string | number | null;
+    profilePicture: string | number | null; //done
   };
   volume: {
-    level: number;
-    muted: boolean;
+    level: number; //halted
+    muted: boolean; //halted
   };
 }
 ```
 
 Overview of what preferences have implementations in ArcOS:
-| property | Friendly Name | status |
-|---------------------------------|-----------------------------------|-------------------------------------------------------------------------|
-| `UserData.sh.taskbar.centered` | Center taskbar buttons | implemented: `src/lib/Page/Desktop/Taskbar.svelte` in `<div.taskbar class:centered>` |
-| `UserData.sh.taskbar.labels` | Show taskbar button labels | implemented: `src/lib/Page/Desktop/Taskbar/TaskbarButton.svelte` in `{#if showLabel}` |
+| property | Friendly Name | status | Location |
+|----------|---------------|--------|----------|
+| `UserData.sh.taskbar.centered` | Center taskbar buttons | implemented | `src/lib/Page/Desktop/Taskbar.svelte` in `<div.taskbar class:centered>` |
+| `UserData.sh.taskbar.labels` | Show taskbar button labels | implemented | `src/lib/Page/Desktop/Taskbar/TaskbarButton.svelte` in `{#if showLabel}` |
 | `UserData.sh.taskbar.pos` | Taskbar position | not implemented |
-| `UserData.sh.taskbar.docked` | Dock the taskbar | implemented: `src/lib/Page/Desktop/Taskbar.svelte` in `div.taskbar` |
-| `UserData.sh.desktop.wallpaper` | Wallpaper | implemented: `src/lib/Page/Desktop/Wallpaper.svelte` in `div.wallpaper` |
+| `UserData.sh.taskbar.docked` | Dock the taskbar | implemented | `src/lib/Page/Desktop/Taskbar.svelte` in `div.taskbar` |
+| `UserData.sh.window.bigtb` | Large titlebars | implemented | `src/ts/Desktop/main.ts` in `assignDesktopListeners()` |
+| `UserData.sh.desktop.wallpaper` | Wallpaper | implemented | `src/lib/Page/Desktop/Wallpaper.svelte` in `div.wallpaper` |
 | `UserData.sh.desktop.icons` | Show the desktop icons | not implemented |
-| `UserData.sh.start.small` | Small start menu | implemented: `src/lib/Page/Desktop/StartMenu.svelte` in `div.startmenu` |
-| `UserData.sh.anim` | Enable animations | implemented: `src/lib/Page/Desktop.svelte` in `UserData.subscribe` |
-| `UserData.sh.titleButtonsLeft` | Titlebar buttons on the left side | implemented: `src/lib/Page/Desktop/Window.svelte` in `<window class:lefttb>` |
-| `UserData.acc.enabled` | Is the user enabled? | (partially) implemented: `src/lib/Page/Login/User.svelte` in `{#if}` |
+| `UserData.sh.start.small` | Small start menu | implemented | `src/lib/Page/Desktop/StartMenu.svelte` in `div.startmenu` |
+| `UserData.sh.anim` | Enable animations | implemented | `src/lib/Page/Desktop.svelte` in `UserData.subscribe` |
+| `UserData.sh.titleButtonsLeft` | Titlebar buttons on the left side | implemented | `src/lib/Page/Desktop/Window.svelte` in `<window class:lefttb>` |
+| `UserData.sh.noGlass` | Disable all transparency effects | implemented | `src/ts/Desktop/main.ts` in `assignDesktopListeners()` |
+| `UserData.acc.enabled` | Is the user enabled? | (partially) implemented | `src/lib/Page/Login/User.svelte` in `{#if}` |
 | `UserData.acc.admin` | Is the user an administrator? | not implemented |
-| `UserData.acc.profilePicture` | The user profile picture | not implemented |
+| `UserData.acc.profilePicture` | The user profile picture | implemented | `src/ts/userlogic/pfp.ts` |
 | `UserData.volume.level` | The ArcOS desktop volume | (halted) |
 | `UserData.volume.muted` | Mute ArcOS | (halted) |
 
