@@ -88,17 +88,19 @@ Overview of what preferences have implementations in ArcOS:
 | `UserData.sh.taskbar.labels` | Show taskbar button labels | implemented: `src/lib/Page/Desktop/Taskbar/TaskbarButton.svelte` in `{#if showLabel}` |
 | `UserData.sh.taskbar.pos` | Taskbar position | not implemented |
 | `UserData.sh.taskbar.docked` | Dock the taskbar | implemented: `src/lib/Page/Desktop/Taskbar.svelte` in `div.taskbar` |
-| `UserData.sh.desktop.wallpaper` | Wallpaper | not implemented |
+| `UserData.sh.desktop.wallpaper` | Wallpaper | implemented: `src/lib/Page/Desktop/Wallpaper.svelte` in `div.wallpaper` |
 | `UserData.sh.desktop.icons` | Show the desktop icons | not implemented |
 | `UserData.sh.start.small` | Small start menu | implemented: `src/lib/Page/Desktop/StartMenu.svelte` in `div.startmenu` |
 | `UserData.sh.anim` | Enable animations | implemented: `src/lib/Page/Desktop.svelte` in `UserData.subscribe` |
-| `UserData.sh.titleButtonsLeft` | Titlebar buttons on the left side | not implemented |
+| `UserData.sh.titleButtonsLeft` | Titlebar buttons on the left side | implemented: `src/lib/Page/Desktop/Window.svelte` in `<window class:lefttb>` |
 | `UserData.acc.enabled` | Is the user enabled? | (partially) implemented: `src/lib/Page/Login/User.svelte` in `{#if}` |
 | `UserData.acc.admin` | Is the user an administrator? | not implemented |
 | `UserData.acc.profilePicture` | The user profile picture | not implemented |
-| `UserData.volume.level` | The ArcOS desktop volume | not implemented |
-| `UserData.volume.muted` | Mute ArcOS | not implemented |
+| `UserData.volume.level` | The ArcOS desktop volume | (halted) |
+| `UserData.volume.muted` | Mute ArcOS | (halted) |
 
 ## Plans for the future
 
 In the future I want to implement a backend API to allow for me to restore some of the key initial features of ArcOS. One of these include the file explorer, because that was vanilla-JS, electron only FS interaction functionality, which we can't get with TS in a browser without some kind of backend.
+
+> NOTE: API concepting has begun in [ENDPOINTS.md](./ENDPOINTS.md)
