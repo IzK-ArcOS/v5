@@ -1,4 +1,5 @@
 import { get, writable, Writable } from "svelte/store";
+import { Log, LogLevel } from "../console";
 import type { App } from "./interface";
 
 export const WindowStore: Writable<App[]> = writable<App[]>([]);
@@ -7,6 +8,12 @@ export const maxZIndex = writable<number>(1e9);
 export const focusedWindowId: Writable<string> = writable<string>(null);
 
 export function getWindow(id: string): App {
+  Log({
+    msg: `Getting appData of ${id} from WindowStore`,
+    source: "store.ts: getWindow",
+    level: LogLevel.info,
+  });
+
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
@@ -16,15 +23,13 @@ export function getWindow(id: string): App {
   return null;
 }
 
-export function getStore() {
-  let ws = get(WindowStore);
-
-  ws = ws.filter((w) => w != null);
-
-  return ws;
-}
-
 export function getOpenedStore() {
+  Log({
+    msg: `Getting opened store`,
+    source: "store.ts: getOpenedStore",
+    level: LogLevel.info,
+  });
+
   const ws = get(WindowStore);
   const x = [];
 
@@ -36,6 +41,12 @@ export function getOpenedStore() {
 }
 
 export function updateStores() {
+  Log({
+    msg: `Flushing all stores`,
+    source: "store.ts: updateStores",
+    level: LogLevel.info,
+  });
+
   const ws = get(WindowStore);
   const oa = getOpenedStore();
 

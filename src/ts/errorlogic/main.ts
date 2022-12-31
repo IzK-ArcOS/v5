@@ -12,6 +12,12 @@ import {
 } from "./app";
 
 export function getErrorElement(id: string): HTMLDivElement {
+  Log({
+    msg: `Getting error element of ${id}`,
+    source: "errorlogic/main.ts: getErrorElement",
+    level: LogLevel.info,
+  });
+
   const el = document.querySelector(`window#${id}`);
 
   return el as HTMLDivElement;
@@ -23,6 +29,12 @@ export function errorMessage(
   image?: string,
   ...buttons: ErrorButton[]
 ) {
+  Log({
+    msg: `Generating "${title}"`,
+    source: "errorlogic/main.ts: errorMessage",
+    level: LogLevel.info,
+  });
+
   const error: ErrorMessage = {
     title,
     message,
@@ -42,6 +54,12 @@ export function errorMessage(
 }
 
 export function closeError(id: number) {
+  Log({
+    msg: `Closing error ${id}`,
+    source: "errorlogic/main.ts: closeError",
+    level: LogLevel.info,
+  });
+
   const ews = get(ErrorWindowStore);
 
   for (let i = 0; i < ews.length; i++) {
@@ -52,6 +70,12 @@ export function closeError(id: number) {
 }
 
 export function openError(id: number) {
+  Log({
+    msg: `Opening error ${id}`,
+    source: "errorlogic/main.ts: openError",
+    level: LogLevel.info,
+  });
+
   const ews = get(ErrorWindowStore);
 
   for (let i = 0; i < ews.length; i++) {
@@ -62,6 +86,12 @@ export function openError(id: number) {
 }
 
 export function createErrorAppData(data: ErrorMessage) {
+  Log({
+    msg: `Generating error appData for ${data.title}`,
+    source: "errorlogic/main.ts: createErrorAppData",
+    level: LogLevel.info,
+  });
+
   const error: App = {
     info: {
       name: data.title,

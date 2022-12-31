@@ -1,3 +1,4 @@
+import { Log, LogLevel } from "../console";
 import type { App } from "./interface";
 import { focusedWindowId } from "./store";
 
@@ -6,7 +7,18 @@ export function dragWindow(
   window: HTMLDivElement,
   titlebar: HTMLDivElement
 ) {
-  if (!app || !window || !titlebar) return console.debug(app, window, titlebar);
+  Log({
+    msg: `Dragging window ${app.id}`,
+    source: "drag.ts: dragWindow",
+    level: LogLevel.info,
+  });
+
+  if (!app || !window || !titlebar)
+    return Log({
+      msg: `Can't drag ${app.id}: one or more required elements are missing!`,
+      source: "drag.ts: dragWindow",
+      level: LogLevel.error,
+    });
 
   window.addEventListener("mousedown", (e: MouseEvent) => {
     focusedWindowId.set(app.id);

@@ -1,4 +1,5 @@
 import { get } from "svelte/store";
+import { Log, LogLevel } from "../console";
 import { errorMessage } from "../errorlogic/main";
 import { UserData } from "../userlogic/interfaces";
 import { closeWindow } from "./events";
@@ -6,6 +7,12 @@ import { SystemApps } from "./imports";
 import { updateStores, WindowStore } from "./store";
 
 export function disableApp(id: string) {
+  Log({
+    msg: `Disabling app ${id}`,
+    source: "enabling.ts: disableApp",
+    level: LogLevel.info,
+  });
+
   if (SystemApps.includes(id)) {
     return errorMessage(
       "Can't disable application",
@@ -34,6 +41,12 @@ export function disableApp(id: string) {
 }
 
 export function enableApp(id: string) {
+  Log({
+    msg: `Enabling app ${id}`,
+    source: "enabling.ts: enableApp",
+    level: LogLevel.info,
+  });
+
   const udata = get(UserData);
 
   for (let i = 0; i < udata.disabledApps.length; i++) {

@@ -13,7 +13,6 @@ export const DidYouKnowTips: Tip[] = [
 
       setTimeout(() => {
         for (let i = 0; i < SettingsPages.length; i++) {
-          console.log(SettingsPages[i]);
           if (SettingsPages[i].name == "Desktop") {
             setSettingsPage(SettingsPages[i]);
           }

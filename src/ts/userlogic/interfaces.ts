@@ -28,6 +28,7 @@ export interface UserData {
   };
 
   disabledApps: string[];
+  autoRun: string[];
 
   acc: {
     enabled: boolean;
@@ -73,6 +74,7 @@ export const defaultUserData: UserData = {
     muted: false,
   },
   disabledApps: [],
+  autoRun: [],
 };
 
 export type AllUsers = { [name: string]: UserData };

@@ -1,7 +1,14 @@
 import { get } from "svelte/store";
+import { Log, LogLevel } from "../console";
 import { WindowStore } from "./store";
 
 export function setTitleSuffix(content: string, appId: string) {
+  Log({
+    msg: `Setting title suffix of ${appId}`,
+    source: "title.ts: setTitleSuffix",
+    level: LogLevel.info,
+  });
+
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
@@ -16,6 +23,12 @@ export function setTitleSuffix(content: string, appId: string) {
 }
 
 export function resetTitleSuffix(appId: string) {
+  Log({
+    msg: `Resetting title suffix of ${appId}`,
+    source: "title.ts: resetTitleSuffix",
+    level: LogLevel.info,
+  });
+
   if (!Originals[appId]) return;
 
   const ws = get(WindowStore);

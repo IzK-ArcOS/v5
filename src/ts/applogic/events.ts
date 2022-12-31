@@ -1,4 +1,5 @@
 import { get } from "svelte/store";
+import { Log, LogLevel } from "../console";
 import { startOpened } from "../desktop/main";
 import { getWindowElement } from "../window/main";
 import { isLoaded, isOpened } from "./checks";
@@ -12,6 +13,12 @@ import {
 } from "./store";
 
 export function openWindow(id: string) {
+  Log({
+    msg: `Opening ${id}`,
+    source: "events.ts: openWindow",
+    level: LogLevel.info,
+  });
+
   const window = getWindow(id);
 
   if (!isLoaded(id) || isOpened(id)) {
@@ -56,6 +63,12 @@ export function openWindow(id: string) {
 }
 
 export function closeWindow(id: string) {
+  Log({
+    msg: `Closing ${id}`,
+    source: "events.ts: closeWindow",
+    level: LogLevel.info,
+  });
+
   if (!isOpened(id)) {
     return false;
   }
@@ -78,6 +91,12 @@ export function closeWindow(id: string) {
 }
 
 export function maximizeWindow(app: App) {
+  Log({
+    msg: `Switching maximized state of ${app.id}`,
+    source: "events.ts: maximizeWindow",
+    level: LogLevel.info,
+  });
+
   app.state.windowState.max = !app.state.windowState.max;
 
   focusedWindowId.set(app.id);
@@ -88,6 +107,12 @@ export function maximizeWindow(app: App) {
 }
 
 export function minimizeWindow(app: App) {
+  Log({
+    msg: `Switching minimized state of ${app.id}`,
+    source: "events.ts: minimizeWindow",
+    level: LogLevel.info,
+  });
+
   app.state.windowState.min = !app.state.windowState.min;
 
   focusedWindowId.set(null);
@@ -104,6 +129,12 @@ export function minimizeWindow(app: App) {
 }
 
 export function fullscreenWindow(app: App) {
+  Log({
+    msg: `Switching fullscreen state of ${app.id}`,
+    source: "events.ts: fullscreenWindow",
+    level: LogLevel.info,
+  });
+
   app.state.windowState.fll = !app.state.windowState.fll;
 
   focusedWindowId.set(app.id);
@@ -118,6 +149,12 @@ export function fullscreenWindow(app: App) {
 }
 
 export function headlessToggle(app: App) {
+  Log({
+    msg: `Switching headless state of ${app.id}`,
+    source: "events.ts: headlessToggle",
+    level: LogLevel.info,
+  });
+
   app.state.headless = !app.state.headless;
 
   focusedWindowId.set(app.id);

@@ -6,6 +6,12 @@ import { applyState } from "../state/main";
 import { AllUsers, defaultUserData, UserData, UserName } from "./interfaces";
 
 export function getUsers() {
+  Log({
+    msg: `Getting users`,
+    source: "userlogic/main.ts: getUsers",
+    level: LogLevel.info,
+  });
+
   const users = localStorage.getItem(userDataKey);
 
   if (!users) {
@@ -18,10 +24,22 @@ export function getUsers() {
 }
 
 export function setUsers(data: AllUsers) {
+  Log({
+    msg: `Setting users`,
+    source: "userlogic/main.ts: setUsers",
+    level: LogLevel.info,
+  });
+
   localStorage.setItem(userDataKey, btoa(JSON.stringify(data)));
 }
 
 export function createUser(name: string) {
+  Log({
+    msg: `Creating userdata for "${name}"`,
+    source: "userlogic/main.ts: createUser",
+    level: LogLevel.info,
+  });
+
   const users = getUsers();
 
   if (!users[name]) {
@@ -39,6 +57,12 @@ export function createUser(name: string) {
 }
 
 export function deleteUser(name: string) {
+  Log({
+    msg: `Delete users`,
+    source: "userlogic/main.ts: deleteUsers",
+    level: LogLevel.info,
+  });
+
   const users = getUsers();
 
   if (!users[name]) return false;
@@ -49,6 +73,12 @@ export function deleteUser(name: string) {
 }
 
 export function resetUser(name: string) {
+  Log({
+    msg: `Resetting user "${name}"`,
+    source: "userlogic/main.ts: resetUser",
+    level: LogLevel.info,
+  });
+
   const users = getUsers();
 
   if (!users[name]) return false;
@@ -59,16 +89,26 @@ export function resetUser(name: string) {
 }
 
 export function getUserdata(name: string) {
+  Log({
+    msg: `Getting userdata for "${name}"`,
+    source: "userlogic/main.ts: getUserdata",
+    level: LogLevel.info,
+  });
+
   const users = getUsers();
 
   if (users[name]) return users[name];
-
-  //createUser(name);
 
   return defaultUserData;
 }
 
 export function setUserdata(name: string, data: UserData): boolean {
+  Log({
+    msg: `Setting userdata`,
+    source: "userlogic/main.ts: setUserdata",
+    level: LogLevel.info,
+  });
+
   const users = getUsers();
 
   if (!users[name]) return false;

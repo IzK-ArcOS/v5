@@ -1,3 +1,4 @@
+import { Log, LogLevel } from "../console";
 import { AppInfo } from "./apps/AppInfo";
 import { AppManager } from "./apps/AppManager";
 import { AppPoker } from "./apps/AppPoke";
@@ -35,6 +36,12 @@ export const SystemApps: string[] = [
 ];
 
 export async function importDefault(open = false) {
+  Log({
+    msg: `Importing default applications`,
+    source: "imports.ts: importDefault",
+    level: LogLevel.info,
+  });
+
   const entries = Object.entries(DefaultApps);
 
   for (let i = 0; i < entries.length; i++) {

@@ -1,7 +1,14 @@
 import { get } from "svelte/store";
+import { Log, LogLevel } from "../console";
 import { getWindow, WindowStore } from "./store";
 
 export function isLoaded(id: string): boolean {
+  Log({
+    msg: `Verifying loaded state of ${id}`,
+    source: "checks.ts: isLoaded",
+    level: LogLevel.info,
+  });
+
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
@@ -12,6 +19,12 @@ export function isLoaded(id: string): boolean {
 }
 
 export function isOpened(id: string): boolean {
+  Log({
+    msg: `Verifying opened state of ${id}`,
+    source: "checks.ts: isOpened",
+    level: LogLevel.info,
+  });
+
   const window = getWindow(id);
 
   if (!window) return false;
@@ -20,6 +33,12 @@ export function isOpened(id: string): boolean {
 }
 
 export function isMinimized(id: string): boolean {
+  Log({
+    msg: `Verifying minimized state of ${id}`,
+    source: "checks.ts: isMinimized",
+    level: LogLevel.info,
+  });
+
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
@@ -30,6 +49,12 @@ export function isMinimized(id: string): boolean {
 }
 
 export function isDisabled(id: string): boolean {
+  Log({
+    msg: `Verifying disabled state of ${id}`,
+    source: "checks.ts: isDisabled",
+    level: LogLevel.info,
+  });
+
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {

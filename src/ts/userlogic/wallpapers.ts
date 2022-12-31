@@ -10,6 +10,7 @@ import img12 from "../../assets/bg/img12.png";
 import img13 from "../../assets/bg/img13.png";
 import img14 from "../../assets/bg/img14.png";
 import img15 from "../../assets/bg/img15.png";
+import { Log, LogLevel } from "../console";
 
 export const Wallpapers: { [key: string]: string } = {
   img01,
@@ -27,6 +28,12 @@ export const Wallpapers: { [key: string]: string } = {
 };
 
 export function getWallpaper(id: string) {
+  Log({
+    msg: `Getting wallpaper ${id.startsWith("img") ? id : "<custom>"}`,
+    source: "userlogic/wallpapers.ts: getWallpaper",
+    level: LogLevel.info,
+  });
+
   if (!id) return id;
   if (id.startsWith("img")) return Wallpapers[id] || img11;
   return id;

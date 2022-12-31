@@ -1,6 +1,13 @@
+import { Log, LogLevel } from "../console";
 import type { App } from "./interface";
 
 export function generateCSS(app: App, usePos: boolean) {
+  Log({
+    msg: `Generating CSS for ${app.id}`,
+    source: "css.ts: generateCSS",
+    level: LogLevel.info,
+  });
+
   let cssString = "";
 
   if (!app.state.windowState.max) {
