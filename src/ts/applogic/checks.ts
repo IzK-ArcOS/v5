@@ -28,3 +28,13 @@ export function isMinimized(id: string): boolean {
 
   return false;
 }
+
+export function isDisabled(id: string): boolean {
+  const ws = get(WindowStore);
+
+  for (let i = 0; i < ws.length; i++) {
+    if (ws[i] && ws[i].id == id && ws[i].disabled) return true;
+  }
+
+  return false;
+}

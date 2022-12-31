@@ -46,6 +46,7 @@
         errorMessage(
           "Notice",
           "ArcOS is currently in the prime development fase. Remember that not all elements will work as expected, or, for that matter, at all. Features are constantly being updated and added, so the ArcOS you start up today may or may not be the same as the one you open tomorrow.",
+          warning,
           { caption: "I understand", action() {} },
           { caption: "Shutdown", action: shutdown }
         );

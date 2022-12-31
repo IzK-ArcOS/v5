@@ -2,6 +2,7 @@
   import "../../css/desktop/apps/AppInfo.css";
   import { AppInfoId as id } from "../../ts/applogic/apps/AppInfo";
   import { AppManagerAppData } from "../../ts/applogic/apps/AppManager/Manager";
+  import { isDisabled } from "../../ts/applogic/checks";
   import { disableApp, enableApp } from "../../ts/applogic/enabling";
   import { openWindow } from "../../ts/applogic/events";
   import { SystemApps } from "../../ts/applogic/imports";
@@ -10,6 +11,7 @@
 
   let data: App;
   let isEnabled = true;
+  let disablePoke = false;
 
   function updateState() {
     if (isEnabled) enableApp($id);
@@ -27,6 +29,8 @@
     data = getWindow($id);
 
     isEnabled = !getWindow($id).disabled;
+
+    disablePoke = isDisabled("AppPoker");
   }
 </script>
 
@@ -97,7 +101,7 @@
         </button>
         <button
           on:click={() => AppManagerAppData.set(data)}
-          disabled={data.disabled}
+          disabled={data.disabled || disablePoke}
         >
           Poke
         </button>

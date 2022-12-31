@@ -134,6 +134,7 @@
             errorMessage(
               "This is a test error message",
               "This is a test error message to see how the ErrorLogic can work together with the NotificationLogic,This is a test error message to see how the ErrorLogic can work together with the NotificationLogic,This is a test error message to see how the ErrorLogic can work together with the NotificationLogic,This is a test error message to see how the ErrorLogic can work together with the NotificationLogic,This is a test error message to see how the ErrorLogic can work together with the NotificationLogic,",
+              null,
               {
                 caption: "Abort",
                 action: () => {},

@@ -13,6 +13,7 @@ export interface ErrorMessage {
   opened: boolean;
   buttons: ErrorButton[];
   id: number;
+  image?: string;
 }
 
 export interface ErrorButton {
