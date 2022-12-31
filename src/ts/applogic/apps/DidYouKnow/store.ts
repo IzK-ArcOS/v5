@@ -9,13 +9,16 @@ export const DidYouKnowTips: Tip[] = [
     content:
       "You can upload your own wallpaper to ArcOS! Open settings and go to the Desktop section.",
     trigger() {
-      openWindow("settings");
+      openWindow("SettingsApp");
 
-      for (let i = 0; i < SettingsPages.length; i++) {
-        if (SettingsPages[i].name == "Desktop") {
-          setSettingsPage(SettingsPages[i]);
+      setTimeout(() => {
+        for (let i = 0; i < SettingsPages.length; i++) {
+          console.log(SettingsPages[i]);
+          if (SettingsPages[i].name == "Desktop") {
+            setSettingsPage(SettingsPages[i]);
+          }
         }
-      }
+      }, 250);
     },
   },
   {
