@@ -16,8 +16,12 @@ div.actioncenter {
 }
 
 div.actioncenter div.notifications {
-  height: calc(100% - 40px);
+  height: calc(100% - 240px);
   overflow-y: scroll;
+}
+
+div.actioncenter div.quicksettings {
+  height: 200px;
 }
 
 div.actioncenter-shade {
@@ -65,4 +69,45 @@ div.actioncenter h3.title button.clear:active {
 div.actioncenter h3.title button.clear:disabled {
   background-color: var(--button-glass-bg);
   opacity: 0.4;
+}
+
+div.actioncenter p.none {
+  text-align: center;
+  opacity: 0.4;
+}
+
+div.actioncenter div.quicksettings {
+  display: grid;
+  grid-template-columns: repeat(3, 121px);
+  grid-template-rows: repeat(3, 66px);
+  margin-top: 10px;
+}
+
+div.actioncenter div.quicksettings button.setting {
+  background-color: var(--button-glass-active-bg);
+  border: none;
+  border-radius: 5px;
+  color: var(--fg);
+  height: 56px;
+}
+
+div.actioncenter div.quicksettings button.setting.active {
+  background-color: var(--button-glass-bg);
+}
+
+div.actioncenter div.quicksettings button.setting p.caption {
+  font-size: 13px;
+  margin: 0;
+  margin-top: 5px;
+  overflow: hidden;
+  opacity: 0;
+  height: 0px;
+  margin-top: 0;
+  transition: all 0.3s;
+}
+
+div.actioncenter div.quicksettings button.setting:hover p.caption {
+  opacity: 1;
+  height: fit-content;
+  margin-top: 5px;
 }

@@ -7,4 +7,7 @@
   {#each Object.entries($NotificationStore) as notification}
     <Notification {notification} />
   {/each}
+  {#if Object.entries($NotificationStore).length == 0}
+    <p class="none">You have no notifications</p>
+  {/if}
 </div>

@@ -4,6 +4,7 @@
   import { ActionCenterOpened } from "../../../ts/desktop/actioncenter/main";
   import { NotificationStore } from "../../../ts/notiflogic/main";
   import Notifications from "./ActionCenter/Notifications.svelte";
+  import QuickSettings from "./ActionCenter/QuickSettings.svelte";
 
   let opened = false;
 
@@ -25,4 +26,5 @@
     >
   </h3>
   <Notifications />
+  <QuickSettings />
 </div>
