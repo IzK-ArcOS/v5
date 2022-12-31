@@ -84,7 +84,7 @@ export interface UserData {
 Overview of what preferences have implementations in ArcOS:
 | property | Friendly Name | status |
 |---------------------------------|-----------------------------------|-------------------------------------------------------------------------|
-| `UserData.sh.taskbar.centered` | Center taskbar buttons | not implemented |
+| `UserData.sh.taskbar.centered` | Center taskbar buttons | implemented: `src/lib/Page/Desktop/Taskbar.svelte` in `<div.taskbar class:centered>` |
 | `UserData.sh.taskbar.labels` | Show taskbar button labels | implemented: `src/lib/Page/Desktop/Taskbar/TaskbarButton.svelte` in `{#if showLabel}` |
 | `UserData.sh.taskbar.pos` | Taskbar position | not implemented |
 | `UserData.sh.taskbar.docked` | Dock the taskbar | implemented: `src/lib/Page/Desktop/Taskbar.svelte` in `div.taskbar` |
