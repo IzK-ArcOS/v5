@@ -3,8 +3,6 @@
   import { get } from "svelte/store";
   import "../../../../css/login/userlogin.css";
   import Spinner from "../../../../lib/Spinner.svelte";
-  import { BugReportData } from "../../../../ts/bugrep";
-  import { applyLoginState } from "../../../../ts/login/main";
   import { applyState } from "../../../../ts/state/main";
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getUserdata } from "../../../../ts/userlogic/main";
@@ -15,9 +13,9 @@
 
   let pfp = "";
 
-  onMount(() => {
+  onMount(async () => {
     name = get(UserName);
-    data = getUserdata(name);
+    data = await getUserdata(name);
 
     pfp = getProfilePicture(parseInt(data.acc.profilePicture as string));
 

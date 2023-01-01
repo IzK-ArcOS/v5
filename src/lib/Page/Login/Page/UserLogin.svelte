@@ -13,15 +13,15 @@
   let data: UserData;
   let pfp = "";
 
-  onMount(() => {
+  onMount(async () => {
     name = get(loginUsername);
     if (name) {
-      data = getUserdata(name);
+      data = await getUserdata(name);
 
       pfp = getProfilePicture(parseInt(data.acc.profilePicture as string));
 
-      setTimeout(() => {
-        UserData.set(getUserdata(name));
+      setTimeout(async () => {
+        UserData.set(await getUserdata(name));
         UserName.set(name);
 
         applyState("desktop");

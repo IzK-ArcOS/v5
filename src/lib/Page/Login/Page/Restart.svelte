@@ -14,9 +14,9 @@
 
   let pfp = "";
 
-  onMount(() => {
+  onMount(async () => {
     name = get(UserName);
-    data = getUserdata(name);
+    data = await getUserdata(name);
 
     pfp = getProfilePicture(parseInt(data.acc.profilePicture as string));
 
