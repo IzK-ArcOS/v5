@@ -1,13 +1,14 @@
 <script lang="ts">
+  import { testConnection } from "../../../../ts/api/test";
   import { applyFTSState } from "../../../../ts/fts/main";
   import Nav from "../Nav.svelte";
 
   let server = "";
 
   async function connect() {
-    const req = await (await fetch(`http://${server}:3333/connect`)).json();
+    const testSuccess = await testConnection(server);
 
-    if (req.valid) {
+    if (testSuccess) {
       localStorage.setItem("arcos-server", server);
 
       applyFTSState("finish");

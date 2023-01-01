@@ -4,7 +4,7 @@
   import { onMount } from "svelte";
   import logo from "../../assets/systemIcon.svg";
   import "../../css/boot.css";
-  import { testConnection } from "../../ts/api/main";
+  import { testConnection } from "../../ts/api/test";
   import { BugReportData } from "../../ts/bugrep";
   import { Log, LogLevel } from "../../ts/console";
   import { userDataKey } from "../../ts/env/main";

@@ -1,16 +1,39 @@
 import { get } from "svelte/store";
+import { apiCall, ConnectedServer } from "../api/main";
 import { BugReportData } from "../bugrep";
 import { Log, LogLevel } from "../console";
 import { userDataKey } from "../env/main";
 import { applyState } from "../state/main";
-import { AllUsers, defaultUserData, UserData, UserName } from "./interfaces";
+import {
+  AllUsers,
+  defaultUserData,
+  UserData,
+  UserName,
+  UserToken,
+} from "./interfaces";
 
-export function getUsers() {
+export async function getUsers() {
   Log({
     msg: `Getting users`,
     source: "userlogic/main.ts: getUsers",
     level: LogLevel.info,
   });
+
+  const server = get(ConnectedServer);
+
+  if (server) {
+    const users = await apiCall(server, "users/get", {}, null, null);
+
+    let obj = {};
+
+    const arr = users.data as any[];
+
+    for (let i = 0; i < arr.length; i++) {
+      obj[arr[i].username] = arr[i];
+    }
+
+    return obj as AllUsers;
+  }
 
   const users = localStorage.getItem(userDataKey);
 
@@ -29,6 +52,14 @@ export function setUsers(data: AllUsers) {
     source: "userlogic/main.ts: setUsers",
     level: LogLevel.info,
   });
+
+  const server = get(ConnectedServer);
+
+  if (server) {
+    console.log("uh, oh, this isn't implemented into the API yet...");
+
+    return;
+  }
 
   localStorage.setItem(userDataKey, btoa(JSON.stringify(data)));
 }
@@ -111,6 +142,27 @@ export async function setUserdata(
     source: "userlogic/main.ts: setUserdata",
     level: LogLevel.info,
   });
+
+  const server = get(ConnectedServer);
+
+  if (server) {
+    const req = await apiCall(
+      server,
+      "user/properties/update",
+      { data: btoa(JSON.stringify(data)) },
+      get(UserToken)
+    );
+
+    if (req.valid) {
+      Log({
+        msg: `Userdata committed to API`,
+        source: "userlogic/main.ts: setUserdata",
+        level: LogLevel.info,
+      });
+    }
+
+    return;
+  }
 
   const users = await getUsers();
 

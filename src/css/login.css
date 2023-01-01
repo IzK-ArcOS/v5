@@ -40,7 +40,7 @@ div.login a {
 
 div.login button:not(.user) {
   padding: 10px 20px;
-  background-color: #0003;
+  background-color: #ffffff08;
   border: none;
   border-radius: 7.5px;
   transition: background-color 0.3s, opacity 0.15s;
@@ -48,10 +48,14 @@ div.login button:not(.user) {
 }
 
 div.login button:not(.user):hover {
-  background-color: #0005;
+  background-color: #fff1;
 }
 
 div.login button:not(.user):active {
+  opacity: 0.4;
+}
+
+div.login button:disabled {
   opacity: 0.4;
 }
 
@@ -132,6 +136,19 @@ div.login div.center-absolute div.user-selector {
   align-items: center;
   align-content: center;
   text-align: center;
+}
+
+div.login div.center-absolute div.user-selector button.createacc {
+  display: block;
+  position: fixed;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  min-width: 150px;
 }
 
 div.login div.center-absolute div.user-selector button.user {

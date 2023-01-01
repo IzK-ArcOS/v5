@@ -1,4 +1,5 @@
 import Logoff from "../../lib/Page/Login/Page/Logoff.svelte";
+import NewApiUser from "../../lib/Page/Login/Page/NewApiUser.svelte";
 import Restart from "../../lib/Page/Login/Page/Restart.svelte";
 import Selector from "../../lib/Page/Login/Page/Selector.svelte";
 import Shutdown from "../../lib/Page/Login/Page/Shutdown.svelte";
@@ -64,6 +65,18 @@ export const LoginStates = new Map<string, State>([
         darken: true,
       },
       key: "restart",
+    },
+  ],
+  [
+    "newapiuser",
+    {
+      name: "New User",
+      content: NewApiUser,
+      attribs: {
+        topbar: false,
+        darken: true,
+      },
+      key: "newapiuser",
     },
   ],
 ]);

@@ -1,12 +1,78 @@
 div.userlogin {
-    text-align: center;
+  text-align: center;
 }
 
 div.userlogin img {
-    height:150px;
-    border-radius: 50%;
+  height: 150px;
+  border-radius: 50%;
 }
 
 div.userlogin h1 {
-    font-size: 24px;
+  font-size: 24px;
+}
+
+div.userlogin input {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #fff1;
+  border: none;
+}
+
+div.userlogin input.block,
+div.userlogin button.block {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+}
+
+div.userlogin div.cloudlogin button.material-icons {
+  margin: 0;
+  margin-left: 5px;
+  padding: 0;
+  color: #ccc;
+  width: 36px;
+}
+
+div.userlogin div.cloudlogin div.field {
+  display: flex;
+}
+
+div.userlogin div.cloudlogin i.host {
+  opacity: 0.2;
+  margin-top: 10px;
+  display: block;
+}
+
+div.userlogin div.cloudlogin form {
+  display: inline-block;
+}
+
+div.login button.switchuser {
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  margin-top: 50px;
+}
+
+div.userlogin.newuser button.createbutton {
+  color: #ccc;
+  height: 36px;
+  padding: 0;
+  min-width: 36px;
+  margin: 0;
+  margin-left: 10px;
+}
+
+div.userlogin.newuser div.input-wrapper {
+  display: flex;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
 }
