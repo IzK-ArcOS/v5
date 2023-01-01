@@ -33,14 +33,14 @@ export function setUsers(data: AllUsers) {
   localStorage.setItem(userDataKey, btoa(JSON.stringify(data)));
 }
 
-export function createUser(name: string) {
+export async function createUser(name: string) {
   Log({
     msg: `Creating userdata for "${name}"`,
     source: "userlogic/main.ts: createUser",
     level: LogLevel.info,
   });
 
-  const users = getUsers();
+  const users = await getUsers();
 
   if (!users[name]) {
     users[name] = defaultUserData;
@@ -56,14 +56,14 @@ export function createUser(name: string) {
   });
 }
 
-export function deleteUser(name: string) {
+export async function deleteUser(name: string) {
   Log({
     msg: `Delete users`,
     source: "userlogic/main.ts: deleteUsers",
     level: LogLevel.info,
   });
 
-  const users = getUsers();
+  const users = await getUsers();
 
   if (!users[name]) return false;
 
@@ -72,14 +72,14 @@ export function deleteUser(name: string) {
   return setUsers(users);
 }
 
-export function resetUser(name: string) {
+export async function resetUser(name: string) {
   Log({
     msg: `Resetting user "${name}"`,
     source: "userlogic/main.ts: resetUser",
     level: LogLevel.info,
   });
 
-  const users = getUsers();
+  const users = await getUsers();
 
   if (!users[name]) return false;
 
@@ -88,28 +88,31 @@ export function resetUser(name: string) {
   return setUsers(users);
 }
 
-export function getUserdata(name: string) {
+export async function getUserdata(name: string) {
   Log({
     msg: `Getting userdata for "${name}"`,
     source: "userlogic/main.ts: getUserdata",
     level: LogLevel.info,
   });
 
-  const users = getUsers();
+  const users = await getUsers();
 
   if (users[name]) return users[name];
 
   return defaultUserData;
 }
 
-export function setUserdata(name: string, data: UserData): boolean {
+export async function setUserdata(
+  name: string,
+  data: UserData
+): Promise<boolean> {
   Log({
     msg: `Setting userdata`,
     source: "userlogic/main.ts: setUserdata",
     level: LogLevel.info,
   });
 
-  const users = getUsers();
+  const users = await getUsers();
 
   if (!users[name]) return false;
 

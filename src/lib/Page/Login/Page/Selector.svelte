@@ -1,5 +1,5 @@
 <script lang="ts">
-import { applyState } from "../../../../ts/state/main";
+  import { applyState } from "../../../../ts/state/main";
 
   import { onMount } from "svelte";
   import { getUsers } from "../../../../ts/userlogic/main";
@@ -7,8 +7,8 @@ import { applyState } from "../../../../ts/state/main";
 
   let users;
 
-  onMount(() => {
-    users = getUsers();
+  onMount(async () => {
+    users = await getUsers();
   });
 
   function fts() {

@@ -1,3 +1,4 @@
+import ConnectToCloud from "../../lib/Page/FirstTimeSetup/Page/ConnectToCloud.svelte";
 import CreateUser from "../../lib/Page/FirstTimeSetup/Page/CreateUser.svelte";
 import Finish from "../../lib/Page/FirstTimeSetup/Page/Finish.svelte";
 import ServerConnect from "../../lib/Page/FirstTimeSetup/Page/ServerConnect.svelte";
@@ -29,6 +30,15 @@ export const FTSStates = new Map<string, State>([
       content: CreateUser,
       attribs: {},
       key: "crelocalacc",
+    },
+  ],
+  [
+    "connecttocloud",
+    {
+      name: "connecttocloud",
+      content: ConnectToCloud,
+      attribs: {},
+      key: "conncloud",
     },
   ],
   [

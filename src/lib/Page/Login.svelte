@@ -11,8 +11,8 @@
 
   let show = false;
 
-  onMount(() => {
-    const users = getUsers();
+  onMount(async () => {
+    const users = await getUsers();
 
     if (!Object.keys(users).length) {
       applyState("fts");

@@ -7,6 +7,10 @@
   function local() {
     applyFTSState("crelocalacc");
   }
+
+  function cloud() {
+    applyFTSState("connecttocloud");
+  }
 </script>
 
 <div class="header">
@@ -20,7 +24,9 @@
 </p>
 <button class="fullwidth option" on:click={local}>Use {projName} Locally</button
 >
-<button class="fullwidth option" disabled>Connect to an {projName} API</button>
+<button class="fullwidth option" on:click={cloud}
+  >Connect to an {projName} API</button
+>
 <Nav
   data={{
     back: {
