@@ -138,7 +138,7 @@ window#SettingsApp section.collapsible {
   background-color: var(--button-active-bg);
   padding: 10px;
   padding-top: 0px;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: max-height 0.3s !important;
   overflow: hidden;
   max-height: 500px;
@@ -163,13 +163,13 @@ window#SettingsApp section.collapsible h3 {
   width: calc(100% + 20px);
   padding: 5px;
   box-sizing: border-box;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-left: -10px;
   font-weight: normal;
   font-size: inherit;
-  height: 30px;
-  line-height: 30px;
-  padding: 0 5px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
   margin-top: 0;
   position: relative;
 }
@@ -179,7 +179,7 @@ window#SettingsApp section.collapsible * {
 }
 
 window#SettingsApp section.collapsible.collapsed {
-  max-height: 30px;
+  max-height: 40px;
 }
 
 window#SettingsApp h3.header {

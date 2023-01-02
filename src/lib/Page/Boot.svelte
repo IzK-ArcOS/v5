@@ -66,8 +66,8 @@
       ]);
     }
 
-    fadeOut();
-    setTimeout(redirect, 750);
+    setTimeout(fadeOut, 2000);
+    setTimeout(redirect, 2750);
 
     return connected;
   }

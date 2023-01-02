@@ -42,7 +42,7 @@ export const SettingsPages: SettingsPage[] = [
     sep: true,
   },
   {
-    name: "Personalization",
+    name: "Visuals",
     icon: personalizationIcon,
     content: Personalization,
     sep: true,
