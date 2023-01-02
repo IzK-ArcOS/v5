@@ -9,10 +9,15 @@
 
   let time: string = "";
   let show = false;
+  let host = "";
 
   onMount(() => {
     setInterval(() => (time = dayjs().format("HH:mm")), 500);
     setTimeout(() => (show = true), 750);
+
+    const server = localStorage.getItem("arcos-server");
+
+    host = server ? `API: ${server}` : `Local: ${location.hostname}`;
   });
 
   function shutdown() {
@@ -32,7 +37,7 @@
     class:show={($CurrentLoginState.attribs.topbar || false) && show}
   >
     <div class="hostname">
-      {window.location.hostname}
+      {host}
     </div>
     <div class="clock">
       {time}

@@ -5,16 +5,19 @@
   import {
     closeNotification,
     CurrentNotification,
+    deleteNotification,
     NotificationStore,
   } from "../../../ts/notiflogic/main";
 
   let data: NotificationData = null;
   let hide = false;
+  let id: string;
 
   CurrentNotification.subscribe((v) => {
     if (v) {
       hide = true;
       data = null;
+      id = v;
 
       setTimeout(() => {
         hide = false;
@@ -40,6 +43,7 @@
       e();
 
       close();
+      deleteNotification(id);
     };
   }
 </script>

@@ -34,7 +34,9 @@
     <img src={pfp} alt={$UserName} class="pfp" />
     <div class="username">
       <p class="name">{$UserName}</p>
-      <p class="hostname">{location.hostname}</p>
+      <p class="hostname">
+        {localStorage.getItem("arcos-server") || location.hostname}
+      </p>
     </div>
   </div>
 </div>

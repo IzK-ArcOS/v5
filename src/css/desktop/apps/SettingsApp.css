@@ -26,6 +26,14 @@ window#SettingsApp div.content {
   overflow-y: scroll;
 }
 
+window#SettingsApp div.content button.action {
+  display: block;
+  width: 60%;
+  max-width: 300px;
+  text-align: left;
+  padding: 15px;
+}
+
 window#SettingsApp div.content.static {
   animation: none !important;
   opacity: 1 !important;

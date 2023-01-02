@@ -17,6 +17,7 @@
   let name: string;
   let data: UserData;
   let pfp = "";
+  let pswdInput: HTMLInputElement;
 
   let authenticating = false;
 
@@ -36,6 +37,7 @@
 
           applyState("desktop");
         }, 2000);
+      else pswdInput.focus();
     } else {
       applyLoginState("selector");
     }
@@ -49,7 +51,13 @@
       password,
     });
 
-    if (!req.valid) return false;
+    if (!req.valid) {
+      authenticating = false;
+
+      pswdInput.focus();
+
+      return;
+    }
 
     UserToken.set(req.data.token);
 
@@ -74,6 +82,14 @@
 
     applyState("desktop");
   }
+
+  function submit(e: Event) {
+    e.preventDefault();
+
+    serverLogin();
+
+    return false;
+  }
 </script>
 
 {#if name && data}
@@ -85,11 +101,12 @@
     {:else}
       <div class="cloudlogin">
         <div class="field">
-          <form>
+          <form on:submit={submit}>
             <input
               bind:value={password}
               type="password"
               placeholder="Password"
+              bind:this={pswdInput}
             />
           </form>
           <button
