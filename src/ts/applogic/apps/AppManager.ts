@@ -31,16 +31,9 @@ export const AppManager: App = {
         identifier: "Application Manager",
         onOpen() {},
       });
-      createTrayIcon({
-        image: AppManager.info.icon,
-        icon: "star",
-        identifier: "asdasf",
-        onOpen() {},
-      });
     },
     close() {
       disposeTrayIcon("Application Manager");
-      disposeTrayIcon("asdasf");
     },
   },
 };
