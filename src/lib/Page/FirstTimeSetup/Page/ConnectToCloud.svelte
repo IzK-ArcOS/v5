@@ -1,7 +1,10 @@
 <script lang="ts">
-  import { testConnection } from "../../../../ts/api/test";
+  import "../../../../css/fts/page/connecttocloud.css";
+  import { testConnection, TEST_MODES } from "../../../../ts/api/test";
   import { applyFTSState } from "../../../../ts/fts/main";
   import Nav from "../Nav.svelte";
+  import ServerConnect from "./ServerConnect.svelte";
+  import connectIcon from "../../../../assets/fts/connect.svg";
 
   let server = "";
 
@@ -18,18 +21,19 @@
   }
 </script>
 
-<div class="header">
-  <h1>Let's get you online.</h1>
-  <p class="subtitle">Exciting stuff</p>
+<div class="header centered">
+  <img src={connectIcon} alt="Mode" />
+  <h1>Time to get connected</h1>
+  <p class="subtitle">Enter the hostname of your ArcAPI:</p>
 </div>
-<br />
-<p>Enter the ArcOS server url:</p>
-<p>
-  <input class="fullwidth" placeholder="Server name" bind:value={server} />
-  <button class="fullwidth option" disabled={!server} on:click={connect}
-    >Connect to server</button
-  >
-</p>
+<input
+  class="fullwidth centered"
+  placeholder="Server name"
+  bind:value={server}
+/>
+<button class="fullwidth option centered" disabled={!server} on:click={connect}
+  >Connect to server</button
+>
 <Nav
   data={{
     back: {

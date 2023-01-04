@@ -1,4 +1,5 @@
 <script lang="ts">
+  import account from "../../../../assets/fts/account.svg";
   import { applyFTSState } from "../../../../ts/fts/main";
 
   import { createUser } from "../../../../ts/userlogic/main";
@@ -14,15 +15,18 @@
   }
 </script>
 
-<div class="header">
+<div class="header centered">
+  <img src={account} alt="Mode" />
   <h1>Let's create a user</h1>
-  <p class="subtitle">This is the first account.</p>
+  <p class="subtitle">This will be the first account.</p>
 </div>
-<br />
-<p>Enter your username.</p>
 <p>
-  <input class="fullwidth" placeholder="Username" bind:value={username} />
-  <button class="fullwidth option" disabled={!username} on:click={cre}
+  <input
+    class="fullwidth centered"
+    placeholder="Username"
+    bind:value={username}
+  />
+  <button class="fullwidth option centered" disabled={!username} on:click={cre}
     >Create Account</button
   >
 </p>

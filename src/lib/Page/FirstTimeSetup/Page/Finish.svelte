@@ -1,7 +1,7 @@
 <script lang="ts">
   import { projName } from "../../../../ts/env/main";
   import { applyState } from "../../../../ts/state/main";
-
+  import finish from "../../../../assets/fts/finish.svg";
   import Nav from "../Nav.svelte";
 
   function restart() {
@@ -9,30 +9,14 @@
   }
 </script>
 
-<div class="header">
-  <h1>Thank you</h1>
-  <p class="subtitle">Enjoy using {projName}</p>
+<div class="header centered">
+  <img src={finish} alt="Mode" />
+  <h1>Thank you!</h1>
+  <p class="subtitle">We greatly appreciate it.</p>
 </div>
-<br />
-<p>
-  Thank you for checking out ArcOS and I hope you'll enjoy it as much as I enjoy
-  making it. Once restarted you will be presented with the login screen. Just
-  select your user account and you're good to go!
+<p class="fullwidth centered justified">
+  Thank you for checking out ArcOS! We hope you'll enjoy it as much as we love
+  making it. Please restart ArcOS to use your ArcOS instance.
 </p>
-<button class="fullwidth option" on:click={restart}>Restart</button>
-<Nav
-  data={{
-    back: {
-      disabled: true,
-      redir: "",
-    },
-    forw: {
-      disabled: true,
-      redir: "",
-    },
-    prog: {
-      max: 4,
-      val: 4,
-    },
-  }}
-/>
+<br />
+<button class="fullwidth option centered" on:click={restart}>Restart</button>

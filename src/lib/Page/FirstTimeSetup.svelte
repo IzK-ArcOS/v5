@@ -4,7 +4,8 @@
   import { projName } from "../../ts/env/main";
   import { onMount } from "svelte";
   import Right from "./FirstTimeSetup/Right.svelte";
-  import { applyFTSState } from "../../ts/fts/main";
+  import { applyFTSState, CurrentFTSState } from "../../ts/fts/main";
+  import { FTSStates } from "../../ts/fts/store";
 
   let show = false;
 
@@ -17,10 +18,15 @@
 <div class="fts fullscreen" class:show>
   <div class="center-absolute">
     <div class="left">
-      <div class="center-absolute">
-        <img src={logo} alt={projName} />
-        <h2>{projName} Setup</h2>
-      </div>
+      {#each [...FTSStates] as [key, value]}
+        <div
+          class="state"
+          class:activated={$CurrentFTSState && $CurrentFTSState.key == key}
+        >
+          <img src={value.image} alt={value.name} />
+          {value.name}
+        </div>
+      {/each}
     </div>
     <Right />
   </div>

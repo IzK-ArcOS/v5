@@ -22,7 +22,7 @@
   });
 </script>
 
-<div class="right">
+<div class="right {$CurrentFTSState ? $CurrentFTSState.key : ''}">
   {#if $CurrentFTSState}
     <div class="page {pageCName}">
       <svelte:component this={$CurrentFTSState.content} />

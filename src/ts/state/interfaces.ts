@@ -6,4 +6,5 @@ export interface State {
   attribs: { [key: string]: boolean | string | number };
   key: string;
   onload?: () => void;
+  image: string;
 }

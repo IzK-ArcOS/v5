@@ -1,0 +1,9 @@
+div.fts div.right.connecttocloud p.connect-attempt-header {
+  margin: 0;
+  margin-top: 10px;
+  font-weight: bold;
+}
+div.fts div.right.connecttocloud ul.connect-attempt-list li {
+  margin: 0;
+  margin-bottom: 3px;
+}

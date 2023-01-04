@@ -1,30 +1,16 @@
 <script lang="ts">
+  import "../../../../css/fts/page/welcome.css";
   import { projName } from "../../../../ts/env/main";
   import Nav from "../Nav.svelte";
+  import logo from "../../../../assets/systemIcon.svg";
+  import { applyFTSState } from "../../../../ts/fts/main";
 </script>
 
-<div class="header">
-  <h1>Welcome to {projName}!</h1>
-  <p class="subtitle">Let's get you started.</p>
+<div class="center-flex">
+  <div>
+    <img src={logo} alt="ArcOS" class="logo" />
+    <h1 class="center-header">Welcome</h1>
+    <p class="center">Let's get ArcOS installed.</p>
+    <button on:click={() => applyFTSState("servconn")}>Let's begin</button>
+  </div>
 </div>
-<br />
-<p>
-  This setup will help you get ArcOS configured just how you want it. So, when
-  you're ready, go ahead and get started.
-</p>
-<Nav
-  data={{
-    back: {
-      disabled: true,
-      redir: "",
-    },
-    forw: {
-      disabled: false,
-      redir: "servconn",
-    },
-    prog: {
-      max: 4,
-      val: 1,
-    },
-  }}
-/>

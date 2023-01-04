@@ -21,61 +21,93 @@ div.fts.show {
 div.fts > div.center-absolute {
   width: 800px;
   height: 500px;
-  border-radius: 20px;
+  border-radius: 15px;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5);
   padding: 40px;
   color: #ccc;
-  background-color: #0005;
+  background-color: var(--glass-bg);
+  overflow: hidden;
+  border: var(--win-border-light);
 }
 
 div.fts div.center-absolute div.left,
 div.fts div.center-absolute div.right {
   position: absolute;
   top: 0px;
-  width: 50%;
   height: 100%;
   box-sizing: border-box;
 }
 
 div.fts div.center-absolute div.left {
+  width: 35%;
+  border-right: var(--win-border-light);
   left: 0px;
-  padding: 40px;
+  padding: 15px;
 }
 
-div.fts div.center-absolute div.left > div.center-absolute {
-  width: fit-content;
-  text-align: center;
+div.fts div.center-absolute div.left div.state {
+  padding: 10px 15px;
+  opacity: 0.5;
 }
 
-div.fts div.center-absolute div.left img {
-  width: 50%;
+div.fts div.center-absolute div.left div.state.activated {
+  opacity: 1;
+  font-weight: bold;
 }
 
-div.fts div.center-absolute div.left h2 {
-  /*   margin-top:10px;
-  margin-bottom: 0; */
+div.fts div.center-absolute div.left div.state.activated img {
+  filter: unset;
+}
+
+div.fts div.center-absolute div.left div.state * {
   margin: 0;
-  font-weight: 100;
+  vertical-align: middle;
+}
+
+div.fts div.center-absolute div.left div.state img {
+  height: 24px;
+  margin-right: 10px;
+  filter: grayscale(100%);
 }
 
 div.fts div.center-absolute div.right {
-  right: 20px;
-  top: 20px;
-  background-color: #0002;
-  height: calc(100% - 40px);
-  width: calc(50% - 40px);
+  right: 0px;
+  top: 0px;
+  background-color: var(--win-bg);
+  height: 100%;
+  width: 65%;
   padding: 20px;
-  border-radius: 15px;
 }
 
 div.page div.header * {
   margin: 0;
-  text-align: center;
   font-weight: 100;
+}
+
+div.page div.header.centered {
+  text-align: center;
+  margin: 10px 0;
+  margin-bottom: 30px;
+}
+
+div.page div.header.centered img {
+  height: 100px;
+  margin: 10px 0;
+}
+
+div.page div.header h1 {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+div.page div.header.centered p.subtitle {
+  margin-top: 10px;
 }
 
 div.page div.header p.subtitle {
   opacity: 0.4;
+  margin: 0;
+  margin-bottom: 5px;
 }
 
 div.fts div.center-absolute div.right * {
@@ -157,6 +189,11 @@ button.fullwidth.option {
   position: relative;
 }
 
+.fullwidth.centered {
+  max-width: 65%;
+  margin: 5px auto;
+}
+
 button.fullwidth.option::after {
   position: absolute;
   top: 20px;
@@ -190,4 +227,8 @@ div.fts input.fullwidth {
   width: 100%;
   display: block;
   margin-bottom: 5px;
+}
+
+.justified {
+  text-align: justify;
 }
