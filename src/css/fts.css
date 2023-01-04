@@ -5,7 +5,7 @@
 div.fts {
   background-position: center;
   background-size: cover;
-  background-image: url("../assets/bg/img14.png");
+  background-image: url("../assets/bg/img13.png");
   opacity: 0;
   transition: opacity 0.4s;
 }
@@ -27,7 +27,7 @@ div.fts > div.center-absolute {
   color: #ccc;
   background-color: var(--glass-bg);
   overflow: hidden;
-  border: var(--win-border-light);
+  border: var(--win-border);
 }
 
 div.fts div.center-absolute div.left,
@@ -40,9 +40,10 @@ div.fts div.center-absolute div.right {
 
 div.fts div.center-absolute div.left {
   width: 35%;
-  border-right: var(--win-border-light);
+  border-right: var(--win-border);
   left: 0px;
   padding: 15px;
+  backdrop-filter: blur(var(--glass-blur));
 }
 
 div.fts div.center-absolute div.left div.state {

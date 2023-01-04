@@ -7,3 +7,17 @@ div.fts div.right.connecttocloud ul.connect-attempt-list li {
   margin: 0;
   margin-bottom: 3px;
 }
+
+div.fts div.right.connecttocloud p.connect-error {
+  color: tomato;
+  margin-top: 15px;
+  text-align: center;
+}
+div.fts div.right.connecttocloud p.connect-error * {
+  vertical-align: middle;
+  color: tomato;
+}
+
+div.fts div.right.connecttocloud p.connect-error span.material-icons {
+  font-size: 21px;
+}
