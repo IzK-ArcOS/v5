@@ -17,10 +17,9 @@
   let name: string;
   let data: UserData;
   let pfp = "";
-  let pswdInput: HTMLInputElement;
 
+  let stay = false;
   let authenticating = false;
-
   let password = "";
 
   onMount(async () => {
@@ -37,7 +36,6 @@
 
           applyState("desktop");
         }, 2000);
-      else pswdInput.focus();
     } else {
       applyLoginState("selector");
     }
@@ -53,8 +51,6 @@
 
     if (!req.valid) {
       authenticating = false;
-
-      pswdInput.focus();
 
       return;
     }
@@ -72,6 +68,13 @@
     );
 
     if (!req.valid) return false;
+
+    if (stay) {
+      localStorage.setItem(
+        "arcos-remembered-token",
+        btoa(`${name}:${password}`)
+      );
+    }
 
     console.log("Heading to desktop");
 
@@ -102,11 +105,12 @@
       <div class="cloudlogin">
         <div class="field">
           <form on:submit={submit}>
+            <!-- svelte-ignore a11y-autofocus -->
             <input
+              autofocus
               bind:value={password}
               type="password"
               placeholder="Password"
-              bind:this={pswdInput}
             />
           </form>
           <button
@@ -115,6 +119,10 @@
             disabled={!password}>arrow_forward_ios</button
           >
         </div>
+        <span class="keep-loggedin-wrapper">
+          <input type="checkbox" id="rememberme" bind:value={stay} />
+          <label for="rememberme">Stay logged in</label>
+        </span>
       </div>
     {/if}
   </div>

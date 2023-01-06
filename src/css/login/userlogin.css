@@ -1,5 +1,6 @@
 div.userlogin {
   text-align: center;
+  height: 300px;
 }
 
 div.userlogin img {
@@ -11,7 +12,7 @@ div.userlogin h1 {
   font-size: 24px;
 }
 
-div.userlogin input {
+div.userlogin input:not([type*="checkbox"]) {
   padding: 10px 15px;
   border-radius: 5px;
   background-color: #fff1;
@@ -75,4 +76,10 @@ div.userlogin.newuser div.input-wrapper {
 body {
   height: 100vh;
   margin: 0;
+}
+
+div.userlogin div.cloudlogin span.keep-loggedin-wrapper {
+  display: block;
+  margin: 15px 0;
+  width: 100%;
 }

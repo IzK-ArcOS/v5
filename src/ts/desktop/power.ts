@@ -16,6 +16,8 @@ export function logoff() {
     }, maxTimeout);
   }
 
+  localStorage.removeItem("arcos-remembered-token");
+
   loggingOff.set(true);
 }
 
