@@ -18,7 +18,11 @@
     const remembered = localStorage.getItem("arcos-remembered-token");
 
     setTimeout(async () => {
-      if (remembered) {
+      if (
+        remembered &&
+        $CurrentLoginState.key != "shutdown" &&
+        $CurrentLoginState.key != "restart"
+      ) {
         let [name, password] = atob(remembered).split(":");
 
         let req = await apiCall($ConnectedServer, "auth", {}, null, {
@@ -44,7 +48,7 @@
         UserData.set(req);
 
         applyState("desktop");
-      }
+      } else show = true;
 
       if (!remembered) show = true;
     }, 250);

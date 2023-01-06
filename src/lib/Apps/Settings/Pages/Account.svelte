@@ -39,13 +39,19 @@
       Choose custom
     </button>
   </Section>
-  <Section collapsible header="Danger Zone">
+  <Section header="Danger Zone">
     <Notice
       icon="warning"
       title="Watch your steps!"
       text="This section contains settings that cannot be undone.<br/>Continue at your own risk."
     />
-    <button>Delete account</button>
-    <button>Reset account</button>
+    <button class="action" disabled>
+      <span class="material-icons">delete</span>
+      Delete account
+    </button>
+    <button class="action" disabled>
+      <span class="material-icons">restart_alt</span>
+      Reset account
+    </button>
   </Section>
 </div>
