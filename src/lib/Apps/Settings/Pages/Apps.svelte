@@ -34,7 +34,7 @@
       <HiddenAppButton {app} />
     {/each}
   </Section>
-  <Section header="Reload apps">
+  <Section header="Reload apps" collapsible>
     <p class="context">
       Click the button below to reload all applications into the<br
       />WindowStore, in case something didn't load properly.

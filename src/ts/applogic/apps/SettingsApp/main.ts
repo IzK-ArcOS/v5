@@ -18,8 +18,10 @@ import { hotSwapAppIcon } from "../../icon";
 import { setTitleSuffix } from "../../title";
 
 export const currentSettingsPage = writable<SettingsPage>(null);
+export const currentCollapsibleT = writable<string>(null);
 
 export function setSettingsPage(page: SettingsPage) {
+  currentCollapsibleT.set(null);
   currentSettingsPage.set(page);
 
   hotSwapAppIcon(page.icon, "SettingsApp");
@@ -45,7 +47,6 @@ export const SettingsPages: SettingsPage[] = [
     name: "Visuals",
     icon: personalizationIcon,
     content: Personalization,
-    sep: true,
   },
   {
     name: "Taskbar",
@@ -64,7 +65,7 @@ export const SettingsPages: SettingsPage[] = [
     content: Windows,
   },
   {
-    name: "Desktop",
+    name: "Wallpaper",
     icon: desktopIcon,
     content: Desktop,
     sep: true,

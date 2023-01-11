@@ -1,4 +1,4 @@
-window#SettingsApp div.desktop-page section div.wallpaper {
+window#SettingsApp div.desktop-page div.wallpaper {
   height: 65px;
   border-radius: 5px;
   width: 70px;
@@ -7,23 +7,23 @@ window#SettingsApp div.desktop-page section div.wallpaper {
   display: inline-block;
 }
 
-window#SettingsApp div.desktop-page section p {
+window#SettingsApp div.desktop-page p {
   margin: 10px 0;
 }
 
-window#SettingsApp div.desktop-page section div.wallpaper:hover {
+window#SettingsApp div.desktop-page div.wallpaper:hover {
   filter: brightness(0.7);
 }
 
-window#SettingsApp div.desktop-page section div.wallpaper:active {
+window#SettingsApp div.desktop-page div.wallpaper:active {
   filter: brightness(0.4);
 }
 
-window#SettingsApp div.desktop-page section div.wallpaper.selected {
+window#SettingsApp div.desktop-page div.wallpaper.selected {
   filter: brightness(1.5);
 }
 
-window#SettingsApp div.desktop-page section div.current {
+window#SettingsApp div.desktop-page div.current {
   height: 150px;
   display: block;
   margin: 30px 5px;
@@ -34,7 +34,7 @@ window#SettingsApp div.desktop-page section div.current {
   border: #000 10px solid;
 }
 
-window#SettingsApp div.desktop-page section div.wallpapers {
+window#SettingsApp div.desktop-page div.wallpapers {
   max-width: 100%;
   overflow-x: scroll;
   white-space: normal;

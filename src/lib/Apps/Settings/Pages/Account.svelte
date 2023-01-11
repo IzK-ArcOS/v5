@@ -25,7 +25,7 @@
       </p>
     </div>
   </div>
-  <Section header="Profile picture">
+  <Section header="Profile picture" collapsible collapsed={false}>
     <p class="context">
       Choose a custom profile picture to further<br />
       personalize your ArcOS account.
@@ -39,7 +39,7 @@
       Choose custom
     </button>
   </Section>
-  <Section header="Danger Zone">
+  <Section header="Danger Zone" collapsible>
     <Notice
       icon="warning"
       title="Watch your steps!"

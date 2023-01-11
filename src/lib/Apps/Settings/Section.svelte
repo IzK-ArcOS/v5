@@ -1,10 +1,20 @@
 <script lang="ts">
+  import { currentCollapsibleT } from "../../../ts/applogic/apps/SettingsApp/main";
+
   export let collapsible = false;
   export let header: string;
   export let collapsed = true;
 
+  currentCollapsibleT.subscribe((v) => {
+    if (!v || !collapsible) return;
+
+    collapsed = header != v;
+  });
+
   function collapse() {
     collapsed = !collapsed;
+
+    if (!collapsed) currentCollapsibleT.set(header);
   }
 </script>
 
