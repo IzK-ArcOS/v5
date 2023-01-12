@@ -31,15 +31,5 @@ export const SettingsApp: App = {
     open() {
       currentSettingsPage.set(SettingsPages[0]);
     },
-    keyboardShortcuts: [
-      {
-        ctrl: true,
-        shift: true,
-        key: "l",
-        action() {
-          currentSettingsPage.set(SettingsPages[0]);
-        },
-      },
-    ],
   },
 };
