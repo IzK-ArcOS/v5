@@ -1,4 +1,5 @@
 import type { SvelteComponentDev } from "svelte/internal";
+import type { AppKeyCombinations } from "./keyboard/interface";
 export interface App {
   info: GeneralAppInfo;
   pos: XY;
@@ -69,6 +70,7 @@ export interface AppEvents {
   minimize?(app: App): void;
   enterFullscreen?(app: App): void;
   leaveFullscreen?(app: App): void;
+  keyboardShortcuts?: AppKeyCombinations;
 }
 
 /**

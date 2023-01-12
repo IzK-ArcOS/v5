@@ -26,6 +26,7 @@
   import warning from "../../assets/apps/error.svg";
   import { shutdown } from "../../ts/desktop/power";
   import { errorMessage } from "../../ts/errorlogic/main";
+  import { startKeyListener } from "../../ts/applogic/keyboard/listener";
 
   let show = false;
   let classes = "";
@@ -37,6 +38,7 @@
     assignDesktopListeners();
     importDefault();
     resetDesktopState();
+    startKeyListener();
 
     setTimeout(() => (show = true), 250);
 

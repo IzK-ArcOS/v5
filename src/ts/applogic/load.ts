@@ -4,6 +4,7 @@ import { UserData } from "../userlogic/interfaces";
 import { isLoaded } from "./checks";
 import { SystemApps } from "./imports";
 import type { App } from "./interface";
+import { registerAppShortcuts } from "./keyboard/main";
 import { updateStores, WindowStore } from "./store";
 
 export function loadWindow(id: string, app: App) {
@@ -29,6 +30,8 @@ export function loadWindow(id: string, app: App) {
     ws.push(data);
 
     WindowStore.set(ws);
+
+    registerAppShortcuts(id, app);
 
     Log({
       level: LogLevel.info,
