@@ -61,7 +61,6 @@
   class:custom={app.info.custom}
   style={cssString}
   id={app.id}
-  data-identifier={Math.floor(Math.random() * 1e10)}
   bind:this={window}
   on:mousedown={() => ($focusedWindowId = app.id)}
 >
