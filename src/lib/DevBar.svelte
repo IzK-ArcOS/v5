@@ -1,33 +1,31 @@
+<script lang="ts">
+  import "../css/devbar.css";
+  import { ConnectedServer } from "../ts/api/main";
+  import { WindowStore } from "../ts/applogic/store";
+  import { loginUsername } from "../ts/login/main";
+
+  import { CurrentState } from "../ts/state/main";
+  import { UserData, UserName } from "../ts/userlogic/interfaces";
+
+  let opened = false;
+
+  const props: [string, string | boolean | number][] = [
+    ["CurrentState", $CurrentState.key],
+    ["apps", $WindowStore.length],
+    ["username", $UserName || "<none>"],
+    ["loginUsername", $loginUsername || "<none>"],
+    ["isUser", !!$UserData],
+    ["APIHost", $ConnectedServer || "<none>"],
+  ];
+</script>
+
 {#if import.meta.env.DEV}
-  <div class="devbar">Running in a development environment.</div>
+  <div class="devbar" class:opened on:click={() => (opened = !opened)}>
+    <p class="title">Running in development environment (click to hide)</p>
+    <div class="props">
+      {#each props as prop}
+        <span class="prop"><span class="key">{prop[0]}</span>{prop[1]}</span>
+      {/each}
+    </div>
+  </div>
 {/if}
-
-<style scoped>
-  div.devbar {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 5px;
-    background-color: #f00;
-    overflow: hidden;
-    line-height: 1px;
-    color: transparent;
-    text-align: center;
-    font-weight: bold;
-    opacity: 0.4;
-  }
-
-  div.devbar:hover {
-    height: 35px;
-    line-height: 35px;
-    color: white;
-    box-shadow: 0 0 8px #0008;
-    opacity: 1;
-    border-top: #f00a 2px solid;
-  }
-
-  div {
-    z-index: 1000000000000000000000000000;
-  }
-</style>
