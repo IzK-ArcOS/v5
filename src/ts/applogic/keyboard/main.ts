@@ -17,6 +17,10 @@ export function registerAppShortcuts(id: string, app: App) {
   appShortcuts.push([id, app.events.keyboardShortcuts]);
 }
 
+export function registerShortcuts(data: AppKeyCombinations) {
+  appShortcuts.push(["", data]);
+}
+
 export function isRegistered(id: string): boolean {
   for (let i = 0; i < appShortcuts.length; i++) {
     if (appShortcuts[i][0] == id) return true;

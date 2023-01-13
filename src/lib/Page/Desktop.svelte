@@ -1,4 +1,5 @@
 <script lang="ts">
+  import poker from "../../assets/apps/apppoker.svg";
   import { onMount } from "svelte";
   import "../../css/desktop.css";
   import { importDefault } from "../../ts/applogic/imports";
@@ -22,9 +23,6 @@
   import Shell from "./Desktop/Shell.svelte";
   import Wallpaper from "./Desktop/Wallpaper.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
-
-  import warning from "../../assets/apps/error.svg";
-  import { shutdown } from "../../ts/desktop/power";
   import { errorMessage } from "../../ts/errorlogic/main";
   import { startKeyListener } from "../../ts/applogic/keyboard/listener";
 
@@ -41,21 +39,6 @@
     startKeyListener();
 
     setTimeout(() => (show = true), 250);
-
-    createTrayIcon({
-      image: warning,
-      onOpen: () => {
-        errorMessage(
-          "Notice",
-          "ArcOS is currently in the prime development fase. Remember that not all elements will work as expected, or, for that matter, at all. Features are constantly being updated and added, so the ArcOS you start up today may or may not be the same as the one you open tomorrow.",
-          warning,
-          { caption: "I understand", action() {} },
-          { caption: "Shutdown", action: shutdown }
-        );
-        disposeTrayIcon("desktopwarn");
-      },
-      identifier: "desktopwarn",
-    });
   });
 
   function resetDesktopState() {

@@ -2,6 +2,7 @@
   import "../../../../css/desktop/apps/settings/apps.css";
   import { importDefault } from "../../../../ts/applogic/imports";
   import { WindowStore } from "../../../../ts/applogic/store";
+  import { reloadApps } from "../../../../ts/window/reload";
   import Section from "../Section.svelte";
   import AppButton from "./Apps/AppButton.svelte";
   import HiddenAppButton from "./Apps/HiddenAppButton.svelte";
@@ -39,6 +40,6 @@
       Click the button below to reload all applications into the<br
       />WindowStore, in case something didn't load properly.
     </p>
-    <button class="reload" on:click={() => importDefault()}> Reload </button>
+    <button class="reload" on:click={reloadApps}> Reload </button>
   </Section>
 </div>

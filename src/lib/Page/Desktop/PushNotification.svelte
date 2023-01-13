@@ -58,7 +58,7 @@
       <span class="material-icons">{data.icon}</span>{data.title}
       <button class="close material-icons" on:click={close}> close </button>
     </p>
-    <p class="message">{data.message}</p>
+    <p class="message">{@html data.message}</p>
     <div class="buttons">
       {#each data.buttons as btn}
         <button on:click={buttonEvent(btn.action)}>{btn.capt}</button>

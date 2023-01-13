@@ -1,11 +1,16 @@
 <script lang="ts">
   import type { NotificationData } from "../../../../../ts/notiflogic/interfaces";
-  import { deleteNotification } from "../../../../../ts/notiflogic/main";
+  import {
+    CurrentNotification,
+    deleteNotification,
+  } from "../../../../../ts/notiflogic/main";
 
   export let notification: [string, NotificationData];
 
   function close() {
     deleteNotification(notification[0]);
+
+    CurrentNotification.set(null);
   }
 
   function buttonEvent(e: () => void) {
@@ -23,7 +28,7 @@
     {notification[1].title}
     <button class="close material-icons" on:click={close}> close </button>
   </p>
-  <p class="content">{notification[1].message}</p>
+  <p class="content">{@html notification[1].message}</p>
   <div class="buttons">
     <div class="inner">
       {#each notification[1].buttons as button}

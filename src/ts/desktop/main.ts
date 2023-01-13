@@ -1,6 +1,9 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 import { AppManagerAppData } from "../applogic/apps/AppManager/Manager";
 import { closeWindow, openWindow } from "../applogic/events";
+import { registerShortcuts } from "../applogic/keyboard/main";
+import { focusedWindowId } from "../applogic/store";
+import { closeError } from "../errorlogic/main";
 import { applyState } from "../state/main";
 import { UserData } from "../userlogic/interfaces";
 
@@ -68,4 +71,17 @@ export function assignDesktopListeners() {
       }, 500);
     }
   });
+
+  registerShortcuts([
+    {
+      key: "q",
+      alt: true,
+      action() {
+        closeWindow(get(focusedWindowId));
+
+        focusedWindowId.set(null);
+      },
+      global: true,
+    },
+  ]);
 }

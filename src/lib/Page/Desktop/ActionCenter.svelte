@@ -2,13 +2,21 @@
   import "../../../css/desktop/actioncenter.css";
   import { maxZIndex } from "../../../ts/applogic/store";
   import { ActionCenterOpened } from "../../../ts/desktop/actioncenter/main";
-  import { NotificationStore } from "../../../ts/notiflogic/main";
+  import {
+    CurrentNotification,
+    NotificationStore,
+  } from "../../../ts/notiflogic/main";
   import Notifications from "./ActionCenter/Notifications.svelte";
   import QuickSettings from "./ActionCenter/QuickSettings.svelte";
 
   let opened = false;
 
   ActionCenterOpened.subscribe((v) => (opened = v));
+
+  function clear() {
+    NotificationStore.set({});
+    CurrentNotification.set(null);
+  }
 </script>
 
 <div
@@ -21,7 +29,7 @@
   <h3 class="title">
     Notifications <button
       class="clear"
-      on:click={() => NotificationStore.set({})}
+      on:click={clear}
       disabled={!Object.entries($NotificationStore).length}>Clear</button
     >
   </h3>

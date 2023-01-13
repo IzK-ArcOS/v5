@@ -1,5 +1,8 @@
+import poker from "../../assets/apps/apppoker.svg";
 import { get } from "svelte/store";
 import { Log, LogLevel } from "../console";
+import { createTrayIcon, disposeTrayIcon } from "../desktop/tray/main";
+import { errorMessage } from "../errorlogic/main";
 import { UserData } from "../userlogic/interfaces";
 import { isLoaded } from "./checks";
 import { SystemApps } from "./imports";
@@ -32,6 +35,22 @@ export function loadWindow(id: string, app: App) {
     WindowStore.set(ws);
 
     registerAppShortcuts(id, app);
+
+    if (get(UserData).disabledApps.includes("AppPoker")) {
+      createTrayIcon({
+        image: poker,
+        onOpen() {
+          errorMessage(
+            "Can't poke apps",
+            "App Poker is disabled. You will not be able to poke application data as long as this application remains disabled. You can re-enable this app in Settings.",
+            poker,
+            { caption: "Close", action() {} }
+          );
+          disposeTrayIcon("apdisabled");
+        },
+        identifier: "apdisabled",
+      });
+    }
 
     Log({
       level: LogLevel.info,

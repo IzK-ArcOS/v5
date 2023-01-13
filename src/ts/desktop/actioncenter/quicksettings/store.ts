@@ -1,5 +1,14 @@
+import { get } from "svelte/store";
+import {
+  setSettingsPage,
+  SettingsPages,
+} from "../../../applogic/apps/SettingsApp/main";
+import { openWindow } from "../../../applogic/events";
 import { importDefault } from "../../../applogic/imports";
+import { WindowStore } from "../../../applogic/store";
+import { makeNotification } from "../../../notiflogic/main";
 import { UserData } from "../../../userlogic/interfaces";
+import { reloadApps } from "../../../window/reload";
 import type { QuickSetting } from "./interface";
 
 export const QuickSettings: QuickSetting[] = [
@@ -39,9 +48,8 @@ export const QuickSettings: QuickSetting[] = [
     getter() {
       return false;
     },
-    setter(udata) {
-      importDefault();
-
+    setter() {
+      reloadApps();
       return false;
     },
     caption: "Reload Apps",

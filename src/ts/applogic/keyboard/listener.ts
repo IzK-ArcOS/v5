@@ -42,9 +42,9 @@ function processEvent(e: KeyboardEvent) {
         ctrl &&
         shift &&
         key == e.key.toLowerCase().trim() &&
-        get(focusedWindowId) == entry[0]
+        (get(focusedWindowId) == entry[0] || combos[j].global)
       ) {
-        combos[j].action(getWindow(entry[0]));
+        combos[j].action(combos[j].global ? null : getWindow(entry[0]));
       }
     }
   }

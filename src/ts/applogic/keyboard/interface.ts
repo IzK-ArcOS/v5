@@ -6,6 +6,7 @@ export interface AppKeyCombination {
   shift?: boolean;
   key: string;
   action(app: App): void;
+  global?: boolean;
 }
 
 export type AppKeyCombinations = AppKeyCombination[];
