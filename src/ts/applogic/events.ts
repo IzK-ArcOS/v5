@@ -1,5 +1,6 @@
 import { get } from "svelte/store";
 import { Log, LogLevel } from "../console";
+import { ActionCenterOpened } from "../desktop/actioncenter/main";
 import { startOpened } from "../desktop/main";
 import { getWindowElement } from "../window/main";
 import { isLoaded, isOpened } from "./checks";
@@ -49,9 +50,12 @@ export function openWindow(id: string) {
     maxZIndex.set(get(maxZIndex) + 1);
 
     el.style.zIndex = `${get(maxZIndex)}`;
+
+    focusedWindowId.set(id);
   }, 10);
 
   startOpened.set(false);
+  ActionCenterOpened.set(false);
 
   updateStores();
 

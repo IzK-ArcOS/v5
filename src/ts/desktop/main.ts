@@ -1,11 +1,19 @@
 import { get, writable } from "svelte/store";
 import { AppManagerAppData } from "../applogic/apps/AppManager/Manager";
-import { closeWindow, openWindow } from "../applogic/events";
+import { closeWindow, fullscreenWindow, openWindow } from "../applogic/events";
 import { registerShortcuts } from "../applogic/keyboard/main";
-import { focusedWindowId } from "../applogic/store";
+import {
+  focusedWindowId,
+  getOpenedStore,
+  getWindow,
+  isFullscreenWindow,
+} from "../applogic/store";
 import { closeError } from "../errorlogic/main";
+import { CurrentNotification } from "../notiflogic/main";
 import { applyState } from "../state/main";
 import { UserData } from "../userlogic/interfaces";
+import { reloadApps } from "../window/reload";
+import { ActionCenterOpened } from "./actioncenter/main";
 
 export const startOpened = writable<boolean>(false);
 export const loggingOff = writable<boolean>(false);
@@ -77,9 +85,41 @@ export function assignDesktopListeners() {
       key: "q",
       alt: true,
       action() {
-        closeWindow(get(focusedWindowId));
+        if (!getOpenedStore().length) {
+          openWindow("Exit");
+        } else {
+          const window = getWindow(get(focusedWindowId));
+
+          if (window.state.windowState.fll) isFullscreenWindow.set(false);
+
+          closeWindow(get(focusedWindowId));
+        }
+
+        startOpened.set(false);
+        ActionCenterOpened.set(false);
+        CurrentNotification.set(null);
 
         focusedWindowId.set(null);
+      },
+      global: true,
+    },
+    {
+      key: "r",
+      alt: true,
+      shift: true,
+      action() {
+        startOpened.set(false);
+        ActionCenterOpened.set(false);
+
+        reloadApps();
+
+        setTimeout(() => {
+          isFullscreenWindow.set(true);
+        }, 100);
+
+        setTimeout(() => {
+          isFullscreenWindow.set(false);
+        }, 1000);
       },
       global: true,
     },
