@@ -1,5 +1,5 @@
 div.actioncenter {
-  position: fixed;
+  position: absolute;
   top: 10px;
   right: 10px;
   height: calc(100% - 75px);
@@ -25,7 +25,7 @@ div.actioncenter div.quicksettings {
 }
 
 div.actioncenter-shade {
-  position: fixed;
+  position: absolute;
   top: 0px;
   left: 0px;
   background-color: #0000;

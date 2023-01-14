@@ -16,48 +16,58 @@ div.devbar {
   transition: background-color 0.3s, opacity 0.3s, height 0.3s;
 }
 
-div.devbar * {
+div.devbar div.lastlog {
   font-family: "Source Code Pro", monospace;
+  margin-left: auto;
+  padding: 0 5px;
 }
 
 div.devbar.opened {
   height: 35px;
   line-height: 35px;
-  color: white;
+  color: #ccc;
   box-shadow: 0 0 8px #0008;
   opacity: 1;
-  background-color: #2228;
-}
-
-div.devbar div.props {
-  margin-left: auto;
-}
-
-div.devbar span.prop {
-  background-color: #4444;
-  padding: 2.5px 5px;
-  border-radius: 5px;
-  opacity: 0;
-  margin: 0 5px;
-  padding: 2.5px 10px;
-}
-
-div.devbar span.prop span.key {
-  font-weight: bold;
-  margin-right: 10px;
-  height: 15px;
-  line-height: unset;
-}
-
-div.devbar span {
-  transition: opacity 0.3s;
-}
-
-div.devbar.opened span.prop {
-  opacity: 1;
+  background-color: #161616;
 }
 
 div.devbar p.title {
   margin: 0 5px;
   display: inline-block;
+}
+
+div.app.floating div.devmode-propertylist {
+  right: 10px;
+  opacity: 1;
+}
+
+div.devmode-propertylist {
+  position: fixed;
+  right: -360px;
+  top: 45px;
+  background-color: #161616;
+  width: 340px;
+  box-sizing: border-box;
+  padding: 10px;
+  color: #ccc;
+  border-radius: 10px;
+  height: calc(100% - 55px);
+  opacity: 0;
+}
+
+div.devmode-propertylist p.prop {
+  margin: 0;
+  padding: 7.5px;
+  border-bottom: #222 1px solid;
+  display: flex;
+  font-family: "Source Code Pro", monospace;
+}
+
+div.devmode-propertylist * {
+  font-family: "Source Code Pro", monospace;
+}
+
+div.devmode-propertylist p.prop span.key {
+  margin-right: auto;
+  font-weight: bold;
 }

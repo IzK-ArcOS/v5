@@ -1,5 +1,5 @@
 div.taskbar {
-  position: fixed;
+  position: absolute;
   left: 10px;
   width: calc(100% - 20px);
   height: 45px;

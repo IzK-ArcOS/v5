@@ -1,8 +1,8 @@
 <script lang="ts">
-  import poker from "../../assets/apps/apppoker.svg";
   import { onMount } from "svelte";
   import "../../css/desktop.css";
   import { importDefault } from "../../ts/applogic/imports";
+  import { startKeyListener } from "../../ts/applogic/keyboard/listener";
   import {
     isFullscreenWindow,
     updateStores,
@@ -15,16 +15,13 @@
     showDesktop,
     startOpened,
   } from "../../ts/desktop/main";
-  import { createTrayIcon, disposeTrayIcon } from "../../ts/desktop/tray/main";
   import { ErrorMessages } from "../../ts/errorlogic/app";
-  import { UserData } from "../../ts/userlogic/interfaces";
+  import { UserData, UserName } from "../../ts/userlogic/interfaces";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import PushNotification from "./Desktop/PushNotification.svelte";
   import Shell from "./Desktop/Shell.svelte";
   import Wallpaper from "./Desktop/Wallpaper.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
-  import { errorMessage } from "../../ts/errorlogic/main";
-  import { startKeyListener } from "../../ts/applogic/keyboard/listener";
 
   let show = false;
   let classes = "";
@@ -52,7 +49,7 @@
 </script>
 
 <div class="desktop theme-darkround fullscreen {classes}" class:show>
-  {#if $UserData}
+  {#if $UserData && $UserName && !$loggingOff}
     <Wallpaper />
     <WindowStore />
     <ErrorDialogStore />

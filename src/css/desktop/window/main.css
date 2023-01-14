@@ -24,7 +24,7 @@ window.custom {
   height: 100% !important;
   top: 0px !important;
   left: 0px !important;
-  position: fixed;
+  position: absolute;
 }
 
 window.custom div.titlebar {
@@ -32,7 +32,7 @@ window.custom div.titlebar {
 }
 
 window.custom div.body {
-  position: fixed;
+  position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;

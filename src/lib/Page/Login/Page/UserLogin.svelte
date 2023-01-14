@@ -57,8 +57,6 @@
 
     UserToken.set(req.data.token);
 
-    console.log(req);
-
     req = await apiCall(
       $ConnectedServer,
       `user/properties`,
@@ -75,8 +73,6 @@
         btoa(`${name}:${password}`)
       );
     }
-
-    console.log("Heading to desktop");
 
     UserData.set(req);
     UserName.set(name);

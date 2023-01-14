@@ -55,11 +55,7 @@ export function setUsers(data: AllUsers) {
 
   const server = get(ConnectedServer);
 
-  if (server) {
-    console.log("uh, oh, this isn't implemented into the API yet...");
-
-    return;
-  }
+  if (server) return;
 
   localStorage.setItem(userDataKey, btoa(JSON.stringify(data)));
 }

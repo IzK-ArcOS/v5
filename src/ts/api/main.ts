@@ -19,8 +19,6 @@ export async function apiCall(
     },
   };
 
-  console.log(init);
-
   const noAuth = !credAuth && !tokenAuth;
   const paramStr = generateParamStr(params);
 

@@ -24,12 +24,6 @@ export function getWindow(id: string): App {
 }
 
 export function getOpenedStore() {
-  Log({
-    msg: `Getting opened store`,
-    source: "store.ts: getOpenedStore",
-    level: LogLevel.info,
-  });
-
   const ws = get(WindowStore);
   const x = [];
 

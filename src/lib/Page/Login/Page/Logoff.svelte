@@ -3,7 +3,9 @@
   import { get } from "svelte/store";
   import "../../../../css/login/userlogin.css";
   import Spinner from "../../../../lib/Spinner.svelte";
-  import { applyLoginState } from "../../../../ts/login/main";
+  import { ErrorMessages } from "../../../../ts/errorlogic/app";
+  import { applyLoginState, loginUsername } from "../../../../ts/login/main";
+  import { NotificationStore } from "../../../../ts/notiflogic/main";
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getUserdata } from "../../../../ts/userlogic/main";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
@@ -21,6 +23,9 @@
 
     setTimeout(() => {
       UserName.set(undefined);
+      loginUsername.set(undefined);
+      NotificationStore.set({});
+      ErrorMessages.set([]);
 
       applyLoginState("selector");
     }, 2000);

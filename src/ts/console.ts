@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { get, writable } from "svelte/store";
 
 export interface LogItem {
   timestamp?: number;
@@ -33,11 +34,16 @@ export const LogLevelData: { [key: string]: { capt: string; css: string } } = {
   },
 };
 
-export const log: LogItem[] = [];
+export const log = writable<LogItem[]>([]);
 
 export function Log(data: LogItem) {
   data.timestamp = new Date().getTime();
-  log.push(data);
+
+  const l = get(log);
+
+  l.push(data);
+
+  log.set(l);
 
   const levelData = LogLevelData[LogLevel[data.level]];
 

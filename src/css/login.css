@@ -82,7 +82,7 @@ div.login div.topbar div.right button.nopad span.material-icons {
 }
 
 div.login div.topbar {
-  position: fixed;
+  position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;

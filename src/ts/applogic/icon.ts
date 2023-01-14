@@ -23,12 +23,6 @@ export function hotSwapAppIcon(icon: string, appId: string) {
 }
 
 export function getOriginalIcon(appId: string) {
-  Log({
-    msg: `Pulling original icon of ${appId} from store`,
-    source: "icon.ts: getOriginalAppIcon",
-    level: LogLevel.info,
-  });
-
   return Originals[appId];
 }
 
