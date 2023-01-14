@@ -29,6 +29,7 @@ div.devbar.opened {
   box-shadow: 0 0 8px #0008;
   opacity: 1;
   background-color: #161616;
+  border-bottom: #333 1px solid;
 }
 
 div.devbar p.title {
@@ -37,22 +38,22 @@ div.devbar p.title {
 }
 
 div.app.floating div.devmode-propertylist {
-  right: 10px;
+  right: 0px;
   opacity: 1;
 }
 
 div.devmode-propertylist {
   position: fixed;
   right: -360px;
-  top: 45px;
-  background-color: #161616;
+  top: 35px;
+  background-color: #191919;
   width: 340px;
   box-sizing: border-box;
   padding: 10px;
   color: #ccc;
-  border-radius: 10px;
-  height: calc(100% - 55px);
+  height: calc(100% - 35px);
   opacity: 0;
+  border-left: #333 1px solid;
 }
 
 div.devmode-propertylist p.prop {
@@ -61,6 +62,7 @@ div.devmode-propertylist p.prop {
   border-bottom: #222 1px solid;
   display: flex;
   font-family: "Source Code Pro", monospace;
+  font-size: 13px;
 }
 
 div.devmode-propertylist * {
@@ -70,4 +72,11 @@ div.devmode-propertylist * {
 div.devmode-propertylist p.prop span.key {
   margin-right: auto;
   font-weight: bold;
+}
+
+div.devmode-propertylist p.prop span.value {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-left: 3em;
 }

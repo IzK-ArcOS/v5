@@ -52,11 +52,10 @@ div#app {
 }
 
 div.app.floating {
-  top: 45px;
-  left: 10px;
-  width: calc(100% - 370px);
-  height: calc(100% - 55px);
-  border-radius: 10px;
+  top: 35px;
+  left: 0px;
+  width: calc(100% - 340px);
+  height: calc(100% - 35px);
   overflow: hidden;
 }
 

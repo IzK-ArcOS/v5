@@ -5,7 +5,7 @@ import { Var } from "../env/vars";
 import type { State } from "./interfaces";
 import { States } from "./store";
 
-export const CurrentState = writable<State>();
+export const CurrentState = writable<State>(States[0]);
 
 export function applyState(stateKey: string) {
   if (States.has(stateKey)) {

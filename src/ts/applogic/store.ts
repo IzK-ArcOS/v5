@@ -2,6 +2,7 @@ import { get, writable, Writable } from "svelte/store";
 import { Log, LogLevel } from "../console";
 import type { App } from "./interface";
 
+export const OpenedStore: Writable<App[]> = writable<App[]>([]);
 export const WindowStore: Writable<App[]> = writable<App[]>([]);
 export const isFullscreenWindow: Writable<boolean> = writable<boolean>(false);
 export const maxZIndex = writable<number>(1e9);
@@ -63,3 +64,7 @@ export function updateStores() {
 
   WindowStore.set(ws);
 }
+
+WindowStore.subscribe(() => {
+  OpenedStore.set(getOpenedStore());
+});
