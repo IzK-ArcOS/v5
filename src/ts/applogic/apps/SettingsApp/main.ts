@@ -7,6 +7,8 @@ import personalizationIcon from "../../../../assets/apps/settings/personalizatio
 import startIcon from "../../../../assets/apps/settings/startmenu.svg";
 import taskbarIcon from "../../../../assets/apps/settings/taskbar.svg";
 import windowsIcon from "../../../../assets/apps/settings/windows.svg";
+import systemIcon from "../../../../assets/systemIcon.svg";
+import About from "../../../../lib/Apps/Settings/Pages/About.svelte";
 import Account from "../../../../lib/Apps/Settings/Pages/Account.svelte";
 import Apps from "../../../../lib/Apps/Settings/Pages/Apps.svelte";
 import Desktop from "../../../../lib/Apps/Settings/Pages/Desktop.svelte";
@@ -74,5 +76,11 @@ export const SettingsPages: SettingsPage[] = [
     name: "Apps",
     icon: appsIcon,
     content: Apps,
+    sep: true,
+  },
+  {
+    name: "About",
+    icon: systemIcon,
+    content: About,
   },
 ];
