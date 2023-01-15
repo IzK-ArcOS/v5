@@ -34,6 +34,10 @@ window#SettingsApp div.content button.action {
   padding: 15px;
 }
 
+window#SettingsApp div.content button.martop {
+  margin-top: 15px;
+}
+
 window#SettingsApp div.content.static {
   animation: none !important;
   opacity: 1 !important;
@@ -128,6 +132,12 @@ window#SettingsApp div.sidebar div.userprofile p {
 window#SettingsApp div.sidebar div.userprofile p.name {
   font-weight: bold;
   opacity: 1;
+}
+
+window#SettingsApp div.sidebar div.userprofile p.name span.developer {
+  margin-left: 0px;
+  vertical-align: middle;
+  font-size: 16px;
 }
 
 window#SettingsApp section {

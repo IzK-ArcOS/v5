@@ -1,0 +1,36 @@
+div.about-page div.product {
+  display: flex;
+  width: 100%;
+  margin: 0px 0;
+}
+
+div.about-page div.product div {
+  height: fit-content;
+  vertical-align: middle;
+}
+
+div.about-page div.product div:not(.about) {
+  margin-top: 10px;
+}
+
+div.about-page div.product h1 {
+  margin: 0;
+  line-height: 60px;
+}
+
+div.about-page div.product div.about {
+  margin-right: auto;
+  padding-right: 10px;
+  width: 375px;
+  word-wrap: break-word;
+  white-space: normal;
+  margin-top: 10px;
+}
+
+div.about-page div.product div.text {
+  text-align: right;
+}
+
+div.about-page div.product img.logo {
+  height: 60px;
+}

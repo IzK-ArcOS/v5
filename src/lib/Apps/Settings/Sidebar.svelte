@@ -4,6 +4,7 @@
     setSettingsPage,
     SettingsPages,
   } from "../../../ts/applogic/apps/SettingsApp/main";
+  import { DevModeOverride } from "../../../ts/devmode/props";
   import { UserData, UserName } from "../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../ts/userlogic/pfp";
 
@@ -33,7 +34,12 @@
   <div class="userprofile">
     <img src={pfp} alt={$UserName} class="pfp" />
     <div class="username">
-      <p class="name">{$UserName}</p>
+      <p class="name">
+        {$UserName}
+        {#if $DevModeOverride}
+          <span class="material-icons developer">bug_report</span>
+        {/if}
+      </p>
       <p class="hostname">
         {localStorage.getItem("arcos-server") || location.hostname}
       </p>

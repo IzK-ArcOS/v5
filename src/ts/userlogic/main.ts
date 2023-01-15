@@ -2,6 +2,7 @@ import { get } from "svelte/store";
 import { apiCall, ConnectedServer } from "../api/main";
 import { BugReportData } from "../bugrep";
 import { Log, LogLevel } from "../console";
+import { DevModeOverride } from "../devmode/props";
 import { userDataKey } from "../env/main";
 import { applyState } from "../state/main";
 import {
@@ -180,6 +181,8 @@ UserData.subscribe((v) => {
       msg: "Change Detected, committing",
       source,
     });
+
+    DevModeOverride.set(v.devmode);
 
     const changed = setUserdata(get(UserName), v);
 

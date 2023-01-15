@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import "../css/devbar.css";
   import { log, LogLevel } from "../ts/console";
-  import { updateDevModeProps } from "../ts/devmode/props";
+  import { DevModeOverride, updateDevModeProps } from "../ts/devmode/props";
   import { dmProps } from "../ts/devmode/store/props";
 
   export let opened = false;
@@ -28,7 +28,7 @@
   });
 </script>
 
-{#if import.meta.env.DEV}
+{#if false || $DevModeOverride}
   <div class="devbar" class:opened on:click={() => (opened = !opened)}>
     <p class="title">
       <b>ArcOS Development Environment</b> | {import.meta.env.MODE} @ {location.hostname}

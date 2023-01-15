@@ -3,6 +3,7 @@
   import { get } from "svelte/store";
   import "../../../../css/login/userlogin.css";
   import Spinner from "../../../../lib/Spinner.svelte";
+  import { DevModeOverride } from "../../../../ts/devmode/props";
   import { ErrorMessages } from "../../../../ts/errorlogic/app";
   import { applyLoginState, loginUsername } from "../../../../ts/login/main";
   import { NotificationStore } from "../../../../ts/notiflogic/main";
@@ -26,6 +27,7 @@
       loginUsername.set(undefined);
       NotificationStore.set({});
       ErrorMessages.set([]);
+      DevModeOverride.set(false);
 
       applyLoginState("selector");
     }, 2000);

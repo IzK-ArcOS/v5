@@ -70,3 +70,8 @@ window input.fullwidth {
   box-sizing: border-box;
   margin-bottom: 5px;
 }
+
+window a {
+  color: dodgerblue;
+  text-decoration: none;
+}

@@ -1,6 +1,8 @@
-import { get } from "svelte/store";
+import { get, writable } from "svelte/store";
 import { dmMutators } from "./store/mutators";
 import { dmProps } from "./store/props";
+
+export const DevModeOverride = writable<boolean>(false);
 
 export function updateDevModeProps() {
   dmProps.set([]);

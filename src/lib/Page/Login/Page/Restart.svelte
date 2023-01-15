@@ -3,7 +3,10 @@
   import { get } from "svelte/store";
   import "../../../../css/login/userlogin.css";
   import Spinner from "../../../../lib/Spinner.svelte";
-  import { applyLoginState } from "../../../../ts/login/main";
+  import { DevModeOverride } from "../../../../ts/devmode/props";
+  import { ErrorMessages } from "../../../../ts/errorlogic/app";
+  import { applyLoginState, loginUsername } from "../../../../ts/login/main";
+  import { NotificationStore } from "../../../../ts/notiflogic/main";
   import { applyState } from "../../../../ts/state/main";
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getUserdata } from "../../../../ts/userlogic/main";
@@ -22,6 +25,10 @@
 
     setTimeout(() => {
       UserName.set(undefined);
+      loginUsername.set(undefined);
+      NotificationStore.set({});
+      ErrorMessages.set([]);
+      DevModeOverride.set(false);
 
       applyState("boot");
 

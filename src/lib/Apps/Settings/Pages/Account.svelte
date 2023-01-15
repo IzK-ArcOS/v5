@@ -1,6 +1,7 @@
 <script lang="ts">
   import "../../../../css/desktop/apps/settings/account.css";
   import { openWindow } from "../../../../ts/applogic/events";
+  import { DevModeOverride } from "../../../../ts/devmode/props";
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
   import Notice from "../../../Page/Desktop/WindowStore/Window/Notice.svelte";
@@ -19,9 +20,14 @@
       <img src={pfp} alt={$UserName} />
     </div>
     <div>
-      <p class="username">{$UserName}</p>
+      <p class="username">
+        {$UserName}
+      </p>
       <p class="host">
         {localStorage.getItem("arcos-server") || location.hostname}
+        {#if $DevModeOverride}
+          (developer)
+        {/if}
       </p>
     </div>
   </div>
