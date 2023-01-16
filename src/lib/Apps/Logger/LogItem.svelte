@@ -7,7 +7,7 @@
 
 <div class="logitem">
   <div class="timestamp">
-    {dayjs(logItem.timestamp).format("DD-MM-YYYY HH:mm:ss.SSS")}
+    {dayjs(logItem.timestamp).format("HH:mm:ss.SSS")}
   </div>
   <div class="level {LogLevel[logItem.level]}">
     {LogLevel[logItem.level].toUpperCase()}

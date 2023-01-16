@@ -23,7 +23,5 @@ export function collectLogsBySource(): CollectorResult {
     );
   }
 
-  console.log(items);
-
   return items;
 }

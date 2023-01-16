@@ -11,7 +11,7 @@ export function applyState(stateKey: string) {
   if (States.has(stateKey)) {
     Log({
       level: LogLevel.info,
-      source: "applyState",
+      source: "state/main.ts: applyState",
       msg: `Applying state ${stateKey}`,
     });
 

@@ -6,14 +6,24 @@ window#LoggerApp div.sidebar {
   height: 100%;
   border-right: var(--win-border);
   box-sizing: border-box;
-  padding: 30px 5px;
+  padding: 35px 5px;
   overflow-y: scroll;
   padding-bottom: 10px;
   background-color: transparent;
 }
 
+window#LoggerApp div.titlebar {
+  background-color: var(--win-bg);
+  border-bottom: var(--win-border);
+  opacity: 1 !important;
+}
+
+window#LoggerApp:not(.focused) div.titlebar * {
+  opacity: 0.5;
+}
+
 div.desktop.bigtitlebars window#LoggerApp div.sidebar {
-  padding-top: 40px;
+  padding-top: 45px;
 }
 
 window#LoggerApp div.sidebar button {
@@ -53,9 +63,45 @@ window#LoggerApp div.content {
   height: 100%;
   width: calc(100% - 300px);
   box-sizing: border-box;
-  padding: 30px 10px;
-  overflow-y: scroll;
+  padding: 30px 0;
+  overflow-y: hidden;
   background-color: var(--win-bg);
+}
+
+window#LoggerApp div.content div.items {
+  box-sizing: border-box;
+  padding: 5px;
+  height: calc(100% - 40px);
+  overflow-y: scroll;
+}
+
+window#LoggerApp div.content div.actions {
+  height: 60px;
+  border-bottom: var(--win-border);
+}
+
+window#LoggerApp div.content div.actions button.action {
+  height: 50px;
+  margin: 5px;
+  font-size: 13px;
+  padding: 0 15px;
+  background-color: transparent;
+  vertical-align: middle;
+}
+
+window#LoggerApp div.content div.actions button.action:hover {
+  background-color: var(--win-bg);
+}
+
+window#LoggerApp div.content div.actions button.action:disabled img {
+  filter: grayscale(100%);
+}
+
+window#LoggerApp div.content div.actions button.action img,
+window#LoggerApp div.content div.actions button.action span.material-icons {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 5px;
 }
 
 window#LoggerApp div.content div.logitem {
@@ -70,7 +116,7 @@ window#LoggerApp div.content div.logitem > div {
 }
 
 window#LoggerApp div.content div.logitem > div.timestamp {
-  min-width: 180px;
+  min-width: 100px;
   line-height: 22px;
   height: 22px;
   vertical-align: middle;
