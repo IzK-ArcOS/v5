@@ -1,0 +1,117 @@
+window#LoggerApp div.sidebar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 100%;
+  border-right: var(--win-border);
+  box-sizing: border-box;
+  padding: 30px 5px;
+  overflow-y: scroll;
+  padding-bottom: 10px;
+  background-color: transparent;
+}
+
+div.desktop.bigtitlebars window#LoggerApp div.sidebar {
+  padding-top: 40px;
+}
+
+window#LoggerApp div.sidebar button {
+  display: block;
+  margin: 0;
+  padding: 5px;
+  text-align: left;
+  display: flex;
+  width: 100%;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background-color: transparent;
+  margin-bottom: 5px;
+}
+
+window#LoggerApp div.sidebar button.active {
+  background-color: var(--button-glass-bg);
+}
+
+window#LoggerApp div.sidebar button div:not(.items) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+window#LoggerApp div.sidebar button div.items {
+  margin-left: auto;
+}
+
+window#LoggerApp div.content {
+  position: absolute;
+  top: 0px;
+  left: 300px;
+  height: 100%;
+  width: calc(100% - 300px);
+  box-sizing: border-box;
+  padding: 30px 10px;
+  overflow-y: scroll;
+  background-color: var(--win-bg);
+}
+
+window#LoggerApp div.content div.logitem {
+  display: flex;
+  padding: 8px;
+  border-bottom: var(--button-bg) 1px solid;
+}
+
+window#LoggerApp div.content div.logitem > div {
+  vertical-align: middle;
+  text-align: left;
+}
+
+window#LoggerApp div.content div.logitem > div.timestamp {
+  min-width: 180px;
+  line-height: 22px;
+  height: 22px;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+window#LoggerApp div.content div.logitem > div.level {
+  min-width: 75px;
+  font-family: "Source Code Pro", monospace;
+  margin-right: 10px;
+  max-height: 22px;
+  display: block;
+}
+
+window#LoggerApp div.content div.logitem > div.source {
+  width: fit-content;
+  min-width: 160px;
+  font-family: "Source Code Pro", monospace;
+  margin-right: 20px;
+}
+
+window#LoggerApp div.content div.logitem > div.source,
+window#LoggerApp div.content div.logitem > div.level {
+  padding: 2.5px 5px;
+  border-radius: 5px;
+  vertical-align: top;
+  background-color: var(--button-bg);
+}
+
+window#LoggerApp div.content div.logitem > div.level.warn {
+  color: orange;
+}
+
+window#LoggerApp div.content div.logitem > div.level.info {
+  color: dodgerblue;
+}
+
+window#LoggerApp div.content div.logitem > div.level.error {
+  color: tomato;
+}
+
+window#LoggerApp div.content div.logitem > div.level.critical {
+  color: red;
+}

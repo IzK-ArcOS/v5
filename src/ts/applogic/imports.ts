@@ -5,6 +5,7 @@ import { AppPoker } from "./apps/AppPoke";
 import { DidYouKnow } from "./apps/DidYouKnow";
 import { ErrorCreator } from "./apps/ErrorCreator";
 import { Exit } from "./apps/Exit";
+import { LoggerApp } from "./apps/Logger";
 import { ProfilePictureApp } from "./apps/ProfilePicture";
 import { SettingsApp } from "./apps/settings";
 import { TestApp } from "./apps/testApp";
@@ -25,6 +26,7 @@ export const DefaultApps: { [key: string]: App } = {
   PfpSelector: ProfilePictureApp,
   AppInfo,
   DidYouKnow,
+  LoggerApp,
 };
 
 export const SystemApps: string[] = [

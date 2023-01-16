@@ -16,6 +16,7 @@ import Personalization from "../../../../lib/Apps/Settings/Pages/Personalization
 import StartMenu from "../../../../lib/Apps/Settings/Pages/StartMenu.svelte";
 import Taskbar from "../../../../lib/Apps/Settings/Pages/Taskbar.svelte";
 import Windows from "../../../../lib/Apps/Settings/Pages/Windows.svelte";
+import { Log, LogLevel } from "../../../console";
 import { hotSwapAppIcon } from "../../icon";
 import { setTitleSuffix } from "../../title";
 
@@ -23,6 +24,11 @@ export const currentSettingsPage = writable<SettingsPage>(null);
 export const currentCollapsibleT = writable<string>(null);
 
 export function setSettingsPage(page: SettingsPage) {
+  Log({
+    source: "apps/SettingsApp",
+    level: LogLevel.info,
+    msg: `Opening settings page '${page.name}'`,
+  });
   currentCollapsibleT.set(null);
   currentSettingsPage.set(page);
 

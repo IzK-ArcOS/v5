@@ -11,7 +11,7 @@ export function applyLoginState(stateKey: string) {
   if (LoginStates.has(stateKey)) {
     Log({
       level: LogLevel.info,
-      source: "applyLoginState",
+      source: "login/main.ts: applyLoginState",
       msg: `Applying state ${stateKey}`,
     });
 

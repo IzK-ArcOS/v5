@@ -14,6 +14,8 @@
 
   export let app: App = null;
 
+  export let visible = false;
+
   let cssString = "";
   let window: HTMLDivElement;
   let posUsed = false;
@@ -53,7 +55,7 @@
   class:resizable={app.state.resizable}
   class:min={app.state.windowState.min}
   class:max={app.state.windowState.max}
-  class:visible={app.opened}
+  class:visible={app.opened || visible}
   class:exttransition
   class:fullscreen={app.state.windowState.fll || app.info.custom}
   class:glass={app.glass}

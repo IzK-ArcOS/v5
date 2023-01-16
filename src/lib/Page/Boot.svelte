@@ -9,6 +9,9 @@
   import { Log, LogLevel } from "../../ts/console";
   import { userDataKey } from "../../ts/env/main";
   import { getUsers } from "../../ts/userlogic/main";
+  import WindowStore from "./Desktop/WindowStore.svelte";
+  import { LoggerApp } from "../../ts/applogic/apps/Logger";
+  import Window from "./Desktop/WindowStore/Window.svelte";
 
   let status = "";
   let bootClass = "";
@@ -17,6 +20,8 @@
   let t1 = null;
   let t2 = null;
   let t3 = null;
+
+  let errored = false;
 
   onMount(async () => {
     status = "&nbsp;";
@@ -57,9 +62,9 @@
           message:
             "ArcOS can't connect to the remote server. Please ensure<br>the server is online, or try again at a later date.",
           button: {
-            caption: "Reload",
+            caption: "View logs",
             action: () => {
-              location.reload();
+              errored = true;
             },
           },
         },
@@ -75,7 +80,7 @@
   function fadeOut() {
     Log({
       level: LogLevel.info,
-      source: "boot",
+      source: "Boot.svelte",
       msg: "Fade-out",
     });
 
@@ -85,7 +90,7 @@
   function fadeIn() {
     Log({
       level: LogLevel.info,
-      source: "boot",
+      source: "Boot.svelte",
       msg: "Fade-in",
     });
 
@@ -95,7 +100,7 @@
   async function redirect() {
     Log({
       level: LogLevel.info,
-      source: "boot",
+      source: "Boot.svelte",
       msg: "Redirecting",
     });
 
@@ -116,3 +121,6 @@
     <p class="status">{@html status}</p>
   </div>
 </div>
+{#if errored}
+  <Window visible app={{ ...LoggerApp, id: "LoggerApp" }} />
+{/if}

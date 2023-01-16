@@ -1,5 +1,8 @@
 window div.titlebar p.title {
   margin: 0;
+  border-radius: 5px;
+  padding: 2px 5px;
+  background-color: var(--win-bg);
 }
 
 window div.titlebar p.title img.icon {

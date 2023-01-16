@@ -36,6 +36,12 @@ export async function testConnection(server: string) {
 
       return req && !!req.valid;
     } catch {
+      Log({
+        msg: `Did not get a valid response from ${url}`,
+        source: "api/main.ts: testConnection",
+        level: LogLevel.error,
+      });
+
       continue;
     }
   }
@@ -43,7 +49,7 @@ export async function testConnection(server: string) {
   Log({
     msg: `Can't connect to server ${server}: none of the modes match`,
     source: "api/main.ts: testConnection",
-    level: LogLevel.error,
+    level: LogLevel.critical,
   });
 
   return false;

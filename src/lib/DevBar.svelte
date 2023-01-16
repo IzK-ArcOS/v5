@@ -28,7 +28,7 @@
   });
 </script>
 
-{#if false || $DevModeOverride}
+{#if import.meta.env.DEV || $DevModeOverride}
   <div class="devbar" class:opened on:click={() => (opened = !opened)}>
     <p class="title">
       <b>ArcOS Development Environment</b> | {import.meta.env.MODE} @ {location.hostname}
