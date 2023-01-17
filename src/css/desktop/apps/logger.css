@@ -75,6 +75,21 @@ window#LoggerApp div.content div.items {
   overflow-y: scroll;
 }
 
+window#LoggerApp div.content div.items.cflex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+window#LoggerApp div.content div.items div.noitems {
+  text-align: center;
+}
+
+window#LoggerApp div.content div.items div.noitems img {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
 window#LoggerApp div.content div.actions {
   height: 60px;
   border-bottom: var(--win-border);
@@ -104,6 +119,7 @@ window#LoggerApp div.content div.actions div.sep {
   display: inline-block;
   width: 1px;
   height: 40px;
+  margin: 10px 5px;
   vertical-align: middle;
   border: var(--button-bg) 1px solid;
 }
@@ -122,20 +138,29 @@ window#LoggerApp div.content div.actions div.filters {
   overflow: hidden;
   border-radius: 5px;
   background-color: var(--button-bg);
-  height: 30px;
+  height: 35px;
+  margin: 12.5px auto;
+  margin-right: 0;
 }
 
 window#LoggerApp div.content div.actions div.filters button.filter {
   margin: 0;
   padding: 0;
   background-color: transparent;
-  width: 30px;
-  height: 30px;
-  opacity: 0.7;
+  width: 35px;
+  height: 35px;
+}
+
+window#LoggerApp
+  div.content
+  div.actions
+  div.filters
+  button.filter
+  span.material-icons {
+  font-size: 21px;
 }
 
 window#LoggerApp div.content div.actions div.filters button.filter.selected {
-  opacity: 1;
   background-color: var(--button-hover-bg);
 }
 
@@ -152,18 +177,8 @@ window#LoggerApp div.content div.logitem > div {
 
 window#LoggerApp div.content div.logitem > div.timestamp {
   min-width: 100px;
-  line-height: 22px;
-  height: 22px;
-  vertical-align: middle;
   box-sizing: border-box;
-}
-
-window#LoggerApp div.content div.logitem > div.level {
-  min-width: 75px;
-  font-family: "Source Code Pro", monospace;
-  margin-right: 10px;
-  max-height: 22px;
-  display: block;
+  vertical-align: middle;
 }
 
 window#LoggerApp div.content div.logitem > div.source {
@@ -173,26 +188,52 @@ window#LoggerApp div.content div.logitem > div.source {
   margin-right: 20px;
 }
 
-window#LoggerApp div.content div.logitem > div.source,
-window#LoggerApp div.content div.logitem > div.level {
+window#LoggerApp div.content div.logitem > div.source {
   padding: 2.5px 5px;
   border-radius: 5px;
   vertical-align: top;
   background-color: var(--button-bg);
 }
 
-window#LoggerApp div.content div.logitem > div.level.warn {
+window#LoggerApp div.content div.logitem > div.level {
+  font-size: 21px;
+  margin-right: 10px;
+  height: 21px;
+  width: 21px;
+}
+
+window#LoggerApp div.content div.logitem > div.level.warn,
+window#LoggerApp
+  div.content
+  div.actions
+  div.filters
+  button.filter.warn.selected {
   color: orange;
 }
 
-window#LoggerApp div.content div.logitem > div.level.info {
-  color: dodgerblue;
+window#LoggerApp div.content div.logitem > div.level.info,
+window#LoggerApp
+  div.content
+  div.actions
+  div.filters
+  button.filter.info.selected {
+  color: rgb(104, 179, 255);
 }
 
-window#LoggerApp div.content div.logitem > div.level.error {
+window#LoggerApp div.content div.logitem > div.level.error,
+window#LoggerApp
+  div.content
+  div.actions
+  div.filters
+  button.filter.error.selected {
   color: tomato;
 }
 
-window#LoggerApp div.content div.logitem > div.level.critical {
+window#LoggerApp div.content div.logitem > div.level.critical,
+window#LoggerApp
+  div.content
+  div.actions
+  div.filters
+  button.filter.critical.selected {
   color: red;
 }

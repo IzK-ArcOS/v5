@@ -43,5 +43,7 @@
   });
 </script>
 
-<Sidebar {setView} bind:currentSource bind:logs />
-<Content bind:currentSource bind:logItems {setView} />
+{#if app}
+  <Sidebar {setView} bind:currentSource bind:logs />
+  <Content bind:currentSource bind:logItems {setView} {app} />
+{/if}
