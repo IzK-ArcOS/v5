@@ -21,9 +21,9 @@ export function reloadApps() {
       title: "Reloaded",
       message: `Reloaded all applications. Any unsaved changes have not been saved.<br/><br/>Apps reloaded: ${
         u.disabledApps.length
-      } / ${windows.length} (${
+      } / ${windows.length} (${Math.floor(
         (100 / windows.length) * u.disabledApps.length
-      }%)`,
+      )}%)`,
       icon: "autorenew",
       buttons: [
         {

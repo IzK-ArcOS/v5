@@ -48,7 +48,7 @@ window.custom div.body {
   top: 0px !important;
   left: 0px !important;
   width: 100% !important;
-
+  height: 100% !important;
   max-width: unset !important;
   max-height: unset !important;
   min-width: unset !important;

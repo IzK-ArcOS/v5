@@ -7,6 +7,7 @@
   export let exttransition = false;
   export let titlebar: HTMLDivElement;
   export let app: App;
+  export let isBoot = false;
 
   function min() {
     app.state.windowState.min = !app.state.windowState.min;
@@ -33,6 +34,8 @@
     if (app.id.startsWith("error_"))
       closeError(parseInt(app.id.replace("error_", "")));
     else closeWindow(app.id);
+
+    if (isBoot) app.opened = false;
   }
 </script>
 
@@ -40,15 +43,30 @@
   <p class="title">
     <img class="icon" src={app.info.icon} alt={app.info.name} />
     {app.info.name}{app.info.titleSuffix || ""}
+    {#if isBoot}
+      (In recovery mode)
+    {/if}
   </p>
   <div class="controls">
-    <button class="material-icons" on:click={min} disabled={!app.controls.min}>
+    <button
+      class="material-icons"
+      on:click={min}
+      disabled={!app.controls.min || isBoot}
+    >
       minimize
     </button>
-    <button class="material-icons" on:click={max} disabled={!app.controls.max}>
+    <button
+      class="material-icons"
+      on:click={max}
+      disabled={!app.controls.max || isBoot}
+    >
       crop_square
     </button>
-    <button class="material-icons" on:click={cls} disabled={!app.controls.cls}>
+    <button
+      class="material-icons"
+      on:click={cls}
+      disabled={!app.controls.cls || isBoot}
+    >
       close
     </button>
   </div>

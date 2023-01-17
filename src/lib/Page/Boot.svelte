@@ -5,12 +5,11 @@
   import logo from "../../assets/systemIcon.svg";
   import "../../css/boot.css";
   import { testConnection } from "../../ts/api/test";
+  import { LoggerApp } from "../../ts/applogic/apps/Logger";
   import { BugReportData } from "../../ts/bugrep";
   import { Log, LogLevel } from "../../ts/console";
   import { userDataKey } from "../../ts/env/main";
   import { getUsers } from "../../ts/userlogic/main";
-  import WindowStore from "./Desktop/WindowStore.svelte";
-  import { LoggerApp } from "../../ts/applogic/apps/Logger";
   import Window from "./Desktop/WindowStore/Window.svelte";
 
   let status = "";
@@ -122,5 +121,10 @@
   </div>
 </div>
 {#if errored}
-  <Window visible app={{ ...LoggerApp, id: "LoggerApp" }} />
+  <Window
+    isBoot
+    max
+    visible
+    app={{ ...LoggerApp, glass: false, id: "LoggerApp" }}
+  />
 {/if}

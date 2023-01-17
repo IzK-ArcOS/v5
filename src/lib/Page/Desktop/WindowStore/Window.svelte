@@ -15,6 +15,8 @@
   export let app: App = null;
 
   export let visible = false;
+  export let max = false;
+  export let isBoot = false;
 
   let cssString = "";
   let window: HTMLDivElement;
@@ -54,7 +56,7 @@
   class:headless={app.state.headless || app.state.windowState.fll}
   class:resizable={app.state.resizable}
   class:min={app.state.windowState.min}
-  class:max={app.state.windowState.max}
+  class:max={app.state.windowState.max || max}
   class:visible={app.opened || visible}
   class:exttransition
   class:fullscreen={app.state.windowState.fll || app.info.custom}
@@ -66,7 +68,7 @@
   bind:this={window}
   on:mousedown={() => ($focusedWindowId = app.id)}
 >
-  <Titlebar {app} bind:exttransition bind:titlebar />
+  <Titlebar {app} bind:exttransition bind:titlebar {isBoot} />
   <Content {app}>
     <slot />
   </Content>

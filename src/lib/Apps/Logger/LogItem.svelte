@@ -5,10 +5,10 @@
   export let logItem: LogItem;
 
   const icons: { [key: number]: string } = {
-    0: "error",
+    0: "info",
     1: "warning",
-    2: "info",
-    4: "cancel",
+    2: "error",
+    3: "cancel",
   };
 </script>
 

@@ -4,6 +4,7 @@
   import BugReport from "./lib/BugReport.svelte";
   import DevBar from "./lib/DevBar.svelte";
   import MobileBlock from "./lib/MobileBlock.svelte";
+  import { Log, LogLevel } from "./ts/console";
   import { assignDevMutators } from "./ts/devmode/mutators";
   import { DevModeOverride, updateDevModeProps } from "./ts/devmode/props";
   import { dmMutators } from "./ts/devmode/store/mutators";
@@ -32,6 +33,20 @@
 
     assignDevMutators();
   });
+
+  console.warn = (content: string, ...a: any) =>
+    Log({
+      source: "[Anonymous Console]",
+      msg: content + a.join(" "),
+      level: LogLevel.warn,
+    });
+
+  console.error = (content: string, ...a: any[]) =>
+    Log({
+      source: "[Anonymous Console]",
+      msg: content + a.join(" "),
+      level: LogLevel.error,
+    });
 </script>
 
 <div class="app fullscreen" class:floating={devmode}>

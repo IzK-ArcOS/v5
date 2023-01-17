@@ -35,6 +35,7 @@ export const SystemApps: string[] = [
   "SettingsApp",
   "PfpSelector",
   "AppInfo",
+  "LoggerApp",
 ];
 
 export async function importDefault(open = false) {

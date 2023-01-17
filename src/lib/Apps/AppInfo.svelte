@@ -17,6 +17,10 @@
     if (isEnabled) enableApp($id);
     else disableApp($id);
 
+    data = getWindow($id);
+
+    if (!data) return;
+
     isEnabled = !getWindow($id).disabled;
   }
 
@@ -27,6 +31,8 @@
     if (!$id) return;
 
     data = getWindow($id);
+
+    if (!data) return;
 
     isEnabled = !getWindow($id).disabled;
 
