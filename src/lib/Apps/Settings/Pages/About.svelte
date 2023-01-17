@@ -1,11 +1,17 @@
 <script lang="ts">
-  import "../../../../css/desktop/apps/settings/about.css";
   import logo from "../../../../assets/systemIcon.svg";
-  import Section from "../Section.svelte";
+  import "../../../../css/desktop/apps/settings/about.css";
+  import { DevModeOverride } from "../../../../ts/devmode/props";
   import { UserData } from "../../../../ts/userlogic/interfaces";
+  import Section from "../Section.svelte";
 
   function enableDevmode() {
     $UserData.devmode = true;
+  }
+
+  function disableDevmode() {
+    $UserData.devmode = false;
+    DevModeOverride.set(false);
   }
 </script>
 
@@ -35,9 +41,21 @@
     scenes of sites you visit? Developer mode is a tool we use internally<br
     />to monitor different states in ArcOS. You can choose to enable it<br />
     <b>For this user only</b>.
-    <button class="action martop" on:click={enableDevmode}>
+    <button
+      class="action martop"
+      on:click={enableDevmode}
+      disabled={$UserData.devmode}
+    >
       <span class="material-icons">bug_report</span>
       Enable developer mode
+    </button>
+    <button
+      class="action martop"
+      on:click={disableDevmode}
+      disabled={!$UserData.devmode}
+    >
+      <span class="material-icons">power_settings_new</span>
+      Disable developer mode
     </button>
   </Section>
 </div>
