@@ -2,15 +2,24 @@
   import logo from "../../../../assets/systemIcon.svg";
   import "../../../../css/desktop/apps/settings/about.css";
   import { DevModeOverride } from "../../../../ts/devmode/props";
-  import { UserData } from "../../../../ts/userlogic/interfaces";
+  import { errorMessage } from "../../../../ts/errorlogic/main";
+  import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import Section from "../Section.svelte";
 
   function enableDevmode() {
     $UserData.devmode = true;
+
+    errorMessage(
+      `Welcome to the developers, ${$UserName}!`,
+      "It's excited to see when someone joins our developer mode. You might be wondering where you can open this mode. Believe me, it's quite simple. Click the red bar at the top of ArcOS to open devmode. Click the topbar in devmode to close it again. Have fun exploring ArcOS!",
+      null,
+      { caption: "Close", action: () => {} }
+    );
   }
 
   function disableDevmode() {
     $UserData.devmode = false;
+
     DevModeOverride.set(false);
   }
 </script>
