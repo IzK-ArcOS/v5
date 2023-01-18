@@ -1,9 +1,8 @@
 import logo from "../../../assets/apps/calculator.svg";
 import Calculator from "../../../lib/Apps/Calculator.svelte";
-import DidYouKnowSvelte from "../../../lib/Apps/DidYouKnow.svelte";
 import type { App } from "../interface";
 
-export const CaclulatorApp: App = {
+export const CalculatorApp: App = {
   info: {
     name: "Calculator",
     description: "ArcOS Calculator",
@@ -12,10 +11,10 @@ export const CaclulatorApp: App = {
     author: "Izaak Kuipers",
     icon: logo,
   },
-  size: { w: 400, h: 350 },
+  size: { w: 340, h: 413 },
   pos: { x: 60, y: 60 },
-  minSize: { w: 400, h: 300 },
-  maxSize: { w: 400, h: 300 },
+  minSize: { w: 340, h: 413 },
+  maxSize: { w: 340, h: 413 },
   controls: { min: true, max: false, cls: true },
   state: {
     headless: false,

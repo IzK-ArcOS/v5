@@ -1,29 +1,49 @@
 <script lang="ts">
-  // [caption,mod]
-  const KEYS: [string, string][] = [
-    ["1", "0"],
-    ["2", "0"],
-    ["3", "0"],
-    ["/", "0"],
-    ["4", "0"],
-    ["5", "0"],
-    ["6", "0"],
-    ["-", "0"],
-    ["7", "0"],
-    ["8", "0"],
-    ["9", "0"],
-    [".", "0"],
-    ["0", "0"],
-    ["=", "0"],
-    ["*", "0"],
-  ];
+  import { onMount } from "svelte";
+  import "../../css/desktop/apps/calculator.css";
+  import {
+    CalculatorClass,
+    CalculatorValue,
+  } from "../../ts/applogic/apps/Calculator/main";
+  import { Log, LogLevel } from "../../ts/console";
 
-  function process(key: [string, string]) {}
+  let value = "";
+
+  onMount(() => {
+    CalculatorValue.subscribe((v) => {
+      Log({
+        source: "Calculator: CalculatorValue.subscribe",
+        msg: `Value of CalculatorValue<string> changed to "${$CalculatorValue}"`,
+        level: LogLevel.info,
+      });
+
+      value = v || "0";
+    });
+  });
+
+  function clear() {
+    CalculatorValue.set("");
+  }
 </script>
 
-<input type="text" class="display" readonly />
+<input type="text" class="display" readonly {value} />
 <div class="keys">
-  {#each KEYS as key}
-    <button> {key[0]}</button>
+  {#each CalculatorClass.keys as key}
+    {#if !key[0].startsWith("%%")}
+      <button
+        on:click={() => CalculatorClass.processKey(key[1])}
+        class:empty={!key[0]}
+        class:alt={CalculatorClass.ALTCLASSES.includes(key[1])}
+      >
+        {key[0]}
+      </button>
+    {:else}
+      <button
+        on:click={CalculatorClass.FUNCTIONS[key[0]][1]}
+        class={CalculatorClass.FUNCTIONS[key[1]][2]}
+      >
+        {CalculatorClass.FUNCTIONS[key[1]][0]}
+      </button>
+    {/if}
   {/each}
 </div>

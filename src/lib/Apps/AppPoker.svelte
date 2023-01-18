@@ -1,11 +1,11 @@
 <script lang="ts">
+  import "../../css/desktop/apps/AppPoker.css";
   import {
     AppManagerAppData,
     AppManagerManageBools,
   } from "../../ts/applogic/apps/AppManager/Manager";
-  import "../../css/desktop/apps/AppPoker.css";
-  import { updateStores, WindowStore } from "../../ts/applogic/store";
   import type { App } from "../../ts/applogic/interface";
+  import { updateStores, WindowStore } from "../../ts/applogic/store";
   import Notice from "../Page/Desktop/WindowStore/Window/Notice.svelte";
 
   export let app: App;
@@ -18,7 +18,7 @@
 
     setTimeout(() => {
       refresh = false;
-    }, 1);
+    });
   });
 
   AppManagerAppData.subscribe((v) => {

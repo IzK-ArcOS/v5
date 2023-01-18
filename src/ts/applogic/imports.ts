@@ -2,7 +2,7 @@ import { Log, LogLevel } from "../console";
 import { AppInfo } from "./apps/AppInfo";
 import { AppManager } from "./apps/AppManager";
 import { AppPoker } from "./apps/AppPoke";
-import { CaclulatorApp } from "./apps/Calculator";
+import { CalculatorApp } from "./apps/Calculator";
 import { DidYouKnow } from "./apps/DidYouKnow";
 import { ErrorCreator } from "./apps/ErrorCreator";
 import { Exit } from "./apps/Exit";
@@ -28,7 +28,7 @@ export const DefaultApps: { [key: string]: App } = {
   AppInfo,
   DidYouKnow,
   LoggerApp,
-  CaclulatorApp,
+  CalculatorApp,
 };
 
 export const SystemApps: string[] = [
