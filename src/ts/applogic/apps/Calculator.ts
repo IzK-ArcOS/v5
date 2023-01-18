@@ -28,6 +28,7 @@ export const CalculatorApp: App = {
     close() {
       CalculatorValue.set("");
     },
+    // @TODO fix this PLEASE
     keyboardShortcuts: [
       { key: "0", action: () => CalculatorClass.processKey("0") },
       { key: "1", action: () => CalculatorClass.processKey("1") },
