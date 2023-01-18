@@ -1,5 +1,6 @@
 import { get, writable } from "svelte/store";
 import { Log, LogLevel } from "../../../console";
+import type { AppKeyCombinations } from "../../keyboard/interface";
 import type {
   CalculatorKey,
   CalculatorKeys,
@@ -92,6 +93,18 @@ class CL {
     }
 
     return true;
+  }
+
+  generateKeyboardShortcuts() {
+    const KEYS = "0123456789/*-+".split("");
+
+    let shortCuts: AppKeyCombinations = [];
+
+    for (let i = 0; i < KEYS.length; i++) {
+      shortCuts.push({ key: KEYS[i], action: () => this.processKey(KEYS[i]) });
+    }
+
+    return shortCuts;
   }
 
   processKey(key: string) {

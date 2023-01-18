@@ -25,6 +25,8 @@ export function stopKeyListener() {
 }
 
 function processEvent(e: KeyboardEvent) {
+  (document.activeElement as HTMLDivElement).blur();
+
   if (get(CurrentState).key != "desktop") return;
 
   for (let i = 0; i < appShortcuts.length; i++) {
