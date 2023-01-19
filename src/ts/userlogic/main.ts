@@ -146,8 +146,10 @@ export async function setUserdata(
     const req = await apiCall(
       server,
       "user/properties/update",
-      { data: btoa(JSON.stringify(data)) },
-      get(UserToken)
+      {},
+      get(UserToken),
+      null,
+      JSON.stringify(data)
     );
 
     if (req.valid) {
