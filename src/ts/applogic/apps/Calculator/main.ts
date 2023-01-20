@@ -26,8 +26,12 @@ class CL {
   }
 
   public keys: CalculatorKeys = [];
+  public Functions: { [key: string]: [string, () => void, string] } = {
+    "%%C": ["C", () => CalculatorValue.set(""), "clear"],
+    "%%E": ["=", this.evaluate, "process"],
+  };
 
-  // Compile keypad keys by merging allowed keys and their overrides.
+  // Compile keypad keys by merging allowed keys and their overrides for the Calculator UI
   private compileKeys(
     keys: string[],
     overrides: CalculatorOverrides
@@ -71,6 +75,7 @@ class CL {
     return value;
   }
 
+  // Tests the current value plus the new input to evaluate if it's valid.
   private isValid(input: string) {
     Log({
       source: `${Store.Source} isValid`,
@@ -78,7 +83,7 @@ class CL {
       level: LogLevel.info,
     });
 
-    // %% represents executive functions for [ C ] and [ = ]
+    // %% represents keys that have a function other than adding to the value
     if (input.startsWith("%%")) return false;
 
     for (let i = 0; i < input.length; i++) {
@@ -96,7 +101,7 @@ class CL {
     return true;
   }
 
-  // Generate a list of keyboard shortcuts from keys to pass to the appdata.
+  // Generate a list of keyboard shortcuts from keys to pass to the Calculator AppData.
   generateKeyboardShortcuts() {
     Log({
       source: `${Store.Source} processKey`,
@@ -116,7 +121,8 @@ class CL {
     return shortCuts;
   }
 
-  // Processes incoming key inputs from the window
+  // Processes incoming key inputs from either the window
+  // or the AppShortcuts (Calculator Events)
   processKey(key: string) {
     Log({
       source: `${Store.Source} processKey`,
@@ -126,11 +132,18 @@ class CL {
 
     if (!this.isValid(key)) return false;
 
-    // Note: Added the zero to prevent stuff like "+" at the end, causing it to return invalid.
-    const newValue = `${get(CalculatorValue)} ${key}0`;
+    // Note: Added the zero to prevent stuff like "+" at the end,
+    // causing it to return invalid.
+    const newValue = `${get(CalculatorValue)}${key}0`;
 
     try {
-      // An eval will error if the given expression is invalid, we can use this to see if the new value is valid.
+      /**
+       * An eval will error if the given expression is invalid, we can use
+       * this to see if the new value is valid.
+       *
+       * Note: This will return valid things for expressions such as "//////"
+       * because that's valid Javascript. This still has to be fixed.
+       */
       eval(newValue);
     } catch {
       Log({
@@ -142,6 +155,7 @@ class CL {
       return false; // The eval errored, so the new sum is invalid.
     }
 
+    // The eval didn't error, so the new value is correct.
     CalculatorValue.set(get(CalculatorValue) + key);
   }
 }

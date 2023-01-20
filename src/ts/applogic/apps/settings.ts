@@ -1,7 +1,8 @@
 import logo from "../../../assets/apps/settings.svg";
 import SettingsAppSvelte from "../../../lib/Apps/SettingsApp.svelte";
 import type { App } from "../interface";
-import { currentSettingsPage, SettingsPages } from "./SettingsApp/main";
+import { currentSettingsPage } from "./SettingsApp/main";
+import { SettingsPages } from "./SettingsApp/store";
 
 export const SettingsApp: App = {
   info: {

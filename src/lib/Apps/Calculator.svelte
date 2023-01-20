@@ -5,6 +5,7 @@
     CalculatorClass,
     CalculatorValue,
   } from "../../ts/applogic/apps/Calculator/main";
+  import { CalculatorStore } from "../../ts/applogic/apps/Calculator/store";
   import { Log, LogLevel } from "../../ts/console";
 
   let value = "";
@@ -33,16 +34,16 @@
       <button
         on:click={() => CalculatorClass.processKey(key[1])}
         class:empty={!key[0]}
-        class:alt={CalculatorClass.altClasses.includes(key[1])}
+        class:alt={CalculatorStore.altClasses.includes(key[1])}
       >
         {key[0]}
       </button>
     {:else}
       <button
-        on:click={CalculatorClass.keyFunctions[key[0]][1]}
-        class={CalculatorClass.keyFunctions[key[1]][2]}
+        on:click={CalculatorClass.Functions[key[0]][1]}
+        class={CalculatorClass.Functions[key[1]][2]}
       >
-        {CalculatorClass.keyFunctions[key[1]][0]}
+        {CalculatorClass.Functions[key[1]][0]}
       </button>
     {/if}
   {/each}

@@ -1,8 +1,6 @@
 import { get } from "svelte/store";
-import {
-  setSettingsPage,
-  SettingsPages,
-} from "../applogic/apps/SettingsApp/main";
+import { setSettingsPage } from "../applogic/apps/SettingsApp/main";
+import { SettingsPages } from "../applogic/apps/SettingsApp/store";
 import { openWindow } from "../applogic/events";
 import { importDefault } from "../applogic/imports";
 import { WindowStore } from "../applogic/store";

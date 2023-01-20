@@ -57,11 +57,7 @@ class CS {
     "**": "^",
     "%": "mod()",
   };
-  public Classes = ["+", "-", "/", "*", "**", "%", "."];
-  public Functions: { [key: string]: [string, () => void, string] } = {
-    "%%C": ["C", () => CalculatorValue.set(""), "clear"],
-    "%%E": ["=", CalculatorClass.evaluate, "process"],
-  };
+  public altClasses = ["+", "-", "/", "*", "**", "%", "."];
 }
 
 export const CalculatorStore = new CS();
