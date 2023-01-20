@@ -1,7 +1,9 @@
 import { openWindow } from "../../events";
-import { setSettingsPage, SettingsPages } from "../SettingsApp/main";
+import { setSettingsPage } from "../SettingsApp/main";
+import { SettingsPages } from "../SettingsApp/store";
 import type { Tip } from "./interface";
 
+// the DidYouKnow store
 export const DidYouKnowTips: Tip[] = [
   {
     icon: "image",

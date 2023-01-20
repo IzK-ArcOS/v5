@@ -1,9 +1,7 @@
 <script lang="ts">
   import "../../css/desktop/apps/AppPoker.css";
-  import {
-    AppManagerAppData,
-    AppManagerManageBools,
-  } from "../../ts/applogic/apps/AppManager/Manager";
+  import { AppPokerData } from "../../ts/applogic/apps/AppManager/Manager";
+  import { AppPokerProperties } from "../../ts/applogic/apps/AppManager/store";
   import type { App } from "../../ts/applogic/interface";
   import { updateStores, WindowStore } from "../../ts/applogic/store";
   import Notice from "../Page/Desktop/WindowStore/Window/Notice.svelte";
@@ -21,7 +19,7 @@
     });
   });
 
-  AppManagerAppData.subscribe((v) => {
+  AppPokerData.subscribe((v) => {
     if (!v) return;
     app.info.titleSuffix = ` - Managing ${v.info.name}`;
 
@@ -29,17 +27,17 @@
   });
 </script>
 
-{#if $AppManagerAppData && !refresh}
+{#if $AppPokerData && !refresh}
   <Notice
     icon="warning"
     text="You can alter properties for applications that are disabled by default. This can cause the UI to break, be careful!"
     title="Hold up!"
   />
   <div class="manager">
-    {#each AppManagerManageBools as option}
+    {#each AppPokerProperties as option}
       <button
-        on:click={() => option.action($AppManagerAppData)}
-        class:off={!option.getter($AppManagerAppData)}
+        on:click={() => option.action($AppPokerData)}
+        class:off={!option.getter($AppPokerData)}
       >
         {option.caption}
       </button>

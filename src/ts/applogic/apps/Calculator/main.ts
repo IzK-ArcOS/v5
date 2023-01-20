@@ -1,3 +1,13 @@
+/**
+ * CalculatorApp 1.0.0
+ *
+ * Authored by Izaak Kuipers, development started January 18th 2023.
+ *
+ * All code in this file is written by the author and licensed under GPLv3.
+ *
+ * Original filename: src/ts/applogic/apps/Calculator/main.ts
+ */
+
 import { get, writable } from "svelte/store";
 import { Log, LogLevel } from "../../../console";
 import type { AppKeyCombinations } from "../../keyboard/interface";
@@ -6,42 +16,31 @@ import type {
   CalculatorKeys,
   CalculatorOverrides,
 } from "./interface";
+import { CalculatorStore as Store } from "./store";
 
 export const CalculatorValue = writable<string>("");
 
 class CL {
   constructor() {
-    this.keys = this.compileKeys(this.allowedKeys, this.CAPTION_OVERRIDES);
+    this.keys = this.compileKeys(Store.AllowedKeys, Store.Overrides);
   }
 
-  allowedKeys = "+_-_/_*_7_8_9_**_4_5_6_%_1_2_3_%%C_._0_00_%%E".split("_");
-
-  public ALTCLASSES = "+_-_/_*_**_%_.".split("_");
-  public CAPTION_OVERRIDES: CalculatorOverrides = {
-    "*": "x",
-    "/": ":",
-    "**": "^",
-    "%": "mod()",
-  };
-  public FUNCTIONS: { [key: string]: [string, () => void, string] } = {
-    "%%C": ["C", () => CalculatorValue.set(""), "clear"],
-    "%%E": ["=", this.evaluate, "process"],
-  };
   public keys: CalculatorKeys = [];
 
+  // Compile keypad keys by merging allowed keys and their overrides.
   private compileKeys(
     keys: string[],
     overrides: CalculatorOverrides
   ): CalculatorKeys {
+    const keyCnt = keys.length;
+    const orsCnt = Object.values(overrides).length;
+    const value: CalculatorKeys = [];
+
     Log({
-      source: "Calculator/main.ts: compileKeys",
-      msg: `Compiling CalculatorKeys[] array with ${keys.length} keys and ${
-        Object.values(overrides).length
-      } overrides.`,
+      source: `${Store.Source} compileKeys`,
+      msg: `Compiling CalculatorKeys[] array with ${keyCnt} keys and ${orsCnt} overrides.`,
       level: LogLevel.info,
     });
-
-    let value: CalculatorKeys = [];
 
     for (let i = 0; i < keys.length; i++) {
       let v: CalculatorKey = [null, null];
@@ -55,9 +54,10 @@ class CL {
     return value;
   }
 
+  // Calculate the calculator value and set it to itself
   public evaluate(): string | false {
     Log({
-      source: "Calculator/main.ts: evaluate",
+      source: `${Store.Source} evaluate`,
       msg: `Evaluating sum ("${get(CalculatorValue)}")`,
       level: LogLevel.info,
     });
@@ -73,61 +73,73 @@ class CL {
 
   private isValid(input: string) {
     Log({
-      source: "Calculator/main.ts: isValid",
+      source: `${Store.Source} isValid`,
       msg: `Verifying input "${input}"...`,
       level: LogLevel.info,
     });
 
+    // %% represents executive functions for [ C ] and [ = ]
     if (input.startsWith("%%")) return false;
 
     for (let i = 0; i < input.length; i++) {
-      if (!this.allowedKeys.includes(input[i])) {
-        Log({
-          source: "Calculator/main.ts: isValid",
-          msg: `Input "${input}" not valid.`,
-          level: LogLevel.warn,
-        });
+      if (Store.AllowedKeys.includes(input[i])) continue;
 
-        return false;
-      }
+      Log({
+        source: `${Store.Source} isValid`,
+        msg: `Input "${input}" not valid.`,
+        level: LogLevel.warn,
+      });
+
+      return false;
     }
 
     return true;
   }
 
+  // Generate a list of keyboard shortcuts from keys to pass to the appdata.
   generateKeyboardShortcuts() {
-    const KEYS = "0123456789/*-+".split("");
+    Log({
+      source: `${Store.Source} processKey`,
+      msg: `Generating keyboard shortcut array`,
+      level: LogLevel.info,
+    });
 
     let shortCuts: AppKeyCombinations = [];
 
-    for (let i = 0; i < KEYS.length; i++) {
-      shortCuts.push({ key: KEYS[i], action: () => this.processKey(KEYS[i]) });
+    for (let i = 0; i < Store.Shortcuts.length; i++) {
+      shortCuts.push({
+        key: Store.Shortcuts[i],
+        action: () => this.processKey(Store.Shortcuts[i]),
+      });
     }
 
     return shortCuts;
   }
 
+  // Processes incoming key inputs from the window
   processKey(key: string) {
     Log({
-      source: "Calculator/main.ts: processKey",
+      source: `${Store.Source} processKey`,
       msg: `Processing key "${key}"`,
       level: LogLevel.info,
     });
 
     if (!this.isValid(key)) return false;
 
-    const newValue = get(CalculatorValue) + key + "0";
+    // Note: Added the zero to prevent stuff like "+" at the end, causing it to return invalid.
+    const newValue = `${get(CalculatorValue)} ${key}0`;
 
     try {
+      // An eval will error if the given expression is invalid, we can use this to see if the new value is valid.
       eval(newValue);
     } catch {
       Log({
-        source: "Calculator/main.ts: processKey",
+        source: `${Store.Source} Calculator/main.ts: processKey`,
         msg: `Test sum "${newValue}" is not valid. Aborting.`,
         level: LogLevel.error,
       });
 
-      return false;
+      return false; // The eval errored, so the new sum is invalid.
     }
 
     CalculatorValue.set(get(CalculatorValue) + key);

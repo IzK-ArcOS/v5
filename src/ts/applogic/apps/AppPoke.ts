@@ -1,7 +1,7 @@
 import logo from "../../../assets/apps/apppoker.svg";
 import AppPokerSvelte from "../../../lib/Apps/AppPoker.svelte";
 import type { App } from "../interface";
-import { AppManagerAppData } from "./AppManager/Manager";
+import { AppPokerData } from "./AppManager/Manager";
 
 export const AppPoker: App = {
   info: {
@@ -27,7 +27,7 @@ export const AppPoker: App = {
   glass: false,
   events: {
     close() {
-      AppManagerAppData.set(null);
+      AppPokerData.set(null);
     },
   },
 };

@@ -1,6 +1,6 @@
 <script lang="ts">
   import "../../css/desktop/apps/AppManager.css";
-  import { AppManagerAppData } from "../../ts/applogic/apps/AppManager/Manager";
+  import { AppPokerData } from "../../ts/applogic/apps/AppManager/Manager";
   import { closeWindow } from "../../ts/applogic/events";
   import type { App } from "../../ts/applogic/interface";
   import { getOpenedStore, WindowStore } from "../../ts/applogic/store";
@@ -8,7 +8,7 @@
   let oa: App[] = [];
 
   function manage(app: App) {
-    AppManagerAppData.set(app);
+    AppPokerData.set(app);
   }
 
   WindowStore.subscribe(() => {
@@ -43,7 +43,7 @@
             on:click={() => {
               manage(app);
             }}
-            disabled={$AppManagerAppData && $AppManagerAppData.id == app.id}
+            disabled={$AppPokerData && $AppPokerData.id == app.id}
           >
             Poke
           </button>

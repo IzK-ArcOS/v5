@@ -1,7 +1,7 @@
 <script lang="ts">
   import "../../css/desktop/apps/AppInfo.css";
   import { AppInfoId as id } from "../../ts/applogic/apps/AppInfo";
-  import { AppManagerAppData } from "../../ts/applogic/apps/AppManager/Manager";
+  import { AppPokerData } from "../../ts/applogic/apps/AppManager/Manager";
   import { isDisabled } from "../../ts/applogic/checks";
   import { disableApp, enableApp } from "../../ts/applogic/enabling";
   import { openWindow } from "../../ts/applogic/events";
@@ -106,7 +106,7 @@
           Open
         </button>
         <button
-          on:click={() => AppManagerAppData.set(data)}
+          on:click={() => AppPokerData.set(data)}
           disabled={data.disabled || disablePoke}
         >
           Poke

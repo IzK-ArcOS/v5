@@ -1,3 +1,4 @@
+// A DidYouKnow item.
 export interface Tip {
   icon: string;
   title: string;

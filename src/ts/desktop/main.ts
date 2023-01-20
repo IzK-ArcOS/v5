@@ -1,5 +1,5 @@
 import { get, writable } from "svelte/store";
-import { AppManagerAppData } from "../applogic/apps/AppManager/Manager";
+import { AppPokerData } from "../applogic/apps/AppManager/Manager";
 import { closeWindow, fullscreenWindow, openWindow } from "../applogic/events";
 import { registerShortcuts } from "../applogic/keyboard/main";
 import {
@@ -39,7 +39,7 @@ export function assignDesktopListeners() {
     }
   });
 
-  AppManagerAppData.subscribe((v) => {
+  AppPokerData.subscribe((v) => {
     if (v) openWindow("AppPoker");
     else closeWindow("AppPoker");
   });

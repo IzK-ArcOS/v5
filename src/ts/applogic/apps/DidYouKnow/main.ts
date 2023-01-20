@@ -2,6 +2,7 @@ import { Log, LogLevel } from "../../../console";
 import type { Tip } from "./interface";
 import { DidYouKnowTips } from "./store";
 
+// Returns a random item from the DYK store
 export function getRandomTip(): Tip {
   Log({
     msg: "Getting random tip",

@@ -33,16 +33,16 @@
       <button
         on:click={() => CalculatorClass.processKey(key[1])}
         class:empty={!key[0]}
-        class:alt={CalculatorClass.ALTCLASSES.includes(key[1])}
+        class:alt={CalculatorClass.altClasses.includes(key[1])}
       >
         {key[0]}
       </button>
     {:else}
       <button
-        on:click={CalculatorClass.FUNCTIONS[key[0]][1]}
-        class={CalculatorClass.FUNCTIONS[key[1]][2]}
+        on:click={CalculatorClass.keyFunctions[key[0]][1]}
+        class={CalculatorClass.keyFunctions[key[1]][2]}
       >
-        {CalculatorClass.FUNCTIONS[key[1]][0]}
+        {CalculatorClass.keyFunctions[key[1]][0]}
       </button>
     {/if}
   {/each}
