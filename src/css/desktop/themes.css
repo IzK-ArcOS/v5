@@ -1,4 +1,6 @@
-@import url("./theme/darkround.css");
+@import url("./theme/dark.css");
+@import url("./theme/light.css");
+@import url("./theme/sharp.css");
 @import url("./theme/noani.css");
 
 :root {

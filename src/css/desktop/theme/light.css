@@ -1,0 +1,30 @@
+:root .theme-lightround {
+  --fg: #111;
+  --win-bg: #fff;
+  --win-border-rad: 7.5px;
+  --win-border: rgb(226, 226, 226) 1px solid;
+  --win-border-light: #d8d8d844 1px solid;
+  --glass-bg: #ffffffa2;
+  --glass-alt-bg: #414141a2;
+  --glass-ultralight: rgba(255, 255, 255, 0.267);
+  --glass-ultradark: rgba(255, 255, 255, 0.533);
+  --darkened-overlay: #0001;
+  --darkened-overlay-alt: #0003;
+  --startmenu-applist-item-bg: transparent;
+  --startmenu-applist-item-bg-hover: #00000005;
+  --startmenu-applist-item-bg-active: rgba(0, 0, 0, 0.067);
+  --button-border-rad: 4px;
+  --button-bg: #eeeeee;
+  --button-hover-bg: #dddddd;
+  --button-active-bg: #cccccc;
+  --button-glass-bg: rgba(0, 0, 0, 0.067);
+  --button-glass-hover-bg: rgba(0, 0, 0, 0.05);
+  --button-glass-active-bg: rgba(0, 0, 0, 0.1);
+}
+
+:root .theme-darkround.noglass {
+  --glass-bg: #353535;
+  --glass-alt-bg: #414141;
+  --glass-ultralight: #838383;
+  --glass-ultradark: #2e2e2e;
+}

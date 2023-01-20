@@ -10,7 +10,9 @@
 
   currentSettingsPage.subscribe((v) => {
     clearTimeout(t);
+
     cName = "static";
+
     if ($UserData && !$UserData.sh.anim && v) return (settingsPage = v);
     if (!v || (settingsPage && v.name == settingsPage.name)) return;
 
