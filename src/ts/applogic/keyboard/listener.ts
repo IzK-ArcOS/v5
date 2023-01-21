@@ -25,7 +25,7 @@ export function stopKeyListener() {
 }
 
 function processEvent(e: KeyboardEvent) {
-  (document.activeElement as HTMLDivElement).blur();
+  unfocusActiveElement();
 
   if (get(CurrentState).key != "desktop") return;
 
@@ -50,4 +50,18 @@ function processEvent(e: KeyboardEvent) {
       }
     }
   }
+}
+
+function unfocusActiveElement() {
+  const el = document.activeElement as HTMLButtonElement;
+
+  if (
+    !el ||
+    !el.onclick ||
+    el instanceof HTMLInputElement ||
+    el instanceof HTMLTextAreaElement
+  )
+    return;
+
+  el.blur();
 }
