@@ -8,8 +8,6 @@
     updateStores,
     WindowStore as WStore,
   } from "../../ts/applogic/store";
-  import { Log, log, LogLevel } from "../../ts/console";
-  import { collectLogsBySource } from "../../ts/console/collector";
   import {
     assignDesktopListeners,
     desktopClassNames,
@@ -18,7 +16,6 @@
     startOpened,
   } from "../../ts/desktop/main";
   import { DevModeOverride } from "../../ts/devmode/props";
-  import { userDataKey } from "../../ts/env/main";
   import { ErrorMessages } from "../../ts/errorlogic/app";
   import { UserData, UserName } from "../../ts/userlogic/interfaces";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";

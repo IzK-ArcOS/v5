@@ -1,5 +1,16 @@
 import { get, writable, Writable } from "svelte/store";
 import { Log, LogLevel } from "../console";
+import { ActionCenterOpened } from "../desktop/actioncenter/main";
+import { startOpened } from "../desktop/main";
+import { trayIcons } from "../desktop/tray/main";
+import { ErrorMessages } from "../errorlogic/app";
+import { NotificationStore } from "../notiflogic/main";
+import { AppInfoId } from "./apps/AppInfo";
+import { AppPokerData } from "./apps/AppManager/Manager";
+import {
+  currentCollapsibleT,
+  currentSettingsPage,
+} from "./apps/SettingsApp/main";
 import type { App } from "./interface";
 
 export const OpenedStore: Writable<App[]> = writable<App[]>([]);
@@ -63,6 +74,21 @@ export function updateStores() {
   }
 
   WindowStore.set(ws);
+}
+
+export function unloadStores() {
+  ActionCenterOpened.set(false);
+  startOpened.set(false);
+  focusedWindowId.set(null);
+  currentSettingsPage.set(null);
+  currentCollapsibleT.set(null);
+  AppPokerData.set(null);
+  isFullscreenWindow.set(false);
+  maxZIndex.set(1e9);
+  AppInfoId.set(null);
+  trayIcons.set([]);
+  NotificationStore.set({});
+  ErrorMessages.set([]);
 }
 
 WindowStore.subscribe(() => {

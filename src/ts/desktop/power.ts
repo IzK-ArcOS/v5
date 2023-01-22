@@ -1,6 +1,6 @@
 import { get } from "svelte/store";
 import { closeWindow } from "../applogic/events";
-import { WindowStore } from "../applogic/store";
+import { unloadStores, WindowStore } from "../applogic/store";
 import { loggingOff, restarting, shuttingDown } from "./main";
 
 export function logoff() {
@@ -18,6 +18,8 @@ export function logoff() {
 
   localStorage.removeItem("arcos-remembered-token");
 
+  unloadStores();
+
   loggingOff.set(true);
 }
 
@@ -34,6 +36,8 @@ export function shutdown() {
     }, maxTimeout);
   }
 
+  unloadStores();
+
   shuttingDown.set(true);
 }
 
@@ -49,6 +53,8 @@ export function restart() {
       closeWindow(ws[i].id);
     }, maxTimeout);
   }
+
+  unloadStores();
 
   restarting.set(true);
 }
