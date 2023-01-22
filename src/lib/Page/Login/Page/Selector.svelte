@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { applyState } from "../../../../ts/state/main";
-
   import { onMount } from "svelte";
   import { ConnectedServer } from "../../../../ts/api/main";
   import { applyLoginState } from "../../../../ts/login/main";
@@ -12,10 +10,6 @@
   onMount(async () => {
     users = await getUsers();
   });
-
-  function fts() {
-    applyState("fts");
-  }
 </script>
 
 <div class="user-selector">

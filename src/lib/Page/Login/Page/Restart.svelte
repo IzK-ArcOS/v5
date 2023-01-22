@@ -39,7 +39,7 @@
   });
 </script>
 
-<div class="userlogin">
+<div class="userlogin show">
   <img src={pfp} alt="pfp" />
   <h1>{name || "ArcOS"}</h1>
   <h3><Spinner height={23} />&nbsp;<span>Restarting </span></h3>

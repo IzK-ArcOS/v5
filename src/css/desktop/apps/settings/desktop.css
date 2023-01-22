@@ -32,6 +32,42 @@ window#SettingsApp div.desktop-page div.current {
   background-size: cover;
   aspect-ratio: 16 / 9;
   border: #000 10px solid;
+  position: relative;
+}
+
+window#SettingsApp div.desktop-page div.current div.fake-taskbar {
+  background-color: var(--glass-ultradark);
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: calc(100% - 10px);
+  height: 15px;
+  border-radius: 3px;
+  backdrop-filter: blur(var(--glass-blur));
+  border: var(--win-border-light);
+}
+
+window#SettingsApp div.desktop-page div.current div.fake-window {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 80px;
+  height: 60px;
+  border-radius: 3px;
+  background-color: var(--win-bg);
+  border: var(--win-border);
+  padding: 3px;
+  box-sizing: border-box;
+  font-size: 5px;
+}
+
+window#SettingsApp
+  div.desktop-page
+  div.current
+  div.fake-window
+  div.fake-titlebar {
+  height: 10px;
+  font-weight: bold;
 }
 
 window#SettingsApp div.desktop-page div.wallpapers {

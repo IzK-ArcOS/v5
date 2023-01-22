@@ -10,7 +10,6 @@ import { LoggerApp } from "./apps/Logger";
 import { ProfilePictureApp } from "./apps/ProfilePicture";
 import { SettingsApp } from "./apps/settings";
 import { TestApp } from "./apps/testApp";
-import { UITester } from "./apps/testApp2";
 import { openWindow } from "./events";
 import type { App } from "./interface";
 import { loadWindow } from "./load";
@@ -18,12 +17,12 @@ import { updateStores } from "./store";
 
 export const DefaultApps: { [key: string]: App } = {
   TestApp: TestApp,
+  SettingsApp: SettingsApp,
   AppMan: AppManager,
   AppPoker: AppPoker,
   //UITroubleShooter: UITester,
   Exit: Exit,
   ErrCre: ErrorCreator,
-  SettingsApp: SettingsApp,
   PfpSelector: ProfilePictureApp,
   AppInfo,
   DidYouKnow,

@@ -35,7 +35,7 @@
 </script>
 
 {#if name && data}
-  <div class="userlogin">
+  <div class="userlogin show">
     <img src={pfp} alt="pfp" />
     <h1>{name}</h1>
     <h3><Spinner height={23} />&nbsp;<span>Goodbye</span></h3>

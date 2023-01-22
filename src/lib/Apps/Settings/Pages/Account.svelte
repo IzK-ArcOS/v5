@@ -1,8 +1,11 @@
 <script lang="ts">
+  import warning from "../../../../assets/apps/error.svg";
   import "../../../../css/desktop/apps/settings/account.css";
   import { openWindow } from "../../../../ts/applogic/events";
   import { DevModeOverride } from "../../../../ts/devmode/props";
+  import { errorMessage } from "../../../../ts/errorlogic/main";
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
+  import { deleteUser } from "../../../../ts/userlogic/main";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
   import Notice from "../../../Page/Desktop/WindowStore/Window/Notice.svelte";
   import Section from "../Section.svelte";
@@ -12,6 +15,22 @@
   UserData.subscribe((v) => {
     pfp = getProfilePicture(parseInt(v.acc.profilePicture as string));
   });
+
+  function deleteAccount() {
+    errorMessage(
+      "Delete ArcOS Account",
+      "Are you sure you want to delete your ArcOS account? This will delete any and all user data associated with this account. These changes cannot be reverted.",
+      warning,
+      {
+        caption: "Proceed",
+        action: () => deleteUser($UserName),
+      },
+      {
+        caption: "Back to safety",
+        action: () => {},
+      }
+    );
+  }
 </script>
 
 <div class="settingspage-account">
@@ -51,7 +70,7 @@
       title="Watch your steps!"
       text="This section contains settings that cannot be undone.<br/>Continue at your own risk."
     />
-    <button class="action" disabled>
+    <button class="action" on:click={deleteAccount}>
       <span class="material-icons">delete</span>
       Delete account
     </button>

@@ -6,4 +6,10 @@
 <div
   class="current"
   style="background-image: url({getWallpaper($UserData.sh.desktop.wallpaper)});"
-/>
+>
+  <div class="fake-taskbar" />
+  <div class="fake-window">
+    <div class="fake-titlebar">Window Title</div>
+    <div class="fake-body">Window body</div>
+  </div>
+</div>

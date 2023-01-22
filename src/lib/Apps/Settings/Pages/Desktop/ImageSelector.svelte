@@ -11,6 +11,7 @@
 <div
   class="wallpaper"
   style="background-image: url({wallpaper[1]});"
+  title={wallpaper[0]}
   class:selected={$UserData.sh.desktop.wallpaper == wallpaper[0]}
   on:click={change}
 />

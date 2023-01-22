@@ -2,9 +2,10 @@ import { get } from "svelte/store";
 import { apiCall, ConnectedServer } from "../api/main";
 import { BugReportData } from "../bugrep";
 import { Log, LogLevel } from "../console";
+import { logoff } from "../desktop/power";
 import { DevModeOverride } from "../devmode/props";
 import { userDataKey } from "../env/main";
-import { applyState } from "../state/main";
+import { applyState, CurrentState } from "../state/main";
 import {
   AllUsers,
   defaultUserData,
@@ -90,6 +91,17 @@ export async function deleteUser(name: string) {
     source: "userlogic/main.ts: deleteUsers",
     level: LogLevel.info,
   });
+
+  const server = get(ConnectedServer);
+  const token = get(UserToken);
+
+  if (server) {
+    apiCall(server, "user/delete", {}, token);
+
+    if (get(CurrentState).name == "Desktop") logoff();
+
+    return;
+  }
 
   const users = await getUsers();
 

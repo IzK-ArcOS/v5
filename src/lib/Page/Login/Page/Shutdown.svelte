@@ -30,28 +30,12 @@
       ErrorMessages.set([]);
       DevModeOverride.set(false);
 
-      /* BugReportData.set([
-        true,
-        {
-          icon: "power_settings_new",
-          title: "Powered off",
-          message: "Thank you for using ArcOS! You can now close the browser.",
-          button: {
-            caption: "Restart",
-            action: () => {
-              applyLoginState("selector");
-              applyState("boot");
-            },
-          },
-        },
-      ]); */
-
       applyState("turnedoff");
     }, 2000);
   });
 </script>
 
-<div class="userlogin">
+<div class="userlogin show">
   <img src={pfp} alt="pfp" />
   <h1>{name || "ArcOS"}</h1>
   <h3><Spinner height={23} />&nbsp;<span>Shutting down</span></h3>
