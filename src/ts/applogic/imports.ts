@@ -20,7 +20,7 @@ export const DefaultApps: { [key: string]: App } = {
   TestApp: TestApp,
   AppMan: AppManager,
   AppPoker: AppPoker,
-  UITroubleShooter: UITester,
+  //UITroubleShooter: UITester,
   Exit: Exit,
   ErrCre: ErrorCreator,
   SettingsApp: SettingsApp,

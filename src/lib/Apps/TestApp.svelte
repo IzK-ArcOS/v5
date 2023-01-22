@@ -6,6 +6,7 @@
     headlessToggle,
     maximizeWindow,
     minimizeWindow,
+    openChildWindow,
   } from "../../ts/applogic/events";
   import type { App } from "../../ts/applogic/interface";
   import { updateStores } from "../../ts/applogic/store";
@@ -80,6 +81,10 @@
 
     updateStores();
   }
+
+  function openChild() {
+    openChildWindow(app, "UIT");
+  }
 </script>
 
 <h1>Testing...<input /></h1>
@@ -122,6 +127,7 @@
 <button on:click={logoff}>ArcOS.Desktop.power.logoff</button>
 <p>Glass</p>
 <button on:click={toggleGlass}>App.glass: {app.glass}</button>
+<button on:click={openChild}>Open child</button>
 <button
   on:click={() =>
     makeNotification({

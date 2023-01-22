@@ -1,0 +1,20 @@
+<script lang="ts">
+  import { getOriginalIcon } from "../../../ts/applogic/icon";
+  import type { App } from "../../../ts/applogic/interface";
+
+  export let app: App;
+</script>
+
+<div class="appinstance">
+  <div>
+    <img src={getOriginalIcon(app.id) || app.info.icon} alt="" />
+  </div>
+  <div class="appname">{app.info.name}</div>
+  <div class="id">
+    {#if app.parentId}
+      ArcOS.{app.parentId}.{app.id}
+    {:else}
+      ArcOS.{app.id}
+    {/if}
+  </div>
+</div>

@@ -66,6 +66,34 @@ export function openWindow(id: string) {
   return true;
 }
 
+export function openChildWindow(parent: App, childId: string) {
+  const ws = get(WindowStore);
+
+  for (let i = 0; i < ws.length; i++) {
+    if (ws[i].parentId == parent.id && ws[i].id == childId) {
+      openWindow(childId);
+
+      return true;
+    }
+  }
+
+  return false;
+}
+
+export function closeChildWindow(parent: App, childId: string) {
+  const ws = get(WindowStore);
+
+  for (let i = 0; i < ws.length; i++) {
+    if (ws[i].parentId == parent.id && ws[i].id == childId) {
+      closeWindow(childId);
+
+      return true;
+    }
+  }
+
+  return false;
+}
+
 export function closeWindow(id: string) {
   Log({
     msg: `Closing ${id}`,
@@ -84,6 +112,14 @@ export function closeWindow(id: string) {
     if (ws[i] && ws[i].id == id) {
       ws[i].opened = false;
       break;
+    }
+  }
+
+  if (window.children) {
+    const entries = Object.entries(window.children);
+
+    for (let i = 0; i < entries.length; i++) {
+      closeChildWindow(window, entries[i][0]);
     }
   }
 

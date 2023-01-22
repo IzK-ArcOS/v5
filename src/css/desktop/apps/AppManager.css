@@ -1,20 +1,32 @@
-window#AppMan table {
-  width: 100%;
+:root window#AppMan {
+  --row-height: 20px;
+  --indent: 25px;
 }
 
-window#AppMan table tr td {
-  padding-right: 10px;
+window#AppMan div.body {
+  padding: 15px;
+  padding-top: 10px;
 }
 
-window#AppMan tr.head * {
-  font-weight: bold;
+window#AppMan div.indent {
+  margin-left: var(--indent);
 }
 
-window#AppMan * {
+window#AppMan div.appinstance {
+  display: flex;
+  margin: 5px 0;
+}
+
+window#AppMan div.appinstance div.id {
+  margin-left: auto;
+}
+
+window#AppMan div.appinstance img {
+  height: var(--row-height);
+  margin-right: 5px;
+}
+
+window#AppMan div.appinstance > * {
   vertical-align: middle;
-}
-
-window#AppMan table td img.icon {
-  height: 24px;
-  vertical-align: middle;
+  line-height: var(--row-height);
 }

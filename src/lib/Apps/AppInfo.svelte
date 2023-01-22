@@ -48,7 +48,12 @@
     <div>
       <p class="appname">{data.info.name}</p>
       <p class="description">
-        {data.info.description} ({data.id || "<unknown>"})
+        {data.info.description}
+        {#if data.parentId}
+          ({data.parentId}.{data.id})
+        {:else}
+          ({data.id})
+        {/if}
       </p>
     </div>
     <div class="actions">

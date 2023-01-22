@@ -63,6 +63,7 @@
   class:glass={app.glass}
   class:lefttb={$UserData.sh.window.lefttb}
   class:custom={app.info.custom}
+  class:child={!!app.parentId}
   style={cssString}
   id={app.id}
   bind:this={window}

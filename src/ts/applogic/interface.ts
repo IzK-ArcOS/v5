@@ -15,6 +15,8 @@ export interface App {
   events?: AppEvents;
   disabled?: boolean;
   opened?: boolean;
+  parentId?: string;
+  children?: { [key: string]: App };
 }
 
 export interface GeneralAppInfo {
