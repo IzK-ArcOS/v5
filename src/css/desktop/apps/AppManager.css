@@ -19,6 +19,7 @@ window#AppMan div.appinstance {
 
 window#AppMan div.appinstance div.id {
   margin-left: auto;
+  opacity: 0.4;
 }
 
 window#AppMan div.appinstance img {

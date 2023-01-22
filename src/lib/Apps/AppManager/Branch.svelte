@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { App } from "../../../ts/applogic/interface";
+  import { getWindow } from "../../../ts/applogic/store";
   import AppSvelte from "./App.svelte";
   import Branch from "./Branch.svelte";
 
@@ -10,8 +11,8 @@
 <div class:indent={!top}>
   <AppSvelte app={window} />
   {#if window.children}
-    {#each Object.values(window.children) as child}
-      <Branch window={child} />
+    {#each Object.keys(window.children) as child}
+      <Branch window={getWindow(child)} />
     {/each}
   {/if}
 </div>

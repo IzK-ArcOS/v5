@@ -5,16 +5,18 @@
   export let app: App;
 </script>
 
-<div class="appinstance">
-  <div>
-    <img src={getOriginalIcon(app.id) || app.info.icon} alt="" />
+{#if app}
+  <div class="appinstance">
+    <div>
+      <img src={getOriginalIcon(app.id) || app.info.icon} alt="" />
+    </div>
+    <div class="appname">{app.info.name}</div>
+    <div class="id">
+      {#if app.parentId}
+        ArcOS.{app.parentId}.{app.id}
+      {:else}
+        ArcOS.{app.id}
+      {/if}
+    </div>
   </div>
-  <div class="appname">{app.info.name}</div>
-  <div class="id">
-    {#if app.parentId}
-      ArcOS.{app.parentId}.{app.id}
-    {:else}
-      ArcOS.{app.id}
-    {/if}
-  </div>
-</div>
+{/if}
