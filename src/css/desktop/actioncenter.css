@@ -38,6 +38,10 @@ div.actioncenter-shade.opened {
   display: block;
 }
 
+div.actioncenter:not(.opened) * {
+  pointer-events: none;
+}
+
 div.actioncenter.opened {
   right: 10px;
   opacity: 1;

@@ -61,6 +61,10 @@ div.notification.hidden {
   visibility: hidden;
 }
 
+div.notification.hidden * {
+  pointer-events: none;
+}
+
 div.notification p {
   margin: 0;
 }

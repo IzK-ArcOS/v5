@@ -14,6 +14,10 @@
   font-size: 13px;
 }
 
+.window * {
+  pointer-events: none;
+}
+
 window.custom {
   background-color: #000 !important;
   min-width: unset !important;
@@ -63,6 +67,10 @@ window.custom div.body {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
+}
+
+.window.visible * {
+  pointer-events: initial;
 }
 
 .window.nobg {

@@ -11,6 +11,10 @@ div.startframe.present {
   opacity: 1;
 }
 
+div.startmenu.present * {
+  pointer-events: initial;
+}
+
 div.startmenu {
   position: absolute;
   opacity: 0;
@@ -30,8 +34,7 @@ div.startmenu {
 }
 
 div.startmenu * {
-  transition: top 0.3s, left 0.3s, opacity 0.3s, visibility 0.3s, width 0.3s,
-    height 0.3s, border-radius 0.3s, padding 0.3s, font-size 0.3s;
+  pointer-events: none;
 }
 
 div.startmenu div.left {
@@ -149,6 +152,10 @@ div.startmenu.open {
   opacity: 1;
   visibility: visible;
   margin-bottom: 0;
+}
+
+div.startmenu.open * {
+  pointer-events: initial;
 }
 
 div.desktop.tbdocked div.startmenu {
