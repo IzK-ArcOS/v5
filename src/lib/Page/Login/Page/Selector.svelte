@@ -24,7 +24,7 @@
       <User data={users[username]} name={username} />
     {/each}
   {/if}
-  {#if $ConnectedServer}
+  {#if $ConnectedServer && users}
     <button on:click={() => applyLoginState("newapiuser")} class="createacc"
       >Create Account</button
     >

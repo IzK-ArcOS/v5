@@ -21,6 +21,7 @@
   let stay = false;
   let authenticating = false;
   let password = "";
+  let show = false;
 
   onMount(async () => {
     name = get(loginUsername);
@@ -39,6 +40,10 @@
     } else {
       applyLoginState("selector");
     }
+
+    setTimeout(() => {
+      show = true;
+    }, 10);
   });
 
   async function serverLogin() {
@@ -92,7 +97,7 @@
 </script>
 
 {#if name && data}
-  <div class="userlogin">
+  <div class="userlogin" class:show>
     <img src={pfp} alt="pfp" />
     <h1>{name}</h1>
     {#if !$ConnectedServer || authenticating}
@@ -125,7 +130,9 @@
 {/if}
 
 {#if $ConnectedServer && !authenticating}
-  <button class="switchuser" on:click={() => applyLoginState("selector")}
-    >Cancel</button
+  <button
+    class="switchuser"
+    class:show
+    on:click={() => applyLoginState("selector")}>Cancel</button
   >
 {/if}

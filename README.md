@@ -9,6 +9,14 @@ Before I go all technical and explain the inner workings of ArcOS, I must give c
 - Big thanks to the **Papirus Development Team** for creating their icon pack, you can find the pack I used [here](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme).
 - All ArcOS wallpapers were created or licensed to me.
 
+## Wallpapers
+
+As said before all wallpapers are used with permission from their respective authors.
+
+Images 1, 2, 3, 4, 5, 6, 7 and 10 are made by me, the rest are licensed.
+
+NOTE: _Huge_ thanks to **SWHFotografie** for creating `img08` in a local forest.
+
 ## License
 
 All code in this project was created by me or by other members of the ArcOS Team. All files in this repository are thereby licensed under [GPLv3](./LICENSE).

@@ -1,6 +1,16 @@
 div.userlogin {
   text-align: center;
   height: 300px;
+  margin-top: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, margin-top 0.3s;
+}
+
+div.userlogin.show {
+  margin-top: 0px;
+  visibility: visible;
+  opacity: 1;
 }
 
 div.userlogin img {
@@ -58,6 +68,14 @@ div.login button.switchuser {
   -moz-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   margin-top: 50px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, margin-top 0.3s;
+}
+
+div.login button.switchuser.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 div.userlogin.newuser button.createbutton {
@@ -82,4 +100,10 @@ div.userlogin div.cloudlogin span.keep-loggedin-wrapper {
   display: block;
   margin: 15px 0;
   width: 100%;
+  margin-top: 20px;
+}
+
+div.userlogin div.cloudlogin span.keep-loggedin-wrapper input {
+  background-color: #fff1 !important;
+  border: 1px transparent solid !important;
 }
