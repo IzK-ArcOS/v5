@@ -1,12 +1,16 @@
 <script lang="ts">
+  import type { App } from "../../../../ts/applogic/interface";
   import { log, LogItem, LogLevel } from "../../../../ts/console";
+  import type { ScopedAppData } from "../../../../ts/userlogic/interfaces";
   import Filters from "./Actions/Filters.svelte";
   import Static from "./Actions/Static.svelte";
 
+  export let app: App;
   export let currentSource: string;
   export let logItems: LogItem[];
   export let setView: (source: string) => void;
   export let updating: boolean;
+  export let appdata: ScopedAppData;
 
   let original: LogItem[] = [];
   let currentFilter: LogLevel;
@@ -44,6 +48,14 @@
 </script>
 
 <div class="actions">
-  <Static {currentFilter} bind:currentSource {filter} bind:logItems {setView} />
+  <Static
+    {currentFilter}
+    bind:currentSource
+    {filter}
+    bind:logItems
+    {setView}
+    bind:appdata
+    {app}
+  />
   <Filters {currentFilter} {currentSource} {filter} />
 </div>

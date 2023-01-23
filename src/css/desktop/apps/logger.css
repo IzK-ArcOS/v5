@@ -79,6 +79,11 @@ window#LoggerApp div.content div.items {
   overflow-y: scroll;
 }
 
+window#LoggerApp div.content div.items.monospace div.logitem div.msg {
+  font-family: "Source Code Pro", monospace;
+  white-space: pre;
+}
+
 window#LoggerApp div.content div.items.cflex {
   display: flex;
   align-items: center;

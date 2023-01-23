@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { isOpened } from "../../../ts/applogic/checks";
   import type { App } from "../../../ts/applogic/interface";
   import { getWindow } from "../../../ts/applogic/store";
   import AppSvelte from "./App.svelte";
@@ -9,10 +10,12 @@
 </script>
 
 <div class:indent={!top}>
-  <AppSvelte app={window} />
-  {#if window.children}
-    {#each Object.keys(window.children) as child}
-      <Branch window={getWindow(child)} />
-    {/each}
+  {#if isOpened(window.id)}
+    <AppSvelte app={window} />
+    {#if window.children}
+      {#each Object.keys(window.children) as child}
+        <Branch window={getWindow(child)} />
+      {/each}
+    {/if}
   {/if}
 </div>

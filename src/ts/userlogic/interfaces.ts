@@ -40,7 +40,17 @@ export interface UserData {
     level: number;
     muted: boolean;
   };
+
+  appdata: AppData;
 }
+
+export type AppData = {
+  [key: string]: ScopedAppData;
+};
+
+export type ScopedAppData = {
+  [key: string]: number | boolean | string | object;
+};
 
 export const defaultUserData: UserData = {
   sh: {
@@ -77,6 +87,7 @@ export const defaultUserData: UserData = {
   disabledApps: [],
   autoRun: [],
   devmode: false,
+  appdata: {},
 };
 
 export type AllUsers = { [name: string]: UserData };

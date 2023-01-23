@@ -6,6 +6,7 @@
     collectLogsBySource,
     IterableCollectorResult,
   } from "../../ts/console/collector";
+  import type { ScopedAppData } from "../../ts/userlogic/interfaces";
   import Content from "./Logger/Content.svelte";
   import Sidebar from "./Logger/Sidebar.svelte";
 
@@ -14,6 +15,7 @@
   let currentSource = "";
 
   export let app: App;
+  export let appdata: ScopedAppData;
 
   function setView(source: string) {
     Log({
@@ -45,5 +47,5 @@
 
 {#if app}
   <Sidebar {setView} bind:currentSource bind:logs />
-  <Content bind:currentSource bind:logItems {setView} {app} />
+  <Content bind:currentSource bind:logItems {setView} {app} bind:appdata />
 {/if}
