@@ -49,8 +49,6 @@
     UserData.set(req);
     UserName.set(username);
 
-    console.warn($UserData, $UserName);
-
     applyState("desktop");
   }
 
