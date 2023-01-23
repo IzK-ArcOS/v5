@@ -26,6 +26,10 @@ div.desktop.bigtitlebars window#LoggerApp div.sidebar {
   padding-top: 45px;
 }
 
+div.desktop.bigtitlebars window#LoggerApp div.content {
+  padding-top: 40px;
+}
+
 window#LoggerApp div.sidebar button {
   display: block;
   margin: 0;

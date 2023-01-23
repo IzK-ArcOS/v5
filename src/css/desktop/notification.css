@@ -19,6 +19,7 @@ div.notification {
   padding: 20px;
   padding-bottom: 55px;
   padding-right: 20px;
+  backdrop-filter: blur(var(--glass-blur));
 }
 
 div.notification.ac {
@@ -38,6 +39,7 @@ div.notification.ac {
   margin-bottom: 15px;
   border-bottom: var(--win-border-light);
   border-radius: 0;
+  backdrop-filter: unset;
 }
 
 div.notification.ac div.buttons {
