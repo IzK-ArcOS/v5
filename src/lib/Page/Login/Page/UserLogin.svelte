@@ -3,6 +3,8 @@
   import { get } from "svelte/store";
   import "../../../../css/login/userlogin.css";
   import Spinner from "../../../../lib/Spinner.svelte";
+  import { generateCredToken } from "../../../../ts/api/cred";
+  import { loginUsingCreds } from "../../../../ts/api/getter";
   import { apiCall, ConnectedServer } from "../../../../ts/api/main";
   import { applyLoginState, loginUsername } from "../../../../ts/login/main";
   import { applyState } from "../../../../ts/state/main";
@@ -49,28 +51,11 @@
   async function serverLogin() {
     authenticating = true;
 
-    let req = await apiCall($ConnectedServer, "auth", {}, null, {
-      username: name,
-      password,
-    });
-
-    if (!req.valid) {
-      authenticating = false;
-
-      return;
-    }
-
-    UserToken.set(req.data.token);
-
-    req = await apiCall(
-      $ConnectedServer,
-      `user/properties`,
-      {},
-      $UserToken,
-      null
+    const userdata = await loginUsingCreds(
+      generateCredToken({ username: name, password })
     );
 
-    if (!req.valid) return false;
+    if (!userdata) return (authenticating = false);
 
     if (stay) {
       localStorage.setItem(
@@ -79,7 +64,7 @@
       );
     }
 
-    UserData.set(req);
+    UserData.set(userdata);
     UserName.set(name);
 
     applyState("desktop");

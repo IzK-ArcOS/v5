@@ -1,8 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "../../css/login.css";
+  import { loginUsingCreds } from "../../ts/api/getter";
   import { apiCall, ConnectedServer } from "../../ts/api/main";
-  import { applyLoginState, CurrentLoginState } from "../../ts/login/main";
+  import {
+    applyLoginState,
+    CurrentLoginState,
+    loginUsername,
+  } from "../../ts/login/main";
   import { applyState } from "../../ts/state/main";
   import { UserData, UserName, UserToken } from "../../ts/userlogic/interfaces";
   import { getUsers } from "../../ts/userlogic/main";
@@ -17,43 +22,30 @@
     const users = await getUsers();
     const remembered = localStorage.getItem("arcos-remembered-token");
 
-    setTimeout(async () => {
-      if (
-        remembered &&
-        $CurrentLoginState.key != "shutdown" &&
-        $CurrentLoginState.key != "restart"
-      ) {
-        let [name, password] = atob(remembered).split(":");
+    if (!$CurrentLoginState)
+      applyLoginState(remembered ? "autologin" : "selector");
 
-        let req = await apiCall($ConnectedServer, "auth", {}, null, {
-          username: name,
-          password,
-        });
+    show = true;
 
-        if (!req.valid) return (show = true);
+    if (
+      remembered &&
+      $CurrentLoginState.key != "shutdown" &&
+      $CurrentLoginState.key != "restart"
+    ) {
+      const userdata = await loginUsingCreds(remembered);
 
-        UserToken.set(req.data.token);
-        UserName.set(name);
+      if (!userdata) return (show = true);
 
-        req = await apiCall(
-          $ConnectedServer,
-          `user/properties`,
-          {},
-          $UserToken,
-          null
-        );
+      UserData.set(userdata);
 
-        if (!req.valid) return (show = true);
-
-        UserData.set(req);
-
+      setTimeout(() => {
         applyState("desktop");
-      } else show = true;
+      }, 2000);
+    }
 
-      if (!remembered) show = true;
-    }, 250);
+    if (!remembered) show = true;
 
-    if (!Object.keys(users).length) {
+    if (!Object.keys(users).length && !remembered) {
       if (!$ConnectedServer) {
         applyState("fts");
       } else {
@@ -62,8 +54,6 @@
 
       return;
     }
-
-    if (!$CurrentLoginState) applyLoginState("selector");
   });
 </script>
 

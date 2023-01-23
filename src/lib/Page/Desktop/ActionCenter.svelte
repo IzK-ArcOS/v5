@@ -6,6 +6,7 @@
     CurrentNotification,
     NotificationStore,
   } from "../../../ts/notiflogic/main";
+  import { UserData } from "../../../ts/userlogic/interfaces";
   import Notifications from "./ActionCenter/Notifications.svelte";
   import QuickSettings from "./ActionCenter/QuickSettings.svelte";
 
@@ -25,7 +26,12 @@
   on:click={() => ($ActionCenterOpened = false)}
   style="z-index: {$maxZIndex + 3};"
 />
-<div class="actioncenter" class:opened style="z-index: {$maxZIndex + 4};">
+<div
+  class="actioncenter"
+  class:docked={$UserData.sh.taskbar.docked}
+  class:opened
+  style="z-index: {$maxZIndex + 4};"
+>
   <h3 class="title">
     Notifications <button
       class="clear"

@@ -15,9 +15,21 @@ div.actioncenter {
   padding-right: 15px;
 }
 
+div.actioncenter.docked {
+  height: calc(100% - 45px);
+  top: 0px;
+  right: -400px;
+  border-radius: 0px;
+}
+
 div.actioncenter div.notifications {
-  height: calc(100% - 240px);
+  height: calc(100% - 245px);
   overflow-y: scroll;
+}
+
+div.actioncenter div.notifications > :last-child {
+  border-bottom: none;
+  margin-bottom: 30px;
 }
 
 div.actioncenter div.quicksettings {
@@ -45,6 +57,10 @@ div.actioncenter:not(.opened) * {
 div.actioncenter.opened {
   right: 10px;
   opacity: 1;
+}
+
+div.actioncenter.docked.opened {
+  right: 0px;
 }
 
 div.actioncenter h3.title {
@@ -84,7 +100,7 @@ div.actioncenter div.quicksettings {
   display: grid;
   grid-template-columns: repeat(3, 121px);
   grid-template-rows: repeat(3, 66px);
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 div.actioncenter div.quicksettings button.setting {
@@ -92,7 +108,8 @@ div.actioncenter div.quicksettings button.setting {
   border: none;
   border-radius: 5px;
   color: var(--fg);
-  height: 56px;
+  height: 60px;
+  margin: 0 3px;
 }
 
 div.actioncenter div.quicksettings button.setting.active {

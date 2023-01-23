@@ -1,3 +1,4 @@
+import AutoLogin from "../../lib/Page/Login/Page/AutoLogin.svelte";
 import Logoff from "../../lib/Page/Login/Page/Logoff.svelte";
 import NewApiUser from "../../lib/Page/Login/Page/NewApiUser.svelte";
 import Restart from "../../lib/Page/Login/Page/Restart.svelte";
@@ -77,6 +78,18 @@ export const LoginStates = new Map<string, State>([
         darken: true,
       },
       key: "newapiuser",
+    },
+  ],
+  [
+    "autologin",
+    {
+      name: "Auto Login",
+      content: AutoLogin,
+      attribs: {
+        topbar: false,
+        darken: true,
+      },
+      key: "autologin",
     },
   ],
 ]);
