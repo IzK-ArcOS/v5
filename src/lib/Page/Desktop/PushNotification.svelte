@@ -55,7 +55,12 @@
 >
   {#if data}
     <p class="title">
-      <span class="material-icons">{data.icon}</span>{data.title}
+      {#if data.image}
+        <img src={data.image} alt={data.title} />
+      {:else}
+        <span class="material-icons">{data.icon}</span>
+      {/if}
+      {data.title}
       <button class="close material-icons" on:click={close}> close </button>
     </p>
     <p class="message">{@html data.message}</p>

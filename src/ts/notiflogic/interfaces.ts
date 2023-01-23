@@ -1,7 +1,8 @@
 export interface NotificationData {
   title: string;
   message: string;
-  icon: string;
+  icon?: string;
+  image?: string;
   timeout?: number;
   buttons: NotificationButton[];
 }

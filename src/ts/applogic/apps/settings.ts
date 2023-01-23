@@ -1,5 +1,6 @@
 import logo from "../../../assets/apps/settings.svg";
 import SettingsAppSvelte from "../../../lib/Apps/SettingsApp.svelte";
+import { makeNotification } from "../../notiflogic/main";
 import type { App } from "../interface";
 import { currentSettingsPage } from "./SettingsApp/main";
 import { SettingsPages } from "./SettingsApp/store";
@@ -31,6 +32,12 @@ export const SettingsApp: App = {
     },
     open() {
       currentSettingsPage.set(SettingsPages[0]);
+      makeNotification({
+        title: "hi",
+        message: "This notification has an icon",
+        image: logo,
+        buttons: [],
+      });
     },
   },
 };

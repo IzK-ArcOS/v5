@@ -12,16 +12,9 @@ export function reloadApps() {
   importDefault();
 
   setTimeout(() => {
-    const u = get(UserData);
-    const windows = get(WindowStore);
-
     makeNotification({
       title: "Reloaded",
-      message: `Reloaded all applications. Any unsaved changes have not been saved.<br/><br/>Apps reloaded: ${
-        u.disabledApps.length
-      } / ${windows.length} (${Math.floor(
-        (100 / windows.length) * u.disabledApps.length
-      )}%)`,
+      message: `All applications have been reloaded. Any unsaved information across all apps has been lost.`,
       icon: "autorenew",
       buttons: [
         {

@@ -1,12 +1,3 @@
-import { get } from "svelte/store";
-import {
-  setSettingsPage,
-  SettingsPages,
-} from "../../../applogic/apps/SettingsApp/main";
-import { openWindow } from "../../../applogic/events";
-import { importDefault } from "../../../applogic/imports";
-import { WindowStore } from "../../../applogic/store";
-import { makeNotification } from "../../../notiflogic/main";
 import { UserData } from "../../../userlogic/interfaces";
 import { reloadApps } from "../../../window/reload";
 import type { QuickSetting } from "./interface";
@@ -55,15 +46,19 @@ export const QuickSettings: QuickSetting[] = [
     caption: "Reload Apps",
   },
   {
-    icon: "",
-    iconOff: "",
-    getter() {
-      return false;
+    icon: "call_to_action",
+    iconOff: "call_to_action",
+    getter(udata) {
+      return udata.sh.taskbar.docked;
     },
-    setter() {
-      return false;
+    setter(udata) {
+      udata.sh.taskbar.docked = !udata.sh.taskbar.docked;
+
+      UserData.set(udata);
+
+      return udata.sh.taskbar.docked;
     },
-    caption: "",
+    caption: "Dock Taskbar",
   },
   {
     icon: "",

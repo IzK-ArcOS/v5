@@ -81,6 +81,12 @@ div.notification p.title span.material-icons {
   margin-left: 0;
 }
 
+div.notification p.title img {
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
 div.notification div.buttons {
   position: absolute;
   bottom: 20px;
