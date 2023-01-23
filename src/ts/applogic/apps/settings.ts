@@ -32,12 +32,6 @@ export const SettingsApp: App = {
     },
     open() {
       currentSettingsPage.set(SettingsPages[0]);
-      makeNotification({
-        title: "hi",
-        message: "This notification has an icon",
-        image: logo,
-        buttons: [],
-      });
     },
   },
 };

@@ -85,6 +85,7 @@ div.taskbar div.buttons {
   transition: left 0.3s, position 0.3s, transform 0.3s;
   position: absolute;
   left: 40px;
+  margin-left: 5px;
 }
 
 div.taskbar.centered div.buttons {
