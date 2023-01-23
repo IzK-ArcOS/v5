@@ -34,20 +34,22 @@ function processEvent(e: KeyboardEvent) {
     const combos = entry[1];
 
     for (let j = 0; j < combos.length; j++) {
+      const app = combos[j].global ? null : getWindow(entry[0]);
+
       const alt = combos[j].alt ? e.altKey : true;
       const ctrl = combos[j].ctrl ? e.ctrlKey : true;
       const shift = combos[j].shift ? e.shiftKey : true;
+      /** */
+      const modifiers = alt && ctrl && shift;
+      /** */
+      const pK = e.key.toLowerCase().trim();
       const key = combos[j].key.trim().toLowerCase();
+      /** */
+      const isFocused = get(focusedWindowId) == entry[0] || combos[j].global;
 
-      if (
-        alt &&
-        ctrl &&
-        shift &&
-        key == e.key.toLowerCase().trim() &&
-        (get(focusedWindowId) == entry[0] || combos[j].global)
-      ) {
-        combos[j].action(combos[j].global ? null : getWindow(entry[0]));
-      }
+      if (!modifiers || key != pK || !isFocused) continue;
+
+      combos[j].action(app);
     }
   }
 }
@@ -57,7 +59,6 @@ function unfocusActiveElement() {
 
   if (
     !el ||
-    !el.onclick ||
     el instanceof HTMLInputElement ||
     el instanceof HTMLTextAreaElement
   )
