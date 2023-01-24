@@ -6,6 +6,7 @@
   import type { UserData } from "../../../../ts/userlogic/interfaces";
   import { getUserdata } from "../../../../ts/userlogic/main";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
+  import ProfilePicture from "../../../ProfilePicture.svelte";
 
   let data: UserData;
 
@@ -14,13 +15,13 @@
   onMount(async () => {
     data = await getUserdata($loginUsername);
 
-    pfp = getProfilePicture(parseInt(data.acc.profilePicture as string));
+    pfp = getProfilePicture(data.acc.profilePicture);
   });
 </script>
 
 {#if data}
   <div class="userlogin show">
-    <img src={pfp} alt="pfp" />
+    <ProfilePicture src={pfp} height={151} />
     <h1>{$loginUsername}</h1>
     <h3><Spinner height={23} />&nbsp;<span>Welcome</span></h3>
   </div>

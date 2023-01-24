@@ -15,6 +15,7 @@
   } from "../../../../ts/userlogic/interfaces";
   import { getUserdata } from "../../../../ts/userlogic/main";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
+  import ProfilePicture from "../../../ProfilePicture.svelte";
 
   let name: string;
   let data: UserData;
@@ -30,7 +31,7 @@
     if (name) {
       data = await getUserdata(name);
 
-      pfp = getProfilePicture(parseInt(data.acc.profilePicture as string));
+      pfp = getProfilePicture(data.acc.profilePicture);
 
       if (!$ConnectedServer)
         setTimeout(async () => {
@@ -81,7 +82,7 @@
 
 {#if name && data}
   <div class="userlogin" class:show>
-    <img src={pfp} alt="pfp" />
+    <ProfilePicture src={pfp} height={151} />
     <h1>{name}</h1>
     {#if !$ConnectedServer || authenticating}
       <h3><Spinner height={23} />&nbsp;<span>Welcome</span></h3>

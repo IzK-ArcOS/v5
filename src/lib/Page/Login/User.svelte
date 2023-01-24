@@ -3,6 +3,7 @@
   import { applyLoginState, loginUsername } from "../../../ts/login/main";
   import type { UserData } from "../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../ts/userlogic/pfp";
+  import ProfilePicture from "../../ProfilePicture.svelte";
 
   let pfp = "";
 
@@ -15,13 +16,13 @@
   }
 
   onMount(() => {
-    pfp = getProfilePicture(parseInt(data.acc.profilePicture as string));
+    pfp = getProfilePicture(data.acc.profilePicture);
   });
 </script>
 
 {#if data.acc.enabled}
   <button class="user" on:click={go}>
-    <img alt="user" src={pfp} />
+    <ProfilePicture src={pfp} height={76} />
     <p class="username">{name}</p>
   </button>
 {/if}

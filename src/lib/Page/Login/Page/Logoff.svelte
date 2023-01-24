@@ -10,6 +10,7 @@
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getUserdata } from "../../../../ts/userlogic/main";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
+  import ProfilePicture from "../../../ProfilePicture.svelte";
 
   let name: string;
   let data: UserData;
@@ -20,7 +21,7 @@
     name = get(UserName);
     data = await getUserdata(name);
 
-    pfp = getProfilePicture(parseInt(data.acc.profilePicture as string));
+    pfp = getProfilePicture(data.acc.profilePicture);
 
     setTimeout(() => {
       UserName.set(undefined);
@@ -36,7 +37,7 @@
 
 {#if name && data}
   <div class="userlogin show">
-    <img src={pfp} alt="pfp" />
+    <ProfilePicture src={pfp} height={151} />
     <h1>{name}</h1>
     <h3><Spinner height={23} />&nbsp;<span>Goodbye</span></h3>
   </div>

@@ -1,4 +1,5 @@
 import logo from "../../../assets/apps/settings.svg";
+import CustomProfilePictureOverlay from "../../../lib/Apps/Settings/Pages/Account/CustomProfilePictureOverlay.svelte";
 import ProfilePicture from "../../../lib/Apps/Settings/Pages/Account/ProfilePictureOverlay.svelte";
 import SettingsAppSvelte from "../../../lib/Apps/SettingsApp.svelte";
 import type { App } from "../interface";
@@ -35,6 +36,16 @@ export const SettingsApp: App = {
       },
       content: ProfilePicture,
       size: { w: 382, h: 410 },
+      show: false,
+    },
+    customPfp: {
+      info: {
+        name: "Custom Profile Picture",
+        version: "1.0.0",
+        author: "ArcOS Team",
+      },
+      content: CustomProfilePictureOverlay,
+      size: { w: 350, h: 125 },
       show: false,
     },
   },

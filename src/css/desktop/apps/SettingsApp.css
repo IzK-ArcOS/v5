@@ -117,10 +117,7 @@ window#SettingsApp div.sidebar div.userprofile * {
   vertical-align: middle;
 }
 
-window#SettingsApp div.sidebar div.userprofile img {
-  border-radius: 50%;
-  height: 32px;
-
+window#SettingsApp div.sidebar div.userprofile div.pfp {
   margin-right: 10px;
 }
 

@@ -36,7 +36,8 @@ window.window.overlay {
 window.window.overlay div.body {
   margin-top: 0px !important;
   width: 100%;
-  height: 100%;
+  height: 100% !important;
+  overflow: hidden;
 }
 
 window.window.overlay div.body div.overlay-head {

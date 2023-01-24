@@ -26,8 +26,13 @@
 </script>
 
 {#if overlay && app}
-  <div class="overlay-wrapper" class:show {id}>
-    <window class="window headless overlay" class:visible={show} style={css}>
+  <div class="overlay-wrapper" class:show>
+    <window
+      class="window headless overlay"
+      class:visible={show}
+      style={css}
+      {id}
+    >
       <div class="body overlay">
         <svelte:component this={overlay.content} {overlay} {app} {id} />
       </div>

@@ -3,6 +3,7 @@
   import { startOpened } from "../../../../ts/desktop/main";
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
+  import ProfilePicture from "../../../ProfilePicture.svelte";
 
   let pfp: string;
 
@@ -16,13 +17,14 @@
   }
 
   UserData.subscribe(() => {
-    pfp = getProfilePicture(parseInt($UserData.acc.profilePicture as string));
+    pfp = getProfilePicture($UserData.acc.profilePicture);
   });
 </script>
 
 <div class="bottom">
   <h1 class="username">
-    <img class="pfp" alt={$UserName} src={pfp} />{$UserName}
+    <ProfilePicture src={pfp} height={21} />
+    {$UserName}
   </h1>
   <div class="options">
     <button class="material-icons" on:click={settings}>settings</button>

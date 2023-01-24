@@ -13,8 +13,9 @@ div.userlogin.show {
   opacity: 1;
 }
 
-div.userlogin img {
+div.userlogin img[alt*="pfp"] {
   height: 150px;
+  width: 150px;
   border-radius: 50%;
 }
 

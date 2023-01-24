@@ -1,3 +1,4 @@
+import { get } from "svelte/store";
 import pfp1 from "../../assets/pfp/1.png";
 import pfp10 from "../../assets/pfp/10.png";
 import pfp11 from "../../assets/pfp/11.png";
@@ -29,6 +30,8 @@ import pfp8 from "../../assets/pfp/8.png";
 import pfp9 from "../../assets/pfp/9.png";
 import def from "../../assets/pfp/null.png";
 import { Log, LogLevel } from "../console";
+import { UserData, UserName } from "./interfaces";
+import { getUserdata, setUserdata } from "./main";
 
 export const ProfilePictures: { [key: string]: string } = {
   pfp1,
@@ -63,12 +66,24 @@ export const ProfilePictures: { [key: string]: string } = {
   def,
 };
 
-export function getProfilePicture(id: number) {
+export function getProfilePicture(id: number | string) {
   Log({
-    msg: `Getting profile picture ${id}`,
+    msg: `Getting profile picture "${id}"`,
     source: "userlogic/pfp.ts: getProfilePicture",
     level: LogLevel.info,
   });
 
-  return ProfilePictures[`pfp${id}`] || def;
+  console.debug(id);
+
+  if (typeof id == "number") return ProfilePictures[`pfp${id}`] || def;
+
+  return id.toString();
+}
+
+export async function applyCustomPfp(url: string) {
+  const udata = get(UserData);
+
+  udata.acc.profilePicture = url;
+
+  UserData.set(udata);
 }

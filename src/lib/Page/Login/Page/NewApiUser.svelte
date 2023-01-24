@@ -11,6 +11,7 @@
     UserName,
     UserToken,
   } from "../../../../ts/userlogic/interfaces";
+  import ProfilePicture from "../../../ProfilePicture.svelte";
   import Spinner from "../../../Spinner.svelte";
 
   let username = "";
@@ -45,7 +46,7 @@
 </script>
 
 <div class="userlogin newuser" class:show>
-  <img src={pfp} alt="pfp" />
+  <ProfilePicture src={pfp} height={151} />
   <h1>{username || "New user"}</h1>
   {#if !loading}
     <form>

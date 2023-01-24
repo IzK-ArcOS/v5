@@ -3,7 +3,7 @@
   import type { App } from "../../../../../ts/applogic/interface";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
   import { ProfilePictures } from "../../../../../ts/userlogic/pfp";
-  import { hideOverlay } from "../../../../../ts/window/overlay";
+  import { hideOverlay, showOverlay } from "../../../../../ts/window/overlay";
 
   let pfps: string[] = [];
   export let id: string;
@@ -21,6 +21,10 @@
 
   function hide() {
     hideOverlay(id, app.id);
+  }
+
+  function custom() {
+    showOverlay("customPfp", "SettingsApp");
   }
 </script>
 
@@ -40,6 +44,7 @@
 </div>
 
 <div class="cancel-wrapper">
+  <button on:click={custom}>Custom...</button>
   <button class="cancel" on:click={hide}> Cancel </button>
 </div>
 

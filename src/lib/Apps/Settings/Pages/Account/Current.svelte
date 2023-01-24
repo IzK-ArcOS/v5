@@ -1,17 +1,18 @@
 <script lang="ts">
   import { UserData, UserName } from "../../../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../../../ts/userlogic/pfp";
+  import ProfilePicture from "../../../../ProfilePicture.svelte";
 
   let pfp: string = "";
 
   UserData.subscribe((v) => {
-    pfp = getProfilePicture(parseInt(v.acc.profilePicture as string));
+    pfp = getProfilePicture(v.acc.profilePicture);
   });
 </script>
 
 <div class="currentpfp">
   <div class="center">
-    <img src={pfp} alt={$UserName} />
+    <ProfilePicture src={pfp} height={30} />
     <p class="uname">{$UserName}</p>
   </div>
 </div>

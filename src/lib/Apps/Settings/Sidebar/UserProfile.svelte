@@ -3,16 +3,17 @@
 
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
+  import ProfilePicture from "../../../ProfilePicture.svelte";
 
   let pfp = "";
 
   UserData.subscribe(() => {
-    pfp = getProfilePicture(parseInt($UserData.acc.profilePicture as string));
+    pfp = getProfilePicture($UserData.acc.profilePicture);
   });
 </script>
 
 <div class="userprofile">
-  <img src={pfp} alt={$UserName} class="pfp" />
+  <ProfilePicture src={pfp} height={36} />
   <div class="username">
     <p class="name">
       {$UserName}

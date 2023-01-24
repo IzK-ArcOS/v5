@@ -1,0 +1,42 @@
+window#SettingsApp window.overlay#customPfp div.custompfp-wrapper {
+  display: flex;
+  margin: 5px;
+}
+
+window#SettingsApp window.overlay#customPfp div.custompfp-wrapper div.field {
+  width: 100%;
+}
+
+window#SettingsApp window.overlay#customPfp div.custompfp-wrapper .pfp {
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--button-bg);
+  overflow-clip-margin: 0px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+window#SettingsApp window.overlay#customPfp div.custompfp-wrapper input {
+  width: 100%;
+  margin: 5px 0;
+}
+
+window#SettingsApp
+  window.overlay#customPfp
+  div.custompfp-wrapper
+  div.field
+  div.apply {
+  display: flex;
+}
+
+window#SettingsApp
+  window.overlay#customPfp
+  div.custompfp-wrapper
+  div.field
+  div.apply
+  div {
+  margin: 5px 0;
+  margin-left: auto;
+}
