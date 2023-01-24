@@ -12,7 +12,8 @@
   }
 
   function openPfp() {
-    openWindow("PfpSelector");
+    openWindow("PfpSelector", true);
+
     startOpened.set(false);
   }
 

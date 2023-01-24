@@ -1,6 +1,6 @@
 import logo from "../../../assets/apps/settings.svg";
+import ProfilePicture from "../../../lib/Apps/ProfilePicture.svelte";
 import SettingsAppSvelte from "../../../lib/Apps/SettingsApp.svelte";
-import { makeNotification } from "../../notiflogic/main";
 import type { App } from "../interface";
 import { currentSettingsPage } from "./SettingsApp/main";
 import { SettingsPages } from "./SettingsApp/store";
@@ -26,6 +26,18 @@ export const SettingsApp: App = {
   },
   content: SettingsAppSvelte,
   glass: true,
+  overlays: {
+    pfpSel: {
+      info: {
+        name: "Profile Picture Selector",
+        version: "1.0.0",
+        author: "ArcOS Team",
+      },
+      content: ProfilePicture,
+      size: { w: 385, h: 322 },
+      show: false,
+    },
+  },
   events: {
     close() {
       currentSettingsPage.set(null);

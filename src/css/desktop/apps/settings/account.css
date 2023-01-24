@@ -17,3 +17,57 @@ window#SettingsApp div.settingspage-account div.info div p.username {
 window#SettingsApp div.settingspage-account div.info div p.host {
   opacity: 0.5;
 }
+
+window#SettingsApp div.settingspage-account div.profile-selector {
+  display: grid;
+  grid-template-columns: repeat(10, 60px);
+  grid-template-rows: repeat(3, 60px);
+}
+
+window#SettingsApp div.settingspage-account div.profile-selector button {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin: 5px;
+  overflow: hidden;
+  filter: brightness(0.6);
+}
+
+window#SettingsApp
+  div.settingspage-account
+  div.profile-selector
+  button.selected {
+  filter: unset;
+}
+
+window#SettingsApp div.settingspage-account div.profile-selector button img {
+  height: 50px;
+  width: 50px;
+}
+window#SettingsApp div.settingspage-account div.currentpfp {
+  height: 150px;
+  display: block;
+  margin: 30px 5px;
+  margin-top: 11px;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  aspect-ratio: 16 / 9;
+  border: #000 10px solid;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("../../../../assets/bg/img09.png");
+}
+
+window#SettingsApp div.settingspage-account div.currentpfp img {
+  height: 40px;
+  border-radius: 50%;
+}
+
+window#SettingsApp div.settingspage-account div.currentpfp p.uname {
+  font-size: 11px;
+  font-weight: bold;
+}

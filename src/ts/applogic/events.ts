@@ -13,7 +13,7 @@ import {
   WindowStore,
 } from "./store";
 
-export function openWindow(id: string) {
+export function openWindow(id: string, openChild = false) {
   Log({
     msg: `Opening ${id}`,
     source: "events.ts: openWindow",
@@ -32,6 +32,19 @@ export function openWindow(id: string) {
     el.style.zIndex = `${get(maxZIndex)}`;
 
     return;
+  }
+
+  if (window.parentId && !isOpened(window.parentId)) {
+    if (!openChild) {
+      Log({
+        source: "events.ts: openWindow",
+        msg: `The parent "${window.parentId}" of child window "${window.id}" must be opened before the child can be opened.`,
+        level: LogLevel.error,
+      });
+      return false;
+    }
+
+    openWindow(window.parentId);
   }
 
   const ws = get(WindowStore);

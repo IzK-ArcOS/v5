@@ -9,6 +9,7 @@
   import type { App } from "../../../../ts/applogic/interface";
   import { focusedWindowId, WindowStore } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
+  import OverlayableWindow from "./OverlayableWindow.svelte";
   import Content from "./Window/Content.svelte";
   import Titlebar from "./Window/Titlebar.svelte";
 
@@ -73,4 +74,9 @@
   <Content {app}>
     <slot />
   </Content>
+  {#if app && app.overlays}
+    {#each Object.entries(app.overlays) as overlay}
+      <OverlayableWindow {app} overlay={overlay[1]} id={overlay[0]} />
+    {/each}
+  {/if}
 </window>

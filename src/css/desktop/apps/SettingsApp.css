@@ -7,7 +7,7 @@ window#SettingsApp.lefttb div.titlebar div.controls {
   left: 10px !important;
 }
 
-window#SettingsApp div.body {
+window#SettingsApp div.body:not(.overlay) {
   height: calc(100% - 40px) !important;
   margin-top: 40px !important;
 }

@@ -23,7 +23,7 @@ export const DefaultApps: { [key: string]: App } = {
   //UITroubleShooter: UITester,
   Exit: Exit,
   ErrCre: ErrorCreator,
-  PfpSelector: ProfilePictureApp,
+  /* PfpSelector: ProfilePictureApp, */
   AppInfo,
   DidYouKnow,
   LoggerApp,

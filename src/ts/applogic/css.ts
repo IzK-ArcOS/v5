@@ -1,5 +1,5 @@
 import { Log, LogLevel } from "../console";
-import type { App } from "./interface";
+import type { App, OverlayableApp } from "./interface";
 
 export function generateCSS(app: App, usePos: boolean) {
   Log({
@@ -22,6 +22,19 @@ export function generateCSS(app: App, usePos: boolean) {
     cssString += `width: ${app.size.w}px;`;
     cssString += `height: ${app.size.h}px;`;
   }
+
+  return cssString;
+}
+
+export function generateOverlayCSS(app: OverlayableApp) {
+  let cssString = "";
+
+  cssString += `min-width: ${app.size.w}px;`;
+  cssString += `min-height: ${app.size.h}px;`;
+  cssString += `max-width: ${app.size.w}px;`;
+  cssString += `max-height: ${app.size.h}px;`;
+  cssString += `width: ${app.size.w}px;`;
+  cssString += `height: ${app.size.h}px;`;
 
   return cssString;
 }

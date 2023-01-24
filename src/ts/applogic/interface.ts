@@ -16,7 +16,17 @@ export interface App {
   disabled?: boolean;
   opened?: boolean;
   parentId?: string;
+  overlays?: { [key: string]: OverlayableApp };
   children?: { [key: string]: App };
+}
+
+export interface OverlayableApp {
+  info: OverlayableAppInfo;
+  size: Size;
+  content: typeof SvelteComponentDev;
+  parentId?: string;
+  id?: string;
+  show: boolean;
 }
 
 export interface GeneralAppInfo {
@@ -29,6 +39,12 @@ export interface GeneralAppInfo {
   titleSuffix?: string;
   icon: string;
   custom?: boolean;
+}
+
+export interface OverlayableAppInfo {
+  name: string;
+  author: string;
+  version: string;
 }
 
 export interface AppStates {
