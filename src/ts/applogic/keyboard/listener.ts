@@ -34,8 +34,6 @@ function processEvent(e: KeyboardEvent) {
     const combos = entry[1];
 
     for (let j = 0; j < combos.length; j++) {
-      const app = combos[j].global ? null : getWindow(entry[0]);
-
       const alt = combos[j].alt ? e.altKey : true;
       const ctrl = combos[j].ctrl ? e.ctrlKey : true;
       const shift = combos[j].shift ? e.shiftKey : true;
@@ -48,6 +46,8 @@ function processEvent(e: KeyboardEvent) {
       const isFocused = get(focusedWindowId) == entry[0] || combos[j].global;
 
       if (!modifiers || key != pK || !isFocused) continue;
+
+      const app = combos[j].global ? null : getWindow(entry[0]);
 
       combos[j].action(app);
     }
