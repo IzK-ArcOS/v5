@@ -1,9 +1,6 @@
 <script lang="ts">
-  import {
-    UserData,
-    UserName,
-  } from "../../../../../../ts/userlogic/interfaces";
-  import { getProfilePicture } from "../../../../../../ts/userlogic/pfp";
+  import { UserData, UserName } from "../../../../../ts/userlogic/interfaces";
+  import { getProfilePicture } from "../../../../../ts/userlogic/pfp";
 
   let pfp: string = "";
 

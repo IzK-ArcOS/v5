@@ -23,18 +23,10 @@
   }
 </script>
 
-<Section header="Danger Zone" collapsible>
-  <Notice
-    icon="warning"
-    title="Watch your steps!"
-    text="This section contains settings that cannot be undone.<br/>Continue at your own risk."
-  />
-  <button class="action" on:click={deleteAccount}>
-    <span class="material-icons">delete</span>
-    Delete account
-  </button>
-  <button class="action" disabled>
-    <span class="material-icons">restart_alt</span>
-    Reset account
-  </button>
+<Section header="Danger Zone">
+  <p class="context">
+    Want to delete this account? Here you can do just that. Beware<br />
+    that you will delete any data inside your account forever.
+  </p>
+  <button on:click={deleteAccount}> Delete account... </button>
 </Section>

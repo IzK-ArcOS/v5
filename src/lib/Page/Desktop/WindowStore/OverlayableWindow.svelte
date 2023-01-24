@@ -26,11 +26,7 @@
 </script>
 
 {#if overlay && app}
-  <div
-    class="overlay-wrapper"
-    class:show
-    on:click={() => hideOverlay(id, app.id)}
-  >
+  <div class="overlay-wrapper" class:show {id}>
     <window class="window headless overlay" class:visible={show} style={css}>
       <div class="body overlay">
         <svelte:component this={overlay.content} {overlay} {app} {id} />

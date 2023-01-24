@@ -46,6 +46,7 @@ window#SettingsApp div.content.static {
 
 window#SettingsApp div.content div.inner {
   white-space: nowrap;
+  position: relative;
 }
 
 window#SettingsApp div.content div.inner.transition {
@@ -218,6 +219,10 @@ window#SettingsApp h3.header {
 
 window#SettingsApp p.context {
   margin-bottom: 10px;
+}
+
+window#SettingsApp div.overlay-wrapper#pfpSel window.overlay div.body {
+  overflow: hidden;
 }
 
 .slide-in-left {

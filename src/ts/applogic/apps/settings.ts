@@ -1,5 +1,5 @@
 import logo from "../../../assets/apps/settings.svg";
-import ProfilePicture from "../../../lib/Apps/ProfilePicture.svelte";
+import ProfilePicture from "../../../lib/Apps/Settings/Pages/Account/ProfilePictureOverlay.svelte";
 import SettingsAppSvelte from "../../../lib/Apps/SettingsApp.svelte";
 import type { App } from "../interface";
 import { currentSettingsPage } from "./SettingsApp/main";
@@ -34,7 +34,7 @@ export const SettingsApp: App = {
         author: "ArcOS Team",
       },
       content: ProfilePicture,
-      size: { w: 385, h: 322 },
+      size: { w: 382, h: 410 },
       show: false,
     },
   },
