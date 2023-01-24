@@ -200,6 +200,7 @@ div.startmenu.small > div.bottom div.options {
 }
 
 div.startmenu.small > div.bottom div.options button.material-icons {
-  font-size: 20px;
-  line-height: 20px;
+  font-size: 21px;
+  line-height: 21px;
+  margin-left: 2.5px;
 }
