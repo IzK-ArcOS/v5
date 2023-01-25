@@ -92,5 +92,5 @@ export const defaultUserData: UserData = {
 
 export type AllUsers = { [name: string]: UserData };
 export const UserData = writable<UserData>(defaultUserData);
-export const UserName = writable<string>();
+export const UserName = writable<string>("ArcOS");
 export const UserToken = writable<string>();

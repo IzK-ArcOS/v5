@@ -26,7 +26,7 @@
   />
 </OptionSection>
 <OptionSection title="Theme" context="Change the coloring of the UI">
-  <select name="aa" id="bb">
+  <select name="aa" id="bb" disabled>
     <option>Darkmode</option>
     <option>Lightmode</option>
   </select>
