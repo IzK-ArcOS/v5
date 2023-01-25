@@ -27,6 +27,7 @@ export function errorMessage(
   title: string,
   message: string,
   image?: string,
+  parentId?: string,
   ...buttons: ErrorButton[]
 ) {
   Log({
@@ -42,6 +43,7 @@ export function errorMessage(
     buttons,
     id: Math.floor(Math.random() * 1e10),
     image,
+    parentId,
   };
 
   const em = get(ErrorMessages);
@@ -115,6 +117,7 @@ export function createErrorAppData(data: ErrorMessage) {
     glass: false,
     id: `error_${data.id}`,
     opened: false,
+    parentId: data.parentId,
   };
 
   const ews = get(ErrorWindowStore);

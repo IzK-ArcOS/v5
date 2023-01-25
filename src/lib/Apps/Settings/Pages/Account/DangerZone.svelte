@@ -11,6 +11,7 @@
       "Delete ArcOS Account",
       "Are you sure you want to delete your ArcOS account? This will delete any and all user data associated with this account. These changes cannot be reverted.",
       warning,
+      "SettingsApp",
       {
         caption: "Proceed",
         action: () => deleteUser($UserName),

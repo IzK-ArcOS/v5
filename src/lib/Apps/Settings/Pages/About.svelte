@@ -13,6 +13,7 @@
       `Welcome to the developers, ${$UserName}!`,
       "It's always exciting to see when someone joins our developer mode. You might be wondering where you can open this mode. Believe me, it's quite simple. Click the red bar at the top of ArcOS to open devmode. Click the topbar in devmode to close it again. Have fun exploring ArcOS!<br/><br/>Note: DevMode will close if you log out because it's user-specific.",
       null,
+      "SettingsApp",
       { caption: "Close", action: () => {} }
     );
   }

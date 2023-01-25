@@ -64,6 +64,7 @@ export function loadWindow(id: string, app: App) {
           "Can't poke apps",
           "App Poker is disabled. You will not be able to poke application data as long as this application remains disabled. You can re-enable this app in Settings.",
           poker,
+          "AppPoker",
           { caption: "Close", action() {} }
         );
         disposeTrayIcon("apdisabled");

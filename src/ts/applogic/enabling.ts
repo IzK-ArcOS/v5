@@ -18,6 +18,7 @@ export function disableApp(id: string) {
       "Can't disable application",
       `App "${id}" is a system application. System applications are core to ArcOS and cannot be disabled without breaking certain functionality.`,
       null,
+      "AppLogic",
       { caption: "OK", action: () => {} }
     );
   }

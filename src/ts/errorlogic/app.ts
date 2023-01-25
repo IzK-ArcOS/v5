@@ -14,6 +14,7 @@ export interface ErrorMessage {
   buttons: ErrorButton[];
   id: number;
   image?: string;
+  parentId?: string;
 }
 
 export interface ErrorButton {

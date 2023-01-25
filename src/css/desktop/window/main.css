@@ -85,6 +85,25 @@ window.custom div.body {
   opacity: 0 !important;
   margin-top: 20px;
   visibility: hidden;
+  pointer-events: none;
+}
+
+.window.min window.overlay {
+  opacity: 0 !important;
+  margin-top: 20px !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.window.min .overlay-wrapper {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.window.min .overlay-wrapper *,
+.window.min * {
+  pointer-events: none;
 }
 
 div.tbdocked .window.max {
