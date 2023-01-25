@@ -18,19 +18,19 @@ export enum LogLevel {
 export const LogLevelData: { [key: string]: { capt: string; css: string } } = {
   info: {
     capt: "INFO",
-    css: "color: #000;padding:2.5px 5px;border-radius:2.5px;background-color:#83A598;margin-right:10px;",
+    css: "color: #000;padding:2px;border-radius:2.5px;background-color:#83A598;margin-right:10px;",
   },
   warn: {
     capt: "WARN",
-    css: "color: #000;padding:2.5px 5px;border-radius:2.5px;background-color:#fabd2f;margin-right:10px;",
+    css: "color: #000;padding:2px;border-radius:2.5px;background-color:#fabd2f;margin-right:10px;",
   },
   error: {
     capt: "ERRR",
-    css: "color: #fff;padding:2.5px 5px;border-radius:2.5px;background-color:#CC241D;margin-right:10px;",
+    css: "color: #fff;padding:2px;border-radius:2.5px;background-color:#CC241D;margin-right:10px;",
   },
   critical: {
     capt: "CRIT",
-    css: "color: #fff;padding:2.5px 5px;border-radius:2.5px;background-color:#71120E;margin-right:10px;",
+    css: "color: #fff;padding:2px;border-radius:2.5px;background-color:#71120E;margin-right:10px;",
   },
 };
 
@@ -48,9 +48,9 @@ export function Log(data: LogItem) {
   const levelData = LogLevelData[LogLevel[data.level]];
 
   const timeStampCSS =
-    "color: #fff;padding:2.5px 5px;border-radius:2.5px;background-color:#666;margin-right:10px";
+    "color: #fff;padding:2px;border-radius:2.5px;background-color:#666;margin-right:10px";
   const dataSourceCSS =
-    "color: #fff;padding:2.5px 5px;border-radius:2.5px;background-color:#555;";
+    "color: #fff;padding:2px;border-radius:2.5px;background-color:#555;";
 
   console.log(
     `%c${dayjs(data.timestamp || 0).format("DD-MM-YYYY HH:mm:ss.mmm")}%c${

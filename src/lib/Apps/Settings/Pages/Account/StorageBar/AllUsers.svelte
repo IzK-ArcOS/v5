@@ -14,4 +14,4 @@
   });
 </script>
 
-<div class="allusers" style={css} />
+<div class="allusers" style={css} title="Other Users" />

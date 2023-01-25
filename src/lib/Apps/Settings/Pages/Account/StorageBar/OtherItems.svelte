@@ -14,4 +14,4 @@
   });
 </script>
 
-<div class="otheritems" style={css} />
+<div class="otheritems" style={css} title="Others" />

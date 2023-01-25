@@ -11,7 +11,7 @@
   <Profile />
   <DangerZone />
 
-  <Section header="LocalStorage usage">
+  <!-- <Section header="LocalStorage usage">
     <p class="context">
       {#if !$ConnectedServer}
         Because you're running ArcOS locally, you can only store as<br />
@@ -23,5 +23,5 @@
       {/if}
     </p>
     <StorageBar />
-  </Section>
+  </Section> -->
 </div>

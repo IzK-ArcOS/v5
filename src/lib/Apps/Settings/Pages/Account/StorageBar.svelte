@@ -35,23 +35,3 @@
     <OtherItems total={bar.offsetWidth} {data} />
   {/if}
 </div>
-
-{#if data}
-  <div class="storage-stats">
-    <div class="item currentuser">
-      <div class="dot" />
-      <p class="caption">you</p>
-      {data.currentUser} B ({perc(data.totalSize, data.currentUser)})
-    </div>
-    <div class="item allusers">
-      <div class="dot" />
-      <p class="caption">all users</p>
-      {data.allUsers} B ({perc(data.totalSize, data.allUsers)})
-    </div>
-    <div class="item otheritems">
-      <div class="dot" />
-      <p class="caption">other</p>
-      {data.others} B ({perc(data.totalSize, data.others)})
-    </div>
-  </div>
-{/if}

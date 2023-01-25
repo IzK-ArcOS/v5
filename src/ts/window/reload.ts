@@ -9,9 +9,10 @@ import { UserData } from "../userlogic/interfaces";
 
 export function reloadApps() {
   WindowStore.set([]);
-  importDefault();
 
   setTimeout(() => {
+    importDefault();
+
     makeNotification({
       title: "Reloaded",
       message: `All applications have been reloaded. Any unsaved information across all apps has been lost.`,

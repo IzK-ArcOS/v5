@@ -14,4 +14,4 @@
   });
 </script>
 
-<div class="currentuser" style={css} />
+<div class="currentuser" style={css} title="You" />

@@ -1,8 +1,8 @@
 window#SettingsApp div.storagebar {
   width: 100%;
   overflow: hidden;
-  height: 10px;
-  border-radius: 5px;
+  height: 20px;
+  border-radius: 10px;
   background-color: var(--button-active-bg);
   display: flex;
   margin: 5px 0;
@@ -12,6 +12,11 @@ window#SettingsApp div.storagebar {
 window#SettingsApp div.storagebar div {
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 20px;
+  box-sizing: border-box;
 }
 
 window#SettingsApp div.storagebar div.currentuser {
