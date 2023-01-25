@@ -14,8 +14,6 @@
 
   ErrorWindowStore.subscribe((v) => {
     es = v;
-
-    console.log(es);
   });
 </script>
 

@@ -1,0 +1,100 @@
+:root window#SettingsApp window.overlay#udataExplorer {
+  --row-height: 15px;
+  --indent: 20px;
+}
+
+window#SettingsApp window.overlay#udataExplorer div.body {
+  padding: 15px;
+  overflow: scroll;
+}
+
+window#SettingsApp window.overlay#udataExplorer div.body div.overlay-head {
+  padding-left: 0;
+  border-bottom: var(--button-bg) 1px solid;
+  padding-bottom: 10px;
+}
+
+window#SettingsApp window.overlay#udataExplorer div.indent {
+  margin-left: var(--indent);
+}
+
+window#SettingsApp window.overlay#udataExplorer div.nodeinstance {
+  display: flex;
+  margin: 5px 0;
+}
+
+window#SettingsApp window.overlay#udataExplorer div.nodeinstance div.key {
+  margin-right: 1em;
+  color: var(--clr-yellow-fg);
+}
+
+window#SettingsApp
+  window.overlay#udataExplorer
+  div.nodeinstance
+  div.key::after {
+  content: ":";
+  color: var(--fg);
+  opacity: 0.5;
+}
+
+window#SettingsApp window.overlay#udataExplorer div.nodeinstance * {
+  font-family: "Source Code Pro", monospace;
+}
+
+window#SettingsApp window.overlay#udataExplorer div.nodeinstance img {
+  height: var(--row-height);
+  margin-right: 5px;
+}
+
+window#SettingsApp window.overlay#udataExplorer div.nodeinstance > * {
+  vertical-align: middle;
+  line-height: var(--row-height);
+}
+
+.desktop[class*="light"]
+  window#SettingsApp
+  window.overlay#udataExplorer
+  div.nodeinstance
+  * {
+  filter: brightness(0.8);
+}
+
+window#SettingsApp
+  window.overlay#udataExplorer
+  div.nodeinstance
+  div.value[data-value*="true"],
+window#SettingsApp
+  window.overlay#udataExplorer
+  div.nodeinstance
+  div.value[data-value*="false"] {
+  color: var(--clr-aqua-fg);
+}
+
+window#SettingsApp
+  window.overlay#udataExplorer
+  div.nodeinstance
+  div.value[data-type*="string"]::before,
+window#SettingsApp
+  window.overlay#udataExplorer
+  div.nodeinstance
+  div.value[data-type*="string"]::after {
+  content: '"';
+}
+
+window#SettingsApp
+  window.overlay#udataExplorer
+  div.nodeinstance
+  div.value[data-type*="string"] {
+  color: var(--clr-orange-fg);
+}
+
+window#SettingsApp
+  window.overlay#udataExplorer
+  div.nodeinstance
+  div.value[data-type*="number"] {
+  color: var(--clr-blue-fg);
+}
+
+window#SettingsApp window.overlay#udataExplorer div.nodeinstance div.value {
+  word-break: break-all;
+}

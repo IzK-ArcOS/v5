@@ -7,10 +7,8 @@ import { DidYouKnow } from "./apps/DidYouKnow";
 import { ErrorCreator } from "./apps/ErrorCreator";
 import { Exit } from "./apps/Exit";
 import { LoggerApp } from "./apps/Logger";
-import { ProfilePictureApp } from "./apps/ProfilePicture";
 import { SettingsApp } from "./apps/settings";
 import { TestApp } from "./apps/testApp";
-import { UITester } from "./apps/testApp2";
 import { openWindow } from "./events";
 import type { App } from "./interface";
 import { loadWindow } from "./load";
@@ -21,10 +19,8 @@ export const DefaultApps: { [key: string]: App } = {
   SettingsApp: SettingsApp,
   AppMan: AppManager,
   AppPoker: AppPoker,
-  UITroubleShooter: UITester,
   Exit: Exit,
   ErrCre: ErrorCreator,
-  PfpSelector: ProfilePictureApp,
   AppInfo,
   DidYouKnow,
   LoggerApp,

@@ -4,6 +4,7 @@
   import BugReport from "./lib/BugReport.svelte";
   import DevBar from "./lib/DevBar.svelte";
   import MobileBlock from "./lib/MobileBlock.svelte";
+  import Spinner from "./lib/Spinner.svelte";
   import { Log, LogLevel } from "./ts/console";
   import { assignDevMutators } from "./ts/devmode/mutators";
   import { DevModeOverride, updateDevModeProps } from "./ts/devmode/props";
@@ -57,3 +58,4 @@
   <BugReport />
 </div>
 <MobileBlock />
+<Spinner height={25}/>

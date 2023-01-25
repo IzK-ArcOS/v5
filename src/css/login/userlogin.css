@@ -39,10 +39,21 @@ div.userlogin button.block {
 
 div.userlogin div.cloudlogin button.material-icons {
   margin: 0;
-  margin-left: 5px;
+  margin-left: 0px;
   padding: 0;
   color: #ccc;
   width: 36px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background-color: #fff1;
+  opacity: 1 !important;
+
+  font-size: 13px;
+  backdrop-filter: unset;
+}
+
+div.userlogin div.cloudlogin button.material-icons:disabled {
+  color:#ccc4;
 }
 
 div.userlogin div.cloudlogin div.field {
@@ -57,6 +68,15 @@ div.userlogin div.cloudlogin i.host {
 
 div.userlogin div.cloudlogin form {
   display: inline-block;
+}
+
+div.userlogin div.cloudlogin form input {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+div.userlogin div.cloudlogin form input.wrongpswd {
+  background-color: rgba(255, 99, 71, 0.377);
 }
 
 div.login button.switchuser {

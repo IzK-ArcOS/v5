@@ -73,8 +73,6 @@ export function getProfilePicture(id: number | string) {
     level: LogLevel.info,
   });
 
-  console.debug(id);
-
   if (typeof id == "number") return ProfilePictures[`pfp${id}`] || def;
 
   return id.toString();

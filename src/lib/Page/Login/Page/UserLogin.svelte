@@ -25,6 +25,7 @@
   let authenticating = false;
   let password = "";
   let show = false;
+  let wrongpswd = false;
 
   onMount(async () => {
     name = get(loginUsername);
@@ -56,7 +57,7 @@
       generateCredToken({ username: name, password })
     );
 
-    if (!userdata) return (authenticating = false);
+    if (!userdata) {authenticating = false; wrongpswd = true; return;};
 
     if (stay) {
       localStorage.setItem(
@@ -96,6 +97,8 @@
               bind:value={password}
               type="password"
               placeholder="Password"
+              on:input={() => (wrongpswd = false)}
+              class:wrongpswd
             />
           </form>
           <button

@@ -14,8 +14,6 @@
 
   onMount(() => {
     css = generateOverlayCSS(overlay);
-
-    console.debug(overlay, app);
   });
 
   WindowStore.subscribe(() => {

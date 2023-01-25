@@ -3,10 +3,15 @@ window#DidYouKnow h2 {
   margin-bottom: 10px;
 }
 
+window#DidYouKnow h3 span.material-icons {
+  margin: 0 2.5px;
+  margin-left: 0;
+}
+
 window#DidYouKnow div.content {
   width: 340px;
   height: calc(100% - 40px);
-  background-color: var(--glass-alt-bg);
+  background-color: var(--button-bg);
   padding: 15px;
   box-sizing: border-box;
   border-radius: 5px;

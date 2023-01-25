@@ -11,7 +11,6 @@ import Account from "../../../../lib/Apps/Settings/Pages/Account.svelte";
 import Apps from "../../../../lib/Apps/Settings/Pages/Apps.svelte";
 import Desktop from "../../../../lib/Apps/Settings/Pages/Desktop.svelte";
 import Personalization from "../../../../lib/Apps/Settings/Pages/Personalization.svelte";
-import StartMenu from "../../../../lib/Apps/Settings/Pages/StartMenu.svelte";
 import Taskbar from "../../../../lib/Apps/Settings/Pages/Taskbar.svelte";
 import Windows from "../../../../lib/Apps/Settings/Pages/Windows.svelte";
 import type { SettingsPage } from "./interface";
@@ -29,15 +28,9 @@ export const SettingsPages: SettingsPage[] = [
     content: Personalization,
   },
   {
-    name: "Taskbar",
+    name: "Shell",
     icon: taskbarIcon,
     content: Taskbar,
-  },
-  {
-    name: "Start Menu",
-    icon: startIcon,
-    content: StartMenu,
-    sep: true,
   },
   {
     name: "Windows",

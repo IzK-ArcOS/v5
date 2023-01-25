@@ -1,38 +1,48 @@
 <script lang="ts">
   import { UserData } from "../../../../ts/userlogic/interfaces";
+  import OptionSection from "../OptionSection.svelte";
   import Section from "../Section.svelte";
 </script>
 
-<h1>Taskbar</h1>
-<Section header="Centered buttons">
-  <p class="context">Put all app buttons in the center of the taskbar</p>
+<h1>Taskbar & Start Menu</h1>
+<OptionSection
+  title="Center taskbar buttons"
+  context="Centers the taskbar app buttons"
+>
   <input
     type="checkbox"
     id="a"
     class="switch"
     bind:checked={$UserData.sh.taskbar.centered}
   />
-  <label for="a">Center app buttons</label>
-</Section>
-<Section header="App Labels">
-  <p class="context">Display application names beside their icons</p>
+</OptionSection>
+<OptionSection
+  title="Taskbar app labels"
+  context="Display app names on the taskbar"
+>
   <input
     type="checkbox"
-    id="b"
+    id="a"
     class="switch"
     bind:checked={$UserData.sh.taskbar.labels}
   />
-  <label for="b">Show labels</label>
-</Section>
-<Section header="Taskbar Docking">
-  <p class="context">
-    You can choose to make the taskbar float instead of being docked.
-  </p>
+</OptionSection>
+<OptionSection
+  title="Dock taskbar"
+  context="Dock the taskbar and action center"
+>
   <input
     type="checkbox"
-    id="c"
+    id="a"
     class="switch"
     bind:checked={$UserData.sh.taskbar.docked}
   />
-  <label for="c">Dock the taskbar</label>
-</Section>
+</OptionSection>
+<OptionSection title="Small start menu" context="Make the start menu smaller">
+  <input
+    type="checkbox"
+    id="a"
+    class="switch"
+    bind:checked={$UserData.sh.start.small}
+  />
+</OptionSection>

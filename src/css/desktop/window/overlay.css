@@ -60,3 +60,14 @@ window.window.overlay div.body div.overlay-head p.subheader {
 window.window.overlay.visible {
   pointer-events: initial;
 }
+
+window.window.overlay button.overlay-close.material-icons {
+  background-color: transparent;
+  padding:0;
+  margin:0;
+  position:absolute;
+  top:10px;
+  right:10px;
+  color:var(--fg);
+  font-size: 15px;
+}

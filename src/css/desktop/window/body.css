@@ -40,6 +40,10 @@ window div.body div.center-flex {
   justify-content: center;
 }
 
+window div.body div.center-flex.text-center {
+  text-align: center;
+}
+
 window div.body div.center-flex div.flex-stop {
   display: block;
 }

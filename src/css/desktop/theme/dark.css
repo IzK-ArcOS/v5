@@ -20,6 +20,18 @@
   --button-glass-bg: #fff1;
   --button-glass-hover-bg: #fff3;
   --button-glass-active-bg: #0003;
+  --clr-red-bg: #452929;
+  --clr-red-fg: #ff7e7e;
+  --clr-green-bg: #283e28;
+  --clr-green-fg: #a8ffa6;
+  --clr-yellow-bg: #49432e;
+  --clr-yellow-fg: #ffe073;
+  --clr-orange-bg: #543d1b;
+  --clr-orange-fg: #ffad32;
+  --clr-blue-bg: #273a48;
+  --clr-blue-fg: #96d3ff;
+  --clr-aqua-fg: #79ffd0;
+  --clr-aqua-bg: #214538;
 }
 
 :root .theme-darkround.noglass {

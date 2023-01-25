@@ -1,10 +1,12 @@
 import logo from "../../../assets/apps/settings.svg";
-import CustomProfilePictureOverlay from "../../../lib/Apps/Settings/Pages/Account/CustomProfilePictureOverlay.svelte";
-import ProfilePicture from "../../../lib/Apps/Settings/Pages/Account/ProfilePictureOverlay.svelte";
 import SettingsAppSvelte from "../../../lib/Apps/SettingsApp.svelte";
 import type { App } from "../interface";
 import { currentSettingsPage } from "./SettingsApp/main";
 import { SettingsPages } from "./SettingsApp/store";
+import ProfilePicture from "../../../lib/Apps/Settings/Pages/Account/Overlays/ProfilePicture.svelte";
+import CustomProfilePicture from "../../../lib/Apps/Settings/Pages/Account/Overlays/CustomProfilePicture.svelte";
+import ProfilePictureView from "../../../lib/Apps/Settings/Pages/Account/Overlays/ProfilePictureView.svelte";
+import UserDataExplorer from "../../../lib/Apps/Settings/Pages/Account/Overlays/UserDataExplorer.svelte";
 
 export const SettingsApp: App = {
   info: {
@@ -44,8 +46,28 @@ export const SettingsApp: App = {
         version: "1.0.0",
         author: "ArcOS Team",
       },
-      content: CustomProfilePictureOverlay,
+      content: CustomProfilePicture,
       size: { w: 350, h: 125 },
+      show: false,
+    },
+    largePfp: {
+      info: {
+        name: "View Profile Picture",
+        version: "1.0.0",
+        author: "ArcOS Team",
+      },
+      content: ProfilePictureView,
+      size: { w: 320, h: 360 },
+      show: false,
+    },
+    udataExplorer: {
+      info: {
+        name: "User Data Explorer",
+        version: "1.0.0",
+        author: "ArcOS Team",
+      },
+      content: UserDataExplorer,
+      size: { w: 550, h: 400 },
       show: false,
     },
   },
