@@ -1,0 +1,61 @@
+window#SettingsApp div.storagebar {
+  width: 100%;
+  overflow: hidden;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--button-active-bg);
+  display: flex;
+  margin: 5px 0;
+  margin-bottom: 10px;
+}
+
+window#SettingsApp div.storagebar div {
+  margin: 0;
+  padding: 0;
+}
+
+window#SettingsApp div.storagebar div.currentuser {
+  background-color: dodgerblue;
+}
+
+window#SettingsApp div.storagebar div.allusers {
+  background-color: tomato;
+}
+
+window#SettingsApp div.storagebar div.otheritems {
+  background-color: var(--button-hover-bg);
+}
+
+window#SettingsApp div.storage-stats div.item {
+  display: flex;
+  --color: var(--fg);
+}
+
+window#SettingsApp div.storage-stats div.item.currentuser {
+  --color: dodgerblue;
+}
+
+window#SettingsApp div.storage-stats div.item.allusers {
+  --color: tomato;
+}
+
+window#SettingsApp div.storage-stats div.item * {
+  vertical-align: middle;
+  margin: 0;
+}
+
+window#SettingsApp div.storage-stats div.item p.caption {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-right: 10px;
+  min-width: 80px;
+  color: var(--color);
+}
+
+window#SettingsApp div.storage-stats div.item div.dot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--color);
+  border-radius: 5px;
+  margin: 5.5px 5px;
+}

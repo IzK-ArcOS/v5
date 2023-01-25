@@ -5,7 +5,9 @@ import { Log, LogLevel } from "../console";
 import { logoff } from "../desktop/power";
 import { DevModeOverride } from "../devmode/props";
 import { userDataKey } from "../env/main";
+import { makeNotification } from "../notiflogic/main";
 import { applyState, CurrentState } from "../state/main";
+import { getFreeSpace } from "../storage/main";
 import {
   AllUsers,
   defaultUserData,
@@ -195,6 +197,16 @@ UserData.subscribe((v) => {
       msg: "Change Detected, committing",
       source,
     });
+
+    if (getFreeSpace() < 256 && !get(ConnectedServer)) {
+      makeNotification({
+        title: "Out of space",
+        message:
+          "LocalStorage is running out of free space. Please consider changing your preferences or switching to an ArcAPI.",
+        icon: "warning",
+        buttons: [],
+      });
+    }
 
     DevModeOverride.set(v.devmode);
 
