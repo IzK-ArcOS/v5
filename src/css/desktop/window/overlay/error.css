@@ -1,0 +1,32 @@
+window.overlay.overlayable-error {
+  max-width: 450px;
+  max-height: 350px;
+  min-height: 120px;
+}
+
+window.overlay.overlayable-error div.error-overlay {
+  display: flex;
+}
+
+window.overlay.overlayable-error div.error-overlay div.errimg {
+  margin: 5px;
+  margin-right: 15px;
+  margin-left: 5px;
+}
+
+window.overlay.overlayable-error div.error-overlay div.errimg img {
+  height: 32px;
+}
+
+window.overlay.overlayable-error div.error-overlay-buttons {
+  display: flex;
+  margin-top: 15px;
+}
+
+window.overlay.overlayable-error div.error-overlay-buttons div.inner {
+  margin: 0 auto;
+}
+
+window.overlay.overlayable-error div.error-overlay-buttons div.inner button {
+  min-width: 70px;
+}
