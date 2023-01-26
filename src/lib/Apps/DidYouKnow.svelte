@@ -15,7 +15,7 @@
 <h2>Did you know?</h2>
 {#if tip}
   <div class="content">
-    <h3><span class="material-icons">{tip.icon}</span> {tip.title}</h3>
+    <h3><span class="material-icons-round">{tip.icon}</span> {tip.title}</h3>
     <p>{tip.content}</p>
     <!-- svelte-ignore a11y-missing-attribute -->
     <a on:click={() => tip.trigger(tip)}>Learn more</a>

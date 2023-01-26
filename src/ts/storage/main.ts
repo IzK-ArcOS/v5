@@ -20,7 +20,7 @@ export function getLocalStorageUsage(): StorageStat {
     others += localStorage[item].toString().length;
   }
 
-  const allUsers = localStorage.getItem(userDataKey).length;
+  const allUsers = (localStorage.getItem(userDataKey) || "").length;
 
   const currentUser = get(ConnectedServer)
     ? 0

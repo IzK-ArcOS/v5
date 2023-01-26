@@ -8,8 +8,6 @@
     updateStores,
     WindowStore as WStore,
   } from "../../ts/applogic/store";
-  import { Log, log, LogLevel } from "../../ts/console";
-  import { collectLogsBySource } from "../../ts/console/collector";
   import {
     assignDesktopListeners,
     desktopClassNames,
@@ -18,7 +16,6 @@
     startOpened,
   } from "../../ts/desktop/main";
   import { DevModeOverride } from "../../ts/devmode/props";
-  import { userDataKey } from "../../ts/env/main";
   import { ErrorMessages } from "../../ts/errorlogic/app";
   import { UserData, UserName } from "../../ts/userlogic/interfaces";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
@@ -53,12 +50,15 @@
   }
 </script>
 
-<div class="desktop theme-darkround fullscreen {classes}" class:show>
-  {#if $UserData && $UserName && !$loggingOff}
+{#if $UserData && $UserName && !$loggingOff}
+  <div
+    class="desktop theme-{$UserData.sh.desktop.theme} fullscreen {classes}"
+    class:show
+  >
     <Wallpaper />
     <WindowStore />
     <ErrorDialogStore />
     <Shell />
     <PushNotification />
-  {/if}
-</div>
+  </div>
+{/if}

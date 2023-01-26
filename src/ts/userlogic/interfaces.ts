@@ -12,11 +12,14 @@ export interface UserData {
     window: {
       bigtb: boolean; //done
       lefttb: boolean; //done
+      traffic: boolean;
     };
 
     desktop: {
       wallpaper: string | null;
       icons: boolean;
+      theme: "light" | "dark";
+      sharp: boolean;
     };
 
     start: {
@@ -25,6 +28,7 @@ export interface UserData {
 
     anim: boolean; //done
     noGlass: boolean; //done
+    noQuickSettings: boolean;
   };
 
   disabledApps: string[];
@@ -63,16 +67,20 @@ export const defaultUserData: UserData = {
     window: {
       lefttb: false,
       bigtb: true,
+      traffic: false,
     },
     desktop: {
       wallpaper: "img11",
       icons: true,
+      theme: "dark",
+      sharp: false,
     },
     start: {
       small: false,
     },
     anim: true,
 
+    noQuickSettings: false,
     noGlass: false,
   },
   acc: {

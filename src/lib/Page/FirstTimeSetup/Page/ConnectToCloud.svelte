@@ -48,7 +48,7 @@
 </button>
 {#if connectionError}
   <p class="fullwidth centered connect-error">
-    <span class="material-icons">error</span>Connection to ArcAPI failed!
+    <span class="material-icons-round">error</span>Connection to ArcAPI failed!
   </p>
 {/if}
 <Nav

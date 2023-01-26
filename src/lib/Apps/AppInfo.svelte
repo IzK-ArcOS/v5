@@ -89,13 +89,13 @@
       <div>Window controls:</div>
       <div class="value">
         <div class="controls">
-          <button class="material-icons" disabled={!data.controls.min}>
+          <button class="material-icons-round" disabled={!data.controls.min}>
             minimize
           </button>
-          <button class="material-icons" disabled={!data.controls.max}>
+          <button class="material-icons-round" disabled={!data.controls.max}>
             crop_square
           </button>
-          <button class="material-icons" disabled={!data.controls.cls}>
+          <button class="material-icons-round" disabled={!data.controls.cls}>
             close
           </button>
         </div>

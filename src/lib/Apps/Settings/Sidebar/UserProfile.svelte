@@ -24,7 +24,7 @@
     <p class="name">
       {$UserName}
       {#if $DevModeOverride}
-        <span class="material-icons developer">bug_report</span>
+        <span class="material-icons-round developer">bug_report</span>
       {/if}
     </p>
     <p class="hostname">

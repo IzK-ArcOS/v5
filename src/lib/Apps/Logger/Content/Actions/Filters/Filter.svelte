@@ -30,5 +30,5 @@
   disabled={!currentSource || disable}
   class:selected={data[0] == currentFilter}
 >
-  <span class="material-icons">{data[1]}</span>
+  <span class="material-icons-round">{data[1]}</span>
 </button>

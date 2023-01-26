@@ -10,6 +10,6 @@
   }
 </script>
 
-<button class="overlay-close material-icons" on:click={closeThis}>
+<button class="overlay-close material-icons-round" on:click={closeThis}>
   close
 </button>

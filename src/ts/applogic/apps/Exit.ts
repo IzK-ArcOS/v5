@@ -23,5 +23,5 @@ export const Exit: App = {
     windowState: { min: false, max: false, fll: true },
   },
   content: ExitSvelte,
-  glass: true,
+  glass: false,
 };

@@ -4,11 +4,11 @@
     --active: #275efe;
     --active-inner: #fff;
     --focus: 2px rgba(39, 94, 254, 0.3);
-    --border: #747474;
+    --border: var(--button-bg);
     --border-hover: #275efe;
-    --background: rgb(61, 61, 61);
-    --disabled: #000000;
-    --disabled-inner: #8d8d8d;
+    --background: var(--button-active-bg);
+    --disabled: var(--button-active-bg);
+    --disabled-inner: var(--button-hover-bg);
     -webkit-appearance: none;
     -moz-appearance: none;
     height: 21px;

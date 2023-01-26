@@ -34,18 +34,6 @@ export const QuickSettings: QuickSetting[] = [
     caption: "Transparency",
   },
   {
-    icon: "autorenew",
-    iconOff: "autorenew",
-    getter() {
-      return false;
-    },
-    setter() {
-      reloadApps();
-      return false;
-    },
-    caption: "Reload Apps",
-  },
-  {
     icon: "call_to_action",
     iconOff: "call_to_action",
     getter(udata) {
@@ -61,15 +49,21 @@ export const QuickSettings: QuickSetting[] = [
     caption: "Dock Taskbar",
   },
   {
-    icon: "",
-    iconOff: "",
-    getter() {
-      return false;
+    icon: "dark_mode",
+    iconOff: "light_mode",
+    getter(udata) {
+      return udata.sh.desktop.theme == "dark";
     },
-    setter() {
-      return false;
+    setter(udata) {
+      const current = udata.sh.desktop.theme;
+
+      udata.sh.desktop.theme = current == "dark" ? "light" : "dark";
+
+      UserData.set(udata);
+
+      return udata.sh.desktop.theme == "dark";
     },
-    caption: "",
+    caption: "Dark mode",
   },
   {
     icon: "",
@@ -114,5 +108,17 @@ export const QuickSettings: QuickSetting[] = [
       return false;
     },
     caption: "",
+  },
+  {
+    icon: "autorenew",
+    iconOff: "autorenew",
+    getter() {
+      return false;
+    },
+    setter() {
+      reloadApps();
+      return false;
+    },
+    caption: "Reload Apps",
   },
 ];

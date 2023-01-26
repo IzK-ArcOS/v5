@@ -18,15 +18,15 @@
   <div class="flex-stop">
     <h3 class="header">ArcOS</h3>
     <button class="option" on:click={shutdown}>
-      <span class="material-icons">power_settings_new</span>
+      <span class="material-icons-round">power_settings_new</span>
       <p class="caption">Shutdown</p>
     </button>
     <button class="option" on:click={logoff}>
-      <span class="material-icons">logout</span>
+      <span class="material-icons-round">logout</span>
       <p class="caption">Logoff</p>
     </button>
     <button class="option" on:click={restart}>
-      <span class="material-icons">refresh</span>
+      <span class="material-icons-round">refresh</span>
       <p class="caption">Restart</p>
     </button>
 

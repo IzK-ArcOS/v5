@@ -197,7 +197,7 @@ window#SettingsApp section.collapsible.collapsed:hover h3 {
 
 window#SettingsApp section.collapsible h3::after {
   content: "expand_more";
-  font-family: "Material Icons";
+  font-family: "Material Icons Round";
   position: absolute;
   right: 10px;
   font-size: 20px;
@@ -241,7 +241,7 @@ window#SettingsApp section.collapsible * {
 }
 
 window#SettingsApp section.collapsible.collapsed {
-  max-height: 42px;
+  max-height: 40px;
 }
 
 window#SettingsApp h3.header {

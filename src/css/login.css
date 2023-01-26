@@ -28,7 +28,7 @@ div.login.show {
   opacity: 1;
 }
 
-div.login *:not(.material-icons) {
+div.login *:not(.material-icons-round) {
   color: #ccc;
   font-family: "Inter", sans-serif;
 }
@@ -76,7 +76,7 @@ div.login div.topbar div.right button.nopad:hover {
   background-color: #0003;
 }
 
-div.login div.topbar div.right button.nopad span.material-icons {
+div.login div.topbar div.right button.nopad span.material-icons-round {
   padding: 0;
   margin: 0;
 }

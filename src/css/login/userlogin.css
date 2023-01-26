@@ -37,7 +37,7 @@ div.userlogin button.block {
   margin-bottom: 10px;
 }
 
-div.userlogin div.cloudlogin button.material-icons {
+div.userlogin div.cloudlogin button.material-icons-round {
   margin: 0;
   margin-left: 0px;
   padding: 0;
@@ -52,8 +52,8 @@ div.userlogin div.cloudlogin button.material-icons {
   backdrop-filter: unset;
 }
 
-div.userlogin div.cloudlogin button.material-icons:disabled {
-  color:#ccc4;
+div.userlogin div.cloudlogin button.material-icons-round:disabled {
+  color: #ccc4;
 }
 
 div.userlogin div.cloudlogin div.field {

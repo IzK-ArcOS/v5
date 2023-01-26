@@ -7,7 +7,7 @@
 
 <div class="notice">
   <div>
-    <span class="material-icons">{icon}</span>
+    <span class="material-icons-round">{icon}</span>
   </div>
   <div>
     <p class="title">{title}</p>

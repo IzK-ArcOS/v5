@@ -26,8 +26,8 @@
   />
 </OptionSection>
 <OptionSection title="Theme" context="Change the coloring of the UI">
-  <select name="aa" id="bb" disabled>
-    <option>Darkmode</option>
-    <option>Lightmode</option>
+  <select name="aa" id="bb" bind:value={$UserData.sh.desktop.theme}>
+    <option value="dark">Darkmode</option>
+    <option value="light">Lightmode</option>
   </select>
 </OptionSection>

@@ -9,6 +9,7 @@
   import { UserData } from "../../../ts/userlogic/interfaces";
   import Notifications from "./ActionCenter/Notifications.svelte";
   import QuickSettings from "./ActionCenter/QuickSettings.svelte";
+  import QuickSettingsToggle from "./ActionCenter/QuickSettingsToggle.svelte";
 
   let opened = false;
 
@@ -30,6 +31,7 @@
   class="actioncenter"
   class:docked={$UserData.sh.taskbar.docked}
   class:opened
+  class:noquick={$UserData.sh.noQuickSettings}
   style="z-index: {$maxZIndex + 4};"
 >
   <h3 class="title">
@@ -40,5 +42,6 @@
     >
   </h3>
   <Notifications />
+  <QuickSettingsToggle />
   <QuickSettings />
 </div>

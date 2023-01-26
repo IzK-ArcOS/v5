@@ -13,7 +13,7 @@
 </script>
 
 <div class="logitem">
-  <div class="level material-icons {LogLevel[logItem.level]}">
+  <div class="level material-icons-round {LogLevel[logItem.level]}">
     {icons[logItem.level]}
   </div>
   <div class="timestamp">

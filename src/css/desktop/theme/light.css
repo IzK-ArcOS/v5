@@ -1,5 +1,5 @@
-:root .theme-lightround {
-  --fg: #111;
+:root .theme-light {
+  --fg: #333;
   --win-bg: #fff;
   --win-border-rad: 7.5px;
   --win-border: rgb(226, 226, 226) 1px solid;
@@ -22,9 +22,9 @@
   --button-glass-active-bg: rgba(0, 0, 0, 0.1);
 }
 
-:root .theme-darkround.noglass {
-  --glass-bg: #353535;
-  --glass-alt-bg: #414141;
-  --glass-ultralight: #838383;
-  --glass-ultradark: #2e2e2e;
+:root .theme-light.noglass {
+  --glass-bg: #fff;
+  --glass-alt-bg: #eee;
+  --glass-ultralight: #eeeeee;
+  --glass-ultradark: #bbbbbb;
 }

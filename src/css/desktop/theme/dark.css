@@ -34,7 +34,7 @@
   --clr-aqua-bg: #214538;
 }
 
-:root .theme-darkround.noglass {
+:root .theme-dark.noglass {
   --glass-bg: #353535;
   --glass-alt-bg: #414141;
   --glass-ultralight: #838383;

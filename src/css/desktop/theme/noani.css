@@ -3,3 +3,11 @@ div.noani * {
   transition: none !important;
   animation: none !important;
 }
+
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+  div.noani *[type="checkbox"]::after,
+  div.noani *[type="radio"]::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

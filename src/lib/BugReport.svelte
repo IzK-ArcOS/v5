@@ -27,7 +27,7 @@
   <div class="bugrep fullscreen {className}">
     <div class="content">
       <img class="logo" src={logo} alt="ArcOS" />
-      <h3><span class="material-icons">{data.icon}</span>{data.title}</h3>
+      <h3><span class="material-icons-round">{data.icon}</span>{data.title}</h3>
       <p>{@html data.message}</p>
       {#if data.button}
         <button on:click={buttonEvent}>{data.button.caption}</button>

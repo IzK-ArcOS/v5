@@ -56,7 +56,7 @@
       on:click={enableDevmode}
       disabled={$UserData.devmode}
     >
-      <span class="material-icons">bug_report</span>
+      <span class="material-icons-round">bug_report</span>
       Enable developer mode
     </button>
     <button
@@ -64,7 +64,7 @@
       on:click={disableDevmode}
       disabled={!$UserData.devmode}
     >
-      <span class="material-icons">power_settings_new</span>
+      <span class="material-icons-round">power_settings_new</span>
       Disable developer mode
     </button>
   </Section>

@@ -134,7 +134,11 @@ window#LoggerApp div.content div.actions div.sep {
 }
 
 window#LoggerApp div.content div.actions button.action img,
-window#LoggerApp div.content div.actions button.action span.material-icons {
+window#LoggerApp
+  div.content
+  div.actions
+  button.action
+  span.material-icons-round {
   display: block;
   margin: 0 auto;
   margin-bottom: 5px;
@@ -165,7 +169,7 @@ window#LoggerApp
   div.actions
   div.filters
   button.filter
-  span.material-icons {
+  span.material-icons-round {
   font-size: 21px;
 }
 

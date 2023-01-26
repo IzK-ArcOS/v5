@@ -57,7 +57,11 @@
       generateCredToken({ username: name, password })
     );
 
-    if (!userdata) {authenticating = false; wrongpswd = true; return;};
+    if (!userdata) {
+      authenticating = false;
+      wrongpswd = true;
+      return;
+    }
 
     if (stay) {
       localStorage.setItem(
@@ -102,7 +106,7 @@
             />
           </form>
           <button
-            class="material-icons"
+            class="material-icons-round"
             on:click={serverLogin}
             disabled={!password}>arrow_forward_ios</button
           >

@@ -131,7 +131,7 @@ div.startmenu div.bottom div.options {
   margin-left: auto;
 }
 
-div.startmenu div.bottom div.options button.material-icons {
+div.startmenu div.bottom div.options button.material-icons-round {
   background-color: transparent;
   color: var(--fg);
   border: none;
@@ -140,11 +140,11 @@ div.startmenu div.bottom div.options button.material-icons {
   line-height: 30px;
 }
 
-div.startmenu div.bottom div.options button.material-icons:hover {
+div.startmenu div.bottom div.options button.material-icons-round:hover {
   opacity: 0.7;
 }
 
-div.startmenu div.bottom div.options button.material-icons:active {
+div.startmenu div.bottom div.options button.material-icons-round:active {
   opacity: 0.4;
 }
 
@@ -200,7 +200,7 @@ div.startmenu.small > div.bottom div.options {
   line-height: 20px;
 }
 
-div.startmenu.small > div.bottom div.options button.material-icons {
+div.startmenu.small > div.bottom div.options button.material-icons-round {
   font-size: 21px;
   line-height: 21px;
   margin-left: 2.5px;

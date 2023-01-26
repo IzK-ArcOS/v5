@@ -60,11 +60,11 @@
   </button>
   <div class="sep" />
   <button class="action" on:click={refresh} disabled={!currentSource}>
-    <span class="material-icons">refresh</span>
+    <span class="material-icons-round">refresh</span>
     Refresh
   </button>
   <button class="action" on:click={changeMonospace}>
-    <span class="material-icons">title</span>
+    <span class="material-icons-round">title</span>
     monospace
   </button>
 </div>

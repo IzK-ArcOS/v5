@@ -20,7 +20,7 @@
   {#each $trayIcons as icon}
     <button class="icon" on:click={() => icon.onOpen(icon)}>
       {#if icon.icon}
-        <span class="material-icons">{icon.icon}</span>
+        <span class="material-icons-round">{icon.icon}</span>
       {:else}
         <img src={icon.image} alt={icon.identifier} />
       {/if}
@@ -28,7 +28,7 @@
   {/each}
   <div class="clock">{time}</div>
   <button
-    class="material-icons ac-open"
+    class="material-icons-round ac-open"
     on:click={toggleActionCenter}
     class:opened={$ActionCenterOpened}
   >

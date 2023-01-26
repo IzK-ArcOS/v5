@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"); /* Source Code Pro, Inter */
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons"); /* Material Icons */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Round"); /* Material Icons */
 
 .center-absolute {
   position: absolute;
@@ -29,10 +29,10 @@
   -webkit-user-select: none;
   -webkit-user-drag: none;
   outline: none !important;
-  transition: all 0.25s;
+  transition: all 0.3s, color 0.1s;
 }
 
-.material-icons {
+.material-icons-round {
   vertical-align: middle;
   margin: 0 5px;
   font-size: calc(1.4em);

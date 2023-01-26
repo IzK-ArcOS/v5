@@ -3,6 +3,7 @@
   import type { App } from "../../../../../ts/applogic/interface";
   import { updateStores } from "../../../../../ts/applogic/store";
   import { closeError } from "../../../../../ts/errorlogic/main";
+  import { UserData } from "../../../../../ts/userlogic/interfaces";
 
   export let exttransition = false;
   export let titlebar: HTMLDivElement;
@@ -48,26 +49,45 @@
     {/if}
   </p>
   <div class="controls">
-    <button
-      class="material-icons"
-      on:click={min}
-      disabled={!app.controls.min || isBoot}
-    >
-      minimize
-    </button>
-    <button
-      class="material-icons"
-      on:click={max}
-      disabled={!app.controls.max || isBoot}
-    >
-      crop_square
-    </button>
-    <button
-      class="material-icons"
-      on:click={cls}
-      disabled={!app.controls.cls || isBoot}
-    >
-      close
-    </button>
+    {#if $UserData.sh.window.traffic}
+      <button
+        class="traffic-cls"
+        on:click={cls}
+        disabled={!app.controls.cls || isBoot}
+      />
+
+      <button
+        class="traffic-min"
+        on:click={min}
+        disabled={!app.controls.min || isBoot}
+      />
+      <button
+        class="traffic-max"
+        on:click={max}
+        disabled={!app.controls.max || isBoot}
+      />
+    {:else}
+      <button
+        class="material-icons-round"
+        on:click={min}
+        disabled={!app.controls.min || isBoot}
+      >
+        minimize
+      </button>
+      <button
+        class="material-icons-round"
+        on:click={max}
+        disabled={!app.controls.max || isBoot}
+      >
+        crop_square
+      </button>
+      <button
+        class="material-icons-round"
+        on:click={cls}
+        disabled={!app.controls.cls || isBoot}
+      >
+        close
+      </button>
+    {/if}
   </div>
 </div>

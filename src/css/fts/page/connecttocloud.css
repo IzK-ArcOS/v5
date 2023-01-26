@@ -18,6 +18,6 @@ div.fts div.right.connecttocloud p.connect-error * {
   color: tomato;
 }
 
-div.fts div.right.connecttocloud p.connect-error span.material-icons {
+div.fts div.right.connecttocloud p.connect-error span.material-icons-round {
   font-size: 21px;
 }

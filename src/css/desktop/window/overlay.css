@@ -61,13 +61,13 @@ window.window.overlay.visible {
   pointer-events: initial;
 }
 
-window.window.overlay button.overlay-close.material-icons {
+window.window.overlay button.overlay-close.material-icons-round {
   background-color: transparent;
-  padding:0;
-  margin:0;
-  position:absolute;
-  top:10px;
-  right:10px;
-  color:var(--fg);
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--fg);
   font-size: 15px;
 }

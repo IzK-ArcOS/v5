@@ -3,6 +3,10 @@ window#Exit {
   backdrop-filter: unset;
 }
 
+window#Exit * {
+  color: #ccc;
+}
+
 window#Exit button.option {
   text-align: center;
   padding: 20px 20px;
@@ -17,7 +21,7 @@ window#Exit button.option:active {
   opacity: 0.4;
 }
 
-window#Exit button.option span.material-icons {
+window#Exit button.option span.material-icons-round {
   display: block;
   font-size: 36px;
 }
@@ -31,6 +35,15 @@ window#Exit button.cancel {
   display: block;
   margin: 0 auto;
   margin-top: 30px;
+  background-color: #fff1;
+}
+
+window#Exit button.cancel:hover {
+  background-color: #fff2;
+}
+
+window#Exit button.cancel:active {
+  background-color: #0001;
 }
 
 window#Exit h3.header {

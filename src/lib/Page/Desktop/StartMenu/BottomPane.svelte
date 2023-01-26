@@ -27,7 +27,7 @@
     {$UserName}
   </h1>
   <div class="options">
-    <button class="material-icons" on:click={settings}>settings</button>
-    <button class="material-icons" on:click={exit}>logout</button>
+    <button class="material-icons-round" on:click={settings}>settings</button>
+    <button class="material-icons-round" on:click={exit}>logout</button>
   </div>
 </div>

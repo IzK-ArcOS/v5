@@ -13,6 +13,7 @@ div.actioncenter {
   opacity: 0;
   padding: 20px;
   padding-right: 15px;
+  overflow: hidden;
 }
 
 div.actioncenter.docked {
@@ -22,8 +23,17 @@ div.actioncenter.docked {
   border-radius: 0px;
 }
 
+div.actioncenter.noquick div.quicksettings {
+  opacity: 0;
+  pointer-events: none;
+}
+
+div.actioncenter.noquick div.notifications {
+  height: calc(100% - 50px);
+}
+
 div.actioncenter div.notifications {
-  height: calc(100% - 245px);
+  height: calc(100% - 267px);
   overflow-y: scroll;
 }
 
@@ -34,6 +44,26 @@ div.actioncenter div.notifications > :last-child {
 
 div.actioncenter div.quicksettings {
   height: 200px;
+}
+
+div.actioncenter div.quicksettings-toggle {
+  display: flex;
+}
+
+div.actioncenter div.quicksettings-toggle button.toggle {
+  margin-left: auto;
+  background-color: transparent;
+  color: var(--fg);
+  border: none;
+}
+
+div.actioncenter div.quicksettings-toggle button.toggle:hover {
+  opacity: 0.7;
+}
+
+div.actioncenter div.quicksettings-toggle button.toggle:active {
+  opacity: 0.4;
+  transform: scale(0.9);
 }
 
 div.actioncenter-shade {
@@ -116,19 +146,33 @@ div.actioncenter div.quicksettings button.setting.active {
   background-color: var(--button-glass-bg);
 }
 
+div.theme-light div.actioncenter div.quicksettings button.setting.active {
+  background-color: var(--glass-bg);
+}
+
 div.actioncenter div.quicksettings button.setting p.caption {
   font-size: 13px;
   margin: 0;
   margin-top: 5px;
   overflow: hidden;
   opacity: 0;
-  height: 0px;
+  max-height: 0px;
   margin-top: 0;
-  transition: all 0.3s;
+
+  transition: all 0.3s, opacity 0.2s;
+}
+
+div.actioncenter div.quicksettings button.setting:hover {
+  padding-top: 0px;
+}
+
+div.actioncenter div.quicksettings button.setting:active {
+  transform: scale(0.95);
 }
 
 div.actioncenter div.quicksettings button.setting:hover p.caption {
   opacity: 1;
-  height: fit-content;
+  max-height: 14px;
   margin-top: 5px;
+  transition: all 0.3s, opacity 0.5s 0.1s;
 }
