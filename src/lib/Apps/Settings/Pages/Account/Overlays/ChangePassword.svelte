@@ -30,6 +30,11 @@
     hideOverlay(id, app.id);
   }
 
+  function closeThis() {
+    reset();
+    cancel();
+  }
+
   async function apply() {
     const valid = await changePassword($UserName, oldPswd, newPswd, confirm);
 
@@ -49,7 +54,7 @@
       {
         title: "Password changed.",
         message: "Your password has been updated successfully.",
-        buttons: [{ caption: "OK", action: reset }],
+        buttons: [{ caption: "OK", action: closeThis }],
         image: usericon,
       },
       app.id
