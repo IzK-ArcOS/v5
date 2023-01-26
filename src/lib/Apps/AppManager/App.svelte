@@ -20,9 +20,9 @@
     </div>
     <div class="id">
       {#if app.parentId}
-        {app.parentId}.{app.id}
+        ArcOS.{app.parentId}.{app.id}
       {:else}
-        {app.id}
+        ArcOS.{app.id}
       {/if}
     </div>
   </div>

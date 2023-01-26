@@ -15,7 +15,7 @@
       </div>
       <div class="appname">{overlay.info.name} (Overlay)</div>
       <div class="id">
-        {parent.id}.{id}
+        ArcOS.{parent.id}.{id}
       </div>
     </div>
   {/if}
