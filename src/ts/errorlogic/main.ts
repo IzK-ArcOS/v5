@@ -104,7 +104,7 @@ export function createErrorAppData(data: ErrorMessage) {
       icon: data.image || icon,
     },
     size: { w: NaN, h: NaN },
-    pos: { x: 30, y: 40 },
+    pos: { x: 60, y: 60 },
     minSize: { w: 200, h: NaN },
     maxSize: { w: 600, h: NaN },
     controls: { min: false, max: false, cls: true },

@@ -12,7 +12,6 @@
 
 <div class="settingspage-account">
   <Profile />
-  <DangerZone />
 
   <Section header="User Data">
     <p class="context">
@@ -22,5 +21,5 @@
     <button on:click={openExplorer}>Explore...</button>
   </Section>
 
-  <!--udataExplorer-->
+  <DangerZone />
 </div>

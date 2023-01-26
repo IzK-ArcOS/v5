@@ -42,7 +42,7 @@ div.taskbar div.tray button.icon:active {
   background-color: var(--startmenu-applist-item-bg-active);
 }
 
-div.taskbar div.tray span.material-icons-round {
+div.taskbar div.tray span.material-icons {
   font-size: 16px;
   margin: 0px 5px;
 }

@@ -1,0 +1,35 @@
+window div.titlebar div.controls button[class*="traffic"] {
+  border: var(--button-bg) 1px solid;
+  width: 12px;
+  height: 12px;
+  border-radius: 11px;
+  padding: 0;
+}
+
+window
+  div.titlebar
+  div.controls
+  button[class*="traffic"]
+  + button[class*="traffic"] {
+  margin-left: 8px;
+}
+
+window div.titlebar div.controls button[class*="traffic"]:disabled {
+  background-color: var(--button-active-bg);
+  border: var(--button-active-bg);
+}
+
+window div.titlebar div.controls button.traffic-cls {
+  border: #d04e41 0.5px solid;
+  background-color: #ec695e;
+}
+
+window div.titlebar div.controls button.traffic-min {
+  border: #d59f3c 0.5px solid;
+  background-color: #f5c14f;
+}
+
+window div.titlebar div.controls button.traffic-max {
+  border: #4fa63b 0.5px solid;
+  background-color: #61c654;
+}

@@ -7,6 +7,63 @@ import ProfilePicture from "../../../lib/Apps/Settings/Pages/Account/Overlays/Pr
 import CustomProfilePicture from "../../../lib/Apps/Settings/Pages/Account/Overlays/CustomProfilePicture.svelte";
 import ProfilePictureView from "../../../lib/Apps/Settings/Pages/Account/Overlays/ProfilePictureView.svelte";
 import UserDataExplorer from "../../../lib/Apps/Settings/Pages/Account/Overlays/UserDataExplorer.svelte";
+import ChangePassword from "../../../lib/Apps/Settings/Pages/Account/Overlays/ChangePassword.svelte";
+
+const ProfilePictureOverlays = {
+  pfpSel: {
+    info: {
+      name: "Profile Picture Selector",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: ProfilePicture,
+    size: { w: 382, h: 410 },
+    show: false,
+  },
+  customPfp: {
+    info: {
+      name: "Custom Profile Picture",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: CustomProfilePicture,
+    size: { w: 350, h: 125 },
+    show: false,
+  },
+  largePfp: {
+    info: {
+      name: "View Profile Picture",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: ProfilePictureView,
+    size: { w: 320, h: 360 },
+    show: false,
+  },
+};
+
+const AccountPageOverlays = {
+  udataExplorer: {
+    info: {
+      name: "User Data Explorer",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: UserDataExplorer,
+    size: { w: 550, h: 400 },
+    show: false,
+  },
+  changePswd: {
+    info: {
+      name: "Change Password",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: ChangePassword,
+    size: { w: 370, h: 195 },
+    show: false,
+  },
+};
 
 export const SettingsApp: App = {
   info: {
@@ -30,46 +87,8 @@ export const SettingsApp: App = {
   content: SettingsAppSvelte,
   glass: true,
   overlays: {
-    pfpSel: {
-      info: {
-        name: "Profile Picture Selector",
-        version: "1.0.0",
-        author: "ArcOS Team",
-      },
-      content: ProfilePicture,
-      size: { w: 382, h: 410 },
-      show: false,
-    },
-    customPfp: {
-      info: {
-        name: "Custom Profile Picture",
-        version: "1.0.0",
-        author: "ArcOS Team",
-      },
-      content: CustomProfilePicture,
-      size: { w: 350, h: 125 },
-      show: false,
-    },
-    largePfp: {
-      info: {
-        name: "View Profile Picture",
-        version: "1.0.0",
-        author: "ArcOS Team",
-      },
-      content: ProfilePictureView,
-      size: { w: 320, h: 360 },
-      show: false,
-    },
-    udataExplorer: {
-      info: {
-        name: "User Data Explorer",
-        version: "1.0.0",
-        author: "ArcOS Team",
-      },
-      content: UserDataExplorer,
-      size: { w: 550, h: 400 },
-      show: false,
-    },
+    ...ProfilePictureOverlays,
+    ...AccountPageOverlays,
   },
   events: {
     close() {

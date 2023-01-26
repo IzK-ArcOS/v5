@@ -187,15 +187,20 @@ window#SettingsApp section.opt div.opt-sel select:hover {
   background-color: var(--button-hover-bg);
 }
 
+window#SettingsApp section.opt div.opt-sel button {
+  height: 26px;
+  margin: 7px 0;
+}
+
 window#SettingsApp section.collapsible.collapsed:hover {
   border: var(--button-hover-bg) 1px solid;
 }
 
-window#SettingsApp section.collapsible.collapsed:hover h3 {
+window#SettingsApp section.collapsible.collapsed:hover > h3 {
   background-color: var(--button-hover-bg);
 }
 
-window#SettingsApp section.collapsible h3::after {
+window#SettingsApp section.collapsible > h3::after {
   content: "expand_more";
   font-family: "Material Icons Round";
   position: absolute;
@@ -204,19 +209,23 @@ window#SettingsApp section.collapsible h3::after {
   transition: transform 0.3s;
 }
 
+window#SettingsApp section.collapsible > section.opt {
+  margin: 0 7.5px;
+}
+
 window#SettingsApp section.collapsible.collapsed {
   border: var(--button-bg) 1px solid;
 }
 
-window#SettingsApp section.collapsible h3::after {
+window#SettingsApp section.collapsible > h3::after {
   transform: rotate(0deg);
 }
 
-window#SettingsApp section.collapsible.collapsed h3::after {
+window#SettingsApp section.collapsible.collapsed > h3::after {
   transform: rotate(-90deg);
 }
 
-window#SettingsApp section.collapsible h3 {
+window#SettingsApp section.collapsible > h3 {
   background-color: var(--button-bg);
   width: calc(100% + 20px);
   padding: 5px 10px;

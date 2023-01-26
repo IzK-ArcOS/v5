@@ -7,7 +7,7 @@
   border-radius: var(--win-border-rad, 7.5px);
   border: var(--win-border, rgb(107, 107, 107) 1px solid);
   overflow: hidden;
-  transition: all 0.2s, width 0s, height 0s, top 0s, left 0s;
+  transition: all 0.25s, width 0s, height 0s, top 0s, left 0s, z-index 0s;
   opacity: 0;
   visibility: hidden;
   transform: scale(90%);

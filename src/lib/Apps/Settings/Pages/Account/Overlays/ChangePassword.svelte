@@ -1,0 +1,83 @@
+<script lang="ts">
+  import { changePassword } from "../../../../../../ts/api/cred";
+  import type { App } from "../../../../../../ts/applogic/interface";
+  import {
+    UserData,
+    UserName,
+  } from "../../../../../../ts/userlogic/interfaces";
+  import { getProfilePicture } from "../../../../../../ts/userlogic/pfp";
+  import { hideOverlay } from "../../../../../../ts/window/overlay";
+  import ProfilePicture from "../../../../../ProfilePicture.svelte";
+  import "../../../../../../css/desktop/apps/settings/account/changePswd.css";
+  import { errorMessage } from "../../../../../../ts/errorlogic/main";
+
+  let img = "";
+
+  export let id: string;
+  export let app: App;
+
+  let oldPswd = "";
+  let newPswd = "";
+  let confirm = "";
+
+  UserData.subscribe((v) => {
+    img = getProfilePicture(v.acc.profilePicture);
+  });
+
+  function cancel() {
+    hideOverlay(id, app.id);
+  }
+
+  async function apply() {
+    const valid = await changePassword($UserName, oldPswd, newPswd, confirm);
+
+    if (!valid)
+      errorMessage(
+        "Couldn't change password",
+        "An error occured while changing your password. Please make sure the entered information is correct, and then try again.",
+        app.info.icon,
+        "SettingsApp",
+        { caption: "OK", action: reset }
+      );
+  }
+
+  function reset() {
+    oldPswd = "";
+    newPswd = "";
+    confirm = "";
+  }
+</script>
+
+<div class="changepswd-wrapper">
+  <div><ProfilePicture src={img} height={50} /></div>
+  <div class="field">
+    <p>Fill out this form to change your password:</p>
+    <input
+      type="password"
+      name="current"
+      placeholder="Current password"
+      bind:value={oldPswd}
+    />
+    <input
+      type="password"
+      name="current"
+      placeholder="New password"
+      bind:value={newPswd}
+    />
+    <input
+      type="password"
+      name="current"
+      placeholder="Confirm new password"
+      bind:value={confirm}
+    />
+    <div class="apply">
+      <div>
+        <button on:click={cancel}>Cancel</button>
+        <button
+          on:click={apply}
+          disabled={newPswd != confirm || !newPswd || !confirm}>Change</button
+        >
+      </div>
+    </div>
+  </div>
+</div>

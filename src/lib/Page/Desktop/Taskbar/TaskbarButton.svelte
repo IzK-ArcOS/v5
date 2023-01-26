@@ -27,11 +27,9 @@
   function e() {
     if ($focusedWindowId == app.id)
       app.state.windowState.min = !app.state.windowState.min;
+    else app.state.windowState.min = false;
 
     updateStores();
-
-    if (!app.state.windowState.min && $focusedWindowId == app.id) return;
-    else app.state.windowState.min = false;
 
     $maxZIndex++;
     $focusedWindowId = app.id;

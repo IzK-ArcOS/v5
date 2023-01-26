@@ -5,6 +5,9 @@
   import warning from "../../../../../assets/apps/error.svg";
   import { UserName } from "../../../../../ts/userlogic/interfaces";
   import { deleteUser } from "../../../../../ts/userlogic/main";
+  import OptionSection from "../../OptionSection.svelte";
+  import { ConnectedServer } from "../../../../../ts/api/main";
+  import { showOverlay } from "../../../../../ts/window/overlay";
 
   function deleteAccount() {
     errorMessage(
@@ -22,12 +25,26 @@
       }
     );
   }
+
+  function changePswd() {
+    showOverlay("changePswd", "SettingsApp");
+  }
 </script>
 
-<Section header="Danger Zone">
-  <p class="context">
-    Want to delete this account? Here you can do just that. Beware<br />
-    that you will delete any data inside your account forever.
-  </p>
+<OptionSection title="Delete account" context="Delete your ArcOS account">
   <button on:click={deleteAccount}> Delete account... </button>
-</Section>
+</OptionSection>
+<OptionSection
+  title="Change username"
+  context="Migrate your userdata to another username."
+>
+  <button disabled> Change... </button>
+</OptionSection>
+{#if $ConnectedServer}
+  <OptionSection
+    title="Change password"
+    context="Change the password you use to log in."
+  >
+    <button on:click={changePswd}> Change... </button>
+  </OptionSection>
+{/if}
