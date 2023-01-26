@@ -8,16 +8,12 @@
   let oa: App[] = [];
   let es: App[] = [];
 
-  WindowStore.subscribe(() => {
-    oa = getOpenedStore();
-  });
-
   ErrorWindowStore.subscribe((v) => {
     es = v;
   });
 </script>
 
-{#each oa as window}
+{#each $WindowStore as window}
   {#if !window.parentId}
     <Branch {window} top />
   {/if}

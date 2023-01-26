@@ -12,8 +12,8 @@
   export let error = false;
 </script>
 
-<div class:indent={!top}>
-  {#if isOpened(window.id) || (error && window.opened)}
+{#if window}
+  <div class:indent={!top}>
     <AppSvelte app={window} {error} />
     {#if window.children}
       {#each Object.keys(window.children) as child}
@@ -25,5 +25,5 @@
         <OverlayApp overlay={overlay[1]} parent={window} id={overlay[0]} />
       {/each}
     {/if}
-  {/if}
-</div>
+  </div>
+{/if}

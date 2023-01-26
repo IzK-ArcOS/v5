@@ -65,7 +65,15 @@ export function closeError(id: number) {
   const ews = get(ErrorWindowStore);
 
   for (let i = 0; i < ews.length; i++) {
-    if (ews[i].id == `error_${id}`) ews[i].opened = false;
+    if (ews[i].id == `error_${id}`) {
+      ews[i].opened = false;
+
+      setTimeout(() => {
+        ews.splice(i, 1);
+
+        ErrorWindowStore.set(ews);
+      }, 500);
+    }
   }
 
   ErrorWindowStore.set(ews);

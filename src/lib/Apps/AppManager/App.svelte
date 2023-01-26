@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { isDisabled } from "../../../ts/applogic/checks";
   import { getOriginalIcon } from "../../../ts/applogic/icon";
   import type { App } from "../../../ts/applogic/interface";
 
@@ -6,8 +7,8 @@
   export let error = false;
 </script>
 
-{#if app}
-  <div class="appinstance">
+{#if app && !isDisabled(app.id)}
+  <div class="appinstance" class:closed={!app.opened}>
     <div>
       <img src={getOriginalIcon(app.id) || app.info.icon} alt="" />
     </div>
@@ -19,9 +20,9 @@
     </div>
     <div class="id">
       {#if app.parentId}
-        ArcOS.{app.parentId}.{app.id}
+        {app.parentId}.{app.id}
       {:else}
-        ArcOS.{app.id}
+        {app.id}
       {/if}
     </div>
   </div>
