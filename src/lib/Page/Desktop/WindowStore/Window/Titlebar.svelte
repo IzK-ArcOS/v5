@@ -1,5 +1,6 @@
 <script lang="ts">
   import { closeWindow } from "../../../../../ts/applogic/events";
+  import { getAppIcon } from "../../../../../ts/applogic/icon";
   import type { App } from "../../../../../ts/applogic/interface";
   import { updateStores } from "../../../../../ts/applogic/store";
   import { closeError } from "../../../../../ts/errorlogic/main";
@@ -42,7 +43,7 @@
 
 <div class="titlebar" bind:this={titlebar} on:dblclick={max}>
   <p class="title">
-    <img class="icon" src={app.info.icon} alt={app.info.name} />
+    <img class="icon" src={getAppIcon(app)} alt={app.info.name} />
     {app.info.name}{app.info.titleSuffix || ""}
     {#if isBoot}
       (In recovery mode)

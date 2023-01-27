@@ -1,6 +1,7 @@
 <script lang="ts">
+  import { get } from "svelte/store";
   import { isDisabled } from "../../../ts/applogic/checks";
-  import { getOriginalIcon } from "../../../ts/applogic/icon";
+  import { getAppIcon, getOriginalIcon } from "../../../ts/applogic/icon";
   import type { App } from "../../../ts/applogic/interface";
 
   export let app: App;
@@ -10,7 +11,7 @@
 {#if app && !isDisabled(app.id)}
   <div class="appinstance" class:closed={!app.opened}>
     <div>
-      <img src={getOriginalIcon(app.id) || app.info.icon} alt="" />
+      <img src={getOriginalIcon(app.id) || getAppIcon(app)} alt="" />
     </div>
     <div class="appname">
       {app.info.name}
@@ -23,6 +24,9 @@
         ArcOS.{app.parentId}.{app.id}
       {:else}
         ArcOS.{app.id}
+      {/if}
+      {#if !app.info.builtin}
+        (by {app.info.author})
       {/if}
     </div>
   </div>

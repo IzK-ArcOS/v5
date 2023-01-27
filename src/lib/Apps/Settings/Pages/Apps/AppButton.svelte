@@ -1,7 +1,7 @@
 <script lang="ts">
   import { AppInfoId } from "../../../../../ts/applogic/apps/AppInfo";
   import { openWindow } from "../../../../../ts/applogic/events";
-  import { getOriginalIcon } from "../../../../../ts/applogic/icon";
+  import { getAppIcon, getOriginalIcon } from "../../../../../ts/applogic/icon";
   import type { App } from "../../../../../ts/applogic/interface";
 
   export let app: App;
@@ -14,7 +14,7 @@
 
 <button class="appbutton" class:disabled={app.disabled} on:click={manage}>
   <img
-    src={getOriginalIcon(app.id) || app.info.icon}
+    src={getOriginalIcon(app.id) || getAppIcon(app)}
     alt={app.info.name}
     class="icon"
   />

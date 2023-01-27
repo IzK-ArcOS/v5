@@ -5,6 +5,7 @@
   import { isDisabled } from "../../ts/applogic/checks";
   import { disableApp, enableApp } from "../../ts/applogic/enabling";
   import { openWindow } from "../../ts/applogic/events";
+  import { getAppIcon } from "../../ts/applogic/icon";
   import { SystemApps } from "../../ts/applogic/imports";
   import type { App } from "../../ts/applogic/interface";
   import { getWindow, WindowStore } from "../../ts/applogic/store";
@@ -43,7 +44,7 @@
 {#if data}
   <div class="name">
     <div>
-      <img src={data.info.icon} alt={data.info.name} />
+      <img src={getAppIcon(data)} alt={data.info.name} />
     </div>
     <div>
       <p class="appname">{data.info.name}</p>

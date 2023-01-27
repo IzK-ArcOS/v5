@@ -1,6 +1,6 @@
 <script lang="ts">
   import { isMinimized } from "../../../../ts/applogic/checks";
-  import { getOriginalIcon } from "../../../../ts/applogic/icon";
+  import { getAppIcon, getOriginalIcon } from "../../../../ts/applogic/icon";
   import type { App } from "../../../../ts/applogic/interface";
   import {
     focusedWindowId,
@@ -47,7 +47,7 @@
   class:activated={app.id == $focusedWindowId}
 >
   <img
-    src={getOriginalIcon(app.id) || app.info.icon}
+    src={getOriginalIcon(app.id) || getAppIcon(app)}
     alt={app.info.name}
     class="icon"
   />

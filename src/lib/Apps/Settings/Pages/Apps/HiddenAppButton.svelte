@@ -1,6 +1,7 @@
 <script lang="ts">
   import { AppInfoId } from "../../../../../ts/applogic/apps/AppInfo";
   import { openWindow } from "../../../../../ts/applogic/events";
+  import { getAppIcon } from "../../../../../ts/applogic/icon";
   import type { App } from "../../../../../ts/applogic/interface";
   import { ArcOSVersion } from "../../../../../ts/env/main";
 
@@ -13,7 +14,7 @@
 </script>
 
 <button class="appbutton" class:disabled={app.disabled} on:click={manage}>
-  <img src={app.info.icon} alt={app.info.name} class="icon" />
+  <img src={getAppIcon(app)} alt={app.info.name} class="icon" />
   <div class="info">
     <p class="title">
       {#if app.parentId}

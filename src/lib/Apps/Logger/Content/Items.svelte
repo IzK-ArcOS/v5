@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { getAppIcon } from "../../../../ts/applogic/icon";
   import type { App } from "../../../../ts/applogic/interface";
   import type { LogItem } from "../../../../ts/console";
   import type { ScopedAppData } from "../../../../ts/userlogic/interfaces";
@@ -23,7 +24,7 @@
 
   {#if !logItems.length}
     <div class="noitems">
-      <img src={app.info.icon} alt={app.info.name} />
+      <img src={getAppIcon(app)} alt={app.info.name} />
       <p>No items found.</p>
     </div>
   {/if}

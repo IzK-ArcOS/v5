@@ -5,6 +5,8 @@
   import DevBar from "./lib/DevBar.svelte";
   import MobileBlock from "./lib/MobileBlock.svelte";
   import Spinner from "./lib/Spinner.svelte";
+  import { assignHooks } from "./ts/applogic/aftermarket/hooks";
+  import { assignHookUpdateListeners } from "./ts/applogic/aftermarket/hooks/updaters";
   import { Log, LogLevel } from "./ts/console";
   import { assignDevMutators } from "./ts/devmode/mutators";
   import { DevModeOverride, updateDevModeProps } from "./ts/devmode/props";
@@ -31,8 +33,9 @@
     dmTriggers.unshift(CurrentState);
 
     updateDevModeProps();
-
     assignDevMutators();
+    assignHooks();
+    assignHookUpdateListeners();
   });
 
   console.warn = (content: string, ...a: any) =>
@@ -58,4 +61,4 @@
   <BugReport />
 </div>
 <MobileBlock />
-<Spinner height={25}/>
+<Spinner height={25} />
