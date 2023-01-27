@@ -8,6 +8,7 @@ import CustomProfilePicture from "../../../lib/Apps/Settings/Pages/Account/Overl
 import ProfilePictureView from "../../../lib/Apps/Settings/Pages/Account/Overlays/ProfilePictureView.svelte";
 import UserDataExplorer from "../../../lib/Apps/Settings/Pages/Account/Overlays/UserDataExplorer.svelte";
 import ChangePassword from "../../../lib/Apps/Settings/Pages/Account/Overlays/ChangePassword.svelte";
+import ChangeUsername from "../../../lib/Apps/Settings/Pages/Account/Overlays/ChangeUsername.svelte";
 
 const ProfilePictureOverlays = {
   pfpSel: {
@@ -61,6 +62,16 @@ const AccountPageOverlays = {
     },
     content: ChangePassword,
     size: { w: 370, h: 195 },
+    show: false,
+  },
+  changeUsername: {
+    info: {
+      name: "Change Username",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: ChangeUsername,
+    size: { w: 370, h: 155 },
     show: false,
   },
 };

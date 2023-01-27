@@ -16,6 +16,15 @@ div.actioncenter {
   overflow: hidden;
 }
 
+div[class*="tb-vertical"] div.actioncenter {
+  height: calc(100% - 20px);
+}
+
+div[class*="tb-vertical"] div.actioncenter.docked {
+  height: 100%;
+  border-right: unset;
+}
+
 div.actioncenter.docked {
   height: calc(100% - 45px);
   top: 0px;
@@ -87,6 +96,14 @@ div.actioncenter:not(.opened) * {
 div.actioncenter.opened {
   right: 10px;
   opacity: 1;
+}
+
+div.tb-vertical-right div.actioncenter.opened.docked {
+  right: 45px;
+}
+
+div.tb-vertical-right div.actioncenter.opened {
+  right: 65px;
 }
 
 div.actioncenter.docked.opened {

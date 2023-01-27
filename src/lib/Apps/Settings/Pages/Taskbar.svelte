@@ -38,6 +38,16 @@
     bind:checked={$UserData.sh.taskbar.docked}
   />
 </OptionSection>
+<OptionSection
+  title="Taskbar position"
+  context="Where do you want the taskbar?"
+>
+  <select bind:value={$UserData.sh.taskbar.pos}>
+    <option value="vertical">Left</option>
+    <option value="">Bottom</option>
+    <option value="vertical-right">Right</option>
+  </select>
+</OptionSection>
 <OptionSection title="Small start menu" context="Make the start menu smaller">
   <input
     type="checkbox"

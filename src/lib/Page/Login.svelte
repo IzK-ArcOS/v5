@@ -25,8 +25,6 @@
     if (!$CurrentLoginState)
       applyLoginState(remembered ? "autologin" : "selector");
 
-    show = true;
-
     if (
       remembered &&
       $CurrentLoginState.key != "shutdown" &&
@@ -34,7 +32,16 @@
     ) {
       const userdata = await loginUsingCreds(remembered);
 
-      if (!userdata) return (show = true);
+      if (!userdata) {
+        applyLoginState("selector");
+
+        localStorage.removeItem("arcos-remembered-token");
+        show = true;
+
+        return;
+      }
+
+      show = true;
 
       UserData.set(userdata);
 

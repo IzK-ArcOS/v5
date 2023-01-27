@@ -5,7 +5,7 @@ export interface UserData {
     taskbar: {
       centered: boolean; //done
       labels: boolean; //done
-      pos: "top" | "bottom";
+      pos: "vertical" | "" | "vertical-right";
       docked: boolean; //done
     };
 
@@ -61,7 +61,7 @@ export const defaultUserData: UserData = {
     taskbar: {
       centered: false,
       labels: false,
-      pos: "bottom",
+      pos: "",
       docked: true,
     },
     window: {

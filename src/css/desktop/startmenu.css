@@ -1,3 +1,21 @@
+div[class*="tb-vertical"] div.startmenu {
+  top: 10px;
+  left: 65px;
+}
+
+div[class*="tb-vertical-right"] div.startmenu {
+  left: unset !important;
+  right: 65px;
+}
+
+div[class*="tb-vertical"].tbdocked div.startmenu {
+  left: 55px;
+}
+
+div[class*="tb-vertical-right"].tbdocked div.startmenu {
+  right: 55px;
+}
+
 div.startframe {
   visibility: hidden;
   opacity: 0;

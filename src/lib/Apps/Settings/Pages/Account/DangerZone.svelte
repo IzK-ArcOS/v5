@@ -8,22 +8,26 @@
   import OptionSection from "../../OptionSection.svelte";
   import { ConnectedServer } from "../../../../../ts/api/main";
   import { showOverlay } from "../../../../../ts/window/overlay";
+  import { createOverlayableError } from "../../../../../ts/errorlogic/overlay";
 
   function deleteAccount() {
-    errorMessage(
-      "Delete ArcOS Account",
-      "Are you sure you want to delete your ArcOS account? This will delete any and all user data associated with this account. These changes cannot be reverted.",
-      warning,
-      "SettingsApp",
+    createOverlayableError(
       {
-        caption: "Proceed",
-        action: () => deleteUser($UserName),
+        title: "Delete ArcOS Account",
+        message:
+          "Are you sure you want to delete your ArcOS account? This will delete any and all user data associated with this account. These changes cannot be reverted.",
+        image: warning,
+        buttons: [
+          { action: () => deleteUser($UserName), caption: "Proceed" },
+          { action: () => {}, caption: "Back to safety" },
+        ],
       },
-      {
-        caption: "Back to safety",
-        action: () => {},
-      }
+      "SettingsApp"
     );
+  }
+
+  function changeName() {
+    showOverlay("changeUsername", "SettingsApp");
   }
 
   function changePswd() {
@@ -34,13 +38,13 @@
 <OptionSection title="Delete account" context="Delete your ArcOS account">
   <button on:click={deleteAccount}> Delete account... </button>
 </OptionSection>
-<OptionSection
-  title="Change username"
-  context="Migrate your userdata to another username."
->
-  <button disabled> Change... </button>
-</OptionSection>
 {#if $ConnectedServer}
+  <OptionSection
+    title="Change username"
+    context="Migrate your userdata to another username."
+  >
+    <button on:click={changeName}> Change... </button>
+  </OptionSection>
   <OptionSection
     title="Change password"
     context="Change the password you use to log in."

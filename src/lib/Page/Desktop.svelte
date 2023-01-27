@@ -52,7 +52,8 @@
 
 {#if $UserData && $UserName && !$loggingOff}
   <div
-    class="desktop theme-{$UserData.sh.desktop.theme} fullscreen {classes}"
+    class="desktop theme-{$UserData.sh.desktop.theme} tb-{$UserData.sh.taskbar
+      .pos} fullscreen {classes}"
     class:show
   >
     <Wallpaper />

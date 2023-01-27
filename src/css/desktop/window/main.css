@@ -49,10 +49,6 @@ window.custom div.body {
 }
 
 .window.max {
-  top: 0px !important;
-  left: 0px !important;
-  width: 100% !important;
-  height: 100% !important;
   max-width: unset !important;
   max-height: unset !important;
   min-width: unset !important;
@@ -61,6 +57,29 @@ window.custom div.body {
   border: transparent 1px solid;
   resize: none !important;
   transition: all 0.2s;
+}
+
+div.desktop:not([class*="tb-vertical"]) .window.max {
+  top: 0px !important;
+  left: 0px !important;
+  width: 100% !important;
+  height: calc(100% - 45px) !important;
+}
+
+div.desktop.tb-vertical .window.max {
+  top: 0px !important;
+  left: 65px !important;
+}
+
+div.desktop[class*="tb-vertical"] .window.max {
+  height: 100% !important;
+  width: calc(100% - 65px) !important;
+}
+
+div.desktop.tb-vertical-right .window.max {
+  left: 0px !important;
+  right: unset !important;
+  top: 0px !important;
 }
 
 .window.visible {
@@ -110,7 +129,16 @@ div.tbdocked .window.max {
   height: calc(100% - 45px) !important;
 }
 
-div.desktop:not(.tbdocked) .window.max {
+div.tbdocked.tb-vertical .window.max {
+  min-width: calc(100% - 45px) !important;
+  left: 45px !important;
+}
+
+div.tbdocked.tb-vertical-right .window.max {
+  min-width: calc(100% - 45px) !important;
+}
+
+div.desktop:not(.tbdocked):not([class*="tb-vertical"]) .window.max {
   height: calc(100% - 65px) !important;
 }
 

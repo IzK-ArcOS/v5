@@ -1,5 +1,5 @@
 import { get } from "svelte/store";
-import { UserToken } from "../userlogic/interfaces";
+import { UserName, UserToken } from "../userlogic/interfaces";
 import type { Cred } from "./interface";
 import { apiCall, ConnectedServer } from "./main";
 
@@ -35,6 +35,36 @@ export async function changePassword(
   localStorage.setItem(
     "arcos-remembered-token",
     btoa(`${username}:${newPswd}`)
+  );
+
+  return req.valid;
+}
+
+export async function changeUsername(old: string, newName: string) {
+  if (get(UserName) != old) return false;
+
+  const req = await apiCall(
+    get(ConnectedServer),
+    "user/rename",
+    { newname: btoa(newName) },
+    get(UserToken)
+  );
+
+  UserName.set(newName);
+
+  if (!req.valid) return false;
+
+  const remembed = localStorage.getItem("arcos-remembered-token");
+
+  if (!remembed || !req.valid) return req.valid;
+
+  const rememberedUsername = atob(remembed).split(":")[0];
+
+  if (rememberedUsername != old) return req.valid;
+
+  localStorage.setItem(
+    "arcos-remembered-token",
+    btoa(`${newName}:${atob(remembed).split(":")[1]}`)
   );
 
   return req.valid;

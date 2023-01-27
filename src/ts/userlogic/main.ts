@@ -111,7 +111,11 @@ export async function deleteUser(name: string) {
 
   delete users[name];
 
-  return setUsers(users);
+  setUsers(users);
+
+  if (get(CurrentState).name == "Desktop") logoff();
+
+  return;
 }
 
 export async function resetUser(name: string) {
