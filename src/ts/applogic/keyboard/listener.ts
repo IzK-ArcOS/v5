@@ -25,6 +25,8 @@ export function stopKeyListener() {
 }
 
 function processEvent(e: KeyboardEvent) {
+  if (!e.key) return;
+
   unfocusActiveElement();
 
   if (get(CurrentState).key != "desktop") return;

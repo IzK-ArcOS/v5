@@ -1,4 +1,8 @@
 import { ConnectedServer } from "../../api/main";
+import {
+  FileBrowserCurrentDir,
+  FileBrowserSelectedFilename,
+} from "../../applogic/apps/FileBrowser/main";
 import { currentSettingsPage } from "../../applogic/apps/SettingsApp/main";
 import { WindowStore } from "../../applogic/store";
 import { ErrorWindowStore } from "../../errorlogic/app";
@@ -19,4 +23,6 @@ export const dmTriggers: DevModeTriggers = [
   NotificationStore,
   currentSettingsPage,
   ErrorWindowStore,
+  FileBrowserSelectedFilename,
+  FileBrowserCurrentDir,
 ];

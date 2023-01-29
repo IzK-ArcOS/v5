@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 import { generateCredToken } from "./cred";
-import type { Cred, Params } from "./interface";
+import type { ApiResponse, Cred, DefaultResponse, Params } from "./interface";
 import { generateParamStr } from "./params";
 
 export const ConnectedServer = writable<string>(null);
@@ -12,7 +12,7 @@ export async function apiCall(
   tokenAuth?: string,
   credAuth?: Cred,
   JsonBody?: string
-) {
+): Promise<DefaultResponse | any> {
   const credToken = generateCredToken(credAuth);
   const init: RequestInit = {
     headers: {

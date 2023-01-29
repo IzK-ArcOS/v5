@@ -1,4 +1,9 @@
 import { ConnectedServer } from "../../api/main";
+import {
+  FileBrowserCurrentDir,
+  FileBrowserDirContents,
+  FileBrowserSelectedFilename,
+} from "../../applogic/apps/FileBrowser/main";
 import { currentSettingsPage } from "../../applogic/apps/SettingsApp/main";
 import { OpenedStore, WindowStore } from "../../applogic/store";
 import { log } from "../../console";
@@ -49,4 +54,10 @@ export const dmMutators: DevModeMutators = [
     fallback: "unopened",
   },
   { caption: "Log", store: log, value: "length", suffix: "entries" },
+  { caption: "fbCurrent", store: FileBrowserCurrentDir },
+  {
+    caption: "fbSelected",
+    store: FileBrowserSelectedFilename,
+    fallback: "none",
+  },
 ];

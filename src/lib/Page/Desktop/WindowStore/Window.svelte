@@ -49,6 +49,8 @@
 
   WindowStore.subscribe(() => {
     if (app.opened) dragWindow(app, window, titlebar);
+
+    update();
   });
 </script>
 

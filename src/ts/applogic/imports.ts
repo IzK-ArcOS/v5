@@ -1,3 +1,5 @@
+import { get } from "svelte/store";
+import { ConnectedServer } from "../api/main";
 import { Log, LogLevel } from "../console";
 import { AppInfo } from "./apps/AppInfo";
 import { AppManager } from "./apps/AppManager";
@@ -13,6 +15,8 @@ import { openWindow } from "./events";
 import type { App } from "./interface";
 import { loadWindow } from "./load";
 import { updateStores } from "./store";
+import { FileBrowserApp } from "./apps/FileBrowser";
+import { TextEditor } from "./apps/TextEditor";
 
 export const DefaultApps: { [key: string]: App } = {
   TestApp: TestApp,
@@ -25,6 +29,8 @@ export const DefaultApps: { [key: string]: App } = {
   DidYouKnow,
   LoggerApp,
   CalculatorApp,
+  FileManager: FileBrowserApp,
+  TextEditor,
 };
 
 export const SystemApps: string[] = [
@@ -34,6 +40,7 @@ export const SystemApps: string[] = [
   "PfpSelector",
   "AppInfo",
   "LoggerApp",
+  "FileManager",
 ];
 
 export async function importDefault(open = false) {
@@ -46,6 +53,22 @@ export async function importDefault(open = false) {
   const entries = Object.entries(DefaultApps);
 
   for (let i = 0; i < entries.length; i++) {
+    if (!get(ConnectedServer) && entries[i][1].info.onlineOnly) {
+      Log({
+        msg: `Not importing "${entries[i][0]}": it requires an ArcAPI.`,
+        source: `imports.ts: importDefault`,
+        level: LogLevel.warn,
+      });
+
+      continue;
+    }
+
+    Log({
+      msg: `Importing default application "${entries[i][0]}"...`,
+      source: `imports.ts: importDefault`,
+      level: LogLevel.info,
+    });
+
     await loadWindow(...entries[i]);
 
     if (open) openWindow(entries[i][0]);

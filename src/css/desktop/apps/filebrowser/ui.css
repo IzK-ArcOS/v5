@@ -1,0 +1,24 @@
+window#FileManager div.body {
+  display: flex;
+  padding: 0;
+}
+
+window#FileManager div.body div.sidebar {
+  width: 200px;
+}
+
+window#FileManager div.content {
+  position: absolute;
+  width: calc(100% - 200px);
+  height: 100%;
+  box-sizing: border-box;
+  background-color: var(--win-bg);
+  top: 0px;
+  right: 0px;
+  margin-left: 0px;
+  transition: all 0.3s, margin-left 0s;
+  overflow-y: scroll;
+  border-left: var(--win-border);
+  padding: 10px;
+  padding-top: 35px;
+}

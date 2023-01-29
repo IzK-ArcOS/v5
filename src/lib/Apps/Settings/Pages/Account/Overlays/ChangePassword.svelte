@@ -1,6 +1,9 @@
 <script lang="ts">
+  import passwordIcon from "../../../../../../assets/apps/settings/password.svg";
+  import "../../../../../../css/desktop/apps/settings/account/changePswd.css";
   import { changePassword } from "../../../../../../ts/api/cred";
   import type { App } from "../../../../../../ts/applogic/interface";
+  import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
   import {
     UserData,
     UserName,
@@ -8,10 +11,6 @@
   import { getProfilePicture } from "../../../../../../ts/userlogic/pfp";
   import { hideOverlay } from "../../../../../../ts/window/overlay";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
-  import "../../../../../../css/desktop/apps/settings/account/changePswd.css";
-  import { errorMessage } from "../../../../../../ts/errorlogic/main";
-  import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
-  import passwordIcon from "../../../../../../assets/apps/settings/password.svg";
 
   let img = "";
 

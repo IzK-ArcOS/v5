@@ -20,6 +20,15 @@ export interface App {
   overlays?: { [key: string]: OverlayableApp };
   errorOverlays?: OverlayableError[];
   children?: { [key: string]: App };
+  fileMimes?: string[];
+  openedFile?: ArcFile;
+}
+
+export interface ArcFile {
+  name: string;
+  path: string;
+  data: ArrayBuffer;
+  mime: string;
 }
 
 export interface OverlayableError {
@@ -49,6 +58,7 @@ export interface GeneralAppInfo {
   titleSuffix?: string;
   icon: string;
   custom?: boolean;
+  onlineOnly?: boolean;
 }
 
 export interface OverlayableAppInfo {
@@ -98,6 +108,7 @@ export interface AppEvents {
   minimize?(app: App): void;
   enterFullscreen?(app: App): void;
   leaveFullscreen?(app: App): void;
+  openFile?(app: App): void;
   keyboardShortcuts?: AppKeyCombinations;
 }
 
