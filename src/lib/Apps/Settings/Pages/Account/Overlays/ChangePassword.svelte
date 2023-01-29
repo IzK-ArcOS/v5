@@ -11,7 +11,7 @@
   import "../../../../../../css/desktop/apps/settings/account/changePswd.css";
   import { errorMessage } from "../../../../../../ts/errorlogic/main";
   import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
-  import usericon from "../../../../../../assets/apps/settings/account.svg";
+  import passwordIcon from "../../../../../../assets/apps/settings/password.svg";
 
   let img = "";
 
@@ -45,7 +45,7 @@
           message:
             "An error occured while changing your password. Please make sure the entered information is correct, and then try again.",
           buttons: [{ caption: "OK", action: reset }],
-          image: usericon,
+          image: passwordIcon,
         },
         app.id
       );
@@ -55,7 +55,7 @@
         title: "Password changed.",
         message: "Your password has been updated successfully.",
         buttons: [{ caption: "OK", action: closeThis }],
-        image: usericon,
+        image: passwordIcon,
       },
       app.id
     );
