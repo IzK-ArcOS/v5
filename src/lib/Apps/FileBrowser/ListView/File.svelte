@@ -2,7 +2,7 @@
   import type { UserFile } from "../../../../ts/api/interface";
   import { FileBrowserSelectedFilename } from "../../../../ts/applogic/apps/FileBrowser/main";
   import icon from "../../../../assets/apps/filemanager/file.svg";
-  import { openWith } from "../../../../ts/api/fs/open";
+  import { findAppToOpen, openWith } from "../../../../ts/api/fs/open";
   import { readFile } from "../../../../ts/api/fs/file";
 
   export let file: UserFile;
@@ -12,13 +12,14 @@
   }
 
   async function open() {
-    if (file.mime == "text/plain; charset=utf-8")
-      openWith("TextEditor", {
-        data: await readFile(file.scopedPath),
-        name: file.filename,
-        path: file.scopedPath,
-        mime: file.mime,
-      });
+    const app = findAppToOpen(file.mime)[0];
+
+    openWith(app, {
+      data: await readFile(file.scopedPath),
+      name: file.filename,
+      path: file.scopedPath,
+      mime: file.mime,
+    });
   }
 </script>
 

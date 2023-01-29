@@ -33,6 +33,11 @@
     files = currentDir.files;
     dirs = currentDir.directories;
   });
+
+  FileBrowserDirContents.subscribe((v) => {
+    dirs = v.directories;
+    files = v.files;
+  });
 </script>
 
 <div class="sidebar" />

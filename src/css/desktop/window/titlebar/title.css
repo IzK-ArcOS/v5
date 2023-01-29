@@ -3,6 +3,10 @@ window div.titlebar p.title {
   border-radius: 5px;
   padding: 2px 5px;
   background-color: var(--win-bg);
+  max-width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 window div.titlebar p.title img.icon {

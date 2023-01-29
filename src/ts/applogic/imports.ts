@@ -17,6 +17,7 @@ import { loadWindow } from "./load";
 import { updateStores } from "./store";
 import { FileBrowserApp } from "./apps/FileBrowser";
 import { TextEditor } from "./apps/TextEditor";
+import { ImageViewer } from "./apps/ImageViewer";
 
 export const DefaultApps: { [key: string]: App } = {
   TestApp: TestApp,
@@ -31,6 +32,7 @@ export const DefaultApps: { [key: string]: App } = {
   CalculatorApp,
   FileManager: FileBrowserApp,
   TextEditor,
+  ImageViewer,
 };
 
 export const SystemApps: string[] = [

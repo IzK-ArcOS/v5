@@ -1,0 +1,11 @@
+window#ImageViewer div.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+window#ImageViewer div.body img {
+  min-height: 340px;
+  height: 70%;
+  image-rendering: optimizeSpeed;
+}

@@ -1,14 +1,14 @@
 import { writable } from "svelte/store";
-import logo from "../../../assets/apps/apppoker.svg";
-import AppInfoSvelte from "../../../lib/Apps/AppInfo.svelte";
+import logo from "../../../assets/apps/imageviewer.svg";
+import ImageView from "../../../lib/Apps/ImageView.svelte";
 import TextView from "../../../lib/Apps/TextView.svelte";
 import type { App } from "../interface";
 import { setTitleSuffix } from "../title";
 
-export const TextEditor: App = {
+export const ImageViewer: App = {
   info: {
-    name: "Editor",
-    description: "Edit text files",
+    name: "Image",
+    description: "Display images from the ArcAPI",
     builtin: true,
     version: "1.0.0",
     author: "Izaak Kuipers",
@@ -16,28 +16,33 @@ export const TextEditor: App = {
     icon: logo,
     onlineOnly: true,
   },
-  size: { w: 700, h: 550 },
+  size: { w: 500, h: 400 },
   pos: { x: 30, y: 40 },
-  minSize: { w: 400, h: 300 },
-  maxSize: { w: 1000, h: 800 },
+  minSize: { w: 500, h: 400 },
+  maxSize: { w: 1000, h: 700 },
   controls: { min: true, max: true, cls: true },
   state: {
     headless: false,
     resizable: true,
     windowState: { min: false, max: false, fll: false },
   },
-  content: TextView,
-  glass: false,
-  fileMimes: ["text/plain; charset=utf-8"],
+  content: ImageView,
+  glass: true,
+  fileMimes: [
+    "image/png",
+    "image/jpeg",
+    "image/svg+xml",
+    "image/vnd.microsoft.icon",
+    "image/bmp",
+    "image/jpeg",
+    "image/webp",
+    "image/gif",
+  ],
   events: {
     openFile(app: App) {
       if (!app.openedFile) return;
 
-      setTitleSuffix(` - ${app.openedFile.path}`, app.id);
-
-      console.log(
-        URL.createObjectURL(new Blob([new Uint8Array(app.openedFile.data)]))
-      );
+      setTitleSuffix(` - ${app.openedFile.name}`, app.id);
     },
   },
 };

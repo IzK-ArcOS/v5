@@ -66,11 +66,12 @@ div.startmenu div.left {
   border-top-right-radius: 0;
   padding: 15px;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
 div.startmenu div.left button.item {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   border-radius: var(--win-border-rad);
   margin-bottom: 5px;
   text-align: left;
@@ -86,7 +87,7 @@ div.startmenu div.left button.item * {
 
 div.startmenu div.left button.item img.icon {
   height: 24px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 div.startmenu div.left button.item:hover {

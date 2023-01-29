@@ -6,8 +6,8 @@ import { generateParamStr } from "../params";
 
 export async function readFile(path: string): Promise<ArrayBuffer> {
   Log({
-    source: "fs/directory.ts: getDirectory",
-    msg: `Requesting directory contents of "${path}" from ArcAPI`,
+    source: "fs/file.ts: readFile",
+    msg: `Requesting file contents of "${path}" from ArcAPI`,
     level: LogLevel.info,
   });
 
@@ -27,9 +27,7 @@ export async function readFile(path: string): Promise<ArrayBuffer> {
 
   if (req.status != 200) return defaultValue;
 
-  const x = await (await req).text();
+  const x = await (await req).blob();
 
-  const enc = new TextEncoder();
-
-  return enc.encode(x) as ArrayBuffer;
+  return await x.arrayBuffer();
 }
