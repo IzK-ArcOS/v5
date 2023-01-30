@@ -60,3 +60,16 @@ window#FileManager div.topbar button.material-icons-round {
   margin: 0;
   margin-right: 5px;
 }
+
+window#FileManager div.topbar button.material-icons-round.parentdir {
+  background-color: transparent;
+  font-size: 18px;
+}
+
+window#FileManager div.topbar button.material-icons-round.parentdir:hover {
+  background-color: var(--button-glass-bg);
+}
+
+window#FileManager div.topbar button.material-icons-round.parentdir:active {
+  background-color: var(--button-glass-active-bg);
+}

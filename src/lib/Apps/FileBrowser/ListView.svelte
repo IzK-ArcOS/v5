@@ -10,15 +10,9 @@
 
   export let files: UserFile[] = [];
   export let dirs: PartialUserDir[] = [];
-
-  async function parentDir() {
-    fbClass.goToDirectory(getParentDirectory($FileBrowserCurrentDir));
-  }
 </script>
 
-{$FileBrowserCurrentDir}
 <div class="listview">
-  <button class="item" on:dblclick={parentDir}>Parent</button>
   {#each dirs as dir}
     <Dir {dir} />
   {/each}

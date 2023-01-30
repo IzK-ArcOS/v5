@@ -55,7 +55,7 @@ class FileBrowserClass {
 
     FileBrowserCurrentDir.set(path);
 
-    this.refresh();
+    await this.refresh();
 
     FileBrowserSelectedFilename.set(null);
   }
