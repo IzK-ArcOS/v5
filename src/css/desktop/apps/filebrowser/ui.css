@@ -1,24 +1,38 @@
-window#FileManager div.body {
-  display: flex;
+@import url("./ui/topbar.css");
+window#FileManager > div.body {
   padding: 0;
+  z-index: 1;
 }
 
-window#FileManager div.body div.sidebar {
-  width: 200px;
-}
-
-window#FileManager div.content {
+window#FileManager > div.body div.content {
   position: absolute;
-  width: calc(100% - 200px);
-  height: 100%;
+  width: 100%;
+  height: calc(100% - 60px);
   box-sizing: border-box;
   background-color: var(--win-bg);
-  top: 0px;
+  top: 70px;
   right: 0px;
   margin-left: 0px;
   transition: all 0.3s, margin-left 0s;
   overflow-y: scroll;
-  border-left: var(--win-border);
   padding: 10px;
-  padding-top: 35px;
+}
+
+window#FileManager > div.titlebar {
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+window#FileManager div.topbar {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  width: 100%;
+  height: 40px;
+  z-index: 2;
+  padding: 10px;
+  padding-top: 0;
+  box-sizing: border-box;
+  display: flex;
+  border-bottom: var(--win-border);
 }

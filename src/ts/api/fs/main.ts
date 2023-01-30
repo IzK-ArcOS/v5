@@ -6,8 +6,6 @@ import { apiCall, ConnectedServer } from "../main";
 export function getParentDirectory(p: string) {
   const split = p.split("/");
 
-  console.log(split);
-
   if (p == "./") return p;
   if (!split.length) return p;
 

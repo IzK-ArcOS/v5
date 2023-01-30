@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"); /* Source Code Pro, Inter */
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Round"); /* Material Icons */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Round"); /* Material Icons Round */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"); /* Material Icons Outlined */
 
 .center-absolute {
   position: absolute;
@@ -24,7 +25,7 @@
   height: 100%;
 }
 
-* {
+div#app *:not(.window) {
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
@@ -57,8 +58,4 @@ div.app.floating {
   width: calc(100% - 340px);
   height: calc(100% - 35px);
   overflow: hidden;
-}
-
-body {
-  background-color: #111;
 }

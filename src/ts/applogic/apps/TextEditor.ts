@@ -34,10 +34,6 @@ export const TextEditor: App = {
       if (!app.openedFile) return;
 
       setTitleSuffix(` - ${app.openedFile.path}`, app.id);
-
-      console.log(
-        URL.createObjectURL(new Blob([new Uint8Array(app.openedFile.data)]))
-      );
     },
   },
 };

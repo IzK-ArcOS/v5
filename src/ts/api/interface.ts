@@ -1,3 +1,5 @@
+import type { ArcFile } from "../applogic/interface";
+
 export interface Cred {
   username: string;
   password: string;
@@ -51,6 +53,14 @@ export interface DefaultResponse {
     title: string;
     message: string;
   };
+}
+
+export interface UserFileLoader {
+  name: string;
+  description: string;
+  icon: string;
+  loader: (file: ArcFile) => void;
+  extensions: string[];
 }
 
 export type ApiResponse = Promise<DefaultResponse>;

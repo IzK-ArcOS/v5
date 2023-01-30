@@ -1,0 +1,19 @@
+window#FileManager div.titlebar p.title {
+  max-width: 190px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+window#FileManager div.titlebar {
+  padding: 5px !important;
+  height: 30px !important;
+}
+
+window#FileManager.lefttb div.titlebar div.controls {
+  left: 10px !important;
+}
+
+window#FileManager div.body:not(.overlay) {
+  height: calc(100% - 30px) !important;
+  margin-top: 30px !important;
+}

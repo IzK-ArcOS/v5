@@ -7,7 +7,7 @@ import { setTitleSuffix } from "../title";
 
 export const ImageViewer: App = {
   info: {
-    name: "Image",
+    name: "Image Viewer",
     description: "Display images from the ArcAPI",
     builtin: true,
     version: "1.0.0",

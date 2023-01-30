@@ -1,11 +1,35 @@
 import { get, writable } from "svelte/store";
+import folder from "../../../../assets/apps/filemanager/folder.svg";
 import { getDirectory } from "../../../api/fs/directory";
-import { defaultDirectory, UserDirectory } from "../../../api/interface";
+import {
+  defaultDirectory,
+  UserDirectory,
+  UserFile,
+} from "../../../api/interface";
 import { Log, LogLevel } from "../../../console";
+import { createOverlayableError } from "../../../errorlogic/overlay";
 
 export let FileBrowserCurrentDir = writable<string>("./");
 export let FileBrowserDirContents = writable<UserDirectory>(defaultDirectory);
 export let FileBrowserSelectedFilename = writable<string>(null);
+export let FileBrowserOpeningFile = writable<UserFile>(null);
+export let FileBrowserOpenCancelled = writable<boolean>(false);
+
+FileBrowserOpenCancelled.subscribe((v) => {
+  if (!v) return;
+
+  createOverlayableError(
+    {
+      title: "Open cancelled",
+      message: "The opening procedure was cancelled by the user.",
+      buttons: [{ caption: "OK", action() {} }],
+      image: folder,
+    },
+    "FileManager"
+  );
+
+  FileBrowserOpenCancelled.set(false);
+});
 
 class FileBrowserClass {
   public async refresh() {

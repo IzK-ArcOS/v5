@@ -25,12 +25,12 @@
 <div class="apps">
   <p>Here you can manage ArcOS applications.</p>
 
-  <Section collapsible collapsed={false} header="Normal applications">
+  <Section collapsible collapsed={false} header="Regular apps">
     {#each visible as app}
       <AppButton {app} />
     {/each}
   </Section>
-  <Section collapsible header="System applications">
+  <Section collapsible header="Hidden or system apps">
     {#each hidden as app}
       <HiddenAppButton {app} />
     {/each}

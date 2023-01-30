@@ -1,5 +1,6 @@
 import { errorMessage } from "../../errorlogic/main";
 import { makeNotification } from "../../notiflogic/main";
+import type { ArcFile } from "../interface";
 import type { ExternalAppLoaderContent } from "./interface";
 
 export function loadExternalApp(info: ExternalAppLoaderContent) {
@@ -22,4 +23,30 @@ export function loadExternalApp(info: ExternalAppLoaderContent) {
     return;
 
   document.body.append(scriptTag, styleTag);
+}
+
+export function loadAppFile(data: ArcFile) {
+  const text = String.fromCharCode.apply(
+    null,
+    new Uint8Array(data.data)
+  ) as string;
+
+  console.log(text);
+
+  let json: ExternalAppLoaderContent;
+
+  try {
+    json = JSON.parse(text);
+  } catch {
+    errorMessage(
+      "Unable to load app from file",
+      "The imported file could not be parsed as a valid JSON object.",
+      null,
+      null,
+      { caption: "OK", action() {} }
+    );
+    return false;
+  }
+
+  loadExternalApp(json);
 }

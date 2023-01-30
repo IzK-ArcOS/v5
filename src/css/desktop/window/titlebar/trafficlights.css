@@ -13,6 +13,14 @@ window
   + button[class*="traffic"] {
   margin-left: 8px;
 }
+/* 
+window.lefttb div.titlebar div.controls button[class*="traffic"]:first-child {
+  margin-left: 5px;
+} */
+
+div.titlebar div.controls button[class*="traffic"]:last-child {
+  margin-right: 5px;
+}
 
 window div.titlebar div.controls button[class*="traffic"]:disabled {
   background-color: var(--button-active-bg);

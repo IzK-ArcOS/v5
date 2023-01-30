@@ -16,6 +16,6 @@ div.desktop.show {
   opacity: 1;
 }
 
-*:not(.material-icons-round) {
+*:not([class*="material-icons"]) {
   font-family: "Inter", sans-serif;
 }

@@ -29,6 +29,7 @@ export interface ArcFile {
   path: string;
   data: ArrayBuffer;
   mime: string;
+  anymime?: boolean;
 }
 
 export interface OverlayableError {

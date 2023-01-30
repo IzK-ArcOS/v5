@@ -7,4 +7,9 @@ window#TextEditor textarea {
   border: none;
   color: var(--fg);
   font-family: "Source Code Pro", monospace;
+  padding: 0;
+}
+
+window#TextEditor div.body {
+  padding: 5px;
 }

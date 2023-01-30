@@ -1,0 +1,52 @@
+window.overlay#openingFile div.openingfile-wrapper {
+  display: flex;
+  margin: 10px;
+  box-sizing: border-box;
+}
+window.overlay#openingFile div.openingfile-wrapper div.icon {
+  margin-right: 15px;
+}
+
+window.overlay#openingFile div.openingfile-wrapper div.caption {
+  max-width: 260px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+window.overlay#openingFile div.openingfile-wrapper div {
+  height: 32px;
+  line-height: 32px;
+  box-sizing: border-box;
+}
+
+window.overlay#openingFile div.openingfile-wrapper div.icon img {
+  height: 32px;
+}
+
+window.overlay#openingFile div.openingfile-wrapper div.spin {
+  margin-left: auto;
+}
+window.overlay#openingFile button.cancel {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+window.overlay#openingFile table {
+  width: calc(100% - 75px);
+  margin: 5px;
+}
+
+window.overlay#openingFile table td:not(.key) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 110px;
+  padding-right: 30px;
+}
+
+window.overlay#openingFile table td.key {
+  max-width: 35px;
+  font-weight: bold;
+}

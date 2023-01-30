@@ -13,7 +13,7 @@
   }
 
   function openThis() {
-    openWith(app.id, file);
+    openWith(app.id, file, file.anymime);
 
     setTimeout(() => {
       OpenWithFile.set(null);

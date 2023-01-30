@@ -12,7 +12,9 @@
   import { WindowStore } from "../../ts/applogic/store";
   import type { ScopedAppData } from "../../ts/userlogic/interfaces";
   import ListView from "./FileBrowser/ListView.svelte";
+  import PathCrumbs from "./FileBrowser/PathCrumbs.svelte";
   import TileView from "./FileBrowser/TileView.svelte";
+  import TopBar from "./FileBrowser/TopBar.svelte";
 
   let files: UserFile[] = [];
   let dirs: PartialUserDir[] = [];
@@ -40,7 +42,7 @@
   });
 </script>
 
-<div class="sidebar" />
+<TopBar />
 <div class="content">
   {#if tiledMode}
     <TileView {files} {dirs} />

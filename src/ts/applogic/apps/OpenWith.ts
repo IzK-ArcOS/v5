@@ -18,14 +18,14 @@ export const OpenWithApp: App = {
   pos: { x: 30, y: 40 },
   minSize: { w: 450, h: 550 },
   maxSize: { w: 450, h: 550 },
-  controls: { min: false, max: false, cls: true },
+  controls: { min: false, max: false, cls: false },
   state: {
-    headless: false,
+    headless: true,
     resizable: false,
-    windowState: { min: false, max: false, fll: false },
+    windowState: { min: false, max: false, fll: true },
   },
   content: OpenWith,
-  glass: false,
+  glass: true,
   events: {
     close() {
       OpenWithFile.set(null);

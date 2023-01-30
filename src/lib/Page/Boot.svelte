@@ -23,8 +23,6 @@
   let errored = false;
 
   onMount(async () => {
-    LoggerApp.state.windowState.fll = true;
-    
     status = "&nbsp;";
 
     t1 = setTimeout(fadeIn, 500);
@@ -66,6 +64,7 @@
             caption: "View logs",
             action: () => {
               errored = true;
+              LoggerApp.state.windowState.fll = true;
             },
           },
         },

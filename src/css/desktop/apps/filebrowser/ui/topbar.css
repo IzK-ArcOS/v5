@@ -1,0 +1,55 @@
+window#FileManager div.topbar div.addressbar {
+  background-color: var(--button-glass-bg);
+  width: calc(100% - 300px);
+  height: 30px;
+  padding: 0;
+  border-radius: var(--button-border-rad);
+}
+
+window#FileManager div.topbar div.addressbar button {
+  background-color: transparent;
+  margin: 0;
+  padding: 0 10px;
+  line-height: 30px;
+  position: relative;
+  margin: 0 5px;
+}
+
+window#FileManager div.topbar div.addressbar button:hover {
+  background-color: var(--button-glass-bg);
+}
+
+window#FileManager div.topbar div.addressbar button:active {
+  background-color: var(--button-glass-active-bg);
+}
+
+window#FileManager div.topbar div.addressbar button::after {
+  content: "arrow_forward_ios";
+  position: absolute;
+  right: -10px;
+  font-size: 10px;
+  font-family: "Material Icons Outlined";
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+window#FileManager div.topbar div.addressbar button:first-child {
+  margin-left: 0;
+}
+
+window#FileManager div.topbar div.addressbar button:last-child::after {
+  display: none;
+}
+
+window#FileManager div.topbar div.addressbar button .material-icons-round {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+window#FileManager div.topbar button.material-icons-round {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  margin-right: 5px;
+}

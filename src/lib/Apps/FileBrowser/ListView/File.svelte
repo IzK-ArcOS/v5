@@ -1,14 +1,15 @@
 <script lang="ts">
-  import type { UserFile } from "../../../../ts/api/interface";
-  import { FileBrowserSelectedFilename } from "../../../../ts/applogic/apps/FileBrowser/main";
   import icon from "../../../../assets/apps/filemanager/file.svg";
+  import { openUserFile, openWithDialog } from "../../../../ts/api/fs/open";
+  import { formatBytes } from "../../../../ts/api/fs/sizes";
+  import type { UserFile } from "../../../../ts/api/interface";
   import {
-    findAppToOpen,
-    openWith,
-    openWithDialog,
-  } from "../../../../ts/api/fs/open";
-  import { readFile } from "../../../../ts/api/fs/file";
+    FileBrowserOpeningFile,
+    FileBrowserSelectedFilename,
+  } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import type { ArcFile } from "../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
+  import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   export let file: UserFile;
 
@@ -17,25 +18,31 @@
   }
 
   async function open() {
-    const apps = findAppToOpen(file.mime);
+    $FileBrowserOpeningFile = file;
+    showOverlay("openingFile", "FileManager");
 
-    if (!apps.length)
+    const openResult = await openUserFile(file);
+
+    hideOverlay("openingFile", "FileManager");
+
+    if (openResult != true) {
       return createOverlayableError(
         {
           title: `Unable to open ${file.filename}`,
           message: "You don't have an app that can open this type of file.",
-          buttons: [{ caption: "Close", action: () => {} }],
+          buttons: [
+            { caption: "Close", action: () => {} },
+            { caption: "Open With...", action: () => openAny(openResult) },
+          ],
           image: icon,
         },
         "FileManager"
       );
+    }
+  }
 
-    openWithDialog({
-      data: await readFile(file.scopedPath),
-      name: file.filename,
-      path: file.scopedPath,
-      mime: file.mime,
-    });
+  function openAny(arc: ArcFile) {
+    openWithDialog({ ...arc, anymime: true });
   }
 </script>
 
@@ -47,5 +54,6 @@
 >
   <div class="image"><img src={icon} alt={file.filename} /></div>
   <div class="name">{file.filename}</div>
-  <div class="size">{file.size} bytes</div>
+  <div class="mime">{file.mime.split("; ")[0].split("/").join(" - ")}</div>
+  <div class="size">{formatBytes(file.size)}</div>
 </button>

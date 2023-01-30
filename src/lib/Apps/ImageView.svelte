@@ -10,8 +10,6 @@
   WindowStore.subscribe(() => {
     if (!app.openedFile) return (url = "");
 
-    console.log(app.openedFile, app.openedFile.mime);
-
     const blob = new Blob([new Uint8Array(app.openedFile.data)], {
       type: app.openedFile.mime,
     });

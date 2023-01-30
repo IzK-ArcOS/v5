@@ -17,6 +17,9 @@ window#FileManager div.listview button.item div.image {
 
 window#FileManager div.listview button.item div {
   line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 window#FileManager div.listview button.item div.image img {
@@ -25,6 +28,11 @@ window#FileManager div.listview button.item div.image img {
 
 window#FileManager div.listview button.item div.name {
   width: 50%;
+}
+
+window#FileManager div.listview button.item div.mime {
+  width: 25%;
+  padding-right: 40px;
 }
 
 window#FileManager div.listview button.item.selected {
