@@ -1,4 +1,5 @@
 import { get } from "svelte/store";
+import { OpenWithFile } from "../../applogic/apps/OpenWith";
 import { openWindow } from "../../applogic/events";
 import type { ArcFile } from "../../applogic/interface";
 import { WindowStore } from "../../applogic/store";
@@ -15,6 +16,12 @@ export function findAppToOpen(mime: string) {
   }
 
   return ids;
+}
+
+export function openWithDialog(file: ArcFile) {
+  OpenWithFile.set(file);
+
+  openWindow("OpenWithApp");
 }
 
 export function openWith(appId: string, data: ArcFile) {

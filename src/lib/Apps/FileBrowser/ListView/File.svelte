@@ -2,8 +2,13 @@
   import type { UserFile } from "../../../../ts/api/interface";
   import { FileBrowserSelectedFilename } from "../../../../ts/applogic/apps/FileBrowser/main";
   import icon from "../../../../assets/apps/filemanager/file.svg";
-  import { findAppToOpen, openWith } from "../../../../ts/api/fs/open";
+  import {
+    findAppToOpen,
+    openWith,
+    openWithDialog,
+  } from "../../../../ts/api/fs/open";
   import { readFile } from "../../../../ts/api/fs/file";
+  import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
 
   export let file: UserFile;
 
@@ -12,9 +17,20 @@
   }
 
   async function open() {
-    const app = findAppToOpen(file.mime)[0];
+    const apps = findAppToOpen(file.mime);
 
-    openWith(app, {
+    if (!apps.length)
+      return createOverlayableError(
+        {
+          title: `Unable to open ${file.filename}`,
+          message: "You don't have an app that can open this type of file.",
+          buttons: [{ caption: "Close", action: () => {} }],
+          image: icon,
+        },
+        "FileManager"
+      );
+
+    openWithDialog({
       data: await readFile(file.scopedPath),
       name: file.filename,
       path: file.scopedPath,

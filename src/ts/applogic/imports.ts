@@ -8,16 +8,17 @@ import { CalculatorApp } from "./apps/Calculator";
 import { DidYouKnow } from "./apps/DidYouKnow";
 import { ErrorCreator } from "./apps/ErrorCreator";
 import { Exit } from "./apps/Exit";
+import { FileBrowserApp } from "./apps/FileBrowser";
+import { ImageViewer } from "./apps/ImageViewer";
 import { LoggerApp } from "./apps/Logger";
+import { OpenWithApp } from "./apps/OpenWith";
 import { SettingsApp } from "./apps/settings";
 import { TestApp } from "./apps/testApp";
+import { TextEditor } from "./apps/TextEditor";
 import { openWindow } from "./events";
 import type { App } from "./interface";
 import { loadWindow } from "./load";
 import { updateStores } from "./store";
-import { FileBrowserApp } from "./apps/FileBrowser";
-import { TextEditor } from "./apps/TextEditor";
-import { ImageViewer } from "./apps/ImageViewer";
 
 export const DefaultApps: { [key: string]: App } = {
   TestApp: TestApp,
@@ -33,6 +34,7 @@ export const DefaultApps: { [key: string]: App } = {
   FileManager: FileBrowserApp,
   TextEditor,
   ImageViewer,
+  OpenWithApp,
 };
 
 export const SystemApps: string[] = [
