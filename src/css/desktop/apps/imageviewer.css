@@ -6,6 +6,8 @@ window#ImageViewer div.body {
 
 window#ImageViewer div.body img {
   min-height: 340px;
+  object-fit: contain;
+  max-width: 70%;
   height: 70%;
   image-rendering: optimizeSpeed;
 }

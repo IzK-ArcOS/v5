@@ -13,9 +13,11 @@ export function getParentDirectory(p: string) {
 
   if (split.length == 1) return "./";
 
-  const newPath = split.splice(0, 1).join("/");
+  split.splice(-1);
 
-  console.log(newPath);
+  const newPath = split.join("/");
+
+  console.warn(newPath);
 
   return newPath;
 }

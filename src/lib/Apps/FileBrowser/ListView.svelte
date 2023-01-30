@@ -16,8 +16,9 @@
   }
 </script>
 
+{$FileBrowserCurrentDir}
 <div class="listview">
-  <button class="item" on:click={parentDir}>Parent</button>
+  <button class="item" on:dblclick={parentDir}>Parent</button>
   {#each dirs as dir}
     <Dir {dir} />
   {/each}
