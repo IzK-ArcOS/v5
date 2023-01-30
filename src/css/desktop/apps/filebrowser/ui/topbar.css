@@ -4,6 +4,13 @@ window#FileManager div.topbar div.addressbar {
   height: 30px;
   padding: 0;
   border-radius: var(--button-border-rad);
+  overflow-x: auto;
+  overflow-y: none;
+  white-space: nowrap;
+}
+
+window#FileManager div.topbar div.addressbar::-webkit-scrollbar {
+  display: none;
 }
 
 window#FileManager div.topbar div.addressbar button {
