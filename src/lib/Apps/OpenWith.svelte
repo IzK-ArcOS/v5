@@ -58,6 +58,8 @@
       for (let i = 0; i < loaderOptions.length; i++) {
         if (loaderOptions[i].name == selected)
           loaderOptions[i].loader($OpenWithFile);
+
+        $OpenWithFile = null;
       }
     }
 
@@ -74,14 +76,26 @@
   <div class="options">
     <p class="category">Apps</p>
     {#each options as option}
-      <Option file={$OpenWithFile} app={option} bind:selected />
+      <Option
+        file={$OpenWithFile}
+        app={option}
+        bind:loaderOptions
+        bind:options
+        bind:selected
+      />
     {/each}
     {#if !options.length}
       <p class="noitems">No apps found</p>
     {/if}
     <p class="category">Handlers</p>
     {#each loaderOptions as loader}
-      <LoaderOption {loader} file={$OpenWithFile} bind:selected />
+      <LoaderOption
+        {loader}
+        file={$OpenWithFile}
+        bind:loaderOptions
+        bind:options
+        bind:selected
+      />
     {/each}
     {#if !loaderOptions.length}
       <p class="noitems">No handlers found</p>

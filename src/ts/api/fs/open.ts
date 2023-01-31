@@ -98,7 +98,7 @@ export async function openUserFile(file: UserFile): Promise<ArcFile | true> {
     level: LogLevel.info,
   });
 
-  const data: ArcFile = {
+  let data: ArcFile = {
     data: await readFile(file.scopedPath),
     name: file.filename,
     path: file.scopedPath,
@@ -112,6 +112,8 @@ export async function openUserFile(file: UserFile): Promise<ArcFile | true> {
   if (apps.length == 1) return openWith(apps[0], data) || true;
 
   openWithDialog(data);
+
+  data = null;
 
   return true;
 }

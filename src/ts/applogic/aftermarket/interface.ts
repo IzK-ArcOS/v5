@@ -1,3 +1,4 @@
+import type { Writable } from "svelte/store";
 import type { ErrorMessage } from "../../errorlogic/app";
 import type { NotificationStore } from "../../notiflogic/interfaces";
 import type { UserData } from "../../userlogic/interfaces";
@@ -11,7 +12,7 @@ export type ExtendedWindow = {
     notifications: NotificationStore;
     errorStore: ErrorMessage[];
     username: string;
-    userData: UserData;
+    userData: Writable<UserData>;
   };
 } & Window &
   typeof globalThis;

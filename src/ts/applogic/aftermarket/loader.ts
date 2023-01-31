@@ -1,5 +1,4 @@
 import { errorMessage } from "../../errorlogic/main";
-import { makeNotification } from "../../notiflogic/main";
 import type { ArcFile } from "../interface";
 import type { ExternalAppLoaderContent } from "./interface";
 
@@ -8,7 +7,7 @@ export function loadExternalApp(info: ExternalAppLoaderContent) {
   const scriptTag = document.createElement("script");
 
   scriptTag.id = `hotLoaderJS_${info.id}`;
-  styleTag.id = `hotLoaderCSS_${info.css}`;
+  styleTag.id = `hotLoaderCSS_${info.id}`;
 
   styleTag.textContent = info.css;
   scriptTag.textContent = info.js.replace(".$$.root", "");

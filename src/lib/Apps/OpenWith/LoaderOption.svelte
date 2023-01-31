@@ -2,11 +2,13 @@
   import type { UserFileLoader } from "../../../ts/api/interface";
   import { OpenWithFile } from "../../../ts/applogic/apps/OpenWith";
   import { closeWindow } from "../../../ts/applogic/events";
-  import type { ArcFile } from "../../../ts/applogic/interface";
+  import type { App, ArcFile } from "../../../ts/applogic/interface";
 
   export let loader: UserFileLoader;
   export let file: ArcFile;
   export let selected = "";
+  export let loaderOptions: UserFileLoader[];
+  export let options: App[];
 
   function select() {
     selected = loader.name;
@@ -20,6 +22,9 @@
     }, 1000);
 
     closeWindow("OpenWithApp");
+
+    loaderOptions = [];
+    options = [];
   }
 </script>
 

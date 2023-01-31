@@ -124,6 +124,7 @@ export function closeWindow(id: string) {
   for (let i = 0; i < ws.length; i++) {
     if (ws[i] && ws[i].id == id) {
       ws[i].opened = false;
+      ws[i].openedFile = null;
       break;
     }
   }

@@ -1,4 +1,4 @@
-import { get } from "svelte/store";
+import { get, writable } from "svelte/store";
 import { Log, LogLevel } from "../../console";
 import { ErrorMessages } from "../../errorlogic/app";
 import { NotificationStore } from "../../notiflogic/main";
@@ -32,6 +32,6 @@ export function assignHooks() {
     notifications: get(NotificationStore),
     errorStore: get(ErrorMessages),
     username: get(UserName) || "ArcOS",
-    userData: get(UserName) ? get(UserData) : defaultUserData,
+    userData: get(UserName) ? UserData : writable(defaultUserData),
   };
 }

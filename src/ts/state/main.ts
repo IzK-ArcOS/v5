@@ -21,7 +21,7 @@ export function applyState(stateKey: string) {
 
     CurrentState.set(state);
 
-    document.title = `${Var.getValue("osname")} | ${state.name}`;
+    document.title = `ArcOS | ${state.name}`;
 
     return;
   }

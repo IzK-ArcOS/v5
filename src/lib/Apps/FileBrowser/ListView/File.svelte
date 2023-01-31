@@ -21,24 +21,36 @@
     $FileBrowserOpeningFile = file;
     showOverlay("openingFile", "FileManager");
 
-    const openResult = await openUserFile(file);
+    let openResult = await openUserFile(file);
 
     hideOverlay("openingFile", "FileManager");
 
+    $FileBrowserOpeningFile = null;
+
     if (openResult != true) {
-      return createOverlayableError(
+      createOverlayableError(
         {
           title: `Unable to open ${file.filename}`,
           message: "You don't have an app that can open this type of file.",
           buttons: [
-            { caption: "Close", action: () => {} },
-            { caption: "Open With...", action: () => openAny(openResult) },
+            {
+              caption: "Close",
+              action: () => {
+                openResult = null;
+              },
+            },
+            {
+              caption: "Open With...",
+              action: () => openAny(openResult as ArcFile),
+            },
           ],
           image: icon,
         },
         "FileManager"
       );
     }
+
+    openResult = null;
   }
 
   function openAny(arc: ArcFile) {

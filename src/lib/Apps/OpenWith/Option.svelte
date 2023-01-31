@@ -1,5 +1,6 @@
 <script lang="ts">
   import { openWith } from "../../../ts/api/fs/open";
+  import type { UserFileLoader } from "../../../ts/api/interface";
   import { OpenWithFile } from "../../../ts/applogic/apps/OpenWith";
   import { closeWindow } from "../../../ts/applogic/events";
   import type { App, ArcFile } from "../../../ts/applogic/interface";
@@ -7,6 +8,8 @@
   export let app: App;
   export let file: ArcFile;
   export let selected = "";
+  export let loaderOptions: UserFileLoader[];
+  export let options: App[];
 
   function select() {
     selected = app.id;
@@ -18,7 +21,11 @@
     setTimeout(() => {
       OpenWithFile.set(null);
     }, 1000);
+
     closeWindow("OpenWithApp");
+
+    loaderOptions = [];
+    options = [];
   }
 </script>
 
