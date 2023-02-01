@@ -34,17 +34,7 @@ import { WindowStore } from "../store";
 import type { ExtendedWindow } from "./interface";
 import { loadExternalApp } from "./loader";
 
-let HOOK_UPDATE_COUNT = 0;
-
 export function assignHooks() {
-  HOOK_UPDATE_COUNT++;
-
-  Log({
-    source: "aftermarket/hooks.ts: assignHooks",
-    msg: `Assigning hooks to 'window.__arcos' (count ${HOOK_UPDATE_COUNT})`,
-    level: LogLevel.info,
-  });
-
   const win = window as ExtendedWindow;
 
   win.__arcos = {

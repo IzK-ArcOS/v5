@@ -28,6 +28,7 @@
     $FileBrowserOpeningFile = null;
 
     if (openResult != true) {
+      const x = openResult;
       createOverlayableError(
         {
           title: `Unable to open ${file.filename}`,
@@ -41,7 +42,7 @@
             },
             {
               caption: "Open With...",
-              action: () => openAny(openResult as ArcFile),
+              action: () => openAny(x),
             },
           ],
           image: icon,

@@ -22,6 +22,8 @@
   OpenWithFile.subscribe((v) => {
     if (!v) return (filename = "file");
 
+    console.debug(v);
+
     filename = v.name;
     options = [];
     loaderOptions = [];

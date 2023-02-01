@@ -44,7 +44,7 @@ export function Log(data: LogItem) {
   l.push(data);
 
   log.set(l);
-
+  /* 
   const levelData = LogLevelData[LogLevel[data.level]];
 
   const timeStampCSS =
@@ -61,4 +61,5 @@ export function Log(data: LogItem) {
     dataSourceCSS,
     "margin-left:10px"
   );
+ */
 }

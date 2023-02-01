@@ -31,7 +31,7 @@ export async function readFile(path: string): Promise<ArrayBuffer> {
   let controller = new AbortController();
 
   const params = generateParamStr({ path: btoa(path) });
-  const req = await fetch(`${server}/fs/file/get${params}`, {
+  let req = await fetch(`${server}/fs/file/get${params}`, {
     ...init,
     signal: controller.signal,
   });
@@ -56,7 +56,11 @@ export async function readFile(path: string): Promise<ArrayBuffer> {
 
   if (req.status != 200) return defaultValue;
 
-  const x = await (await req).blob();
+  const x = await req.blob();
+
+  // Free up used memory
+  req = null;
+  controller = null;
 
   return await x.arrayBuffer();
 }

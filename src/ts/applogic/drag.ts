@@ -7,12 +7,6 @@ export function dragWindow(
   window: HTMLDivElement,
   titlebar: HTMLDivElement
 ) {
-  Log({
-    msg: `Dragging window ${app.id}`,
-    source: "drag.ts: dragWindow",
-    level: LogLevel.info,
-  });
-
   if (!app || !window || !titlebar)
     return Log({
       msg: `Can't drag ${app.id}: one or more required elements are missing!`,
