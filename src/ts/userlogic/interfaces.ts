@@ -33,6 +33,8 @@ export interface UserData {
 
   disabledApps: string[];
   autoRun: string[];
+  autoLoads: string[];
+  askPresist: boolean;
   devmode: boolean;
 
   acc: {
@@ -94,6 +96,8 @@ export const defaultUserData: UserData = {
   },
   disabledApps: [],
   autoRun: [],
+  autoLoads: [],
+  askPresist: true,
   devmode: false,
   appdata: {},
 };

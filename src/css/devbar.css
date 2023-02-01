@@ -4,7 +4,7 @@ div.devbar {
   left: 0px;
   width: 100%;
   height: 5px;
-  background-color: #f00;
+  background-color: transparent;
   overflow: hidden;
   line-height: 1px;
   color: transparent;
@@ -14,6 +14,10 @@ div.devbar {
   display: flex;
   padding: 0 5px;
   transition: background-color 0.3s, opacity 0.3s, height 0.3s;
+}
+
+div.devbar:not(.opened):hover {
+  background-color: #f00;
 }
 
 div.devbar div.lastlog {

@@ -1,12 +1,22 @@
 window#FileManager div.topbar div.addressbar {
   background-color: var(--button-glass-bg);
-  width: calc(100% - 300px);
+  flex-grow: 1;
   height: 30px;
   padding: 0;
   border-radius: var(--button-border-rad);
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
   overflow-x: auto;
   overflow-y: none;
   white-space: nowrap;
+  display: flex;
+}
+
+window#FileManager div.topbar div.addressbar button.refresh {
+  margin: 0;
+  margin-left: auto;
+  padding: 0;
+  font-size: 16px;
 }
 
 window#FileManager div.topbar div.addressbar::-webkit-scrollbar {
@@ -54,7 +64,7 @@ window#FileManager div.topbar div.addressbar button .material-icons-round {
 }
 
 window#FileManager div.topbar button.material-icons-round {
-  width: 30px;
+  min-width: 30px;
   height: 30px;
   padding: 0;
   margin: 0;
@@ -72,4 +82,32 @@ window#FileManager div.topbar button.material-icons-round.parentdir:hover {
 
 window#FileManager div.topbar button.material-icons-round.parentdir:active {
   background-color: var(--button-glass-active-bg);
+}
+
+window#FileManager div.topbar button.material-icons-round.home {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+window#FileManager div.topbar button.material-icons-round.refresh {
+  font-size: 16px;
+  margin: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+window#FileManager div.topbar div.views {
+  overflow: hidden;
+  background-color: var(--button-glass-bg);
+  border-radius: 5px;
+  margin-left: 10px;
+  display: flex;
+}
+window#FileManager div.topbar div.views button {
+  margin: 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+window#FileManager div.topbar div.views button.selected {
+  background-color: var(--button-glass-bg);
 }

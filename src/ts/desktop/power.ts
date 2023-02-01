@@ -1,6 +1,15 @@
 import { get } from "svelte/store";
+import { defaultDirectory } from "../api/interface";
+import {
+  FileBrowserCurrentDir,
+  FileBrowserDirContents,
+  FileBrowserOpeningFile,
+  FileBrowserSelectedFilename,
+} from "../applogic/apps/FileBrowser/main";
 import { closeWindow } from "../applogic/events";
 import { WindowStore } from "../applogic/store";
+import { ErrorMessages, ErrorWindowStore } from "../errorlogic/app";
+import { NotificationStore } from "../notiflogic/main";
 import { loggingOff, restarting, shuttingDown } from "./main";
 
 export function logoff() {
@@ -17,6 +26,15 @@ export function logoff() {
   }
 
   localStorage.removeItem("arcos-remembered-token");
+
+  FileBrowserCurrentDir.set("./");
+  FileBrowserSelectedFilename.set(null);
+  FileBrowserDirContents.set(defaultDirectory);
+  FileBrowserOpeningFile.set(null);
+  NotificationStore.set({});
+  ErrorWindowStore.set([]);
+  ErrorMessages.set([]);
+  WindowStore.set([]);
 
   loggingOff.set(true);
 }

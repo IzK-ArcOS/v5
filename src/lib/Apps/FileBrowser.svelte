@@ -9,8 +9,9 @@
     FileBrowserCurrentDir,
     FileBrowserDirContents,
   } from "../../ts/applogic/apps/FileBrowser/main";
+  import type { App } from "../../ts/applogic/interface";
   import { WindowStore } from "../../ts/applogic/store";
-  import type { ScopedAppData } from "../../ts/userlogic/interfaces";
+  import { ScopedAppData, UserData } from "../../ts/userlogic/interfaces";
   import ListView from "./FileBrowser/ListView.svelte";
   import PathCrumbs from "./FileBrowser/PathCrumbs.svelte";
   import TileView from "./FileBrowser/TileView.svelte";
@@ -18,12 +19,12 @@
 
   let files: UserFile[] = [];
   let dirs: PartialUserDir[] = [];
-
   let tiledMode = false;
 
+  export let app: App;
   export let appdata: ScopedAppData;
 
-  WindowStore.subscribe(() => {
+  UserData.subscribe(() => {
     tiledMode = appdata.tiled as boolean;
   });
 
@@ -42,7 +43,7 @@
   });
 </script>
 
-<TopBar />
+<TopBar bind:appdata {app} />
 <div class="content">
   {#if tiledMode}
     <TileView {files} {dirs} />

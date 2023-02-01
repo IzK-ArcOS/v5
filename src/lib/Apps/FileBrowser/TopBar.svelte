@@ -4,20 +4,20 @@
     fbClass,
     FileBrowserCurrentDir,
   } from "../../../ts/applogic/apps/FileBrowser/main";
+  import type { App } from "../../../ts/applogic/interface";
+  import type { ScopedAppData } from "../../../ts/userlogic/interfaces";
   import AdressBar from "./PathCrumbs.svelte";
+  import ParentDir from "./TopBar/ParentDir.svelte";
+  import Views from "./TopBar/Views.svelte";
 
-  function parentdir() {
-    fbClass.goToDirectory(getParentDirectory($FileBrowserCurrentDir));
-  }
+  export let appdata: ScopedAppData;
+  export let app: App;
 </script>
 
 <div class="topbar">
-  <button
-    class="material-icons-round parentdir"
-    on:click={parentdir}
-    disabled={$FileBrowserCurrentDir == "./"}
-  >
-    arrow_upward
-  </button>
+  <ParentDir />
   <AdressBar />
+  <div class="right">
+    <Views bind:appdata bind:app />
+  </div>
 </div>

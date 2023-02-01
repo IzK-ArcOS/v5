@@ -10,17 +10,16 @@ import { generateParamStr } from "../params";
 
 export const abortFileReader = writable<boolean>(false);
 
-export async function readFile(path: string): Promise<ArrayBuffer> {
+export async function readFile(path: string): Promise<ArrayBuffer | false> {
   Log({
     source: "fs/file.ts: readFile",
     msg: `Requesting file contents of "${path}" from ArcAPI`,
     level: LogLevel.info,
   });
 
-  const defaultValue = new ArrayBuffer(0);
   const server = get(ConnectedServer);
 
-  if (!server) return defaultValue;
+  if (!server) return false;
 
   const init: RequestInit = {
     headers: {
@@ -54,7 +53,7 @@ export async function readFile(path: string): Promise<ArrayBuffer> {
     abortFileReader.set(false);
   });
 
-  if (req.status != 200) return defaultValue;
+  if (req.status != 200) return false;
 
   const x = await req.blob();
 

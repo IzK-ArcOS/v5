@@ -3,7 +3,6 @@
   import "./css/main.css";
   import BugReport from "./lib/BugReport.svelte";
   import DevBar from "./lib/DevBar.svelte";
-  import MobileBlock from "./lib/MobileBlock.svelte";
   import Spinner from "./lib/Spinner.svelte";
   import { assignHooks } from "./ts/applogic/aftermarket/hooks";
   import { assignHookUpdateListeners } from "./ts/applogic/aftermarket/hooks/updaters";
@@ -60,5 +59,4 @@
   {/if}
   <BugReport />
 </div>
-<MobileBlock />
 <Spinner height={25} />

@@ -28,11 +28,12 @@
   }
 </script>
 
+<button class="home material-icons-round" on:click={home}>home</button>
 <div class="addressbar">
-  <button class="home" on:click={home}>
-    <span class="material-icons-round">home</span>Home
-  </button>
   {#each crumbs as crumb, i}
     <Crumb {crumb} path={generatePath(crumb, i)} />
   {/each}
 </div>
+<button class="refresh material-icons-round" on:click={fbClass.refresh}>
+  refresh
+</button>

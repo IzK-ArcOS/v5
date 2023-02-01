@@ -16,8 +16,8 @@ div.notification {
   max-width: 450px;
   max-height: 200px;
   box-sizing: border-box;
-  padding: 20px;
-  padding-bottom: 55px;
+  padding: 15px;
+  padding-bottom: 65px;
   padding-right: 20px;
   backdrop-filter: blur(var(--glass-blur));
 }
@@ -89,8 +89,8 @@ div.notification p.title img {
 
 div.notification div.buttons {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 15px;
+  right: 15px;
 }
 
 div.notification button.close {
@@ -98,9 +98,12 @@ div.notification button.close {
   color: var(--fg);
   border: none;
   font-size: 18px;
-  margin: 0;
+  margin: -2px;
   margin-left: auto;
   padding: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
 }
 
 div.notification button {

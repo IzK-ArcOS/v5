@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "../../css/desktop.css";
+  import { importAutoLoaders } from "../../ts/applogic/aftermarket/autoload";
   import { importDefault } from "../../ts/applogic/imports";
   import { startKeyListener } from "../../ts/applogic/keyboard/listener";
   import {
@@ -35,6 +36,8 @@
     importDefault();
     resetDesktopState();
     startKeyListener();
+
+    importAutoLoaders();
 
     setTimeout(() => (show = true), 250);
   });

@@ -39,6 +39,8 @@ class FileBrowserClass {
       level: LogLevel.info,
     });
 
+    FileBrowserDirContents.set(defaultDirectory);
+
     const cd = get(FileBrowserCurrentDir);
 
     const req = await getDirectory(cd);
