@@ -3,6 +3,7 @@ import sd from "../../../assets/sd.svg";
 import { errorMessage } from "../../errorlogic/main";
 import { makeNotification } from "../../notiflogic/main";
 import { UserData } from "../../userlogic/interfaces";
+import { isLoaded } from "../checks";
 import type { ArcFile } from "../interface";
 import type { ExternalAppLoaderContent } from "./interface";
 
@@ -55,6 +56,16 @@ export function loadAppFile(data: ArcFile) {
     );
     return false;
   }
+
+  if (isLoaded(json.id))
+    return makeNotification({
+      title: "Can't import app",
+      message:
+        "Another app with the same ID is already loaded. It is not possible to load apps with the same ID.",
+      buttons: [],
+      timeout: 3000,
+      image: sd,
+    });
 
   const u = get(UserData);
 

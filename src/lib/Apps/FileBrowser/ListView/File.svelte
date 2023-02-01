@@ -32,7 +32,8 @@
       createOverlayableError(
         {
           title: `Unable to open ${file.filename}`,
-          message: "You don't have an app that can open this type of file.",
+          message:
+            "You don't have an app or handler that can open this type of file.",
           buttons: [
             {
               caption: "Close",

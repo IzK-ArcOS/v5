@@ -4,8 +4,9 @@ import { openWindow } from "../../applogic/events";
 import type { ArcFile } from "../../applogic/interface";
 import { WindowStore } from "../../applogic/store";
 import { Log, LogLevel } from "../../console";
-import type { UserFile } from "../interface";
+import type { UserFile, UserFileLoader } from "../interface";
 import { readFile } from "./file";
+import { FileLoaders } from "./open/loader";
 
 export function findAppToOpen(mime: string): string[] {
   Log({
@@ -25,6 +26,23 @@ export function findAppToOpen(mime: string): string[] {
   }
 
   return ids;
+}
+
+export function findLoaderToOpen(filename: string): UserFileLoader[] {
+  let result = [];
+  const loaders = Object.entries(FileLoaders);
+
+  for (let i = 0; i < loaders.length; i++) {
+    const loader = loaders[i];
+
+    const data = loader[1];
+
+    for (let j = 0; j < data.extensions.length; j++) {
+      if (filename.endsWith(data.extensions[j])) result.push(data);
+    }
+  }
+
+  return result;
 }
 
 export function getAllFileHandlers(): string[] {
@@ -106,10 +124,15 @@ export async function openUserFile(file: UserFile): Promise<ArcFile | true> {
   };
 
   const apps = findAppToOpen(file.mime);
+  const loaders = findLoaderToOpen(file.filename);
 
-  if (!apps.length) return data;
+  if (!apps.length && !loaders.length) return data;
 
   if (apps.length == 1) return openWith(apps[0], data) || true;
+  if (loaders.length == 1) {
+    loaders[0].loader(data);
+    return true;
+  }
 
   openWithDialog(data);
 
