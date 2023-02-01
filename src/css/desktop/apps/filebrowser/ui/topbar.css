@@ -121,4 +121,5 @@ window#FileManager div.topbar div.views button.selected {
 window#FileManager div.topbar div.right button.material-icons-round {
   margin: 0;
   margin-left: 10px;
+  font-size: 17px;
 }

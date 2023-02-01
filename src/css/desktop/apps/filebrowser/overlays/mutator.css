@@ -1,0 +1,42 @@
+window#FileManager window.overlay div.fb-overlay-mutator-wrapper {
+  display: flex;
+}
+
+window#FileManager window.overlay div.fb-overlay-mutator-wrapper div.image {
+  margin: 5px 15px;
+  margin-left: 10px;
+}
+window#FileManager window.overlay div.fb-overlay-mutator-wrapper div.image img {
+  height: 32px;
+}
+
+window#FileManager
+  window.overlay
+  div.fb-overlay-mutator-wrapper
+  div:not(.image) {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+window#FileManager window.overlay div.fb-overlay-mutator-wrapper div.actions {
+  display: flex;
+  margin-top: 10px;
+}
+
+window#FileManager
+  window.overlay
+  div.fb-overlay-mutator-wrapper
+  div.actions
+  > div.inner {
+  margin-left: auto;
+  flex-direction: row;
+}
+
+window#FileManager window.overlay div.fb-overlay-mutator-wrapper p {
+  margin-bottom: 10px;
+}
+
+window#FileManager window.overlay div.fb-overlay-mutator-wrapper input {
+  width: 100%;
+}
