@@ -3,7 +3,7 @@ import { defaultDirectory } from "../api/interface";
 import {
   FileBrowserCurrentDir,
   FileBrowserDirContents,
-  FileBrowserOpeningFile,
+  FileBrowserDeletingFilename,
   FileBrowserSelectedFilename,
 } from "../applogic/apps/FileBrowser/main";
 import { closeWindow } from "../applogic/events";
@@ -30,7 +30,7 @@ export function logoff() {
   FileBrowserCurrentDir.set("./");
   FileBrowserSelectedFilename.set(null);
   FileBrowserDirContents.set(defaultDirectory);
-  FileBrowserOpeningFile.set(null);
+  FileBrowserDeletingFilename.set(null);
   NotificationStore.set({});
   ErrorWindowStore.set([]);
   ErrorMessages.set([]);

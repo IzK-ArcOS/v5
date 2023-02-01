@@ -11,7 +11,8 @@ export async function apiCall(
   params: Params,
   tokenAuth?: string,
   credAuth?: Cred,
-  JsonBody?: string
+  JsonBody?: string,
+  noBody?: boolean
 ): Promise<DefaultResponse | any> {
   const credToken = generateCredToken(credAuth);
   const init: RequestInit = {
@@ -30,5 +31,15 @@ export async function apiCall(
     noAuth ? { body: JsonBody } : init
   );
 
-  return await req.json();
+  const txt = await req.text();
+
+  if (!noBody) {
+    try {
+      return JSON.parse(txt);
+    } catch {
+      return {};
+    }
+  }
+
+  return {};
 }

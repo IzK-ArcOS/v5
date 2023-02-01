@@ -13,6 +13,7 @@ export let FileBrowserCurrentDir = writable<string>("./");
 export let FileBrowserDirContents = writable<UserDirectory>(defaultDirectory);
 export let FileBrowserSelectedFilename = writable<string>(null);
 export let FileBrowserOpeningFile = writable<UserFile>(null);
+export let FileBrowserDeletingFilename = writable<string>(null);
 export let FileBrowserOpenCancelled = writable<boolean>(false);
 
 FileBrowserOpenCancelled.subscribe((v) => {
@@ -32,14 +33,14 @@ FileBrowserOpenCancelled.subscribe((v) => {
 });
 
 class FileBrowserClass {
-  public async refresh() {
+  public async refresh(clearFirst = true) {
     Log({
       source: "FileBrowser: refresh",
       msg: "Refreshing current directory contents",
       level: LogLevel.info,
     });
 
-    FileBrowserDirContents.set(defaultDirectory);
+    if (clearFirst) FileBrowserDirContents.set(defaultDirectory);
 
     const cd = get(FileBrowserCurrentDir);
 

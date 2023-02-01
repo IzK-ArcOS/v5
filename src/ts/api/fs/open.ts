@@ -99,7 +99,7 @@ export async function openUserFile(file: UserFile): Promise<ArcFile | true> {
   });
 
   let data: ArcFile = {
-    data: await readFile(file.scopedPath),
+    data: (await readFile(file.scopedPath)) as ArrayBuffer,
     name: file.filename,
     path: file.scopedPath,
     mime: file.mime,

@@ -96,18 +96,29 @@ window#FileManager div.topbar button.material-icons-round.refresh {
   border-bottom-left-radius: 0px;
 }
 
+window#FileManager div.topbar div.right {
+  display: flex;
+}
+
 window#FileManager div.topbar div.views {
   overflow: hidden;
   background-color: var(--button-glass-bg);
   border-radius: 5px;
   margin-left: 10px;
   display: flex;
+  height: 30px;
 }
 window#FileManager div.topbar div.views button {
   margin: 0;
   background-color: transparent;
   border-radius: 0;
+  margin-left: 0 !important;
 }
 window#FileManager div.topbar div.views button.selected {
   background-color: var(--button-glass-bg);
+}
+
+window#FileManager div.topbar div.right button.material-icons-round {
+  margin: 0;
+  margin-left: 10px;
 }
