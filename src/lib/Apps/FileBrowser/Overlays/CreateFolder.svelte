@@ -31,8 +31,13 @@
   async function create() {
     await createDirectory(`${$FileBrowserCurrentDir}/${folderName}`);
 
-    hideOverlay("createFolder", "FileManager");
+    cancel();
+
     fbClass.refresh(false);
+  }
+
+  function cancel() {
+    hideOverlay("createFolder", "FileManager");
   }
 </script>
 
@@ -44,7 +49,7 @@
     <div class="actions">
       <div class="inner">
         <button disabled={exists} on:click={create}>Apply</button>
-        <button>Cancel</button>
+        <button on:click={cancel}>Cancel</button>
       </div>
     </div>
   </div>

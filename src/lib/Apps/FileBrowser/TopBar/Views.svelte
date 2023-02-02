@@ -14,7 +14,7 @@
   }
 </script>
 
-<div class="views">
+<div class="group">
   <button
     class="material-icons-round"
     class:selected={!appdata.tiled}

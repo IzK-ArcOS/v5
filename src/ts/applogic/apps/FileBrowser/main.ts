@@ -14,6 +14,7 @@ export let FileBrowserDirContents = writable<UserDirectory>(defaultDirectory);
 export let FileBrowserSelectedFilename = writable<string>(null);
 export let FileBrowserOpeningFile = writable<UserFile>(null);
 export let FileBrowserDeletingFilename = writable<string>(null);
+export let FileBrowserUploadFilename = writable<string>(null);
 export let FileBrowserOpenCancelled = writable<boolean>(false);
 
 FileBrowserOpenCancelled.subscribe((v) => {

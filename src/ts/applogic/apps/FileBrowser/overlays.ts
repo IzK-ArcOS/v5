@@ -1,6 +1,7 @@
 import CreateFolder from "../../../../lib/Apps/FileBrowser/Overlays/CreateFolder.svelte";
 import DeletingItem from "../../../../lib/Apps/FileBrowser/Overlays/DeletingItem.svelte";
 import OpeningFile from "../../../../lib/Apps/FileBrowser/Overlays/OpeningFile.svelte";
+import UploadFileDialog from "../../../../lib/Apps/FileBrowser/Overlays/UploadFileDialog.svelte";
 import type { OverlayableApp } from "../../interface";
 
 export const fbOverlays: { [key: string]: OverlayableApp } = {
@@ -32,6 +33,16 @@ export const fbOverlays: { [key: string]: OverlayableApp } = {
     },
     content: CreateFolder,
     size: { w: 350, h: 115 },
+    show: false,
+  },
+  uploadFileDialog: {
+    info: {
+      name: "Upload File",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: UploadFileDialog,
+    size: { w: 350, h: 120 },
     show: false,
   },
 };

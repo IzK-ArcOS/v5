@@ -100,7 +100,7 @@ window#FileManager div.topbar div.right {
   display: flex;
 }
 
-window#FileManager div.topbar div.views {
+window#FileManager div.topbar div.group {
   overflow: hidden;
   background-color: var(--button-glass-bg);
   border-radius: 5px;
@@ -108,13 +108,13 @@ window#FileManager div.topbar div.views {
   display: flex;
   height: 30px;
 }
-window#FileManager div.topbar div.views button {
+window#FileManager div.topbar div.group button {
   margin: 0;
   background-color: transparent;
   border-radius: 0;
   margin-left: 0 !important;
 }
-window#FileManager div.topbar div.views button.selected {
+window#FileManager div.topbar div.group button.selected {
   background-color: var(--button-glass-bg);
 }
 

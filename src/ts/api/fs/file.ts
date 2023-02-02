@@ -87,3 +87,31 @@ export async function deleteItem(path: string) {
 
   return req;
 }
+
+export async function writeFile(path: string, data: Blob): Promise<boolean> {
+  const server = get(ConnectedServer);
+
+  if (!server) return false;
+
+  const params = generateParamStr({ path: btoa(path) });
+
+  let controller = new AbortController();
+
+  const init: RequestInit = {
+    headers: {
+      Authorization: `Bearer ${get(UserToken)}`,
+    },
+  };
+
+  let req = await fetch(`${server}/fs/file/write${params}`, {
+    ...init,
+    signal: controller.signal,
+    body: await data.text(),
+    headers: {
+      Authorization: `Bearer ${get(UserToken)}`,
+    },
+    method: "post",
+  });
+
+  return req.ok;
+}
