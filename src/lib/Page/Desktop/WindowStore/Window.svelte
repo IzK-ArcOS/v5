@@ -74,20 +74,18 @@
   on:mousedown={() => ($focusedWindowId = app.id)}
 >
   <Titlebar {app} bind:exttransition bind:titlebar {isBoot} />
-  {#if app.opened}
-    <Content {app}>
-      <slot />
-    </Content>
-    {#if app && app.overlays}
-      {#each Object.entries(app.overlays) as overlay}
-        <OverlayableWindow {app} overlay={overlay[1]} id={overlay[0]} />
-      {/each}
-    {/if}
+  <Content {app}>
+    <slot />
+  </Content>
+  {#if app && app.overlays}
+    {#each Object.entries(app.overlays) as overlay}
+      <OverlayableWindow {app} overlay={overlay[1]} id={overlay[0]} />
+    {/each}
+  {/if}
 
-    {#if app && app.errorOverlays}
-      {#each app.errorOverlays as error}
-        <OverlayableErrorWindow {error} {app} />
-      {/each}
-    {/if}
+  {#if app && app.errorOverlays}
+    {#each app.errorOverlays as error}
+      <OverlayableErrorWindow {error} {app} />
+    {/each}
   {/if}
 </window>

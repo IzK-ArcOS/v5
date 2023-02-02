@@ -8,7 +8,15 @@ import { makeNotification } from "../notiflogic/main";
 import { UserData } from "../userlogic/interfaces";
 
 export function reloadApps() {
-  WindowStore.set([]);
+  const ws = get(WindowStore);
+
+  for (let i = 0; i < ws.length; i++) {
+    if (!ws[i].info.builtin) continue;
+
+    ws.splice(i, 1);
+  }
+
+  WindowStore.set(ws);
 
   setTimeout(() => {
     importDefault();

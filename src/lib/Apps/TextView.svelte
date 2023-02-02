@@ -16,8 +16,18 @@
     errored = false;
 
     if (!app.openedFile) return (fileContents = "");
-
-    fileContents = new TextDecoder().decode(app.openedFile.data);
+    if (!app.openedFile.mime.startsWith("text/")) {
+      createOverlayableError(
+        {
+          title: "Can't open file",
+          message:
+            "The mimetype of the file is incompatible with this application.",
+          buttons: [{ caption: "OK", action() {} }],
+        },
+        "TextEditor"
+      );
+      return (fileContents = "");
+    } else fileContents = new TextDecoder().decode(app.openedFile.data);
 
     const json = tryParse(fileContents);
 

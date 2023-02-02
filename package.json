@@ -22,8 +22,10 @@
     "vite": "^2.9.9"
   },
   "dependencies": {
+    "@types/mime-types": "^2.1.1",
     "dayjs": "^1.11.3",
     "human-filetypes": "^0.2.1",
+    "mime-types": "^2.1.35",
     "svelte-click-outside": "^1.0.0"
   }
 }

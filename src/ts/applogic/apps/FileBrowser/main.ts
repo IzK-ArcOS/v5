@@ -8,13 +8,14 @@ import {
 } from "../../../api/interface";
 import { Log, LogLevel } from "../../../console";
 import { createOverlayableError } from "../../../errorlogic/overlay";
+import type { ArcFile } from "../../interface";
 
 export let FileBrowserCurrentDir = writable<string>("./");
 export let FileBrowserDirContents = writable<UserDirectory>(defaultDirectory);
 export let FileBrowserSelectedFilename = writable<string>(null);
 export let FileBrowserOpeningFile = writable<UserFile>(null);
 export let FileBrowserDeletingFilename = writable<string>(null);
-export let FileBrowserUploadFilename = writable<string>(null);
+export let FileBrowserUploadFile = writable<ArcFile>(null);
 export let FileBrowserOpenCancelled = writable<boolean>(false);
 
 FileBrowserOpenCancelled.subscribe((v) => {
