@@ -40,8 +40,6 @@ export function loadAppFile(data: ArcFile) {
     new Uint8Array(data.data)
   ) as string;
 
-  console.log(text);
-
   let json: ExternalAppLoaderContent;
 
   try {
@@ -71,8 +69,6 @@ export function loadAppFile(data: ArcFile) {
 
   const askPresist = u.askPresist;
   const prContains = u.autoLoads && u.autoLoads.includes(data.path);
-
-  console.log(askPresist);
 
   if (askPresist && !prContains)
     makeNotification({

@@ -6,6 +6,6 @@
   }
 </script>
 
-<button class="material-icons-round" on:click={trigger}
+<button class="material-icons-round" on:click={trigger} title="New folder"
   >create_new_folder</button
 >

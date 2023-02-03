@@ -1,6 +1,7 @@
 import CreateFolder from "../../../../lib/Apps/FileBrowser/Overlays/CreateFolder.svelte";
 import DeletingItem from "../../../../lib/Apps/FileBrowser/Overlays/DeletingItem.svelte";
 import OpeningFile from "../../../../lib/Apps/FileBrowser/Overlays/OpeningFile.svelte";
+import RenameItem from "../../../../lib/Apps/FileBrowser/Overlays/RenameItem.svelte";
 import UploadingFile from "../../../../lib/Apps/FileBrowser/Overlays/UploadingFile.svelte";
 import type { OverlayableApp } from "../../interface";
 
@@ -42,7 +43,17 @@ export const fbOverlays: { [key: string]: OverlayableApp } = {
       author: "ArcOS Team",
     },
     content: UploadingFile,
-    size: { w: 430, h: 140 },
+    size: { w: 430, h: 175 },
+    show: false,
+  },
+  renameItem: {
+    info: {
+      name: "Rename Item",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: RenameItem,
+    size: { w: 350, h: 115 },
     show: false,
   },
 };

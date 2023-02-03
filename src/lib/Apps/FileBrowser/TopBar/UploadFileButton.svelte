@@ -19,25 +19,20 @@
     if (!file) return;
 
     const content = new Blob([new Uint8Array(await file.arrayBuffer())]);
-    const path = `${$FileBrowserCurrentDir}/${file.name}`;
+    const path = `${$FileBrowserCurrentDir}/${file.name}`.split("//").join("/");
 
     const data: ArcFile = {
       name: file.name,
       path,
       data: await file.arrayBuffer(),
-      mime: "arcos/uploadable-data",
+      mime: "ArcOS Uploadable",
     };
 
     showOverlay("uploadingFile", "FileManager");
 
     FileBrowserUploadFile.set(data);
 
-    const valid = await writeFile(
-      `${$FileBrowserCurrentDir}/${file.name}`,
-      content
-    );
-
-    hideOverlay("uploadingFile", "FileManager");
+    const valid = await writeFile(path, content);
 
     if (!valid)
       makeNotification({
@@ -54,9 +49,13 @@
 
 <input type="file" name="file" bind:this={uploader} on:change={doUpload} />
 
-<button class="material-icons-round" on:click={() => uploader.click()}
-  >upload</button
+<button
+  class="material-icons-round"
+  on:click={() => uploader.click()}
+  title="Upload file"
 >
+  upload
+</button>
 
 <style scoped>
   input[type="file"] {

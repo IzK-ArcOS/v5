@@ -17,6 +17,8 @@ export let FileBrowserOpeningFile = writable<UserFile>(null);
 export let FileBrowserDeletingFilename = writable<string>(null);
 export let FileBrowserUploadFile = writable<ArcFile>(null);
 export let FileBrowserOpenCancelled = writable<boolean>(false);
+export let FileBrowserRefreshing = writable<boolean>(false);
+export let FileBrowserUploadProgress = writable<number>(0);
 
 FileBrowserOpenCancelled.subscribe((v) => {
   if (!v) return;
@@ -42,13 +44,20 @@ class FileBrowserClass {
       level: LogLevel.info,
     });
 
-    if (clearFirst) FileBrowserDirContents.set(defaultDirectory);
+    FileBrowserRefreshing.set(true);
+
+    if (clearFirst) {
+      FileBrowserDirContents.set(defaultDirectory);
+      FileBrowserSelectedFilename.set(null);
+    }
 
     const cd = get(FileBrowserCurrentDir);
 
     const req = await getDirectory(cd);
 
     FileBrowserDirContents.set(req || { ...defaultDirectory, scopedPath: cd });
+
+    FileBrowserRefreshing.set(false);
   }
 
   public async goToDirectory(path: string) {
@@ -58,11 +67,11 @@ class FileBrowserClass {
       level: LogLevel.info,
     });
 
+    FileBrowserSelectedFilename.set(null);
+
     FileBrowserCurrentDir.set(path);
 
     await this.refresh();
-
-    FileBrowserSelectedFilename.set(null);
   }
 }
 

@@ -14,8 +14,9 @@ window#FileManager > div.body div.content {
   right: 0px;
   margin-left: 0px;
   transition: all 0.3s, margin-left 0s;
-  overflow-y: scroll;
+  overflow-y: hidden;
   padding: 10px;
+  padding-right: 5px;
 }
 
 window#FileManager > div.titlebar {

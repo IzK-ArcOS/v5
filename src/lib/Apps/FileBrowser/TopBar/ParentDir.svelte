@@ -14,6 +14,7 @@
   class="material-icons-round parentdir"
   on:click={parentdir}
   disabled={$FileBrowserCurrentDir == "./"}
+  title="Parent folder"
 >
   arrow_upward
 </button>

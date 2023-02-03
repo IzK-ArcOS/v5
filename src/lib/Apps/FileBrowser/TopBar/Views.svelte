@@ -19,6 +19,7 @@
     class="material-icons-round"
     class:selected={!appdata.tiled}
     on:click={changeView(false)}
+    title="List view"
   >
     format_list_bulleted
   </button>
@@ -26,6 +27,7 @@
     class="material-icons-round"
     class:selected={appdata.tiled}
     on:click={changeView(true)}
+    title="Tile view"
   >
     grid_view
   </button>

@@ -3,9 +3,7 @@ window#FileManager div.topbar div.addressbar {
   flex-grow: 1;
   height: 30px;
   padding: 0;
-  border-radius: var(--button-border-rad);
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+
   overflow-x: auto;
   overflow-y: none;
   white-space: nowrap;
@@ -94,6 +92,13 @@ window#FileManager div.topbar button.material-icons-round.refresh {
   margin: 0px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+}
+
+window#FileManager div.topbar button.material-icons-round.home {
+  font-size: 16px;
+  margin: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 window#FileManager div.topbar div.right {

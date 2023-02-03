@@ -50,3 +50,34 @@ window.overlay#uploadingFile table td.key {
   max-width: 35px;
   font-weight: bold;
 }
+
+window.overlay#uploadingFile div.progress-wrapper {
+  display: flex;
+  width: 100%;
+  line-height: 30px;
+}
+
+window.overlay#uploadingFile div.progress-wrapper div.progress {
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--button-bg);
+  border: var(--button-hover-bg) 1px solid;
+  flex-grow: 1;
+  margin: 10px;
+}
+
+window.overlay#uploadingFile div.progress-wrapper div.progress div.inner {
+  height: 8px;
+  border-radius: 4px;
+  margin: 0;
+  background-color: dodgerblue;
+}
+
+window.overlay#uploadingFile div.progress-wrapper div.percentage {
+  width: 45px;
+  text-align: left;
+}
+
+window.overlay#uploadingFile table.openfile-details {
+  width: 100%;
+}

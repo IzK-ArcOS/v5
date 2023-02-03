@@ -1,8 +1,12 @@
 <script>
   import "../../../../css/desktop/apps/filebrowser/overlays/uploadingfile.css";
-  import { FileBrowserUploadFile } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import {
+    FileBrowserUploadFile,
+    FileBrowserUploadProgress,
+  } from "../../../../ts/applogic/apps/FileBrowser/main";
   import Spinner from "../../../Spinner.svelte";
   import icon from "../../../../assets/apps/filemanager/upload.svg";
+  import { ConnectedServer } from "../../../../ts/api/main";
 </script>
 
 {#if $FileBrowserUploadFile}
@@ -11,20 +15,28 @@
     <div class="caption">
       Uploading {$FileBrowserUploadFile.name}...
     </div>
-    <div class="spin"><Spinner height={30} /></div>
+  </div>
+  <div class="progress-wrapper">
+    <div class="progress">
+      <div
+        class="inner"
+        style="width: {Math.floor($FileBrowserUploadProgress)}%"
+      />
+    </div>
+    <div class="percentage">{$FileBrowserUploadProgress.toFixed(0)}%</div>
   </div>
   <table class="openfile-details">
-    <tr>
-      <td class="key">Name</td>
-      <td>{$FileBrowserUploadFile.name}</td>
-    </tr>
     <tr>
       <td class="key">Path</td>
       <td>{$FileBrowserUploadFile.path}</td>
     </tr>
     <tr>
-      <td class="key">Mimetype</td>
+      <td class="key">Type</td>
       <td>{$FileBrowserUploadFile.mime}</td>
+    </tr>
+    <tr>
+      <td class="key">Target</td>
+      <td>{localStorage.getItem("arcos-server")}</td>
     </tr>
   </table>
 {/if}

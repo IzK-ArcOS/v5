@@ -2,11 +2,13 @@ import { get, writable } from "svelte/store";
 import {
   FileBrowserOpenCancelled,
   FileBrowserDeletingFilename,
+  FileBrowserUploadProgress,
 } from "../../applogic/apps/FileBrowser/main";
 import { Log, LogLevel } from "../../console";
 import { UserToken } from "../../userlogic/interfaces";
 import { apiCall, ConnectedServer } from "../main";
 import { generateParamStr } from "../params";
+import axios from "axios";
 
 export const abortFileReader = writable<boolean>(false);
 
@@ -95,23 +97,16 @@ export async function writeFile(path: string, data: Blob): Promise<boolean> {
 
   const params = generateParamStr({ path: btoa(path) });
 
-  let controller = new AbortController();
-
-  const init: RequestInit = {
+  const req = await axios.post(`${server}/fs/file/write${params}`, data, {
     headers: {
       Authorization: `Bearer ${get(UserToken)}`,
     },
-  };
+    onUploadProgress(progress) {
+      const perc = (progress.loaded / progress.total) * 100;
 
-  let req = await fetch(`${server}/fs/file/write${params}`, {
-    ...init,
-    signal: controller.signal,
-    body: await data.text(),
-    headers: {
-      Authorization: `Bearer ${get(UserToken)}`,
+      FileBrowserUploadProgress.set(perc);
     },
-    method: "post",
   });
 
-  return req.ok;
+  return req.status == 200;
 }

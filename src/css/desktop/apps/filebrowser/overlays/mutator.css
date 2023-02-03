@@ -17,6 +17,7 @@ window#FileManager
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  width: calc(100% - 57px);
 }
 
 window#FileManager window.overlay div.fb-overlay-mutator-wrapper div.actions {
@@ -35,6 +36,9 @@ window#FileManager
 
 window#FileManager window.overlay div.fb-overlay-mutator-wrapper p {
   margin-bottom: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre;
 }
 
 window#FileManager window.overlay div.fb-overlay-mutator-wrapper input {

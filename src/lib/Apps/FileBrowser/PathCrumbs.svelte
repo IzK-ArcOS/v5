@@ -22,8 +22,6 @@
       str += `${crumbs[i]}/`;
     }
 
-    console.log(str);
-
     return `${str}${crumb}`;
   }
 </script>
@@ -34,6 +32,6 @@
     <Crumb {crumb} path={generatePath(crumb, i)} />
   {/each}
 </div>
-<button class="refresh material-icons-round" on:click={fbClass.refresh}>
+<button class="refresh material-icons-round" on:click={() => fbClass.refresh()}>
   refresh
 </button>

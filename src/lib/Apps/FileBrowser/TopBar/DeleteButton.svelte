@@ -52,6 +52,7 @@
   class="material-icons-round"
   disabled={!$FileBrowserSelectedFilename}
   on:click={deleteSelected}
+  title="Delete item"
 >
   delete
 </button>

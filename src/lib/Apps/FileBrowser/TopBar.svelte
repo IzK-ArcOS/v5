@@ -5,6 +5,7 @@
   import DeleteButton from "./TopBar/DeleteButton.svelte";
   import NewFolderButton from "./TopBar/NewFolderButton.svelte";
   import ParentDir from "./TopBar/ParentDir.svelte";
+  import RenameButton from "./TopBar/RenameButton.svelte";
   import UploadFileButton from "./TopBar/UploadFileButton.svelte";
   import Views from "./TopBar/Views.svelte";
 
@@ -17,6 +18,7 @@
   <AdressBar />
   <div class="right">
     <DeleteButton />
+    <RenameButton />
     <div class="group">
       <NewFolderButton />
       <UploadFileButton />

@@ -20,6 +20,18 @@
   --button-glass-bg: rgba(0, 0, 0, 0.067);
   --button-glass-hover-bg: rgba(0, 0, 0, 0.05);
   --button-glass-active-bg: rgba(0, 0, 0, 0.1);
+  --clr-red-bg: #ffc5c5;
+  --clr-red-fg: #c50000;
+  --clr-green-bg: #92ff8f;
+  --clr-green-fg: #299126;
+  --clr-yellow-bg: #ffecaa;
+  --clr-yellow-fg: #a58b2f;
+  --clr-orange-bg: #ffe1b5;
+  --clr-orange-fg: #af7011;
+  --clr-blue-bg: #8fd0ff;
+  --clr-blue-fg: #1566a0;
+  --clr-aqua-bg: #ddfff3;
+  --clr-aqua-fg: #39a17d;
 }
 
 :root .theme-light.noglass {

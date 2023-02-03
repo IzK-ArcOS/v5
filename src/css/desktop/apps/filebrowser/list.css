@@ -1,3 +1,7 @@
+window#FileManager div.listview {
+  height: 100%;
+}
+
 window#FileManager div.listview button.item {
   width: 100%;
   height: 30px;
@@ -7,6 +11,7 @@ window#FileManager div.listview button.item {
   background-color: transparent;
   text-align: left;
   transition: none;
+  max-width: 850px;
 }
 
 window#FileManager div.listview button.item div.image {
@@ -37,4 +42,17 @@ window#FileManager div.listview button.item div.mime {
 
 window#FileManager div.listview button.item.selected {
   background-color: var(--button-hover-bg);
+}
+
+window#FileManager div.listview div.items {
+  height: calc(100% - 35px);
+  overflow-y: scroll;
+}
+
+window#FileManager div.listview button.item.head * {
+  font-weight: bold;
+}
+
+window#FileManager div.listview button.item.head div.name {
+  width: calc(50% - 4px);
 }

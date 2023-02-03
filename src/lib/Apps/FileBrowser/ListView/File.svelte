@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import icon from "../../../../assets/apps/filemanager/file.svg";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon";
   import { openUserFile, openWithDialog } from "../../../../ts/api/fs/open";
   import { formatBytes } from "../../../../ts/api/fs/sizes";
   import type { UserFile } from "../../../../ts/api/interface";
@@ -12,6 +14,8 @@
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   export let file: UserFile;
+
+  let img = icon;
 
   function select() {
     $FileBrowserSelectedFilename = file.filename;
@@ -58,6 +62,10 @@
   function openAny(arc: ArcFile) {
     openWithDialog({ ...arc, anymime: true });
   }
+
+  onMount(() => {
+    img = getMimeIcon(file.filename);
+  });
 </script>
 
 <button
@@ -66,7 +74,7 @@
   on:dblclick={open}
   class:selected={$FileBrowserSelectedFilename == file.filename}
 >
-  <div class="image"><img src={icon} alt={file.filename} /></div>
+  <div class="image"><img src={img} alt={file.filename} /></div>
   <div class="name">{file.filename}</div>
   <div class="mime">{file.mime.split("; ")[0].split("/").join(" - ")}</div>
   <div class="size">{formatBytes(file.size)}</div>
