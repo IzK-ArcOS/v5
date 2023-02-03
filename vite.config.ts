@@ -11,7 +11,7 @@ export default defineConfig({
       $apps: fileURLToPath(new URL("./src/lib/Apps", import.meta.url)),
       "@assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
       "@css": fileURLToPath(new URL("./src/css", import.meta.url)),
-      $$ts: fileURLToPath(new URL("./src/ts", import.meta.url)),
+      $$ts: path.resolve(__dirname, "./src/ts"),
     },
   },
 });
