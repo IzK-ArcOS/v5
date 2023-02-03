@@ -78,10 +78,15 @@
   <div class="image"><img src={isDir ? icon : img} alt="" /></div>
   <div>
     <p>Enter a new name for {$FileBrowserSelectedFilename}:</p>
-    <input type="text" bind:value={newName} on:input={updateExists} />
+    <input
+      type="text"
+      bind:value={newName}
+      on:input={updateExists}
+      placeholder={$FileBrowserSelectedFilename}
+    />
     <div class="actions">
       <div class="inner">
-        <button disabled={exists} on:click={rename}>Rename</button>
+        <button disabled={exists || !newName} on:click={rename}>Rename</button>
         <button on:click={cancel}>Cancel</button>
       </div>
     </div>

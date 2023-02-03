@@ -1,0 +1,7 @@
+img.spinner-svg {
+  vertical-align: middle;
+}
+
+div.desktop[class*="light"] img.spinner-svg {
+  filter: brightness(0.4);
+}

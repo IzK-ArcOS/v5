@@ -47,6 +47,8 @@
       for (let j = 0; j < data.extensions.length; j++) {
         if (filename.endsWith(data.extensions[j])) loaderOptions.push(data);
       }
+
+      if (!data.extensions.length) loaderOptions.push(data);
     }
   });
 

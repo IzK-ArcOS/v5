@@ -1,5 +1,5 @@
 import { get } from "svelte/store";
-import sd from "../../../assets/sd.svg";
+import sd from "../../../assets/handlers/apploader.svg";
 import { errorMessage } from "../../errorlogic/main";
 import { makeNotification } from "../../notiflogic/main";
 import { UserData } from "../../userlogic/interfaces";

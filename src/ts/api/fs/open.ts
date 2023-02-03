@@ -40,6 +40,8 @@ export function findLoaderToOpen(filename: string): UserFileLoader[] {
     for (let j = 0; j < data.extensions.length; j++) {
       if (filename.endsWith(data.extensions[j])) result.push(data);
     }
+
+    if (!data.extensions.length) result.push(data);
   }
 
   return result;
@@ -128,15 +130,13 @@ export async function openUserFile(file: UserFile): Promise<ArcFile | true> {
 
   if (!apps.length && !loaders.length) return data;
 
+  console.log(apps, loaders);
+
   if (apps.length == 1) return openWith(apps[0], data) || true;
-  if (loaders.length == 1) {
+  if (loaders.length == 2) {
     loaders[0].loader(data);
     return true;
   }
 
-  openWithDialog(data);
-
-  data = null;
-
-  return true;
+  return data;
 }

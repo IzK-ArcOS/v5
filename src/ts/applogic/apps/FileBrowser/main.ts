@@ -1,5 +1,5 @@
 import { get, writable } from "svelte/store";
-import folder from "../../../../assets/apps/filemanager/folder.svg";
+import warning from "../../../../assets/apps/error.svg";
 import { getDirectory } from "../../../api/fs/directory";
 import {
   defaultDirectory,
@@ -28,7 +28,7 @@ FileBrowserOpenCancelled.subscribe((v) => {
       title: "Open cancelled",
       message: "The opening procedure was cancelled by the user.",
       buttons: [{ caption: "OK", action() {} }],
-      image: folder,
+      image: warning,
     },
     "FileManager"
   );
