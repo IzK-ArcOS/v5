@@ -1,0 +1,73 @@
+div.tileview {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+div.tileview div.folders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: var(--button-bg) 1px solid;
+  margin-right: 10px;
+}
+
+div.tileview div.folders button {
+  flex-grow: 1;
+  max-width: 150px;
+  display: flex;
+  padding: 10px 15px;
+  margin: 5px;
+  height: 40px;
+  text-align: left;
+}
+
+div.tileview div.folders button.selected {
+  background-color: var(--button-hover-bg);
+}
+
+div.tileview div.folders button img {
+  margin-right: 10px;
+  height: 20px;
+}
+div.tileview div.folders button p.name {
+  flex-grow: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre;
+  margin: 0;
+  line-height: 20px;
+}
+
+div.tileview div.files {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, max(85px));
+}
+
+div.tileview div.files button {
+  max-width: 150px;
+  overflow: hidden;
+  padding: 5px;
+}
+
+div.tileview div.files button:not(:active):not(:hover):not(.selected) {
+  background-color: transparent !important;
+}
+
+div.tileview div.files button:hover {
+  background-color: var(--button-bg) !important;
+}
+
+div.tileview div.files button.selected {
+  background-color: var(--button-hover-bg);
+}
+
+div.tileview div.files button img {
+  height: 48px;
+}
+
+div.tileview div.files button p.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 2.5em;
+}

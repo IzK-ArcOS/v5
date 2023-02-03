@@ -69,14 +69,12 @@
 </script>
 
 <button
-  class="item file"
+  class="tile file"
   on:click={select}
   on:dblclick={open}
   class:selected={$FileBrowserSelectedFilename == file.filename}
   title={file.scopedPath}
 >
-  <div class="image"><img src={img} alt={file.filename} /></div>
-  <div class="name">{file.filename}</div>
-  <div class="mime">{file.mime.split("; ")[0].split("/").join(" - ")}</div>
-  <div class="size">{formatBytes(file.size)}</div>
+  <img src={img} alt={file.filename} />
+  <p class="name">{file.filename}</p>
 </button>
