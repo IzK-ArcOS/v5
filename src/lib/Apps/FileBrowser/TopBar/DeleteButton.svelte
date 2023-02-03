@@ -1,15 +1,15 @@
 <script>
-  import { deleteItem } from "../../../../ts/api/fs/file";
+  import { deleteItem } from "$$ts/api/fs/file";
   import {
     fbClass,
     FileBrowserCurrentDir,
     FileBrowserDeletingFilename,
     FileBrowserSelectedFilename,
-  } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import { errorMessage } from "../../../../ts/errorlogic/main";
-  import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
+  } from "$$ts/applogic/apps/FileBrowser/main";
+  import { errorMessage } from "$$ts/errorlogic/main";
+  import { createOverlayableError } from "$$ts/errorlogic/overlay";
   import trash from "@assets/apps/logger/clear.svg";
-  import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
+  import { hideOverlay, showOverlay } from "$$ts/window/overlay";
 
   function deleteSelected() {
     createOverlayableError(

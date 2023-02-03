@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import "../../css/fts.css";
-  import { applyFTSState, CurrentFTSState } from "../../ts/fts/main";
-  import { FTSStates } from "../../ts/fts/store";
+  import "@css/fts.css";
+  import { applyFTSState, CurrentFTSState } from "$$ts/fts/main";
+  import { FTSStates } from "$$ts/fts/store";
   import Right from "./FirstTimeSetup/Right.svelte";
 
   let show = false;

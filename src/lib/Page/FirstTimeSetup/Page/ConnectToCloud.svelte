@@ -1,8 +1,8 @@
 <script lang="ts">
   import connectIcon from "@assets/fts/connect.svg";
-  import "../../../../css/fts/page/connecttocloud.css";
-  import { testConnection } from "../../../../ts/api/test";
-  import { applyFTSState } from "../../../../ts/fts/main";
+  import "@css/fts/page/connecttocloud.css";
+  import { testConnection } from "$$ts/api/test";
+  import { applyFTSState } from "$$ts/fts/main";
   import Nav from "../Nav.svelte";
 
   let server = "";

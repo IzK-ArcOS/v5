@@ -1,7 +1,7 @@
 <script lang="ts">
-  import "../../css/desktop/apps/imageviewer.css";
-  import type { App } from "../../ts/applogic/interface";
-  import { WindowStore } from "../../ts/applogic/store";
+  import "@css/desktop/apps/imageviewer.css";
+  import type { App } from "$$ts/applogic/interface";
+  import { WindowStore } from "$$ts/applogic/store";
 
   export let app: App;
 

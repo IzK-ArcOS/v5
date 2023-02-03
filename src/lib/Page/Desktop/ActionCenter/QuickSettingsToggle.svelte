@@ -1,5 +1,5 @@
 <script>
-  import { UserData } from "../../../../ts/userlogic/interfaces";
+  import { UserData } from "$$ts/userlogic/interfaces";
 
   function toggleQuicks() {
     $UserData.sh.noQuickSettings = !$UserData.sh.noQuickSettings;

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { maxZIndex, WindowStore } from "../../../ts/applogic/store";
-  import { startOpened } from "../../../ts/desktop/main";
-  import { UserData } from "../../../ts/userlogic/interfaces";
+  import { maxZIndex, WindowStore } from "$$ts/applogic/store";
+  import { startOpened } from "$$ts/desktop/main";
+  import { UserData } from "$$ts/userlogic/interfaces";
   import BottomPane from "./StartMenu/BottomPane.svelte";
   import Frame from "./StartMenu/Frame.svelte";
   import LeftPane from "./StartMenu/LeftPane.svelte";

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { showOverlay } from "../../../../ts/window/overlay";
+  import { showOverlay } from "$$ts/window/overlay";
 
   function trigger() {
     showOverlay("createFolder", "FileManager");

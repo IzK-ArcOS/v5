@@ -1,8 +1,8 @@
 <script lang="ts">
   import account from "@assets/fts/account.svg";
-  import { applyFTSState } from "../../../../ts/fts/main";
+  import { applyFTSState } from "$$ts/fts/main";
 
-  import { createUser } from "../../../../ts/userlogic/main";
+  import { createUser } from "$$ts/userlogic/main";
 
   import Nav from "../Nav.svelte";
 

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { getParentDirectory } from "../../../../ts/api/fs/main";
+  import { getParentDirectory } from "$$ts/api/fs/main";
   import {
     fbClass,
     FileBrowserCurrentDir,
-  } from "../../../../ts/applogic/apps/FileBrowser/main";
+  } from "$$ts/applogic/apps/FileBrowser/main";
 
   function parentdir() {
     fbClass.goToDirectory(getParentDirectory($FileBrowserCurrentDir));

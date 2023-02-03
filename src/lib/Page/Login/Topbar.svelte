@@ -5,7 +5,7 @@
     applyLoginState,
     CurrentLoginState,
     loginUsername,
-  } from "../../../ts/login/main";
+  } from "$$ts/login/main";
 
   let time: string = "";
   let show = false;

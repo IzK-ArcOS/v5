@@ -1,8 +1,8 @@
 <script lang="ts">
   import { get } from "svelte/store";
-  import { isDisabled } from "../../../ts/applogic/checks";
-  import { getAppIcon, getOriginalIcon } from "../../../ts/applogic/icon";
-  import type { App } from "../../../ts/applogic/interface";
+  import { isDisabled } from "$$ts/applogic/checks";
+  import { getAppIcon, getOriginalIcon } from "$$ts/applogic/icon";
+  import type { App } from "$$ts/applogic/interface";
 
   export let app: App;
   export let error = false;

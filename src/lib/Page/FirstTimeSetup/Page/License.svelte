@@ -1,6 +1,6 @@
 <script lang="ts">
   import license from "@assets/fts/license.svg";
-  import { applyFTSState } from "../../../../ts/fts/main";
+  import { applyFTSState } from "$$ts/fts/main";
 
   function openIt() {
     window.open(

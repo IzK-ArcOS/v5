@@ -1,15 +1,15 @@
 <script lang="ts">
-  import { isMinimized } from "../../../../ts/applogic/checks";
-  import { getAppIcon, getOriginalIcon } from "../../../../ts/applogic/icon";
-  import type { App } from "../../../../ts/applogic/interface";
+  import { isMinimized } from "$$ts/applogic/checks";
+  import { getAppIcon, getOriginalIcon } from "$$ts/applogic/icon";
+  import type { App } from "$$ts/applogic/interface";
   import {
     focusedWindowId,
     maxZIndex,
     updateStores,
     WindowStore,
-  } from "../../../../ts/applogic/store";
-  import { UserData } from "../../../../ts/userlogic/interfaces";
-  import { getWindowElement } from "../../../../ts/window/main";
+  } from "$$ts/applogic/store";
+  import { UserData } from "$$ts/userlogic/interfaces";
+  import { getWindowElement } from "$$ts/window/main";
 
   export let app: App;
 

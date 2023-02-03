@@ -1,10 +1,10 @@
 <script>
   import icon from "@assets/apps/filemanager/upload.svg";
-  import "../../../../css/desktop/apps/filebrowser/overlays/uploadingfile.css";
+  import "@css/desktop/apps/filebrowser/overlays/uploadingfile.css";
   import {
     FileBrowserUploadFile,
     FileBrowserUploadProgress,
-  } from "../../../../ts/applogic/apps/FileBrowser/main";
+  } from "$$ts/applogic/apps/FileBrowser/main";
 </script>
 
 {#if $FileBrowserUploadFile}

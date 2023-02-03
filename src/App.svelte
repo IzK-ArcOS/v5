@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import "./css/main.css";
+  import "@css/main.css";
   import BugReport from "./lib/BugReport.svelte";
   import DevBar from "./lib/DevBar.svelte";
   import Spinner from "./lib/Spinner.svelte";

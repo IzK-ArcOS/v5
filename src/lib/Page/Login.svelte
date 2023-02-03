@@ -1,16 +1,16 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import "../../css/login.css";
-  import { loginUsingCreds } from "../../ts/api/getter";
-  import { apiCall, ConnectedServer } from "../../ts/api/main";
+  import "@css/login.css";
+  import { loginUsingCreds } from "$$ts/api/getter";
+  import { apiCall, ConnectedServer } from "$$ts/api/main";
   import {
     applyLoginState,
     CurrentLoginState,
     loginUsername,
-  } from "../../ts/login/main";
-  import { applyState } from "../../ts/state/main";
-  import { UserData, UserName, UserToken } from "../../ts/userlogic/interfaces";
-  import { getUsers } from "../../ts/userlogic/main";
+  } from "$$ts/login/main";
+  import { applyState } from "$$ts/state/main";
+  import { UserData, UserName, UserToken } from "$$ts/userlogic/interfaces";
+  import { getUsers } from "$$ts/userlogic/main";
   import Background from "./Login/Background.svelte";
   import Center from "./Login/Center.svelte";
   import Darken from "./Login/Darken.svelte";

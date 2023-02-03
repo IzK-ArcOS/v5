@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { fbClass } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { fbClass } from "$$ts/applogic/apps/FileBrowser/main";
 
   export let crumb: string;
   export let path: string;

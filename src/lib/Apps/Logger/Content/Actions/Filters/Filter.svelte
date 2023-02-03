@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { log, LogLevel } from "../../../../../../ts/console";
+  import { log, LogLevel } from "$$ts/console";
 
   export let data: [LogLevel, string];
   export let currentSource: string;

@@ -1,20 +1,16 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { get } from "svelte/store";
-  import "../../../../css/login/userlogin.css";
+  import "@css/login/userlogin.css";
   import Spinner from "../../../../lib/Spinner.svelte";
-  import { generateCredToken } from "../../../../ts/api/cred";
-  import { loginUsingCreds } from "../../../../ts/api/getter";
-  import { apiCall, ConnectedServer } from "../../../../ts/api/main";
-  import { applyLoginState, loginUsername } from "../../../../ts/login/main";
-  import { applyState } from "../../../../ts/state/main";
-  import {
-    UserData,
-    UserName,
-    UserToken,
-  } from "../../../../ts/userlogic/interfaces";
-  import { getUserdata } from "../../../../ts/userlogic/main";
-  import { getProfilePicture } from "../../../../ts/userlogic/pfp";
+  import { generateCredToken } from "$$ts/api/cred";
+  import { loginUsingCreds } from "$$ts/api/getter";
+  import { apiCall, ConnectedServer } from "$$ts/api/main";
+  import { applyLoginState, loginUsername } from "$$ts/login/main";
+  import { applyState } from "$$ts/state/main";
+  import { UserData, UserName, UserToken } from "$$ts/userlogic/interfaces";
+  import { getUserdata } from "$$ts/userlogic/main";
+  import { getProfilePicture } from "$$ts/userlogic/pfp";
   import ProfilePicture from "../../../ProfilePicture.svelte";
 
   let name: string;

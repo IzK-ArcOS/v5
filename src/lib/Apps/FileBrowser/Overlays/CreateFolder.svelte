@@ -1,13 +1,13 @@
 <script lang="ts">
   import icon from "@assets/apps/filemanager/folder.svg";
-  import { createDirectory } from "../../../../ts/api/fs/directory";
+  import { createDirectory } from "$$ts/api/fs/directory";
   import {
     fbClass,
     FileBrowserCurrentDir,
     FileBrowserDirContents,
-  } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import { hideOverlay } from "../../../../ts/window/overlay";
-  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
+  } from "$$ts/applogic/apps/FileBrowser/main";
+  import { hideOverlay } from "$$ts/window/overlay";
+  import "@css/desktop/apps/filebrowser/overlays/mutator.css";
 
   let folderName = "";
 

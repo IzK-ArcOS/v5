@@ -1,10 +1,10 @@
 <script lang="ts">
   import warning from "@assets/apps/error.svg";
-  import { ConnectedServer } from "../../../../../ts/api/main";
-  import { createOverlayableError } from "../../../../../ts/errorlogic/overlay";
-  import { UserName } from "../../../../../ts/userlogic/interfaces";
-  import { deleteUser } from "../../../../../ts/userlogic/main";
-  import { showOverlay } from "../../../../../ts/window/overlay";
+  import { ConnectedServer } from "$$ts/api/main";
+  import { createOverlayableError } from "$$ts/errorlogic/overlay";
+  import { UserName } from "$$ts/userlogic/interfaces";
+  import { deleteUser } from "$$ts/userlogic/main";
+  import { showOverlay } from "$$ts/window/overlay";
   import OptionSection from "../../OptionSection.svelte";
 
   function deleteAccount() {

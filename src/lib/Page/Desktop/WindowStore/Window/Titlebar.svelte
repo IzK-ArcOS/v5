@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { closeWindow } from "../../../../../ts/applogic/events";
-  import { getAppIcon } from "../../../../../ts/applogic/icon";
-  import type { App } from "../../../../../ts/applogic/interface";
-  import { updateStores } from "../../../../../ts/applogic/store";
-  import { closeError } from "../../../../../ts/errorlogic/main";
-  import { UserData } from "../../../../../ts/userlogic/interfaces";
+  import { closeWindow } from "$$ts/applogic/events";
+  import { getAppIcon } from "$$ts/applogic/icon";
+  import type { App } from "$$ts/applogic/interface";
+  import { updateStores } from "$$ts/applogic/store";
+  import { closeError } from "$$ts/errorlogic/main";
+  import { UserData } from "$$ts/userlogic/interfaces";
 
   export let exttransition = false;
   export let titlebar: HTMLDivElement;

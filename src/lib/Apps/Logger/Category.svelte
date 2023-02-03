@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { LogItem } from "../../../ts/console";
+  import type { LogItem } from "$$ts/console";
 
   export let category: [string, LogItem[]];
   export let setView: (source: string) => void;

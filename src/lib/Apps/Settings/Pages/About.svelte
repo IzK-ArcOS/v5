@@ -1,9 +1,9 @@
 <script lang="ts">
   import logo from "@assets/systemIcon.svg";
-  import "../../../../css/desktop/apps/settings/about.css";
-  import { DevModeOverride } from "../../../../ts/devmode/props";
-  import { errorMessage } from "../../../../ts/errorlogic/main";
-  import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
+  import "@css/desktop/apps/settings/about.css";
+  import { DevModeOverride } from "$$ts/devmode/props";
+  import { errorMessage } from "$$ts/errorlogic/main";
+  import { UserData, UserName } from "$$ts/userlogic/interfaces";
   import Section from "../Section.svelte";
 
   function enableDevmode() {

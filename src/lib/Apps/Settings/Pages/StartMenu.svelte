@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { UserData } from "../../../../ts/userlogic/interfaces";
+  import { UserData } from "$$ts/userlogic/interfaces";
   import Section from "../Section.svelte";
 </script>
 

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { DevModeOverride } from "../../../../ts/devmode/props";
+  import { DevModeOverride } from "$$ts/devmode/props";
 
-  import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
-  import { getProfilePicture } from "../../../../ts/userlogic/pfp";
-  import { showOverlay } from "../../../../ts/window/overlay";
+  import { UserData, UserName } from "$$ts/userlogic/interfaces";
+  import { getProfilePicture } from "$$ts/userlogic/pfp";
+  import { showOverlay } from "$$ts/window/overlay";
   import ProfilePicture from "../../../ProfilePicture.svelte";
 
   let pfp = "";

@@ -1,6 +1,6 @@
 <script lang="ts">
   import arcos from "@assets/systemIcon.svg";
-  import { startOpened } from "../../../../ts/desktop/main";
+  import { startOpened } from "$$ts/desktop/main";
 
   function toggle() {
     $startOpened = !$startOpened;

@@ -1,15 +1,15 @@
 <script lang="ts">
   import mime from "mime-types";
   import upload from "@assets/apps/filemanager/upload.svg";
-  import { writeFile } from "../../../../ts/api/fs/file";
+  import { writeFile } from "$$ts/api/fs/file";
   import {
     fbClass,
     FileBrowserCurrentDir,
     FileBrowserUploadFile,
-  } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import type { ArcFile } from "../../../../ts/applogic/interface";
-  import { makeNotification } from "../../../../ts/notiflogic/main";
-  import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
+  } from "$$ts/applogic/apps/FileBrowser/main";
+  import type { ArcFile } from "$$ts/applogic/interface";
+  import { makeNotification } from "$$ts/notiflogic/main";
+  import { hideOverlay, showOverlay } from "$$ts/window/overlay";
 
   let uploader: HTMLInputElement;
 

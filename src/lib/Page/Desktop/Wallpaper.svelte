@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { UserData } from "../../../ts/userlogic/interfaces";
-  import { getWallpaper } from "../../../ts/userlogic/wallpapers";
+  import { UserData } from "$$ts/userlogic/interfaces";
+  import { getWallpaper } from "$$ts/userlogic/wallpapers";
 </script>
 
 <div

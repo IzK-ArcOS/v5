@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import "../css/devbar.css";
-  import { log, LogLevel } from "../ts/console";
-  import { DevModeOverride, updateDevModeProps } from "../ts/devmode/props";
-  import { dmProps } from "../ts/devmode/store/props";
+  import "@css/devbar.css";
+  import { log, LogLevel } from "$$ts/console";
+  import { DevModeOverride, updateDevModeProps } from "$$ts/devmode/props";
+  import { dmProps } from "$$ts/devmode/store/props";
 
   export let opened = false;
 

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { openWindow } from "../../../../ts/applogic/events";
-  import { startOpened } from "../../../../ts/desktop/main";
-  import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
-  import { getProfilePicture } from "../../../../ts/userlogic/pfp";
+  import { openWindow } from "$$ts/applogic/events";
+  import { startOpened } from "$$ts/desktop/main";
+  import { UserData, UserName } from "$$ts/userlogic/interfaces";
+  import { getProfilePicture } from "$$ts/userlogic/pfp";
   import ProfilePicture from "../../../ProfilePicture.svelte";
 
   let pfp: string;

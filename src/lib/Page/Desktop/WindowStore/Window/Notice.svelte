@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "../../../../../css/desktop/window/notice.css";
+  import "@css/desktop/window/notice.css";
   export let title: string;
   export let text: string;
   export let icon: string;

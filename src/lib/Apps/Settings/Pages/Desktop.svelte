@@ -1,6 +1,6 @@
 <script lang="ts">
-  import "../../../../css/desktop/apps/settings/desktop.css";
-  import { Wallpapers } from "../../../../ts/userlogic/wallpapers";
+  import "@css/desktop/apps/settings/desktop.css";
+  import { Wallpapers } from "$$ts/userlogic/wallpapers";
   import Section from "../Section.svelte";
   import Current from "./Desktop/Current.svelte";
   import Custom from "./Desktop/Custom.svelte";

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { App } from "../../ts/applogic/interface";
-  import { WindowStore } from "../../ts/applogic/store";
+  import type { App } from "$$ts/applogic/interface";
+  import { WindowStore } from "$$ts/applogic/store";
   import SvelteMarkdown from "svelte-markdown";
-  import "../../css/desktop/apps/markdownviewer.css";
+  import "@css/desktop/apps/markdownviewer.css";
 
   export let app: App;
 

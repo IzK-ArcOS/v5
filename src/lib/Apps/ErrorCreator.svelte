@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { errorMessage } from "../../ts/errorlogic/main";
+  import { errorMessage } from "$$ts/errorlogic/main";
 
   let t: string;
   let m: string;

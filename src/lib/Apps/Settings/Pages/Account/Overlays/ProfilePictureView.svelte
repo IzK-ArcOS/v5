@@ -1,9 +1,6 @@
 <script lang="ts">
-  import type { App } from "../../../../../../ts/applogic/interface";
-  import {
-    UserData,
-    UserName,
-  } from "../../../../../../ts/userlogic/interfaces";
+  import type { App } from "$$ts/applogic/interface";
+  import { UserData, UserName } from "$$ts/userlogic/interfaces";
   import CloseButton from "../../../../../Page/Desktop/WindowStore/OverlayableWindow/CloseButton.svelte";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
 

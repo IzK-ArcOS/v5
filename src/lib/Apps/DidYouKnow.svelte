@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import "../../css/desktop/apps/didyouknow.css";
-  import type { Tip } from "../../ts/applogic/apps/DidYouKnow/interface";
-  import { getRandomTip } from "../../ts/applogic/apps/DidYouKnow/main";
-  import { closeWindow } from "../../ts/applogic/events";
+  import "@css/desktop/apps/didyouknow.css";
+  import type { Tip } from "$$ts/applogic/apps/DidYouKnow/interface";
+  import { getRandomTip } from "$$ts/applogic/apps/DidYouKnow/main";
+  import { closeWindow } from "$$ts/applogic/events";
 
   let tip: Tip;
 

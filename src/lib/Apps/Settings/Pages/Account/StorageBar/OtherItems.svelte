@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { StorageStat } from "../../../../../../ts/storage/interface";
+  import type { StorageStat } from "$$ts/storage/interface";
 
   let css = "";
 

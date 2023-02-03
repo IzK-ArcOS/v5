@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import "../../../../../css/desktop/apps/settings/desktop/customurl.css";
-  import { UserData } from "../../../../../ts/userlogic/interfaces";
+  import "@css/desktop/apps/settings/desktop/customurl.css";
+  import { UserData } from "$$ts/userlogic/interfaces";
 
   let url: string;
 

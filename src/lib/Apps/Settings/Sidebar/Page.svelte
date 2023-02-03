@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { SettingsPage } from "../../../../ts/applogic/apps/SettingsApp/interface";
+  import type { SettingsPage } from "$$ts/applogic/apps/SettingsApp/interface";
   import {
     currentSettingsPage,
     setSettingsPage,
-  } from "../../../../ts/applogic/apps/SettingsApp/main";
+  } from "$$ts/applogic/apps/SettingsApp/main";
 
   export let page: SettingsPage;
 </script>

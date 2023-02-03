@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { applyFTSState } from "../../../ts/fts/main";
-  import type { NavData } from "../../../ts/fts/nav";
+  import { applyFTSState } from "$$ts/fts/main";
+  import type { NavData } from "$$ts/fts/nav";
 
   export let data: NavData;
 

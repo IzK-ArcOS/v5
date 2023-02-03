@@ -1,17 +1,17 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { get } from "svelte/store";
-  import "../../css/desktop/apps/filebrowser.css";
-  import type { PartialUserDir, UserFile } from "../../ts/api/interface";
-  import { defaultDirectory } from "../../ts/api/interface";
+  import "@css/desktop/apps/filebrowser.css";
+  import type { PartialUserDir, UserFile } from "$$ts/api/interface";
+  import { defaultDirectory } from "$$ts/api/interface";
   import {
     fbClass,
     FileBrowserCurrentDir,
     FileBrowserDirContents,
-  } from "../../ts/applogic/apps/FileBrowser/main";
-  import type { App } from "../../ts/applogic/interface";
-  import { WindowStore } from "../../ts/applogic/store";
-  import { ScopedAppData, UserData } from "../../ts/userlogic/interfaces";
+  } from "$$ts/applogic/apps/FileBrowser/main";
+  import type { App } from "$$ts/applogic/interface";
+  import { WindowStore } from "$$ts/applogic/store";
+  import { ScopedAppData, UserData } from "$$ts/userlogic/interfaces";
   import ListView from "./FileBrowser/ListView.svelte";
   import PathCrumbs from "./FileBrowser/PathCrumbs.svelte";
   import TileView from "./FileBrowser/TileView.svelte";

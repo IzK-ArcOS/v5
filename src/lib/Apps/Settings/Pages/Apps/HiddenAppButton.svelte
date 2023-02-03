@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { AppInfoId } from "../../../../../ts/applogic/apps/AppInfo";
-  import { openWindow } from "../../../../../ts/applogic/events";
-  import { getAppIcon } from "../../../../../ts/applogic/icon";
-  import type { App } from "../../../../../ts/applogic/interface";
-  import { ArcOSVersion } from "../../../../../ts/env/main";
+  import { AppInfoId } from "$$ts/applogic/apps/AppInfo";
+  import { openWindow } from "$$ts/applogic/events";
+  import { getAppIcon } from "$$ts/applogic/icon";
+  import type { App } from "$$ts/applogic/interface";
+  import { ArcOSVersion } from "$$ts/env/main";
 
   export let app: App;
 

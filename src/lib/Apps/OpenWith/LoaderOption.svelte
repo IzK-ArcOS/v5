@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { UserFileLoader } from "../../../ts/api/interface";
-  import { OpenWithFile } from "../../../ts/applogic/apps/OpenWith";
-  import { closeWindow } from "../../../ts/applogic/events";
-  import type { App, ArcFile } from "../../../ts/applogic/interface";
+  import type { UserFileLoader } from "$$ts/api/interface";
+  import { OpenWithFile } from "$$ts/applogic/apps/OpenWith";
+  import { closeWindow } from "$$ts/applogic/events";
+  import type { App, ArcFile } from "$$ts/applogic/interface";
 
   export let loader: UserFileLoader;
   export let file: ArcFile;

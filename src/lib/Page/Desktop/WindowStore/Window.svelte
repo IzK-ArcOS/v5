@@ -1,14 +1,14 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { generateCSS } from "../../../../ts/applogic/css";
-  import { dragWindow } from "../../../../ts/applogic/drag";
+  import { generateCSS } from "$$ts/applogic/css";
+  import { dragWindow } from "$$ts/applogic/drag";
   import {
     maxSizeExceedsLiteral,
     minSizeExceedsLiteral,
-  } from "../../../../ts/applogic/error";
-  import type { App } from "../../../../ts/applogic/interface";
-  import { focusedWindowId, WindowStore } from "../../../../ts/applogic/store";
-  import { UserData } from "../../../../ts/userlogic/interfaces";
+  } from "$$ts/applogic/error";
+  import type { App } from "$$ts/applogic/interface";
+  import { focusedWindowId, WindowStore } from "$$ts/applogic/store";
+  import { UserData } from "$$ts/userlogic/interfaces";
   import OverlayableErrorWindow from "./OverlayableErrorWindow.svelte";
   import OverlayableWindow from "./OverlayableWindow.svelte";
   import Content from "./Window/Content.svelte";

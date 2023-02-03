@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { maxZIndex } from "../../../../ts/applogic/store";
+  import { maxZIndex } from "$$ts/applogic/store";
 
-  import { startOpened } from "../../../../ts/desktop/main";
+  import { startOpened } from "$$ts/desktop/main";
 
   function closeStart() {
     $startOpened = false;

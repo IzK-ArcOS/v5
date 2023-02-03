@@ -1,6 +1,6 @@
 <script lang="ts">
-  import "../../../css/desktop/apps/filebrowser/tile.css";
-  import type { PartialUserDir, UserFile } from "../../../ts/api/interface";
+  import "@css/desktop/apps/filebrowser/tile.css";
+  import type { PartialUserDir, UserFile } from "$$ts/api/interface";
   import Dir from "./TileView/Dir.svelte";
   import File from "./TileView/File.svelte";
 

@@ -1,11 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import "../../../../css/desktop/window/overlay/error.css";
-  import type {
-    App,
-    OverlayableError,
-  } from "../../../../ts/applogic/interface";
-  import { destroyOverlayableError } from "../../../../ts/errorlogic/overlay";
+  import "@css/desktop/window/overlay/error.css";
+  import type { App, OverlayableError } from "$$ts/applogic/interface";
+  import { destroyOverlayableError } from "$$ts/errorlogic/overlay";
 
   export let app: App;
   export let error: OverlayableError;

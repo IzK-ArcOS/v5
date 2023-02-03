@@ -4,8 +4,8 @@
   import {
     ActionCenterOpened,
     toggleActionCenter,
-  } from "../../../../ts/desktop/actioncenter/main";
-  import { trayIcons } from "../../../../ts/desktop/tray/main";
+  } from "$$ts/desktop/actioncenter/main";
+  import { trayIcons } from "$$ts/desktop/tray/main";
 
   let time = "";
 

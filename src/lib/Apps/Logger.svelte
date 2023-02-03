@@ -1,12 +1,12 @@
 <script lang="ts">
-  import "../../css/desktop/apps/logger.css";
-  import type { App } from "../../ts/applogic/interface";
-  import { Log, log, LogItem, LogLevel } from "../../ts/console";
+  import "@css/desktop/apps/logger.css";
+  import type { App } from "$$ts/applogic/interface";
+  import { Log, log, LogItem, LogLevel } from "$$ts/console";
   import {
     collectLogsBySource,
     IterableCollectorResult,
-  } from "../../ts/console/collector";
-  import type { ScopedAppData } from "../../ts/userlogic/interfaces";
+  } from "$$ts/console/collector";
+  import type { ScopedAppData } from "$$ts/userlogic/interfaces";
   import Content from "./Logger/Content.svelte";
   import Sidebar from "./Logger/Sidebar.svelte";
 

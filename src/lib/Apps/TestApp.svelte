@@ -7,14 +7,14 @@
     maximizeWindow,
     minimizeWindow,
     openChildWindow,
-  } from "../../ts/applogic/events";
-  import type { App } from "../../ts/applogic/interface";
-  import { updateStores } from "../../ts/applogic/store";
-  import { logoff } from "../../ts/desktop/power";
-  import { errorMessage } from "../../ts/errorlogic/main";
-  import { makeNotification } from "../../ts/notiflogic/main";
-  import { applyState } from "../../ts/state/main";
-  import { UserData } from "../../ts/userlogic/interfaces";
+  } from "$$ts/applogic/events";
+  import type { App } from "$$ts/applogic/interface";
+  import { updateStores } from "$$ts/applogic/store";
+  import { logoff } from "$$ts/desktop/power";
+  import { errorMessage } from "$$ts/errorlogic/main";
+  import { makeNotification } from "$$ts/notiflogic/main";
+  import { applyState } from "$$ts/state/main";
+  import { UserData } from "$$ts/userlogic/interfaces";
 
   export let app: App;
 

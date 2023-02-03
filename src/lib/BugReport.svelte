@@ -1,7 +1,7 @@
 <script lang="ts">
   import logo from "@assets/systemIcon.svg";
-  import "../css/bugrep.css";
-  import { BugReport, BugReportData } from "../ts/bugrep";
+  import "@css/bugrep.css";
+  import { BugReport, BugReportData } from "$$ts/bugrep";
 
   let show: boolean = false;
   let className = "";

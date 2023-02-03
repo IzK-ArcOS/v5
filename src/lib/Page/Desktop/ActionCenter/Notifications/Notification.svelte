@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { ActionCenterOpened } from "../../../../../ts/desktop/actioncenter/main";
-  import type { NotificationData } from "../../../../../ts/notiflogic/interfaces";
+  import { ActionCenterOpened } from "$$ts/desktop/actioncenter/main";
+  import type { NotificationData } from "$$ts/notiflogic/interfaces";
   import {
     CurrentNotification,
     deleteNotification,
-  } from "../../../../../ts/notiflogic/main";
+  } from "$$ts/notiflogic/main";
 
   export let notification: [string, NotificationData];
 

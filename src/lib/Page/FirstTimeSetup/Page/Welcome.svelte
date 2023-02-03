@@ -1,7 +1,7 @@
 <script lang="ts">
   import logo from "@assets/systemIcon.svg";
-  import "../../../../css/fts/page/welcome.css";
-  import { applyFTSState } from "../../../../ts/fts/main";
+  import "@css/fts/page/welcome.css";
+  import { applyFTSState } from "$$ts/fts/main";
 </script>
 
 <div class="center-flex">

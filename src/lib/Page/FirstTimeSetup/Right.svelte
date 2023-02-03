@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Spinner from "../../../lib/Spinner.svelte";
-  import { CurrentFTSState } from "../../../ts/fts/main";
-  import { FTSStates } from "../../../ts/fts/store";
+  import { CurrentFTSState } from "$$ts/fts/main";
+  import { FTSStates } from "$$ts/fts/store";
 
   let pageCName = "";
   let keys = [];

@@ -1,12 +1,9 @@
 <script lang="ts">
-  import "../../../css/desktop/actioncenter.css";
-  import { maxZIndex } from "../../../ts/applogic/store";
-  import { ActionCenterOpened } from "../../../ts/desktop/actioncenter/main";
-  import {
-    CurrentNotification,
-    NotificationStore,
-  } from "../../../ts/notiflogic/main";
-  import { UserData } from "../../../ts/userlogic/interfaces";
+  import "@css/desktop/actioncenter.css";
+  import { maxZIndex } from "$$ts/applogic/store";
+  import { ActionCenterOpened } from "$$ts/desktop/actioncenter/main";
+  import { CurrentNotification, NotificationStore } from "$$ts/notiflogic/main";
+  import { UserData } from "$$ts/userlogic/interfaces";
   import Notifications from "./ActionCenter/Notifications.svelte";
   import QuickSettings from "./ActionCenter/QuickSettings.svelte";
   import QuickSettingsToggle from "./ActionCenter/QuickSettingsToggle.svelte";

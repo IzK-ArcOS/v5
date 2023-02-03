@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { applyLoginState, loginUsername } from "../../../ts/login/main";
-  import type { UserData } from "../../../ts/userlogic/interfaces";
-  import { getProfilePicture } from "../../../ts/userlogic/pfp";
+  import { applyLoginState, loginUsername } from "$$ts/login/main";
+  import type { UserData } from "$$ts/userlogic/interfaces";
+  import { getProfilePicture } from "$$ts/userlogic/pfp";
   import ProfilePicture from "../../ProfilePicture.svelte";
 
   let pfp = "";

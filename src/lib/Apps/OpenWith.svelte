@@ -4,13 +4,13 @@
     findAppToOpen,
     getAllFileHandlers,
     openWith,
-  } from "../../ts/api/fs/open";
-  import { FileLoaders } from "../../ts/api/fs/open/loader";
-  import type { UserFileLoader } from "../../ts/api/interface";
-  import { OpenWithFile } from "../../ts/applogic/apps/OpenWith";
-  import { closeWindow } from "../../ts/applogic/events";
-  import type { App } from "../../ts/applogic/interface";
-  import { getWindow, isFullscreenWindow } from "../../ts/applogic/store";
+  } from "$$ts/api/fs/open";
+  import { FileLoaders } from "$$ts/api/fs/open/loader";
+  import type { UserFileLoader } from "$$ts/api/interface";
+  import { OpenWithFile } from "$$ts/applogic/apps/OpenWith";
+  import { closeWindow } from "$$ts/applogic/events";
+  import type { App } from "$$ts/applogic/interface";
+  import { getWindow, isFullscreenWindow } from "$$ts/applogic/store";
   import LoaderOption from "./OpenWith/LoaderOption.svelte";
   import Option from "./OpenWith/Option.svelte";
 

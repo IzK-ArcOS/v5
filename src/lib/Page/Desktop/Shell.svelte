@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { startOpened } from "../../../ts/desktop/main";
+  import { startOpened } from "$$ts/desktop/main";
   import ActionCenter from "./ActionCenter.svelte";
   import StartMenu from "./StartMenu.svelte";
   import Taskbar from "./Taskbar.svelte";

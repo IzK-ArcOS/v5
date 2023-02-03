@@ -1,15 +1,15 @@
 <script lang="ts">
-  import { applyState } from "../../ts/state/main";
+  import { applyState } from "$$ts/state/main";
 
   import { onMount } from "svelte";
   import logo from "@assets/systemIcon.svg";
-  import "../../css/boot.css";
-  import { testConnection } from "../../ts/api/test";
-  import { LoggerApp } from "../../ts/applogic/apps/Logger";
-  import { BugReportData } from "../../ts/bugrep";
-  import { Log, LogLevel } from "../../ts/console";
-  import { userDataKey } from "../../ts/env/main";
-  import { getUsers } from "../../ts/userlogic/main";
+  import "@css/boot.css";
+  import { testConnection } from "$$ts/api/test";
+  import { LoggerApp } from "$$ts/applogic/apps/Logger";
+  import { BugReportData } from "$$ts/bugrep";
+  import { Log, LogLevel } from "$$ts/console";
+  import { userDataKey } from "$$ts/env/main";
+  import { getUsers } from "$$ts/userlogic/main";
   import Window from "./Desktop/WindowStore/Window.svelte";
 
   let status = "";
