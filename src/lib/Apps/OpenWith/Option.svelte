@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { openWith } from "$$ts/api/fs/open";
-  import type { UserFileLoader } from "$$ts/api/interface";
-  import { OpenWithFile } from "$$ts/applogic/apps/OpenWith";
-  import { closeWindow } from "$$ts/applogic/events";
-  import type { App, ArcFile } from "$$ts/applogic/interface";
+  import { openWith } from "../../../ts/api/fs/open";
+  import type { UserFileLoader } from "../../../ts/api/interface";
+  import { OpenWithFile } from "../../../ts/applogic/apps/OpenWith";
+  import { closeWindow } from "../../../ts/applogic/events";
+  import type { App, ArcFile } from "../../../ts/applogic/interface";
 
   export let app: App;
   export let file: ArcFile;

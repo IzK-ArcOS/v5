@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { NotificationStore } from "$$ts/notiflogic/main";
+  import { NotificationStore } from "../../../../ts/notiflogic/main";
   import Notification from "./Notifications/Notification.svelte";
 </script>
 

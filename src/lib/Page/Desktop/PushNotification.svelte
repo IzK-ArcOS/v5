@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { maxZIndex } from "$$ts/applogic/store";
+  import { maxZIndex } from "../../../ts/applogic/store";
 
-  import type { NotificationData } from "$$ts/notiflogic/interfaces";
+  import type { NotificationData } from "../../../ts/notiflogic/interfaces";
   import {
     closeNotification,
     CurrentNotification,
     deleteNotification,
     NotificationStore,
-  } from "$$ts/notiflogic/main";
+  } from "../../../ts/notiflogic/main";
 
   let data: NotificationData = null;
   let hide = false;

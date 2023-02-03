@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { openWindow } from "$$ts/applogic/events";
-  import { getAppIcon, getOriginalIcon } from "$$ts/applogic/icon";
-  import type { App } from "$$ts/applogic/interface";
-  import { updateStores } from "$$ts/applogic/store";
-  import { startOpened } from "$$ts/desktop/main";
+  import { openWindow } from "../../../../ts/applogic/events";
+  import { getAppIcon, getOriginalIcon } from "../../../../ts/applogic/icon";
+  import type { App } from "../../../../ts/applogic/interface";
+  import { updateStores } from "../../../../ts/applogic/store";
+  import { startOpened } from "../../../../ts/desktop/main";
 
   export let app: App;
 

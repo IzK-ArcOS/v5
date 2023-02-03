@@ -1,16 +1,17 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import icon from "@assets/apps/filemanager/file.svg";
-  import { getMimeIcon } from "$$ts/api/fs/icon";
-  import { openUserFile, openWithDialog } from "$$ts/api/fs/open";
-  import type { UserFile } from "$$ts/api/interface";
+  import icon from "../../../../assets/apps/filemanager/file.svg";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon";
+  import { openUserFile, openWithDialog } from "../../../../ts/api/fs/open";
+  import { formatBytes } from "../../../../ts/api/fs/sizes";
+  import type { UserFile } from "../../../../ts/api/interface";
   import {
     FileBrowserOpeningFile,
     FileBrowserSelectedFilename,
-  } from "$$ts/applogic/apps/FileBrowser/main";
-  import type { ArcFile } from "$$ts/applogic/interface";
-  import { createOverlayableError } from "$$ts/errorlogic/overlay";
-  import { hideOverlay, showOverlay } from "$$ts/window/overlay";
+  } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import type { ArcFile } from "../../../../ts/applogic/interface";
+  import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
+  import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   export let file: UserFile;
 

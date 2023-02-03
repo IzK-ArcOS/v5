@@ -1,8 +1,11 @@
 <script lang="ts">
-  import clear from "@assets/apps/logger/clear.svg";
-  import type { App } from "$$ts/applogic/interface";
-  import { Log, log, LogItem, LogLevel } from "$$ts/console";
-  import { ScopedAppData, UserData } from "$$ts/userlogic/interfaces";
+  import clear from "../../../../../assets/apps/logger/clear.svg";
+  import type { App } from "../../../../../ts/applogic/interface";
+  import { Log, log, LogItem, LogLevel } from "../../../../../ts/console";
+  import {
+    ScopedAppData,
+    UserData,
+  } from "../../../../../ts/userlogic/interfaces";
 
   export let currentSource: string;
   export let currentFilter: LogLevel;

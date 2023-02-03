@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { FileBrowserSelectedFilename } from "$$ts/applogic/apps/FileBrowser/main";
-  import { showOverlay } from "$$ts/window/overlay";
+  import { FileBrowserSelectedFilename } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { showOverlay } from "../../../../ts/window/overlay";
 
   function click() {
     showOverlay("renameItem", "FileManager");

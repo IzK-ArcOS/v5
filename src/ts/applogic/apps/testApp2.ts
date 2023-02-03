@@ -1,4 +1,4 @@
-import logo from "@assets/apps/testapp.svg";
+import logo from "../../../assets/apps/testapp.svg";
 import TestApp2 from "../../../lib/Apps/TestApp2.svelte";
 import type { App } from "../interface";
 

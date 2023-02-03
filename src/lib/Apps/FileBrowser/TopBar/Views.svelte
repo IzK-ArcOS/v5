@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { App } from "$$ts/applogic/interface";
-  import { ScopedAppData, UserData } from "$$ts/userlogic/interfaces";
+  import type { App } from "../../../../ts/applogic/interface";
+  import { ScopedAppData, UserData } from "../../../../ts/userlogic/interfaces";
 
   export let appdata: ScopedAppData;
   export let app: App;

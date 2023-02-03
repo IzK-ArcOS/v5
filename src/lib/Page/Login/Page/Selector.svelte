@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { ConnectedServer } from "$$ts/api/main";
-  import { applyLoginState } from "$$ts/login/main";
-  import { getUsers } from "$$ts/userlogic/main";
+  import { ConnectedServer } from "../../../../ts/api/main";
+  import { applyLoginState } from "../../../../ts/login/main";
+  import { getUsers } from "../../../../ts/userlogic/main";
   import User from "../User.svelte";
 
   let users;

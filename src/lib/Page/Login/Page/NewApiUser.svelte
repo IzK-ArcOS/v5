@@ -1,12 +1,16 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import pfp from "@assets/pfp/null.png";
-  import { generateCredToken } from "$$ts/api/cred";
-  import { loginUsingCreds } from "$$ts/api/getter";
-  import { apiCall, ConnectedServer } from "$$ts/api/main";
-  import { applyLoginState } from "$$ts/login/main";
-  import { applyState } from "$$ts/state/main";
-  import { UserData, UserName, UserToken } from "$$ts/userlogic/interfaces";
+  import pfp from "../../../../assets/pfp/null.png";
+  import { generateCredToken } from "../../../../ts/api/cred";
+  import { loginUsingCreds } from "../../../../ts/api/getter";
+  import { apiCall, ConnectedServer } from "../../../../ts/api/main";
+  import { applyLoginState } from "../../../../ts/login/main";
+  import { applyState } from "../../../../ts/state/main";
+  import {
+    UserData,
+    UserName,
+    UserToken,
+  } from "../../../../ts/userlogic/interfaces";
   import ProfilePicture from "../../../ProfilePicture.svelte";
   import Spinner from "../../../Spinner.svelte";
 

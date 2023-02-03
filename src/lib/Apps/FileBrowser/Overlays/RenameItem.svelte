@@ -1,16 +1,16 @@
 <script lang="ts">
-  import icon from "@assets/apps/filemanager/folder.svg";
-  import { createDirectory } from "$$ts/api/fs/directory";
+  import icon from "../../../../assets/apps/filemanager/folder.svg";
+  import { createDirectory } from "../../../../ts/api/fs/directory";
   import {
     fbClass,
     FileBrowserCurrentDir,
     FileBrowserDirContents,
     FileBrowserSelectedFilename,
-  } from "$$ts/applogic/apps/FileBrowser/main";
-  import { hideOverlay } from "$$ts/window/overlay";
-  import "@css/desktop/apps/filebrowser/overlays/mutator.css";
-  import { renameItem } from "$$ts/api/fs/rename";
-  import { getMimeIcon } from "$$ts/api/fs/icon";
+  } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { hideOverlay } from "../../../../ts/window/overlay";
+  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
+  import { renameItem } from "../../../../ts/api/fs/rename";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon";
 
   let newName = "";
   let img = "";

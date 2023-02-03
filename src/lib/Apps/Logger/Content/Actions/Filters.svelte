@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { log, LogLevel } from "$$ts/console";
+  import { log, LogLevel } from "../../../../../ts/console";
   import Filter from "./Filters/Filter.svelte";
 
   export let filter: (filter: LogLevel) => void;

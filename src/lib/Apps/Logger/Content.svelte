@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { App } from "$$ts/applogic/interface";
-  import type { LogItem } from "$$ts/console";
-  import type { ScopedAppData } from "$$ts/userlogic/interfaces";
+  import type { App } from "../../../ts/applogic/interface";
+  import type { LogItem } from "../../../ts/console";
+  import type { ScopedAppData } from "../../../ts/userlogic/interfaces";
   import Actions from "./Content/Actions.svelte";
   import Items from "./Content/Items.svelte";
 

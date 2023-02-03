@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { currentSettingsPage } from "$$ts/applogic/apps/SettingsApp/main";
-  import { UserData } from "$$ts/userlogic/interfaces";
+  import { currentSettingsPage } from "../../../ts/applogic/apps/SettingsApp/main";
+  import { UserData } from "../../../ts/userlogic/interfaces";
 
   let cName = "";
 

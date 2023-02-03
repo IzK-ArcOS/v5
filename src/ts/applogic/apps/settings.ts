@@ -1,4 +1,4 @@
-import logo from "@assets/apps/settings.svg";
+import logo from "../../../assets/apps/settings.svg";
 import SettingsAppSvelte from "../../../lib/Apps/SettingsApp.svelte";
 import type { App } from "../interface";
 import { currentSettingsPage } from "./SettingsApp/main";

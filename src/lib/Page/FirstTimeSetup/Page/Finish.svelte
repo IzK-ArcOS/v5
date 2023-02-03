@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { projName } from "$$ts/env/main";
-  import { applyState } from "$$ts/state/main";
-  import finish from "@assets/fts/finish.svg";
+  import { projName } from "../../../../ts/env/main";
+  import { applyState } from "../../../../ts/state/main";
+  import finish from "../../../../assets/fts/finish.svg";
   import Nav from "../Nav.svelte";
 
   function restart() {

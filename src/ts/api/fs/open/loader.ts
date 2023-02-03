@@ -1,8 +1,8 @@
 import type { ArcFile } from "../../../applogic/interface";
 import type { UserFileLoader } from "../../interface";
-import apLoaderIcon from "@assets/handlers/apploader.svg";
-import pdfOpenerIcon from "@assets/handlers/pdfopener.svg";
-import openInNewIcon from "@assets/handlers/openinnew.svg";
+import apLoaderIcon from "../../../../assets/handlers/apploader.svg";
+import pdfOpenerIcon from "../../../../assets/handlers/pdfopener.svg";
+import openInNewIcon from "../../../../assets/handlers/openinnew.svg";
 import { loadAppFile } from "../../../applogic/aftermarket/loader";
 
 export const FileLoaders: { [key: string]: UserFileLoader } = {

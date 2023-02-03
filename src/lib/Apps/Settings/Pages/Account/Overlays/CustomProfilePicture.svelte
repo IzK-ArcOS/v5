@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { applyCustomPfp } from "$$ts/userlogic/pfp";
-  import { hideOverlay } from "$$ts/window/overlay";
-  import "@css/desktop/apps/settings/account/customPfp.css";
-  import def from "@assets/pfp/null.png";
+  import { applyCustomPfp } from "../../../../../../ts/userlogic/pfp";
+  import { hideOverlay } from "../../../../../../ts/window/overlay";
+  import "../../../../../../css/desktop/apps/settings/account/customPfp.css";
+  import def from "../../../../../../assets/pfp/null.png";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
-  import { UserData } from "$$ts/userlogic/interfaces";
+  import { UserData } from "../../../../../../ts/userlogic/interfaces";
   let img = "";
   let valid = false;
 

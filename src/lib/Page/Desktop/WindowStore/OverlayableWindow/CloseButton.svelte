@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { App } from "$$ts/applogic/interface";
-  import { hideOverlay } from "$$ts/window/overlay";
+  import type { App } from "../../../../../ts/applogic/interface";
+  import { hideOverlay } from "../../../../../ts/window/overlay";
 
   export let app: App;
   export let id: string;

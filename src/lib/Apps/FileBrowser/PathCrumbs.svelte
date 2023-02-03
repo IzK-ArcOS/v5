@@ -2,7 +2,7 @@
   import {
     fbClass,
     FileBrowserCurrentDir,
-  } from "$$ts/applogic/apps/FileBrowser/main";
+  } from "../../../ts/applogic/apps/FileBrowser/main";
   import Crumb from "./PathCrumbs/Crumb.svelte";
 
   let crumbs: string[] = [];

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { currentCollapsibleT } from "$$ts/applogic/apps/SettingsApp/main";
+  import { currentCollapsibleT } from "../../../ts/applogic/apps/SettingsApp/main";
 
   export let collapsible = false;
   export let header: string;

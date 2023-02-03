@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { projName } from "$$ts/env/main";
-  import mode from "@assets/fts/mode.svg";
-  import { applyFTSState } from "$$ts/fts/main";
+  import { projName } from "../../../../ts/env/main";
+  import mode from "../../../../assets/fts/mode.svg";
+  import { applyFTSState } from "../../../../ts/fts/main";
   import Nav from "../Nav.svelte";
 
   function local() {

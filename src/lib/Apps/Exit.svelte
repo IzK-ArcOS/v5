@@ -1,9 +1,9 @@
 <script lang="ts">
-  import "@css/desktop/apps/exit.css";
-  import { closeWindow } from "$$ts/applogic/events";
-  import type { App } from "$$ts/applogic/interface";
-  import { isFullscreenWindow } from "$$ts/applogic/store";
-  import { logoff, restart, shutdown } from "$$ts/desktop/power";
+  import "../../css/desktop/apps/exit.css";
+  import { closeWindow } from "../../ts/applogic/events";
+  import type { App } from "../../ts/applogic/interface";
+  import { isFullscreenWindow } from "../../ts/applogic/store";
+  import { logoff, restart, shutdown } from "../../ts/desktop/power";
 
   export let app: App;
 

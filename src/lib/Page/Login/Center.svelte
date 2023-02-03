@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CurrentLoginState } from "$$ts/login/main";
+  import { CurrentLoginState } from "../../../ts/login/main";
 </script>
 
 {#if $CurrentLoginState}

@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import "@css/desktop/apps/calculator.css";
+  import "../../css/desktop/apps/calculator.css";
   import {
     CalculatorClass,
     CalculatorValue,
-  } from "$$ts/applogic/apps/Calculator/main";
-  import { CalculatorStore } from "$$ts/applogic/apps/Calculator/store";
-  import { Log, LogLevel } from "$$ts/console";
+  } from "../../ts/applogic/apps/Calculator/main";
+  import { CalculatorStore } from "../../ts/applogic/apps/Calculator/store";
+  import { Log, LogLevel } from "../../ts/console";
 
   let value = "";
 

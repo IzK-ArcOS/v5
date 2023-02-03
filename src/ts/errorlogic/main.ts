@@ -1,5 +1,5 @@
 import { get } from "svelte/store";
-import icon from "@assets/apps/errordialog.svg";
+import icon from "../../assets/apps/errordialog.svg";
 import type { App } from "../applogic/interface";
 import { maxZIndex } from "../applogic/store";
 import { Log, LogLevel } from "../console";

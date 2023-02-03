@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IterableCollectorResult } from "$$ts/console/collector";
+  import type { IterableCollectorResult } from "../../../ts/console/collector";
   import Category from "./Category.svelte";
 
   export let logs: IterableCollectorResult;

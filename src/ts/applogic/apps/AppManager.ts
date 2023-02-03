@@ -1,4 +1,4 @@
-import logo from "@assets/apps/appmanager.svg";
+import logo from "../../../assets/apps/appmanager.svg";
 import AppManagerSvelte from "../../../lib/Apps/AppManager.svelte";
 import { createTrayIcon, disposeTrayIcon } from "../../desktop/tray/main";
 import type { App } from "../interface";

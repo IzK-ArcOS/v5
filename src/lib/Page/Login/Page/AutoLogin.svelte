@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import "@css/login/userlogin.css";
+  import "../../../../css/login/userlogin.css";
   import Spinner from "../../../../lib/Spinner.svelte";
-  import { loginUsername } from "$$ts/login/main";
-  import type { UserData } from "$$ts/userlogic/interfaces";
-  import { getUserdata } from "$$ts/userlogic/main";
-  import { getProfilePicture } from "$$ts/userlogic/pfp";
+  import { loginUsername } from "../../../../ts/login/main";
+  import type { UserData } from "../../../../ts/userlogic/interfaces";
+  import { getUserdata } from "../../../../ts/userlogic/main";
+  import { getProfilePicture } from "../../../../ts/userlogic/pfp";
   import ProfilePicture from "../../../ProfilePicture.svelte";
 
   let data: UserData;

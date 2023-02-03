@@ -1,4 +1,4 @@
-import logo from "@assets/apps/logger.svg";
+import logo from "../../../assets/apps/logger.svg";
 import Logger from "../../../lib/Apps/Logger.svelte";
 import type { App } from "../interface";
 

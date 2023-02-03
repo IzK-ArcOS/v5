@@ -1,4 +1,6 @@
-import logo from "@assets/apps/apppoker.svg";
+import { writable } from "svelte/store";
+import logo from "../../../assets/apps/apppoker.svg";
+import AppInfoSvelte from "../../../lib/Apps/AppInfo.svelte";
 import TextView from "../../../lib/Apps/TextView.svelte";
 import type { App } from "../interface";
 import { setTitleSuffix } from "../title";

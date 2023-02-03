@@ -1,4 +1,4 @@
-import poker from "@assets/apps/apppoker.svg";
+import poker from "../../assets/apps/apppoker.svg";
 import { get } from "svelte/store";
 import { Log, LogLevel } from "../console";
 import { createTrayIcon, disposeTrayIcon } from "../desktop/tray/main";

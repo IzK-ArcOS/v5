@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { App } from "$$ts/applogic/interface";
-  import type { ScopedAppData } from "$$ts/userlogic/interfaces";
+  import type { App } from "../../../ts/applogic/interface";
+  import type { ScopedAppData } from "../../../ts/userlogic/interfaces";
   import AdressBar from "./PathCrumbs.svelte";
   import DeleteButton from "./TopBar/DeleteButton.svelte";
   import NewFolderButton from "./TopBar/NewFolderButton.svelte";

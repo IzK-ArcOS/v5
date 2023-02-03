@@ -1,12 +1,15 @@
 <script lang="ts">
-  import passwordIcon from "@assets/apps/settings/password.svg";
-  import "@css/desktop/apps/settings/account/changePswd.css";
-  import { changePassword } from "$$ts/api/cred";
-  import type { App } from "$$ts/applogic/interface";
-  import { createOverlayableError } from "$$ts/errorlogic/overlay";
-  import { UserData, UserName } from "$$ts/userlogic/interfaces";
-  import { getProfilePicture } from "$$ts/userlogic/pfp";
-  import { hideOverlay } from "$$ts/window/overlay";
+  import passwordIcon from "../../../../../../assets/apps/settings/password.svg";
+  import "../../../../../../css/desktop/apps/settings/account/changePswd.css";
+  import { changePassword } from "../../../../../../ts/api/cred";
+  import type { App } from "../../../../../../ts/applogic/interface";
+  import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
+  import {
+    UserData,
+    UserName,
+  } from "../../../../../../ts/userlogic/interfaces";
+  import { getProfilePicture } from "../../../../../../ts/userlogic/pfp";
+  import { hideOverlay } from "../../../../../../ts/window/overlay";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
 
   let img = "";

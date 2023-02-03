@@ -1,9 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { App } from "$$ts/applogic/interface";
-  import { UserData } from "$$ts/userlogic/interfaces";
-  import { ProfilePictures } from "$$ts/userlogic/pfp";
-  import { hideOverlay, showOverlay } from "$$ts/window/overlay";
+  import type { App } from "../../../../../../ts/applogic/interface";
+  import { UserData } from "../../../../../../ts/userlogic/interfaces";
+  import { ProfilePictures } from "../../../../../../ts/userlogic/pfp";
+  import {
+    hideOverlay,
+    showOverlay,
+  } from "../../../../../../ts/window/overlay";
 
   let pfps: string[] = [];
   export let id: string;

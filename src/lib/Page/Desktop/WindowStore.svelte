@@ -1,13 +1,13 @@
 <script lang="ts">
-  import type { App } from "$$ts/applogic/interface";
+  import type { App } from "../../../ts/applogic/interface";
 
   import {
     focusedWindowId,
     getWindow,
     maxZIndex,
     WindowStore,
-  } from "$$ts/applogic/store";
-  import { getWindowElement } from "$$ts/window/main";
+  } from "../../../ts/applogic/store";
+  import { getWindowElement } from "../../../ts/window/main";
   import Window from "./WindowStore/Window.svelte";
 
   let oa: App[] = [];

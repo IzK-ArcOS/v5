@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { WindowStore } from "$$ts/applogic/store";
+  import { WindowStore } from "../../../../ts/applogic/store";
   import AppListItem from "./AppListItem.svelte";
 </script>
 

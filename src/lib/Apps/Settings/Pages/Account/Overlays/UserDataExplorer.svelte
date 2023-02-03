@@ -1,7 +1,10 @@
 <script lang="ts">
-  import "@css/desktop/apps/settings/account/udataExplorer.css";
-  import type { App } from "$$ts/applogic/interface";
-  import { UserData, UserName } from "$$ts/userlogic/interfaces";
+  import "../../../../../../css/desktop/apps/settings/account/udataExplorer.css";
+  import type { App } from "../../../../../../ts/applogic/interface";
+  import {
+    UserData,
+    UserName,
+  } from "../../../../../../ts/userlogic/interfaces";
   import CloseButton from "../../../../../Page/Desktop/WindowStore/OverlayableWindow/CloseButton.svelte";
   import Branch from "./UserDataExplorer/Branch.svelte";
   import Node from "./UserDataExplorer/Node.svelte";

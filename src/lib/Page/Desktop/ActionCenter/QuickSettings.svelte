@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { QuickSettings } from "$$ts/desktop/actioncenter/quicksettings/store";
+  import { QuickSettings } from "../../../../ts/desktop/actioncenter/quicksettings/store";
   import Setting from "./QuickSettings/Setting.svelte";
 </script>
 

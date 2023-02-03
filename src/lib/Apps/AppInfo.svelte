@@ -1,14 +1,14 @@
 <script lang="ts">
-  import "@css/desktop/apps/AppInfo.css";
-  import { AppInfoId as id } from "$$ts/applogic/apps/AppInfo";
-  import { AppPokerData } from "$$ts/applogic/apps/AppManager/Manager";
-  import { isDisabled } from "$$ts/applogic/checks";
-  import { disableApp, enableApp } from "$$ts/applogic/enabling";
-  import { openWindow } from "$$ts/applogic/events";
-  import { getAppIcon } from "$$ts/applogic/icon";
-  import { SystemApps } from "$$ts/applogic/imports";
-  import type { App } from "$$ts/applogic/interface";
-  import { getWindow, WindowStore } from "$$ts/applogic/store";
+  import "../../css/desktop/apps/AppInfo.css";
+  import { AppInfoId as id } from "../../ts/applogic/apps/AppInfo";
+  import { AppPokerData } from "../../ts/applogic/apps/AppManager/Manager";
+  import { isDisabled } from "../../ts/applogic/checks";
+  import { disableApp, enableApp } from "../../ts/applogic/enabling";
+  import { openWindow } from "../../ts/applogic/events";
+  import { getAppIcon } from "../../ts/applogic/icon";
+  import { SystemApps } from "../../ts/applogic/imports";
+  import type { App } from "../../ts/applogic/interface";
+  import { getWindow, WindowStore } from "../../ts/applogic/store";
 
   let data: App;
   let isEnabled = true;

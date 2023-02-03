@@ -1,24 +1,24 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import "@css/desktop.css";
-  import { importAutoLoaders } from "$$ts/applogic/aftermarket/autoload";
-  import { importDefault } from "$$ts/applogic/imports";
-  import { startKeyListener } from "$$ts/applogic/keyboard/listener";
+  import "../../css/desktop.css";
+  import { importAutoLoaders } from "../../ts/applogic/aftermarket/autoload";
+  import { importDefault } from "../../ts/applogic/imports";
+  import { startKeyListener } from "../../ts/applogic/keyboard/listener";
   import {
     isFullscreenWindow,
     updateStores,
     WindowStore as WStore,
-  } from "$$ts/applogic/store";
+  } from "../../ts/applogic/store";
   import {
     assignDesktopListeners,
     desktopClassNames,
     loggingOff,
     showDesktop,
     startOpened,
-  } from "$$ts/desktop/main";
-  import { DevModeOverride } from "$$ts/devmode/props";
-  import { ErrorMessages } from "$$ts/errorlogic/app";
-  import { UserData, UserName } from "$$ts/userlogic/interfaces";
+  } from "../../ts/desktop/main";
+  import { DevModeOverride } from "../../ts/devmode/props";
+  import { ErrorMessages } from "../../ts/errorlogic/app";
+  import { UserData, UserName } from "../../ts/userlogic/interfaces";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import PushNotification from "./Desktop/PushNotification.svelte";
   import Shell from "./Desktop/Shell.svelte";

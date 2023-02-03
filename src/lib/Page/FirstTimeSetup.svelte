@@ -1,9 +1,11 @@
 <script lang="ts">
+  import "../../css/fts.css";
+  import logo from "../../assets/systemIcon.svg";
+  import { projName } from "../../ts/env/main";
   import { onMount } from "svelte";
-  import "@css/fts.css";
-  import { applyFTSState, CurrentFTSState } from "$$ts/fts/main";
-  import { FTSStates } from "$$ts/fts/store";
   import Right from "./FirstTimeSetup/Right.svelte";
+  import { applyFTSState, CurrentFTSState } from "../../ts/fts/main";
+  import { FTSStates } from "../../ts/fts/store";
 
   let show = false;
 

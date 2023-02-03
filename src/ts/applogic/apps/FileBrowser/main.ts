@@ -1,5 +1,5 @@
 import { get, writable } from "svelte/store";
-import warning from "@assets/apps/error.svg";
+import warning from "../../../../assets/apps/error.svg";
 import { getDirectory } from "../../../api/fs/directory";
 import {
   defaultDirectory,

@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { FileBrowserOpeningFile } from "$$ts/applogic/apps/FileBrowser/main";
+  import { FileBrowserOpeningFile } from "../../../../ts/applogic/apps/FileBrowser/main";
 
-  import "@css/desktop/apps/filebrowser/overlays/openingfile.css";
-  import icon from "@assets/apps/filemanager.svg";
+  import "../../../../css/desktop/apps/filebrowser/overlays/openingfile.css";
+  import icon from "../../../../assets/apps/filemanager.svg";
   import Spinner from "../../../Spinner.svelte";
-  import { formatBytes } from "$$ts/api/fs/sizes";
-  import { hideOverlay } from "$$ts/window/overlay";
-  import { abortFileReader } from "$$ts/api/fs/file";
+  import { formatBytes } from "../../../../ts/api/fs/sizes";
+  import { hideOverlay } from "../../../../ts/window/overlay";
+  import { abortFileReader } from "../../../../ts/api/fs/file";
 
   function abort() {
     abortFileReader.set(true);

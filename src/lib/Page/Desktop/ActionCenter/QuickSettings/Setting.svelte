@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { QuickSetting } from "$$ts/desktop/actioncenter/quicksettings/interface";
-  import { UserData } from "$$ts/userlogic/interfaces";
+  import type { QuickSetting } from "../../../../../ts/desktop/actioncenter/quicksettings/interface";
+  import { UserData } from "../../../../../ts/userlogic/interfaces";
 
   let active = false;
 

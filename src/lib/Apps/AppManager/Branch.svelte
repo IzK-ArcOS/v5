@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { isOpened } from "$$ts/applogic/checks";
-  import type { App } from "$$ts/applogic/interface";
-  import { getWindow } from "$$ts/applogic/store";
+  import { isOpened } from "../../../ts/applogic/checks";
+  import type { App } from "../../../ts/applogic/interface";
+  import { getWindow } from "../../../ts/applogic/store";
   import AppSvelte from "./App.svelte";
   import Branch from "./Branch.svelte";
   import OverlayApp from "./OverlayApp.svelte";

@@ -1,9 +1,9 @@
-window#FileManager div.tileview {
+div.tileview {
   overflow-y: scroll;
   height: 100%;
 }
 
-window#FileManager div.tileview div.folders {
+div.tileview div.folders {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
   margin-bottom: 10px;
@@ -12,7 +12,7 @@ window#FileManager div.tileview div.folders {
   margin-right: 10px;
 }
 
-window#FileManager div.tileview div.folders button {
+div.tileview div.folders button {
   flex-grow: 1;
   max-width: 150px;
   display: flex;
@@ -22,15 +22,15 @@ window#FileManager div.tileview div.folders button {
   text-align: left;
 }
 
-window#FileManager div.tileview div.folders button.selected {
+div.tileview div.folders button.selected {
   background-color: var(--button-hover-bg);
 }
 
-window#FileManager div.tileview div.folders button img {
+div.tileview div.folders button img {
   margin-right: 10px;
   height: 20px;
 }
-window#FileManager div.tileview div.folders button p.name {
+div.tileview div.folders button p.name {
   flex-grow: 1;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -39,37 +39,34 @@ window#FileManager div.tileview div.folders button p.name {
   line-height: 20px;
 }
 
-window#FileManager div.tileview div.files {
+div.tileview div.files {
   display: grid;
   grid-template-columns: repeat(auto-fit, max(85px));
 }
 
-window#FileManager div.tileview div.files button {
+div.tileview div.files button {
   max-width: 150px;
   overflow: hidden;
   padding: 5px;
 }
 
-window#FileManager
-  div.tileview
-  div.files
-  button:not(:active):not(:hover):not(.selected) {
+div.tileview div.files button:not(:active):not(:hover):not(.selected) {
   background-color: transparent !important;
 }
 
-window#FileManager div.tileview div.files button:hover {
+div.tileview div.files button:hover {
   background-color: var(--button-bg) !important;
 }
 
-window#FileManager div.tileview div.files button.selected {
+div.tileview div.files button.selected {
   background-color: var(--button-hover-bg);
 }
 
-window#FileManager div.tileview div.files button img {
+div.tileview div.files button img {
   height: 48px;
 }
 
-window#FileManager div.tileview div.files button p.name {
+div.tileview div.files button p.name {
   overflow: hidden;
   text-overflow: ellipsis;
   height: 2.5em;

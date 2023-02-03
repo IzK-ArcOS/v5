@@ -1,14 +1,17 @@
 <script lang="ts">
-  import { changeUsername } from "$$ts/api/cred";
-  import { resetAppIcon } from "$$ts/applogic/icon";
-  import type { App } from "$$ts/applogic/interface";
-  import { createOverlayableError } from "$$ts/errorlogic/overlay";
-  import { UserData, UserName } from "$$ts/userlogic/interfaces";
-  import { getProfilePicture } from "$$ts/userlogic/pfp";
-  import { hideOverlay } from "$$ts/window/overlay";
+  import { changeUsername } from "../../../../../../ts/api/cred";
+  import { resetAppIcon } from "../../../../../../ts/applogic/icon";
+  import type { App } from "../../../../../../ts/applogic/interface";
+  import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
+  import {
+    UserData,
+    UserName,
+  } from "../../../../../../ts/userlogic/interfaces";
+  import { getProfilePicture } from "../../../../../../ts/userlogic/pfp";
+  import { hideOverlay } from "../../../../../../ts/window/overlay";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
-  import usericon from "@assets/apps/settings/account.svg";
-  import "@css/desktop/apps/settings/account/changeUname.css";
+  import usericon from "../../../../../../assets/apps/settings/account.svg";
+  import "../../../../../../css/desktop/apps/settings/account/changeUname.css";
 
   let img = "";
 
