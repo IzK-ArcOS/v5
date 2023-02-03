@@ -8,6 +8,7 @@ window#TextEditor textarea {
   color: var(--fg);
   font-family: "Source Code Pro", monospace;
   padding: 0;
+  white-space: pre !important;
 }
 
 window#TextEditor div.body {

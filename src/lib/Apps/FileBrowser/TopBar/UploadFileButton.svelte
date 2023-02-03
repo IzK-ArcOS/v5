@@ -25,7 +25,7 @@
       name: file.name,
       path,
       data: await file.arrayBuffer(),
-      mime: (mime.contentType(file.name) as string) || "unknown",
+      mime: "arcos/uploadable-data",
     };
 
     showOverlay("uploadingFile", "FileManager");

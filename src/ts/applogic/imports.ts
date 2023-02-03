@@ -11,6 +11,7 @@ import { Exit } from "./apps/Exit";
 import { FileBrowserApp } from "./apps/FileBrowser";
 import { ImageViewer } from "./apps/ImageViewer";
 import { LoggerApp } from "./apps/Logger";
+import { MarkDownViewer } from "./apps/MarkDownViewer";
 import { OpenWithApp } from "./apps/OpenWith";
 import { SettingsApp } from "./apps/settings";
 import { TestApp } from "./apps/testApp";
@@ -35,6 +36,7 @@ export const DefaultApps: { [key: string]: App } = {
   TextEditor,
   ImageViewer,
   OpenWithApp,
+  MarkDownViewer,
 };
 
 export const SystemApps: string[] = [

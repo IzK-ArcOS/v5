@@ -1,0 +1,50 @@
+window#MarkDownViewer h1 {
+  margin-bottom: 16px;
+  padding-bottom: 8.4px;
+  border-bottom: var(--button-bg) 1px solid;
+}
+
+window#MarkDownViewer h2 {
+  margin: 24px 0 16px;
+  padding: 0 0 6.3px;
+  border-bottom: var(--button-bg) 1px solid;
+}
+
+window#MarkDownViewer div.body ul {
+  min-width: 100%;
+  list-style: initial;
+  margin: 0 0 16px;
+  padding-left: 2em;
+}
+
+window#MarkDownViewer div.body ul li {
+  display: list-item;
+  margin: 0;
+}
+window#MarkDownViewer div.body ul li + li {
+  margin-top: 0.25em;
+}
+
+window#MarkDownViewer div.body p {
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+window#MarkDownViewer div.body blockquote {
+  margin: 0 0 16px;
+  padding: 0 14px;
+  border-left: var(--button-hover-bg) 0.25em solid;
+  opacity: 0.6;
+}
+
+window#MarkDownViewer div.body pre {
+  padding: 16px;
+  background-color: var(--button-active-bg);
+  line-height: 1.45;
+  overflow: auto;
+  border-radius: var(--win-border-rad);
+}
+
+window#MarkDownViewer div.body pre code {
+  font-family: "Source Code Pro", monospace !important;
+}
