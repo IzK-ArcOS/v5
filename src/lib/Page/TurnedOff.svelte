@@ -1,5 +1,5 @@
 <script lang="ts">
-  import safetoturnoff from "../../assets/bg/safetoturnoff.png";
+  import safetoturnoff from "@assets/bg/safetoturnoff.png";
 </script>
 
 <img src={safetoturnoff} alt="It's now safe to turn off your computer." />

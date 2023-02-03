@@ -8,7 +8,7 @@
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { errorMessage } from "../../../../ts/errorlogic/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
-  import trash from "../../../../assets/apps/logger/clear.svg";
+  import trash from "@assets/apps/logger/clear.svg";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   function deleteSelected() {

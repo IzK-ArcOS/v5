@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import logo from "../../../assets/apps/imageviewer.svg";
+import logo from "@assets/apps/imageviewer.svg";
 import ImageView from "../../../lib/Apps/ImageView.svelte";
 import TextView from "../../../lib/Apps/TextView.svelte";
 import type { App } from "../interface";

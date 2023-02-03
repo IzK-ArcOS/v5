@@ -1,5 +1,5 @@
 <script lang="ts">
-  import clear from "../../../../../assets/apps/logger/clear.svg";
+  import clear from "@assets/apps/logger/clear.svg";
   import type { App } from "../../../../../ts/applogic/interface";
   import { Log, log, LogItem, LogLevel } from "../../../../../ts/console";
   import {

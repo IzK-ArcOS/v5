@@ -2,7 +2,7 @@
   import { applyState } from "../../ts/state/main";
 
   import { onMount } from "svelte";
-  import logo from "../../assets/systemIcon.svg";
+  import logo from "@assets/systemIcon.svg";
   import "../../css/boot.css";
   import { testConnection } from "../../ts/api/test";
   import { LoggerApp } from "../../ts/applogic/apps/Logger";

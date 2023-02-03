@@ -1,0 +1,22 @@
+window#FileManager div.nofiles {
+  opacity: 0.5;
+  margin: 10px;
+  text-align: center;
+  font-style: italic;
+}
+
+window#FileManager div.content div.loading {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+window#FileManager div.content div.loading img.spinner-svg {
+  margin-bottom: 10px;
+}

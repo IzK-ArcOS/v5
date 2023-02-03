@@ -1,4 +1,4 @@
-import logo from "../../../assets/apps/calculator.svg";
+import logo from "@assets/apps/calculator.svg";
 import Calculator from "../../../lib/Apps/Calculator.svelte";
 import type { App } from "../interface";
 import { CalculatorClass, CalculatorValue } from "./Calculator/main";

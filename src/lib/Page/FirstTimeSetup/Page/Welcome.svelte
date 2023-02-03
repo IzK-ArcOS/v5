@@ -1,5 +1,5 @@
 <script lang="ts">
-  import logo from "../../../../assets/systemIcon.svg";
+  import logo from "@assets/systemIcon.svg";
   import "../../../../css/fts/page/welcome.css";
   import { applyFTSState } from "../../../../ts/fts/main";
 </script>

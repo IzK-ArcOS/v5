@@ -1,6 +1,6 @@
 <script lang="ts">
-  import "../assets/spinner.css";
-  import spinner from "../assets/spinner.svg";
+  import "@assets/spinner.css";
+  import spinner from "@assets/spinner.svg";
   export let height: number;
 </script>
 

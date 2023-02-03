@@ -1,5 +1,5 @@
 <script lang="ts">
-  import logo from "../assets/systemIcon.svg";
+  import logo from "@assets/systemIcon.svg";
   import "../css/bugrep.css";
   import { BugReport, BugReportData } from "../ts/bugrep";
 

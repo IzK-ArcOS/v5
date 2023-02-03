@@ -1,9 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import icon from "../../../../assets/apps/filemanager/file.svg";
+  import icon from "@assets/apps/filemanager/file.svg";
   import { getMimeIcon } from "../../../../ts/api/fs/icon";
   import { openUserFile, openWithDialog } from "../../../../ts/api/fs/open";
-  import { formatBytes } from "../../../../ts/api/fs/sizes";
   import type { UserFile } from "../../../../ts/api/interface";
   import {
     FileBrowserOpeningFile,

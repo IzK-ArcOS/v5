@@ -1,5 +1,5 @@
 <script lang="ts">
-  import passwordIcon from "../../../../../../assets/apps/settings/password.svg";
+  import passwordIcon from "@assets/apps/settings/password.svg";
   import "../../../../../../css/desktop/apps/settings/account/changePswd.css";
   import { changePassword } from "../../../../../../ts/api/cred";
   import type { App } from "../../../../../../ts/applogic/interface";

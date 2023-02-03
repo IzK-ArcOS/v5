@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "../../assets/desktop/apps/openwith.css";
+  import "@assets/desktop/apps/openwith.css";
   import {
     findAppToOpen,
     getAllFileHandlers,

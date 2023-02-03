@@ -10,7 +10,7 @@
   import { getProfilePicture } from "../../../../../../ts/userlogic/pfp";
   import { hideOverlay } from "../../../../../../ts/window/overlay";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
-  import usericon from "../../../../../../assets/apps/settings/account.svg";
+  import usericon from "@assets/apps/settings/account.svg";
   import "../../../../../../css/desktop/apps/settings/account/changeUname.css";
 
   let img = "";

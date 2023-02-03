@@ -1,5 +1,5 @@
 <script lang="ts">
-  import arcos from "../../../../assets/systemIcon.svg";
+  import arcos from "@assets/systemIcon.svg";
   import { startOpened } from "../../../../ts/desktop/main";
 
   function toggle() {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import overlays from "../../../assets/apps/default.svg";
+  import overlays from "@assets/apps/default.svg";
   import type { App, OverlayableApp } from "../../../ts/applogic/interface";
 
   export let id: string;

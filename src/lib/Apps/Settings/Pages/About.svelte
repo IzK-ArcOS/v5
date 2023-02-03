@@ -1,5 +1,5 @@
 <script lang="ts">
-  import logo from "../../../../assets/systemIcon.svg";
+  import logo from "@assets/systemIcon.svg";
   import "../../../../css/desktop/apps/settings/about.css";
   import { DevModeOverride } from "../../../../ts/devmode/props";
   import { errorMessage } from "../../../../ts/errorlogic/main";

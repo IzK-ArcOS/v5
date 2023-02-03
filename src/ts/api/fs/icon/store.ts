@@ -1,12 +1,12 @@
 import type { ExtMimes } from "./interface";
-import imgIcon from "../../../../assets/mimetypes/image-x-generic.svg";
-import svgIcon from "../../../../assets/mimetypes/application-svg.svg";
-import pdfIcon from "../../../../assets/mimetypes/application-pdf.svg";
-import txtIcon from "../../../../assets/mimetypes/text-plain.svg";
-import arcAppI from "../../../../assets/mimetypes/application-arcapp.svg";
-import jsonIcon from "../../../../assets/mimetypes/application-json.svg";
-import archiveIcon from "../../../../assets/mimetypes/application-x-compress.svg";
-import markDownIcon from "../../../../assets/apps/markdownviewer.svg";
+import imgIcon from "@assets/mimetypes/image-x-generic.svg";
+import svgIcon from "@assets/mimetypes/application-svg.svg";
+import pdfIcon from "@assets/mimetypes/application-pdf.svg";
+import txtIcon from "@assets/mimetypes/text-plain.svg";
+import arcAppI from "@assets/mimetypes/application-arcapp.svg";
+import jsonIcon from "@assets/mimetypes/application-json.svg";
+import archiveIcon from "@assets/mimetypes/application-x-compress.svg";
+import markDownIcon from "@assets/apps/markdownviewer.svg";
 
 export const extensionIcons: ExtMimes = [
   {

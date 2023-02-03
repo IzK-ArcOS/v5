@@ -1,6 +1,6 @@
 <script lang="ts">
   import mime from "mime-types";
-  import upload from "../../../../assets/apps/filemanager/upload.svg";
+  import upload from "@assets/apps/filemanager/upload.svg";
   import { writeFile } from "../../../../ts/api/fs/file";
   import {
     fbClass,

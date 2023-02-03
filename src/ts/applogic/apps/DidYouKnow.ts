@@ -1,4 +1,4 @@
-import logo from "../../../assets/apps/didyouknow.svg";
+import logo from "@assets/apps/didyouknow.svg";
 import DidYouKnowSvelte from "../../../lib/Apps/DidYouKnow.svelte";
 import type { App } from "../interface";
 

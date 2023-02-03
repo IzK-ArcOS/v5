@@ -4,7 +4,7 @@
     fbClass,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
+  import icon from "@assets/apps/filemanager/folder.svg";
 
   export let dir: PartialUserDir;
 

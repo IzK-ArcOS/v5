@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import pfp from "../../../../assets/pfp/null.png";
+  import pfp from "@assets/pfp/null.png";
   import { generateCredToken } from "../../../../ts/api/cred";
   import { loginUsingCreds } from "../../../../ts/api/getter";
   import { apiCall, ConnectedServer } from "../../../../ts/api/main";

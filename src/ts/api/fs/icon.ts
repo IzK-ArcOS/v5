@@ -1,5 +1,5 @@
 import { extensionIcons } from "./icon/store";
-import file from "../../../assets/mimetypes/application-default.svg";
+import file from "@assets/mimetypes/application-default.svg";
 
 export function getMimeIcon(filename: string) {
   for (let i = 0; i < extensionIcons.length; i++) {

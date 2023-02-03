@@ -7,7 +7,7 @@ window#FileManager > div.body {
 window#FileManager > div.body div.content {
   position: absolute;
   width: 100%;
-  height: calc(100% - 60px);
+  height: calc(100% - 70px);
   box-sizing: border-box;
   background-color: var(--win-bg);
   top: 70px;

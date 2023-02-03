@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import logo from "../../../assets/apps/settings/apps.svg";
+import logo from "@assets/apps/settings/apps.svg";
 import OpenWith from "../../../lib/Apps/OpenWith.svelte";
 import type { App, ArcFile } from "../interface";
 

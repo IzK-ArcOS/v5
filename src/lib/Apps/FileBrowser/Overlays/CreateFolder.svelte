@@ -1,5 +1,5 @@
 <script lang="ts">
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
+  import icon from "@assets/apps/filemanager/folder.svg";
   import { createDirectory } from "../../../../ts/api/fs/directory";
   import {
     fbClass,
