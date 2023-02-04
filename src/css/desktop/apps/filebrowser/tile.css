@@ -26,6 +26,10 @@ div.tileview div.folders button.selected {
   background-color: var(--button-hover-bg);
 }
 
+div.tileview button.cutting {
+  opacity: 0.6;
+}
+
 div.tileview div.folders button img {
   margin-right: 10px;
   height: 20px;
