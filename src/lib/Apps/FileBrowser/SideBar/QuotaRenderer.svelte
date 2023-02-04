@@ -21,7 +21,7 @@
     <div class="inner" style="width: {width}%;" />
   </div>
   <div class="stat">
-    {formatBytes(quota.free)}
+    {formatBytes(quota.used)}
     <div class="right">{formatBytes(quota.max)}</div>
   </div>
 </div>

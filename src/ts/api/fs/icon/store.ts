@@ -7,6 +7,7 @@ import arcAppI from "../../../../assets/mimetypes/application-arcapp.svg";
 import jsonIcon from "../../../../assets/mimetypes/application-json.svg";
 import archiveIcon from "../../../../assets/mimetypes/application-x-compress.svg";
 import markDownIcon from "../../../../assets/apps/markdownviewer.svg";
+import soundIcon from "../../../../assets/mimetypes/audio-x-generic.svg";
 
 export const extensionIcons: ExtMimes = [
   {
@@ -40,5 +41,9 @@ export const extensionIcons: ExtMimes = [
   {
     extensions: [".zip", ".tar", ".tar.gz", ".7z", ".rar"],
     image: archiveIcon,
+  },
+  {
+    extensions: [".flac", ".mp3", ".wav"],
+    image: soundIcon,
   },
 ];

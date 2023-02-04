@@ -44,10 +44,12 @@
 <div class="titlebar" bind:this={titlebar} on:dblclick={max}>
   <p class="title">
     <img class="icon" src={getAppIcon(app)} alt={app.info.name} />
-    {app.info.name}{app.info.titleSuffix || ""}
-    {#if isBoot}
-      (In recovery mode)
-    {/if}
+    <span>
+      {app.info.name}{app.info.titleSuffix || ""}
+      {#if isBoot}
+        (In recovery mode)
+      {/if}
+    </span>
   </p>
   <div class="controls">
     {#if $UserData.sh.window.traffic}
