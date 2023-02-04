@@ -3,6 +3,7 @@
   import { readFile } from "../../../ts/api/fs/file";
   import type { UserDirectory } from "../../../ts/api/interface";
   import type { OverlayableApp } from "../../../ts/applogic/interface";
+  import { getWindow } from "../../../ts/applogic/store";
   import { getChooserTarget, setTargetFile } from "../../../ts/chooser/store";
   import { hideOverlay } from "../../../ts/window/overlay";
 
@@ -37,9 +38,12 @@
   }
 
   function dispose() {
-    hideOverlay(overlay.id, getChooserTarget(overlay.id) as string);
+    const targetId = getChooserTarget(overlay.id) as string;
+    const targetWindow = getWindow(targetId);
 
-    setTargetFile(overlay.id, null);
+    hideOverlay(overlay.id, targetId);
+
+    setTargetFile(overlay.id, targetWindow.openedFile);
   }
 </script>
 
