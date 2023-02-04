@@ -16,6 +16,7 @@ window#TextEditor div.actions {
   height: 40px;
   border-bottom: var(--win-border);
   padding: 5px;
+  display: flex;
 }
 
 window#TextEditor div.actions button {
@@ -25,6 +26,18 @@ window#TextEditor div.actions button {
   margin: 0;
   font-size: 19px;
   background-color: transparent;
+}
+
+window#TextEditor div.actions div.right {
+  margin-left: auto;
+}
+window#TextEditor div.actions div.right button.markdown-open {
+  padding: 2.5px 0;
+  line-height: 30px;
+}
+
+window#TextEditor div.actions div.right button.markdown-open img {
+  height: 18px;
 }
 
 window#TextEditor div.actions button:hover {

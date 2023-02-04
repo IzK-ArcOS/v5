@@ -1,11 +1,12 @@
 <script lang="ts">
   import save from "../../assets/apps/textview/save.svg";
+  import md from "../../assets/apps/markdownviewer.svg";
   import "../../css/desktop/apps/textview.css";
   import { writeFile } from "../../ts/api/fs/file";
   import { openWith } from "../../ts/api/fs/open";
   import { formatBytes } from "../../ts/api/fs/sizes";
   import { TextEditorContent } from "../../ts/applogic/apps/TextEditor/main";
-  import { closeWindow } from "../../ts/applogic/events";
+  import { closeWindow, openWindow } from "../../ts/applogic/events";
   import type { App } from "../../ts/applogic/interface";
   import { WindowStore } from "../../ts/applogic/store";
   import { showOpenFileDialog } from "../../ts/chooser/main";
@@ -92,6 +93,16 @@
     on:click={saveFile}
     disabled={!app.openedFile}>save</button
   >
+  <div class="right">
+    <button
+      title="Open Markdown Viewer"
+      on:click={() => openWindow("MarkDownViewer")}
+      disabled={!app.openedFile || !app.openedFile.name.endsWith(".md")}
+      class="markdown-open"
+    >
+      <img src={md} alt="Markdown Viewer" />
+    </button>
+  </div>
 </div>
 
 <div class="content">
@@ -120,11 +131,11 @@
   {/if}
 </div>
 
-{#if saving}
+{#if saving && app.openedFile}
   <div class="saving-wrapper">
     <div class="saving-content">
       <img src={save} alt="Saving" />
-      <p class="caption">Saving textContentFile.txt...</p>
+      <p class="caption">Saving {app.openedFile.name}...</p>
       <Spinner height={24} />
     </div>
   </div>
