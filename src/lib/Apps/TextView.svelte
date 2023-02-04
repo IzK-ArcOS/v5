@@ -3,7 +3,6 @@
   import { closeWindow } from "../../ts/applogic/events";
   import type { App } from "../../ts/applogic/interface";
   import { WindowStore } from "../../ts/applogic/store";
-  import { errorMessage } from "../../ts/errorlogic/main";
   import { createOverlayableError } from "../../ts/errorlogic/overlay";
   import { tryParse } from "../../ts/json";
 

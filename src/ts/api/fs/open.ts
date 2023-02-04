@@ -132,11 +132,11 @@ export async function openUserFile(file: UserFile): Promise<ArcFile | true> {
 
   console.log(apps, loaders);
 
-  if (apps.length == 1) return openWith(apps[0], data) || true;
+  if (apps.length > 0) return openWith(apps[0], data) || true;
   if (loaders.length == 2) {
     loaders[0].loader(data);
     return true;
   }
 
-  return data;
+  return true;
 }

@@ -1,0 +1,219 @@
+window.overlay[id*="CHOOSER"] {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+window.overlay[id*="CHOOSER"] div.body {
+  padding: 0 !important;
+}
+
+window.overlay[id*="CHOOSER"] div.topbar {
+  height: 40px;
+  display: flex;
+  padding: 5px 5px 0;
+  border-bottom: var(--win-border);
+}
+
+window.overlay[id*="CHOOSER"] div.topbar button.material-icons-round {
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+window.overlay[id*="CHOOSER"] div.topbar button.material-icons-round.parentdir {
+  margin: 0 !important;
+}
+
+window.overlay[id*="CHOOSER"]
+  div.topbar
+  button.material-icons-round
+  + button.material-icons-round {
+  margin-left: 0px;
+}
+
+window.overlay[id*="CHOOSER"]
+  div.topbar
+  button.material-icons-round:not(.home) {
+  background-color: transparent;
+  margin-right: 5px;
+}
+
+window.overlay[id*="CHOOSER"]
+  div.topbar
+  button.material-icons-round:not(.home):hover {
+  opacity: 0.7;
+}
+
+window.overlay[id*="CHOOSER"]
+  div.topbar
+  button.material-icons-round:not(.home):active {
+  opacity: 0.4;
+}
+
+window.overlay[id*="CHOOSER"]
+  div.topbar
+  button.material-icons-round:not(.home):disabled {
+  opacity: 0.3;
+}
+
+window.overlay[id*="CHOOSER"] div.topbar div.addressbar {
+  flex-grow: 1;
+  background-color: var(--button-bg);
+  vertical-align: middle;
+  height: 30px;
+  overflow-x: scroll;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: none;
+  white-space: nowrap;
+  display: flex;
+  border-top-right-radius: var(--button-border-rad);
+  border-bottom-right-radius: var(--button-border-rad);
+}
+
+window.overlay[id*="CHOOSER"] div.topbar div.addressbar::-webkit-scrollbar {
+  display: none;
+}
+
+window.overlay[id*="CHOOSER"] div.topbar div.addressbar button {
+  padding: 5px;
+}
+
+window.overlay[id*="CHOOSER"] div.topbar button.home {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+window.overlay[id*="CHOOSER"] div.topbar button.refresh {
+  margin-left: 5px;
+}
+
+window.overlay[id*="CHOOSER"] div.content {
+  height: calc(100% - 80px);
+  background-color: var(--win-bg);
+  overflow-y: scroll;
+  padding: 5px;
+  padding-right: 0px;
+  overflow-x: hidden;
+}
+
+window.overlay[id*="CHOOSER"] div.content button.item {
+  display: flex;
+  width: 100%;
+  height: 30px;
+  padding: 5px;
+  line-height: 20px;
+  background-color: transparent;
+  text-align: left;
+}
+
+window.overlay[id*="CHOOSER"] div.content button.item.selected {
+  background-color: var(--button-hover-bg);
+}
+
+window.overlay[id*="CHOOSER"] div.content button.item:hover {
+  background-color: var(--button-bg);
+}
+
+window.overlay[id*="CHOOSER"] div.content button.item:active {
+  background-color: var(--button-active-bg);
+}
+
+window.overlay[id*="CHOOSER"] div.content button.item div.image img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+window.overlay[id*="CHOOSER"] div.content button.item div.name {
+  width: 50%;
+}
+
+window.overlay[id*="CHOOSER"] div.content button.item div.mime {
+  width: 25%;
+}
+
+window.overlay[id*="CHOOSER"] div.content button.item div:not(.image) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 10px;
+}
+
+window.overlay[id*="CHOOSER"] div.bottompane {
+  width: 100%;
+  border-top: var(--win-border);
+  padding: 5px;
+  display: flex;
+}
+
+window.overlay[id*="CHOOSER"] div.bottompane div.buttons {
+  margin-left: auto;
+}
+
+window.overlay[id*="CHOOSER"] div.bottompane button {
+  height: 25px;
+}
+
+window.overlay[id*="CHOOSER"] div.processing-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--darkened-overlay-alt);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+window.overlay[id*="CHOOSER"] div.processing-overlay div.processing-content {
+  padding: 10px;
+  background-color: var(--win-bg);
+  border-radius: var(--win-border-rad);
+  border: var(--win-border);
+  width: 350px;
+  height: 52px;
+}
+
+window.overlay[id*="CHOOSER"]
+  div.processing-overlay
+  div.processing-content
+  div.processing {
+  display: flex;
+  line-height: 32px;
+  padding: 0;
+}
+
+window.overlay[id*="CHOOSER"]
+  div.processing-overlay
+  div.processing-content
+  div.processing
+  img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+window.overlay[id*="CHOOSER"]
+  div.processing-overlay
+  div.processing-content
+  div.processing
+  p.caption {
+  margin: 0;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+window.overlay[id*="CHOOSER"]
+  div.processing-overlay
+  div.processing-content
+  div.processing
+  img.spinner-svg {
+  margin-left: auto;
+  margin-right: 0;
+}

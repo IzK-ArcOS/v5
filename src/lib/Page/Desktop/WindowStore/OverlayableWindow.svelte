@@ -18,7 +18,7 @@
   WindowStore.subscribe(() => {
     css = generateOverlayCSS(overlay);
 
-    show = app.overlays[id].show;
+    show = app.overlays[id] ? app.overlays[id].show : false;
   });
 </script>
 

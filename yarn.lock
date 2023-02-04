@@ -526,6 +526,16 @@ magic-string@^0.26.2:
   dependencies:
     sourcemap-codec "^1.4.8"
 
+marked-emoji@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/marked-emoji/-/marked-emoji-1.0.1.tgz#1124f16cec50ea096728a47e1769bbcbb2d3861f"
+  integrity sha512-1qSdZ078ySSIYSupZZ37YT4iV8mc1Na6oay6vx610lW6ZgU00kVjLcwGqS0NMBh5Rn8CmGHAwFtgUj1Vp+lnTg==
+
+marked-extended-tables@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/marked-extended-tables/-/marked-extended-tables-1.0.5.tgz#fb0d171b1bec739c049788477656e3e429d8af4d"
+  integrity sha512-XKwskGC55+Hv/PKZmNRiyXmMbZap03KMUw8BnwljNI1ELc/0Vah/zTM2C22qvpQLHtOy7qKtd5inWoHy70kdiA==
+
 marked@^4.0.10:
   version "4.2.12"
   resolved "https://registry.npmjs.org/marked/-/marked-4.2.12.tgz"
