@@ -31,6 +31,7 @@ window#FileManager > div.body div.sidebar {
   padding: 7px;
   display: flex;
   flex-direction: column;
+  border-right: var(--win-border);
 }
 
 window#FileManager > div.titlebar {

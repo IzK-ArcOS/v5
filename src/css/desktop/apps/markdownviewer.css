@@ -46,7 +46,17 @@ window#MarkDownViewer div.body pre {
 }
 
 window#MarkDownViewer div.body pre code {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+window#MarkDownViewer div.body code {
   font-family: "Source Code Pro", monospace !important;
+  background-color: var(--button-active-bg);
+  padding: 2px;
+  border-radius: 5px;
 }
 
 window#MarkDownViewer div.body table {

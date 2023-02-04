@@ -12,7 +12,7 @@
   async function refresh() {
     quota = await getFSQuota();
 
-    width = Math.round((100 / quota.max) * quota.free);
+    width = Math.round((100 / quota.max) * quota.used);
   }
 </script>
 

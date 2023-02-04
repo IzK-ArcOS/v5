@@ -44,6 +44,8 @@
       });
 
     fbClass.refresh();
+
+    hideOverlay("uploadingFile", "FileManager");
   }
 </script>
 

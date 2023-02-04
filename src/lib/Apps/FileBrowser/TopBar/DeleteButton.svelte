@@ -6,9 +6,9 @@
     FileBrowserDeletingFilename,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import { errorMessage } from "../../../../ts/errorlogic/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import trash from "../../../../assets/apps/logger/clear.svg";
+  import warning from "../../../../assets/apps/error.svg";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   function deleteSelected() {
@@ -36,7 +36,19 @@
 
     showOverlay("deletingItem", "FileManager");
 
-    await deleteItem(path);
+    const valid = await deleteItem(path);
+
+    if (!valid)
+      createOverlayableError(
+        {
+          title: "Unable to delete item",
+          message:
+            "ArcAPI was not able to delete the item from the file system. A permission error may have occured. Please try again later.",
+          buttons: [{ caption: "OK", action() {} }],
+          image: warning,
+        },
+        "FileManager"
+      );
 
     FileBrowserSelectedFilename.set(null);
 
