@@ -64,3 +64,10 @@ export interface UserFileLoader {
 }
 
 export type ApiResponse = Promise<DefaultResponse>;
+
+export interface FSQuota {
+  username: string;
+  max: number;
+  free: number;
+  used: number;
+}

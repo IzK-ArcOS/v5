@@ -1,0 +1,59 @@
+window#FileManager > div.body div.sidebar div.dirs {
+  height: calc(100% - 80px);
+}
+
+window#FileManager > div.body div.sidebar div.dirs button {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  padding: 5px;
+  margin: 0;
+  line-height: 20px;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+window#FileManager > div.body div.sidebar div.dirs button.selected {
+  background-color: var(--button-glass-bg);
+}
+
+window#FileManager > div.body div.sidebar div.dirs button img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+window#FileManager > div.body div.sidebar div.dirs button p {
+  margin: 0;
+}
+
+window#FileManager > div.body div.sidebar div.quota-renderer {
+  margin-top: auto;
+}
+
+window#FileManager > div.body div.sidebar div.quota-renderer div.bar {
+  height: 5px;
+  border-radius: 2.5px;
+  background-color: var(--button-glass-bg);
+}
+
+window#FileManager > div.body div.sidebar div.quota-renderer div.bar div.inner {
+  height: 5px;
+  border-radius: 2.5px;
+  background-color: dodgerblue;
+}
+
+window#FileManager > div.body div.sidebar div.quota-renderer div.stat {
+  opacity: 0.6;
+  font-size: 11px;
+  display: flex;
+  margin-top: 5px;
+}
+
+window#FileManager
+  > div.body
+  div.sidebar
+  div.quota-renderer
+  div.stat
+  div.right {
+  margin-left: auto;
+}

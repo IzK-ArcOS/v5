@@ -21,12 +21,13 @@
   <ParentDir />
   <AdressBar />
   <div class="right">
-    <DeleteButton />
-    <RenameButton />
     <div class="group">
       <CutButton />
       <CopyButton />
       <PasteButton />
+      <div class="sep" />
+      <DeleteButton />
+      <RenameButton />
     </div>
     <div class="group">
       <NewFolderButton />

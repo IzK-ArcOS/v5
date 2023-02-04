@@ -14,6 +14,7 @@
   import { ScopedAppData, UserData } from "../../ts/userlogic/interfaces";
   import ListView from "./FileBrowser/ListView.svelte";
   import PathCrumbs from "./FileBrowser/PathCrumbs.svelte";
+  import SideBar from "./FileBrowser/SideBar.svelte";
   import TileView from "./FileBrowser/TileView.svelte";
   import TopBar from "./FileBrowser/TopBar.svelte";
 
@@ -44,6 +45,7 @@
 </script>
 
 <TopBar bind:appdata {app} />
+<SideBar />
 <div class="content">
   {#if tiledMode}
     <TileView {files} {dirs} />

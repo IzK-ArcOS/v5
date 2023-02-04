@@ -1,4 +1,6 @@
 @import url("./ui/topbar.css");
+@import url("./ui/sidebar.css");
+
 window#FileManager > div.body {
   padding: 0;
   z-index: 1;
@@ -6,8 +8,8 @@ window#FileManager > div.body {
 
 window#FileManager > div.body div.content {
   position: absolute;
-  width: 100%;
-  height: calc(100% - 60px);
+  width: calc(100% - 150px);
+  height: calc(100% - 70px);
   box-sizing: border-box;
   background-color: var(--win-bg);
   top: 70px;
@@ -17,6 +19,18 @@ window#FileManager > div.body div.content {
   overflow-y: hidden;
   padding: 10px;
   padding-right: 5px;
+}
+
+window#FileManager > div.body div.sidebar {
+  position: absolute;
+  width: 150px;
+  height: calc(100% - 70px);
+  box-sizing: border-box;
+  top: 70px;
+  left: 0px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
 }
 
 window#FileManager > div.titlebar {

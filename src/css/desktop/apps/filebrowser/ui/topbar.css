@@ -119,12 +119,23 @@ window#FileManager div.topbar div.group button {
   border-radius: 0;
   margin-left: 0 !important;
 }
-window#FileManager div.topbar div.group button.selected {
+window#FileManager div.topbar div.group button.selected,
+window#FileManager div.topbar div.group button:hover {
   background-color: var(--button-glass-bg);
+}
+
+window#FileManager div.topbar div.group button:active {
+  background-color: var(--button-glass-active-bg);
 }
 
 window#FileManager div.topbar div.right button.material-icons-round {
   margin: 0;
   margin-left: 10px;
   font-size: 17px;
+}
+
+window#FileManager div.topbar div.group div.sep {
+  height: 100%;
+  width: 1px;
+  background-color: var(--button-glass-bg);
 }

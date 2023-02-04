@@ -10,7 +10,9 @@
   let md = "";
 
   WindowStore.subscribe(() => {
-    const file = app.openedFile || getWindow("TextEditor").openedFile;
+    if (!app) return;
+
+    const file = app.openedFile;
 
     if (!file || !file.mime.startsWith("text/")) return;
 
