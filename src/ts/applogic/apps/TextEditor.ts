@@ -12,7 +12,7 @@ export const TextEditor: App = {
     builtin: true,
     version: "1.0.0",
     author: "Izaak Kuipers",
-    hidden: true,
+    hidden: false,
     icon: logo,
     onlineOnly: true,
   },
@@ -27,7 +27,7 @@ export const TextEditor: App = {
     windowState: { min: false, max: false, fll: false },
   },
   content: TextView,
-  glass: false,
+  glass: true,
   fileMimes: ["text/plain; charset=utf-8"],
   events: {
     openFile(app: App) {

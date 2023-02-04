@@ -40,7 +40,7 @@
 
     FileBrowserSelectedFilename.set(null);
 
-    fbClass.refresh(false);
+    fbClass.refresh();
 
     setTimeout(() => {
       hideOverlay("deletingItem", "FileManager");

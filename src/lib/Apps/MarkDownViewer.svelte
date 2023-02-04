@@ -1,18 +1,21 @@
 <script lang="ts">
   import type { App } from "../../ts/applogic/interface";
-  import { WindowStore } from "../../ts/applogic/store";
+  import { getWindow, WindowStore } from "../../ts/applogic/store";
   import SvelteMarkdown from "svelte-markdown";
   import "../../css/desktop/apps/markdownviewer.css";
+  import { TextEditorContent } from "../../ts/applogic/apps/TextEditor/main";
 
   export let app: App;
 
   let md = "";
 
   WindowStore.subscribe(() => {
-    if (!app.openedFile || !app.openedFile.mime.startsWith("text/")) return;
+    const file = app.openedFile || getWindow("TextEditor").openedFile;
 
-    md = new TextDecoder().decode(app.openedFile.data);
+    if (!file || !file.mime.startsWith("text/")) return;
+
+    md = new TextDecoder().decode(file.data);
   });
 </script>
 
-<SvelteMarkdown source={md} />
+<SvelteMarkdown source={$TextEditorContent || md} />

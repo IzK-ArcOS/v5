@@ -2,7 +2,7 @@ import { get } from "svelte/store";
 import { OpenWithFile } from "../../applogic/apps/OpenWith";
 import { openWindow } from "../../applogic/events";
 import type { ArcFile } from "../../applogic/interface";
-import { WindowStore } from "../../applogic/store";
+import { focusedWindowId, WindowStore } from "../../applogic/store";
 import { Log, LogLevel } from "../../console";
 import type { UserFile, UserFileLoader } from "../interface";
 import { readFile } from "./file";
@@ -102,6 +102,7 @@ export function openWith(
     window.openedFile = data;
 
     openWindow(appId);
+    focusedWindowId.set(appId);
 
     if (window.events && window.events.openFile) window.events.openFile(window);
 

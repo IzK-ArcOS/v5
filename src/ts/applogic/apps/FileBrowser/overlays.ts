@@ -1,3 +1,4 @@
+import CreateFile from "../../../../lib/Apps/FileBrowser/Overlays/CreateFile.svelte";
 import CreateFolder from "../../../../lib/Apps/FileBrowser/Overlays/CreateFolder.svelte";
 import DeletingItem from "../../../../lib/Apps/FileBrowser/Overlays/DeletingItem.svelte";
 import OpeningFile from "../../../../lib/Apps/FileBrowser/Overlays/OpeningFile.svelte";
@@ -33,6 +34,16 @@ export const fbOverlays: { [key: string]: OverlayableApp } = {
       author: "ArcOS Team",
     },
     content: CreateFolder,
+    size: { w: 350, h: 115 },
+    show: false,
+  },
+  createFile: {
+    info: {
+      name: "Create File",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: CreateFile,
     size: { w: 350, h: 115 },
     show: false,
   },

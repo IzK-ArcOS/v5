@@ -43,7 +43,7 @@
         image: upload,
       });
 
-    fbClass.refresh(false);
+    fbClass.refresh();
   }
 </script>
 

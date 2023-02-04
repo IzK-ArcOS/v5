@@ -1,6 +1,8 @@
 <script lang="ts">
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
-  import { createDirectory } from "../../../../ts/api/fs/directory";
+  import defaultIcon from "../../../../assets/mimetypes/text-plain.svg";
+  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
+  import { writeFile } from "../../../../ts/api/fs/file";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon";
   import {
     fbClass,
     FileBrowserCurrentDir,
@@ -8,9 +10,9 @@
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { hideOverlay } from "../../../../ts/window/overlay";
-  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
 
-  let folderName = "";
+  let filename = "";
+  let img = "";
 
   let exists = false;
 
@@ -19,20 +21,21 @@
     const files = $FileBrowserDirContents.files;
 
     for (let i = 0; i < directories.length; i++) {
-      if (directories[i].name == folderName) return (exists = true);
+      if (directories[i].name == filename) return (exists = true);
     }
 
     for (let j = 0; j < files.length; j++) {
-      if (files[j].filename == folderName) return (exists = true);
+      if (files[j].filename == filename) return (exists = true);
     }
 
     exists = false;
+    img = getMimeIcon(filename) || defaultIcon;
   }
 
   async function create() {
-    await createDirectory(`${$FileBrowserCurrentDir}/${folderName}`);
+    await writeFile(`${$FileBrowserCurrentDir}/${filename}`, new Blob([]));
 
-    FileBrowserSelectedFilename.set(folderName);
+    FileBrowserSelectedFilename.set(filename);
 
     cancel();
 
@@ -40,16 +43,16 @@
   }
 
   function cancel() {
-    hideOverlay("createFolder", "FileManager");
-    folderName = "";
+    hideOverlay("createFile", "FileManager");
+    filename = "";
   }
 </script>
 
 <div class="fb-overlay-mutator-wrapper">
-  <div class="image"><img src={icon} alt="" /></div>
+  <div class="image"><img src={img || defaultIcon} alt="" /></div>
   <div>
-    <p>Enter a name for the new folder:</p>
-    <input type="text" bind:value={folderName} on:input={updateExists} />
+    <p>Enter a name for the new file:</p>
+    <input type="text" bind:value={filename} on:input={updateExists} />
     <div class="actions">
       <div class="inner">
         <button disabled={exists} on:click={create}>Create</button>

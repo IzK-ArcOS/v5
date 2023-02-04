@@ -3,6 +3,7 @@ import warning from "../../../../assets/apps/error.svg";
 import { getDirectory } from "../../../api/fs/directory";
 import {
   defaultDirectory,
+  PartialUserDir,
   UserDirectory,
   UserFile,
 } from "../../../api/interface";
@@ -19,6 +20,8 @@ export let FileBrowserUploadFile = writable<ArcFile>(null);
 export let FileBrowserOpenCancelled = writable<boolean>(false);
 export let FileBrowserRefreshing = writable<boolean>(false);
 export let FileBrowserUploadProgress = writable<number>(0);
+export let FileBrowserCuttingFilename = writable<PartialUserDir>(null);
+export let FileBrowserCopyingFilename = writable<PartialUserDir>(null);
 
 FileBrowserOpenCancelled.subscribe((v) => {
   if (!v) return;

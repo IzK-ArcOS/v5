@@ -6,6 +6,8 @@
   import { formatBytes } from "../../../../ts/api/fs/sizes";
   import type { UserFile } from "../../../../ts/api/interface";
   import {
+    FileBrowserCuttingFilename,
+    FileBrowserDirContents,
     FileBrowserOpeningFile,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
@@ -66,6 +68,8 @@
   onMount(() => {
     img = getMimeIcon(file.filename);
   });
+
+  FileBrowserDirContents.subscribe(() => (img = getMimeIcon(file.filename)));
 </script>
 
 <button
@@ -73,6 +77,7 @@
   on:click={select}
   on:dblclick={open}
   class:selected={$FileBrowserSelectedFilename == file.filename}
+  class:cutting={$FileBrowserCuttingFilename.name == file.filename}
   title={file.scopedPath}
 >
   <img src={img} alt={file.filename} />

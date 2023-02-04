@@ -66,7 +66,7 @@
 
     newName = "";
 
-    fbClass.refresh(false);
+    fbClass.refresh();
   }
 
   function cancel() {
