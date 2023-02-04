@@ -2,7 +2,7 @@
   import type { PartialUserDir } from "../../../../ts/api/interface";
   import {
     fbClass,
-    FileBrowserCuttingFilename,
+    FileBrowserCuttingFilename as cutting,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import icon from "../../../../assets/apps/filemanager/folder.svg";
@@ -23,7 +23,7 @@
   on:click={select}
   on:dblclick={open}
   class:selected={$FileBrowserSelectedFilename == dir.name}
-  class:cutting={$FileBrowserCuttingFilename.name == dir.name}
+  class:cutting={$cutting && $cutting.name == dir.name}
 >
   <img src={icon} alt={dir.name} />
   <p class="name">{dir.name}</p>

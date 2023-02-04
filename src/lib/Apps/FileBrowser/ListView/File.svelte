@@ -6,7 +6,7 @@
   import { formatBytes } from "../../../../ts/api/fs/sizes";
   import type { UserFile } from "../../../../ts/api/interface";
   import {
-    FileBrowserCuttingFilename,
+    FileBrowserCuttingFilename as cutting,
     FileBrowserDirContents,
     FileBrowserOpeningFile,
     FileBrowserSelectedFilename,
@@ -78,7 +78,7 @@
   on:dblclick={open}
   class:selected={$FileBrowserSelectedFilename == file.filename}
   title={file.scopedPath}
-  class:cutting={$FileBrowserCuttingFilename.name == file.filename}
+  class:cutting={$cutting && $cutting.name == file.filename}
 >
   <div class="image"><img src={img} alt={file.filename} /></div>
   <div class="name">{file.filename}</div>

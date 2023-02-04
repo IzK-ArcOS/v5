@@ -44,6 +44,10 @@ window#FileManager div.listview button.item.selected {
   background-color: var(--button-hover-bg);
 }
 
+window#FileManager div.listview button.item.cutting {
+  opacity: 0.6;
+}
+
 window#FileManager div.listview div.items {
   height: calc(100% - 35px);
   overflow-y: scroll;

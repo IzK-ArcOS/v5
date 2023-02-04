@@ -10,7 +10,7 @@ export async function copyItem(sourcePath: string, targetPath: string) {
   await apiCall(
     server,
     "fs/cp",
-    { path: btoa(sourcePath), targetPath: btoa(targetPath) },
+    { path: btoa(sourcePath), target: btoa(targetPath) },
     get(UserToken)
   );
 
