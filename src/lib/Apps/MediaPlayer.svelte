@@ -100,7 +100,7 @@
         <img
           src={getMimeIcon(app.openedFile.name)}
           alt={app.openedFile.name}
-        />{app.openedFile.path}
+        /><span>{app.openedFile.path}</span>
       </div>
     </div>
   {/if}

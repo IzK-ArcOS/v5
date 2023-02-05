@@ -1,3 +1,7 @@
+window#MediaPlayerApp div.titlebar p.title {
+  background-color: transparent;
+}
+
 window#MediaPlayerApp div.body {
   padding: 15px 30px;
 }
@@ -61,4 +65,9 @@ window#MediaPlayerApp div.media-player div.filename {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  display: flex;
+}
+
+window#MediaPlayerApp div.media-player div.filename span {
+  line-height: 24px;
 }
