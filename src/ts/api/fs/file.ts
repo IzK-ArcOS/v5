@@ -87,7 +87,7 @@ export async function deleteItem(path: string) {
     true
   );
 
-  return req.valid;
+  return !(req.valid == false);
 }
 
 export async function writeFile(path: string, data: Blob): Promise<boolean> {
