@@ -3,6 +3,7 @@ import { Log, LogLevel } from "../console";
 import { ActionCenterOpened } from "../desktop/actioncenter/main";
 import { startOpened } from "../desktop/main";
 import { getWindowElement } from "../window/main";
+import { hideOverlay } from "../window/overlay";
 import { isLoaded, isOpened } from "./checks";
 import type { App } from "./interface";
 import {
@@ -134,6 +135,14 @@ export function closeWindow(id: string) {
 
     for (let i = 0; i < entries.length; i++) {
       closeChildWindow(window, entries[i][0]);
+    }
+  }
+
+  if (window.overlays) {
+    const entries = Object.entries(window.overlays);
+
+    for (let i = 0; i < entries.length; i++) {
+      hideOverlay(entries[i][0], id);
     }
   }
 
