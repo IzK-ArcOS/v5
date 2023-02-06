@@ -4,12 +4,12 @@ import { getSentMessages, getUnreadMessages } from "../get";
 import { getMessages } from "../main";
 import type { MessagingPage, MsgPages } from "./interface";
 
-export const messagingPageId = writable<string>(null);
+export const messagingPage = writable<MessagingPage>(null);
 
 export const MessagingPages: MsgPages = {
   unread: {
     name: "Unread",
-    icon: "mark_mail_unread",
+    icon: "mark_email_unread",
     content: Unread,
     msgGetter: getUnreadMessages,
   },

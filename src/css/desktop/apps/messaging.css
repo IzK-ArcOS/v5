@@ -1,0 +1,5 @@
+@import url("./messagingapp/ui.css");
+@import url("./messagingapp/sidebar.css");
+window#MessagingApp div.titlebar {
+  border-bottom: var(--win-border);
+}

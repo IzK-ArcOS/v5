@@ -1,0 +1,25 @@
+window#MessagingApp div.body {
+  display: flex;
+  padding: 0;
+}
+
+window#MessagingApp div.body > div {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 10px;
+}
+
+window#MessagingApp div.body div.sidebar {
+  width: 40px;
+  border-right: var(--win-border);
+}
+
+window#MessagingApp div.body div.listbar {
+  width: 200px;
+  border-right: var(--win-border);
+}
+
+window#MessagingApp div.body div.content {
+  flex-grow: 1;
+  background-color: var(--win-bg);
+}
