@@ -131,8 +131,6 @@ export async function openUserFile(file: UserFile): Promise<ArcFile | true> {
 
   if (!(apps.length > 0) && !(loaders.length > 1)) return data;
 
-  console.log(apps, loaders);
-
   if (apps.length > 0) return openWith(apps[0], data) || data;
   if (loaders.length == 2) {
     loaders[0].loader(data);

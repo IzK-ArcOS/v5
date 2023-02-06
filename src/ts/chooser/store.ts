@@ -10,8 +10,6 @@ export function setTargetFile(id: string, file: ArcFile): boolean {
   const targets = get(chooseTargets);
   const targetId = targets[id];
 
-  console.log(id, targetId, targets);
-
   const ws = get(WindowStore);
 
   let index = null;
@@ -24,8 +22,6 @@ export function setTargetFile(id: string, file: ArcFile): boolean {
 
   ws[index].openedFile = file;
   delete ws[index].overlays[id];
-
-  console.log(ws[index].openedFile);
 
   WindowStore.set(ws);
 

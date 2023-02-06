@@ -40,8 +40,6 @@
 
     isDir = checkIsDir();
     img = getMimeIcon(v);
-
-    console.log(v, isDir, img);
   });
 
   function checkIsDir() {

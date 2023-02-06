@@ -26,8 +26,6 @@
       str += `${crumbs[i]}/`;
     }
 
-    console.log(crumbs);
-
     return `${str}${crumb}`;
   }
 

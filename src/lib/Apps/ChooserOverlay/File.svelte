@@ -29,8 +29,6 @@
       mime: file.mime,
     };
 
-    console.log(data);
-
     setTargetFile(overlay.id, data);
 
     $processing = false;

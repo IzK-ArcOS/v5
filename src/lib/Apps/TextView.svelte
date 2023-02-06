@@ -20,12 +20,14 @@
   let saving = false;
   let changing = false;
   let fileContents = "";
+  let currentFile = "";
 
   WindowStore.subscribe(() => {
     errored = false;
 
     if (changing) return;
     if (!app.openedFile) return (fileContents = "");
+    if (currentFile == app.openedFile.path) return;
     if (!app.openedFile.mime.startsWith("text/")) {
       createOverlayableError(
         {
@@ -37,7 +39,10 @@
         "TextEditor"
       );
       return (fileContents = "");
-    } else fileContents = new TextDecoder().decode(app.openedFile.data);
+    }
+    
+    fileContents = new TextDecoder().decode(app.openedFile.data);
+    currentFile = app.openedFile.path;
 
     const json = tryParse(fileContents);
 
@@ -45,6 +50,7 @@
 
     if (json.error && json.valid == false) {
       errored = true;
+
       return createOverlayableError(
         {
           title: json.error.title,
@@ -63,8 +69,6 @@
     const path = app.openedFile.path;
     const data = new Blob([fileContents]);
 
-    console.log(data.length, data, path, fileContents.length, fileContents);
-
     await writeFile(path, data);
 
     const file = { ...app.openedFile, data: await data.arrayBuffer() };
@@ -78,8 +82,6 @@
 
   async function onchange() {
     TextEditorContent.set(fileContents);
-
-    console.log(fileContents);
   }
 </script>
 
