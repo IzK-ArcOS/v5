@@ -6,6 +6,7 @@
     messageSubscribe,
     messageUpdateTrigger,
   } from "../../../ts/messaging/updates";
+  import MessageItem from "./ListBar/MessageItem.svelte";
 
   let items: PartialMessage[] = [];
 
@@ -16,12 +17,14 @@
   messageSubscribe(async () => {
     if (!$messagingPage) return;
 
+    items = [];
+
     items = await $messagingPage.msgGetter();
   });
 </script>
 
 <div class="listbar">
   {#each items as item}
-    <p>{item.sender} -> {item.receiver} ({item.id})</p>
+    <MessageItem {item} />
   {/each}
 </div>

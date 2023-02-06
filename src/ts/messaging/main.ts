@@ -1,7 +1,9 @@
-import { get } from "svelte/store";
+import { get, writable } from "svelte/store";
 import { apiCall, ConnectedServer } from "../api/main";
 import { UserToken } from "../userlogic/interfaces";
 import type { Message, PartialMessage } from "./interface";
+
+export const selectedMessageId = writable<string>(null);
 
 export async function getMessages(): Promise<PartialMessage[]> {
   const server = get(ConnectedServer);

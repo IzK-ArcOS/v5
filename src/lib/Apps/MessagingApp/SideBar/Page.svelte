@@ -9,11 +9,16 @@
   onMount(() => {
     console.log(id);
   });
+
+  function switchTo() {
+    $messagingPage = data;
+  }
 </script>
 
 <button
   class="material-icons-round"
   class:active={$messagingPage && data.name == $messagingPage.name}
+  on:click={switchTo}
 >
   {data.icon}
 </button>

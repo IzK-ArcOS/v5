@@ -1,10 +1,19 @@
 import { writable } from "svelte/store";
 import Unread from "../../../lib/Apps/MessagingApp/Pages/Unread.svelte";
-import { getSentMessages, getUnreadMessages } from "../get";
+import {
+  getReceivedMessages,
+  getSentMessages,
+  getUnreadMessages,
+} from "../get";
 import { getMessages } from "../main";
+import { messageUpdateTrigger } from "../updates";
 import type { MessagingPage, MsgPages } from "./interface";
 
 export const messagingPage = writable<MessagingPage>(null);
+
+messagingPage.subscribe(() => {
+  setTimeout(messageUpdateTrigger, 25);
+});
 
 export const MessagingPages: MsgPages = {
   unread: {
@@ -17,7 +26,7 @@ export const MessagingPages: MsgPages = {
     name: "Inbox",
     icon: "inbox",
     content: Unread,
-    msgGetter: getMessages,
+    msgGetter: getReceivedMessages,
   },
   sent: {
     name: "Sent",

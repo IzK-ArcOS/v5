@@ -19,8 +19,13 @@
   let loading = false;
   let show = false;
 
-  async function createAccount() {
+  async function createAccount(e?: Event) {
+    if (e) e.preventDefault();
+
+    if (!username || !password || loading) return false;
+
     loading = true;
+
     await apiCall($ConnectedServer, "user/create", {}, null, {
       username,
       password,
@@ -36,6 +41,8 @@
     UserName.set(username);
 
     applyState("desktop");
+
+    return false;
   }
 
   onMount(() => {
@@ -49,7 +56,7 @@
   <ProfilePicture src={pfp} height={151} />
   <h1>{username || "New user"}</h1>
   {#if !loading}
-    <form>
+    <form on:submit={createAccount}>
       <input
         type="text"
         placeholder="Username"
@@ -59,7 +66,7 @@
       />
     </form>
     <div class="input-wrapper">
-      <form>
+      <form on:submit={createAccount}>
         <input
           type="password"
           placeholder="Password"

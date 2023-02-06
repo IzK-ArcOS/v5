@@ -1,0 +1,37 @@
+window#MessagingApp div.body div.listbar button.message {
+  display: flex;
+  padding: 5px;
+  text-align: left;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+window#MessagingApp div.body div.listbar button.message:hover,
+window#MessagingApp div.body div.listbar button.message.selected {
+  background-color: var(--button-glass-bg);
+}
+
+window#MessagingApp div.body div.listbar button.message:active {
+  background-color: var(--button-glass-active-bg);
+}
+
+window#MessagingApp div.body div.listbar button.message div.pfprenderer {
+  min-width: 26px;
+  margin-right: 5px;
+}
+
+window#MessagingApp div.body div.listbar button.message div.content * {
+  margin: 0;
+  font-size: 12px;
+}
+
+window#MessagingApp div.body div.listbar button.message div.content p.username {
+  font-weight: bold;
+}
+
+window#MessagingApp div.body div.listbar button.message div.content p.partial {
+  opacity: 0.5;
+  font-size: 10px;
+}

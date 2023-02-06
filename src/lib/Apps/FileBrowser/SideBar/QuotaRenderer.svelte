@@ -21,7 +21,8 @@
     <div class="inner" style="width: {width}%;" />
   </div>
   <div class="stat">
-    {formatBytes(quota.used)}
+    <span class:invalid={quota.used > quota.max}>{formatBytes(quota.used)}</span
+    >
     <div class="right">{formatBytes(quota.max)}</div>
   </div>
 </div>

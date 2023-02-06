@@ -28,7 +28,7 @@ export async function getReceivedMessages() {
 }
 
 export async function getUnreadMessages() {
-  const messages = await getMessages();
+  const messages = await getReceivedMessages();
 
   let returnValue: PartialMessage[] = [];
 

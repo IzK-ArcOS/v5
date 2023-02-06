@@ -24,6 +24,9 @@ window#FileManager > div.body div.sidebar div.dirs button img {
 
 window#FileManager > div.body div.sidebar div.dirs button p {
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 window#FileManager > div.body div.sidebar div.quota-renderer {
@@ -34,6 +37,7 @@ window#FileManager > div.body div.sidebar div.quota-renderer div.bar {
   height: 5px;
   border-radius: 2.5px;
   background-color: var(--button-glass-bg);
+  overflow: hidden;
 }
 
 window#FileManager > div.body div.sidebar div.quota-renderer div.bar div.inner {
@@ -47,6 +51,16 @@ window#FileManager > div.body div.sidebar div.quota-renderer div.stat {
   font-size: 11px;
   display: flex;
   margin-top: 5px;
+}
+
+window#FileManager
+  > div.body
+  div.sidebar
+  div.quota-renderer
+  div.stat
+  span.invalid {
+  color: tomato;
+  font-style: italic;
 }
 
 window#FileManager
