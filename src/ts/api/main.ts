@@ -11,7 +11,7 @@ export async function apiCall(
   params: Params,
   tokenAuth?: string,
   credAuth?: Cred,
-  JsonBody?: string,
+  body?: string,
   noBody?: boolean
 ): Promise<DefaultResponse | any> {
   const credToken = generateCredToken(credAuth);
@@ -19,8 +19,8 @@ export async function apiCall(
     headers: {
       Authorization: tokenAuth ? `Bearer ${tokenAuth}` : `Basic ${credToken}`,
     },
-    body: JsonBody,
-    method: JsonBody ? "post" : "get",
+    body,
+    method: body ? "post" : "get",
   };
 
   const noAuth = !credAuth && !tokenAuth;
@@ -28,7 +28,7 @@ export async function apiCall(
 
   const req = await fetch(
     `${host}/${path}${paramStr}`,
-    noAuth ? { body: JsonBody } : init
+    noAuth ? { body: body } : init
   );
 
   const txt = await req.text();

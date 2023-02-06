@@ -13,6 +13,7 @@ import { ImageViewer } from "./apps/ImageViewer";
 import { LoggerApp } from "./apps/Logger";
 import { MarkDownViewer } from "./apps/MarkDownViewer";
 import { MediaPlayerApp } from "./apps/MediaPlayer";
+import { MessagingApp } from "./apps/MessagingApp";
 import { OpenWithApp } from "./apps/OpenWith";
 import { SettingsApp } from "./apps/settings";
 import { TestApp } from "./apps/testApp";
@@ -39,6 +40,7 @@ export const DefaultApps: { [key: string]: App } = {
   OpenWithApp,
   MarkDownViewer,
   MediaPlayerApp,
+  MessagingApp,
 };
 
 export const SystemApps: string[] = [
