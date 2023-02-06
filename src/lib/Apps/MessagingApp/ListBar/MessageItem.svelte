@@ -4,6 +4,7 @@
   import type { PartialMessage } from "../../../../ts/messaging/interface";
   import { selectedMessageId } from "../../../../ts/messaging/main";
   import { filterPartial } from "../../../../ts/messaging/partial";
+  import { messageSubscribe } from "../../../../ts/messaging/updates";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
   import ProfilePicture from "../../../ProfilePicture.svelte";
 
@@ -18,6 +19,10 @@
   function select() {
     $selectedMessageId = item.id;
   }
+
+  messageSubscribe(async () => {
+    userProfile = await getUserPfp(item.sender);
+  });
 </script>
 
 <button

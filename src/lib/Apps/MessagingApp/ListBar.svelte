@@ -17,9 +17,15 @@
   messageSubscribe(async () => {
     if (!$messagingPage) return;
 
-    items = [];
+    const messages = await $messagingPage.msgGetter();
 
-    items = await $messagingPage.msgGetter();
+    for (let i = 0; i < messages.length; i++) {
+      if (!messages[i] || !items[i] || items[i].id != messages[i].id) {
+        items = [];
+        items = await $messagingPage.msgGetter();
+        break;
+      }
+    }
   });
 </script>
 

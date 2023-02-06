@@ -13,6 +13,13 @@ window#MessagingApp div.body div.sidebar button {
   font-size: 16px;
 }
 
+window#MessagingApp div.body div.sidebar hr {
+  width: 20px;
+  margin: 0;
+  margin-bottom: 8px;
+  border: var(--button-glass-bg) 1px solid;
+}
+
 window#MessagingApp div.body div.sidebar button:hover {
   background-color: var(--button-glass-bg);
 }

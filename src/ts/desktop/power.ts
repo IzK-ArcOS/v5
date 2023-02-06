@@ -9,6 +9,7 @@ import {
 import { closeWindow } from "../applogic/events";
 import { WindowStore } from "../applogic/store";
 import { ErrorMessages, ErrorWindowStore } from "../errorlogic/app";
+import { selectedMessageId } from "../messaging/main";
 import { NotificationStore } from "../notiflogic/main";
 import { loggingOff, restarting, shuttingDown } from "./main";
 
@@ -35,7 +36,7 @@ export function logoff() {
   ErrorWindowStore.set([]);
   ErrorMessages.set([]);
   WindowStore.set([]);
-
+  selectedMessageId.set(null);
   loggingOff.set(true);
 }
 

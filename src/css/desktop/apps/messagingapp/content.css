@@ -1,0 +1,47 @@
+window#MessagingApp div.body > div.content div.message-header {
+  display: flex;
+  padding: 5px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: var(--button-bg) 1px solid;
+}
+
+window#MessagingApp div.body > div.content div.message-header div.pfprenderer {
+  margin-right: 10px;
+}
+
+window#MessagingApp div.body > div.content div.message-header p {
+  margin: 0;
+}
+
+window#MessagingApp div.body > div.content div.message-header p.name {
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+window#MessagingApp div.body > div.content div.message-header div.actions {
+  margin-left: auto;
+  line-height: 32px;
+}
+
+window#MessagingApp
+  div.body
+  > div.content
+  div.message-header
+  div.actions
+  button {
+  border: none;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 0;
+  margin-left: 6px;
+  background-color: transparent;
+  font-size: 16px;
+}
+
+window#MessagingApp div.body > div.content div.message-header p.id {
+  font-family: "Source Code Pro", monospace;
+  opacity: 0.5;
+}
