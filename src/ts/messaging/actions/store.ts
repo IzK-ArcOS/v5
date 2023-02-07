@@ -1,3 +1,4 @@
+import { creatingMessage } from "../main";
 import type { MessageItemAction, MsgAppActions } from "./interface";
 
 export const messageSidebarActions: MsgAppActions = [
@@ -5,7 +6,7 @@ export const messageSidebarActions: MsgAppActions = [
     icon: "add",
     name: "New Message",
     action() {
-      console.log("new message requested!");
+      creatingMessage.set(true);
     },
   },
 ];

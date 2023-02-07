@@ -5,7 +5,7 @@ import {
   getSentMessages,
   getUnreadMessages,
 } from "../get";
-import { getMessages, selectedMessageId } from "../main";
+import { creatingMessage, getMessages, selectedMessageId } from "../main";
 import { messageUpdateTrigger } from "../updates";
 import type { MessagingPage, MsgPages } from "./interface";
 
@@ -15,7 +15,10 @@ messagingPage.subscribe(() => {
   setTimeout(messageUpdateTrigger, 100);
 });
 
-selectedMessageId.subscribe(messageUpdateTrigger);
+selectedMessageId.subscribe(() => {
+  messageUpdateTrigger();
+  creatingMessage.set(false);
+});
 
 export const MessagingPages: MsgPages = {
   unread: {
