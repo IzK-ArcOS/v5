@@ -1,0 +1,28 @@
+div.desktop div.contextmenu {
+  position: absolute;
+  width: 200px;
+  height: 350px;
+  top: 0px;
+  left: 0px;
+  background-color: #f0f;
+  color: #ff0;
+  border: #0f0 5px solid;
+  box-sizing: border-box;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s, top 0s, left 0s !important;
+}
+
+div.desktop div.contextmenu * {
+  pointer-events: none;
+}
+
+div.desktop div.contextmenu.show * {
+  pointer-events: initial;
+}
+
+div.desktop div.contextmenu.show {
+  opacity: 1;
+  visibility: visible;
+}

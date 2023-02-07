@@ -19,6 +19,7 @@
   import { DevModeOverride } from "../../ts/devmode/props";
   import { ErrorMessages } from "../../ts/errorlogic/app";
   import { UserData, UserName } from "../../ts/userlogic/interfaces";
+  import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import PushNotification from "./Desktop/PushNotification.svelte";
   import Shell from "./Desktop/Shell.svelte";
@@ -64,5 +65,6 @@
     <ErrorDialogStore />
     <Shell />
     <PushNotification />
+    <ContextMenu />
   </div>
 {/if}
