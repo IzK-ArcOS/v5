@@ -8,6 +8,7 @@
     getMessage,
     selectedMessageId,
   } from "../../../ts/messaging/main";
+  import Editor from "./Content/Editor.svelte";
   import Viewer from "./Content/Viewer.svelte";
 
   let message: Message;
@@ -39,6 +40,6 @@
   {#if message && !$creatingMessage}
     <Viewer {message} />
   {:else if $creatingMessage}
-    <h1>creating message brrr</h1>
+    <Editor />
   {/if}
 </div>

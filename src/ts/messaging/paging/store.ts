@@ -1,11 +1,10 @@
 import { writable } from "svelte/store";
-import Unread from "../../../lib/Apps/MessagingApp/Pages/Unread.svelte";
 import {
   getReceivedMessages,
   getSentMessages,
   getUnreadMessages,
 } from "../get";
-import { creatingMessage, getMessages, selectedMessageId } from "../main";
+import { creatingMessage, selectedMessageId } from "../main";
 import { messageUpdateTrigger } from "../updates";
 import type { MessagingPage, MsgPages } from "./interface";
 
