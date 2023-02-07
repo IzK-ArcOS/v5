@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import icon from "../../../../assets/apps/filemanager/file.svg";
+  import { readFile } from "../../../../ts/api/fs/file";
   import { getMimeIcon } from "../../../../ts/api/fs/icon";
   import { openUserFile, openWithDialog } from "../../../../ts/api/fs/open";
   import { formatBytes } from "../../../../ts/api/fs/sizes";
@@ -65,6 +66,20 @@
     openWithDialog({ ...arc, anymime: true });
   }
 
+  async function openWith() {
+    showOverlay("openingFile", "FileManager");
+
+    let data: ArcFile = {
+      data: (await readFile(file.scopedPath)) as ArrayBuffer,
+      name: file.filename,
+      path: file.scopedPath,
+      mime: file.mime,
+    };
+
+    openAny(data);
+    hideOverlay("openingFile", "FileManager");
+  }
+
   onMount(() => {
     img = getMimeIcon(file.filename);
   });
@@ -84,4 +99,7 @@
   <div class="name">{file.filename}</div>
   <div class="mime">{file.mime.split("; ")[0].split("/").join(" - ")}</div>
   <div class="size">{formatBytes(file.size)}</div>
+  <div class="options">
+    <button class="material-icons-round" on:click={openWith}>launch</button>
+  </div>
 </button>

@@ -68,6 +68,11 @@
     setTimeout(() => {
       OpenWithFile.set(null);
     }, 1000);
+
+    closeThis();
+  }
+
+  function closeThis() {
     isFullscreenWindow.set(false);
     closeWindow("OpenWithApp");
   }
@@ -105,6 +110,6 @@
   </div>
   <div class="actions">
     <button disabled={!selected} on:click={openThis}>Open</button>
-    <button on:click={() => closeWindow("OpenWithApp")}>Cancel</button>
+    <button on:click={closeThis}>Cancel</button>
   </div>
 </div>
