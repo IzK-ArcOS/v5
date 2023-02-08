@@ -67,6 +67,8 @@
   }
 
   async function openWith() {
+    $FileBrowserOpeningFile = file;
+
     showOverlay("openingFile", "FileManager");
 
     let data: ArcFile = {
@@ -77,7 +79,10 @@
     };
 
     openAny(data);
+
     hideOverlay("openingFile", "FileManager");
+
+    $FileBrowserOpeningFile = file;
   }
 
   onMount(() => {
