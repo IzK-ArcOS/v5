@@ -10,6 +10,7 @@ import {
 } from "../applogic/store";
 import { closeError } from "../errorlogic/main";
 import { CurrentNotification } from "../notiflogic/main";
+import { showArcFind } from "../search/main";
 import { applyState } from "../state/main";
 import { UserData } from "../userlogic/interfaces";
 import { reloadApps } from "../window/reload";
@@ -122,6 +123,15 @@ export function assignDesktopListeners() {
         }, 1000);
       },
       global: true,
+    },
+    {
+      key: "s",
+      shift: true,
+      alt: true,
+      global: true,
+      action: () => {
+        showArcFind.set(!get(showArcFind));
+      },
     },
   ]);
 }

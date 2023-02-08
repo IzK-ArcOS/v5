@@ -19,6 +19,7 @@
   import { DevModeOverride } from "../../ts/devmode/props";
   import { ErrorMessages } from "../../ts/errorlogic/app";
   import { UserData, UserName } from "../../ts/userlogic/interfaces";
+  import ArcFind from "./Desktop/ArcFind.svelte";
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import PushNotification from "./Desktop/PushNotification.svelte";
@@ -66,5 +67,6 @@
     <Shell />
     <PushNotification />
     <ContextMenu />
+    <ArcFind />
   </div>
 {/if}
