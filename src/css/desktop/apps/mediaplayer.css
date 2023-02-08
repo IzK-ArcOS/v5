@@ -1,0 +1,73 @@
+window#MediaPlayerApp div.titlebar p.title {
+  background-color: transparent;
+}
+
+window#MediaPlayerApp div.body {
+  padding: 15px 30px;
+}
+
+window#MediaPlayerApp div.body audio {
+  display: none;
+}
+
+window#MediaPlayerApp div.media-player div.controls {
+  display: flex;
+  line-height: 40px;
+}
+
+window#MediaPlayerApp div.media-player div.controls div.right {
+  margin-left: auto;
+}
+
+window#MediaPlayerApp div.media-player div.controls button {
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  margin: 0;
+  font-size: 24px;
+  border-radius: 5px;
+}
+window#MediaPlayerApp div.media-player div.controls div.group {
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0;
+  line-height: 0px;
+  display: flex;
+  margin-right: 10px;
+}
+
+window#MediaPlayerApp div.media-player div.controls div.group button {
+  border-radius: 0;
+  margin: 0;
+  font-size: 24px;
+}
+
+window#MediaPlayerApp div.media-player div.bar {
+  height: 8px;
+  border-radius: 4px;
+  margin: 15px 0;
+  width: 100%;
+  background-color: var(--button-glass-active-bg);
+}
+window#MediaPlayerApp div.media-player div.bar div.inner {
+  height: 8px;
+  border-radius: 4px;
+  background-color: dodgerblue;
+  transition: none;
+}
+
+window#MediaPlayerApp div.media-player div.filename img {
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+window#MediaPlayerApp div.media-player div.filename {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+}
+
+window#MediaPlayerApp div.media-player div.filename span {
+  line-height: 24px;
+}

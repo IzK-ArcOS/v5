@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "../../../assets/desktop/contextmenu.css";
+  import "../../../css/desktop/contextmenu.css";
   import { onMount } from "svelte";
   import { maxZIndex } from "../../../ts/applogic/store";
   import { composePosition } from "../../../ts/contextmenu/main";

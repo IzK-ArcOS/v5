@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "../assets/spinner.css";
+  import "../css/spinner.css";
   import spinner from "../assets/spinner.svg";
   export let height: number;
 </script>

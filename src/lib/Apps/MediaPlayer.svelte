@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "../../assets/apps/mediaplayer.css";
+  import "../../css/desktop/apps/mediaplayer.css";
   import { getMimeIcon } from "../../ts/api/fs/icon";
   import type { App } from "../../ts/applogic/interface";
   import { WindowStore } from "../../ts/applogic/store";
