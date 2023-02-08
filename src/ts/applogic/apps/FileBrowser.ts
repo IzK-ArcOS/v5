@@ -1,5 +1,4 @@
 import logo from "../../../assets/apps/filemanager.svg";
-import DidYouKnowSvelte from "../../../lib/Apps/DidYouKnow.svelte";
 import FileBrowser from "../../../lib/Apps/FileBrowser.svelte";
 import type { App } from "../interface";
 import { fbOverlays } from "./FileBrowser/overlays";

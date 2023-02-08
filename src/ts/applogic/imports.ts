@@ -5,7 +5,6 @@ import { AppInfo } from "./apps/AppInfo";
 import { AppManager } from "./apps/AppManager";
 import { AppPoker } from "./apps/AppPoke";
 import { CalculatorApp } from "./apps/Calculator";
-import { DidYouKnow } from "./apps/DidYouKnow";
 import { ErrorCreator } from "./apps/ErrorCreator";
 import { Exit } from "./apps/Exit";
 import { FileBrowserApp } from "./apps/FileBrowser";
@@ -31,7 +30,6 @@ export const DefaultApps: { [key: string]: App } = {
   Exit: Exit,
   ErrCre: ErrorCreator,
   AppInfo,
-  DidYouKnow,
   LoggerApp,
   CalculatorApp,
   FileManager: FileBrowserApp,
