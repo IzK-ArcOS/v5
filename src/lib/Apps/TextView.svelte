@@ -40,9 +40,10 @@
       );
       return (fileContents = "");
     }
-    
+
     fileContents = new TextDecoder().decode(app.openedFile.data);
     currentFile = app.openedFile.path;
+    onchange();
 
     const json = tryParse(fileContents);
 

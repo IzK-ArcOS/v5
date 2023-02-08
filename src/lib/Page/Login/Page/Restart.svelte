@@ -25,17 +25,7 @@
     pfp = getProfilePicture(data.acc.profilePicture);
 
     setTimeout(() => {
-      UserName.set(undefined);
-      loginUsername.set(undefined);
-      NotificationStore.set({});
-      ErrorMessages.set([]);
-      DevModeOverride.set(false);
-
-      applyState("boot");
-
-      setTimeout(() => {
-        applyLoginState("selector");
-      }, 250);
+      location.reload();
     }, 2000);
   });
 </script>

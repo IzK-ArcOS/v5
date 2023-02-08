@@ -21,10 +21,10 @@
       <span class="material-icons-round">power_settings_new</span>
       <p class="caption">Shutdown</p>
     </button>
-    <button class="option" on:click={logoff}>
+    <!--     <button class="option" on:click={logoff}>
       <span class="material-icons-round">logout</span>
       <p class="caption">Logoff</p>
-    </button>
+    </button> -->
     <button class="option" on:click={restart}>
       <span class="material-icons-round">refresh</span>
       <p class="caption">Restart</p>
