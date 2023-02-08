@@ -90,6 +90,14 @@ div.startmenu div.left button.item img.icon {
   margin-right: 10px;
 }
 
+div.startmenu div.left button.item {
+  padding: 5px 2.5px;
+}
+
+div.startmenu.small div.left button.item img.icon {
+  height: 20px;
+}
+
 div.startmenu div.left button.item:hover {
   background-color: var(--startmenu-applist-item-bg-hover);
 }
@@ -182,20 +190,19 @@ div.desktop.tbdocked div.startmenu {
 }
 
 div.startmenu.small {
-  width: 330px;
-  height: 405px;
+  width: 400px;
+  height: 450px;
 }
 
 div.startmenu.small > div.left {
-  width: calc(100% - 50px);
+  width: calc(100% - 150px);
   height: calc(100% - 50px);
 }
 
 div.startmenu.small > div.right {
-  width: 50px;
+  width: 150px;
   height: calc(100% - 50px);
   padding: 10px;
-  /* text-align: center; */
 }
 
 div.startmenu.small > div.bottom {

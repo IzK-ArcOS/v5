@@ -45,3 +45,13 @@ window#MessagingApp div.body > div.content div.message-header p.id {
   font-family: "Source Code Pro", monospace;
   opacity: 0.5;
 }
+
+window#MessagingApp
+  div.body
+  > div.content
+  div.message-header
+  div.context.singlerow
+  > * {
+  line-height: 32px;
+  margin: 0;
+}
