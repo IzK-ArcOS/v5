@@ -7,8 +7,8 @@ import { setTitleSuffix } from "../title";
 
 export const TextEditor: App = {
   info: {
-    name: "Editor",
-    description: "Edit text files",
+    name: "Text Editor",
+    description: "Edit plain text files",
     builtin: true,
     version: "1.0.0",
     author: "Izaak Kuipers",

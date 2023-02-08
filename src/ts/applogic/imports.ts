@@ -23,22 +23,24 @@ import { loadWindow } from "./load";
 import { updateStores } from "./store";
 
 export const DefaultApps: { [key: string]: App } = {
-  TestApp: TestApp,
-  SettingsApp: SettingsApp,
-  AppMan: AppManager,
-  AppPoker: AppPoker,
-  Exit: Exit,
   ErrCre: ErrorCreator,
-  AppInfo,
-  LoggerApp,
-  CalculatorApp,
+  /** Visible Applications */
   FileManager: FileBrowserApp,
   TextEditor,
+  CalculatorApp,
+  MessagingApp,
+  SettingsApp: SettingsApp,
+  AppMan: AppManager,
+  TestApp: TestApp,
+  LoggerApp,
+  /** Hidden applications */
+  AppPoker: AppPoker,
+  Exit: Exit,
+  AppInfo,
   ImageViewer,
   OpenWithApp,
   MarkDownViewer,
   MediaPlayerApp,
-  MessagingApp,
 };
 
 export const SystemApps: string[] = [
@@ -77,7 +79,7 @@ export async function importDefault(open = false) {
       level: LogLevel.info,
     });
 
-    await loadWindow(...entries[i]);
+    await loadWindow(entries[i][0], entries[i][1]);
 
     if (open) openWindow(entries[i][0]);
   }
