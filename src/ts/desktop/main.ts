@@ -1,6 +1,6 @@
 import { get, writable } from "svelte/store";
 import { AppPokerData } from "../applogic/apps/AppManager/Manager";
-import { closeWindow, fullscreenWindow, openWindow } from "../applogic/events";
+import { closeWindow, openWindow } from "../applogic/events";
 import { registerShortcuts } from "../applogic/keyboard/main";
 import {
   focusedWindowId,
@@ -8,7 +8,6 @@ import {
   getWindow,
   isFullscreenWindow,
 } from "../applogic/store";
-import { closeError } from "../errorlogic/main";
 import { CurrentNotification } from "../notiflogic/main";
 import { showArcFind } from "../search/main";
 import { applyState } from "../state/main";

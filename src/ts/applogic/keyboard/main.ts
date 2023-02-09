@@ -17,8 +17,8 @@ export function registerAppShortcuts(id: string, app: App) {
   appShortcuts.push([id, app.events.keyboardShortcuts]);
 }
 
-export function registerShortcuts(data: AppKeyCombinations) {
-  appShortcuts.push(["", data]);
+export function registerShortcuts(data: AppKeyCombinations, id?: string) {
+  appShortcuts.push([id || "", data]);
 }
 
 export function isRegistered(id: string): boolean {

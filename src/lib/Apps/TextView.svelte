@@ -13,6 +13,8 @@
   import { createOverlayableError } from "../../ts/errorlogic/overlay";
   import { tryParse } from "../../ts/json";
   import Spinner from "../Spinner.svelte";
+  import { onMount } from "svelte";
+  import { registerShortcuts } from "../../ts/applogic/keyboard/main";
 
   export let app: App;
 
@@ -21,6 +23,30 @@
   let changing = false;
   let fileContents = "";
   let currentFile = "";
+
+  onMount(() => {
+    registerShortcuts(
+      [
+        {
+          key: "o",
+          alt: true,
+          action: () => {
+            showOpenFileDialog(app.id);
+          },
+        },
+        {
+          key: "m",
+          alt: true,
+          action: () => {
+            if (!app.openedFile || !app.openedFile.name.endsWith(".md")) return;
+
+            openWindow("MarkDownViewer");
+          },
+        },
+      ],
+      "TextEditor"
+    );
+  });
 
   WindowStore.subscribe(() => {
     errored = false;

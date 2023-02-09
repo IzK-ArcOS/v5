@@ -3,13 +3,16 @@ import { currentSettingsPage } from "../applogic/apps/SettingsApp/main";
 import { SettingsPages } from "../applogic/apps/SettingsApp/store";
 import { openWindow } from "../applogic/events";
 import { WindowStore } from "../applogic/store";
+import { restart, shutdown } from "../desktop/power";
 import type { SearchItem } from "./interface";
+import shutdownIcon from "../../assets/apps/exit.svg";
 
 export function getSearchItems(): SearchItem[] {
   const apps = compileSearchableApps();
   const settings = compileSearchableSettingsPages();
+  const powerOpt: SearchItem[] = POWER_OPTIONS;
 
-  return [...apps, ...settings];
+  return [...apps, ...settings, ...powerOpt];
 }
 
 export function compileSearchableApps(): SearchItem[] {
@@ -55,3 +58,16 @@ export function compileSearchableSettingsPages(): SearchItem[] {
 
   return result;
 }
+
+const POWER_OPTIONS: SearchItem[] = [
+  {
+    caption: "Shutdown",
+    action: shutdown,
+    image: shutdownIcon,
+  },
+  {
+    caption: "Restart",
+    action: restart,
+    image: shutdownIcon,
+  },
+];
