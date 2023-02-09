@@ -122,11 +122,13 @@ export function compileSearchableSettingsPages(): SearchItem[] {
 const POWER_OPTIONS: SearchItem[] = [
   {
     caption: "Shutdown",
+    description: "Leave the desktop and turn off ArcOS",
     action: shutdown,
     image: shutdownIcon,
   },
   {
     caption: "Restart",
+    description: "Leave the desktop and reload ArcOS",
     action: restart,
     image: shutdownIcon,
   },

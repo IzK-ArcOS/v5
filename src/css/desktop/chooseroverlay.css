@@ -1,6 +1,5 @@
 window.overlay[id*="CHOOSER"] {
-  background-color: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
+  background-color: var(--win-bg);
 }
 
 window.overlay[id*="CHOOSER"] div.body {
@@ -11,7 +10,7 @@ window.overlay[id*="CHOOSER"] div.topbar {
   height: 40px;
   display: flex;
   padding: 5px 5px 0;
-  border-bottom: var(--win-border);
+  border-bottom: var(--button-bg) 1px solid;
 }
 
 window.overlay[id*="CHOOSER"] div.topbar button.material-icons-round {
@@ -80,11 +79,17 @@ window.overlay[id*="CHOOSER"] div.topbar div.addressbar::-webkit-scrollbar {
 
 window.overlay[id*="CHOOSER"] div.topbar div.addressbar button {
   padding: 5px;
+  background-color: transparent;
+}
+
+window.overlay[id*="CHOOSER"] div.topbar div.addressbar button:hover {
+  background-color: var(--button-glass-bg);
 }
 
 window.overlay[id*="CHOOSER"] div.topbar button.home {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
+  background-color: var(--button-bg);
 }
 
 window.overlay[id*="CHOOSER"] div.topbar button.refresh {
@@ -93,7 +98,6 @@ window.overlay[id*="CHOOSER"] div.topbar button.refresh {
 
 window.overlay[id*="CHOOSER"] div.content {
   height: calc(100% - 80px) !important;
-  background-color: var(--win-bg);
   overflow-y: scroll;
   padding: 5px;
   padding-right: 0px;
@@ -145,7 +149,7 @@ window.overlay[id*="CHOOSER"] div.content button.item div:not(.image) {
 
 window.overlay[id*="CHOOSER"] div.bottompane {
   width: 100%;
-  border-top: var(--win-border);
+  border-top: var(--button-bg) 1px solid;
   padding: 5px;
   display: flex;
 }
