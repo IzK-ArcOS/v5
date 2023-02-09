@@ -5,7 +5,7 @@ import { getSearchItems } from "./store";
 export const showArcFind = writable<boolean>(false);
 
 export async function Search(query: string) {
-  const items = getSearchItems();
+  const items = await getSearchItems();
 
   const options = {
     includeScore: true,

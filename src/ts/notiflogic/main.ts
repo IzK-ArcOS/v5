@@ -23,6 +23,8 @@ export function makeNotification(data: NotificationData) {
     globalNotifTimeout = setTimeout(() => {
       CurrentNotification.set(null);
     }, data.timeout);
+
+  return id;
 }
 
 export function closeNotification() {

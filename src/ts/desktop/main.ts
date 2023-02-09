@@ -132,5 +132,13 @@ export function assignDesktopListeners() {
         showArcFind.set(!get(showArcFind));
       },
     },
+    {
+      key: "n",
+      alt: true,
+      global: true,
+      action: () => {
+        ActionCenterOpened.set(!get(ActionCenterOpened));
+      },
+    },
   ]);
 }

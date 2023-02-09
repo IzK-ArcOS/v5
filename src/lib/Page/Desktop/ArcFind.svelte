@@ -63,9 +63,15 @@
   });
 
   function mutateIndex(e: KeyboardEvent) {
-    if (!results.length) return (index = -1);
-
     const key = e.key.toLowerCase();
+
+    if (key == "escape") {
+      reset();
+      showArcFind.set(false);
+      return;
+    }
+
+    if (!results.length) return (index = -1);
 
     let length = results.length - 1;
 
@@ -78,10 +84,6 @@
       case "arrowdown":
         index++;
         if (index > length) index = 0;
-        break;
-      case "escape":
-        reset();
-        showArcFind.set(false);
         break;
     }
   }
