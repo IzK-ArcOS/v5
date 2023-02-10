@@ -1,6 +1,7 @@
 <script lang="ts">
   import { openWindow } from "../../../../ts/applogic/events";
   import { startOpened } from "../../../../ts/desktop/main";
+  import { showArcFind } from "../../../../ts/search/main";
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
   import ProfilePicture from "../../../ProfilePicture.svelte";
@@ -14,6 +15,12 @@
 
   function settings() {
     openWindow("SettingsApp");
+    startOpened.set(false);
+  }
+
+  function search() {
+    showArcFind.set(true);
+    startOpened.set(false);
   }
 
   UserData.subscribe(() => {
@@ -27,7 +34,15 @@
     {$UserName}
   </h1>
   <div class="options">
+    <button
+      class="material-icons-round"
+      on:click={search}
+      title="Search (Alt+Shift+S)">search</button
+    >
     <button class="material-icons-round" on:click={settings}>settings</button>
-    <button class="material-icons-round" on:click={exit}>logout</button>
+    <div class="sep" />
+    <button class="material-icons-round" on:click={exit}>
+      power_settings_new
+    </button>
   </div>
 </div>

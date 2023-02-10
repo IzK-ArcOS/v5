@@ -11,7 +11,7 @@ div.arcfind-wrapper {
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  background-color: #0006;
+  background-color: #000a;
 }
 
 div.arcfind-wrapper.show {
@@ -23,7 +23,7 @@ div.arcfind-wrapper.show {
 div.arcfind-wrapper div.arcfind {
   width: 500px;
   height: 50px;
-  background-color: var(--glass-alt-bg);
+  background-color: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
   border: var(--win-border);
   border-radius: var(--win-border-rad);

@@ -222,12 +222,20 @@ div.startmenu.small > div.bottom h1.username .pfp {
   width: 20px;
 }
 
-div.startmenu.small > div.bottom div.options {
+div.startmenu > div.bottom div.options {
   line-height: 20px;
+  display: flex;
 }
 
-div.startmenu.small > div.bottom div.options button.material-icons-round {
-  font-size: 21px;
-  line-height: 21px;
-  margin-left: 2.5px;
+div.startmenu > div.bottom div.options button.material-icons-round {
+  font-size: 18px;
+  line-height: 18px;
+  margin-left: 10px;
+}
+
+div.startmenu > div.bottom div.options div.sep {
+  width: 1px;
+  height: 18px;
+  border: var(--button-glass-bg) 1px solid;
+  margin-left: 10px;
 }
