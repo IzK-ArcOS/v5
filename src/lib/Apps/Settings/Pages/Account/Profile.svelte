@@ -14,15 +14,11 @@
   function changePfp() {
     showOverlay("pfpSel", "SettingsApp");
   }
-
-  function viewPfp() {
-    showOverlay("largePfp", "SettingsApp");
-  }
 </script>
 
 <div class="info">
   <div>
-    <span on:click={viewPfp}><ProfilePicture src={pfp} height={52} /></span>
+    <ProfilePicture src={pfp} height={52} />
     <button class="change material-icons-round" on:click={changePfp}
       >edit</button
     >

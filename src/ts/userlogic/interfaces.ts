@@ -72,13 +72,13 @@ export const defaultUserData: UserData = {
       traffic: false,
     },
     desktop: {
-      wallpaper: "img11",
+      wallpaper: "img06",
       icons: true,
       theme: "dark",
       sharp: false,
     },
     start: {
-      small: false,
+      small: true,
     },
     anim: true,
 

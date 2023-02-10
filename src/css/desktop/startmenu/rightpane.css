@@ -1,0 +1,33 @@
+div.startmenu div.right button.link {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  background-color: transparent;
+  color: var(--fg);
+  border: none;
+  padding: 5px 2.5px;
+  margin: 0 0 5px;
+  border-radius: var(--button-border-rad);
+  height: 30px;
+}
+
+div.startmenu div.right button.link:hover {
+  background-color: var(--startmenu-applist-item-bg-hover);
+}
+
+div.startmenu div.right button.link:active {
+  background-color: var(--startmenu-applist-item-bg-active);
+}
+
+div.startmenu div.right button.link div.image img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+div.startmenu div.right button.link div.caption {
+  flex-grow: 1;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

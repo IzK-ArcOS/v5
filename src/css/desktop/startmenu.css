@@ -1,3 +1,5 @@
+@import url("./startmenu/rightpane.css");
+
 div[class*="tb-vertical"] div.startmenu {
   top: 10px;
   left: 65px;
@@ -117,7 +119,7 @@ div.startmenu div.right {
   right: 0px;
   height: calc(100% - 75px);
   box-sizing: border-box;
-  padding: 20px;
+  padding: 10px;
   background-color: var(--darkened-overlay);
   border-top-right-radius: var(--win-border-rad);
 }
@@ -202,7 +204,6 @@ div.startmenu.small > div.left {
 div.startmenu.small > div.right {
   width: 150px;
   height: calc(100% - 50px);
-  padding: 10px;
 }
 
 div.startmenu.small > div.bottom {
