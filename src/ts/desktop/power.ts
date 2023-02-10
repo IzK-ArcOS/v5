@@ -68,6 +68,7 @@ export function restart() {
       closeWindow(ws[i].id);
     }, maxTimeout);
   }
+  localStorage.removeItem("arcos-remembered-token");
 
   restarting.set(true);
 }
