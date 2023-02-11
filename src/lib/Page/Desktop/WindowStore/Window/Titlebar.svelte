@@ -5,6 +5,8 @@
   import { updateStores } from "../../../../../ts/applogic/store";
   import { closeError } from "../../../../../ts/errorlogic/main";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
+  import Default from "./Controls/Default.svelte";
+  import Traffic from "./Controls/Traffic.svelte";
 
   export let exttransition = false;
   export let titlebar: HTMLDivElement;
@@ -53,44 +55,9 @@
   </p>
   <div class="controls">
     {#if $UserData.sh.window.traffic}
-      <button
-        class="traffic-cls"
-        on:click={cls}
-        disabled={!app.controls.cls || isBoot}
-      />
-
-      <button
-        class="traffic-min"
-        on:click={min}
-        disabled={!app.controls.min || isBoot}
-      />
-      <button
-        class="traffic-max"
-        on:click={max}
-        disabled={!app.controls.max || isBoot}
-      />
+      <Traffic {cls} {min} {max} {app} {isBoot} />
     {:else}
-      <button
-        class="material-icons-round"
-        on:click={min}
-        disabled={!app.controls.min || isBoot}
-      >
-        minimize
-      </button>
-      <button
-        class="material-icons-round"
-        on:click={max}
-        disabled={!app.controls.max || isBoot}
-      >
-        crop_square
-      </button>
-      <button
-        class="material-icons-round"
-        on:click={cls}
-        disabled={!app.controls.cls || isBoot}
-      >
-        close
-      </button>
+      <Default {cls} {min} {max} {app} {isBoot} />
     {/if}
   </div>
 </div>
