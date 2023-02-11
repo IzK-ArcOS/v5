@@ -1,4 +1,6 @@
 import { writable } from "svelte/store";
+import BugReport from "../../lib/BugReport.svelte";
+import { BugReportData } from "../bugrep";
 import { generateCredToken } from "./cred";
 import type { ApiResponse, Cred, DefaultResponse, Params } from "./interface";
 import { generateParamStr } from "./params";
@@ -30,6 +32,21 @@ export async function apiCall(
     `${host}/${path}${paramStr}`,
     noAuth ? { body: body } : init
   );
+
+  if (!req.ok && tokenAuth) {
+    BugReportData.set([
+      true,
+      {
+        title: "Unable to access API",
+        message: "The server returned an invalid status code.",
+        source: "APICall",
+        icon: "warning",
+        button: { caption: "Restart", action: () => location.reload() },
+      },
+    ]);
+
+    return;
+  }
 
   const txt = await req.text();
 
