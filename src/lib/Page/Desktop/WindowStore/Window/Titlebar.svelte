@@ -35,8 +35,12 @@
   }
 
   function cls() {
-    if (app.id.startsWith("error_"))
-      closeError(parseInt(app.id.replace("error_", "")));
+    const id = app.id;
+    const errorId = id.startsWith("error_")
+      ? parseInt(id.replace("error_", ""))
+      : -1;
+
+    if (errorId > 0) closeError(errorId);
     else closeWindow(app.id);
 
     if (isBoot) app.opened = false;
