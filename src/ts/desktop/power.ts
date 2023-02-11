@@ -1,5 +1,7 @@
 import { get } from "svelte/store";
+import { logoffToken } from "../api/cred";
 import { defaultDirectory } from "../api/interface";
+import { apiCall } from "../api/main";
 import {
   FileBrowserCurrentDir,
   FileBrowserDirContents,
@@ -53,6 +55,8 @@ export function shutdown() {
     }, maxTimeout);
   }
 
+  logoffToken();
+
   shuttingDown.set(true);
 }
 
@@ -69,6 +73,7 @@ export function restart() {
     }, maxTimeout);
   }
   localStorage.removeItem("arcos-remembered-token");
+  logoffToken();
 
   restarting.set(true);
 }

@@ -1,4 +1,5 @@
 import { writable } from "svelte/store";
+import { logoffToken } from "../api/cred";
 import { InvalidStateBugrep } from "../bugrep";
 import { Log, LogLevel } from "../console";
 import { Var } from "../env/vars";
@@ -22,6 +23,8 @@ export function applyState(stateKey: string) {
     CurrentState.set(state);
 
     document.title = `ArcOS | ${state.name}`;
+
+    if (stateKey != "desktop") logoffToken();
 
     return;
   }

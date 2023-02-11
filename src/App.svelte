@@ -1,9 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { get } from "svelte/store";
   import "./css/main.css";
   import BugReport from "./lib/BugReport.svelte";
   import DevBar from "./lib/DevBar.svelte";
   import Spinner from "./lib/Spinner.svelte";
+  import { logoffToken } from "./ts/api/cred";
+  import { apiCall, ConnectedServer } from "./ts/api/main";
   import { assignHooks } from "./ts/applogic/aftermarket/hooks";
   import { assignHookUpdateListeners } from "./ts/applogic/aftermarket/hooks/updaters";
   import { Log, LogLevel } from "./ts/console";
@@ -12,6 +15,7 @@
   import { dmMutators } from "./ts/devmode/store/mutators";
   import { dmTriggers } from "./ts/devmode/store/triggers";
   import { applyState, CurrentState } from "./ts/state/main";
+  import { UserToken } from "./ts/userlogic/interfaces";
 
   let devmode = false;
 
@@ -50,6 +54,8 @@
       msg: content + a.join(" "),
       level: LogLevel.error,
     });
+
+  window.addEventListener("beforeunload", logoffToken);
 </script>
 
 <div class="app fullscreen" class:floating={devmode}>

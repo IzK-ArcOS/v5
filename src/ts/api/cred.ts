@@ -69,3 +69,12 @@ export async function changeUsername(old: string, newName: string) {
 
   return req.valid;
 }
+
+export async function logoffToken() {
+  const token = get(UserToken);
+  const server = get(ConnectedServer);
+
+  if (!token || !server) return;
+
+  return await apiCall(server, "logoff", {}, token);
+}

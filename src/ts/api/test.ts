@@ -19,7 +19,7 @@ export async function testConnection(server: string) {
 
     Log({
       msg: `Testing ${server} on port ${port} and protocol ${proto}...`,
-      source: "api/main.ts: testConnection",
+      source: "api/test.ts: testConnection",
       level: LogLevel.info,
     });
 
@@ -28,7 +28,7 @@ export async function testConnection(server: string) {
 
       Log({
         msg: `Got a response from URL ${url}`,
-        source: "api/main.ts: testConnection",
+        source: "api/test.ts: testConnection",
         level: LogLevel.warn,
       });
 
@@ -38,7 +38,7 @@ export async function testConnection(server: string) {
     } catch {
       Log({
         msg: `Did not get a valid response from ${url}`,
-        source: "api/main.ts: testConnection",
+        source: "api/test.ts: testConnection",
         level: LogLevel.error,
       });
 
@@ -48,7 +48,7 @@ export async function testConnection(server: string) {
 
   Log({
     msg: `Can't connect to server ${server}: none of the modes match`,
-    source: "api/main.ts: testConnection",
+    source: "api/test.ts: testConnection",
     level: LogLevel.critical,
   });
 
