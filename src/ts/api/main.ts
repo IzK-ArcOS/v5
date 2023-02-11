@@ -1,8 +1,7 @@
 import { writable } from "svelte/store";
-import BugReport from "../../lib/BugReport.svelte";
 import { BugReportData } from "../bugrep";
 import { generateCredToken } from "./cred";
-import type { ApiResponse, Cred, DefaultResponse, Params } from "./interface";
+import type { Cred, DefaultResponse, Params } from "./interface";
 import { generateParamStr } from "./params";
 
 export const ConnectedServer = writable<string>(null);
@@ -33,9 +32,10 @@ export async function apiCall(
     noAuth ? { body: body } : init
   );
 
-  if (!req.ok && tokenAuth) return invalidServerResponse(req.status);
-
   const txt = await req.text();
+
+  if (!req.ok && tokenAuth)
+    return invalidServerResponse(req.status, host, path, txt);
 
   if (!noBody) {
     try {
@@ -48,19 +48,37 @@ export async function apiCall(
   return {};
 }
 
-export function invalidServerResponse(code: number) {
+export function invalidServerResponse(
+  code: number,
+  host: string,
+  path: string,
+  txt: string
+) {
+  let json;
+
+  try {
+    json = JSON.parse(txt);
+  } catch {
+    json = {
+      error: {
+        title: "Could not access ArcAPI",
+        message:
+          "The server did not return a valid status code. This may be because your token is invalid.",
+      },
+    };
+  }
   BugReportData.set([
     true,
     {
-      icon: "error",
-      title: `Aw, snap!`,
-      message: `The ArcAPI did not return a valid response back, your token may have expired. Please try restarting.`,
+      icon: "settings_ethernet",
+      title: json.error.title,
+      message: `${json.error.message} This session can't continue. You can choose to restart.`,
       button: {
-        action: location.reload,
+        action: () => location.reload(),
         caption: "Restart",
       },
       source: `apiCall`,
-      details: `apiCall: Can't process response with invalid status code '${code}'.`,
+      details: `Host "${host}" returned invalid status code ${code} on endpoint /${path}`,
     },
   ]);
 }

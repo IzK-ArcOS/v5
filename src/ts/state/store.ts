@@ -87,7 +87,7 @@ export const States = new Map<string, State>([
   [
     "blank",
     {
-      name: "Blank",
+      name: "",
       content: Blank,
       attribs: {},
       key: "blank",
