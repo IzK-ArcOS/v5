@@ -33,20 +33,7 @@ export async function apiCall(
     noAuth ? { body: body } : init
   );
 
-  if (!req.ok && tokenAuth) {
-    BugReportData.set([
-      true,
-      {
-        title: "Unable to access API",
-        message: "The server returned an invalid status code.",
-        source: "APICall",
-        icon: "warning",
-        button: { caption: "Restart", action: () => location.reload() },
-      },
-    ]);
-
-    return;
-  }
+  if (!req.ok && tokenAuth) return invalidServerResponse(req.status);
 
   const txt = await req.text();
 
@@ -59,4 +46,21 @@ export async function apiCall(
   }
 
   return {};
+}
+
+export function invalidServerResponse(code: number) {
+  BugReportData.set([
+    true,
+    {
+      icon: "error",
+      title: `Aw, snap!`,
+      message: `The ArcAPI did not return a valid response back, your token may have expired. Please try restarting.`,
+      button: {
+        action: location.reload,
+        caption: "Restart",
+      },
+      source: `apiCall`,
+      details: `apiCall: Can't process response with invalid status code '${code}'.`,
+    },
+  ]);
 }

@@ -1,6 +1,7 @@
 <script lang="ts">
   import logo from "../assets/systemIcon.svg";
   import "../css/bugrep.css";
+  import { maxZIndex } from "../ts/applogic/store";
   import { BugReport, BugReportData } from "../ts/bugrep";
 
   let show: boolean = false;
@@ -24,19 +25,26 @@
 </script>
 
 {#if show}
-  <div class="bugrep fullscreen {className}">
+  <div
+    class="bugrep fullscreen {className}"
+    style="z-index: {$maxZIndex * 10};"
+  >
     <div class="content">
       <img class="logo" src={logo} alt="ArcOS" />
-      <h3><span class="material-icons-round">{data.icon}</span>{data.title}</h3>
-      <p>{@html data.message}</p>
-      {#if data.button}
-        <button on:click={buttonEvent}>{data.button.caption}</button>
-      {/if}
+      <div>
+        <h3>
+          <span class="material-icons-round">{data.icon}</span>{data.title}
+        </h3>
+        <p>{@html data.message}</p>
+      </div>
     </div>
+    {#if data.button}
+      <button on:click={buttonEvent}>{data.button.caption}</button>
+    {/if}
     <div class="details">
       {#if data.details}
         <p>
-          <span class="title">Source: </span>
+          <span class="title">Source : </span>
           {data.source || "<anonymous>"}
         </p>
         <p>
