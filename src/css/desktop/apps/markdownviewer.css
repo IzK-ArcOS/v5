@@ -4,7 +4,7 @@ window#MarkDownViewer h1 {
   border-bottom: var(--button-bg) 1px solid;
 }
 
-window#MarkDownViewer > *:first-child {
+window#MarkDownViewer div.body > *:first-child {
   margin-top: 0 !important;
 }
 
