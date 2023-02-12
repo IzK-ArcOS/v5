@@ -9,12 +9,13 @@
     selectedMessageId,
   } from "../../../ts/messaging/main";
   import Editor from "./Content/Editor.svelte";
+  import NoContent from "./Content/NoContent.svelte";
   import Viewer from "./Content/Viewer.svelte";
 
   let message: Message;
 
   selectedMessageId.subscribe(async (v) => {
-    if (!v) return;
+    if (!v) return (message = null);
 
     const msg = await getMessage(v);
 
@@ -41,5 +42,7 @@
     <Viewer {message} />
   {:else if $creatingMessage}
     <Editor />
+  {:else}
+    <NoContent />
   {/if}
 </div>

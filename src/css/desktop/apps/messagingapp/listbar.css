@@ -1,3 +1,36 @@
+window#MessagingApp div.body div.listbar {
+  overflow-y: auto;
+  padding: 0;
+}
+
+window#MessagingApp div.body div.listbar div.header {
+  height: 30px;
+  border-bottom: var(--win-border);
+  line-height: 30px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  display: flex;
+}
+window#MessagingApp
+  div.body
+  div.listbar
+  div.header
+  button.material-icons-round {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+}
+
+window#MessagingApp div.body div.listbar div.header p.title {
+  margin: 0;
+  font-weight: bold;
+}
+
+window#MessagingApp div.body div.listbar div.list {
+  padding: 5px;
+}
+
 window#MessagingApp div.body div.listbar button.message {
   display: flex;
   padding: 5px;
@@ -23,9 +56,16 @@ window#MessagingApp div.body div.listbar button.message div.pfprenderer {
   margin-right: 5px;
 }
 
+window#MessagingApp div.body div.listbar button.message div.timestamp {
+  opacity: 0.6;
+  font-weight: 100;
+  font-size: 10px;
+  margin-left: auto;
+}
+
 window#MessagingApp div.body div.listbar button.message div.content {
+  max-width: calc(100% - 110px);
   flex-grow: 1;
-  max-width: calc(100% - 31px);
 }
 
 window#MessagingApp div.body div.listbar button.message div.content * {
@@ -37,12 +77,15 @@ window#MessagingApp div.body div.listbar button.message div.content p.username {
   font-weight: bold;
 }
 
-window#MessagingApp div.body div.listbar button.message div.content p.partial {
-  opacity: 0.5;
-  font-size: 10px;
+window#MessagingApp div.body div.listbar button.message div.content p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+window#MessagingApp div.body div.listbar button.message div.content p.partial {
+  opacity: 0.5;
+  font-size: 10px;
 }
 
 window#MessagingApp div.body div.listbar div.noitems {

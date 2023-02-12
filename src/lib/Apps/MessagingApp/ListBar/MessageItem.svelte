@@ -1,4 +1,5 @@
 <script lang="ts">
+  import dayjs from "dayjs";
   import { onMount } from "svelte";
   import { getUserPfp } from "../../../../ts/api/pfp";
   import type { PartialMessage } from "../../../../ts/messaging/interface";
@@ -32,7 +33,8 @@
 >
   <ProfilePicture src={userProfile} height={26} />
   <div class="content">
-    <p class="username">{item.sender}</p>
+    <p class="username">{item.sender} -> {item.receiver}</p>
     <p class="partial">{filterPartial(item.partialBody) || "(no content)"}</p>
   </div>
+  <div class="timestamp">{dayjs(item.timestamp).format("DD MMM, HH:mm")}</div>
 </button>

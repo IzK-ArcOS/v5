@@ -27,6 +27,12 @@ export function stopKeyListener() {
 function processEvent(e: KeyboardEvent) {
   if (!e.key) return;
 
+  if (e.key.toLowerCase() == "tab") {
+    e.preventDefault();
+
+    return false;
+  }
+
   unfocusActiveElement();
 
   if (get(CurrentState).key != "desktop") return;

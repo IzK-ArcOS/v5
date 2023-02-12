@@ -9,27 +9,40 @@
   import MessageItem from "./ListBar/MessageItem.svelte";
 
   let items: PartialMessage[] = [];
+  let loading = false;
 
   onMount(() => {
     messageUpdateTrigger();
   });
 
-  messageSubscribe(async () => {
+  messageSubscribe(refresh);
+
+  async function refresh() {
+    loading = true;
     if (!$messagingPage) return;
 
     items = [];
-
-    console.log($messagingPage);
-
     items = await $messagingPage.msgGetter();
-  });
+
+    loading = false;
+  }
 </script>
 
 <div class="listbar">
-  {#each items as item}
-    <MessageItem {item} />
-  {/each}
-  {#if !items.length}
-    <div class="noitems">No messages!</div>
+  {#if $messagingPage}
+    <div class="header">
+      <p class="title">{$messagingPage.name}</p>
+      <button class="material-icons-round refresh" on:click={refresh}
+        >sync</button
+      >
+    </div>
   {/if}
+  <div class="list">
+    {#each items as item}
+      <MessageItem {item} />
+    {/each}
+    {#if !items.length}
+      <div class="noitems">{!loading ? "No messages!" : "Loading..."}</div>
+    {/if}
+  </div>
 </div>

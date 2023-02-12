@@ -54,7 +54,6 @@ window#MessagingApp
 }
 
 window#MessagingApp div.body > div.content div.message-header p.id {
-  font-family: "Source Code Pro", monospace;
   opacity: 0.5;
 }
 
@@ -199,4 +198,43 @@ window#MessagingApp div.body > div.content div.editor-send div.right {
 window#MessagingApp div.body > div.content div.editor-send div.right button {
   margin: 0;
   margin-left: 5px;
+}
+
+window#MessagingApp div.body > div.content div.no-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+window#MessagingApp
+  div.body
+  > div.content
+  div.no-content-wrapper
+  div.no-content
+  img {
+  height: 48px;
+}
+window#MessagingApp
+  div.body
+  > div.content
+  div.no-content-wrapper
+  div.no-content
+  p {
+  max-width: 150px;
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+
+window#MessagingApp
+  div.body
+  > div.content
+  div.no-content-wrapper
+  div.no-content
+  p.header {
+  margin: 10px;
+  font-weight: bold;
+  font-size: 16px;
 }

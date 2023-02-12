@@ -1,4 +1,5 @@
 <script lang="ts">
+  import dayjs from "dayjs";
   import { onMount } from "svelte";
   import { getUserPfp } from "../../../../../ts/api/pfp";
   import { messageItemActions } from "../../../../../ts/messaging/actions/store";
@@ -17,13 +18,19 @@
   messageSubscribe(async () => {
     userProfile = await getUserPfp(message.sender);
   });
+
+  function getTimestamp(ts: number) {
+    return dayjs(ts).format("DD MMM, HH:mm");
+  }
 </script>
 
 <div class="message-header">
   <ProfilePicture height={32} src={userProfile} />
   <div class="context">
-    <p class="name">{message.sender}, {message.timestamp}</p>
-    <p class="id">{message.id}</p>
+    <p class="name">
+      {message.sender}
+    </p>
+    <p class="id">{getTimestamp(message.timestamp)}</p>
   </div>
   <div class="actions">
     {#each messageItemActions as action}
