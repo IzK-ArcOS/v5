@@ -56,6 +56,11 @@
     index = -1;
   }
 
+  function closeThis() {
+    reset();
+    showArcFind.set(false);
+  }
+
   showArcFind.subscribe((v) => {
     reset();
 
@@ -114,4 +119,5 @@
       {/each}
     </div>
   {/if}
+  <button class="material-icons-round close" on:click={closeThis}>close</button>
 </div>
