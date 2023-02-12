@@ -34,7 +34,7 @@ export async function apiCall(
 
   const txt = await req.text();
 
-  if (!req.ok && tokenAuth)
+  if (!req.ok && tokenAuth && !`200|304`.includes(`${req.status}`))
     return invalidServerResponse(req.status, host, path, txt);
 
   if (!noBody) {
