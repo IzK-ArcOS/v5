@@ -24,6 +24,10 @@
     items = [];
     items = await $messagingPage.msgGetter();
 
+    items = items.sort(function (a, b) {
+      return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
+    });
+
     loading = false;
   }
 </script>
