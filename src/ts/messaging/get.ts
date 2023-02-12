@@ -36,5 +36,7 @@ export async function getUnreadMessages() {
     if (!messages[i].read) returnValue.push(messages[i]);
   }
 
+  console.log(returnValue);
+
   return returnValue;
 }

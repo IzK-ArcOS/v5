@@ -1,47 +1,47 @@
-window#MarkDownViewer h1 {
+div.markdownrenderer h1 {
   margin: 24px 0 16px;
   padding-bottom: 8.4px;
   border-bottom: var(--button-bg) 1px solid;
 }
 
-window#MarkDownViewer div.body > *:first-child {
+div.markdownrenderer > *:first-child {
   margin-top: 0 !important;
 }
 
-window#MarkDownViewer h2 {
+div.markdownrenderer h2 {
   margin: 24px 0 16px;
   padding: 0 0 6.3px;
   border-bottom: var(--button-bg) 1px solid;
 }
 
-window#MarkDownViewer div.body ul {
+div.markdownrenderer ul {
   min-width: 100%;
   list-style: initial;
   margin: 0 0 16px;
   padding-left: 2em;
 }
 
-window#MarkDownViewer div.body ul li {
+div.markdownrenderer ul li {
   display: list-item;
   margin: 0;
 }
-window#MarkDownViewer div.body ul li + li {
+div.markdownrenderer ul li + li {
   margin-top: 0.25em;
 }
 
-window#MarkDownViewer div.body p {
+div.markdownrenderer p {
   margin: 0;
   margin-bottom: 16px;
 }
 
-window#MarkDownViewer div.body blockquote {
+div.markdownrenderer blockquote {
   margin: 0 0 16px;
   padding: 0 14px;
   border-left: var(--button-hover-bg) 0.25em solid;
   opacity: 0.6;
 }
 
-window#MarkDownViewer div.body pre {
+div.markdownrenderer pre {
   padding: 16px;
   background-color: var(--button-active-bg);
   line-height: 1.45;
@@ -49,21 +49,21 @@ window#MarkDownViewer div.body pre {
   border-radius: var(--win-border-rad);
 }
 
-window#MarkDownViewer div.body pre code {
+div.markdownrenderer pre code {
   background-color: transparent;
   border: none;
   border-radius: 0;
   padding: 0;
 }
 
-window#MarkDownViewer div.body code {
+div.markdownrenderer code {
   font-family: "Source Code Pro", monospace !important;
   background-color: var(--button-active-bg);
   padding: 2px;
   border-radius: 5px;
 }
 
-window#MarkDownViewer div.body table {
+div.markdownrenderer table {
   display: block;
   width: 100%;
   width: max-content;
@@ -73,22 +73,22 @@ window#MarkDownViewer div.body table {
   border-collapse: collapse;
 }
 
-window#MarkDownViewer div.body table tr {
+div.markdownrenderer table tr {
   background-color: var(--button-active-bg);
   border-top: var(--button-bg) 1px solid;
 }
-window#MarkDownViewer div.body table th,
-window#MarkDownViewer div.body table td {
+div.markdownrenderer table th,
+div.markdownrenderer table td {
   padding: 6px 13px;
   border: 1px solid var(--button-bg);
   text-align: left !important;
 }
 
-window#MarkDownViewer div.body table tr:nth-child(2n) {
+div.markdownrenderer table tr:nth-child(2n) {
   background-color: var(--button-bg) 1px solid;
 }
 
-window#MarkDownViewer div.body hr {
+div.markdownrenderer hr {
   height: 0.25em;
   padding: 0;
   margin: 24px 0;

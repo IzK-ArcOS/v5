@@ -6,6 +6,7 @@ window#MessagingApp div.body div.listbar button.message {
   margin: 0;
   box-sizing: border-box;
   background-color: transparent;
+  overflow: hidden;
 }
 
 window#MessagingApp div.body div.listbar button.message:hover,
@@ -22,6 +23,11 @@ window#MessagingApp div.body div.listbar button.message div.pfprenderer {
   margin-right: 5px;
 }
 
+window#MessagingApp div.body div.listbar button.message div.content {
+  flex-grow: 1;
+  max-width: calc(100% - 31px);
+}
+
 window#MessagingApp div.body div.listbar button.message div.content * {
   margin: 0;
   font-size: 12px;
@@ -34,4 +40,13 @@ window#MessagingApp div.body div.listbar button.message div.content p.username {
 window#MessagingApp div.body div.listbar button.message div.content p.partial {
   opacity: 0.5;
   font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+window#MessagingApp div.body div.listbar div.noitems {
+  text-align: center;
+  opacity: 0.5;
+  margin: 10px;
 }

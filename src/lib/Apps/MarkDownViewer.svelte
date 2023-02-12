@@ -28,8 +28,10 @@
 </script>
 
 {#if app}
-  <SvelteMarkdown
-    source={content ||
-      "### ⚠️ Can't display markdown\n\nNo file opened or the opened file is empty.\n"}
-  />
+  <div class="markdownrenderer">
+    <SvelteMarkdown
+      source={content ||
+        "### ⚠️ Can't display markdown\n\nNo file opened or the opened file is empty.\n"}
+    />
+  </div>
 {/if}

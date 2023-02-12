@@ -1,9 +1,18 @@
+window#MessagingApp div.body > div.content {
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100% - 240px);
+}
 window#MessagingApp div.body > div.content div.message-header {
   display: flex;
   padding: 5px;
   padding-bottom: 15px;
   margin-bottom: 15px;
   border-bottom: var(--button-bg) 1px solid;
+}
+
+window#MessagingApp div.body > div.content div.message-header.editor {
+  margin-bottom: 10px;
 }
 
 window#MessagingApp div.body > div.content div.message-header div.pfprenderer {
@@ -14,6 +23,10 @@ window#MessagingApp div.body > div.content div.message-header p {
   margin: 0;
 }
 
+window#MessagingApp div.body > div.content div.message-header.editor p {
+  line-height: 20px;
+}
+
 window#MessagingApp div.body > div.content div.message-header p.name {
   font-weight: bold;
   margin-top: 2px;
@@ -21,7 +34,6 @@ window#MessagingApp div.body > div.content div.message-header p.name {
 
 window#MessagingApp div.body > div.content div.message-header div.actions {
   margin-left: auto;
-  line-height: 32px;
 }
 
 window#MessagingApp
@@ -52,6 +64,139 @@ window#MessagingApp
   div.message-header
   div.context.singlerow
   > * {
-  line-height: 32px;
   margin: 0;
+}
+
+window#MessagingApp div.body > div.content div.markdownrenderer {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+window#MessagingApp div.body > div.content div.target-wrapper {
+  position: relative;
+  border-bottom: var(--button-bg) 1px solid;
+  padding-bottom: 5px;
+}
+
+window#MessagingApp div.body > div.content div.target-selector {
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+window#MessagingApp div.body > div.content div.target-selector:hover {
+  background-color: var(--button-bg);
+}
+
+window#MessagingApp div.body > div.content div.target-selector div.current {
+  display: flex;
+}
+
+window#MessagingApp
+  div.body
+  > div.content
+  div.target-selector
+  div.current
+  > div:not(.pfprenderer),
+window#MessagingApp div.body > div.content div.target-options button.user p {
+  margin: 0 10px;
+}
+
+window#MessagingApp div.body > div.content div.target-selector p.header {
+  font-weight: bold;
+  margin-top: 1.5px;
+}
+
+window#MessagingApp div.body > div.content div.target-selector p {
+  margin: 0;
+}
+
+window#MessagingApp div.body > div.content div.target-selector select {
+  height: 25px;
+  margin: 3.5px 0;
+}
+
+window#MessagingApp div.body > div.content div.target-selector::after {
+  content: "expand_more";
+  font-family: "Material Icons Round", sans-serif;
+  font-size: 20px;
+  right: 10px;
+  line-height: 32px;
+  position: absolute;
+}
+window#MessagingApp div.body > div.content div.target-options {
+  position: absolute;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: var(--button-bg) 1px solid;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 5px;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  right: 0px;
+  top: 0px;
+  margin-top: -5px;
+  max-height: 182px;
+  overflow-y: scroll;
+}
+
+window#MessagingApp div.body > div.content div.target-options * {
+  pointer-events: none;
+}
+
+window#MessagingApp div.body > div.content div.target-options.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+window#MessagingApp div.body > div.content div.target-options.visible * {
+  pointer-events: initial;
+}
+
+window#MessagingApp div.body > div.content div.target-options button.user {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+  margin: 0;
+  line-height: 24px;
+  background-color: transparent;
+}
+
+window#MessagingApp
+  div.body
+  > div.content
+  div.target-options
+  button.user:hover {
+  background-color: var(--button-glass-bg);
+}
+
+window#MessagingApp div.body > div.content textarea {
+  flex-grow: 1;
+  color: var(--fg);
+  background-color: transparent;
+  resize: none;
+  width: 100%;
+  border: none;
+  padding: 15px 10px;
+  font-family: "Source Code Pro", monospace;
+}
+
+window#MessagingApp div.body > div.content div.editor-send {
+  border-top: var(--button-bg) 1px solid;
+  padding: 10px;
+  padding-bottom: 0;
+  display: flex;
+  line-height: 26px;
+}
+window#MessagingApp div.body > div.content div.editor-send div.right {
+  margin-left: auto;
+}
+
+window#MessagingApp div.body > div.content div.editor-send div.right button {
+  margin: 0;
+  margin-left: 5px;
 }

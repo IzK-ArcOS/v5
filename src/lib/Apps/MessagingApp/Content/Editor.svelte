@@ -1,34 +1,44 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { AllUsers, UserData } from "../../../../ts/userlogic/interfaces";
+  import { creatingMessage } from "../../../../ts/messaging/main";
+  import { sendMessage } from "../../../../ts/messaging/send";
+  import { messageUpdateTrigger } from "../../../../ts/messaging/updates";
+  import type { UserData } from "../../../../ts/userlogic/interfaces";
   import { getUsers } from "../../../../ts/userlogic/main";
+  import Header from "./Editor/Header.svelte";
+  import TargetSelector from "./Editor/TargetSelector.svelte";
 
   let users: [string, UserData][] = [];
   let target = "";
+  let content = "";
 
   onMount(async () => {
     users = Object.entries(await getUsers());
   });
+
+  async function send() {
+    await sendMessage(target, content);
+
+    cancel();
+  }
+
+  function cancel() {
+    creatingMessage.set(false);
+    messageUpdateTrigger();
+  }
 </script>
 
-<div class="message-header">
-  <div class="context singlerow">
-    <p class="name">New Message</p>
-  </div>
+<div class="editor">
+  <!-- <Header />window#MessagingApp div.body > div.content div.message-header p -->
+  <TargetSelector bind:target {users} />
+</div>
 
-  <div class="actions">
-    <button class="material-icons-round">delete</button>
-    <button class="material-icons-round">send</button>
+<textarea placeholder="New message" bind:value={content} maxlength="2000" />
+
+<div class="editor-send">
+  {content.length} / 2000
+  <div class="right">
+    <button on:click={cancel}>Delete</button>
+    <button on:click={send}>Send</button>
   </div>
-  <!-- 
-  <div class="setting to">
-    <p class="caption">To:</p>
-    <div class="content">
-      <select bind:value={target}>
-        {#each users as user}
-          <option value={user[0]}>{user[0]}</option>
-        {/each}
-      </select>
-    </div>
-  </div> -->
 </div>
