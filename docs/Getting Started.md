@@ -120,9 +120,6 @@ This will create the following items:
 - `./template`: This is the user template
 - `./config.json`: This is the configuration file in which you can customize things like directory locations and the ArcAPI port.
 
-| ⚠️ **ArcAPI is developed on Windows.**
-
-| Initial testing shows that it runs fine on Linux but we can't get guarantee that it will for you as well. |
-| --------------------------------------------------------------------------------------------------------- |
+> ⚠️ **ArcAPI is developed on Windows.** Initial testing shows that it runs fine on Linux but we can't get guarantee that it will for you as well.
 
 </details>
