@@ -20,3 +20,7 @@ export interface PartialMessage {
   id?: string;
   read: boolean;
 }
+
+export type PartiallyExtendedMessage = {
+  replies?: PartiallyExtendedMessage[];
+} & PartialMessage;

@@ -7,9 +7,14 @@
     replyMessageId,
     selectedMessageId,
   } from "../../../../ts/messaging/main";
+  import { getParentMessage } from "../../../../ts/messaging/thread";
   import Header from "./Viewer/Header.svelte";
 
   export let message: Message;
+
+  async function openThread() {
+    console.log(await getParentMessage(message.id));
+  }
 
   function openReply() {
     selectedMessageId.set(message.replyingTo);
@@ -25,7 +30,12 @@
 </div>
 {#if message.replyingTo}
   <div class="reply-wrapper">
-    <p class="caption">Reply to {message.replyingTo}</p>
-    <div class="right"><button on:click={openReply}>View</button></div>
+    <p class="caption">Replies to {message.replyingTo}.</p>
+    <div class="right">
+      <button on:click={openThread} disabled title="Work in progress!"
+        >View Thread</button
+      >
+      <button on:click={openReply}>Open</button>
+    </div>
   </div>
 {/if}
