@@ -3,6 +3,10 @@ window#SettingsApp div.titlebar {
   height: 40px !important;
 }
 
+window#SettingsApp > div.titlebar p.title {
+  background-color: var(--win-bg);
+}
+
 window#SettingsApp.lefttb div.titlebar div.controls {
   left: 10px !important;
 }

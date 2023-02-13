@@ -1,6 +1,7 @@
 <script lang="ts">
   import defaultProfile from "../../../../../assets/pfp/null.png";
   import { getUserPfp } from "../../../../../ts/api/pfp";
+  import { replyMessageId } from "../../../../../ts/messaging/main";
   import type { UserData } from "../../../../../ts/userlogic/interfaces";
   import ProfilePicture from "../../../../ProfilePicture.svelte";
   import User from "./TargetSelector/User.svelte";
@@ -16,8 +17,12 @@
   }
 
   function toggle() {
+    if ($replyMessageId) return (selecting = false);
+
     selecting = !selecting;
   }
+
+  replyMessageId.subscribe(() => setTimeout(update, 500));
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -26,9 +31,11 @@
     <div class="current">
       <ProfilePicture src={pfp || defaultProfile} height={32} />
       <div>
-        <p class="header">Send to:</p>
+        <p class="header">{$replyMessageId ? "Reply" : "Send"} to:</p>
         <p>
-          {target || "Please select"}
+          {$replyMessageId
+            ? `#${$replyMessageId} (${target})`
+            : target || "Please select"}
         </p>
       </div>
     </div>

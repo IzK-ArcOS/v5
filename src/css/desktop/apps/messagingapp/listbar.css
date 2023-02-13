@@ -1,6 +1,7 @@
 window#MessagingApp div.body div.listbar {
-  overflow-y: auto;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 window#MessagingApp div.body div.listbar div.header {
@@ -29,6 +30,9 @@ window#MessagingApp div.body div.listbar div.header p.title {
 
 window#MessagingApp div.body div.listbar div.list {
   padding: 5px;
+  overflow-y: auto;
+  flex-grow: 1;
+  max-height: calc(100% - 30px);
 }
 
 window#MessagingApp div.body div.listbar button.message {

@@ -30,7 +30,7 @@ export async function replyToMessage(
 
   const req = await apiCall(
     server,
-    "messages/send",
+    "messages/reply",
     { target: btoa(receiver), id },
     get(UserToken),
     null,

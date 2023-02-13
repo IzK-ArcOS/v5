@@ -33,7 +33,12 @@
 >
   <ProfilePicture src={userProfile} height={26} />
   <div class="content">
-    <p class="username">{item.sender} -> {item.receiver}</p>
+    <p class="username">
+      {item.sender}
+      {#if item.replyingTo}
+        <span class="material-icons-round" title={item.replyingTo}>reply</span>
+      {/if}
+    </p>
     <p class="partial">{filterPartial(item.partialBody) || "(no content)"}</p>
   </div>
   <div class="timestamp">{dayjs(item.timestamp).format("DD MMM, HH:mm")}</div>

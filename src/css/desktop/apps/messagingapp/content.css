@@ -69,6 +69,7 @@ window#MessagingApp
 window#MessagingApp div.body > div.content div.markdownrenderer {
   flex-grow: 1;
   overflow-y: scroll;
+  word-break: keep-all;
 }
 
 window#MessagingApp div.body > div.content div.target-wrapper {
@@ -183,19 +184,75 @@ window#MessagingApp div.body > div.content textarea {
   padding: 15px 10px;
   font-family: "Source Code Pro", monospace;
 }
+window#MessagingApp div.body > div.content div.markdownrenderer {
+  padding: 10px 0;
+}
 
-window#MessagingApp div.body > div.content div.editor-send {
+window#MessagingApp div.body > div.content div.editor-send,
+window#MessagingApp div.body > div.content div.reply-wrapper {
   border-top: var(--button-bg) 1px solid;
   padding: 10px;
   padding-bottom: 0;
   display: flex;
   line-height: 26px;
+  margin: 0 -10px;
 }
-window#MessagingApp div.body > div.content div.editor-send div.right {
+
+window#MessagingApp div.body > div.content div.reply-wrapper p {
+  margin: 0 10px;
+}
+
+window#MessagingApp div.body > div.content div.editor-send div.view-group {
+  overflow: hidden;
+  height: 26px;
+  width: 52px;
+  border-radius: 5px;
+  display: flex;
+}
+
+window#MessagingApp
+  div.body
+  > div.content
+  div.editor-send
+  div.view-group
+  button.material-icons-round {
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  width: 26px;
+  height: 26px;
+}
+
+window#MessagingApp
+  div.body
+  > div.content
+  div.editor-send
+  div.view-group
+  button.material-icons-round.selected {
+  background-color: var(--button-glass-hover-bg);
+}
+
+window#MessagingApp div.body > div.content div.editor-send div.right,
+window#MessagingApp div.body > div.content div.reply-wrapper div.right {
   margin-left: auto;
 }
 
-window#MessagingApp div.body > div.content div.editor-send div.right button {
+window#MessagingApp div.body > div.content div.editor-send div.counter {
+  display: inline-block;
+  margin-left: 15px;
+  opacity: 0.7;
+}
+
+window#MessagingApp
+  div.body
+  > div.content
+  div.editor-send
+  div.counter.critical {
+  color: tomato;
+}
+
+window#MessagingApp div.body > div.content div.editor-send div.right button,
+window#MessagingApp div.body > div.content div.reply-wrapper div.right button {
   margin: 0;
   margin-left: 5px;
 }

@@ -10,13 +10,15 @@ import { messageUpdateTrigger } from "./updates";
 let interval;
 
 export function startMessageCheckInterval() {
-  interval = setInterval(tick, 1000 * 30); // every 30 sec
+  interval = setInterval(tick, 1000 * 60); // every 60 sec
 
   tick();
 }
 
 async function tick() {
   if (!get(UserName)) return stopMessageCheckInterval();
+
+  messageUpdateTrigger();
 
   const unreads = (await getUnreadMessages()).sort((a, b) => {
     return b.timestamp - a.timestamp;
