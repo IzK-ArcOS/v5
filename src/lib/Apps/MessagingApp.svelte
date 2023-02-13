@@ -10,7 +10,7 @@
   import Content from "./MessagingApp/Content.svelte";
 
   onMount(() => {
-    $messagingPage = MessagingPages["unread"];
+    $messagingPage = MessagingPages["inbox"];
   });
 </script>
 

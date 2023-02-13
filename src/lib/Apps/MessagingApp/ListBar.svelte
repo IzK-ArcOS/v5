@@ -19,16 +19,43 @@
 
   async function refresh() {
     loading = true;
+
     if (!$messagingPage) return;
 
-    items = [];
-    items = await $messagingPage.msgGetter();
+    const messages = await $messagingPage.msgGetter();
 
-    items = items.sort(function (a, b) {
-      return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
-    });
+    if (!isSame(items, messages)) set(sort(messages));
 
     loading = false;
+  }
+
+  function sort(content: PartialMessage[]): PartialMessage[] {
+    return content.sort(function (a, b) {
+      return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
+    });
+  }
+
+  function set(messages: PartialMessage[]) {
+    items = [];
+
+    // Implement delay to overcome common Svelte update "bug"
+    setTimeout(() => {
+      items = messages;
+    });
+  }
+
+  function isSame(a: PartialMessage[], b: PartialMessage[]) {
+    if (a.length != b.length) return false;
+
+    for (let i = 0; i < b.length; i++) {
+      let exists = false;
+
+      for (let j = 0; j < a.length; j++) {
+        if (a[j].id == b[i].id) exists = true;
+      }
+
+      if (!exists) return false;
+    }
   }
 </script>
 

@@ -132,7 +132,7 @@ div.login div.center-absolute {
 
 div.login div.center-absolute div.user-selector {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: repeat(7, auto);
   align-items: center;
   align-content: center;
   text-align: center;
@@ -141,7 +141,7 @@ div.login div.center-absolute div.user-selector {
 div.login div.center-absolute div.user-selector button.createacc {
   display: block;
   position: fixed;
-  bottom: -60px;
+  bottom: -70px;
   left: 50%;
   transform: translateX(-50%);
   -o-transform: translateX(-50%);
