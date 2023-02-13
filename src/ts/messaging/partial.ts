@@ -1,4 +1,4 @@
-const partialFilters = "#*_~[]".split("");
+const partialFilters = ["#", "](", "![", "!", ">", "|", "(", ")"];
 
 export function filterPartial(partial: string) {
   let str = partial;

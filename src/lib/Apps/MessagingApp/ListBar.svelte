@@ -56,6 +56,8 @@
 
       if (!exists) return false;
     }
+
+    return true;
   }
 </script>
 
@@ -67,13 +69,13 @@
         >sync</button
       >
     </div>
+    <div class="list">
+      {#each items as item}
+        <MessageItem {item} />
+      {/each}
+      {#if !items.length}
+        <div class="noitems">{!loading ? "No messages!" : "Loading..."}</div>
+      {/if}
+    </div>
   {/if}
-  <div class="list">
-    {#each items as item}
-      <MessageItem {item} />
-    {/each}
-    {#if !items.length}
-      <div class="noitems">{!loading ? "No messages!" : "Loading..."}</div>
-    {/if}
-  </div>
 </div>

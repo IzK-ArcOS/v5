@@ -35,3 +35,7 @@ window#MessagingApp div.body div.sidebar button:not(.active) {
 window#MessagingApp div.body div.sidebar div.pfprenderer {
   margin-top: auto;
 }
+
+window#MessagingApp div.body div.sidebar div.actions button {
+  opacity: 1;
+}

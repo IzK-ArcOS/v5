@@ -18,6 +18,7 @@
 <button
   class="material-icons-round"
   class:active={$messagingPage && data.name == $messagingPage.name}
+  title={data.name}
   on:click={switchTo}
 >
   {data.icon}

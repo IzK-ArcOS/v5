@@ -4,6 +4,7 @@
   import { getUserPfp } from "../../../../ts/api/pfp";
   import type { PartialMessage } from "../../../../ts/messaging/interface";
   import { selectedMessageId } from "../../../../ts/messaging/main";
+  import { messagingPage } from "../../../../ts/messaging/paging/store";
   import { filterPartial } from "../../../../ts/messaging/partial";
   import { messageSubscribe } from "../../../../ts/messaging/updates";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
@@ -11,18 +12,22 @@
 
   export let item: PartialMessage;
 
+  let invert = false;
   let userProfile = "";
 
-  onMount(async () => {
-    userProfile = await getUserPfp(item.sender);
-  });
+  onMount(update);
+  messageSubscribe(update);
 
   function select() {
     $selectedMessageId = item.id;
   }
 
-  messageSubscribe(async () => {
-    userProfile = await getUserPfp(item.sender);
+  async function update() {
+    userProfile = await getUserPfp(invert ? item.receiver : item.sender);
+  }
+
+  messagingPage.subscribe((v) => {
+    invert = v.name == "Sent";
   });
 </script>
 
@@ -34,7 +39,7 @@
   <ProfilePicture src={userProfile} height={26} />
   <div class="content">
     <p class="username">
-      {item.sender}
+      {invert ? item.receiver : item.sender}
       {#if item.replyingTo}
         <span class="material-icons-round" title={item.replyingTo}>reply</span>
       {/if}
