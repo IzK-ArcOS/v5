@@ -6,14 +6,25 @@
     creatingMessage,
     replyMessageId,
     selectedMessageId,
+    threadMessageId,
   } from "../../../../ts/messaging/main";
   import { getParentMessage } from "../../../../ts/messaging/thread";
+  import { showOverlay } from "../../../../ts/window/overlay";
   import Header from "./Viewer/Header.svelte";
 
   export let message: Message;
 
+  let threadLoading = false;
+
   async function openThread() {
-    console.log(await getParentMessage(message.id));
+    threadLoading = true;
+    const id = (await getParentMessage(message.id)).id;
+
+    threadMessageId.set(id);
+
+    showOverlay("thread", "MessagingApp");
+
+    threadLoading = false;
   }
 
   function openReply() {
@@ -30,12 +41,11 @@
 </div>
 {#if message.replyingTo}
   <div class="reply-wrapper">
-    <p class="caption">Replies to {message.replyingTo}.</p>
+    <p class="caption">Message is part of a thread.</p>
     <div class="right">
-      <button on:click={openThread} disabled title="Work in progress!"
-        >View Thread</button
-      >
-      <button on:click={openReply}>Open</button>
+      <button on:click={openThread} disabled={threadLoading}>
+        {threadLoading ? "Loading..." : "View Thread"}
+      </button>
     </div>
   </div>
 {/if}

@@ -7,7 +7,6 @@
   import { messagingPage } from "../../../../ts/messaging/paging/store";
   import { filterPartial } from "../../../../ts/messaging/partial";
   import { messageSubscribe } from "../../../../ts/messaging/updates";
-  import { getProfilePicture } from "../../../../ts/userlogic/pfp";
   import ProfilePicture from "../../../ProfilePicture.svelte";
 
   export let item: PartialMessage;

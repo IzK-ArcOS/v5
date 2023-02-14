@@ -20,6 +20,27 @@ export async function getFullTree(): Promise<PartiallyExtendedMessage[]> {
   return messages;
 }
 
+export async function getPartialTree(
+  id: string
+): Promise<PartiallyExtendedMessage | false> {
+  const server = get(ConnectedServer);
+
+  if (!server) return false;
+
+  const req = await apiCall(
+    server,
+    "messages/thread",
+    { id: btoa(id) },
+    get(UserToken)
+  );
+
+  const message = req.data as PartiallyExtendedMessage;
+
+  console.debug(message);
+
+  return message;
+}
+
 export async function getParentMessage(id: string): Promise<Message> {
   const messages = await getMessages();
 

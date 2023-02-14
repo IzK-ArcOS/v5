@@ -1,0 +1,65 @@
+window#MessagingApp window.overlay#thread {
+  z-index: 100;
+}
+
+window#MessagingApp window.overlay#thread div.body {
+  overflow-y: scroll;
+}
+
+window#MessagingApp window.overlay#thread div.body button.item {
+  display: flex;
+  background-color: transparent;
+  padding: 5px;
+  text-align: left;
+  margin: 5px 0;
+  width: 100%;
+}
+
+window#MessagingApp window.overlay#thread div.body button.item:hover {
+  background-color: var(--button-bg);
+}
+
+window#MessagingApp window.overlay#thread div.body button.item div.context p {
+  margin: 0;
+}
+
+window#MessagingApp
+  window.overlay#thread
+  div.body
+  button.item
+  div.context
+  p.name {
+  font-weight: bold;
+}
+
+window#MessagingApp
+  window.overlay#thread
+  div.body
+  button.item
+  div.context
+  p.partial {
+  opacity: 0.6;
+}
+
+window#MessagingApp window.overlay#thread div.body button.item div.pfprenderer {
+  margin-right: 10px;
+}
+
+window#MessagingApp window.overlay#thread div.body button.item div.id {
+  line-height: 32px;
+  margin-left: auto;
+  opacity: 0.6;
+  font-family: "Source Code Pro", monospace;
+}
+
+window#MessagingApp window.overlay#thread div.body div.branch {
+  margin-left: 0px;
+  padding-left: 10px;
+  border-left: var(--button-bg) 1px solid;
+  display: flex;
+  flex-direction: column;
+}
+
+window#MessagingApp window.overlay#thread div.body div.branch:hover {
+  border-left: var(--win-border);
+}

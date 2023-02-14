@@ -5,6 +5,7 @@ import type { Message, PartialMessage } from "./interface";
 
 export const selectedMessageId = writable<string>(null);
 export const replyMessageId = writable<string>(null);
+export const threadMessageId = writable<string>(null);
 export const creatingMessage = writable<boolean>(false);
 
 export async function getMessages(): Promise<PartialMessage[]> {

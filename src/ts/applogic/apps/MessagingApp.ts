@@ -1,13 +1,27 @@
 import logo from "../../../assets/apps/messaging.svg";
 import MessagingAppSvelte from "../../../lib/Apps/MessagingApp.svelte";
-import type { App } from "../interface";
+import Thread from "../../../lib/Apps/MessagingApp/Overlays/Thread.svelte";
+import type { App, OverlayableApp } from "../interface";
+
+const overlays: { [key: string]: OverlayableApp } = {
+  thread: {
+    info: {
+      name: "Thread View",
+      author: "ArcOS Team",
+      version: "1.0.0",
+    },
+    size: { w: 550, h: 400 },
+    show: false,
+    content: Thread,
+  },
+};
 
 export const MessagingApp: App = {
   info: {
     name: "Messaging",
     description: "Send messages to other ArcOS users",
     builtin: true,
-    version: "1.0.0",
+    version: "1.0.7",
     author: "ArcOS Team",
     icon: logo,
     onlineOnly: true,
@@ -22,6 +36,7 @@ export const MessagingApp: App = {
     resizable: true,
     windowState: { min: false, max: false, fll: false },
   },
+  overlays,
   content: MessagingAppSvelte,
   glass: true,
 };
