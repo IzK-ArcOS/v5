@@ -15,7 +15,12 @@ As said before all wallpapers are used with permission from their respective aut
 
 Images 1, 2, 3, 4, 5, 6, 7 and 10 are made by me, the rest are licensed.
 
-NOTE: _Huge_ thanks to **SWHFotografie** for creating `img08` in a local forest.
+### SWHFotografie
+
+The following images were kindly provided by SWHFotografie:
+
+- `img08`: Wandelbos, Tilburg, the Netherlands
+- `img13`: The Hague, the Netherlands
 
 ## License
 

@@ -10,6 +10,7 @@ import img09 from "../../assets/bg/img09.png";
 import img10 from "../../assets/bg/img10.png";
 import img11 from "../../assets/bg/img11.jpg";
 import img12 from "../../assets/bg/img12.png";
+import img13 from "../../assets/bg/img13.png";
 import { Log, LogLevel } from "../console";
 
 export const Wallpapers: { [key: string]: string } = {
@@ -25,6 +26,7 @@ export const Wallpapers: { [key: string]: string } = {
   img10,
   img11,
   img12,
+  img13,
 };
 
 export function getWallpaper(id: string) {
