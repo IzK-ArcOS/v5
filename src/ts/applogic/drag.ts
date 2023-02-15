@@ -29,11 +29,16 @@ export function dragWindow(
         xB = e.clientX;
         yB = e.clientY;
 
-        window.style.top = window.offsetTop - yA + "px";
-        window.style.left = window.offsetLeft - xA + "px";
+        let top = window.offsetTop - yA;
+        const left = window.offsetLeft - xA;
 
-        app.pos.x = window.offsetLeft - xA;
-        app.pos.y = window.offsetTop - yA;
+        if (top < 0) top = 0;
+
+        window.style.top = top + "px";
+        window.style.left = left + "px";
+
+        app.pos.x = left;
+        app.pos.y = top;
       };
 
       document.onmouseup = () => {

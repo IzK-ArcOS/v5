@@ -37,7 +37,7 @@ window div.body button:disabled {
 
 window div.body input,
 window div.body select {
-  background-color: var(--button-active-bg, #2a2a2a);
+  background-color: var(--win-bg);
   border: var(--win-border);
   color: var(--fg);
   border-radius: var(--button-border-rad, 4px);
@@ -46,7 +46,7 @@ window div.body select {
 
 window.glass div.body input,
 window.glass div.body select {
-  background-color: var(--button-glass-active-bg, #0005);
+  background-color: var(--win-glass-bg);
 }
 
 window div.body h1,
