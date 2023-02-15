@@ -4,9 +4,10 @@ div.desktop div.contextmenu {
   height: 350px;
   top: 0px;
   left: 0px;
-  background-color: #f0f;
-  color: #ff0;
-  border: #0f0 5px solid;
+  background-color: var(--win-bg);
+  color: var(--fg);
+  border: var(--win-border);
+  border-radius: var(--win-border-rad);
   box-sizing: border-box;
 
   visibility: hidden;

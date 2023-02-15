@@ -45,4 +45,6 @@
   class:show
   bind:this={menuElement}
   style="top: {y}px; left: {x}px; z-index: {$maxZIndex + 10}"
-/>
+>
+  pos -> {x}x{y}
+</div>
