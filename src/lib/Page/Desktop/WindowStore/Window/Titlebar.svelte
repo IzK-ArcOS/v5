@@ -5,6 +5,7 @@
   import { updateStores } from "../../../../../ts/applogic/store";
   import { closeError } from "../../../../../ts/errorlogic/main";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
+  import { titlebarButtons } from "../../../../../ts/window/titlebar/store";
   import Default from "./Controls/Default.svelte";
   import Traffic from "./Controls/Traffic.svelte";
 
@@ -58,10 +59,17 @@
     </span>
   </p>
   <div class="controls">
-    {#if $UserData.sh.window.traffic}
-      <Traffic {cls} {min} {max} {app} {isBoot} />
+    {#if $UserData.sh.window.buttons}
+      <svelte:component
+        this={titlebarButtons[$UserData.sh.window.buttons].content}
+        {cls}
+        {min}
+        {max}
+        {app}
+        {isBoot}
+      />
     {:else}
-      <Default {cls} {min} {max} {app} {isBoot} />
+      <Default {app} {cls} {min} {max} {isBoot} />
     {/if}
   </div>
 </div>

@@ -9,6 +9,7 @@ import ProfilePictureView from "../../../lib/Apps/Settings/Pages/Account/Overlay
 import UserDataExplorer from "../../../lib/Apps/Settings/Pages/Account/Overlays/UserDataExplorer.svelte";
 import ChangePassword from "../../../lib/Apps/Settings/Pages/Account/Overlays/ChangePassword.svelte";
 import ChangeUsername from "../../../lib/Apps/Settings/Pages/Account/Overlays/ChangeUsername.svelte";
+import ChangeTitleButtons from "../../../lib/Apps/Settings/Pages/Account/Overlays/ChangeTitleButtons.svelte";
 
 const ProfilePictureOverlays = {
   pfpSel: {
@@ -39,6 +40,16 @@ const ProfilePictureOverlays = {
     },
     content: ProfilePictureView,
     size: { w: 320, h: 360 },
+    show: false,
+  },
+  changeTitleButtons: {
+    info: {
+      name: "Change Titlebar Buttons",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: ChangeTitleButtons,
+    size: { w: 400, h: 300 },
     show: false,
   },
 };

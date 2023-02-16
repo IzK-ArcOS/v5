@@ -24,14 +24,3 @@
     bind:checked={$UserData.sh.window.lefttb}
   />
 </OptionSection>
-<OptionSection
-  title="Traffic lights"
-  context="Use traffic lights instead of window controls"
->
-  <input
-    type="checkbox"
-    id="a"
-    class="switch"
-    bind:checked={$UserData.sh.window.traffic}
-  />
-</OptionSection>

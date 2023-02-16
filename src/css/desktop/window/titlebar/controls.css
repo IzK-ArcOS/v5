@@ -1,25 +1,3 @@
-@import url("./trafficlights.css");
-
 window div.titlebar div.controls {
   margin-left: auto;
-}
-
-window div.titlebar div.controls button:not([class*="traffic"]) {
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  font-size: 15px;
-  width: 18px;
-  height: 18px;
-  color: var(--fg);
-  transition: opacity 0.2s;
-}
-
-window div.titlebar div.controls button:hover {
-  opacity: 0.5;
-}
-
-window div.titlebar div.controls button:disabled {
-  opacity: 0.2;
 }

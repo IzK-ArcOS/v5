@@ -1,6 +1,6 @@
 @import url("./elements/checkbox.css");
 
-window div.body button {
+window div.body button:not(.reset) {
   border: none;
   border-radius: var(--button-border-rad, 4px);
   padding: 5px 15px;
@@ -11,27 +11,27 @@ window div.body button {
   margin: 2px;
 }
 
-window.glass div.body button {
+window.glass div.body button:not(.reset) {
   background-color: var(--button-glass-bg, #fff1);
 }
 
-window.glass div.body button:hover {
+window.glass div.body button:not(.reset):hover {
   background-color: var(--button-glass-hover-bg, #fff3);
 }
 
-window.glass div.body button:active {
+window.glass div.body button:not(.reset):active {
   background-color: var(--button-glass-active-bg, #0005);
 }
 
-window div.body button:hover {
+window div.body button:not(.reset):hover {
   background-color: var(--button-hover-bg, #555555);
 }
 
-window div.body button:active {
+window div.body button:not(.reset):active {
   background-color: var(--button-active-bg, #2a2a2a);
 }
 
-window div.body button:disabled {
+window div.body button:not(.reset):disabled {
   opacity: 0.3;
 }
 
