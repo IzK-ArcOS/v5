@@ -12,7 +12,7 @@ export interface UserData {
     window: {
       bigtb: boolean; //done
       lefttb: boolean; //done
-      traffic: boolean;
+      buttons: string;
     };
 
     desktop: {
@@ -69,10 +69,10 @@ export const defaultUserData: UserData = {
     window: {
       lefttb: false,
       bigtb: true,
-      traffic: false,
+      buttons: "default",
     },
     desktop: {
-      wallpaper: "img06",
+      wallpaper: "img04",
       icons: true,
       theme: "dark",
       sharp: false,
