@@ -15,22 +15,18 @@ export enum LogLevel {
   critical,
 }
 
-export const LogLevelData: { [key: string]: { capt: string; css: string } } = {
+export const LogLevelData: { [key: string]: { capt: string } } = {
   info: {
     capt: "INFO",
-    css: "color: #000;padding:2px;border-radius:2.5px;background-color:#83A598;margin-right:10px;",
   },
   warn: {
     capt: "WARN",
-    css: "color: #000;padding:2px;border-radius:2.5px;background-color:#fabd2f;margin-right:10px;",
   },
   error: {
     capt: "ERRR",
-    css: "color: #fff;padding:2px;border-radius:2.5px;background-color:#CC241D;margin-right:10px;",
   },
   critical: {
     capt: "CRIT",
-    css: "color: #fff;padding:2px;border-radius:2.5px;background-color:#71120E;margin-right:10px;",
   },
 };
 
@@ -40,26 +36,13 @@ export function Log(data: LogItem) {
   data.timestamp = new Date().getTime();
 
   const l = get(log);
+  const t = dayjs(data.timestamp || 0).format("HH:mm:ss.mmm");
 
   l.push(data);
 
   log.set(l);
-  /* 
-  const levelData = LogLevelData[LogLevel[data.level]];
 
-  const timeStampCSS =
-    "color: #fff;padding:2px;border-radius:2.5px;background-color:#666;margin-right:10px";
-  const dataSourceCSS =
-    "color: #fff;padding:2px;border-radius:2.5px;background-color:#555;";
+  const d = LogLevelData[LogLevel[data.level]];
 
-  console.log(
-    `%c${dayjs(data.timestamp || 0).format("DD-MM-YYYY HH:mm:ss.mmm")}%c${
-      levelData.capt
-    }%c${data.source}%c${data.msg}`,
-    timeStampCSS,
-    levelData.css,
-    dataSourceCSS,
-    "margin-left:10px"
-  );
- */
+  console.log(`[ArcOS - ${t}] [${d.capt}] ${data.source}: ${data.msg}`);
 }
