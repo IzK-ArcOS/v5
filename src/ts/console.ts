@@ -44,5 +44,5 @@ export function Log(data: LogItem) {
 
   const d = LogLevelData[LogLevel[data.level]];
 
-  console.log(`[ArcOS - ${t}] [${d.capt}] ${data.source}: ${data.msg}`);
+  console.log(`ArcOS: ${t} [${d.capt}] ${data.source}: ${data.msg}`);
 }
