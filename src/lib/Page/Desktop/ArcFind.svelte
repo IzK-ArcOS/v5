@@ -23,8 +23,6 @@
 
     index = -1;
     results = items.slice(0, 6);
-
-    console.log(results);
   }
 
   function submit(e: Event) {
@@ -35,7 +33,6 @@
     query = "";
 
     if (index != -1) {
-      console.log(results, results[index], index, results[index - 1]);
       results[index].action(results[index]);
 
       reset();

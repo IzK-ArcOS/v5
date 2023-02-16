@@ -6,10 +6,6 @@
   export let id: string;
   export let data: MessagingPage;
 
-  onMount(() => {
-    console.log(id);
-  });
-
   function switchTo() {
     $messagingPage = data;
   }

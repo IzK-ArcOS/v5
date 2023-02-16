@@ -24,7 +24,6 @@
   });
 
   function handleEvent(e: MouseEvent) {
-    console.log(e);
     e.preventDefault();
 
     const mW = menuElement.offsetWidth;
@@ -33,8 +32,6 @@
     [x, y] = composePosition(e, mW, mH);
 
     const windowId = getWindowElementByEvent(e);
-
-    console.log(windowId);
 
     show = true;
   }

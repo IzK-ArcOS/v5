@@ -21,8 +21,6 @@
     if (!th) return;
 
     thread = th;
-
-    console.debug(thread);
   });
 </script>
 

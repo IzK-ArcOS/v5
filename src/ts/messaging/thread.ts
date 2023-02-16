@@ -36,8 +36,6 @@ export async function getPartialTree(
 
   const message = req.data as PartiallyExtendedMessage;
 
-  console.debug(message);
-
   return message;
 }
 
