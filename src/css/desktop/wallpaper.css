@@ -1,5 +1,8 @@
 div.wallpaper {
-  background-image: url("../../assets/bg/img03.png");
   background-position: center;
   background-size: cover;
+}
+
+div.wallpaper:not(.nobg) {
+  background-image: url("../../assets/bg/img03.png");
 }

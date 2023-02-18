@@ -10,6 +10,7 @@ import UserDataExplorer from "../../../lib/Apps/Settings/Pages/Account/Overlays/
 import ChangePassword from "../../../lib/Apps/Settings/Pages/Account/Overlays/ChangePassword.svelte";
 import ChangeUsername from "../../../lib/Apps/Settings/Pages/Account/Overlays/ChangeUsername.svelte";
 import ChangeTitleButtons from "../../../lib/Apps/Settings/Pages/Account/Overlays/ChangeTitleButtons.svelte";
+import CustomWallpaper from "../../../lib/Apps/Settings/Pages/Account/Overlays/CustomWallpaper.svelte";
 
 const ProfilePictureOverlays = {
   pfpSel: {
@@ -87,6 +88,19 @@ const AccountPageOverlays = {
   },
 };
 
+export const DesktopOverlays = {
+  customWallpaper: {
+    info: {
+      name: "Custom Wallpaper",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: CustomWallpaper,
+    size: { w: 370, h: 125 },
+    show: false,
+  },
+};
+
 export const SettingsApp: App = {
   info: {
     name: "System Settings",
@@ -111,6 +125,7 @@ export const SettingsApp: App = {
   overlays: {
     ...ProfilePictureOverlays,
     ...AccountPageOverlays,
+    ...DesktopOverlays,
   },
   events: {
     close() {

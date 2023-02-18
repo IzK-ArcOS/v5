@@ -3,8 +3,9 @@ window#SettingsApp div.desktop-page div.wallpaper {
   border-radius: 5px;
   width: 70px;
   height: 70px;
-  margin: 5px;
-  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 window#SettingsApp div.desktop-page p {
@@ -21,6 +22,14 @@ window#SettingsApp div.desktop-page div.wallpaper:active {
 
 window#SettingsApp div.desktop-page div.wallpaper.selected {
   filter: brightness(1.5);
+}
+
+window#SettingsApp div.desktop-page div.wallpaper.customwp {
+  vertical-align: middle;
+  background-color: var(--button-glass-active-bg);
+  text-align: center;
+  line-height: 70px;
+  font-size: 24px;
 }
 
 window#SettingsApp div.desktop-page div.current {
@@ -74,4 +83,6 @@ window#SettingsApp div.desktop-page div.wallpapers {
   max-width: 100%;
   overflow-x: scroll;
   white-space: normal;
+  display: grid;
+  grid-template-columns: repeat(5, 80px);
 }
