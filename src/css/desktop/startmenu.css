@@ -43,7 +43,7 @@ div.startmenu {
   width: 500px;
   height: 600px;
   border-radius: var(--win-border-rad);
-  border: var(--win-border);
+  border: var(--glass-alt-bg) 1px solid;
   box-sizing: border-box;
   transition: bottom 0.3s, border-radius 0.3s, width 0.3s, height 0.3s,
     opacity 0.3s, visibility 0.3s, margin-bottom 0.34s;

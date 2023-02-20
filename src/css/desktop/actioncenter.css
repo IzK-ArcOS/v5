@@ -5,7 +5,7 @@ div.actioncenter {
   height: calc(100% - 75px);
   width: 400px;
   background-color: var(--glass-ultradark);
-  border: var(--win-border-light);
+  border: var(--glass-alt-bg) 1px solid;
   box-sizing: border-box;
   border-radius: var(--win-border-rad);
   backdrop-filter: blur(var(--glass-blur));
@@ -30,6 +30,8 @@ div.actioncenter.docked {
   top: 0px;
   right: -400px;
   border-radius: 0px;
+  border: transparent 1px solid;
+  border-left: var(--glass-alt-bg) 1px solid;
 }
 
 div.actioncenter.noquick div.quicksettings {

@@ -8,7 +8,7 @@ div.taskbar {
   background-color: var(--glass-ultradark);
   backdrop-filter: blur(var(--glass-blur));
   border-radius: var(--win-border-rad);
-  border: var(--win-border-light);
+  border: var(--glass-alt-bg) 1px solid;
   box-sizing: border-box;
   transition: border 0.3s, width 0.3s, bottom 0.3s, left 0.3s, transform 0.3s,
     border-radius 0.3s, background-color 0.3s, position 0.3s;
@@ -120,7 +120,7 @@ div.tbdocked div.taskbar:not(.fullscreen) {
   width: 100%;
   border-radius: 0;
   border: transparent 1px solid;
-  border-top: var(--win-border);
+  border-top: var(--glass-alt-bg) 1px solid;
 }
 
 div.taskbar button {
