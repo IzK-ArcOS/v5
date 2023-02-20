@@ -99,7 +99,7 @@ Overview of what preferences have implementations in ArcOS:
 |----------|---------------|--------|----------|
 | `UserData.sh.taskbar.centered` | Center taskbar buttons | implemented | `src/lib/Page/Desktop/Taskbar.svelte` in `<div.taskbar class:centered>` |
 | `UserData.sh.taskbar.labels` | Show taskbar button labels | implemented | `src/lib/Page/Desktop/Taskbar/TaskbarButton.svelte` in `{#if showLabel}` |
-| `UserData.sh.taskbar.pos` | Taskbar position | not implemented |
+| `UserData.sh.taskbar.pos` | Taskbar position | implemented | `src/lib/Page/Desktop.svelte` in `UserData.subscribe` |
 | `UserData.sh.taskbar.docked` | Dock the taskbar | implemented | `src/lib/Page/Desktop/Taskbar.svelte` in `div.taskbar` |
 | `UserData.sh.window.bigtb` | Large titlebars | implemented | `src/ts/Desktop/main.ts` in `assignDesktopListeners()` |
 | `UserData.sh.desktop.wallpaper` | Wallpaper | implemented | `src/lib/Page/Desktop/Wallpaper.svelte` in `div.wallpaper` |
