@@ -1,5 +1,6 @@
 import logo from "../../../assets/apps/mediaplayer.svg";
 import MediaPlayer from "../../../lib/Apps/MediaPlayer.svelte";
+import { closeWindow } from "../events";
 import type { App } from "../interface";
 
 export const MediaPlayerApp: App = {
@@ -25,4 +26,9 @@ export const MediaPlayerApp: App = {
   content: MediaPlayer,
   glass: true,
   fileMimes: ["audio/x-flac", "audio/wave", "audio/mpeg"],
+  events: {
+    open: (app: App) => {
+      if (!app.openedFile) closeWindow("MediaPlayerApp");
+    },
+  },
 };

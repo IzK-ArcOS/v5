@@ -1,7 +1,9 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import "../../css/desktop/apps/mediaplayer.css";
   import { getMimeIcon } from "../../ts/api/fs/icon";
   import type { App } from "../../ts/applogic/interface";
+  import { registerShortcuts } from "../../ts/applogic/keyboard/main";
   import { WindowStore } from "../../ts/applogic/store";
 
   let audioObject: HTMLAudioElement;
@@ -54,6 +56,17 @@
     audioObject.currentTime = 0;
     audioObject.pause();
   }
+
+  onMount(() => {
+    registerShortcuts([
+      {
+        key: "space",
+        action: () => {
+          audioObject?.pause();
+        },
+      },
+    ]);
+  });
 </script>
 
 {#if app.openedFile}
