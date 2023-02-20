@@ -29,7 +29,7 @@ div.boot div.center-absolute img.logo {
 div.slider.userdefined {
   width: 150px;
   border-radius: 3.5px;
-  background-color: #111;
+  background-color: #fff1;
   height: 7px;
   transition: opacity 1.5s;
   margin-top: 20px;
@@ -42,14 +42,14 @@ div.line.dark {
 }
 
 div.subline.dark.inc {
-  background-color: #aaa;
-  /*border-radius: 3.5px;*/
+  background-color: #ccc;
+  border-radius: 3.5px;
   height: 7px;
 }
 
 div.subline.dark.dec {
-  background-color: #aaa;
-  /*border-radius: 3.5px;*/
+  background-color: #ccc;
+  border-radius: 3.5px;
   height: 7px;
 }
 
