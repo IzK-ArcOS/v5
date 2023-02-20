@@ -4,12 +4,13 @@ div.desktop div.contextmenu {
   height: 350px;
   top: 0px;
   left: 0px;
-  background-color: var(--win-bg);
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
   color: var(--fg);
   border: var(--win-border);
   border-radius: var(--win-border-rad);
   box-sizing: border-box;
-
+  padding: 10px;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s, visibility 0.3s, top 0s, left 0s !important;
