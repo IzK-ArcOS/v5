@@ -35,7 +35,7 @@ window#SettingsApp div.desktop-page div.wallpaper.customwp {
 window#SettingsApp div.desktop-page div.current {
   height: 150px;
   display: block;
-  margin: 30px 5px;
+  margin: 15px 0px;
   border-radius: 10px;
   background-position: center;
   background-size: cover;
