@@ -134,7 +134,7 @@
   </div>
 </div>
 
-<div class="content">
+<div class="content" class:nofile={!app.openedFile}>
   {#if app.openedFile && !errored}
     <textarea
       bind:value={fileContents}

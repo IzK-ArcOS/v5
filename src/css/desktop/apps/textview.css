@@ -80,6 +80,10 @@ window#TextEditor div.content div.section {
   border-left: var(--button-bg) 1px solid;
 }
 
+window#TextEditor div.content.nofile {
+  background-color: var(--win-bg);
+}
+
 window#TextEditor div.saving-wrapper {
   position: absolute;
   top: 0px;
