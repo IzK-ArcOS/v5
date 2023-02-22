@@ -62,8 +62,13 @@ export function getContextEntry(
 ): ContextMenuItem[] | false {
   const window = getWindow(windowId);
 
-  if (!window || !window.contextMenu || !window.contextMenu[scope])
-    return false;
+  if (!window || !window.contextMenu) return false;
 
-  return window.contextMenu[scope];
+  const menu = Object.entries(window.contextMenu);
+
+  for (let i = 0; i < menu.length; i++) {
+    if (scope.includes(menu[i][0])) return menu[i][1];
+  }
+
+  return false;
 }

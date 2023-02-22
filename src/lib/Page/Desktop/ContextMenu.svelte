@@ -10,6 +10,7 @@
     getScopedElement,
   } from "../../../ts/contextmenu/main";
   import { getWindowElementByEvent } from "../../../ts/window/main";
+  import Item from "./ContextMenu/Item.svelte";
 
   let x = 0;
   let y = 0;
@@ -72,10 +73,7 @@
 >
   {#if show}
     {#each items as item}
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <div on:click={() => item.action(window, scopeMap, scope)}>
-        {item.caption}
-      </div>
+      <Item {window} {scope} {scopeMap} bind:show data={item} />
     {/each}
   {/if}
 </div>
