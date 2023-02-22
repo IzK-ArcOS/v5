@@ -1,7 +1,7 @@
 div.desktop div.contextmenu {
   position: absolute;
   width: 200px;
-  height: 350px;
+  min-height: 100px;
   top: 0px;
   left: 0px;
   background-color: var(--glass-bg);
@@ -10,7 +10,7 @@ div.desktop div.contextmenu {
   border: var(--win-border);
   border-radius: var(--win-border-rad);
   box-sizing: border-box;
-  padding: 10px;
+  padding: 5px;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s, visibility 0.3s, top 0s, left 0s !important;
@@ -27,4 +27,35 @@ div.desktop div.contextmenu.show * {
 div.desktop div.contextmenu.show {
   opacity: 1;
   visibility: visible;
+}
+
+div.desktop div.contextmenu button.contextmenu-item {
+  width: 100%;
+  display: flex;
+  text-align: left;
+  border: none;
+  background-color: transparent;
+  color: var(--fg);
+  border-radius: var(--button-border-rad);
+  padding: 5px;
+  line-height: 20px;
+}
+
+div.desktop div.contextmenu button.contextmenu-item:hover {
+  background-color: var(--button-glass-bg);
+}
+
+div.desktop div.contextmenu button.contextmenu-item div.icon * {
+  vertical-align: middle;
+  margin: 0;
+  width: 20px;
+  font-size: 18px;
+}
+
+div.desktop
+  div.contextmenu
+  button.contextmenu-item
+  div.icon
+  > span.material-icons-round {
+  margin-right: 5px;
 }
