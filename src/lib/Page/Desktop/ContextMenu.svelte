@@ -10,6 +10,7 @@
 
   let x = 0;
   let y = 0;
+  let path = "";
   let show = false;
 
   let menuElement: HTMLDivElement;
@@ -31,9 +32,38 @@
 
     [x, y] = composePosition(e, mW, mH);
 
-    const windowId = getWindowElementByEvent(e);
+    const window = getWindowElementByEvent(e);
 
     show = true;
+
+    if (!window) return;
+
+    path = "";
+
+    const p = e.composedPath() as HTMLDivElement[];
+
+    let lastClass = "";
+
+    for (let i = 0; i < p.length; i++) {
+      const tag = p[i].tagName;
+
+      if (!tag) continue;
+
+      if (tag.toLowerCase() == "button") {
+        lastClass = p[i].className.split(" ").join(".");
+
+        break;
+      }
+    }
+
+    console.log(
+      window,
+      e.composedPath(),
+      window.querySelector(`.${lastClass}`),
+      lastClass
+    );
+
+    path = `.${lastClass}`;
   }
 </script>
 
@@ -43,5 +73,6 @@
   bind:this={menuElement}
   style="top: {y}px; left: {x}px; z-index: {$maxZIndex + 10}"
 >
-  pos -> {x}x{y}
+  pos -> {x}x{y}<br /><br />
+  {path}
 </div>

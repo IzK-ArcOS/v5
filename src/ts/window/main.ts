@@ -15,6 +15,6 @@ export function getWindowElementByEvent(e: MouseEvent) {
 
     if (!tagName) continue;
 
-    if (tagName.toLowerCase() == "window") return path[i].id;
+    if (tagName.toLowerCase() == "window") return path[i];
   }
 }
