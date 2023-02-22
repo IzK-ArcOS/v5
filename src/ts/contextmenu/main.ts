@@ -1,3 +1,6 @@
+import type { ContextMenuItem } from "../applogic/interface";
+import { getWindow } from "../applogic/store";
+
 export function composePosition(
   e: MouseEvent,
   mW: number,
@@ -21,4 +24,46 @@ export function composePosition(
   if (y < 0) y = 0;
 
   return [x, y];
+}
+
+export function getComposedClassName(e: MouseEvent) {
+  const p = e.composedPath() as HTMLDivElement[];
+
+  let lastClass = "";
+
+  for (let i = 0; i < p.length; i++) {
+    const tag = p[i].tagName;
+
+    if (!tag) continue;
+
+    if (tag.toLowerCase() == "button") {
+      lastClass = p[i].className.split(" ").join(".");
+
+      break;
+    }
+  }
+
+  return lastClass;
+}
+
+export function getScopedElement(parent: HTMLElement, childQuery: string) {
+  if (childQuery == ".") return undefined;
+
+  const p = parent.querySelector(childQuery) as HTMLButtonElement;
+
+  if (!p) return undefined;
+
+  return p;
+}
+
+export function getContextEntry(
+  windowId: string,
+  scope: string
+): ContextMenuItem[] | false {
+  const window = getWindow(windowId);
+
+  if (!window || !window.contextMenu || !window.contextMenu[scope])
+    return false;
+
+  return window.contextMenu[scope];
 }

@@ -1,17 +1,23 @@
 <script lang="ts">
-  import "../../../css/desktop/contextmenu.css";
   import { onMount } from "svelte";
-  import { maxZIndex } from "../../../ts/applogic/store";
-  import { composePosition } from "../../../ts/contextmenu/main";
+  import "../../../css/desktop/contextmenu.css";
+  import type { App, ContextMenuItem } from "../../../ts/applogic/interface";
+  import { getWindow, maxZIndex } from "../../../ts/applogic/store";
   import {
-    getWindowElement,
-    getWindowElementByEvent,
-  } from "../../../ts/window/main";
+    composePosition,
+    getComposedClassName,
+    getContextEntry,
+    getScopedElement,
+  } from "../../../ts/contextmenu/main";
+  import { getWindowElementByEvent } from "../../../ts/window/main";
 
   let x = 0;
   let y = 0;
-  let path = "";
   let show = false;
+  let items: ContextMenuItem[] = [];
+  let window: App;
+  let scope: string;
+  let scopeMap: DOMStringMap;
 
   let menuElement: HTMLDivElement;
 
@@ -32,38 +38,29 @@
 
     [x, y] = composePosition(e, mW, mH);
 
-    const window = getWindowElementByEvent(e);
+    const windowElement = getWindowElementByEvent(e);
 
-    show = true;
+    if (!windowElement) return;
 
-    if (!window) return;
+    const windowData = getWindow(windowElement.id);
 
-    path = "";
+    const lastClass = `.${getComposedClassName(e)}`;
 
-    const p = e.composedPath() as HTMLDivElement[];
+    const el = getScopedElement(windowElement, lastClass);
 
-    let lastClass = "";
+    if (!el) return;
 
-    for (let i = 0; i < p.length; i++) {
-      const tag = p[i].tagName;
+    items = getContextEntry(windowElement.id, lastClass) || [];
 
-      if (!tag) continue;
+    if (!items.length) return;
 
-      if (tag.toLowerCase() == "button") {
-        lastClass = p[i].className.split(" ").join(".");
+    scope = lastClass;
+    window = windowData;
+    scopeMap = el.dataset;
 
-        break;
-      }
-    }
-
-    console.log(
-      window,
-      e.composedPath(),
-      window.querySelector(`.${lastClass}`),
-      lastClass
-    );
-
-    path = `.${lastClass}`;
+    setTimeout(() => {
+      show = true;
+    });
   }
 </script>
 
@@ -73,6 +70,12 @@
   bind:this={menuElement}
   style="top: {y}px; left: {x}px; z-index: {$maxZIndex + 10}"
 >
-  pos -> {x}x{y}<br /><br />
-  {path}
+  {#if show}
+    {#each items as item}
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <div on:click={() => item.action(window, scopeMap, scope)}>
+        {item.caption}
+      </div>
+    {/each}
+  {/if}
 </div>

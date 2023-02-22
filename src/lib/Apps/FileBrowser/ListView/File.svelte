@@ -99,6 +99,9 @@
   class:selected={$FileBrowserSelectedFilename == file.filename}
   title={file.scopedPath}
   class:cutting={$cutting && $cutting.name == file.filename}
+  data-path={file.scopedPath}
+  data-type="file"
+  data-name={file.filename}
 >
   <div class="image"><img src={img} alt={file.filename} /></div>
   <div class="name">{file.filename}</div>
