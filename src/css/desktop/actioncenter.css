@@ -163,6 +163,11 @@ div.actioncenter div.quicksettings button.setting {
 
 div.actioncenter div.quicksettings button.setting.active {
   background-color: var(--button-glass-bg);
+  color: var(--accent);
+}
+
+div.actioncenter div.quicksettings button.setting.active p.caption {
+  color: var(--fg);
 }
 
 div.theme-light div.actioncenter div.quicksettings button.setting.active {
@@ -177,7 +182,6 @@ div.actioncenter div.quicksettings button.setting p.caption {
   opacity: 0;
   max-height: 0px;
   margin-top: 0;
-
   transition: all 0.3s, opacity 0.2s;
 }
 

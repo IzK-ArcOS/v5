@@ -101,13 +101,13 @@ window#SettingsApp div.sidebar button.page::before {
   left: 0;
   top: 0px;
   border-radius: 1.5px;
+  transition: all 0.3s;
 }
 
 window#SettingsApp div.sidebar button.page.selected::before {
   background-color: var(--accent);
   height: 16px;
   margin: 6px 0;
-  transition: all 0.3s;
 }
 
 window#SettingsApp div.sidebar button.page.selected,
