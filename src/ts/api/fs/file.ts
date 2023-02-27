@@ -1,14 +1,13 @@
+import axios from "axios";
 import { get, writable } from "svelte/store";
 import {
   FileBrowserOpenCancelled,
-  FileBrowserDeletingFilename,
   FileBrowserUploadProgress,
 } from "../../applogic/apps/FileBrowser/main";
 import { Log, LogLevel } from "../../console";
 import { UserToken } from "../../userlogic/interfaces";
 import { apiCall, ConnectedServer } from "../main";
 import { generateParamStr } from "../params";
-import axios from "axios";
 
 export const abortFileReader = writable<boolean>(false);
 
