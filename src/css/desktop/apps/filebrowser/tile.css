@@ -16,7 +16,7 @@ div.tileview div.folders button {
   flex-grow: 1;
   max-width: 150px;
   display: flex;
-  padding: 10px 15px;
+  padding: 10px 15px !important;
   margin: 5px;
   height: 40px;
   text-align: left;
