@@ -96,7 +96,7 @@ export const DesktopOverlays = {
       author: "ArcOS Team",
     },
     content: CustomWallpaper,
-    size: { w: 370, h: 125 },
+    size: { w: 370, h: 118 },
     show: false,
   },
 };

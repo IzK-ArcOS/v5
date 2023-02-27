@@ -165,7 +165,7 @@ div.taskbar button.appbutton img.icon {
 
 div.taskbar button.appbutton.activated {
   border-radius: 0px;
-  border-bottom: var(--fg) 1px solid;
+  border-bottom: var(--accent) 1px solid;
   background-color: var(--startmenu-applist-item-bg-hover);
 }
 

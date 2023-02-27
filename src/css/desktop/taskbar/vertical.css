@@ -65,7 +65,7 @@ div[class*="tb-vertical"] div.taskbar div.buttons button {
 }
 
 div[class*="tb-vertical"] div.taskbar div.buttons button.activated {
-  border-left: var(--fg) 1px solid;
+  border-left: var(--accent) 1px solid;
   border-bottom: unset;
 }
 

@@ -32,6 +32,10 @@ window#SettingsApp div.desktop-page div.wallpaper.customwp {
   font-size: 24px;
 }
 
+window#SettingsApp div.desktop-page div.wallpaper.customwp:hover {
+  color: var(--accent);
+}
+
 window#SettingsApp div.desktop-page div.current {
   height: 150px;
   display: block;
