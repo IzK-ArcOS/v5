@@ -30,8 +30,8 @@ export const DefaultApps: { [key: string]: App } = {
   CalculatorApp,
   MessagingApp,
   SettingsApp: SettingsApp,
-  AppMan: AppManager,
-  TestApp: TestApp,
+  AppMan: AppManager /* 
+  TestApp: TestApp, */,
   LoggerApp,
   /** Hidden applications */
   AppPoker: AppPoker,
