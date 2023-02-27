@@ -168,5 +168,5 @@ progress::-webkit-progress-bar {
 /* Now the value part */
 progress::-webkit-progress-value {
   border-radius: 50px;
-  background-color: deepskyblue;
+  background-color: var(--accent);
 }

@@ -70,7 +70,7 @@ window.overlay#uploadingFile div.progress-wrapper div.progress div.inner {
   height: 8px;
   border-radius: 4px;
   margin: 0;
-  background-color: dodgerblue;
+  background-color: var(--accent);
 }
 
 window.overlay#uploadingFile div.progress-wrapper div.percentage {

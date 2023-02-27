@@ -21,9 +21,10 @@ window#OpenWithApp div.body {
 window#OpenWithApp div.content {
   background-color: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0px 5px 15px 5px #0003;
   padding: 15px;
   border-radius: var(--win-border-rad);
-  border: var(--win-border);
+  border: var(--accent) 1px solid;
   width: 450px;
   height: 550px;
 }

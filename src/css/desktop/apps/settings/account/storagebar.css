@@ -20,7 +20,7 @@ window#SettingsApp div.storagebar div {
 }
 
 window#SettingsApp div.storagebar div.currentuser {
-  background-color: dodgerblue;
+  background-color: var(--accent);
 }
 
 window#SettingsApp div.storagebar div.allusers {
@@ -37,7 +37,7 @@ window#SettingsApp div.storage-stats div.item {
 }
 
 window#SettingsApp div.storage-stats div.item.currentuser {
-  --color: dodgerblue;
+  --color: var(--accent);
 }
 
 window#SettingsApp div.storage-stats div.item.allusers {

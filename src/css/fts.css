@@ -173,7 +173,7 @@ div.fts div.center-absolute div.right div.nav div div.progress div.inner {
   height: 100%;
   width: 10px;
   border-radius: inherit;
-  background-color: deepskyblue;
+  background-color: var(--accent);
   padding: 0;
   transition: width 0.5s;
 }
@@ -222,7 +222,7 @@ div.fts input {
 }
 
 div.fts input:focus {
-  border-bottom: deepskyblue 2px solid;
+  border-bottom: var(--accent) 2px solid;
 }
 div.fts input.fullwidth {
   width: 100%;

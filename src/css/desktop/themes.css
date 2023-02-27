@@ -38,4 +38,7 @@
   --clr-blue-fg: #96d3ff;
   --clr-aqua-fg: #79ffd0;
   --clr-aqua-bg: #214538;
+  --accent: dodgerblue;
+  --accent-dark: rgb(0, 94, 126);
+  --accent-light: rgb(113, 220, 255);
 }

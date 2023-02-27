@@ -72,6 +72,6 @@ window input.fullwidth {
 }
 
 window a {
-  color: dodgerblue;
+  color: var(--accent);
   text-decoration: none;
 }

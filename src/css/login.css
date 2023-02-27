@@ -34,7 +34,7 @@ div.login *:not(.material-icons-round) {
 }
 
 div.login a {
-  color: deepskyblue !important;
+  color: var(--accent) !important;
   text-decoration: none;
 }
 

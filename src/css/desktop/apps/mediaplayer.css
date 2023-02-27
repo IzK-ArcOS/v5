@@ -52,7 +52,7 @@ window#MediaPlayerApp div.media-player div.bar {
 window#MediaPlayerApp div.media-player div.bar div.inner {
   height: 8px;
   border-radius: 4px;
-  background-color: dodgerblue;
+  background-color: var(--accent);
   transition: none;
 }
 

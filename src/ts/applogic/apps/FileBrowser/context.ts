@@ -1,5 +1,17 @@
+import { get } from "svelte/store";
+import { createOverlayableError } from "../../../errorlogic/overlay";
+import { hideOverlay, showOverlay } from "../../../window/overlay";
 import type { App, AppContextMenu } from "../../interface";
-import { fbClass } from "./main";
+import {
+  fbClass,
+  FileBrowserCopyingFilename,
+  FileBrowserCurrentDir,
+  FileBrowserCuttingFilename,
+  FileBrowserDeletingFilename,
+  FileBrowserSelectedFilename,
+} from "./main";
+import trash from "../../../../assets/apps/logger/clear.svg";
+import { deleteItem } from "../../../api/fs/file";
 
 export const FileManagerContextMenu: AppContextMenu = {
   ".item.dir": [
@@ -15,33 +27,36 @@ export const FileManagerContextMenu: AppContextMenu = {
       },
     },
     {
+      icon: "drive_file_rename_outline",
       caption: "Rename",
       action: (_: App, data: DOMStringMap) => {
-        const path = data.path;
+        FileBrowserSelectedFilename.set(data.name);
 
-        if (!path) return;
-
-        fbClass.goToDirectory(path);
+        showOverlay("renameItem", "FileManager");
       },
     },
     {
+      icon: "content_copy",
       caption: "Copy",
       action: (_: App, data: DOMStringMap) => {
-        const path = data.path;
+        FileBrowserSelectedFilename.set(data.name);
 
-        if (!path) return;
-
-        fbClass.goToDirectory(path);
+        FileBrowserCopyingFilename.set({
+          name: data.name,
+          scopedPath: `${data.path}`,
+        });
       },
     },
     {
+      icon: "content_cut",
       caption: "Cut",
       action: (_: App, data: DOMStringMap) => {
-        const path = data.path;
+        FileBrowserSelectedFilename.set(data.name);
 
-        if (!path) return;
-
-        fbClass.goToDirectory(path);
+        FileBrowserCuttingFilename.set({
+          name: data.name,
+          scopedPath: `${data.path}`,
+        });
       },
     },
   ],
@@ -49,11 +64,49 @@ export const FileManagerContextMenu: AppContextMenu = {
     {
       caption: "Delete",
       action: (_: App, data: DOMStringMap) => {
-        const path = data.path;
+        createOverlayableError(
+          {
+            title: "Delete item?",
+            message: `Are you sure you want to permanently delete ${data.name}?`,
+            buttons: [
+              {
+                caption: "Delete",
+                action: async () => {
+                  const path = data.path;
 
-        if (!path) return;
+                  FileBrowserDeletingFilename.set(data.name);
 
-        console.log(_, data, path);
+                  showOverlay("deletingItem", "FileManager");
+
+                  const valid = await deleteItem(path);
+
+                  if (!valid)
+                    createOverlayableError(
+                      {
+                        title: "Unable to delete item",
+                        message:
+                          "ArcAPI was not able to delete the item from the file system. A permission error may have occured. Please try again later.",
+                        buttons: [{ caption: "OK", action() {} }],
+                        image: trash,
+                      },
+                      "FileManager"
+                    );
+
+                  FileBrowserSelectedFilename.set(null);
+
+                  fbClass.refresh();
+
+                  setTimeout(() => {
+                    hideOverlay("deletingItem", "FileManager");
+                  }, 100);
+                },
+              },
+              { caption: "Cancel", action() {} },
+            ],
+            image: trash,
+          },
+          "FileManager"
+        );
       },
     },
   ],

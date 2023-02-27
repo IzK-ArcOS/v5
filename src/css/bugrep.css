@@ -43,16 +43,16 @@ div.bugrep.show {
 }
 
 div.bugrep a {
-  color: deepskyblue;
+  color: var(--accent);
   text-decoration: none;
 }
 
 div.bugrep a:hover {
-  color: rgb(94, 215, 255);
+  color: var(--accent-light);
 }
 
 div.bugrep a:active {
-  color: rgb(0, 111, 148);
+  color: var(--accent-dark);
 }
 
 div.bugrep button {

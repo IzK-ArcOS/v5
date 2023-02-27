@@ -5,5 +5,5 @@ div.alc div.progress {
 }
 
 div.alc div.progress div.inner {
-  background-color: deepskyblue;
+  background-color: var(--accent);
 }
