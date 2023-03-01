@@ -34,6 +34,7 @@ export function assignDesktopListeners() {
       if (!udata.sh.anim) classes += `noani `;
       if (udata.sh.noGlass) classes += `noglass `;
       if (udata.sh.window.bigtb) classes += `bigtitlebars `;
+      if (udata.sh.desktop.sharp) classes += `sharp `;
 
       desktopClassNames.set(classes);
     }

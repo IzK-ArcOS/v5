@@ -44,6 +44,7 @@
 
   button.close {
     background-color: rgba(255, 0, 0, 0.8);
+    color: white;
   }
 
   button.close:hover {

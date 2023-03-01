@@ -21,9 +21,17 @@
 >
   <input
     type="checkbox"
-    id="a"
+    id="b"
     class="switch"
     bind:checked={$UserData.sh.noGlass}
+  />
+</OptionSection>
+<OptionSection title="Sharp corners" context="Disable rounding in all of ArcOS">
+  <input
+    type="checkbox"
+    id="c"
+    class="switch"
+    bind:checked={$UserData.sh.desktop.sharp}
   />
 </OptionSection>
 <OptionSection title="Theme" context="Change the coloring of the UI">
