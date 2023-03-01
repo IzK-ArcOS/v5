@@ -1,6 +1,6 @@
 window.overlay[id*="CHOOSER"] {
-  background-color: #fff1;
-  backdrop-filter: blur(10px);
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur, 10px));
   min-width: 85% !important;
   max-width: 85% !important;
   width: 85% !important;
@@ -17,7 +17,7 @@ window.overlay[id*="CHOOSER"] div.topbar {
   height: 51px;
   display: flex;
   padding: 10px 10px 0;
-  border-bottom: var(--button-bg) 1px solid;
+  border-bottom: var(--win-border);
 }
 
 window.overlay[id*="CHOOSER"] div.topbar button.material-icons-round {
@@ -38,6 +38,12 @@ window.overlay[id*="CHOOSER"]
   button.material-icons-round
   + button.material-icons-round {
   margin-left: 10px;
+}
+
+window.overlay[id*="CHOOSER"] div.topbar button.refresh {
+  margin-left: 0 !important;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 window.overlay[id*="CHOOSER"]
@@ -76,8 +82,7 @@ window.overlay[id*="CHOOSER"] div.topbar div.addressbar {
   overflow-y: none;
   white-space: nowrap;
   display: flex;
-  border-top-right-radius: var(--button-border-rad);
-  border-bottom-right-radius: var(--button-border-rad);
+  border-radius: 0;
 }
 
 window.overlay[id*="CHOOSER"] div.topbar div.group {
@@ -131,11 +136,69 @@ window.overlay[id*="CHOOSER"] div.topbar button.refresh {
 
 window.overlay[id*="CHOOSER"] div.content {
   height: calc(100% - 91px) !important;
-  overflow-y: scroll;
+  overflow: hidden;
+  display: flex;
+}
+
+window.overlay[id*="CHOOSER"] div.content div.list {
+  height: 100%;
+  flex-grow: 1;
   padding: 5px;
-  padding-right: 0px;
-  overflow-x: hidden;
   background-color: var(--win-bg);
+}
+
+window.overlay[id*="CHOOSER"] div.content div.list button.item.head * {
+  font-weight: bold;
+}
+
+window.overlay[id*="CHOOSER"] div.content div.list button.item.head div.name {
+  width: calc(50%);
+}
+
+window.overlay[id*="CHOOSER"] div.content div.list button.item.head div.image {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+window.overlay[id*="CHOOSER"] div.content div.sidebar {
+  width: 150px;
+  border-right: var(--win-border);
+  box-sizing: border-box;
+  padding: 10px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+window.overlay[id*="CHOOSER"] div.content div.sidebar button {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  padding: 5px;
+  margin: 0;
+  background-color: transparent;
+}
+
+window.overlay[id*="CHOOSER"] div.content div.sidebar button.selected {
+  background-color: var(--button-glass-bg);
+}
+
+window.overlay[id*="CHOOSER"] div.content div.sidebar button p.caption {
+  margin: 0;
+  line-height: 20px;
+}
+
+window.overlay[id*="CHOOSER"] div.content div.sidebar button:hover {
+  background-color: var(--button-bg);
+}
+
+window.overlay[id*="CHOOSER"] div.content div.sidebar button:active {
+  background-color: var(--button-active-bg);
+}
+
+window.overlay[id*="CHOOSER"] div.content div.sidebar button img {
+  height: 20px;
+  margin-right: 10px;
 }
 
 window.overlay[id*="CHOOSER"] div.content button.item {
@@ -183,7 +246,7 @@ window.overlay[id*="CHOOSER"] div.content button.item div:not(.image) {
 
 window.overlay[id*="CHOOSER"] div.bottompane {
   width: 100%;
-  border-top: var(--button-bg) 1px solid;
+  border-top: var(--win-border);
   padding: 5px;
   display: flex;
 }
@@ -256,13 +319,23 @@ window.overlay[id*="CHOOSER"]
   margin-right: 0;
 }
 
+window.overlay[id*="CHOOSER"] div.tiled {
+  height: 100%;
+  overflow-y: scroll;
+  flex-grow: 1;
+  padding: 10px;
+  padding-right: 2px;
+  box-sizing: border-box;
+  background-color: var(--win-bg);
+}
+
 window.overlay[id*="CHOOSER"] div.tiled div.dirs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 140px));
+  margin: 0;
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: var(--button-glass-bg) 1px solid;
-  margin-right: 10px;
+  border-bottom: var(--win-border);
 }
 
 window.overlay[id*="CHOOSER"] div.tiled div.dirs button.tile.dir {
@@ -283,4 +356,39 @@ window.overlay[id*="CHOOSER"] div.tiled div.dirs button.tile.dir img {
 window.overlay[id*="CHOOSER"] div.tiled div.dirs button.tile.dir p.caption {
   margin: 0;
   line-height: 20px;
+}
+
+window.overlay[id*="CHOOSER"] div.tiled div.files {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, max(85px));
+}
+window.overlay[id*="CHOOSER"] div.tiled div.files button {
+  max-width: 150px;
+  overflow: hidden;
+  padding: 5px;
+}
+
+window.overlay[id*="CHOOSER"]
+  div.tiled
+  div.files
+  button:not(:active):not(:hover):not(.selected) {
+  background-color: transparent !important;
+}
+
+window.overlay[id*="CHOOSER"] div.tiled div.files button:hover {
+  background-color: var(--button-bg) !important;
+}
+
+window.overlay[id*="CHOOSER"] div.tiled div.files button.selected {
+  background-color: var(--button-hover-bg);
+}
+
+window.overlay[id*="CHOOSER"] div.tiled div.files button img {
+  height: 48px;
+}
+
+window.overlay[id*="CHOOSER"] div.tiled div.files button p.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 2.5em;
 }

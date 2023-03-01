@@ -58,15 +58,15 @@
     disabled={crumbs.length == 2 && crumbs[0] == "." && !crumbs[1]}
     >arrow_upward</button
   >
-  <button class="refresh material-icons-round" on:click={refresh}>
-    refresh
-  </button>
   <button class="home material-icons-round" on:click={home}>home</button>
   <div class="addressbar">
     {#each crumbs as crumb, i}
       <Crumb {crumb} path={generatePath(crumb, i)} {setDir} />
     {/each}
   </div>
+  <button class="refresh material-icons-round" on:click={refresh}>
+    refresh
+  </button>
   <div class="group">
     <button
       class="material-icons-round"

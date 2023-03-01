@@ -42,5 +42,5 @@
   on:click={() => ($selected = file.filename)}
 >
   <div class="image"><img src={img} alt={file.filename} /></div>
-  <div class="name">{file.filename}</div>
+  <p class="name">{file.filename}</p>
 </button>

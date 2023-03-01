@@ -15,6 +15,7 @@
   import Spinner from "../Spinner.svelte";
   import { onMount } from "svelte";
   import { registerShortcuts } from "../../ts/applogic/keyboard/main";
+  import { testConnection } from "../../ts/api/test";
 
   export let app: App;
 
@@ -67,7 +68,22 @@
       return (fileContents = "");
     }
 
-    fileContents = new TextDecoder().decode(app.openedFile.data);
+    const text = new TextDecoder().decode(app.openedFile.data);
+
+    if (text.length > 2048) {
+      createOverlayableError(
+        {
+          title: "Can't open file",
+          message: "The file's size exceeds the maximum allowed size of 2KB.",
+          buttons: [{ caption: "OK", action() {} }],
+        },
+        "TextEditor"
+      );
+
+      return (fileContents = "");
+    }
+
+    fileContents = text;
     currentFile = app.openedFile.path;
     onchange();
 

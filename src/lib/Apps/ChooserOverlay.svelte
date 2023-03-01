@@ -13,6 +13,8 @@
   import icon from "../../assets/apps/filemanager/file.svg";
   import Spinner from "../Spinner.svelte";
   import Tiled from "./ChooserOverlay/Tiled.svelte";
+  import SideBar from "./ChooserOverlay/SideBar.svelte";
+  import TopRow from "./FileBrowser/ListView/TopRow.svelte";
 
   export let overlay: OverlayableApp;
 
@@ -22,10 +24,13 @@
   let selected = writable<string>(null);
   let processing = writable<boolean>(false);
 
-  function setDir(path: string) {
+  async function setDir(path: string) {
+    $processing = true;
     $currentPath = path;
 
-    refresh();
+    await refresh();
+
+    $processing = false;
   }
 
   async function refresh() {
@@ -38,15 +43,19 @@
 {#if overlay}
   <TopBar {currentPath} {refresh} {setDir} bind:tiled />
   <div class="content">
+    <SideBar {currentDir} {setDir} {currentPath} />
     {#if tiled}
       <Tiled data={$currentDir} {setDir} {overlay} {selected} {processing} />
     {:else}
-      {#each $currentDir.directories as dir}
-        <Dir {setDir} {dir} {selected} />
-      {/each}
-      {#each $currentDir.files as file}
-        <File {file} {overlay} {selected} {processing} />
-      {/each}
+      <div class="list">
+        <TopRow />
+        {#each $currentDir.directories as dir}
+          <Dir {setDir} {dir} {selected} />
+        {/each}
+        {#each $currentDir.files as file}
+          <File {file} {overlay} {selected} {processing} />
+        {/each}
+      </div>
     {/if}
 
     {#if $processing}

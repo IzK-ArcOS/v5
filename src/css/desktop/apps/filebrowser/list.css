@@ -85,3 +85,8 @@ window#FileManager div.listview button.item.head * {
 window#FileManager div.listview button.item.head div.name {
   width: calc(50% - 4px);
 }
+
+window#FileManager div.listview button.item.head div.image {
+  width: 20px;
+  height: 20px;
+}

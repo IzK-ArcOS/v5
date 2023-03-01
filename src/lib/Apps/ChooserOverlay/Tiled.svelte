@@ -20,7 +20,9 @@
       {/each}
     </div>
   {/if}
-  {#each data.files as file}
-    <File {file} {overlay} {selected} {processing} />
-  {/each}
+  <div class="files">
+    {#each data.files as file}
+      <File {file} {overlay} {selected} {processing} />
+    {/each}
+  </div>
 </div>
