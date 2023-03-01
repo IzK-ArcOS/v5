@@ -12,7 +12,7 @@ Implementing DMAs is easy. We just need a couple of concrete rules and interface
 
 ```ts
 interface App {
-  content: typeof SvelteComponentDev;
+  content: SvelteComponent;
   state: AppStates;
   minSize: Size;
   maxSize: Size;
@@ -24,7 +24,9 @@ interface App {
 ```
 
 The `content` attribute contains the actual Svelte component that will be displayed using a `svelte:component` element. The `AppStates`, `Size`, `XY`, `ControlsState`, `WindowMenuBar` and `GeneralAppInfo` names are interfaces and types used to make them more accessible to the rest of the code. Here they are:
+
 ### General App Info (`interface GeneralAppInfo`)
+
 ```ts
 interface GeneralAppInfo {
   name: string;
@@ -34,52 +36,64 @@ interface GeneralAppInfo {
   author?: string;
 }
 ```
+
 ### Application States (`interface AppStates`)
+
 ```ts
 interface AppStates {
-  headless: boolean;          // Window headless?
-  resizable: boolean;         // Window resizable?
-  windowState: WindowState;   // General window states
+  headless: boolean; // Window headless?
+  resizable: boolean; // Window resizable?
+  windowState: WindowState; // General window states
 }
 ```
+
 ### Size Definition (`type Size`)
+
 ```ts
-type Size = { w: number, h: number };
+type Size = { w: number; h: number };
 ```
+
 ### Positional Definition (`type XY`)
+
 ```ts
 type XY = { x: number; y: number };
 ```
+
 ### Window State (`interface WindowState`)
+
 ```ts
 interface WindowState {
-    min: boolean; // Minimized
-    max: boolean; // Maximized
-    fll: boolean; // Fullscreen
+  min: boolean; // Minimized
+  max: boolean; // Maximized
+  fll: boolean; // Fullscreen
 }
 ```
+
 ### Control State (`interface ControlState`)
+
 ```ts
 interface ControlsState {
-    min: boolean; // Minimized
-    max: boolean; // Maximized
-    cls: boolean; // Close
+  min: boolean; // Minimized
+  max: boolean; // Maximized
+  cls: boolean; // Close
 }
 ```
+
 ### Menu Bar (`interfae WindowMenuBar`, `interface WindowMenuBarItem`, `type WindowMenuBarItemType`)
+
 ```ts
 interface WindowMenuBar {
-	leftItems: WindowMenuBarItem[];
-	rightItems: WindowMenuBarItem[];
-	visibleOnHeadless: boolean;
-	visibleOnFullscreen: boolean;
+  leftItems: WindowMenuBarItem[];
+  rightItems: WindowMenuBarItem[];
+  visibleOnHeadless: boolean;
+  visibleOnFullscreen: boolean;
 }
 
 interface WindowMenuBarItem {
-	type: WindowMenuBarItemType;
-    caption?: string;
-	click?: (e: MouseEvent) => void;
-	menuItems?: WindowMenuBarItem[];
+  type: WindowMenuBarItemType;
+  caption?: string;
+  click?: (e: MouseEvent) => void;
+  menuItems?: WindowMenuBarItem[];
 }
 
 type WindowMenuBarItemType = "sep" | "button" | "menu";

@@ -1,4 +1,4 @@
-import type { SvelteComponentDev } from "svelte/internal";
+import type { SvelteComponent } from "svelte/internal";
 import type { ErrorButton } from "../errorlogic/app";
 import type { AppKeyCombinations } from "./keyboard/interface";
 export interface App {
@@ -10,7 +10,7 @@ export interface App {
   controls: ControlsState;
   menubar?: WindowMenuBar;
   state: AppStates;
-  content: typeof SvelteComponentDev;
+  content: SvelteComponent;
   id?: string;
   glass: boolean;
   events?: AppEvents;
@@ -44,7 +44,7 @@ export interface OverlayableError {
 export interface OverlayableApp {
   info: OverlayableAppInfo;
   size: Size;
-  content?: typeof SvelteComponentDev;
+  content?: SvelteComponent;
   parentId?: string;
   id?: string;
   show: boolean;

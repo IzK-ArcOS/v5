@@ -1,4 +1,3 @@
-import type { SvelteComponentDev } from "svelte/internal";
 import type { PartialMessage } from "../interface";
 
 export interface MessagingPage {

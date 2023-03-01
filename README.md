@@ -41,7 +41,7 @@ export interface State {
 | key       | type                                            | details                                             |
 | --------- | ----------------------------------------------- | --------------------------------------------------- |
 | `name`    | `string`                                        | Contains the display name (like `First Time Setup`) |
-| `content` | `SvelteComponentDev \| any`                     | The actual body of the state                        |
+| `content` | `SvelteComponent \| any`                        | The actual body of the state                        |
 | `attribs` | `{ [key:string]: boolean \| string \| number }` | Additional attributes different state types can use |
 
 ## The user system
