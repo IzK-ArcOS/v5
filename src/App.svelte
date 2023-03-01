@@ -39,14 +39,14 @@
 
   console.warn = (content: string, ...a: any) =>
     Log({
-      source: "[Anonymous Console]",
+      source: "Console",
       msg: content + a.join(" "),
       level: LogLevel.warn,
     });
 
   console.error = (content: string, ...a: any[]) =>
     Log({
-      source: "[Anonymous Console]",
+      source: "Console",
       msg: content + a.join(" "),
       level: LogLevel.error,
     });
