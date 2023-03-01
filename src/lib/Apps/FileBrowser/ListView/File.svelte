@@ -95,6 +95,7 @@
 <button
   class="item file"
   on:click={select}
+  on:contextmenu={select}
   on:dblclick={open}
   class:selected={$FileBrowserSelectedFilename == file.filename}
   title={file.scopedPath}
