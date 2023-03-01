@@ -106,8 +106,8 @@
     border-radius: 11px;
   }
   input[type="checkbox"].switch:after {
-    left: 2.5px;
-    top: 2.5px;
+    left: 2px;
+    top: 2px;
     border-radius: 50%;
     width: 15px;
     height: 15px;
