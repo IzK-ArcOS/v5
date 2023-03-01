@@ -56,6 +56,8 @@ export function invalidServerResponse(
 ) {
   let json;
 
+  return;
+
   try {
     json = JSON.parse(txt);
   } catch {
