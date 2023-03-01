@@ -4,6 +4,8 @@
   import SvelteMarkdown from "svelte-markdown";
   import "../../css/desktop/apps/markdownviewer.css";
   import { TextEditorContent } from "../../ts/applogic/apps/TextEditor/main";
+  import { closeFile } from "../../ts/api/fs/main";
+  import { setTitleSuffix } from "../../ts/applogic/title";
 
   export let app: App;
 
@@ -11,6 +13,8 @@
   let content = "";
 
   WindowStore.subscribe(() => {
+    const textViewer = getWindow("TextEditor");
+
     if (!app) return;
 
     const file = app.openedFile;
@@ -23,6 +27,9 @@
   });
 
   TextEditorContent.subscribe(() => {
+    closeFile("MarkDownViewer");
+    setTitleSuffix("", "MarkDownViewer");
+
     content = app.openedFile ? md : $TextEditorContent;
   });
 </script>

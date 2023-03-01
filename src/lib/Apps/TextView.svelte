@@ -47,6 +47,12 @@
       ],
       "TextEditor"
     );
+
+    app.events.close = () => {
+      if ($TextEditorContent) {
+        closeWindow("MarkDownViewer");
+      }
+    };
   });
 
   WindowStore.subscribe(() => {
