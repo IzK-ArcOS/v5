@@ -12,7 +12,7 @@ Implementing DMAs is easy. We just need a couple of concrete rules and interface
 
 ```ts
 interface App {
-  content: SvelteComponent;
+  content: typeof SvelteComponentDev;
   state: AppStates;
   minSize: Size;
   maxSize: Size;

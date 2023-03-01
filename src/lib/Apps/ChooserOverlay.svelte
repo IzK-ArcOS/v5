@@ -12,9 +12,11 @@
   import "../../css/desktop/chooseroverlay.css";
   import icon from "../../assets/apps/filemanager/file.svg";
   import Spinner from "../Spinner.svelte";
+  import Tiled from "./ChooserOverlay/Tiled.svelte";
 
   export let overlay: OverlayableApp;
 
+  let tiled = false;
   let currentDir = writable<UserDirectory>(defaultDirectory);
   let currentPath = writable<string>("./");
   let selected = writable<string>(null);
@@ -34,14 +36,19 @@
 </script>
 
 {#if overlay}
-  <TopBar {currentPath} {refresh} {setDir} />
+  <TopBar {currentPath} {refresh} {setDir} bind:tiled />
   <div class="content">
-    {#each $currentDir.directories as dir}
-      <Dir {setDir} {dir} {selected} />
-    {/each}
-    {#each $currentDir.files as file}
-      <File {file} {overlay} {selected} {processing} />
-    {/each}
+    {#if tiled}
+      <Tiled data={$currentDir} {setDir} {overlay} {selected} {processing} />
+    {:else}
+      {#each $currentDir.directories as dir}
+        <Dir {setDir} {dir} {selected} />
+      {/each}
+      {#each $currentDir.files as file}
+        <File {file} {overlay} {selected} {processing} />
+      {/each}
+    {/if}
+
     {#if $processing}
       <div class="processing-overlay">
         <div class="processing-content">

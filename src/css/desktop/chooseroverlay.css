@@ -1,5 +1,12 @@
 window.overlay[id*="CHOOSER"] {
-  background-color: var(--win-bg);
+  background-color: #fff1;
+  backdrop-filter: blur(10px);
+  min-width: 85% !important;
+  max-width: 85% !important;
+  width: 85% !important;
+  min-height: 85% !important;
+  max-height: 85% !important;
+  height: 85% !important;
 }
 
 window.overlay[id*="CHOOSER"] div.body {
@@ -7,9 +14,9 @@ window.overlay[id*="CHOOSER"] div.body {
 }
 
 window.overlay[id*="CHOOSER"] div.topbar {
-  height: 40px;
+  height: 51px;
   display: flex;
-  padding: 5px 5px 0;
+  padding: 10px 10px 0;
   border-bottom: var(--button-bg) 1px solid;
 }
 
@@ -30,14 +37,14 @@ window.overlay[id*="CHOOSER"]
   div.topbar
   button.material-icons-round
   + button.material-icons-round {
-  margin-left: 0px;
+  margin-left: 10px;
 }
 
 window.overlay[id*="CHOOSER"]
   div.topbar
   button.material-icons-round:not(.home) {
-  background-color: transparent;
-  margin-right: 5px;
+  margin-right: 0px;
+  background-color: var(--button-glass-bg);
 }
 
 window.overlay[id*="CHOOSER"]
@@ -60,7 +67,7 @@ window.overlay[id*="CHOOSER"]
 
 window.overlay[id*="CHOOSER"] div.topbar div.addressbar {
   flex-grow: 1;
-  background-color: var(--button-bg);
+  background-color: var(--button-glass-bg);
   vertical-align: middle;
   height: 30px;
   overflow-x: scroll;
@@ -71,6 +78,32 @@ window.overlay[id*="CHOOSER"] div.topbar div.addressbar {
   display: flex;
   border-top-right-radius: var(--button-border-rad);
   border-bottom-right-radius: var(--button-border-rad);
+}
+
+window.overlay[id*="CHOOSER"] div.topbar div.group {
+  height: 30px;
+  width: 60px;
+  overflow: hidden;
+  border-radius: var(--button-border-rad);
+  margin-left: 10px;
+  background-color: var(--button-glass-bg);
+  display: flex;
+}
+
+window.overlay[id*="CHOOSER"] div.topbar div.group button {
+  margin: 0 !important;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 0;
+}
+
+window.overlay[id*="CHOOSER"] div.topbar div.group button:disabled {
+  opacity: 1 !important;
+}
+
+window.overlay[id*="CHOOSER"] div.topbar div.group button:not(.selected) {
+  background-color: var(--button-hover-bg);
 }
 
 window.overlay[id*="CHOOSER"] div.topbar div.addressbar::-webkit-scrollbar {
@@ -89,7 +122,7 @@ window.overlay[id*="CHOOSER"] div.topbar div.addressbar button:hover {
 window.overlay[id*="CHOOSER"] div.topbar button.home {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
-  background-color: var(--button-bg);
+  background-color: var(--button-glass-bg);
 }
 
 window.overlay[id*="CHOOSER"] div.topbar button.refresh {
@@ -97,11 +130,12 @@ window.overlay[id*="CHOOSER"] div.topbar button.refresh {
 }
 
 window.overlay[id*="CHOOSER"] div.content {
-  height: calc(100% - 80px) !important;
+  height: calc(100% - 91px) !important;
   overflow-y: scroll;
   padding: 5px;
   padding-right: 0px;
   overflow-x: hidden;
+  background-color: var(--win-bg);
 }
 
 window.overlay[id*="CHOOSER"] div.content button.item {
@@ -119,7 +153,7 @@ window.overlay[id*="CHOOSER"] div.content button.item.selected {
 }
 
 window.overlay[id*="CHOOSER"] div.content button.item:hover {
-  background-color: var(--button-bg);
+  background-color: var(--button-glass-bg);
 }
 
 window.overlay[id*="CHOOSER"] div.content button.item:active {
@@ -220,4 +254,33 @@ window.overlay[id*="CHOOSER"]
   img.spinner-svg {
   margin-left: auto;
   margin-right: 0;
+}
+
+window.overlay[id*="CHOOSER"] div.tiled div.dirs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 140px));
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: var(--button-glass-bg) 1px solid;
+  margin-right: 10px;
+}
+
+window.overlay[id*="CHOOSER"] div.tiled div.dirs button.tile.dir {
+  flex-grow: 1;
+  max-width: 150px;
+  display: flex;
+  padding: 10px 15px !important;
+  margin: 2.5px;
+  height: 40px;
+  text-align: left;
+}
+
+window.overlay[id*="CHOOSER"] div.tiled div.dirs button.tile.dir img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+window.overlay[id*="CHOOSER"] div.tiled div.dirs button.tile.dir p.caption {
+  margin: 0;
+  line-height: 20px;
 }

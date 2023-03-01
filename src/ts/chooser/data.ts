@@ -10,7 +10,7 @@ export function generateChooserOverlayData(
       author: "ArcOS Generated",
       version: "1",
     },
-    size: { w: 540, h: 350 },
+    size: { w: NaN, h: NaN },
     show: true,
     id: `CHOOSER#${Math.floor(Math.random() * 1e6)}`,
     content: ChooserOverlay,

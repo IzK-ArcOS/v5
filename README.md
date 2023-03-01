@@ -33,7 +33,7 @@ All frontend components required to get the ArcOS experience I seek, bundled int
 ```ts
 export interface State {
   name: string;
-  content: SvelteComponent | any;
+  content: typeof SvelteComponentDev | any;
   attribs: { [key: string]: boolean | string | number };
 }
 ```

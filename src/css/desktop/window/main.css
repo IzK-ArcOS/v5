@@ -55,7 +55,7 @@ window.custom div.body {
   min-width: unset !important;
   min-height: unset !important;
   border-radius: 0 !important;
-  border: transparent 1px solid;
+  border: transparent 0px solid;
   resize: none !important;
   transition: all 0.2s;
 }
