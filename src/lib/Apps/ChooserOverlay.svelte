@@ -25,12 +25,9 @@
   let processing = writable<boolean>(false);
 
   async function setDir(path: string) {
-    $processing = true;
     $currentPath = path;
 
     await refresh();
-
-    $processing = false;
   }
 
   async function refresh() {
