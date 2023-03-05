@@ -6,6 +6,7 @@
   import type { Message } from "../../../../../ts/messaging/interface";
   import { messageSubscribe } from "../../../../../ts/messaging/updates";
   import ProfilePicture from "../../../../ProfilePicture.svelte";
+  import warning from "../../../../../assets/apps/error.svg";
 
   export let message: Message;
 
@@ -33,6 +34,11 @@
     <p class="id">{getTimestamp(message.timestamp)}</p>
   </div>
   <div class="actions">
+    {#if message.receiver.startsWith("deleted#")}
+      <button class="material-icons-round" title="Receiver no longer exists"
+        ><img src={warning} alt="" /></button
+      >
+    {/if}
     {#each messageItemActions as action}
       <button
         class="material-icons-round"

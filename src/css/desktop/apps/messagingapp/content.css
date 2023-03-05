@@ -53,6 +53,16 @@ window#MessagingApp
   font-size: 16px;
 }
 
+window#MessagingApp
+  div.body
+  > div.content
+  div.message-header
+  div.actions
+  button
+  img {
+  height: 20px;
+}
+
 window#MessagingApp div.body > div.content div.message-header p.id {
   opacity: 0.5;
 }
