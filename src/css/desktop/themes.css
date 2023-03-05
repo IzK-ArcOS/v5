@@ -2,6 +2,7 @@
 @import url("./theme/light.css");
 @import url("./theme/sharp.css");
 @import url("./theme/noani.css");
+@import url("./theme/hc.css");
 
 :root {
   --glass-blur: 10px;

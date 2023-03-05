@@ -15,16 +15,26 @@
     bind:checked={$UserData.sh.anim}
   />
 </OptionSection>
-<OptionSection
-  title="Transparency"
-  context="Hide transparency effects in ArcOS"
->
+<OptionSection title="No glass" context="Disable glass effects in ArcOS">
   <input
     type="checkbox"
     id="b"
     class="switch"
     bind:checked={$UserData.sh.noGlass}
   />
+</OptionSection>
+<OptionSection title="Theme" context="Change the coloring of the UI">
+  <select name="aa" id="bb" bind:value={$UserData.sh.desktop.theme}>
+    <option value="dark">Darkmode</option>
+    <option value="light">Lightmode</option>
+    <option value="hc">High contrast</option>
+  </select>
+</OptionSection>
+<hr />
+<OptionSection title="Titlebar Buttons" context="Change the titlebar controls">
+  <button on:click={() => showOverlay("changeTitleButtons", "SettingsApp")}
+    >Change...</button
+  >
 </OptionSection>
 <OptionSection title="Sharp corners" context="Disable rounding in all of ArcOS">
   <input
@@ -33,15 +43,4 @@
     class="switch"
     bind:checked={$UserData.sh.desktop.sharp}
   />
-</OptionSection>
-<OptionSection title="Theme" context="Change the coloring of the UI">
-  <select name="aa" id="bb" bind:value={$UserData.sh.desktop.theme}>
-    <option value="dark">Darkmode</option>
-    <option value="light">Lightmode</option>
-  </select>
-</OptionSection>
-<OptionSection title="Titlebar Buttons" context="Change the titlebar controls">
-  <button on:click={() => showOverlay("changeTitleButtons", "SettingsApp")}
-    >Change...</button
-  >
 </OptionSection>

@@ -1,10 +1,10 @@
-:root .desktop-hc {
+:root .desktop.theme-hc {
   --glass-blur: 0px;
   --fg: #ff0;
   --win-bg: #000;
   --win-border-rad: 0px;
-  --win-border: rgb(255, 255, 0) 2px solid;
-  --win-border-light: #ff0 2px solid;
+  --win-border: rgb(255, 255, 0) 1px solid;
+  --win-border-light: #ff0 1px solid;
   --glass-bg: #000;
   --glass-alt-bg: #000;
   --glass-ultralight: #000;
@@ -14,13 +14,13 @@
   --startmenu-applist-item-bg: transparent;
   --startmenu-applist-item-bg-hover: #ffffff05;
   --startmenu-applist-item-bg-active: #0001;
-  --button-border-rad: 4px;
-  --button-bg: #aa0;
-  --button-hover-bg: #000;
-  --button-active-bg: #000;
-  --button-glass-bg: #aa0;
-  --button-glass-hover-bg: #000;
-  --button-glass-active-bg: #000;
+  --button-border-rad: 0px;
+  --button-bg: #440;
+  --button-hover-bg: #660;
+  --button-active-bg: #220;
+  --button-glass-bg: #440;
+  --button-glass-hover-bg: #660;
+  --button-glass-active-bg: #220;
   --clr-red-bg: #452929;
   --clr-red-fg: #ff7e7e;
   --clr-green-bg: #283e28;
@@ -33,16 +33,31 @@
   --clr-blue-fg: #96d3ff;
   --clr-aqua-fg: #79ffd0;
   --clr-aqua-bg: #214538;
-  --accent: #0ff;
+  --accent: #0bb;
   --accent-dark: #aff;
   --accent-light: #0aa;
 }
 
-window div.body button:not(.material-icons-round) {
-  border: #ff0 2px solid !important;
+.desktop.theme-hc window div.body button.selected:not(.material-icons-round) {
+  border: #ff0 1px solid !important;
 }
 
-window div.body input,
-window div.body select {
+.desktop.theme-hc window div.body input,
+.desktop.theme-hc window div.body select {
+  border: #0ff 1px solid !important;
+}
+
+.desktop.theme-hc div.taskbar,
+.desktop.theme-hc div.actioncenter,
+.desktop.theme-hc div.startmenu,
+.desktop.theme-hc div.startmenu > * {
+  border: #ff0 1px solid !important;
+}
+
+.desktop.theme-hc > div.wallpaper {
+  background-image: none !important;
+}
+
+.desktop.theme-hc window div.body hr {
   border: #0ff 1px solid !important;
 }
