@@ -2,6 +2,7 @@ import { get } from "svelte/store";
 import { Log, LogLevel } from "../console";
 import { ActionCenterOpened } from "../desktop/actioncenter/main";
 import { startOpened } from "../desktop/main";
+import { destroyOverlayableError } from "../errorlogic/overlay";
 import { getWindowElement } from "../window/main";
 import { hideOverlay } from "../window/overlay";
 import { isLoaded, isOpened } from "./checks";
@@ -135,6 +136,12 @@ export function closeWindow(id: string) {
 
     for (let i = 0; i < entries.length; i++) {
       closeChildWindow(window, entries[i][0]);
+    }
+  }
+
+  if (window.errorOverlays) {
+    for (let i = 0; i < window.errorOverlays.length; i++) {
+      destroyOverlayableError(window.errorOverlays[i].id, window.id);
     }
   }
 

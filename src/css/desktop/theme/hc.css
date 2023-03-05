@@ -1,0 +1,48 @@
+:root .desktop-hc {
+  --glass-blur: 0px;
+  --fg: #ff0;
+  --win-bg: #000;
+  --win-border-rad: 0px;
+  --win-border: rgb(255, 255, 0) 2px solid;
+  --win-border-light: #ff0 2px solid;
+  --glass-bg: #000;
+  --glass-alt-bg: #000;
+  --glass-ultralight: #000;
+  --glass-ultradark: #000;
+  --darkened-overlay: #0004;
+  --darkened-overlay-alt: #0004;
+  --startmenu-applist-item-bg: transparent;
+  --startmenu-applist-item-bg-hover: #ffffff05;
+  --startmenu-applist-item-bg-active: #0001;
+  --button-border-rad: 4px;
+  --button-bg: #aa0;
+  --button-hover-bg: #000;
+  --button-active-bg: #000;
+  --button-glass-bg: #aa0;
+  --button-glass-hover-bg: #000;
+  --button-glass-active-bg: #000;
+  --clr-red-bg: #452929;
+  --clr-red-fg: #ff7e7e;
+  --clr-green-bg: #283e28;
+  --clr-green-fg: #a8ffa6;
+  --clr-yellow-bg: #49432e;
+  --clr-yellow-fg: #ffe073;
+  --clr-orange-bg: #543d1b;
+  --clr-orange-fg: #ffad32;
+  --clr-blue-bg: #273a48;
+  --clr-blue-fg: #96d3ff;
+  --clr-aqua-fg: #79ffd0;
+  --clr-aqua-bg: #214538;
+  --accent: #0ff;
+  --accent-dark: #aff;
+  --accent-light: #0aa;
+}
+
+window div.body button:not(.material-icons-round) {
+  border: #ff0 2px solid !important;
+}
+
+window div.body input,
+window div.body select {
+  border: #0ff 1px solid !important;
+}
