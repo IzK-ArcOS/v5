@@ -8,6 +8,7 @@ import { userDataKey } from "../env/main";
 import { makeNotification } from "../notiflogic/main";
 import { applyState, CurrentState } from "../state/main";
 import { getFreeSpace } from "../storage/main";
+import { commitUserdata } from "./commit";
 import {
   AllUsers,
   defaultUserData,
@@ -194,72 +195,4 @@ export async function setUserdata(
   return true;
 }
 
-UserData.subscribe((v) => {
-  committingUserData.set(true);
-
-  const source = "UserLogic: UserData watch";
-
-  if (get(UserName)) {
-    Log({
-      level: LogLevel.info,
-      msg: "Change Detected, committing",
-      source,
-    });
-
-    if (getFreeSpace() < 256 && !get(ConnectedServer)) {
-      makeNotification({
-        title: "Out of space",
-        message:
-          "LocalStorage is running out of free space. Please consider changing your preferences or switching to an ArcAPI.",
-        icon: "warning",
-        buttons: [],
-      });
-    }
-
-    DevModeOverride.set(v.devmode);
-
-    const changed = setUserdata(get(UserName), v);
-
-    setTimeout(() => {
-      committingUserData.set(false);
-    }, 1500);
-
-    if (!changed) {
-      Log({
-        level: LogLevel.error,
-        msg: "Commit failed, setter returned false",
-        source,
-      });
-
-      if (BugReportData)
-        BugReportData.set([
-          true,
-          {
-            icon: "person_off",
-            title: "User data commit failed",
-            message:
-              "The user data could not be saved. This happens if the<br>user data is altered while ArcOS is running.",
-            details: "UserLogic: UserData watch: setter returned false",
-            button: {
-              action: () => {
-                applyState("fts");
-              },
-              caption: "Reset",
-            },
-          },
-        ]);
-    }
-
-    return;
-  }
-
-  setTimeout(() => {
-    committingUserData.set(false);
-  }, 1500);
-
-  Log({
-    level: LogLevel.warn,
-    msg: "Not committing, no username",
-    source,
-  });
-});
+UserData.subscribe(commitUserdata);
