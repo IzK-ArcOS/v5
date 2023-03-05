@@ -6,6 +6,7 @@
   import { getPartialTree } from "../../../../ts/messaging/thread";
   import CloseButton from "../../../Page/Desktop/WindowStore/OverlayableWindow/CloseButton.svelte";
   import Item from "./Thread/Branch/Item.svelte";
+  import NotFound from "./Thread/NotFound.svelte";
 
   let thread: PartiallyExtendedMessage;
   export let app: App;
@@ -30,5 +31,5 @@
   <h3 class="header">Thread of #{thread.id}</h3>
   <Item item={thread} />
 {:else}
-  nah
+  <NotFound />
 {/if}

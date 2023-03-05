@@ -63,3 +63,33 @@ window#MessagingApp window.overlay#thread div.body div.branch {
 window#MessagingApp window.overlay#thread div.body div.branch:hover {
   border-left: var(--win-border);
 }
+
+window#MessagingApp window.overlay#thread div.body div.notfound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+window#MessagingApp window.overlay#thread div.body div.notfound div.content {
+  max-width: 270px;
+  text-align: center;
+}
+
+window#MessagingApp window.overlay#thread div.body div.notfound div.content h3 {
+  margin: 10px;
+}
+
+window#MessagingApp
+  window.overlay#thread
+  div.body
+  div.notfound
+  div.content
+  img {
+  height: 48px;
+  margin: 0;
+}
+
+window#MessagingApp window.overlay#thread div.body div.notfound div.content p {
+  margin: 5px 0;
+}
