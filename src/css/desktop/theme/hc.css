@@ -3,7 +3,7 @@
   --fg: #ff0;
   --win-bg: #000;
   --win-border-rad: 0px;
-  --win-border: rgb(255, 255, 0) 1px solid;
+  --win-border: #0ff 1px solid;
   --win-border-light: #ff0 1px solid;
   --glass-bg: #000;
   --glass-alt-bg: #000;
@@ -21,21 +21,37 @@
   --button-glass-bg: #440;
   --button-glass-hover-bg: #660;
   --button-glass-active-bg: #220;
-  --clr-red-bg: #452929;
-  --clr-red-fg: #ff7e7e;
-  --clr-green-bg: #283e28;
-  --clr-green-fg: #a8ffa6;
-  --clr-yellow-bg: #49432e;
-  --clr-yellow-fg: #ffe073;
-  --clr-orange-bg: #543d1b;
-  --clr-orange-fg: #ffad32;
-  --clr-blue-bg: #273a48;
-  --clr-blue-fg: #96d3ff;
-  --clr-aqua-fg: #79ffd0;
-  --clr-aqua-bg: #214538;
+  --clr-red-bg: #300;
+  --clr-red-fg: #f00;
+  --clr-green-bg: #030;
+  --clr-green-fg: #0f0;
+  --clr-yellow-bg: #330;
+  --clr-yellow-fg: #ff0;
+  --clr-orange-bg: #331900;
+  --clr-orange-fg: #fa0;
+  --clr-blue-bg: #003;
+  --clr-blue-fg: #00f;
+  --clr-aqua-fg: #033;
+  --clr-aqua-bg: #0ff;
   --accent: #0bb;
   --accent-dark: #aff;
   --accent-light: #0aa;
+}
+
+.desktop.theme-hc {
+  font-family: "Source Code Pro", monospace;
+}
+
+.desktop.theme-hc window div.body button {
+  border-radius: 0;
+}
+
+.desktop.theme-hc window div.body button.material-icons-round {
+  color: #0ff !important;
+}
+
+.desktop.theme-hc window div.body button:not(.material-icons-round) {
+  border: transparent 1px solid !important;
 }
 
 .desktop.theme-hc window div.body button.selected:not(.material-icons-round) {
@@ -47,17 +63,34 @@
   border: #0ff 1px solid !important;
 }
 
+.desktop.theme-hc window div.titlebar {
+  background-color: #003;
+}
+
+.desktop.theme-hc h1,
+.desktop.theme-hc h2,
+.desktop.theme-hc h3,
+.desktop.theme-hc h4,
+.desktop.theme-hc h5 {
+  color: #0f0 !important;
+  font-weight: 900 !important;
+}
+
 .desktop.theme-hc div.taskbar,
 .desktop.theme-hc div.actioncenter,
 .desktop.theme-hc div.startmenu,
 .desktop.theme-hc div.startmenu > * {
-  border: #ff0 1px solid !important;
+  border: #0ff 1px solid !important;
 }
 
 .desktop.theme-hc > div.wallpaper {
   background-image: none !important;
 }
 
-.desktop.theme-hc window div.body hr {
+.desktop.theme-hc hr {
   border: #0ff 1px solid !important;
+}
+
+.desktop.theme-hc window#FileManager div.topbar {
+  background-color: #003 !important;
 }

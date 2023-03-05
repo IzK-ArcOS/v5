@@ -17,5 +17,5 @@ div.desktop.show {
 }
 
 *:not([class*="material-icons"]) {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font);
 }

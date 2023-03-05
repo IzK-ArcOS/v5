@@ -5,6 +5,7 @@
 @import url("./theme/hc.css");
 
 :root {
+  --font: "Inter", sans-serif;
   --glass-blur: 10px;
   --fg: #ccc;
   --win-bg: #353535;

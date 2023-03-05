@@ -16,7 +16,7 @@ export const AppManager: App = {
   pos: { x: 30, y: 40 },
   minSize: { w: 600, h: 500 },
   maxSize: { w: 600, h: 500 },
-  controls: { min: false, max: false, cls: true },
+  controls: { min: false, max: true, cls: true },
   state: {
     headless: false,
     resizable: false,
