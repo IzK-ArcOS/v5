@@ -196,6 +196,7 @@ window#MessagingApp div.body > div.content textarea {
 }
 window#MessagingApp div.body > div.content div.markdownrenderer {
   padding: 10px 0;
+  padding-top: 0;
 }
 
 window#MessagingApp div.body > div.content div.editor-send,
