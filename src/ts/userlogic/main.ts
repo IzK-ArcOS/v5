@@ -1,4 +1,4 @@
-import { get } from "svelte/store";
+import { get, writable } from "svelte/store";
 import { apiCall, ConnectedServer } from "../api/main";
 import { BugReportData } from "../bugrep";
 import { Log, LogLevel } from "../console";
@@ -15,6 +15,8 @@ import {
   UserName,
   UserToken,
 } from "./interfaces";
+
+export const committingUserData = writable<boolean>(false);
 
 export async function getUsers() {
   Log({
@@ -193,6 +195,8 @@ export async function setUserdata(
 }
 
 UserData.subscribe((v) => {
+  committingUserData.set(true);
+
   const source = "UserLogic: UserData watch";
 
   if (get(UserName)) {
@@ -215,6 +219,10 @@ UserData.subscribe((v) => {
     DevModeOverride.set(v.devmode);
 
     const changed = setUserdata(get(UserName), v);
+
+    setTimeout(() => {
+      committingUserData.set(false);
+    }, 1500);
 
     if (!changed) {
       Log({
@@ -244,6 +252,10 @@ UserData.subscribe((v) => {
 
     return;
   }
+
+  setTimeout(() => {
+    committingUserData.set(false);
+  }, 1500);
 
   Log({
     level: LogLevel.warn,

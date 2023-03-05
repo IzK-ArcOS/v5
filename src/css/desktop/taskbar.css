@@ -44,6 +44,16 @@ div.taskbar div.tray button.icon:active {
   background-color: var(--startmenu-applist-item-bg-active);
 }
 
+div.taskbar div.tray button.icon.committer {
+  animation: opacity infinite 0.75s;
+}
+
+div.taskbar div.tray button.icon.committer.inactive {
+  animation: unset;
+  opacity: 0.2;
+  filter: grayscale(100%);
+}
+
 div.taskbar div.tray span.material-icons {
   font-size: 16px;
   margin: 0px 5px;
@@ -203,4 +213,18 @@ div.taskbar button.start.open {
 
 div.taskbar button.start img {
   height: 25px;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
 }

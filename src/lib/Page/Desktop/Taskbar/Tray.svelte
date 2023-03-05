@@ -6,6 +6,8 @@
     toggleActionCenter,
   } from "../../../../ts/desktop/actioncenter/main";
   import { trayIcons } from "../../../../ts/desktop/tray/main";
+  import { committingUserData } from "../../../../ts/userlogic/main";
+  import upload from "../../../../assets/upload.svg";
 
   let time = "";
 
@@ -13,6 +15,10 @@
     setInterval(() => {
       time = dayjs().format("HH:mm");
     });
+  });
+
+  committingUserData.subscribe((v) => {
+    console.debug(v);
   });
 </script>
 
@@ -26,6 +32,9 @@
       {/if}
     </button>
   {/each}
+  <button class="icon committer" class:inactive={!$committingUserData}>
+    <img src={upload} alt="Committing" />
+  </button>
   <div class="clock">{time}</div>
   <button
     class="material-icons-round ac-open"
