@@ -35,9 +35,6 @@
   }
 </script>
 
-<OptionSection title="Delete account" context="Delete your ArcOS account">
-  <button on:click={deleteAccount}> Delete account... </button>
-</OptionSection>
 {#if $ConnectedServer}
   <OptionSection
     title="Change username"
@@ -52,3 +49,6 @@
     <button on:click={changePswd}> Change... </button>
   </OptionSection>
 {/if}
+<OptionSection title="Delete account" context="Delete your ArcOS account">
+  <button on:click={deleteAccount}> Delete account... </button>
+</OptionSection>

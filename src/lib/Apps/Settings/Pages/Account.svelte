@@ -12,7 +12,6 @@
 
 <div class="settingspage-account">
   <Profile />
-
   <Section header="User Data">
     <p class="context">
       Click the button below to open the User Data Explorer to take a<br />
@@ -20,6 +19,7 @@
     </p>
     <button on:click={openExplorer}>Explore...</button>
   </Section>
+  <hr />
 
   <DangerZone />
 </div>

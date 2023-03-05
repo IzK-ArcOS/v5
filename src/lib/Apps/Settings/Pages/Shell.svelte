@@ -48,6 +48,7 @@
     <option value="vertical-right">Right</option>
   </select>
 </OptionSection>
+<hr />
 <OptionSection title="Small start menu" context="Make the start menu smaller">
   <input
     type="checkbox"

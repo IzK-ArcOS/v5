@@ -31,11 +31,6 @@
   </select>
 </OptionSection>
 <hr />
-<OptionSection title="Titlebar Buttons" context="Change the titlebar controls">
-  <button on:click={() => showOverlay("changeTitleButtons", "SettingsApp")}
-    >Change...</button
-  >
-</OptionSection>
 <OptionSection title="Sharp corners" context="Disable rounding in all of ArcOS">
   <input
     type="checkbox"

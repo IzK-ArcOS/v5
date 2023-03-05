@@ -1,5 +1,6 @@
 <script lang="ts">
   import { UserData } from "../../../../ts/userlogic/interfaces";
+  import { showOverlay } from "../../../../ts/window/overlay";
   import OptionSection from "../OptionSection.svelte";
   import Section from "../Section.svelte";
 </script>
@@ -23,4 +24,9 @@
     class="switch"
     bind:checked={$UserData.sh.window.lefttb}
   />
+</OptionSection>
+<OptionSection title="Titlebar Buttons" context="Change the titlebar controls">
+  <button on:click={() => showOverlay("changeTitleButtons", "SettingsApp")}
+    >Change...</button
+  >
 </OptionSection>
