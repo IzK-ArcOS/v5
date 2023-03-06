@@ -64,6 +64,10 @@ div[class*="tb-vertical"] div.taskbar div.buttons button {
   padding-left: 6.5px;
 }
 
+div[class*="tb-vertical"] div.taskbar div.buttons button span {
+  display: none !important;
+}
+
 div[class*="tb-vertical"] div.taskbar div.buttons button.activated {
   border-left: var(--accent) 1px solid;
   border-bottom: unset;

@@ -26,9 +26,9 @@ export const MessagingApp: App = {
     icon: logo,
     onlineOnly: true,
   },
-  size: { w: 600, h: 450 },
+  size: { w: 700, h: 450 },
   pos: { x: 100, y: 100 },
-  minSize: { w: 600, h: 450 },
+  minSize: { w: 700, h: 450 },
   maxSize: { w: 1000, h: 600 },
   controls: { min: true, max: true, cls: true },
   state: {

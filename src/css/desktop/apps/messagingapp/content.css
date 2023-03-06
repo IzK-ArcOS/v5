@@ -291,7 +291,7 @@ window#MessagingApp
   div.no-content-wrapper
   div.no-content
   p {
-  max-width: 150px;
+  max-width: 160px;
   word-wrap: break-word;
   word-break: keep-all;
 }

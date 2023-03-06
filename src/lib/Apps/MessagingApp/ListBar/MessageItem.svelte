@@ -45,5 +45,5 @@
     </p>
     <p class="partial">{filterPartial(item.partialBody) || "(no content)"}</p>
   </div>
-  <div class="timestamp">{dayjs(item.timestamp).format("DD MMM, HH:mm")}</div>
+  <div class="timestamp">{dayjs(item.timestamp).format("DD-MM HH:mm")}</div>
 </button>

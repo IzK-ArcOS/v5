@@ -74,6 +74,17 @@ window#SettingsApp div.desktop-page div.current div.fake-window {
   font-size: 5px;
 }
 
+window#SettingsApp div.desktop-page div.current div.fake-window::after {
+  position: absolute;
+  content: " ";
+  width: 25px;
+  height: 7px;
+  background-color: var(--accent);
+  bottom: 8px;
+  right: 8px;
+  border-radius: 5px;
+}
+
 window#SettingsApp
   div.desktop-page
   div.current

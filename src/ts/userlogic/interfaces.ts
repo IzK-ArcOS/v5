@@ -18,7 +18,7 @@ export interface UserData {
     desktop: {
       wallpaper: string | null;
       icons: boolean;
-      theme: "light" | "dark";
+      theme: "light" | "dark" | string;
       sharp: boolean;
       accent: string;
     };

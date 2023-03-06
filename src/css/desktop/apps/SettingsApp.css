@@ -175,6 +175,16 @@ window#SettingsApp section {
   padding: 10px 0;
 }
 
+window#SettingsApp section:not(.opt) h3.header {
+  margin: 0;
+}
+
+window#SettingsApp section:not(.opt) p.context {
+  margin: 3px 0;
+  margin-bottom: 15px;
+  opacity: 0.6;
+}
+
 window#SettingsApp section.collapsible {
   border: var(--button-bg) 1px solid;
   padding: 10px;

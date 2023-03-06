@@ -1,3 +1,4 @@
+import img0 from "../../assets/bg/img0.png";
 import img01 from "../../assets/bg/img01.png";
 import img02 from "../../assets/bg/img02.png";
 import img03 from "../../assets/bg/img03.png";
@@ -14,6 +15,7 @@ import img13 from "../../assets/bg/img13.png";
 import { Log, LogLevel } from "../console";
 
 export const Wallpapers: { [key: string]: string } = {
+  img0,
   img01,
   img02,
   img03,

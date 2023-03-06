@@ -1,0 +1,78 @@
+window#SettingsApp div.settingspage-themes div.themes {
+  max-width: 100%;
+  overflow-x: scroll;
+  white-space: normal;
+  display: grid;
+  grid-template-columns: repeat(5, 80px);
+}
+
+window#SettingsApp div.settingspage-themes div.themes button.themerenderer {
+  height: 70px;
+  width: 70px;
+  background-image: unset;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+window#SettingsApp
+  div.settingspage-themes
+  div.themes
+  button.themerenderer.save {
+  vertical-align: middle;
+  background-color: var(--button-glass-active-bg);
+  text-align: center;
+  line-height: 70px;
+  font-size: 24px;
+  padding: 0;
+}
+
+window#SettingsApp
+  div.settingspage-themes
+  div.themes
+  button.themerenderer
+  div.mockup-window {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--win-bg);
+  border-radius: var(--win-border-rad);
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+window#SettingsApp
+  div.settingspage-themes
+  div.themes
+  button.themerenderer
+  div.mockup-window
+  div.accent {
+  background-color: var(--accent);
+  width: 20px;
+  height: 5px;
+  border-radius: var(--button-border-rad);
+  margin-top: 25px;
+  margin-left: 10px;
+}
+
+window#SettingsApp
+  div.settingspage-themes
+  div.themes
+  button.themerenderer:not(.sharp)
+  div.mockup-window {
+  border-radius: 7.5px !important;
+}
+
+window#SettingsApp
+  div.settingspage-themes
+  div.themes
+  button.themerenderer:not(.sharp)
+  div.mockup-window
+  div.accent {
+  border-radius: 4px !important;
+}

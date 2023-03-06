@@ -33,7 +33,7 @@
   />
 </OptionSection>
 <hr />
-<OptionSection title="Theme" context="Change the coloring of the UI">
+<OptionSection title="Style" context="Change the style of the UI">
   <select name="aa" id="bb" bind:value={$UserData.sh.desktop.theme}>
     <option value="dark">Darkmode</option>
     <option value="light">Lightmode</option>

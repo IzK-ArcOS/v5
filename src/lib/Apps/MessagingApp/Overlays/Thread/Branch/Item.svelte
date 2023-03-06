@@ -8,6 +8,7 @@
   } from "../../../../../../ts/messaging/main";
   import { hideOverlay } from "../../../../../../ts/window/overlay";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
+  import OtherItems from "../../../../Settings/Pages/Account/StorageBar/OtherItems.svelte";
   import Branch from "../Branch.svelte";
 
   export let item: PartiallyExtendedMessage;
@@ -31,7 +32,7 @@
     <ProfilePicture src={pfp} height={32} />
     <div class="context">
       <p class="name">{item.sender}</p>
-      <p class="partial">{item.partialBody}</p>
+      <p class="partial">{item.partialBody}{item.partialBody.length > 29}...</p>
     </div>
     <div class="id">{item.id}</div>
   </button>

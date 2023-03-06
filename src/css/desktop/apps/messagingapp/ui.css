@@ -3,10 +3,6 @@ window#MessagingApp > div.body {
   padding: 0;
 }
 
-window#MessagingApp > div.body > * {
-  font-size: 12px;
-}
-
 window#MessagingApp > div.body > div {
   box-sizing: border-box;
   height: 100%;
@@ -19,7 +15,7 @@ window#MessagingApp > div.body > div.sidebar {
 }
 
 window#MessagingApp > div.body > div.listbar {
-  width: 200px;
+  width: 250px;
   border-right: var(--win-border);
   padding: 5px;
 }
