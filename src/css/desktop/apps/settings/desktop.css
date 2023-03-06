@@ -6,6 +6,19 @@ window#SettingsApp div.desktop-page div.wallpaper {
   vertical-align: middle;
   margin: 0;
   margin-bottom: 10px;
+  text-align: center;
+  line-height: 70px;
+}
+
+window#SettingsApp div.desktop-page div.wallpaper span.material-icons-round {
+  font-size: 24px;
+}
+
+window#SettingsApp
+  div.desktop-page
+  div.wallpaper
+  span.material-icons-round.none {
+  color: rgb(255, 79, 79);
 }
 
 window#SettingsApp div.desktop-page p {
