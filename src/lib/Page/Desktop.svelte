@@ -65,6 +65,7 @@
     class="desktop theme-{$UserData.sh.desktop.theme} tb-{$UserData.sh.taskbar
       .pos} fullscreen {classes}"
     class:show
+    style="--accent: #{$UserData.sh.desktop.accent || '#70D6FF'} !important"
   >
     <Wallpaper />
     <WindowStore />

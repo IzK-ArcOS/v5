@@ -11,6 +11,7 @@ window#MessagingApp div.body div.sidebar button {
   margin-bottom: 8px;
   background-color: transparent;
   font-size: 16px;
+  color: var(--accent);
 }
 
 window#MessagingApp div.body div.sidebar hr {
@@ -30,6 +31,7 @@ window#MessagingApp div.body div.sidebar button:active {
 
 window#MessagingApp div.body div.sidebar button:not(.active) {
   opacity: 0.5;
+  color: var(--fg);
 }
 
 window#MessagingApp div.body div.sidebar div.pfprenderer {

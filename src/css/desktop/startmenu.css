@@ -109,6 +109,7 @@ div.startmenu div.left button.item:active {
 
 div.startmenu div.left button.item:disabled {
   opacity: 0.5;
+  filter: grayscale(100%);
 }
 
 div.startmenu div.right {

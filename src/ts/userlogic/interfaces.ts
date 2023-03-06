@@ -20,6 +20,7 @@ export interface UserData {
       icons: boolean;
       theme: "light" | "dark";
       sharp: boolean;
+      accent: string;
     };
 
     start: {
@@ -76,6 +77,7 @@ export const defaultUserData: UserData = {
       icons: true,
       theme: "dark",
       sharp: false,
+      accent: "70D6FF",
     },
     start: {
       small: true,

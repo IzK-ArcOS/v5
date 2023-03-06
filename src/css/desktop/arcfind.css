@@ -45,7 +45,7 @@ div.arcfind-wrapper div.arcfind {
   width: 500px;
   height: 50px;
   background-color: var(--glass-bg);
-  border: var(--win-border);
+  border: var(--accent) 1px solid;
   border-radius: var(--win-border-rad);
   margin-top: 5%;
   display: flex;

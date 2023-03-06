@@ -46,7 +46,7 @@
   }
 
   button:hover {
-    opacity: 0.5;
+    color: var(--accent);
   }
 
   button:disabled {
