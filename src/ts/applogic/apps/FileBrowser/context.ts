@@ -1,20 +1,16 @@
-import { get } from "svelte/store";
 import { createOverlayableError } from "../../../errorlogic/overlay";
-import { hideOverlay, showOverlay } from "../../../window/overlay";
+import { showOverlay } from "../../../window/overlay";
 import type { App, AppContextMenu } from "../../interface";
 import {
   fbClass,
   FileBrowserCopyingFilename,
-  FileBrowserCurrentDir,
   FileBrowserCuttingFilename,
-  FileBrowserDeletingFilename,
   FileBrowserSelectedFilename,
 } from "./main";
 import trash from "../../../../assets/apps/logger/clear.svg";
-import { deleteItem } from "../../../api/fs/file";
 
 export const FileManagerContextMenu: AppContextMenu = {
-  ".item.dir": [
+  "listitem-dir": [
     {
       icon: "launch",
       caption: "Open",
@@ -60,7 +56,7 @@ export const FileManagerContextMenu: AppContextMenu = {
       },
     },
   ],
-  ".item.file": [
+  "listitem-file": [
     {
       caption: "Delete",
       action: (_: App, data: DOMStringMap) => {
@@ -72,33 +68,7 @@ export const FileManagerContextMenu: AppContextMenu = {
               {
                 caption: "Delete",
                 action: async () => {
-                  const path = data.path;
-
-                  FileBrowserDeletingFilename.set(data.name);
-
-                  showOverlay("deletingItem", "FileManager");
-
-                  const valid = await deleteItem(path);
-
-                  if (!valid)
-                    createOverlayableError(
-                      {
-                        title: "Unable to delete item",
-                        message:
-                          "ArcAPI was not able to delete the item from the file system. A permission error may have occured. Please try again later.",
-                        buttons: [{ caption: "OK", action() {} }],
-                        image: trash,
-                      },
-                      "FileManager"
-                    );
-
-                  FileBrowserSelectedFilename.set(null);
-
-                  fbClass.refresh();
-
-                  setTimeout(() => {
-                    hideOverlay("deletingItem", "FileManager");
-                  }, 100);
+                  fbClass.deleteItem(data["name"], data["path"]);
                 },
               },
               { caption: "Cancel", action() {} },

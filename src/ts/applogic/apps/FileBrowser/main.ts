@@ -1,6 +1,7 @@
 import { get, writable } from "svelte/store";
 import warning from "../../../../assets/apps/error.svg";
 import { getDirectory } from "../../../api/fs/directory";
+import { deleteItem } from "../../../api/fs/file";
 import {
   defaultDirectory,
   PartialUserDir,
@@ -9,7 +10,9 @@ import {
 } from "../../../api/interface";
 import { Log, LogLevel } from "../../../console";
 import { createOverlayableError } from "../../../errorlogic/overlay";
+import { hideOverlay, showOverlay } from "../../../window/overlay";
 import type { ArcFile } from "../../interface";
+import trash from "../../../../assets/apps/logger/clear.svg";
 
 export let FileBrowserCurrentDir = writable<string>("./");
 export let FileBrowserDirContents = writable<UserDirectory>(defaultDirectory);
@@ -75,6 +78,34 @@ class FileBrowserClass {
     FileBrowserCurrentDir.set(path);
 
     await this.refresh();
+  }
+
+  public async deleteItem(name: string, path: string) {
+    FileBrowserDeletingFilename.set(name);
+
+    showOverlay("deletingItem", "FileManager");
+
+    const valid = await deleteItem(path);
+
+    if (!valid)
+      createOverlayableError(
+        {
+          title: "Unable to delete item",
+          message:
+            "ArcAPI was not able to delete the item from the file system. A permission error may have occured. Please try again later.",
+          buttons: [{ caption: "OK", action() {} }],
+          image: trash,
+        },
+        "FileManager"
+      );
+
+    FileBrowserSelectedFilename.set(null);
+
+    fbClass.refresh();
+
+    setTimeout(() => {
+      hideOverlay("deletingItem", "FileManager");
+    }, 100);
   }
 }
 

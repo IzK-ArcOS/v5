@@ -27,6 +27,7 @@
   data-path={dir.scopedPath}
   data-type="dir"
   data-name={dir.name}
+  data-caller="listitem-dir"
 >
   <div class="image"><img src={icon} alt={dir.name} /></div>
   <div class="name">{dir.name}</div>

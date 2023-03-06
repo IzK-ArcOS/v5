@@ -5,7 +5,7 @@
   import { getWindow, maxZIndex } from "../../../ts/applogic/store";
   import {
     composePosition,
-    getComposedClassName,
+    getCallerScope,
     getContextEntry,
     getScopedElement,
   } from "../../../ts/contextmenu/main";
@@ -32,6 +32,7 @@
   });
 
   function handleEvent(e: MouseEvent) {
+    console.error("booba");
     e.preventDefault();
 
     const mW = menuElement.offsetWidth;
@@ -41,21 +42,21 @@
 
     const windowElement = getWindowElementByEvent(e);
 
-    if (!windowElement) return;
+    if (!windowElement) return console.error("nowin");
 
     const windowData = getWindow(windowElement.id);
 
-    const lastClass = `.${getComposedClassName(e)}`;
+    const caller = getCallerScope(e);
 
-    const el = getScopedElement(windowElement, lastClass);
+    const el = getScopedElement(windowElement, caller);
 
-    if (!el) return;
+    if (!el) return console.error("noel");
 
-    items = getContextEntry(windowElement.id, lastClass) || [];
+    items = getContextEntry(windowElement.id, caller) || [];
 
-    if (!items.length) return;
+    if (!items.length) return console.error("noit");
 
-    scope = lastClass;
+    scope = caller;
     window = windowData;
     scopeMap = el.dataset;
 

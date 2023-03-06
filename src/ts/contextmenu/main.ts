@@ -1,6 +1,8 @@
 import type { ContextMenuItem } from "../applogic/interface";
 import { getWindow } from "../applogic/store";
 
+const validCallerTags = ["button", "div", "span"];
+
 export function composePosition(
   e: MouseEvent,
   mW: number,
@@ -26,7 +28,7 @@ export function composePosition(
   return [x, y];
 }
 
-export function getComposedClassName(e: MouseEvent) {
+export function getCallerScope(e: MouseEvent): string {
   const p = e.composedPath() as HTMLDivElement[];
 
   let lastClass = "";
@@ -36,8 +38,8 @@ export function getComposedClassName(e: MouseEvent) {
 
     if (!tag) continue;
 
-    if (tag.toLowerCase() == "button") {
-      lastClass = p[i].className.split(" ").join(".");
+    if (validCallerTags.includes(tag.toLowerCase())) {
+      lastClass = p[i].dataset.caller || "";
 
       break;
     }
@@ -46,10 +48,14 @@ export function getComposedClassName(e: MouseEvent) {
   return lastClass;
 }
 
-export function getScopedElement(parent: HTMLElement, childQuery: string) {
-  if (childQuery == ".") return undefined;
+export function getScopedElement(parent: HTMLElement, childCaller: string) {
+  if (!childCaller) return undefined;
 
-  const p = parent.querySelector(childQuery) as HTMLButtonElement;
+  console.debug(parent, childCaller);
+
+  const p = parent.querySelector(
+    `*[data-caller="${childCaller}"`
+  ) as HTMLButtonElement;
 
   if (!p) return undefined;
 

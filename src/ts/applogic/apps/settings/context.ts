@@ -4,7 +4,7 @@ import type { AppContextMenu } from "../../interface";
 import theme from "../../../../assets/apps/settings/themes.svg";
 
 export const SettingsAppContext: AppContextMenu = {
-  ".themerenderer.user": [
+  "themerenderer-user": [
     {
       caption: "Delete",
       action: (_, data) => {

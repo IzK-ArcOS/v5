@@ -103,6 +103,7 @@
   data-path={file.scopedPath}
   data-type="file"
   data-name={file.filename}
+  data-caller="listitem-file"
 >
   <div class="image"><img src={img} alt={file.filename} /></div>
   <div class="name">{file.filename}</div>
