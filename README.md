@@ -27,10 +27,12 @@ All code in this project was created by me or by other members of the ArcOS Team
 
 ## Screenshots
 
-![image](https://user-images.githubusercontent.com/76709090/223267524-aca68c8f-dcd2-4e27-99b7-8d6442ba2fc3.png)
-![image](https://user-images.githubusercontent.com/76709090/223268177-4ef2be20-8f40-4401-9fd5-841f1236c827.png)
-![image](https://user-images.githubusercontent.com/76709090/223268411-da2675e1-03ec-4e34-b3cc-e14e02a29402.png)
-![image](https://user-images.githubusercontent.com/76709090/223268591-4b1ec5f8-9277-4f36-82d9-0051adbf7931.png)
-![image](https://user-images.githubusercontent.com/76709090/223270165-513f63ad-0eec-4c66-a3dc-e353d057dddd.png)
-![image](https://user-images.githubusercontent.com/76709090/223270414-c3f137a6-7feb-43e0-a556-9051098c01b9.png)
-![image](https://user-images.githubusercontent.com/76709090/223271853-cb539319-fb3b-479b-a4aa-c62ecd3d737e.png)
+![ArcOS Desktop](https://user-images.githubusercontent.com/76709090/223267524-aca68c8f-dcd2-4e27-99b7-8d6442ba2fc3.png)
+![ArcFind](https://user-images.githubusercontent.com/76709090/223268177-4ef2be20-8f40-4401-9fd5-841f1236c827.png)
+![Boot Screen](https://user-images.githubusercontent.com/76709090/223268411-da2675e1-03ec-4e34-b3cc-e14e02a29402.png)
+![First Time Setup](https://user-images.githubusercontent.com/76709090/223268591-4b1ec5f8-9277-4f36-82d9-0051adbf7931.png)
+![Darkmode](https://user-images.githubusercontent.com/76709090/223270165-513f63ad-0eec-4c66-a3dc-e353d057dddd.png)
+![Lightmode](https://user-images.githubusercontent.com/76709090/223270414-c3f137a6-7feb-43e0-a556-9051098c01b9.png)
+![File manager and messaging app](https://user-images.githubusercontent.com/76709090/223271853-cb539319-fb3b-479b-a4aa-c62ecd3d737e.png)
+![Create new user](https://user-images.githubusercontent.com/76709090/223274923-8cde40bf-7960-4940-b917-cc42538efaff.png)
+
