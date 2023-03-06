@@ -38,8 +38,10 @@ export function getCallerScope(e: MouseEvent): string {
 
     if (!tag) continue;
 
-    if (validCallerTags.includes(tag.toLowerCase())) {
-      lastClass = p[i].dataset.caller || "";
+    const caller = p[i].dataset.caller;
+
+    if (validCallerTags.includes(tag.toLowerCase()) && caller) {
+      lastClass = caller;
 
       break;
     }
@@ -50,8 +52,6 @@ export function getCallerScope(e: MouseEvent): string {
 
 export function getScopedElement(parent: HTMLElement, childCaller: string) {
   if (!childCaller) return undefined;
-
-  console.debug(parent, childCaller);
 
   const p = parent.querySelector(
     `*[data-caller="${childCaller}"`

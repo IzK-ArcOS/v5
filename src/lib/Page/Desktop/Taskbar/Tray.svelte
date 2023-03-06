@@ -16,10 +16,6 @@
       time = dayjs().format("HH:mm");
     });
   });
-
-  committingUserData.subscribe((v) => {
-    console.debug(v);
-  });
 </script>
 
 <div class="tray">

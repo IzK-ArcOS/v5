@@ -32,7 +32,6 @@
   });
 
   function handleEvent(e: MouseEvent) {
-    console.error("booba");
     e.preventDefault();
 
     const mW = menuElement.offsetWidth;
@@ -42,7 +41,7 @@
 
     const windowElement = getWindowElementByEvent(e);
 
-    if (!windowElement) return console.error("nowin");
+    if (!windowElement) return;
 
     const windowData = getWindow(windowElement.id);
 
@@ -50,11 +49,11 @@
 
     const el = getScopedElement(windowElement, caller);
 
-    if (!el) return console.error("noel");
+    if (!el) return;
 
     items = getContextEntry(windowElement.id, caller) || [];
 
-    if (!items.length) return console.error("noit");
+    if (!items.length) return;
 
     scope = caller;
     window = windowData;
