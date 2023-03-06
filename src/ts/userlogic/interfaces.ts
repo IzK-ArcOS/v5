@@ -1,4 +1,5 @@
 import { writable } from "svelte/store";
+import type { ThemeStore } from "./themes/interface";
 
 export interface UserData {
   sh: {
@@ -30,6 +31,7 @@ export interface UserData {
     anim: boolean; //done
     noGlass: boolean; //done
     noQuickSettings: boolean;
+    userThemes?: ThemeStore;
   };
 
   disabledApps: string[];
@@ -86,6 +88,7 @@ export const defaultUserData: UserData = {
 
     noQuickSettings: false,
     noGlass: false,
+    userThemes: {},
   },
   acc: {
     enabled: true,

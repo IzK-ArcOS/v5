@@ -4,6 +4,7 @@
   import { getWallpaper } from "../../../../../ts/userlogic/wallpapers";
 
   export let theme: [string, UserTheme];
+  export let user = false;
 
   function apply() {
     loadTheme(theme[1]);
@@ -13,11 +14,13 @@
 <button
   class="themerenderer"
   class:sharp={theme[1].sharp}
+  class:user
   on:click={apply}
   title="{theme[1].name} by {theme[1].author}"
   style="background-image: url({getWallpaper(
     theme[1].wallpaper
   )}); --accent: #{theme[1].accent}"
+  data-id={theme[0]}
 >
   <div class="mockup-window theme-{theme[1].theme}">
     <div class="accent" style="color: {theme[1].accent}" />

@@ -11,6 +11,8 @@ import ChangePassword from "../../../lib/Apps/Settings/Pages/Account/Overlays/Ch
 import ChangeUsername from "../../../lib/Apps/Settings/Pages/Account/Overlays/ChangeUsername.svelte";
 import ChangeTitleButtons from "../../../lib/Apps/Settings/Pages/Account/Overlays/ChangeTitleButtons.svelte";
 import CustomWallpaper from "../../../lib/Apps/Settings/Pages/Account/Overlays/CustomWallpaper.svelte";
+import SaveTheme from "../../../lib/Apps/Settings/Pages/Account/Overlays/SaveTheme.svelte";
+import { SettingsAppContext } from "./settings/context";
 
 const ProfilePictureOverlays = {
   pfpSel: {
@@ -101,6 +103,19 @@ export const DesktopOverlays = {
   },
 };
 
+export const ThemeOverlays = {
+  saveTheme: {
+    info: {
+      name: "Save Theme",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: SaveTheme,
+    size: { w: 450, h: 170 },
+    show: false,
+  },
+};
+
 export const SettingsApp: App = {
   info: {
     name: "System Settings",
@@ -126,6 +141,7 @@ export const SettingsApp: App = {
     ...ProfilePictureOverlays,
     ...AccountPageOverlays,
     ...DesktopOverlays,
+    ...ThemeOverlays,
   },
   events: {
     close() {
@@ -135,4 +151,5 @@ export const SettingsApp: App = {
       currentSettingsPage.set(SettingsPages[0]);
     },
   },
+  contextMenu: SettingsAppContext,
 };
