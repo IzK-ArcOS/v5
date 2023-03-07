@@ -5,6 +5,33 @@ import theme from "../../../../assets/apps/settings/themes.svg";
 import { showOverlay } from "../../../window/overlay";
 import { get } from "svelte/store";
 import { ConnectedServer } from "../../../api/main";
+import { createDirectory } from "../../../api/fs/directory";
+import { writeFile } from "../../../api/fs/file";
+import { openWindow } from "../../events";
+import { fbClass, FileBrowserSelectedFilename } from "../FileBrowser/main";
+
+const saveToFS = {
+  caption: "Save to ArcFS",
+  action: async (_, data) => {
+    const blob = new Blob([data.json], { type: "application/json" });
+
+    await createDirectory("./Themes");
+
+    const filename = `${data.name}.arctheme`;
+    const path = `./Themes/${filename}`;
+
+    await writeFile(path, blob);
+
+    openWindow("FileManager");
+
+    await fbClass.goToDirectory("./Themes");
+
+    setTimeout(() => {
+      FileBrowserSelectedFilename.set(filename);
+    });
+  },
+  icon: "save",
+};
 
 export const SettingsAppContext: AppContextMenu = {
   "themerenderer-user": [
@@ -29,8 +56,13 @@ export const SettingsAppContext: AppContextMenu = {
           "SettingsApp"
         );
       },
+      icon: "delete",
     },
+    saveToFS,
   ],
+
+  "themerenderer-system": [saveToFS],
+
   "accountpage-hostname": [
     {
       caption: "View user data",

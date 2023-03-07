@@ -31,6 +31,8 @@
   });
 
   function handleEvent(e: MouseEvent) {
+    show = false;
+
     e.preventDefault();
 
     const mW = menuElement.offsetWidth;
@@ -62,7 +64,7 @@
 
     setTimeout(() => {
       show = true;
-    });
+    }, 100);
   }
 </script>
 

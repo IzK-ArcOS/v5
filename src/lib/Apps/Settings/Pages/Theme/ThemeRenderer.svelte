@@ -21,6 +21,8 @@
   )}); --accent: #{theme[1].accent}"
   data-id={theme[0]}
   data-caller="themerenderer-{user ? 'user' : 'system'}"
+  data-name={theme[1].name}
+  data-json={JSON.stringify(theme[1])}
 >
   <div class="mockup-window theme-{theme[1].theme}">
     <div class="accent" style="color: {theme[1].accent}" />
