@@ -22,14 +22,15 @@
     border-radius: 50% !important;
     padding: 0px !important;
     margin: 0 5px !important;
-    outline: transparent solid 3px;
-    outline-offset: 2px;
+    outline: transparent solid 5px;
+    outline-offset: 4px;
     vertical-align: middle;
-    transform: scale(0.85);
+    transform: unset;
   }
 
   button.color.selected {
-    outline: var(--fg) solid 3px !important;
-    transform: unset;
+    outline: var(--fg) solid 5px !important;
+
+    transform: scale(0.8);
   }
 </style>

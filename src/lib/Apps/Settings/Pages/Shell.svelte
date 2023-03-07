@@ -28,17 +28,6 @@
   />
 </OptionSection>
 <OptionSection
-  title="Dock taskbar"
-  context="Dock the taskbar and action center"
->
-  <input
-    type="checkbox"
-    id="a"
-    class="switch"
-    bind:checked={$UserData.sh.taskbar.docked}
-  />
-</OptionSection>
-<OptionSection
   title="Taskbar position"
   context="Where do you want the taskbar?"
 >
@@ -55,5 +44,25 @@
     id="a"
     class="switch"
     bind:checked={$UserData.sh.start.small}
+  />
+</OptionSection>
+<hr />
+<OptionSection
+  title="Hide quick settings"
+  context="Hide quick settings in the action center"
+>
+  <input
+    type="checkbox"
+    id="a"
+    class="switch"
+    bind:checked={$UserData.sh.noQuickSettings}
+  />
+</OptionSection>
+<OptionSection title="Dock shell" context="Dock the taskbar and action center">
+  <input
+    type="checkbox"
+    id="a"
+    class="switch"
+    bind:checked={$UserData.sh.taskbar.docked}
   />
 </OptionSection>

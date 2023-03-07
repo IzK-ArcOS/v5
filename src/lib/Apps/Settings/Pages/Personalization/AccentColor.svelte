@@ -4,9 +4,15 @@
   import Color from "./AccentColor/Color.svelte";
 </script>
 
-<Section header="Accent Color">
+<div class="wrapper">
   <p class="context">Choose an accent color for ArcOS:</p>
   {#each accentColors as color}
     <Color {color} />
   {/each}
-</Section>
+</div>
+
+<style scoped>
+  div.wrapper {
+    margin: 10px 0;
+  }
+</style>

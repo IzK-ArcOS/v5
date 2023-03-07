@@ -14,6 +14,10 @@
   function changePfp() {
     showOverlay("pfpSel", "SettingsApp");
   }
+
+  function openExplorer() {
+    showOverlay("udataExplorer", "SettingsApp");
+  }
 </script>
 
 <div class="info">
@@ -34,4 +38,5 @@
       {/if}
     </p>
   </div>
+  <button on:click={openExplorer}>More info...</button>
 </div>
