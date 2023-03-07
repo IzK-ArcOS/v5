@@ -8,6 +8,7 @@ import jsonIcon from "../../../../assets/mimetypes/application-json.svg";
 import archiveIcon from "../../../../assets/mimetypes/application-x-compress.svg";
 import markDownIcon from "../../../../assets/apps/markdownviewer.svg";
 import soundIcon from "../../../../assets/mimetypes/audio-x-generic.svg";
+import themeIcon from "../../../../assets/handlers/loadtheme.svg";
 
 export const extensionIcons: ExtMimes = [
   {
@@ -45,5 +46,9 @@ export const extensionIcons: ExtMimes = [
   {
     extensions: [".flac", ".mp3", ".wav"],
     image: soundIcon,
+  },
+  {
+    extensions: [".arctheme"],
+    image: themeIcon,
   },
 ];

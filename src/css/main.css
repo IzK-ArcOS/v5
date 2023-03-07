@@ -38,6 +38,11 @@ div#app *:not(.window)::before {
   transition: all 0.3s, color 0.1s;
 }
 
+div#app button,
+div#app a {
+  cursor: pointer;
+}
+
 .material-icons-round {
   vertical-align: middle;
   margin: 0 5px;

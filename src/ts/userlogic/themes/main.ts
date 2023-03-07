@@ -2,6 +2,23 @@ import { get } from "svelte/store";
 import { UserData, UserName } from "../interfaces";
 import type { UserTheme } from "./interface";
 
+const values = [
+  "anim",
+  "noGlass",
+  "sharp",
+  "theme",
+  "wallpaper",
+  "accent",
+  "docked",
+  "taskbarCentered",
+  "taskbarLabels",
+  "taskbarPosition",
+  "smallStart",
+  "titleButtons",
+  "titlebarLarge",
+  "titlebarLeft",
+];
+
 export function loadTheme(context: UserTheme) {
   const udata = get(UserData);
 
@@ -62,6 +79,16 @@ export function deleteCustomTheme(id: string) {
   delete udata.sh.userThemes[id];
 
   UserData.set(udata);
+
+  return true;
+}
+
+export function verifyTheme(json: object) {
+  const keys = Object.keys(json);
+
+  for (let i = 0; i < values.length; i++) {
+    if (!keys.includes(values[i])) return false;
+  }
 
   return true;
 }

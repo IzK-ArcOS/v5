@@ -13,6 +13,8 @@
   style="background: #{color};"
   class:selected={color == $UserData.sh.desktop.accent}
   on:click={change}
+  data-caller="appearance-accentselector"
+  data-hex={color}
 />
 
 <style scoped>

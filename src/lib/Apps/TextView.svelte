@@ -61,33 +61,8 @@
     if (changing) return;
     if (!app.openedFile) return (fileContents = "");
     if (currentFile == app.openedFile.path) return;
-    if (!app.openedFile.mime.startsWith("text/")) {
-      createOverlayableError(
-        {
-          title: "Can't open file",
-          message:
-            "The mimetype of the file is incompatible with this application.",
-          buttons: [{ caption: "OK", action() {} }],
-        },
-        "TextEditor"
-      );
-      return (fileContents = "");
-    }
 
     const text = new TextDecoder().decode(app.openedFile.data);
-
-    if (text.length > 2048) {
-      createOverlayableError(
-        {
-          title: "Can't open file",
-          message: "The file's size exceeds the maximum allowed size of 2KB.",
-          buttons: [{ caption: "OK", action() {} }],
-        },
-        "TextEditor"
-      );
-
-      return (fileContents = "");
-    }
 
     fileContents = text;
     currentFile = app.openedFile.path;
@@ -130,7 +105,7 @@
   }
 
   async function onchange() {
-    TextEditorContent.set(fileContents);
+    /* if ($TextEditorContent != fileContents) TextEditorContent.set(fileContents); */
   }
 </script>
 

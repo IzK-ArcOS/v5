@@ -7,7 +7,6 @@
     composePosition,
     getCallerScope,
     getContextEntry,
-    getScopedElement,
   } from "../../../ts/contextmenu/main";
   import { getWindowElementByEvent } from "../../../ts/window/main";
   import Item from "./ContextMenu/Item.svelte";
@@ -45,9 +44,11 @@
 
     const windowData = getWindow(windowElement.id);
 
-    const caller = getCallerScope(e);
+    const el = getCallerScope(e);
 
-    const el = getScopedElement(windowElement, caller);
+    const caller = el?.dataset.caller;
+
+    console.log(el.dataset);
 
     if (!el) return;
 

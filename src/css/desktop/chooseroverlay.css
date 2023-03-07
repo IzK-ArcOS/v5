@@ -145,6 +145,7 @@ window.overlay[id*="CHOOSER"] div.content div.list {
   flex-grow: 1;
   padding: 5px;
   background-color: var(--win-bg);
+  max-width: calc(100% - 150px);
 }
 
 window.overlay[id*="CHOOSER"] div.content div.list button.item.head * {
@@ -162,7 +163,7 @@ window.overlay[id*="CHOOSER"] div.content div.list button.item.head div.image {
 }
 
 window.overlay[id*="CHOOSER"] div.content div.sidebar {
-  width: 150px;
+  min-width: 150px;
   border-right: var(--win-border);
   box-sizing: border-box;
   padding: 10px;
@@ -327,6 +328,7 @@ window.overlay[id*="CHOOSER"] div.tiled {
   padding-right: 2px;
   box-sizing: border-box;
   background-color: var(--win-bg);
+  max-width: calc(100% - 150px);
 }
 
 window.overlay[id*="CHOOSER"] div.tiled div.dirs {

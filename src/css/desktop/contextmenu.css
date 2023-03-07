@@ -1,7 +1,7 @@
 div.desktop div.contextmenu {
   position: absolute;
   width: 200px;
-  min-height: 100px;
+  min-height: 42px;
   top: 0px;
   left: 0px;
   background-color: var(--glass-bg);

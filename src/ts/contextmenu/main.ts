@@ -1,7 +1,17 @@
 import type { ContextMenuItem } from "../applogic/interface";
 import { getWindow } from "../applogic/store";
 
-const validCallerTags = ["button", "div", "span"];
+const validCallerTags = [
+  "button",
+  "div",
+  "span",
+  "p",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+];
 
 export function composePosition(
   e: MouseEvent,
@@ -28,10 +38,8 @@ export function composePosition(
   return [x, y];
 }
 
-export function getCallerScope(e: MouseEvent): string {
+export function getCallerScope(e: MouseEvent): HTMLDivElement {
   const p = e.composedPath() as HTMLDivElement[];
-
-  let lastClass = "";
 
   for (let i = 0; i < p.length; i++) {
     const tag = p[i].tagName;
@@ -41,25 +49,11 @@ export function getCallerScope(e: MouseEvent): string {
     const caller = p[i].dataset.caller;
 
     if (validCallerTags.includes(tag.toLowerCase()) && caller) {
-      lastClass = caller;
-
-      break;
+      return p[i];
     }
   }
 
-  return lastClass;
-}
-
-export function getScopedElement(parent: HTMLElement, childCaller: string) {
-  if (!childCaller) return undefined;
-
-  const p = parent.querySelector(
-    `*[data-caller="${childCaller}"`
-  ) as HTMLButtonElement;
-
-  if (!p) return undefined;
-
-  return p;
+  return null;
 }
 
 export function getContextEntry(

@@ -31,12 +31,11 @@
     <p class="username">
       {$UserName}
     </p>
-    <p class="host">
+    <p class="host" data-caller="accountpage-hostname">
       {localStorage.getItem("arcos-server") || location.hostname}
       {#if $DevModeOverride}
         (developer)
       {/if}
     </p>
   </div>
-  <button on:click={openExplorer}>More info...</button>
 </div>

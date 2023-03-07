@@ -31,9 +31,9 @@ export const TextEditor: App = {
   fileMimes: ["text/plain; charset=utf-8"],
   events: {
     openFile(app: App) {
-      if (!app.openedFile) return;
+      if (!app.openedFile) return; /* 
 
-      setTitleSuffix(` - ${app.openedFile.path}`, app.id);
+      setTitleSuffix(` - ${app.openedFile.path}`, app.id); */
     },
   },
 };
