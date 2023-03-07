@@ -125,9 +125,9 @@ export const SettingsApp: App = {
     author: "ArcOS Team",
     icon: logo,
   },
-  size: { w: 900, h: 500 },
+  size: { w: 730, h: 500 },
   pos: { x: 30, y: 40 },
-  minSize: { w: 900, h: 500 },
+  minSize: { w: 730, h: 500 },
   maxSize: { w: 1100, h: 600 },
   controls: { min: true, max: true, cls: true },
   state: {
