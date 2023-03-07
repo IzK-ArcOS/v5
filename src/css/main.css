@@ -25,7 +25,7 @@
   height: 100%;
 }
 
-div#app *:not(.window) {
+div#app *:not(.window):not(.ol) {
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
