@@ -1,10 +1,9 @@
 <script lang="ts">
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import OptionSection from "../OptionSection.svelte";
-  import Section from "../Section.svelte";
 </script>
 
-<h1>Taskbar & Start Menu</h1>
+<h1>Shell</h1>
 <OptionSection
   title="Center taskbar buttons"
   context="Centers the taskbar app buttons"

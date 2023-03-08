@@ -13,6 +13,7 @@
   transform: scale(90%);
   font-size: 13px;
   box-shadow: 0px 5px 15px 5px #0003;
+  margin-top: 50px;
 }
 
 .window * {
@@ -87,6 +88,7 @@ div.desktop.tb-vertical-right .window.max {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
+  margin-top: 00px;
 }
 
 .window.visible * {
