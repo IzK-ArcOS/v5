@@ -8,6 +8,7 @@
     deleteNotification,
     NotificationStore,
   } from "../../../ts/notiflogic/main";
+  import { UserData } from "../../../ts/userlogic/interfaces";
 
   let data: NotificationData = null;
   let hide = false;
@@ -51,6 +52,7 @@
 <div
   class="notification"
   class:hidden={!data || hide}
+  class:colored={$UserData.sh.taskbar.colored}
   style="z-index: {$maxZIndex + 4}"
 >
   {#if data}

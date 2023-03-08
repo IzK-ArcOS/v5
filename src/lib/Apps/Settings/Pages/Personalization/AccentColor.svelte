@@ -4,8 +4,8 @@
   import Color from "./AccentColor/Color.svelte";
 </script>
 
+<p class="context">Choose an accent color for ArcOS:</p>
 <div class="wrapper">
-  <p class="context">Choose an accent color for ArcOS:</p>
   {#each accentColors as color}
     <Color {color} />
   {/each}
@@ -14,5 +14,7 @@
 <style scoped>
   div.wrapper {
     margin: 10px 0;
+    display: grid;
+    grid-template-columns: repeat(12, 35px);
   }
 </style>

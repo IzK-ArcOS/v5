@@ -15,6 +15,7 @@
   on:click={change}
   data-caller="appearance-accentselector"
   data-hex={color}
+  title="#{color.toUpperCase()}"
 />
 
 <style scoped>
@@ -28,6 +29,7 @@
     outline-offset: 4px;
     vertical-align: middle;
     transform: unset;
+    margin-bottom: 10px !important;
   }
 
   button.color.selected {
