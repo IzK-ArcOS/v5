@@ -29,7 +29,7 @@ div.taskbar::after {
   left: 0px;
   z-index: -1;
   opacity: 0.3;
-  filter: brightness(120%);
+  filter: brightness(70%);
   margin: -1px;
 }
 
