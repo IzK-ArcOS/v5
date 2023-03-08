@@ -6,6 +6,7 @@
   import { TextEditorContent } from "../../ts/applogic/apps/TextEditor/main";
   import { closeFile } from "../../ts/api/fs/main";
   import { setTitleSuffix } from "../../ts/applogic/title";
+  import Unreadable from "./MarkdownViewer/Unreadable.svelte";
 
   export let app: App;
 
@@ -35,10 +36,11 @@
 </script>
 
 {#if app}
-  <div class="markdownrenderer">
-    <SvelteMarkdown
-      source={content ||
-        "### ⚠️ Can't display markdown\n\nNo file opened or the opened file is empty.\n"}
-    />
-  </div>
+  {#if content}
+    <div class="markdownrenderer">
+      <SvelteMarkdown source={content} />
+    </div>
+  {:else}
+    <Unreadable />
+  {/if}
 {/if}

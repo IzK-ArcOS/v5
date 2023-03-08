@@ -94,3 +94,28 @@ div.markdownrenderer hr {
   background-color: var(--button-bg);
   border: 0;
 }
+
+window#MarkDownViewer div.unreadable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+window#MarkDownViewer div.unreadable div.content {
+  max-width: 270px;
+  text-align: center;
+}
+
+window#MarkDownViewer div.unreadable div.content h3 {
+  margin: 10px;
+}
+
+window#MarkDownViewer div.unreadable div.content img {
+  height: 48px;
+  margin: 0;
+}
+
+window#MarkDownViewer div.unreadable div.content p {
+  margin: 5px 0;
+}
