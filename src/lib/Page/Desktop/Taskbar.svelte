@@ -25,6 +25,7 @@
     class:docked={$UserData.sh.taskbar.docked}
     class:fullscreen={$isFullscreenWindow}
     class:centered={$UserData.sh.taskbar.centered}
+    class:colored={$UserData.sh.taskbar.colored}
   >
     <slot />
     <div class="buttons">

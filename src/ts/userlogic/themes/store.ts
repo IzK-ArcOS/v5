@@ -19,6 +19,7 @@ export const DefaultThemes: ThemeStore = {
     titleButtons: "default",
     titlebarLarge: false,
     titlebarLeft: false,
+    taskbarColored: false,
   },
   arcLight: {
     author: "ArcOS Team",
@@ -38,6 +39,7 @@ export const DefaultThemes: ThemeStore = {
     titleButtons: "default",
     titlebarLarge: false,
     titlebarLeft: false,
+    taskbarColored: false,
   },
   theHague: {
     author: "Aron Wagener",
@@ -57,6 +59,7 @@ export const DefaultThemes: ThemeStore = {
     titleButtons: "default",
     titlebarLarge: true,
     titlebarLeft: false,
+    taskbarColored: false,
   },
   wacky: {
     author: "Izaak Kuipers",
@@ -76,6 +79,7 @@ export const DefaultThemes: ThemeStore = {
     titleButtons: "og",
     titlebarLarge: true,
     titlebarLeft: true,
+    taskbarColored: false,
   },
   performance: {
     author: "ArcOS Team",
@@ -95,5 +99,6 @@ export const DefaultThemes: ThemeStore = {
     titleButtons: "default",
     titlebarLarge: false,
     titlebarLeft: false,
+    taskbarColored: false,
   },
 };

@@ -17,6 +17,7 @@ export interface UserTheme {
   titleButtons: string;
   titlebarLeft: boolean;
   titlebarLarge: boolean;
+  taskbarColored: boolean;
 }
 
 export type ThemeStore = { [key: string]: UserTheme };

@@ -13,6 +13,7 @@ const values = [
   "taskbarCentered",
   "taskbarLabels",
   "taskbarPosition",
+  "taskbarColored",
   "smallStart",
   "titleButtons",
   "titlebarLarge",
@@ -36,6 +37,7 @@ export function loadTheme(context: UserTheme) {
   udata.sh.window.buttons = context.titleButtons;
   udata.sh.window.bigtb = context.titlebarLarge;
   udata.sh.window.lefttb = context.titlebarLeft;
+  udata.sh.taskbar.colored = context.taskbarColored;
 
   UserData.set(udata);
 }
@@ -62,6 +64,7 @@ export function saveCurrentTheme(name: string) {
     titleButtons: udata.sh.window.buttons,
     titlebarLarge: udata.sh.window.bigtb,
     titlebarLeft: udata.sh.window.lefttb,
+    taskbarColored: udata.sh.taskbar.colored,
   };
 
   if (!udata.sh.userThemes) udata.sh.userThemes = {};

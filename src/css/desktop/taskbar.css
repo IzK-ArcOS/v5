@@ -14,6 +14,29 @@ div.taskbar {
     border-radius 0.3s, background-color 0.3s, position 0.3s;
 }
 
+div.taskbar.colored {
+  border: transparent 1px solid !important;
+}
+
+div.taskbar::after {
+  content: " ";
+
+  border-radius: inherit;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  opacity: 0.3;
+  filter: brightness(120%);
+  margin: -1px;
+}
+
+div.taskbar.colored::after {
+  background-color: var(--accent);
+}
+
 div.taskbar div.tray {
   position: absolute;
   line-height: 43px;

@@ -17,6 +17,7 @@
     style="z-index: {$maxZIndex + 2};"
     class:open={$startOpened}
     class:small={$UserData.sh.start.small}
+    class:colored={$UserData.sh.taskbar.colored}
   >
     <LeftPane />
     <RightPane />

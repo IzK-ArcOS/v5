@@ -65,3 +65,14 @@
     bind:checked={$UserData.sh.taskbar.docked}
   />
 </OptionSection>
+<OptionSection
+  title="Colored shell"
+  context="Apply the accent color to the shell"
+>
+  <input
+    type="checkbox"
+    id="a"
+    class="switch"
+    bind:checked={$UserData.sh.taskbar.colored}
+  />
+</OptionSection>

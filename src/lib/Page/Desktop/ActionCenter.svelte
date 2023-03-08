@@ -21,6 +21,7 @@
   }
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
   class="actioncenter-shade"
   class:opened
@@ -32,6 +33,7 @@
   class:docked={$UserData.sh.taskbar.docked}
   class:opened
   class:noquick={$UserData.sh.noQuickSettings}
+  class:colored={$UserData.sh.taskbar.colored}
   style="z-index: {$maxZIndex + 4};"
 >
   <h3 class="title">

@@ -8,6 +8,7 @@ export interface UserData {
       labels: boolean; //done
       pos: "vertical" | "" | "vertical-right";
       docked: boolean; //done
+      colored: boolean;
     };
 
     window: {
@@ -68,6 +69,7 @@ export const defaultUserData: UserData = {
       labels: false,
       pos: "",
       docked: true,
+      colored: false,
     },
     window: {
       lefttb: false,
