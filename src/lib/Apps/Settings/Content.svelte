@@ -1,6 +1,8 @@
 <script lang="ts">
   import { currentSettingsPage } from "../../../ts/applogic/apps/SettingsApp/main";
-  import { UserData } from "../../../ts/userlogic/interfaces";
+  import { ScopedAppData, UserData } from "../../../ts/userlogic/interfaces";
+
+  export let appdata: ScopedAppData;
 
   let cName = "";
 
@@ -30,7 +32,7 @@
   });
 </script>
 
-<div class="content">
+<div class="content" class:collapsed={appdata.collapsed}>
   <div class="inner {cName}">
     {#if settingsPage}
       <svelte:component this={settingsPage.content} />

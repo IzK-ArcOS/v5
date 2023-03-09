@@ -8,10 +8,13 @@ window#SettingsApp div.titlebar {
 
 window#SettingsApp > div.titlebar p.title {
   background-color: var(--win-bg);
+  display: none;
 }
 
 window#SettingsApp.lefttb div.titlebar div.controls {
-  left: 10px !important;
+  left: unset !important;
+  margin-left: auto !important;
+  position: relative !important;
 }
 
 window#SettingsApp div.body:not(.overlay) {
@@ -31,6 +34,10 @@ window#SettingsApp div.content {
   margin-left: 0px;
   transition: all 0.3s, margin-left 0s;
   overflow-y: scroll;
+}
+
+window#SettingsApp div.content.collapsed {
+  width: calc(100% - 60px);
 }
 
 window#SettingsApp div.content button.action {
@@ -76,6 +83,41 @@ window#SettingsApp div.sidebar {
   border-right: var(--win-border);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+window#SettingsApp div.sidebar.collapsed {
+  width: 60px;
+  padding: 10px;
+  padding-top: 35px;
+}
+
+window#SettingsApp div.sidebar.collapsed button.page span.caption {
+  display: none;
+}
+
+window#SettingsApp div.sidebar.collapsed button.page {
+  padding-left: 10px;
+}
+
+window#SettingsApp div.sidebar.collapsed button.page img {
+  margin-right: 0 !important;
+}
+
+window#SettingsApp div.sidebar.collapsed div.userprofile {
+  padding: 0;
+}
+
+window#SettingsApp div.sidebar.collapsed div.userprofile div.username {
+  display: none;
+}
+
+window#SettingsApp div.sidebar.collapsed div.userprofile > span {
+  margin: 0 auto;
+}
+
+window#SettingsApp div.sidebar.collapsed div.userprofile div.pfprenderer {
+  margin-right: 0;
 }
 
 window#SettingsApp div.sidebar hr {
@@ -91,6 +133,27 @@ window#SettingsApp div.sidebar button.page {
   margin-bottom: 5px;
   margin-left: 0;
   position: relative;
+  white-space: nowrap;
+  margin: 5px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+window#SettingsApp div.sidebar.collapsed button.page.menu {
+  width: 38px;
+  left: 10px;
+}
+
+window#SettingsApp div.sidebar button.page.menu {
+  width: 28px;
+  text-overflow: unset;
+  overflow: visible;
+  white-space: initial;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  z-index: 1000;
+  margin: 0;
 }
 
 window#SettingsApp div.sidebar button.page::before {
@@ -130,6 +193,10 @@ window#SettingsApp div.sidebar button.page.selected {
 window#SettingsApp div.sidebar button.page img.icon {
   height: 18px;
   margin-right: 10px;
+}
+
+window#SettingsApp div.sidebar button.page span.material-icons-round {
+  margin: 0;
 }
 
 window#SettingsApp div.sidebar * {
