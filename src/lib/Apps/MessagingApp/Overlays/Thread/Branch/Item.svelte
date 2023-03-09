@@ -32,7 +32,9 @@
     <ProfilePicture src={pfp} height={32} />
     <div class="context">
       <p class="name">{item.sender}</p>
-      <p class="partial">{item.partialBody}{item.partialBody.length > 29}...</p>
+      <p class="partial">
+        {item.partialBody}{item.partialBody.length > 29 ? "..." : ""}
+      </p>
     </div>
     <div class="id">{item.id}</div>
   </button>
