@@ -41,6 +41,4 @@
   </select>
 </OptionSection>
 
-<Section header="Accent Color">
-  <AccentColor />
-</Section>
+<AccentColor />

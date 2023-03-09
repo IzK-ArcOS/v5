@@ -186,6 +186,11 @@ div.actioncenter div.quicksettings button.setting {
 div.actioncenter div.quicksettings button.setting.active {
   background-color: var(--button-glass-bg);
   color: var(--accent);
+  filter: brightness(190%);
+}
+
+div.theme-light div.actioncenter div.quicksettings button.setting.active {
+  filter: unset;
 }
 
 div.actioncenter div.quicksettings button.setting.active p.caption {

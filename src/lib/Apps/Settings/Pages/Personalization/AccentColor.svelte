@@ -1,10 +1,13 @@
 <script>
   import { accentColors } from "../../../../../ts/desktop/accent";
-  import Section from "../../Section.svelte";
+  import OptionSection from "../../OptionSection.svelte";
   import Color from "./AccentColor/Color.svelte";
 </script>
 
-<p class="context">Choose an accent color for ArcOS:</p>
+<OptionSection
+  title="Accent Color"
+  context="Choose an accent color for ArcOS"
+/>
 <div class="wrapper">
   {#each accentColors as color}
     <Color {color} />
