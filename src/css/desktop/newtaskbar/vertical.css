@@ -1,0 +1,17 @@
+div.taskbar-v {
+  top: 10px;
+  width: 45px;
+  height: calc(100% - 20px);
+  flex-direction: column;
+}
+
+div.taskbar-v:not(.visible) {
+  left: -65px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+div.taskbar-v.right {
+  left: unset;
+  right: 10px;
+}

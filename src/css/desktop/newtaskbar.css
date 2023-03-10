@@ -1,0 +1,47 @@
+@import url("./newtaskbar/vertical.css");
+
+div.taskbar-h,
+div.taskbar-v {
+  position: absolute;
+  border-radius: var(--win-border-rad);
+  left: 10px;
+  box-sizing: border-box;
+  background-color: var(--glass-ultradark);
+  backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-alt-bg) 1px solid;
+  display: flex;
+}
+
+div.taskbar-h {
+  bottom: 10px;
+  width: calc(100% - 20px);
+  height: 45px;
+}
+
+div.taskbar-h:not(.visible) {
+  bottom: -65px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+div.newtb button {
+  vertical-align: middle;
+}
+
+div.newtb button.start {
+  height: 100%;
+  border-radius: var(--win-border-rad);
+  border: none;
+  background-color: var(--startmenu-applist-item-bg);
+  color: var(--fg);
+  padding: 0;
+  margin: 0;
+  width: 43px;
+  height: 43px;
+  transition: opacity 0.3s, background-color 0.2s;
+}
+
+div.newtb button.start img {
+  height: 25px;
+  width: 25px;
+}

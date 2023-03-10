@@ -1,6 +1,8 @@
 <script lang="ts">
   import { startOpened } from "../../../ts/desktop/main";
   import ActionCenter from "./ActionCenter.svelte";
+  import HorizontalTaskbar from "./Shell/HorizontalTaskbar.svelte";
+  import VerticalTaskbar from "./Shell/VerticalTaskbar.svelte";
   import StartMenu from "./StartMenu.svelte";
   import Taskbar from "./Taskbar.svelte";
   import StartButton from "./Taskbar/StartButton.svelte";
@@ -11,7 +13,9 @@
 </script>
 
 <StartMenu />
-<Taskbar>
+<HorizontalTaskbar><StartButton /></HorizontalTaskbar>
+<VerticalTaskbar><StartButton /></VerticalTaskbar>
+<!-- <Taskbar>
   <StartButton />
-</Taskbar>
+</Taskbar> -->
 <ActionCenter />
