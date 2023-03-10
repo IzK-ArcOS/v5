@@ -110,15 +110,15 @@ export const QuickSettings: QuickSetting[] = [
     caption: "",
   },
   {
-    icon: "autorenew",
-    iconOff: "autorenew",
+    icon: "",
+    iconOff: "",
     getter() {
       return false;
     },
     setter() {
-      reloadApps();
+      /* reloadApps(); */
       return false;
     },
-    caption: "Reload Apps",
+    caption: "",
   },
 ];
