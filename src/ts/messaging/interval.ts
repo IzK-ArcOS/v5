@@ -9,6 +9,8 @@ import { messageUpdateTrigger } from "./updates";
 
 let interval;
 
+const pollBlockList = [];
+
 export function startMessageCheckInterval() {
   interval = setInterval(tick, 1000 * 60); // every 60 sec
 
@@ -28,7 +30,14 @@ async function tick() {
 
   const message = unreads[0];
 
-  if (!message || isOpened("MessagingApp")) return;
+  if (
+    !message ||
+    isOpened("MessagingApp") ||
+    pollBlockList.includes(message.id)
+  )
+    return;
+
+  pollBlockList.push(message.id);
 
   makeNotification({
     title: `New message from ${message.sender}`,
