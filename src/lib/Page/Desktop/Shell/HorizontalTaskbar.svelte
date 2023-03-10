@@ -1,20 +1,7 @@
 <script lang="ts">
-  import type { App } from "../../../../ts/applogic/interface";
-  import {
-    getOpenedStore,
-    isFullscreenWindow,
-    maxZIndex,
-    WindowStore,
-  } from "../../../../ts/applogic/store";
+  import { isFullscreenWindow, maxZIndex } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
-  import TaskbarButton from "../Taskbar/TaskbarButton.svelte";
-  import Tray from "../Taskbar/Tray.svelte";
-
-  let oa: App[] = [];
-
-  WindowStore.subscribe(() => {
-    oa = getOpenedStore();
-  });
+  import TaskbarContent from "./TaskbarContent.svelte";
 </script>
 
 <div
@@ -26,12 +13,5 @@
   class:visible={$UserData.sh.taskbar.pos == "" && !$isFullscreenWindow}
 >
   <slot />
-  <div class="buttons">
-    {#each oa as app}
-      {#if !app.disabled}
-        <TaskbarButton {app} />
-      {/if}
-    {/each}
-  </div>
-  <Tray />
+  <TaskbarContent />
 </div>

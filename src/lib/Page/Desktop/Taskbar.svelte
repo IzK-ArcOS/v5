@@ -10,6 +10,7 @@
 
   import TaskbarButton from "./Taskbar/TaskbarButton.svelte";
   import Tray from "./Taskbar/Tray.svelte";
+  import "../../../css/desktop/taskbar.css";
 
   let oa: App[] = [];
 

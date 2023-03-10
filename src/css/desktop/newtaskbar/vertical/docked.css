@@ -1,0 +1,15 @@
+div.taskbar-v.docked {
+  left: 0px;
+  top: 0px;
+  border-radius: 0;
+  height: 100%;
+  border: transparent 1px solid;
+}
+
+div.taskbar-v.right.docked {
+  border-left: var(--glass-alt-bg) 1px solid;
+}
+
+div.taskbar-v.docked:not(.right) {
+  border-right: var(--glass-alt-bg) 1px solid;
+}

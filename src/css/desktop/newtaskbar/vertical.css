@@ -1,3 +1,7 @@
+@import url("./vertical/tray.css");
+@import url("./vertical/docked.css");
+@import url("./vertical/appbuttons.css");
+
 div.taskbar-v {
   top: 10px;
   width: 45px;
@@ -6,7 +10,6 @@ div.taskbar-v {
 }
 
 div.taskbar-v:not(.visible) {
-  left: -65px;
   opacity: 0;
   visibility: hidden;
 }

@@ -1,0 +1,61 @@
+div.taskbar-h div.buttons {
+  height: 44px;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+div.taskbar-h div.buttons button {
+  min-width: 43px;
+  height: 43px;
+  border: none;
+  background-color: transparent;
+  padding: 6px;
+}
+
+div.taskbar-h div.buttons button.activated {
+  background-color: var(--button-glass-bg);
+}
+
+div.taskbar-h:not(.top) div.buttons button {
+  border-bottom: transparent 2px solid;
+  padding-bottom: 4px;
+}
+
+div.taskbar-h:not(.top) div.buttons button.activated {
+  border-bottom: var(--accent) 2px solid;
+}
+
+div.taskbar-h.top div.buttons button {
+  border-top: transparent 2px solid;
+  padding-top: 4px;
+}
+
+div.taskbar-h.top div.buttons button.activated {
+  border-top: var(--accent) 2px solid;
+}
+
+div.taskbar-h div.buttons button.minimized {
+  opacity: 0.5;
+}
+
+div.taskbar-h div.buttons button:hover {
+  background-color: var(--startmenu-applist-item-bg-hover);
+}
+
+div.taskbar-h div.buttons button:active {
+  background-color: var(--startmenu-applist-item-bg-active);
+}
+
+div.taskbar-h div.buttons button img + span {
+  height: 20px;
+  vertical-align: middle;
+}
+
+div.taskbar-h div.buttons button img + span {
+  margin-left: 5px;
+}
+
+div.taskbar-h div.buttons button span {
+  line-height: 20px;
+  vertical-align: middle;
+}

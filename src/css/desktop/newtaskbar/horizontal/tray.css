@@ -1,0 +1,76 @@
+div.taskbar-h div.tray {
+  margin-left: auto;
+}
+
+div.taskbar-h div.tray img {
+  height: 18px;
+  margin: 0px 5px;
+}
+
+div.taskbar-h div.tray button.icon {
+  width: 43px;
+  height: 43px;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  color: var(--fg);
+  vertical-align: top;
+}
+
+div.taskbar-h div.tray button.icon:hover {
+  background-color: var(--startmenu-applist-item-bg-hover);
+}
+
+div.taskbar-h div.tray button.icon:active {
+  background-color: var(--startmenu-applist-item-bg-active);
+}
+
+div.taskbar-h div.tray button.icon.committer {
+  animation: opacity infinite 0.75s;
+}
+
+div.taskbar-h div.tray button.icon.committer.inactive {
+  animation: unset;
+  opacity: 0.2;
+  filter: grayscale(100%);
+}
+
+div.taskbar-h div.tray span.material-icons {
+  font-size: 16px;
+  margin: 0px 5px;
+}
+
+div.taskbar-h div.tray div.clock {
+  line-height: inherit;
+  height: inherit;
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  font-size: 12px;
+  line-height: 44px;
+}
+
+div.taskbar-h div.tray button.ac-open {
+  background-color: transparent;
+  color: var(--fg);
+  border: none;
+  height: inherit;
+  margin: 0;
+  padding: 0 12px;
+  font-size: 18px;
+  width: 43px;
+  height: 43px;
+}
+
+div.taskbar-h div.tray button.ac-open:hover {
+  background-color: var(--startmenu-applist-item-bg-hover);
+}
+
+div.taskbar-h div.tray button.ac-open:active {
+  background-color: var(--startmenu-applist-item-bg-active);
+}
+
+div.taskbar-h div.tray button.ac-open.opened {
+  background-color: var(--startmenu-applist-item-bg-active);
+  color: var(--accent);
+}

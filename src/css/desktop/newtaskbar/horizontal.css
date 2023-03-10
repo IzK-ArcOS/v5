@@ -1,0 +1,21 @@
+@import url("./horizontal/tray.css");
+@import url("./horizontal/appbuttons.css");
+@import url("./horizontal/docked.css");
+
+div.taskbar-h:not(.top) {
+  bottom: 10px;
+}
+
+div.taskbar-h {
+  width: calc(100% - 20px);
+  height: 45px;
+}
+
+div.taskbar-h:not(.visible) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+div.taskbar-h.top {
+  top: 10px;
+}
