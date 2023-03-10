@@ -5,7 +5,7 @@ div.actioncenter {
   height: calc(100% - 75px);
   width: 400px;
   background-color: var(--glass-ultradark);
-  border: var(--glass-alt-bg) 1px solid;
+  /* border: var(--glass-alt-bg) 1px solid; */
   box-sizing: border-box;
   border-radius: var(--win-border-rad);
   backdrop-filter: blur(var(--glass-blur));
@@ -29,10 +29,10 @@ div.actioncenter::after {
   opacity: 0.3;
   margin: -1px;
 }
-
+/* 
 div.actioncenter.colored {
   border: var(--glass-ultradark) 1px solid;
-}
+} */
 
 div.actioncenter.colored::after {
   background-color: var(--accent);
@@ -52,8 +52,8 @@ div.actioncenter.docked {
   top: 0px;
   right: -400px;
   border-radius: 0px;
-  border: transparent 1px solid;
-  border-left: var(--glass-alt-bg) 1px solid;
+  /* border: transparent 1px solid; 
+  border-left: var(--glass-alt-bg) 1px solid;*/
 }
 
 div.actioncenter.noquick div.quicksettings {
@@ -186,7 +186,7 @@ div.actioncenter div.quicksettings button.setting {
 div.actioncenter div.quicksettings button.setting.active {
   background-color: var(--button-glass-bg);
   color: var(--accent);
-  filter: brightness(190%);
+  filter: var(--elevated-accent-filter);
 }
 
 div.theme-light div.actioncenter div.quicksettings button.setting.active {

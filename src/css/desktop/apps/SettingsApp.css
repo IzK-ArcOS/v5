@@ -174,6 +174,25 @@ window#SettingsApp div.sidebar button.page.selected::before {
   background-color: var(--accent);
   height: 16px;
   margin: 6px 0;
+  filter: var(--elevated-accent-filter);
+}
+
+window#SettingsApp div.sidebar button.page::after {
+  content: " ";
+
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  opacity: 0.3; /* 
+  margin: -1px; */
+}
+
+window#SettingsApp div.sidebar.collapsed button.page.selected::after {
+  background-color: var(--accent);
 }
 
 window#SettingsApp div.sidebar button.page.selected,

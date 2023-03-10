@@ -34,6 +34,10 @@ window#MessagingApp div.body div.sidebar button:not(.active) {
   color: var(--fg);
 }
 
+window#MessagingApp div.body div.sidebar button.active {
+  filter: var(--elevated-accent-filter);
+}
+
 window#MessagingApp div.body div.sidebar div.pfprenderer {
   margin-top: auto;
 }

@@ -43,4 +43,5 @@
   --accent: dodgerblue;
   --accent-dark: rgb(0, 94, 126);
   --accent-light: rgb(113, 220, 255);
+  --elevated-accent-filter: brightness(190%);
 }
