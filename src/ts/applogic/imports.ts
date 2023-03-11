@@ -15,8 +15,10 @@ import { MediaPlayerApp } from "./apps/MediaPlayer";
 import { MessagingApp } from "./apps/MessagingApp";
 import { OpenWithApp } from "./apps/OpenWith";
 import { SettingsApp } from "./apps/settings";
+import { ArcShell } from "./apps/shell";
 import { TestApp } from "./apps/testApp";
 import { TextEditor } from "./apps/TextEditor";
+import { DesktopWallpaper } from "./apps/wallpaper";
 import { openWindow } from "./events";
 import type { App } from "./interface";
 import { loadWindow } from "./load";
@@ -41,6 +43,8 @@ export const DefaultApps: { [key: string]: App } = {
   OpenWithApp,
   MarkDownViewer,
   MediaPlayerApp,
+  ArcShell,
+  DesktopWallpaper,
 };
 
 export const SystemApps: string[] = [

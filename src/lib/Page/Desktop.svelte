@@ -67,11 +67,8 @@
     class:show
     style="--accent: #{$UserData.sh.desktop.accent || '70D6FF'} !important"
   >
-    <Wallpaper />
     <WindowStore />
     <ErrorDialogStore />
-    <Shell />
-    <PushNotification />
     <ContextMenu />
     <ArcFind />
   </div>

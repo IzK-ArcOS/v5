@@ -141,5 +141,14 @@ export function assignDesktopListeners() {
         ActionCenterOpened.set(!get(ActionCenterOpened));
       },
     },
+    {
+      key: "z",
+      alt: true,
+      shift: true,
+      global: true,
+      action: () => {
+        openWindow("AppMan");
+      },
+    },
   ]);
 }

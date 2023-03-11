@@ -13,9 +13,9 @@
       <div>
         <img src={overlays} alt="" />
       </div>
-      <div class="appname">{overlay.info.name} (Overlay)</div>
+      <div class="appname">{overlay.info.name}</div>
       <div class="id">
-        ArcOS.{parent.id}.{id}
+        {parent.id}.{id}
       </div>
     </div>
   {/if}

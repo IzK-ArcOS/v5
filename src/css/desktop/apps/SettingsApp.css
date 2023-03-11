@@ -33,7 +33,7 @@ window#SettingsApp div.content {
   right: 0px;
   margin-left: 0px;
   transition: all 0.3s, margin-left 0s;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 window#SettingsApp div.content.collapsed {
@@ -56,11 +56,13 @@ window#SettingsApp div.content.static {
   animation: none !important;
   opacity: 1 !important;
   margin-left: 0px !important;
+  overflow-y: auto;
 }
 
 window#SettingsApp div.content div.inner {
   white-space: nowrap;
   position: relative;
+  height: 100%;
 }
 
 window#SettingsApp div.content div.inner.transition {

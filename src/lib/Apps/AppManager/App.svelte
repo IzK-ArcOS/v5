@@ -1,6 +1,7 @@
 <script lang="ts">
   import { get } from "svelte/store";
   import { isDisabled } from "../../../ts/applogic/checks";
+  import { openWindow } from "../../../ts/applogic/events";
   import { getAppIcon, getOriginalIcon } from "../../../ts/applogic/icon";
   import type { App } from "../../../ts/applogic/interface";
 
@@ -21,13 +22,15 @@
     </div>
     <div class="id">
       {#if app.parentId}
-        ArcOS.{app.parentId}.{app.id}
+        {app.parentId}.{app.id}
       {:else}
-        ArcOS.{app.id}
-      {/if}
-      {#if !app.info.builtin}
-        (by {app.info.author})
+        {app.id}
       {/if}
     </div>
+    <button
+      class="open"
+      disabled={app.opened}
+      on:click={() => openWindow(app.id)}>Open</button
+    >
   </div>
 {/if}

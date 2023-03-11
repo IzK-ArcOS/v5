@@ -1,9 +1,12 @@
 import { get } from "svelte/store";
 import { OpenWithFile } from "../../applogic/apps/OpenWith";
+import { isDisabled } from "../../applogic/checks";
+import { enableApp } from "../../applogic/enabling";
 import { openWindow } from "../../applogic/events";
 import type { ArcFile } from "../../applogic/interface";
 import { focusedWindowId, WindowStore } from "../../applogic/store";
 import { Log, LogLevel } from "../../console";
+import { errorMessage } from "../../errorlogic/main";
 import type { UserFile, UserFileLoader } from "../interface";
 import { readFile } from "./file";
 import { FileLoaders } from "./open/loader";
@@ -66,6 +69,26 @@ export function getAllFileHandlers(): string[] {
 }
 
 export function openWithDialog(file: ArcFile) {
+  if (isDisabled("OpenWithApp")) {
+    return errorMessage(
+      "Can't open file",
+      `The OpenWithApp application is disabled, so you can't choose an app to open ${file.name}.`,
+      null,
+      null,
+      { caption: "OK", action() {} },
+      {
+        caption: "Enable OpenWithApp",
+        action() {
+          enableApp("OpenWithApp");
+
+          OpenWithFile.set(file);
+
+          openWindow("OpenWithApp");
+        },
+      }
+    );
+  }
+
   Log({
     source: `fs/open.ts: openWithDialog`,
     msg: `Opening ArcOS.OpenWith for "${file.name}"`,

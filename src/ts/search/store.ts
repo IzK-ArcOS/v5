@@ -81,7 +81,7 @@ export function compileSearchableApps(): SearchItem[] {
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
-    if (ws[i].info.hidden) continue;
+    if (ws[i].info.hidden || ws[i].info.custom) continue;
 
     result.push({
       caption: ws[i].info.name,

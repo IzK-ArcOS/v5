@@ -3,18 +3,19 @@ div.taskbar-h div.tray {
 }
 
 div.taskbar-h div.tray img {
-  height: 18px;
+  height: 16px;
   margin: 0px 5px;
 }
 
 div.taskbar-h div.tray button.icon {
-  width: 43px;
+  width: fit-content;
   height: 43px;
   background-color: transparent;
   padding: 0;
   border: none;
   color: var(--fg);
-  vertical-align: top;
+  vertical-align: middle;
+  line-height: 0px;
 }
 
 div.taskbar-h div.tray button.icon:hover {
@@ -48,6 +49,7 @@ div.taskbar-h div.tray div.clock {
   text-align: center;
   font-size: 12px;
   line-height: 44px;
+  margin-left: 10px;
 }
 
 div.taskbar-h div.tray button.ac-open {

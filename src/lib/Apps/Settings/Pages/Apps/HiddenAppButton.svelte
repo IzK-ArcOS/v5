@@ -18,9 +18,9 @@
   <div class="info">
     <p class="title">
       {#if app.parentId}
-        ArcOS.{app.parentId}.{app.id}
+        {app.parentId}.{app.id}
       {:else}
-        ArcOS.{app.id}
+        {app.id}
       {/if}
     </p>
     <p class="description">{app.info.name}</p>

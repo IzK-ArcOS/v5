@@ -14,6 +14,10 @@ div.taskbar-v {
   display: flex;
 }
 
+div.newtb:not(.visible) {
+  transition: none !important;
+}
+
 div.newtb button {
   vertical-align: middle;
 }

@@ -51,6 +51,10 @@ div.taskbar-h div.buttons button img + span {
   vertical-align: middle;
 }
 
+div.taskbar-h div.buttons button img {
+  height: 20px;
+}
+
 div.taskbar-h div.buttons button img + span {
   margin-left: 5px;
 }

@@ -1,29 +1,42 @@
 window#SettingsApp div.apps {
   margin-top: 10px;
+  height: calc(100% - 45px) !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
+  grid-template-rows: repeat(auto-fit, 60px);
+  max-width: 700px;
 }
 
 window#SettingsApp div.apps button.appbutton.disabled {
   opacity: 0.5;
-  font-style: italic;
+  filter: grayscale(100%);
 }
 
 window#SettingsApp div.apps button.appbutton {
-  width: 100%;
-  display: block;
   text-align: left;
-  background-color: transparent;
-  padding: 5px 0px;
+  height: 50px;
+  /* background-color: transparent; */
+  padding: 9px 10px;
   display: flex;
-  margin-bottom: 5px;
+  margin: 0;
+  margin-bottom: 10px;
+
+  margin-right: 10px;
 }
 
 window#SettingsApp div.apps button.appbutton * {
   vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 window#SettingsApp div.apps button.appbutton img.icon {
+  min-width: 32px;
   height: 32px;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 window#SettingsApp div.apps button.appbutton div.info p.title {
@@ -32,4 +45,7 @@ window#SettingsApp div.apps button.appbutton div.info p.title {
 
 window#SettingsApp div.apps button.appbutton div.info p {
   margin: 0;
+}
+window#SettingsApp div.apps button.appbutton div.info p.description {
+  opacity: 0.5;
 }

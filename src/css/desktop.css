@@ -6,6 +6,7 @@
 @import url("./desktop/window.css");
 @import url("./desktop/notification.css");
 @import url("./desktop/scrollbars.css");
+@import url("./desktop/shell.css");
 
 div.desktop {
   color: var(--fg);

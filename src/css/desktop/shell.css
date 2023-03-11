@@ -1,0 +1,7 @@
+window#ArcShell {
+  background-color: transparent !important;
+}
+
+window#ArcShell div.body {
+  overflow: hidden;
+}

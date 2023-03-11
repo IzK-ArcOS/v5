@@ -1,4 +1,5 @@
 <script lang="ts">
+  import app from "../../../main";
   import type { App } from "../../../ts/applogic/interface";
 
   import {
@@ -19,6 +20,8 @@
   });
 
   focusedWindowId.subscribe((v) => {
+    if (getWindow(v)?.info.custom) return;
+
     $maxZIndex++;
 
     if (!v || v.startsWith("error_")) {

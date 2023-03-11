@@ -13,10 +13,10 @@ export const AppInfo: App = {
     hidden: true,
     icon: logo,
   },
-  size: { w: 500, h: 600 },
+  size: { w: 500, h: 450 },
   pos: { x: 30, y: 40 },
-  minSize: { w: 500, h: 600 },
-  maxSize: { w: 500, h: 600 },
+  minSize: { w: 500, h: 450 },
+  maxSize: { w: 500, h: 450 },
   controls: { min: true, max: false, cls: true },
   state: {
     headless: false,

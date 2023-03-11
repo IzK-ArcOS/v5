@@ -44,14 +44,20 @@
 
     if (!posUsed) posUsed = true;
 
-    dragWindow(app, window, titlebar);
+    if (!app.info.custom) dragWindow(app, window, titlebar);
   }
 
   WindowStore.subscribe(() => {
-    if (app.opened) dragWindow(app, window, titlebar);
+    if (app.opened && !app.info.custom) dragWindow(app, window, titlebar);
 
     update();
   });
+
+  function handleMouse() {
+    /*     if (app.info.custom) return; */
+
+    $focusedWindowId = app.id;
+  }
 </script>
 
 <window
@@ -71,7 +77,7 @@
   style={cssString}
   id={app.id}
   bind:this={window}
-  on:mousedown={() => ($focusedWindowId = app.id)}
+  on:mousedown={handleMouse}
 >
   <Titlebar {app} bind:exttransition bind:titlebar {isBoot} />
   <Content {app}>

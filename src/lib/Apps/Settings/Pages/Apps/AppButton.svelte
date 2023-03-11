@@ -1,14 +1,17 @@
 <script lang="ts">
   import { AppInfoId } from "../../../../../ts/applogic/apps/AppInfo";
-  import { openWindow } from "../../../../../ts/applogic/events";
+  import { closeWindow, openWindow } from "../../../../../ts/applogic/events";
   import { getAppIcon, getOriginalIcon } from "../../../../../ts/applogic/icon";
   import type { App } from "../../../../../ts/applogic/interface";
 
   export let app: App;
 
   function manage() {
-    AppInfoId.set(app.id);
-    openWindow("AppInfo");
+    closeWindow("AppInfo");
+    setTimeout(() => {
+      AppInfoId.set(app.id);
+      openWindow("AppInfo");
+    }, 300);
   }
 </script>
 
@@ -21,7 +24,6 @@
   <div class="info">
     <p class="title">
       {app.info.name}
-      {app.disabled ? "(disabled)" : ""}
     </p>
     <p class="description">{app.info.description}</p>
   </div>
