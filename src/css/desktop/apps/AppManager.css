@@ -42,3 +42,10 @@ window#AppMan div.appinstance.closed {
 window#AppMan div.appinstance.closed img {
   filter: grayscale(100%);
 }
+
+window#AppMan div.appinstance button.open {
+  height: 25px;
+  padding: 0 5px;
+  margin: 0;
+  vertical-align: middle;
+}

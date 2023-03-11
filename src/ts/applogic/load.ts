@@ -73,6 +73,13 @@ export function loadWindow(id: string, app: App) {
     });
   }
 
+  if (get(UserData).disabledApps.includes("ArcShell")) {
+    errorMessage(
+      "Limited functionality",
+      "The ArcOS Shell is disabled, rendering the taskbar, start menu and action center unusable.<br><br>You can still access ArcFind using Alt+Shift+S or the Application Manager using Alt+Shift+Z."
+    );
+  }
+
   Log({
     level: LogLevel.info,
     msg: `Loaded ${id} into WindowStore.`,
