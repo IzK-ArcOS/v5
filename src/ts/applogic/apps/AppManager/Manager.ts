@@ -10,3 +10,9 @@ export interface AppPokerProperty {
   action: (app: App) => void;
   getter: (app: App) => boolean;
 }
+
+export interface AppManagerAction {
+  caption: string;
+  icon: string;
+  action(): void;
+}

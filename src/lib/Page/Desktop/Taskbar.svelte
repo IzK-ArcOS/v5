@@ -27,6 +27,7 @@
     class:fullscreen={$isFullscreenWindow}
     class:centered={$UserData.sh.taskbar.centered}
     class:colored={$UserData.sh.taskbar.colored}
+    data-caller="shell-taskbar"
   >
     <slot />
     <div class="buttons">

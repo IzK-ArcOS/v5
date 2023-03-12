@@ -1,5 +1,6 @@
 import logo from "../../../assets/apps/appmanager.svg";
 import AppManagerSvelte from "../../../lib/Apps/AppManager.svelte";
+import RunDialog from "../../../lib/Apps/AppManager/overlays/RunDialog.svelte";
 import { createTrayIcon, disposeTrayIcon } from "../../desktop/tray/main";
 import type { App } from "../interface";
 
@@ -23,7 +24,7 @@ export const AppManager: App = {
     windowState: { min: false, max: false, fll: false },
   },
   content: AppManagerSvelte,
-  glass: false,
+  glass: true,
   events: {
     open() {
       createTrayIcon({
@@ -34,6 +35,18 @@ export const AppManager: App = {
     },
     close() {
       disposeTrayIcon("Application Manager");
+    },
+  },
+  overlays: {
+    run: {
+      info: {
+        name: "Run",
+        author: "ArcOS Team",
+        version: "1.0.0",
+      },
+      size: { w: NaN, h: NaN },
+      show: false,
+      content: RunDialog,
     },
   },
 };

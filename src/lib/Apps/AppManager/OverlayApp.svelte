@@ -1,5 +1,6 @@
 <script lang="ts">
   import overlays from "../../../assets/apps/default.svg";
+  import { isOpened } from "../../../ts/applogic/checks";
   import type { App, OverlayableApp } from "../../../ts/applogic/interface";
 
   export let id: string;
@@ -8,7 +9,7 @@
 </script>
 
 <div class="indent">
-  {#if overlay}
+  {#if overlay && isOpened(parent.id)}
     <div class="appinstance" class:closed={!overlay.show}>
       <div>
         <img src={overlays} alt="" />

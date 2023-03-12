@@ -8,19 +8,23 @@
   export let show: boolean;
 
   function trigger() {
-    data.action(window, scopeMap, scope);
+    if (data.action) data.action(window, scopeMap, scope);
 
     show = false;
   }
 </script>
 
-<button class="contextmenu-item" on:click={trigger}>
-  <div class="icon">
-    {#if data.icon}
-      <span class="material-icons-round">{data.icon}</span>
-    {:else if data.image}
-      <img src={data.image} alt={data.caption} />
-    {/if}
-  </div>
-  {data.caption}
-</button>
+{#if data.sep}
+  <hr />
+{:else}
+  <button class="contextmenu-item" on:click={trigger}>
+    <div class="icon">
+      {#if data.icon}
+        <span class="material-icons-round">{data.icon}</span>
+      {:else if data.image}
+        <img src={data.image} alt={data.caption} />
+      {/if}
+    </div>
+    {data.caption}
+  </button>
+{/if}

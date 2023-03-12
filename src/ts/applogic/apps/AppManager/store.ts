@@ -1,3 +1,5 @@
+import { writable } from "svelte/store";
+import { showOverlay } from "../../../window/overlay";
 import { isOpened } from "../../checks";
 import {
   closeWindow,
@@ -7,7 +9,7 @@ import {
 } from "../../events";
 import type { App } from "../../interface";
 import { updateStores } from "../../store";
-import type { AppPokerProperty } from "./Manager";
+import type { AppManagerAction, AppPokerProperty } from "./Manager";
 
 // All the properties for the AppPoker app buttons.
 export const AppPokerProperties: AppPokerProperty[] = [
@@ -81,3 +83,15 @@ export const AppPokerProperties: AppPokerProperty[] = [
     },
   },
 ];
+
+export const staticAppManActions: AppManagerAction[] = [
+  {
+    caption: "Run...",
+    icon: "directions_run",
+    action: () => {
+      showOverlay("run", "AppMan");
+    },
+  },
+];
+
+export const appManSelected = writable<string>();

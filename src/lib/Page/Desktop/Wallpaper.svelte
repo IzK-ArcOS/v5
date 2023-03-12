@@ -6,4 +6,5 @@
 <div
   class="wallpaper fullscreen"
   style="background-image: url({getWallpaper($UserData.sh.desktop.wallpaper)});"
+  data-caller="shell-wallpaper"
 />

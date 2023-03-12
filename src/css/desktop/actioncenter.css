@@ -28,6 +28,7 @@ div.actioncenter::after {
   z-index: -1;
   opacity: 0.3;
   margin: -1px;
+  pointer-events: none;
 }
 /* 
 div.actioncenter.colored {

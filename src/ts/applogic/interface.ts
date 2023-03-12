@@ -91,10 +91,11 @@ export interface ControlsState {
 }
 
 export interface ContextMenuItem {
-  caption: string;
+  sep?: boolean;
+  caption?: string;
   icon?: string;
   image?: string;
-  action(window: App, data: DOMStringMap, scope: string): void;
+  action?(window: App, data: DOMStringMap, scope: string): void;
 }
 
 export type AppContextMenu = { [key: string]: ContextMenuItem[] };

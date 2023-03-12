@@ -1,6 +1,9 @@
 import logo from "../../../assets/apps/settings/desktop.svg";
 import Wallpaper from "../../../lib/Page/Desktop/Wallpaper.svelte";
+import { SEP_ITEM } from "../../contextmenu/main";
+import { openWindow } from "../events";
 import type { App } from "../interface";
+import { openByKey } from "./SettingsApp/store";
 
 export const DesktopWallpaper: App = {
   info: {
@@ -25,4 +28,43 @@ export const DesktopWallpaper: App = {
   content: Wallpaper,
   glass: false,
   events: {},
+  contextMenu: {
+    "shell-wallpaper": [
+      {
+        caption: "File Manager",
+        action: () => {
+          openWindow("FileManager");
+        },
+      },
+      SEP_ITEM,
+      {
+        caption: "App settings",
+        action: () => {
+          openByKey("Apps");
+        },
+      },
+      {
+        caption: "Application Manager",
+        action: () => {
+          openWindow("AppMan");
+        },
+      },
+      SEP_ITEM,
+      {
+        caption: "Shut down...",
+        action: () => {
+          openWindow("Exit");
+        },
+        icon: "power_settings_new",
+      },
+      SEP_ITEM,
+      {
+        caption: "Personalize",
+        action: () => {
+          openByKey("Appearance");
+        },
+        icon: "palette",
+      },
+    ],
+  },
 };

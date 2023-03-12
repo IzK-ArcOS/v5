@@ -1,6 +1,8 @@
 import type { ContextMenuItem } from "../applogic/interface";
 import { getWindow } from "../applogic/store";
 
+export const SEP_ITEM = { sep: true };
+
 const validCallerTags = [
   "button",
   "div",
@@ -42,6 +44,7 @@ export function getCallerScope(e: MouseEvent): HTMLDivElement {
   const p = e.composedPath() as HTMLDivElement[];
 
   for (let i = 0; i < p.length; i++) {
+    console.log(p[i]);
     const tag = p[i].tagName;
 
     if (!tag) continue;

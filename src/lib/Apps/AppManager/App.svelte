@@ -1,16 +1,27 @@
 <script lang="ts">
   import { get } from "svelte/store";
-  import { isDisabled } from "../../../ts/applogic/checks";
+  import { appManSelected } from "../../../ts/applogic/apps/AppManager/store";
+  import { isDisabled, isOpened } from "../../../ts/applogic/checks";
   import { openWindow } from "../../../ts/applogic/events";
   import { getAppIcon, getOriginalIcon } from "../../../ts/applogic/icon";
   import type { App } from "../../../ts/applogic/interface";
 
   export let app: App;
   export let error = false;
+
+  function select() {
+    $appManSelected = app.id;
+  }
 </script>
 
-{#if app && !isDisabled(app.id)}
-  <div class="appinstance" class:closed={!app.opened}>
+{#if app && !isDisabled(app.id) && isOpened(app.id)}
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <div
+    class="appinstance"
+    class:closed={!app.opened}
+    on:click={select}
+    class:selected={$appManSelected == app.id}
+  >
     <div>
       <img src={getOriginalIcon(app.id) || getAppIcon(app)} alt="" />
     </div>
@@ -27,10 +38,5 @@
         {app.id}
       {/if}
     </div>
-    <button
-      class="open"
-      disabled={app.opened}
-      on:click={() => openWindow(app.id)}>Open</button
-    >
   </div>
 {/if}

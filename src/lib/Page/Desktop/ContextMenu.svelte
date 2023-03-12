@@ -35,11 +35,6 @@
 
     e.preventDefault();
 
-    const mW = menuElement.offsetWidth;
-    const mH = menuElement.offsetHeight;
-
-    [x, y] = composePosition(e, mW, mH);
-
     const windowElement = getWindowElementByEvent(e);
 
     if (!windowElement) return;
@@ -48,11 +43,9 @@
 
     const el = getCallerScope(e);
 
-    const caller = el?.dataset.caller;
-
-    console.log(el.dataset);
-
     if (!el) return;
+
+    const caller = el?.dataset.caller;
 
     items = getContextEntry(windowElement.id, caller) || [];
 
@@ -62,9 +55,15 @@
     window = windowData;
     scopeMap = el.dataset;
 
+    show = true;
+
     setTimeout(() => {
-      show = true;
-    }, 100);
+      const mW = menuElement.offsetWidth;
+      const mH = menuElement.offsetHeight;
+
+      [x, y] = composePosition(e, mW, mH);
+      console.log(mW, mH, x, y);
+    });
   }
 </script>
 
@@ -74,9 +73,7 @@
   bind:this={menuElement}
   style="top: {y}px; left: {x}px; z-index: {$maxZIndex + 10}"
 >
-  {#if show}
-    {#each items as item}
-      <Item {window} {scope} {scopeMap} bind:show data={item} />
-    {/each}
-  {/if}
+  {#each items as item}
+    <Item {window} {scope} {scopeMap} bind:show data={item} />
+  {/each}
 </div>

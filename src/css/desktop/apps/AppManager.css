@@ -4,48 +4,129 @@
 }
 
 window#AppMan div.body {
-  padding: 15px;
-  padding-top: 10px;
+  padding: 0;
 }
 
-window#AppMan div.indent {
+window#AppMan div.body div.topbar {
+  width: 100%;
+  border-top: var(--win-border);
+  height: 50px;
+  display: flex;
+  padding: 10px;
+}
+
+window#AppMan div.body div.topbar div.actions {
+  margin-left: auto;
+  display: flex;
+}
+
+window#AppMan div.body div.topbar div.actions button {
+  height: 30px;
+  display: flex;
+  padding: 6px 10px;
+  margin: 0;
+  margin-left: 5px;
+  background-color: transparent;
+}
+
+window#AppMan div.body div.topbar div.actions button:hover {
+  background-color: var(--button-glass-bg);
+}
+
+window#AppMan div.body div.topbar div.actions button:active {
+  background-color: var(--button-glass-active-bg);
+}
+
+window#AppMan div.body div.topbar div.actions button p.caption {
+  line-height: 18px;
+  margin: 0;
+}
+
+window#AppMan div.body div.topbar div.actions button span.material-icons-round {
+  font-size: 18px;
+  margin-left: 0;
+}
+window#AppMan div.body div.topbar div.actions div.sep {
+  margin: 5px;
+  height: 20px;
+  width: 1px;
+  background-color: var(--button-glass-bg);
+}
+
+window#AppMan div.body div.topbar div.actions div.sep + button {
+  margin-left: 0;
+}
+
+window#AppMan div.body div.apps {
+  padding: 15px;
+  padding-top: 10px;
+  background-color: var(--win-bg);
+  height: calc(100% - 75px);
+  overflow-y: scroll;
+  border-top: var(--win-border);
+  padding-right: 7px;
+}
+
+window#AppMan div.apps div.indent {
   margin-left: var(--indent);
 }
 
-window#AppMan div.appinstance {
+window#AppMan div.apps div.appinstance {
   display: flex;
   margin: 5px 0;
+  border-radius: var(--button-border-rad);
+  padding: 5px;
+  max-height: calc(10px + var(--row-height));
 }
 
-window#AppMan div.appinstance div.id {
+window#AppMan div.apps div.appinstance div.id {
   margin-left: auto;
-  opacity: 0.7;
+  opacity: 0.5;
   font-family: "Source Code Pro", monospace;
   font-style: normal !important;
 }
 
-window#AppMan div.appinstance img {
+window#AppMan div.apps div.appinstance img {
   height: var(--row-height);
   margin-right: 5px;
 }
 
-window#AppMan div.appinstance > * {
+window#AppMan div.apps div.appinstance > * {
   vertical-align: middle;
   line-height: var(--row-height);
 }
 
-window#AppMan div.appinstance.closed {
-  opacity: 0.4;
-  font-style: italic;
+window#AppMan div.apps div.appinstance.closed {
+  display: none;
 }
 
-window#AppMan div.appinstance.closed img {
+window#AppMan div.apps div.appinstance.closed img {
   filter: grayscale(100%);
 }
 
-window#AppMan div.appinstance button.open {
+window#AppMan div.apps div.appinstance.selected {
+  background-color: var(--button-bg);
+}
+
+window#AppMan div.bottombar {
   height: 25px;
-  padding: 0 5px;
-  margin: 0;
-  vertical-align: middle;
+  border-top: var(--win-border);
+  line-height: 15px;
+  display: flex;
+}
+
+window#AppMan div.bottombar div.right {
+  display: flex;
+  margin-left: auto;
+  width: 75%;
+}
+
+window#AppMan div.bottombar div.section {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 24px;
+  padding: 5px 7.5px;
+  border-left: var(--button-bg) 1px solid;
 }

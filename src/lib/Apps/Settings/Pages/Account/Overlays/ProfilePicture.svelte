@@ -65,7 +65,7 @@
 
   div.wrapper button {
     margin-bottom: 5px;
-    padding: 0;
+    padding: 0 !important;
     overflow: hidden;
     width: 50px;
     height: 50px;

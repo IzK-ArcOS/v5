@@ -13,6 +13,7 @@
   class:visible={$UserData.sh.taskbar.pos != ""}
   class:right={$UserData.sh.taskbar.pos == "vertical-right" &&
     !$isFullscreenWindow}
+  data-caller="shell-taskbar"
 >
   <slot />
   <TaskbarContent />
