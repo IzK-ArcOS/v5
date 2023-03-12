@@ -18,7 +18,10 @@
 
   async function openThread() {
     threadLoading = true;
-    const id = (await getParentMessage(message.id)).id;
+    const id =
+      message.replies && !message.replyingTo
+        ? message.id
+        : (await getParentMessage(message.id)).id;
 
     threadMessageId.set(id);
 
@@ -39,7 +42,7 @@
 <div class="markdownrenderer">
   <SvelteMarkdown source={message.body} />
 </div>
-{#if message.replyingTo}
+{#if message.replyingTo || message.replies}
   <div class="reply-wrapper">
     <p class="caption">Message is part of a thread.</p>
     <div class="right">
