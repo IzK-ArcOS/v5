@@ -1,19 +1,22 @@
+window#LoggerApp div.body {
+  display: flex;
+  padding: 0;
+}
+
 window#LoggerApp div.sidebar {
-  position: absolute;
-  top: 0px;
-  left: 0px;
   width: 300px;
+  max-width: 300px;
   height: 100%;
   border-right: var(--win-border);
   box-sizing: border-box;
-  padding: 35px 5px;
+  padding: 5px;
   overflow-y: scroll;
-  padding-bottom: 10px;
   background-color: transparent;
 }
 
 window#LoggerApp div.titlebar {
-  background-color: var(--win-bg);
+  /* 
+  background-color: var(--win-bg); */
   border-bottom: var(--win-border);
   opacity: 1 !important;
 }
@@ -45,6 +48,10 @@ window#LoggerApp div.sidebar button {
   margin-bottom: 5px;
 }
 
+window#LoggerApp div.sidebar button:hover {
+  background-color: var(--button-glass-bg);
+}
+
 window#LoggerApp div.sidebar button.active {
   background-color: var(--button-glass-bg);
 }
@@ -58,18 +65,15 @@ window#LoggerApp div.sidebar button div:not(.items) {
 
 window#LoggerApp div.sidebar button div.items {
   margin-left: auto;
+  opacity: 0.5;
 }
 
 window#LoggerApp div.content {
-  position: absolute;
-  top: 0px;
-  left: 300px;
   height: 100%;
-  width: calc(100% - 300px);
+  flex-grow: 1;
   box-sizing: border-box;
-  padding: 30px 0;
+  padding: 0;
   overflow-y: hidden;
-  background-color: var(--win-bg);
 }
 
 window#LoggerApp div.content div.items {
@@ -77,6 +81,7 @@ window#LoggerApp div.content div.items {
   padding: 5px;
   height: calc(100% - 40px);
   overflow-y: scroll;
+  background-color: var(--win-bg);
 }
 
 window#LoggerApp div.content div.items.monospace div.logitem div.msg {
@@ -100,24 +105,30 @@ window#LoggerApp div.content div.items div.noitems img {
 }
 
 window#LoggerApp div.content div.actions {
-  height: 60px;
+  height: 50px;
   border-bottom: var(--win-border);
   box-sizing: border-box;
-  padding: 0 10px;
+  padding: 10px;
   display: flex;
 }
 
+window#LoggerApp div.content div.actions button.action + button {
+  margin-left: 10px;
+}
+
 window#LoggerApp div.content div.actions button.action {
-  height: 50px;
-  margin: 5px;
+  height: 30px;
+  margin: 0;
   font-size: 13px;
-  padding: 0 5px;
+  padding: 6px 5px;
   background-color: transparent;
   vertical-align: middle;
+  display: flex;
+  line-height: 18px;
 }
 
 window#LoggerApp div.content div.actions button.action:hover {
-  background-color: var(--win-bg);
+  background-color: var(--button-glass-bg);
 }
 
 window#LoggerApp div.content div.actions button.action:disabled img {
@@ -127,10 +138,15 @@ window#LoggerApp div.content div.actions button.action:disabled img {
 window#LoggerApp div.content div.actions div.sep {
   display: inline-block;
   width: 1px;
-  height: 40px;
-  margin: 10px 5px;
+  height: 20px;
+  margin: 5px;
   vertical-align: middle;
-  border: var(--button-bg) 1px solid;
+  border: var(--button-glass-bg) 1px solid;
+}
+
+window#LoggerApp div.content div.actions button.action img,
+window#LoggerApp div.content div.actions div.static {
+  display: flex;
 }
 
 window#LoggerApp div.content div.actions button.action img,
@@ -141,8 +157,8 @@ window#LoggerApp
   span.material-icons-round {
   display: block;
   margin: 0 auto;
-  margin-bottom: 5px;
-  height: 16px;
+  height: 18px;
+  margin-right: 10px;
 }
 
 window#LoggerApp div.content div.actions div.filters {
@@ -150,9 +166,9 @@ window#LoggerApp div.content div.actions div.filters {
   display: block;
   overflow: hidden;
   border-radius: 5px;
-  background-color: var(--button-bg);
-  height: 35px;
-  margin: 12.5px auto;
+  background-color: var(--button-glass-bg);
+  height: 30px;
+  margin: auto;
   margin-right: 0;
 }
 
@@ -160,8 +176,9 @@ window#LoggerApp div.content div.actions div.filters button.filter {
   margin: 0;
   padding: 0;
   background-color: transparent;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
+  border-radius: 0;
 }
 
 window#LoggerApp
@@ -170,11 +187,11 @@ window#LoggerApp
   div.filters
   button.filter
   span.material-icons-round {
-  font-size: 21px;
+  font-size: 18px;
 }
 
 window#LoggerApp div.content div.actions div.filters button.filter.selected {
-  background-color: var(--button-hover-bg);
+  background-color: var(--button-glass-bg);
 }
 
 window#LoggerApp div.content div.logitem {
