@@ -71,5 +71,6 @@
     <ErrorDialogStore />
     <ContextMenu />
     <ArcFind />
+    <PushNotification />
   </div>
 {/if}

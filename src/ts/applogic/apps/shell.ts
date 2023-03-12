@@ -28,6 +28,6 @@ export const ArcShell: App = {
   disabledWarning: {
     title: "Limited functionality",
     message:
-      "The ArcOS Shell is disabled, rendering the taskbar, start menu and action center unusable.<br><br>You can still access ArcFind using Alt+Shift+S or the Application Manager using Alt+Shift+Z.",
+      "The ArcOS Shell is disabled, rendering the taskbar, start menu and action center unusable.<br><br>You can still access ArcFind using <b>Alt+Shift+S</b> or the Application Manager using <b>Alt+Shift+Z</b>.",
   },
 };

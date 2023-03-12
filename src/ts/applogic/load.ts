@@ -60,11 +60,11 @@ export function loadWindow(id: string, app: App) {
   const disabledList = get(UserData).disabledApps;
 
   if (app.disabledWarning && disabledList.includes(id)) {
-    console.debug("Making notif for " + app.info.name);
     makeNotification({
       ...app.disabledWarning,
       buttons: [],
       image: app.info.icon,
+      timeout: 6000,
     });
   }
 

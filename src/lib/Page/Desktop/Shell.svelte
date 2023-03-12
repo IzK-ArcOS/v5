@@ -14,7 +14,6 @@
   }
 </script>
 
-<PushNotification />
 <StartMenu />
 <HorizontalTaskbar><StartButton /></HorizontalTaskbar>
 <VerticalTaskbar><StartButton /></VerticalTaskbar>
