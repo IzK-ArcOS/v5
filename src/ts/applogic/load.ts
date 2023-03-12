@@ -9,6 +9,7 @@ import { SystemApps } from "./imports";
 import type { App } from "./interface";
 import { registerAppShortcuts } from "./keyboard/main";
 import { updateStores, WindowStore } from "./store";
+import { makeNotification } from "../notiflogic/main";
 
 export function loadWindow(id: string, app: App) {
   if (isLoaded(id))
@@ -56,28 +57,15 @@ export function loadWindow(id: string, app: App) {
 
   registerAppShortcuts(id, app);
 
-  if (get(UserData).disabledApps.includes("AppPoker")) {
-    createTrayIcon({
-      image: poker,
-      onOpen() {
-        errorMessage(
-          "Can't poke apps",
-          "App Poker is disabled. You will not be able to poke application data as long as this application remains disabled. You can re-enable this app in Settings.",
-          poker,
-          "AppPoker",
-          { caption: "Close", action() {} }
-        );
-        disposeTrayIcon("apdisabled");
-      },
-      identifier: "apdisabled",
-    });
-  }
+  const disabledList = get(UserData).disabledApps;
 
-  if (get(UserData).disabledApps.includes("ArcShell")) {
-    errorMessage(
-      "Limited functionality",
-      "The ArcOS Shell is disabled, rendering the taskbar, start menu and action center unusable.<br><br>You can still access ArcFind using Alt+Shift+S or the Application Manager using Alt+Shift+Z."
-    );
+  if (app.disabledWarning && disabledList.includes(id)) {
+    console.debug("Making notif for " + app.info.name);
+    makeNotification({
+      ...app.disabledWarning,
+      buttons: [],
+      image: app.info.icon,
+    });
   }
 
   Log({

@@ -53,6 +53,7 @@
   class="notification"
   class:hidden={!data || hide}
   class:colored={$UserData.sh.taskbar.colored}
+  class:nobutt={data && !data.buttons.length}
   style="z-index: {$maxZIndex + 4}"
 >
   {#if data}

@@ -23,6 +23,7 @@ export interface App {
   fileMimes?: string[];
   openedFile?: ArcFile;
   contextMenu?: AppContextMenu;
+  disabledWarning?: { title: string; message: string };
 }
 
 export interface ArcFile {

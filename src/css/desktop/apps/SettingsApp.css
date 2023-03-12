@@ -33,7 +33,7 @@ window#SettingsApp div.content {
   right: 0px;
   margin-left: 0px;
   transition: all 0.3s, margin-left 0s;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 window#SettingsApp div.content.collapsed {
@@ -50,6 +50,10 @@ window#SettingsApp div.content button.action {
 
 window#SettingsApp div.content button.martop {
   margin-top: 15px;
+}
+
+window#SettingsApp div.content div.inner > h1 {
+  margin-top: 0;
 }
 
 window#SettingsApp div.content.static {

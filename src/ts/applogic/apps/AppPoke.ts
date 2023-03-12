@@ -30,4 +30,9 @@ export const AppPoker: App = {
       AppPokerData.set(null);
     },
   },
+  disabledWarning: {
+    title: "Can't poke apps",
+    message:
+      "App Poker is disabled. You will not be able to poke application data as long as this application remains disabled. You can re-enable this app in Settings.",
+  },
 };

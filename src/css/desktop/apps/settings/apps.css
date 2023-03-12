@@ -1,6 +1,6 @@
 window#SettingsApp div.apps {
-  margin-top: 10px;
-  height: calc(100% - 45px) !important;
+  margin-top: 15px;
+  height: calc(100% - 50px) !important;
   overflow-y: auto;
   overflow-x: hidden;
   display: grid;

@@ -11,16 +11,19 @@ div.notification {
   border-radius: var(--win-border-rad);
   border: var(--win-border);
   transition: margin-top 0.3s, opacity 0.3s, visibility 0.3s;
-  min-width: 350px;
-  min-height: 130px;
+  min-width: 300px;
+  min-height: 100px;
   max-width: 450px;
   max-height: 200px;
   box-sizing: border-box;
   padding: 15px;
-  padding-bottom: 65px;
-  padding-right: 20px;
   backdrop-filter: blur(var(--glass-blur));
 }
+
+div.notification:not(.nobutt) {
+  padding-bottom: 65px;
+}
+
 div.notification::after {
   content: " ";
 
@@ -96,6 +99,7 @@ div.notification p.title {
   font-weight: bold;
   margin-bottom: 10px;
   display: flex;
+  line-height: 24px;
 }
 
 div.notification p.title span.material-icons-round {
@@ -105,7 +109,7 @@ div.notification p.title span.material-icons-round {
 div.notification p.title img {
   height: 24px;
   vertical-align: middle;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 
 div.notification div.buttons {

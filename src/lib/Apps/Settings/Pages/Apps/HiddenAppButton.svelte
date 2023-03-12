@@ -1,6 +1,6 @@
 <script lang="ts">
   import { AppInfoId } from "../../../../../ts/applogic/apps/AppInfo";
-  import { openWindow } from "../../../../../ts/applogic/events";
+  import { closeWindow, openWindow } from "../../../../../ts/applogic/events";
   import { getAppIcon } from "../../../../../ts/applogic/icon";
   import type { App } from "../../../../../ts/applogic/interface";
   import { ArcOSVersion } from "../../../../../ts/env/main";
@@ -8,8 +8,11 @@
   export let app: App;
 
   function manage() {
-    AppInfoId.set(app.id);
-    openWindow("AppInfo");
+    closeWindow("AppInfo");
+    setTimeout(() => {
+      AppInfoId.set(app.id);
+      openWindow("AppInfo");
+    }, 300);
   }
 </script>
 
@@ -23,6 +26,6 @@
         {app.id}
       {/if}
     </p>
-    <p class="description">{app.info.name}</p>
+    <p class="description">{app.info.name} (hidden)</p>
   </div>
 </button>
