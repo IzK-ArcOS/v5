@@ -92,25 +92,34 @@ function snapLeft() {
   if (!window) return;
   if (!bounds) return;
 
+  let x = 0,
+    y = 0,
+    w = 0,
+    h = 0;
+
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
     if (ws[i].id == snapId) {
-      ws[i].pos.x = bounds.lZone.xStart;
-      ws[i].pos.y = bounds.lZone.yStart;
-      ws[i].size.w = bounds.lZone.xEnd;
-      ws[i].size.h = bounds.lZone.yEnd;
+      ws[i].pos.x = x = bounds.lZone.xStart;
+      ws[i].pos.y = y = bounds.lZone.yStart;
+      ws[i].size.w = w = bounds.lZone.xEnd;
+      ws[i].size.h = h = bounds.lZone.yEnd;
       ws[i].snapped = true;
+
+      console.log(ws[i].pos, ws[i].size);
     }
   }
 
   WindowStore.set(ws);
 
   setTimeout(() => {
-    window.style.left = bounds.lZone.xStart + "px";
-    window.style.top = bounds.lZone.yStart + "px";
+    window.style.left = x + "px";
+    window.style.top = y + "px";
+    window.style.width = w + "px";
+    window.style.height = h + "px";
     openWindow(snapId);
-  });
+  }, 5);
 }
 
 function snapRight() {
@@ -121,23 +130,32 @@ function snapRight() {
   if (!window) return;
   if (!bounds) return;
 
+  let x = 0,
+    y = 0,
+    w = 0,
+    h = 0;
+
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
     if (ws[i].id == snapId) {
-      ws[i].pos.x = bounds.rZone.xStart;
-      ws[i].pos.y = bounds.rZone.yStart;
-      ws[i].size.w = bounds.rZone.xEnd - bounds.rZone.xStart;
-      ws[i].size.h = bounds.rZone.yEnd - bounds.rZone.yStart;
+      ws[i].pos.x = x = bounds.rZone.xStart;
+      ws[i].pos.y = y = bounds.rZone.yStart;
+      ws[i].size.w = w = bounds.rZone.xEnd - bounds.rZone.xStart;
+      ws[i].size.h = h = bounds.rZone.yEnd - bounds.rZone.yStart;
       ws[i].snapped = true;
+
+      console.log(ws[i].pos, ws[i].size);
     }
   }
 
   WindowStore.set(ws);
 
   setTimeout(() => {
-    window.style.left = bounds.rZone.xStart + "px";
-    window.style.top = bounds.rZone.yStart + "px";
+    window.style.left = x + "px";
+    window.style.top = y + "px";
+    window.style.width = w + "px";
+    window.style.height = h + "px";
     openWindow(snapId);
-  });
+  }, 5);
 }
