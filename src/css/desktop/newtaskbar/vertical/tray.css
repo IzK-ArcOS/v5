@@ -71,4 +71,5 @@ div.taskbar-v div.tray button.ac-open:active {
 div.taskbar-v div.tray button.ac-open.opened {
   background-color: var(--startmenu-applist-item-bg-active);
   color: var(--accent);
+  filter: var(--elevated-accent-filter);
 }

@@ -62,6 +62,7 @@ div.taskbar-h div.tray button.ac-open {
   font-size: 18px;
   width: 43px;
   height: 43px;
+  filter: var(--elevated-accent-filter);
 }
 
 div.taskbar-h div.tray button.ac-open:hover {

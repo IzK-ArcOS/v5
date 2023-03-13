@@ -1,6 +1,9 @@
+import { get } from "svelte/store";
 import { Log, LogLevel } from "../console";
 import type { App } from "./interface";
-import { focusedWindowId } from "./store";
+import { checkZones, snapWindow } from "./snapzones/main";
+import { leftZoneTriggered } from "./snapzones/store";
+import { focusedWindowId, WindowStore } from "./store";
 
 export function dragWindow(
   app: App,
@@ -15,6 +18,9 @@ export function dragWindow(
     });
 
   window.addEventListener("mousedown", (e: MouseEvent) => {
+    let x, y;
+    if (app.info.custom) return;
+
     focusedWindowId.set(app.id);
 
     if (e.composedPath().includes(titlebar)) {
@@ -23,6 +29,10 @@ export function dragWindow(
       e.preventDefault();
 
       document.onmousemove = (e: MouseEvent) => {
+        app.snapped = false;
+
+        WindowStore.set(get(WindowStore));
+
         xA = xB - e.clientX;
         yA = yB - e.clientY;
 
@@ -39,9 +49,17 @@ export function dragWindow(
 
         app.pos.x = left;
         app.pos.y = top;
+
+        checkZones(xB, yB, app.id);
+
+        [x, y] = [xB, yB];
       };
 
       document.onmouseup = () => {
+        checkZones(x, y, app.id);
+        snapWindow(app.id);
+        leftZoneTriggered.set(false);
+        rightZoneTriggered.set(false);
         document.onmouseup = null;
         document.onmousemove = null;
       };

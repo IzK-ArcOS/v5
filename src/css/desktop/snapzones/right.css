@@ -1,0 +1,28 @@
+div.snapzones div.rightzone {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 50%;
+  height: 100%;
+}
+
+div.snapzones div.rightzone div.trigger {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: var(--ts);
+  height: 100%;
+  background-color: transparent;
+}
+
+div.snapzones div.rightzone div.visualizer {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+div.snapzones div.rightzone div.visualizer.triggered {
+  background-color: var(--button-glass-hover-bg);
+}

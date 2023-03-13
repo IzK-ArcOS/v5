@@ -24,6 +24,7 @@
     id="a"
     class="switch"
     bind:checked={$UserData.sh.taskbar.labels}
+    disabled={!!$UserData.sh.taskbar.pos}
   />
 </OptionSection>
 <OptionSection

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { UserData } from "../../../ts/userlogic/interfaces";
   import { getWallpaper } from "../../../ts/userlogic/wallpapers";
+  import SnapZones from "./Wallpaper/SnapZones.svelte";
 </script>
 
 <div
@@ -8,3 +9,4 @@
   style="background-image: url({getWallpaper($UserData.sh.desktop.wallpaper)});"
   data-caller="shell-wallpaper"
 />
+<SnapZones />

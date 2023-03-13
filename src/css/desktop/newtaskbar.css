@@ -22,6 +22,10 @@ div.newtb button {
   vertical-align: middle;
 }
 
+div.newtb button * {
+  vertical-align: middle;
+}
+
 div.newtb button.start {
   height: 100%;
   border-radius: var(--win-border-rad);

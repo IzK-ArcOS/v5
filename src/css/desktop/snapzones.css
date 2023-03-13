@@ -1,0 +1,35 @@
+@import url("./snapzones/left.css");
+@import url("./snapzones/right.css");
+:root div.desktop div.snapzones {
+  --gap: 65px;
+  --f: calc(100% - var(--gap));
+  --w: 100%;
+  --h: var(--f);
+  --x: 0px;
+  --y: 0px;
+  --ts: 50px;
+}
+
+div.desktop div.snapzones {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: var(--w);
+  height: var(--h);
+}
+
+div.desktop.tb-vertical div.snapzones {
+  --x: var(--gap);
+  --w: var(--f);
+  --h: 100%;
+}
+
+div.desktop.tb-vertical-right div.snapzones {
+  --x: 0px;
+  --w: var(--f);
+  --h: 100%;
+}
+
+div.desktop div.snapzones.docked {
+  --gap: 45px;
+}

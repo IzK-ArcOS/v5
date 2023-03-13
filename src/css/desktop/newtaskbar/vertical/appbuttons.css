@@ -4,6 +4,12 @@ div.taskbar-v div.buttons {
   transition: all 0.3s;
 }
 
+div.taskbar-v.centered div.buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 div.taskbar-v div.buttons button {
   width: 43px;
   height: 43px;

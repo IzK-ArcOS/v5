@@ -74,6 +74,7 @@
   class:lefttb={$UserData.sh.window.lefttb}
   class:custom={app.info.custom}
   class:child={!!app.parentId}
+  class:snapped={app.snapped}
   style={cssString}
   id={app.id}
   bind:this={window}

@@ -24,6 +24,7 @@ export interface App {
   openedFile?: ArcFile;
   contextMenu?: AppContextMenu;
   disabledWarning?: { title: string; message: string };
+  snapped?: boolean;
 }
 
 export interface ArcFile {

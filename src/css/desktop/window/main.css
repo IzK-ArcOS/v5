@@ -16,6 +16,14 @@
   margin-top: 50px;
 }
 
+window.window.snapped {
+  min-width: unset !important;
+  min-height: unset !important;
+  max-width: unset !important;
+  max-height: unset !important;
+  border-radius: 0 !important;
+}
+
 .window * {
   pointer-events: none;
 }
