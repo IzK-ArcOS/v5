@@ -62,7 +62,6 @@
       const mH = menuElement.offsetHeight;
 
       [x, y] = composePosition(e, mW, mH);
-      console.log(mW, mH, x, y);
     });
   }
 </script>

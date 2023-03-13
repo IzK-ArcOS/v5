@@ -11,8 +11,8 @@ export function checkZones(x: number, y: number, windowId: string) {
 
   const canFit = app.state.resizable || app.controls.max;
 
-  if (!app) return console.log("Unable to get window");
-  if (!bounds) return console.log("Unable to get bounds");
+  if (!app) return;
+  if (!bounds) return;
 
   const l = bounds.lTrig;
   const r = bounds.rTrig;
@@ -60,8 +60,6 @@ export function getBounds(): SnapTriggerBounds | false {
     },
   };
 
-  console.log(data);
-
   return data;
 }
 
@@ -77,7 +75,6 @@ export function getZoneElements() {
 }
 
 export function snapWindow(id: string) {
-  console.log(`Snapping ${id}`);
   const leftTriggered = get(leftZoneTriggered);
   const rightTriggered = get(rightZoneTriggered);
 
@@ -92,8 +89,8 @@ function snapLeft() {
   const snapId = get(draggingId);
   const window = getWindowElement(getWindow(snapId));
 
-  if (!window) return console.log("Could not get window");
-  if (!bounds) return console.log("Could not get bounds");
+  if (!window) return;
+  if (!bounds) return;
 
   const ws = get(WindowStore);
 
@@ -121,8 +118,8 @@ function snapRight() {
   const snapId = get(draggingId);
   const window = getWindowElement(getWindow(snapId));
 
-  if (!window) return console.log("Could not get window");
-  if (!bounds) return console.log("Could not get bounds");
+  if (!window) return;
+  if (!bounds) return;
 
   const ws = get(WindowStore);
 
@@ -133,8 +130,6 @@ function snapRight() {
       ws[i].size.w = bounds.rZone.xEnd - bounds.rZone.xStart;
       ws[i].size.h = bounds.rZone.yEnd - bounds.rZone.yStart;
       ws[i].snapped = true;
-
-      console.log(ws[i]);
     }
   }
 
@@ -144,5 +139,5 @@ function snapRight() {
     window.style.left = bounds.rZone.xStart + "px";
     window.style.top = bounds.rZone.yStart + "px";
     openWindow(snapId);
-  }, 300);
+  });
 }

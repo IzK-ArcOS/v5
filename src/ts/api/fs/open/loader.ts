@@ -36,8 +36,6 @@ export const FileLoaders: { [key: string]: UserFileLoader } = {
     loader: (file) => {
       const str = String.fromCharCode.apply(null, new Uint8Array(file.data));
 
-      console.log(str);
-
       let json;
 
       try {

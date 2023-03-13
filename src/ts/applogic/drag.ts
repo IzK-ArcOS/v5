@@ -2,7 +2,7 @@ import { get } from "svelte/store";
 import { Log, LogLevel } from "../console";
 import type { App } from "./interface";
 import { checkZones, snapWindow } from "./snapzones/main";
-import { leftZoneTriggered } from "./snapzones/store";
+import { leftZoneTriggered, rightZoneTriggered } from "./snapzones/store";
 import { focusedWindowId, WindowStore } from "./store";
 
 export function dragWindow(

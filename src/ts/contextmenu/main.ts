@@ -44,7 +44,6 @@ export function getCallerScope(e: MouseEvent): HTMLDivElement {
   const p = e.composedPath() as HTMLDivElement[];
 
   for (let i = 0; i < p.length; i++) {
-    console.log(p[i]);
     const tag = p[i].tagName;
 
     if (!tag) continue;
