@@ -10,6 +10,6 @@
 </script>
 
 <button class="action" disabled={!$appManSelected} on:click={terminate}>
-  <span class="material-icons-round">block</span>
+  <span class="material-icons-round">close</span>
   <p class="caption">Close</p>
 </button>

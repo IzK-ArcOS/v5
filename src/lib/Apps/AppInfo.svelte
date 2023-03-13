@@ -13,6 +13,7 @@
   let data: App;
   let isEnabled = true;
   let disablePoke = false;
+  let d = "Auto";
 
   function updateState() {
     if (isEnabled) enableApp($id);
@@ -70,21 +71,21 @@
   <div class="properties">
     <div class="property">
       <div>Size:</div>
-      <div class="value">{data.size.w}x{data.size.h}</div>
+      <div class="value">{data.size.w || d}x{data.size.h || d}</div>
     </div>
     <div class="property">
       <div>Minimal size:</div>
-      <div class="value">{data.minSize.w}x{data.minSize.h}</div>
+      <div class="value">{data.minSize.w || d}x{data.minSize.h || d}</div>
     </div>
 
     <div class="property">
       <div>Maximal size:</div>
-      <div class="value">{data.maxSize.w}x{data.maxSize.h}</div>
+      <div class="value">{data.maxSize.w || d}x{data.maxSize.h || d}</div>
     </div>
     <hr />
     <div class="property">
       <div>Start position:</div>
-      <div class="value">{data.pos.x}x{data.pos.y}</div>
+      <div class="value">{data.pos.x || d}x{data.pos.y || d}</div>
     </div>
     <div class="property">
       <div>Window controls:</div>

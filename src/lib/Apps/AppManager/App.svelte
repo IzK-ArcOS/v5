@@ -14,7 +14,7 @@
   }
 </script>
 
-{#if app && !isDisabled(app.id) && isOpened(app.id)}
+{#if app && ((!isDisabled(app.id) && isOpened(app.id)) || error)}
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     class="appinstance"

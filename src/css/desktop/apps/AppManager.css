@@ -75,8 +75,14 @@ window#AppMan div.apps div.appinstance {
   display: flex;
   margin: 5px 0;
   border-radius: var(--button-border-rad);
-  padding: 5px;
+  padding: 5px 10px;
+  padding-left: 5px;
   max-height: calc(10px + var(--row-height));
+  transition: none !important;
+}
+
+window#AppMan div.apps div.appinstance:hover {
+  background-color: var(--button-hover-bg);
 }
 
 window#AppMan div.apps div.appinstance div.id {

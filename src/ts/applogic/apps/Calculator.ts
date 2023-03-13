@@ -12,10 +12,10 @@ export const CalculatorApp: App = {
     author: "Izaak Kuipers",
     icon: logo,
   },
-  size: { w: 340, h: 413 },
+  size: { w: 340, h: NaN },
   pos: { x: 60, y: 60 },
-  minSize: { w: 340, h: 413 },
-  maxSize: { w: 340, h: 413 },
+  minSize: { w: 340, h: NaN },
+  maxSize: { w: 340, h: NaN },
   controls: { min: true, max: false, cls: true },
   state: {
     headless: false,
