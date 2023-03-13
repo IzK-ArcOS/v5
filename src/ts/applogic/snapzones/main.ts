@@ -71,6 +71,8 @@ export function getZoneElements() {
 
   if (!lTrig || !rTrig || !lZone || !rZone) return [null, null, null, null];
 
+  console.log(rZone, rTrig);
+
   return [lTrig, rTrig, lZone, rZone] as HTMLDivElement[];
 }
 
@@ -106,8 +108,6 @@ function snapLeft() {
       ws[i].size.w = w = bounds.lZone.xEnd;
       ws[i].size.h = h = bounds.lZone.yEnd;
       ws[i].snapped = true;
-
-      console.log(ws[i].pos, ws[i].size);
     }
   }
 
@@ -145,7 +145,7 @@ function snapRight() {
       ws[i].size.h = h = bounds.rZone.yEnd - bounds.rZone.yStart;
       ws[i].snapped = true;
 
-      console.log(ws[i].pos, ws[i].size);
+      console.log(bounds.rZone);
     }
   }
 

@@ -18,6 +18,11 @@ div.desktop div.snapzones {
   height: var(--h);
 }
 
+div.desktop div.snapzones,
+div.desktop div.snapzones * {
+  pointer-events: none !important;
+}
+
 div.desktop.tb-vertical div.snapzones {
   --x: var(--gap);
   --w: var(--f);

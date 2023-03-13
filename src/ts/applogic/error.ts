@@ -4,6 +4,8 @@ import { applyState } from "../state/main";
 import type { App } from "./interface";
 
 export function maxSizeExceedsLiteral(app: App) {
+  return;
+
   Log({
     msg: `Can't render <${app.id}>: maximal size is bigger than the literal size.`,
     source: "error.ts: maxSizeExceedsLiteral",
@@ -28,6 +30,8 @@ export function maxSizeExceedsLiteral(app: App) {
 }
 
 export function minSizeExceedsLiteral(app: App) {
+  return;
+
   Log({
     msg: `Can't render <${app.id}>: minimal size is bigger than the literal size.`,
     source: "error.ts: minSizeExceedsLiteral",

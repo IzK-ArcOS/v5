@@ -16,6 +16,11 @@
   margin-top: 50px;
 }
 
+window.window.snapping {
+  transform: scale(75%) translateY(-25%);
+  opacity: 0.9;
+}
+
 window.window.snapped {
   min-width: unset !important;
   min-height: unset !important;

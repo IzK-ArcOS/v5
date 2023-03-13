@@ -7,6 +7,11 @@
     minSizeExceedsLiteral,
   } from "../../../../ts/applogic/error";
   import type { App } from "../../../../ts/applogic/interface";
+  import {
+    draggingId,
+    leftZoneTriggered,
+    rightZoneTriggered,
+  } from "../../../../ts/applogic/snapzones/store";
   import { focusedWindowId, WindowStore } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import OverlayableErrorWindow from "./OverlayableErrorWindow.svelte";
@@ -75,6 +80,8 @@
   class:custom={app.info.custom}
   class:child={!!app.parentId}
   class:snapped={app.snapped}
+  class:snapping={app.id == $draggingId &&
+    ($leftZoneTriggered || $rightZoneTriggered)}
   style={cssString}
   id={app.id}
   bind:this={window}
