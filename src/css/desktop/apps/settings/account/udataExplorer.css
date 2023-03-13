@@ -3,6 +3,15 @@
   --indent: 20px;
 }
 
+window#SettingsApp window.overlay#udataExplorer {
+  min-width: 85% !important;
+  max-width: 85% !important;
+  width: 85% !important;
+  min-height: 85% !important;
+  max-height: 85% !important;
+  height: 85% !important;
+}
+
 window#SettingsApp window.overlay#udataExplorer div.body {
   padding: 15px;
   overflow: scroll;

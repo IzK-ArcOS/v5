@@ -24,5 +24,5 @@ div.snapzones div.leftzone div.visualizer {
 }
 
 div.snapzones div.leftzone div.visualizer.triggered {
-  background-color: var(--button-glass-hover-bg);
+  background-color: var(--darkened-overlay-alt);
 }

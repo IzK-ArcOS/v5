@@ -153,6 +153,8 @@ export function closeWindow(id: string) {
     }
   }
 
+  window.snapped = false;
+
   WindowStore.set(ws);
 
   if (window.events && window.events.close) window.events.close(window);
