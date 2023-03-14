@@ -83,7 +83,7 @@
   }
 
   function openChild() {
-    openChildWindow(app, "UIT");
+    openChildWindow(app.id, "UIT");
   }
 </script>
 

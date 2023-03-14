@@ -81,11 +81,11 @@ export function openWindow(id: string, openChild = false) {
   return true;
 }
 
-export function openChildWindow(parent: App, childId: string) {
+export function openChildWindow(parentId: string, childId: string) {
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
-    if (ws[i].parentId == parent.id && ws[i].id == childId) {
+    if (ws[i].parentId == parentId && ws[i].id == childId) {
       openWindow(childId);
 
       return true;

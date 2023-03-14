@@ -2,7 +2,9 @@ import { writable } from "svelte/store";
 import logo from "../../../assets/apps/donut.png";
 import Donut from "../../../lib/Apps/Donut.svelte";
 import { ArcOSVersion } from "../../../ts/env/main";
+import { openChildWindow, openWindow } from "../events";
 import type { App } from "../interface";
+import { DonutDebugInfo } from "./Donut/debugInfo";
 
 export const DonutApp: App = {
   info: {
@@ -41,6 +43,20 @@ export const DonutApp: App = {
     focus() {
       donutSpinning.set(true);
     },
+  },
+  contextMenu: {
+    "donut-target": [
+      {
+        caption: "View debug information",
+        icon: "bug_report",
+        action() {
+          openChildWindow("DonutApp", "debugInfo");
+        },
+      },
+    ],
+  },
+  children: {
+    debugInfo: DonutDebugInfo,
   },
 };
 

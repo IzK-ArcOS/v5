@@ -10,7 +10,9 @@
   }, 1000 / fps);
 </script>
 
-<pre>{value}</pre>
+<div data-caller="donut-target">
+  <pre>{value}</pre>
+</div>
 
 <style scoped>
   pre {

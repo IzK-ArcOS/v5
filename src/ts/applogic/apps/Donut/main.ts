@@ -1,3 +1,5 @@
+import { writable } from "svelte/store";
+
 let A: number = 1;
 let B: number = 1;
 
@@ -38,8 +40,50 @@ export function tick() {
         z[o] = D;
         b[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
       }
+
+      const debug = {
+        o,
+        A,
+        B,
+        N,
+        st,
+        sA,
+        sp,
+        ct,
+        cA,
+        cB,
+        cp,
+        sB,
+        D,
+        t,
+        h,
+        i,
+        j,
+      };
+
+      donutDebugInformation.set(debug);
     }
   }
 
   return b.join("");
 }
+
+export const donutDebugInformation = writable<{
+  o: number;
+  A: number;
+  B: number;
+  N: number;
+  st: number;
+  sA: number;
+  sp: number;
+  ct: number;
+  cA: number;
+  cB: number;
+  cp: number;
+  sB: number;
+  D: number;
+  t: number;
+  h: number;
+  i: number;
+  j: number;
+}>();
