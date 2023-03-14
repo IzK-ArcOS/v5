@@ -59,6 +59,9 @@ export function tick() {
         h,
         i,
         j,
+        x,
+        y,
+        cycles: (A / 0.07 / 89.71428571428571).toFixed(2),
       };
 
       donutDebugInformation.set(debug);

@@ -2,9 +2,8 @@ import { writable } from "svelte/store";
 import logo from "../../../assets/apps/donut.png";
 import Donut from "../../../lib/Apps/Donut.svelte";
 import { ArcOSVersion } from "../../../ts/env/main";
-import { openChildWindow, openWindow } from "../events";
+import { openChildWindow } from "../events";
 import type { App } from "../interface";
-import { DonutDebugInfo } from "./Donut/debugInfo";
 
 export const DonutApp: App = {
   info: {
@@ -15,10 +14,10 @@ export const DonutApp: App = {
     author: "Andy Sloane (ArcOS port by IzK)",
     icon: logo,
   },
-  size: { w: 650, h: 460 },
+  size: { w: 850, h: NaN },
   pos: { x: 30, y: 40 },
-  minSize: { w: 650, h: 460 },
-  maxSize: { w: 650, h: 460 },
+  minSize: { w: 850, h: NaN },
+  maxSize: { w: 850, h: NaN },
   controls: { min: true, max: false, cls: true },
   state: {
     headless: false,
@@ -54,9 +53,6 @@ export const DonutApp: App = {
         },
       },
     ],
-  },
-  children: {
-    debugInfo: DonutDebugInfo,
   },
 };
 
