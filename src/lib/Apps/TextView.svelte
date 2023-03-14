@@ -1,21 +1,19 @@
 <script lang="ts">
-  import save from "../../assets/apps/textview/save.svg";
-  import md from "../../assets/apps/markdownviewer.svg";
+  import { onMount } from "svelte";
   import "../../css/desktop/apps/textview.css";
-  import { writeFile } from "../../ts/api/fs/file";
-  import { openWith } from "../../ts/api/fs/open";
-  import { formatBytes } from "../../ts/api/fs/sizes";
-  import { TextEditorContent } from "../../ts/applogic/apps/TextEditor/main";
-  import { closeWindow, openWindow } from "../../ts/applogic/events";
+  import {
+    doLoadError,
+    saveTextEditorFile,
+    setShortcuts,
+    TextEditorContent,
+  } from "../../ts/applogic/apps/TextEditor/main";
   import type { App } from "../../ts/applogic/interface";
   import { WindowStore } from "../../ts/applogic/store";
-  import { showOpenFileDialog } from "../../ts/chooser/main";
-  import { createOverlayableError } from "../../ts/errorlogic/overlay";
   import { tryParse } from "../../ts/json";
-  import Spinner from "../Spinner.svelte";
-  import { onMount } from "svelte";
-  import { registerShortcuts } from "../../ts/applogic/keyboard/main";
-  import { testConnection } from "../../ts/api/test";
+  import Actions from "./TextView/Actions.svelte";
+  import Bottom from "./TextView/Bottom.svelte";
+  import Saving from "./TextView/Saving.svelte";
+  import TextArea from "./TextView/TextArea.svelte";
 
   export let app: App;
 
@@ -26,33 +24,7 @@
   let currentFile = "";
 
   onMount(() => {
-    registerShortcuts(
-      [
-        {
-          key: "o",
-          alt: true,
-          action: () => {
-            showOpenFileDialog(app.id);
-          },
-        },
-        {
-          key: "m",
-          alt: true,
-          action: () => {
-            if (!app.openedFile || !app.openedFile.name.endsWith(".md")) return;
-
-            openWindow("MarkDownViewer");
-          },
-        },
-      ],
-      "TextEditor"
-    );
-
-    app.events.close = () => {
-      if ($TextEditorContent) {
-        closeWindow("MarkDownViewer");
-      }
-    };
+    setShortcuts(app);
   });
 
   WindowStore.subscribe(() => {
@@ -66,7 +38,8 @@
 
     fileContents = text;
     currentFile = app.openedFile.path;
-    onchange();
+
+    TextEditorContent.set(fileContents);
 
     const json = tryParse(fileContents);
 
@@ -75,94 +48,31 @@
     if (json.error && json.valid == false) {
       errored = true;
 
-      return createOverlayableError(
-        {
-          title: json.error.title,
-          message: json.error.message,
-          buttons: [
-            { caption: "Close", action: () => closeWindow("TextEditor") },
-          ],
-        },
-        "TextEditor"
-      );
+      doLoadError(json.error.title, json.error.message);
     }
   });
 
   async function saveFile() {
     saving = true;
-    const path = app.openedFile.path;
-    const data = new Blob([fileContents]);
 
-    await writeFile(path, data);
-
-    const file = { ...app.openedFile, data: await data.arrayBuffer() };
-
-    setTimeout(() => {
-      openWith(app.id, file);
-    });
+    saveTextEditorFile(fileContents, app.openedFile);
 
     saving = false;
   }
 
   async function onchange() {
-    /* if ($TextEditorContent != fileContents) TextEditorContent.set(fileContents); */
+    if ($TextEditorContent != fileContents) TextEditorContent.set(fileContents);
   }
 </script>
 
-<div class="actions">
-  <button
-    class="material-icons-round open"
-    on:click={() => showOpenFileDialog(app.id)}>folder_open</button
-  >
-  <button
-    class="material-icons-round save"
-    on:click={saveFile}
-    disabled={!app.openedFile}>save</button
-  >
-  <div class="right">
-    <button
-      title="Open Markdown Viewer"
-      on:click={() => openWindow("MarkDownViewer")}
-      disabled={!app.openedFile || !app.openedFile.name.endsWith(".md")}
-      class="markdown-open"
-    >
-      <img src={md} alt="Markdown Viewer" />
-    </button>
-  </div>
-</div>
+<Actions {app} {saveFile} />
 
 <div class="content" class:nofile={!app.openedFile}>
   {#if app.openedFile && !errored}
-    <textarea
-      bind:value={fileContents}
-      spellcheck={false}
-      on:change={onchange}
-      on:input={onchange}
-      on:keydown={onchange}
-    />
+    <TextArea bind:fileContents {onchange} />
 
-    <div class="bottom">
-      <div class="right">
-        <div class="section">
-          Size: {formatBytes(fileContents.length)}
-        </div>
-        <div class="section">
-          {app.openedFile.name}
-        </div>
-        <div class="section">
-          {app.openedFile.mime.split(";")[0]}
-        </div>
-      </div>
-    </div>
+    <Bottom {fileContents} {app} />
   {/if}
 </div>
 
-{#if saving && app.openedFile}
-  <div class="saving-wrapper">
-    <div class="saving-content">
-      <img src={save} alt="Saving" />
-      <p class="caption">Saving {app.openedFile.name}...</p>
-      <Spinner height={24} />
-    </div>
-  </div>
-{/if}
+<Saving {saving} {app} />

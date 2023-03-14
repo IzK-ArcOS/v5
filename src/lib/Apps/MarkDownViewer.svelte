@@ -26,13 +26,13 @@
 
     content = app.openedFile ? md : $TextEditorContent;
   });
-  /* 
+
   TextEditorContent.subscribe(() => {
     closeFile("MarkDownViewer");
     setTitleSuffix("", "MarkDownViewer");
 
     content = app.openedFile ? md : $TextEditorContent;
-  }); */
+  });
 </script>
 
 {#if app}
