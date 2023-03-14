@@ -37,25 +37,36 @@
 <style scoped>
   pre {
     font-family: "Source Code Pro", monospace;
-    min-width: 72.5%;
-    max-width: 72.5%;
+    min-width: calc(100% - 240px);
+    max-width: calc(100% - 240px);
   }
 
   div {
     width: 100%;
+    height: 100%;
     display: flex;
   }
 
   table {
-    padding: 5px;
+    padding: 4px;
     background-color: var(--win-bg);
     border-radius: 7.5px;
     flex-grow: 1;
+    border: var(--win-border);
+    max-width: 240px;
+    height: 100%;
+  }
+
+  table tr {
+    height: 22px;
+    display: inline-block;
   }
 
   table td {
     font-weight: bold;
     min-width: 6em;
+    max-height: 26px;
+    display: inline-block;
   }
 
   table td + td {

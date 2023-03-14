@@ -14,14 +14,14 @@ export const DonutApp: App = {
     author: "Andy Sloane (ArcOS port by IzK)",
     icon: logo,
   },
-  size: { w: 850, h: NaN },
+  size: { w: 850, h: 520 },
   pos: { x: 30, y: 40 },
-  minSize: { w: 850, h: NaN },
+  minSize: { w: 850, h: 520 },
   maxSize: { w: 850, h: NaN },
-  controls: { min: true, max: false, cls: true },
+  controls: { min: true, max: true, cls: true },
   state: {
     headless: false,
-    resizable: false,
+    resizable: true,
     windowState: { min: false, max: false, fll: false },
   },
   content: Donut,
@@ -42,17 +42,6 @@ export const DonutApp: App = {
     focus() {
       donutSpinning.set(true);
     },
-  },
-  contextMenu: {
-    "donut-target": [
-      {
-        caption: "View debug information",
-        icon: "bug_report",
-        action() {
-          openChildWindow("DonutApp", "debugInfo");
-        },
-      },
-    ],
   },
 };
 
