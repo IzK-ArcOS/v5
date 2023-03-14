@@ -7,7 +7,6 @@
   import { UserData } from "../../../../../ts/userlogic/interfaces";
   import { titlebarButtons } from "../../../../../ts/window/titlebar/store";
   import Default from "./Controls/Default.svelte";
-  import Traffic from "./Controls/Traffic.svelte";
 
   export let exttransition = false;
   export let titlebar: HTMLDivElement;
