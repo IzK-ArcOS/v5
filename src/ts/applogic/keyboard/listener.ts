@@ -4,6 +4,8 @@ import { CurrentState } from "../../state/main";
 import { focusedWindowId, getWindow } from "../store";
 import { appShortcuts } from "./main";
 
+const banned = ["tab", "pagedown", "pageup"];
+
 export function startKeyListener() {
   Log({
     source: "keyboard/listener.ts: startKeyListener",
@@ -27,7 +29,7 @@ export function stopKeyListener() {
 function processEvent(e: KeyboardEvent) {
   if (!e.key) return;
 
-  if (e.key.toLowerCase() == "tab") {
+  if (banned.includes(e.key.toLowerCase())) {
     e.preventDefault();
 
     return false;
