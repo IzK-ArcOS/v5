@@ -75,4 +75,4 @@
   {/if}
 </div>
 
-<Saving {saving} {app} />
+<Saving bind:saving bind:app />
