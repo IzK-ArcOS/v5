@@ -123,6 +123,8 @@ export interface AppEvents {
   enterFullscreen?(app: App): void;
   leaveFullscreen?(app: App): void;
   openFile?(app: App): void;
+  blur?(app: App): void;
+  focus?(app: App): void;
   keyboardShortcuts?: AppKeyCombinations;
 }
 

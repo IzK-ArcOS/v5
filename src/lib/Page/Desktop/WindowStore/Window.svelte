@@ -63,6 +63,13 @@
 
     $focusedWindowId = app.id;
   }
+
+  focusedWindowId.subscribe((v) => {
+    if (!app || !app.events) return;
+
+    if (v == app.id && app.events.focus) app.events.focus(app);
+    if (v != app.id && app.events.blur) app.events.blur(app);
+  });
 </script>
 
 <window

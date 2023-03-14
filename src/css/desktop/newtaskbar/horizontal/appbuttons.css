@@ -15,8 +15,8 @@ div.taskbar-h div.buttons button {
   height: 43px;
   border: none;
   background-color: transparent;
-  padding: 6px;
-  margin-right: 10px;
+  padding: 6px; /* 
+  margin-right: 10px; */
 }
 
 div.taskbar-h div.buttons button.activated {

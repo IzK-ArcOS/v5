@@ -5,6 +5,7 @@ import { AppInfo } from "./apps/AppInfo";
 import { AppManager } from "./apps/AppManager";
 import { AppPoker } from "./apps/AppPoke";
 import { CalculatorApp } from "./apps/Calculator";
+import { DonutApp } from "./apps/Donut";
 import { ErrorCreator } from "./apps/ErrorCreator";
 import { Exit } from "./apps/Exit";
 import { FileBrowserApp } from "./apps/FileBrowser";
@@ -16,7 +17,6 @@ import { MessagingApp } from "./apps/MessagingApp";
 import { OpenWithApp } from "./apps/OpenWith";
 import { SettingsApp } from "./apps/settings";
 import { ArcShell } from "./apps/shell";
-import { TestApp } from "./apps/testApp";
 import { TextEditor } from "./apps/TextEditor";
 import { DesktopWallpaper } from "./apps/wallpaper";
 import { openWindow } from "./events";
@@ -45,6 +45,7 @@ export const DefaultApps: { [key: string]: App } = {
   MediaPlayerApp,
   ArcShell,
   DesktopWallpaper,
+  DonutApp,
 };
 
 export const SystemApps: string[] = [
