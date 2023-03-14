@@ -68,22 +68,4 @@ export function tick() {
   return b.join("");
 }
 
-export const donutDebugInformation = writable<{
-  o: number;
-  A: number;
-  B: number;
-  N: number;
-  st: number;
-  sA: number;
-  sp: number;
-  ct: number;
-  cA: number;
-  cB: number;
-  cp: number;
-  sB: number;
-  D: number;
-  t: number;
-  h: number;
-  i: number;
-  j: number;
-}>();
+export const donutDebugInformation = writable<object>();
