@@ -8,16 +8,48 @@
     FileBrowserUploadFile,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import type { ArcFile } from "../../../../ts/applogic/interface";
+  import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import { makeNotification } from "../../../../ts/notiflogic/main";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   let uploader: HTMLInputElement;
 
   async function doUpload() {
-    const file = uploader.files[0];
+    const files = uploader.files;
 
-    if (!file) return;
+    if (files.length > 80) {
+      return createOverlayableError(
+        {
+          title: "Too many files",
+          message:
+            "You are only allowed to upload 80 files at a time to prevent overloading.",
+          buttons: [{ caption: "Understood", action() {} }],
+          image: upload,
+        },
+        "FileManager"
+      );
+    }
 
+    showOverlay("uploadingFile", "FileManager");
+
+    let maxTimeout = 50;
+
+    for (let i = 0; i < files.length; i++) {
+      maxTimeout += 25;
+
+      if (!files[i]) continue;
+
+      await fileUpload(files[i]);
+    }
+
+    setTimeout(() => {
+      hideOverlay("uploadingFile", "FileManager");
+
+      fbClass.refresh();
+    }, maxTimeout + 500);
+  }
+
+  async function fileUpload(file: File) {
     const content = new Blob([new Uint8Array(await file.arrayBuffer())]);
     const path = `${$FileBrowserCurrentDir}/${file.name}`.split("//").join("/");
 
@@ -27,8 +59,6 @@
       data: await file.arrayBuffer(),
       mime: "ArcOS Uploadable",
     };
-
-    showOverlay("uploadingFile", "FileManager");
 
     FileBrowserUploadFile.set(data);
 
@@ -42,14 +72,16 @@
         buttons: [],
         image: upload,
       });
-
-    fbClass.refresh();
-
-    hideOverlay("uploadingFile", "FileManager");
   }
 </script>
 
-<input type="file" name="file" bind:this={uploader} on:change={doUpload} />
+<input
+  type="file"
+  name="file"
+  bind:this={uploader}
+  on:change={doUpload}
+  multiple
+/>
 
 <button
   class="material-icons-round"
