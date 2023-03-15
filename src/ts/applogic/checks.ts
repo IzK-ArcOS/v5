@@ -1,4 +1,5 @@
 import { get } from "svelte/store";
+import type { App } from "./interface";
 import { getWindow, WindowStore } from "./store";
 
 export function isLoaded(id: string): boolean {
@@ -37,4 +38,8 @@ export function isDisabled(id: string): boolean {
   }
 
   return false;
+}
+
+export function isPopulatable(app: App) {
+  return !app.disabled && !app.info.hidden && !app.info.custom;
 }

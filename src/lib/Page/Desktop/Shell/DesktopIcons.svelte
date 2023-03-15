@@ -1,13 +1,14 @@
-<script lang="ts">
+<script>
+  import "../../../../css/desktop/desktopicons.css";
   import { isPopulatable } from "../../../../ts/applogic/checks";
   import { WindowStore } from "../../../../ts/applogic/store";
-  import AppListItem from "./AppListItem.svelte";
+  import DesktopIcon from "./DesktopIcons/DesktopIcon.svelte";
 </script>
 
-<div class="left">
+<div class="desktopIcons">
   {#each $WindowStore as app}
     {#if isPopulatable(app)}
-      <AppListItem {app} />
+      <DesktopIcon {app} />
     {/if}
   {/each}
 </div>

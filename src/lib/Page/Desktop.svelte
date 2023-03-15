@@ -26,8 +26,6 @@
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import PushNotification from "./Desktop/PushNotification.svelte";
-  import Shell from "./Desktop/Shell.svelte";
-  import Wallpaper from "./Desktop/Wallpaper.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
 
   let show = false;

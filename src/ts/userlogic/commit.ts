@@ -2,6 +2,7 @@ import { get } from "svelte/store";
 import { ConnectedServer } from "../api/main";
 import { BugReportData } from "../bugrep";
 import { Log, LogLevel } from "../console";
+import { getDeviceInfo } from "../device/main";
 import { DevModeOverride } from "../devmode/props";
 import { makeNotification } from "../notiflogic/main";
 import { applyState } from "../state/main";
@@ -28,6 +29,8 @@ export function commitUserdata(v: UserData) {
     if (getFreeSpace() < 256 && !get(ConnectedServer)) outOfSpace();
 
     DevModeOverride.set(v.devmode);
+
+    console.log(getDeviceInfo());
 
     const changed = setUserdata(get(UserName), v);
 
