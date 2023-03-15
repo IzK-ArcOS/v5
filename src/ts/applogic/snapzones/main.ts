@@ -5,33 +5,32 @@ import { getWindow, WindowStore } from "../store";
 import type { SnapTriggerBounds } from "./interface";
 import { draggingId, leftZoneTriggered, rightZoneTriggered } from "./store";
 
-export function checkZones(x: number, y: number, windowId: string) {
-  const bounds = getBounds();
-  const app = getWindow(windowId);
+export function checkZones(x: number, y: number, id: string) {
+  const gB = getBounds();
+  const gW = getWindow(id);
 
-  const canFit = app.state.resizable || app.controls.max;
+  const cF = gW.state.resizable || gW.controls.max;
 
-  if (!app) return;
-  if (!bounds) return;
+  if (!gW || !gB) return;
 
-  const l = bounds.lTrig;
-  const r = bounds.rTrig;
+  const l = gB.lTrig;
+  const r = gB.rTrig;
 
-  const isLeft =
-    canFit && x > l.xStart && x < l.xEnd && y > l.yStart && y < l.yEnd;
-  const isRight =
-    canFit && x > r.xStart && x < r.xEnd && y > r.yStart && y < r.yEnd;
+  const isL = cF && x > l.xStart && x < l.xEnd && y > l.yStart && y < l.yEnd;
+  const isR = cF && x > r.xStart && x < r.xEnd && y > r.yStart && y < r.yEnd;
 
-  leftZoneTriggered.set(isLeft);
-  rightZoneTriggered.set(isRight);
+  leftZoneTriggered.set(isL);
+  rightZoneTriggered.set(isR);
 
-  draggingId.set(isLeft || isRight ? windowId : null);
+  draggingId.set(isL || isR ? id : null);
 }
 
 export function getBounds(): SnapTriggerBounds | false {
   const [lTrig, rTrig, lZone, rZone] = getZoneElements();
 
   if (!lTrig || !rTrig || !lZone || !rZone) return false;
+
+  const bWidth = document.body.offsetWidth;
 
   const data: SnapTriggerBounds = {
     lTrig: {
@@ -41,8 +40,8 @@ export function getBounds(): SnapTriggerBounds | false {
       yEnd: lTrig.offsetTop + lTrig.offsetHeight,
     },
     rTrig: {
-      xStart: document.body.offsetWidth - rTrig.offsetWidth,
-      xEnd: document.body.offsetWidth,
+      xStart: bWidth - rTrig.offsetWidth,
+      xEnd: bWidth,
       yStart: rTrig.offsetTop,
       yEnd: rTrig.offsetTop + rTrig.offsetHeight,
     },
@@ -53,8 +52,8 @@ export function getBounds(): SnapTriggerBounds | false {
       yEnd: lZone.offsetTop + lZone.offsetHeight,
     },
     rZone: {
-      xStart: document.body.offsetWidth - rZone.offsetWidth,
-      xEnd: document.body.offsetWidth,
+      xStart: bWidth - rZone.offsetWidth,
+      xEnd: bWidth,
       yStart: rZone.offsetTop,
       yEnd: rZone.offsetTop + rZone.offsetHeight,
     },
@@ -69,9 +68,13 @@ export function getZoneElements() {
   const lZone = document.querySelector("div.snapzones #snapZoneLeft");
   const rZone = document.querySelector("div.snapzones #snapZoneRight");
 
-  if (!lTrig || !rTrig || !lZone || !rZone) return [null, null, null, null];
+  const arr = [lTrig, rTrig, lZone, rZone];
 
-  return [lTrig, rTrig, lZone, rZone] as HTMLDivElement[];
+  for (let i = 0; i < arr.length; i++) {
+    if (!arr[i]) return [null, null, null, null];
+  }
+
+  return arr as HTMLDivElement[];
 }
 
 export function snapWindow(id: string) {
@@ -85,73 +88,80 @@ export function snapWindow(id: string) {
 }
 
 function snapLeft() {
-  const bounds = getBounds();
-  const snapId = get(draggingId);
-  const window = getWindowElement(getWindow(snapId));
+  const [gB, id, wE] = getData();
 
-  if (!window) return;
-  if (!bounds) return;
+  if (!wE || !gB) return;
 
-  let x = 0,
-    y = 0,
-    w = 0,
-    h = 0;
+  let [x, y, w, h] = [0, 0, 0, 0];
 
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == snapId) {
-      ws[i].pos.x = x = bounds.lZone.xStart;
-      ws[i].pos.y = y = bounds.lZone.yStart;
-      ws[i].size.w = w = bounds.lZone.xEnd;
-      ws[i].size.h = h = bounds.lZone.yEnd;
-      ws[i].snapped = true;
+    const W = ws[i];
+
+    if (W.id == id) {
+      W.pos.x = x = gB.lZone.xStart;
+      W.pos.y = y = gB.lZone.yStart;
+      W.size.w = w = gB.lZone.xEnd;
+      W.size.h = h = gB.lZone.yEnd;
+
+      W.snapped = true;
     }
   }
 
   WindowStore.set(ws);
 
-  setTimeout(() => {
-    window.style.left = x + "px";
-    window.style.top = y + "px";
-    window.style.width = w + "px";
-    window.style.height = h + "px";
-    openWindow(snapId);
-  }, 5);
+  commitWindow(wE, x, y, w, h);
+}
+
+function getData(): [SnapTriggerBounds, string, HTMLDivElement] {
+  const gB = getBounds() as SnapTriggerBounds;
+  const id = get(draggingId);
+  const wE = getWindowElement(getWindow(id));
+
+  return [gB, id, wE];
 }
 
 function snapRight() {
-  const bounds = getBounds();
-  const snapId = get(draggingId);
-  const window = getWindowElement(getWindow(snapId));
+  const [gB, id, wE] = getData();
 
-  if (!window) return;
-  if (!bounds) return;
+  if (!wE || !gB) return;
 
-  let x = 0,
-    y = 0,
-    w = 0,
-    h = 0;
+  let [x, y, w, h] = [0, 0, 0, 0];
 
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == snapId) {
-      ws[i].pos.x = x = bounds.rZone.xStart;
-      ws[i].pos.y = y = bounds.rZone.yStart;
-      ws[i].size.w = w = bounds.rZone.xEnd - bounds.rZone.xStart;
-      ws[i].size.h = h = bounds.rZone.yEnd - bounds.rZone.yStart;
-      ws[i].snapped = true;
+    const W = ws[i];
+
+    if (W.id == id) {
+      W.pos.x = x = gB.rZone.xStart;
+      W.pos.y = y = gB.rZone.yStart;
+      W.size.w = w = gB.rZone.xEnd - gB.rZone.xStart;
+      W.size.h = h = gB.rZone.yEnd - gB.rZone.yStart;
+
+      W.snapped = true;
     }
   }
 
   WindowStore.set(ws);
 
+  commitWindow(wE, x, y, w, h);
+}
+
+function commitWindow(
+  window: HTMLDivElement,
+  x: number,
+  y: number,
+  w: number,
+  h: number
+) {
   setTimeout(() => {
     window.style.left = x + "px";
     window.style.top = y + "px";
     window.style.width = w + "px";
     window.style.height = h + "px";
-    openWindow(snapId);
+
+    openWindow(get(draggingId));
   }, 5);
 }
