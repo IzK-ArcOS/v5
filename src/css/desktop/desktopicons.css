@@ -9,7 +9,7 @@ div.desktopIcons {
 }
 
 div.desktop.tbdocked:not(.tb-vertical):not(.tb-vertical-right)
-  div.desktopicons {
+  div.desktopIcons {
   height: calc(100% - 45px);
 }
 

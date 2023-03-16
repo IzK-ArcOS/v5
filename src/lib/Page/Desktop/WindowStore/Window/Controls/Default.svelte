@@ -47,6 +47,7 @@
 
   button:hover {
     color: var(--accent);
+    filter: var(--elevated-accent-filter);
   }
 
   button:disabled {
