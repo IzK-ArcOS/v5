@@ -15,6 +15,10 @@
   onMount(() => {
     active = setting.getter($UserData);
   });
+
+  UserData.subscribe((v) => {
+    active = setting.getter(v);
+  });
 </script>
 
 <button class="setting material-icons-round" class:active on:click={click}>
