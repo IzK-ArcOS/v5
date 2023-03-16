@@ -1,129 +1,47 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { get } from "svelte/store";
   import "../../../../css/login/userlogin.css";
-  import Spinner from "../../../../lib/Spinner.svelte";
-  import { generateCredToken } from "../../../../ts/api/cred";
-  import { loginUsingCreds } from "../../../../ts/api/getter";
-  import { apiCall, ConnectedServer } from "../../../../ts/api/main";
+  import { ConnectedServer } from "../../../../ts/api/main";
   import { applyLoginState, loginUsername } from "../../../../ts/login/main";
   import { applyState } from "../../../../ts/state/main";
-  import {
-    UserData,
-    UserName,
-    UserToken,
-  } from "../../../../ts/userlogic/interfaces";
+  import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getUserdata } from "../../../../ts/userlogic/main";
-  import { getProfilePicture } from "../../../../ts/userlogic/pfp";
-  import ProfilePicture from "../../../ProfilePicture.svelte";
+  import Loading from "./Content/Loading.svelte";
+  import AuthForm from "./UserLogin/AuthForm.svelte";
 
   let name: string;
-  let data: UserData;
-  let pfp = "";
-
-  let stay = false;
   let authenticating = false;
-  let password = "";
   let show = false;
-  let wrongpswd = false;
 
   onMount(async () => {
-    name = get(loginUsername);
-    if (name) {
-      data = await getUserdata(name);
+    if (!$ConnectedServer)
+      setTimeout(async () => {
+        UserData.set(await getUserdata(name));
+        UserName.set(name);
 
-      pfp = getProfilePicture(data.acc.profilePicture);
-
-      if (!$ConnectedServer)
-        setTimeout(async () => {
-          UserData.set(await getUserdata(name));
-          UserName.set(name);
-
-          applyState("desktop");
-        }, 2000);
-    } else {
-      applyLoginState("selector");
-    }
+        applyState("desktop");
+      }, 2000);
 
     setTimeout(() => {
       show = true;
     }, 10);
   });
 
-  async function serverLogin() {
-    authenticating = true;
+  async function cancel() {
+    loginUsername.set(undefined);
 
-    const userdata = await loginUsingCreds(
-      generateCredToken({ username: name, password })
-    );
-
-    if (!userdata) {
-      authenticating = false;
-      wrongpswd = true;
-      return;
-    }
-
-    if (stay) {
-      localStorage.setItem(
-        "arcos-remembered-token",
-        btoa(`${name}:${password}`)
-      );
-    }
-
-    UserData.set(userdata);
-    UserName.set(name);
-
-    applyState("desktop");
-  }
-
-  function submit(e: Event) {
-    e.preventDefault();
-
-    serverLogin();
-
-    return false;
+    applyLoginState("selector");
   }
 </script>
 
-{#if name && data}
-  <div class="userlogin" class:show>
-    <ProfilePicture src={pfp} height={151} />
-    <h1>{name}</h1>
-    {#if !$ConnectedServer || authenticating}
-      <h3><Spinner height={23} />&nbsp;<span>Welcome</span></h3>
-    {:else}
-      <div class="cloudlogin">
-        <div class="field">
-          <form on:submit={submit}>
-            <!-- svelte-ignore a11y-autofocus -->
-            <input
-              autofocus
-              bind:value={password}
-              type="password"
-              placeholder="Password"
-              on:input={() => (wrongpswd = false)}
-              class:wrongpswd
-            />
-          </form>
-          <button
-            class="material-icons-round"
-            on:click={serverLogin}
-            disabled={!password}>arrow_forward_ios</button
-          >
-        </div>
-        <span class="keep-loggedin-wrapper">
-          <input type="checkbox" id="rememberme" bind:value={stay} />
-          <label for="rememberme">Stay logged in</label>
-        </span>
-      </div>
-    {/if}
-  </div>
-{/if}
+<div class="userlogin" class:show>
+  {#if !$ConnectedServer}
+    <Loading caption="Welcome" />
+  {:else}
+    <AuthForm bind:authenticating />
+  {/if}
+</div>
 
 {#if $ConnectedServer && !authenticating}
-  <button
-    class="switchuser"
-    class:show
-    on:click={() => applyLoginState("selector")}>Cancel</button
-  >
+  <button class="switchuser" class:show on:click={cancel}>Cancel</button>
 {/if}

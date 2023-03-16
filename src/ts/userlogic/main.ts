@@ -1,21 +1,11 @@
 import { get, writable } from "svelte/store";
 import { apiCall, ConnectedServer } from "../api/main";
-import { BugReportData } from "../bugrep";
 import { Log, LogLevel } from "../console";
-import { logoff } from "../desktop/power";
-import { DevModeOverride } from "../devmode/props";
+import { restart } from "../desktop/power";
 import { userDataKey } from "../env/main";
-import { makeNotification } from "../notiflogic/main";
-import { applyState, CurrentState } from "../state/main";
-import { getFreeSpace } from "../storage/main";
+import { CurrentState } from "../state/main";
 import { commitUserdata } from "./commit";
-import {
-  AllUsers,
-  defaultUserData,
-  UserData,
-  UserName,
-  UserToken,
-} from "./interfaces";
+import { AllUsers, defaultUserData, UserData, UserToken } from "./interfaces";
 
 export const committingUserData = writable<boolean>(false);
 
@@ -103,7 +93,7 @@ export async function deleteUser(name: string) {
   if (server) {
     apiCall(server, "user/delete", {}, token);
 
-    if (get(CurrentState).name == "Desktop") logoff();
+    if (get(CurrentState).name == "Desktop") restart();
 
     return;
   }
@@ -116,7 +106,7 @@ export async function deleteUser(name: string) {
 
   setUsers(users);
 
-  if (get(CurrentState).name == "Desktop") logoff();
+  if (get(CurrentState).name == "Desktop") restart();
 
   return;
 }

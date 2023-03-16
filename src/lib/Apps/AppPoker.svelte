@@ -14,9 +14,7 @@
 
     refresh = true;
 
-    setTimeout(() => {
-      refresh = false;
-    });
+    refresh = false;
   });
 
   AppPokerData.subscribe((v) => {

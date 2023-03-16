@@ -1,43 +1,17 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { get } from "svelte/store";
   import "../../../../css/login/userlogin.css";
-  import Spinner from "../../../../lib/Spinner.svelte";
-  import { DevModeOverride } from "../../../../ts/devmode/props";
-  import { ErrorMessages } from "../../../../ts/errorlogic/app";
-  import { loginUsername } from "../../../../ts/login/main";
-  import { NotificationStore } from "../../../../ts/notiflogic/main";
+  import { onMount } from "svelte";
   import { applyState } from "../../../../ts/state/main";
-  import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
-  import { getUserdata } from "../../../../ts/userlogic/main";
-  import { getProfilePicture } from "../../../../ts/userlogic/pfp";
-  import ProfilePicture from "../../../ProfilePicture.svelte";
+  import flush from "../../../../ts/login/flush";
+  import Loading from "./Content/Loading.svelte";
 
-  let name: string;
-  let data: UserData;
-
-  let pfp = "";
-
-  onMount(async () => {
-    name = get(UserName);
-    data = await getUserdata(name);
-
-    pfp = getProfilePicture(data.acc.profilePicture);
-
+  onMount(() => {
     setTimeout(() => {
-      UserName.set(undefined);
-      loginUsername.set(undefined);
-      NotificationStore.set({});
-      ErrorMessages.set([]);
-      DevModeOverride.set(false);
+      flush();
 
       applyState("turnedoff");
     }, 2000);
   });
 </script>
 
-<div class="userlogin show">
-  <ProfilePicture src={pfp} height={151} />
-  <h1>{name || "ArcOS"}</h1>
-  <h3><Spinner height={23} />&nbsp;<span>Shutting down</span></h3>
-</div>
+<Loading caption="Shutting down" />

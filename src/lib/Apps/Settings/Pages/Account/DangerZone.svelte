@@ -1,7 +1,4 @@
 <script lang="ts">
-  import { errorMessage } from "../../../../../ts/errorlogic/main";
-  import Notice from "../../../../Page/Desktop/WindowStore/Window/Notice.svelte";
-  import Section from "../../Section.svelte";
   import warning from "../../../../../assets/apps/error.svg";
   import { UserName } from "../../../../../ts/userlogic/interfaces";
   import { deleteUser } from "../../../../../ts/userlogic/main";
