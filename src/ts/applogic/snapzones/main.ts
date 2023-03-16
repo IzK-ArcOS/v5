@@ -9,6 +9,8 @@ export function checkZones(x: number, y: number, id: string) {
   const gB = getBounds();
   const gW = getWindow(id);
 
+  if (id.startsWith("error_")) return;
+
   const cF = gW.state.resizable || gW.controls.max;
 
   if (!gW || !gB) return;

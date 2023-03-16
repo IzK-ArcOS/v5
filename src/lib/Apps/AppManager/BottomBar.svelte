@@ -10,7 +10,7 @@
 
 <div class="bottombar">
   <div class="right">
-    {#if $appManSelected}
+    {#if $appManSelected && !$appManSelected.startsWith("error_")}
       <div class="section">
         Snapped: {getWindow($appManSelected).snapped ? "yes" : "no"}
       </div>
