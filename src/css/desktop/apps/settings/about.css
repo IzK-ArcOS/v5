@@ -9,22 +9,9 @@ div.about-page div.product div {
   vertical-align: middle;
 }
 
-div.about-page div.product div:not(.about) {
-  margin-top: 10px;
-}
-
 div.about-page div.product h1 {
-  margin: 0;
+  margin: 0 !important;
   line-height: 60px;
-}
-
-div.about-page div.product div.about {
-  margin-right: auto;
-  padding-right: 10px;
-  width: 375px;
-  word-wrap: break-word;
-  white-space: normal;
-  margin-top: 10px;
 }
 
 div.about-page div.product div.text {
@@ -33,4 +20,15 @@ div.about-page div.product div.text {
 
 div.about-page div.product img.logo {
   height: 60px;
+}
+
+div.about-page h3.header {
+  margin-bottom: 5px !important;
+}
+
+div.about-page div.devmode button.devmode {
+  display: inline-block;
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 15px 5px !important;
 }
