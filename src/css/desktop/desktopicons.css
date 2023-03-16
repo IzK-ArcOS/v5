@@ -4,8 +4,37 @@ div.desktopIcons {
   grid-template-columns: repeat(auto-fit, 80px);
   grid-template-rows: repeat(auto-fit, 85px);
   padding: 10px;
-  height: 100%;
+  height: calc(100% - 65px);
   overflow: hidden;
+}
+
+div.desktop.tbdocked:not(.tb-vertical):not(.tb-vertical-right)
+  div.desktopicons {
+  height: calc(100% - 45px);
+}
+
+div.desktop.tb-vertical div.desktopIcons {
+  margin-left: 65px;
+  width: calc(100% - 65px);
+  height: 100%;
+}
+
+div.desktop.tb-vertical.tbdocked div.desktopIcons {
+  margin-left: 45px;
+  width: calc(100% - 45px);
+  height: 100%;
+}
+
+div.desktop.tb-vertical-right.tbdocked div.desktopIcons {
+  margin-right: 45px;
+  width: calc(100% - 45px);
+  height: 100%;
+}
+
+div.desktop.tb-vertical-right div.desktopIcons {
+  margin-right: 65px;
+  width: calc(100% - 65px);
+  height: 100%;
 }
 
 div.desktopIcons button {
