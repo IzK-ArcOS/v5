@@ -62,7 +62,6 @@ export interface GeneralAppInfo {
   titleSuffix?: string;
   icon: string;
   custom?: boolean;
-  onlineOnly?: boolean;
 }
 
 export interface OverlayableAppInfo {

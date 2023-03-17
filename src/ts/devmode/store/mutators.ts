@@ -34,7 +34,7 @@ export const dmMutators: DevModeMutators = [
   },
   { caption: "UserName", store: UserName, fallback: "none" },
   { caption: "LoginUsername", store: loginUsername, fallback: "none" },
-  { caption: "APIHost", store: ConnectedServer, fallback: "local" },
+  { caption: "APIHost", store: ConnectedServer, fallback: "invalid" },
   {
     caption: "FTSState",
     store: CurrentFTSState,

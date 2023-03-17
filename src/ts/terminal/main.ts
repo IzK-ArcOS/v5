@@ -1,5 +1,3 @@
-import { get } from "svelte/store";
-import { ConnectedServer } from "../api/main";
 import type { App } from "../applogic/interface";
 import { ArcTermEnv } from "./env";
 import { initError } from "./error";
@@ -51,7 +49,7 @@ export class ArcTerm {
   private initialize() {
     if (!this.target) return initError(this.app.id);
 
-    this.path = get(ConnectedServer) ? "./" : false;
+    this.path = "./";
 
     this.target.innerText = "";
 

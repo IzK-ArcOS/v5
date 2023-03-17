@@ -15,7 +15,6 @@ export const MarkDownViewer: App = {
     icon,
     builtin: true,
     hidden: true,
-    onlineOnly: true,
   },
   size: { w: 700, h: 550 },
   pos: { x: 30, y: 40 },

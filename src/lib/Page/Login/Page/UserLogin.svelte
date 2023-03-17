@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "../../../../css/login/userlogin.css";
-  import { ConnectedServer } from "../../../../ts/api/main";
   import { applyLoginState, loginUsername } from "../../../../ts/login/main";
   import { applyState } from "../../../../ts/state/main";
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
@@ -14,14 +13,6 @@
   let show = false;
 
   onMount(async () => {
-    if (!$ConnectedServer)
-      setTimeout(async () => {
-        UserData.set(await getUserdata(name));
-        UserName.set(name);
-
-        applyState("desktop");
-      }, 2000);
-
     setTimeout(() => {
       show = true;
     }, 10);
@@ -35,13 +26,9 @@
 </script>
 
 <div class="userlogin" class:show>
-  {#if !$ConnectedServer}
-    <Loading caption="Welcome" />
-  {:else}
-    <AuthForm bind:authenticating />
-  {/if}
+  <AuthForm bind:authenticating />
 </div>
 
-{#if $ConnectedServer && !authenticating}
+{#if !authenticating}
   <button class="switchuser" class:show on:click={cancel}>Cancel</button>
 {/if}

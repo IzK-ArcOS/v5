@@ -62,54 +62,7 @@ export type ScopedAppData = {
   [key: string]: number | boolean | string | object;
 };
 
-export const defaultUserData: UserData = {
-  sh: {
-    taskbar: {
-      centered: false,
-      labels: false,
-      pos: "",
-      docked: true,
-      colored: false,
-    },
-    window: {
-      lefttb: false,
-      bigtb: true,
-      buttons: "default",
-    },
-    desktop: {
-      wallpaper: "img04",
-      icons: true,
-      theme: "dark",
-      sharp: false,
-      accent: "70D6FF",
-    },
-    start: {
-      small: true,
-    },
-    anim: true,
-
-    noQuickSettings: false,
-    noGlass: false,
-    userThemes: {},
-  },
-  acc: {
-    enabled: true,
-    admin: false,
-    profilePicture: 3,
-  },
-  volume: {
-    level: 100,
-    muted: false,
-  },
-  disabledApps: [],
-  autoRun: [],
-  autoLoads: [],
-  askPresist: true,
-  devmode: false,
-  appdata: {},
-};
-
 export type AllUsers = { [name: string]: UserData };
-export const UserData = writable<UserData>(defaultUserData);
+export const UserData = writable<UserData>();
 export const UserName = writable<string>("ArcOS");
 export const UserToken = writable<string>();

@@ -1,12 +1,10 @@
 <script>
+  import icon from "../../../../assets/apps/filemanager/upload.svg";
   import "../../../../css/desktop/apps/filebrowser/overlays/uploadingfile.css";
   import {
     FileBrowserUploadFile,
-    FileBrowserUploadProgress,
+    FileBrowserUploadProgress
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import Spinner from "../../../Spinner.svelte";
-  import icon from "../../../../assets/apps/filemanager/upload.svg";
-  import { ConnectedServer } from "../../../../ts/api/main";
 </script>
 
 {#if $FileBrowserUploadFile}

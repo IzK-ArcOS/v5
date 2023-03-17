@@ -12,7 +12,6 @@ export const OpenWithApp: App = {
     author: "Izaak Kuipers",
     hidden: true,
     icon: logo,
-    onlineOnly: true,
   },
   size: { w: 450, h: 550 },
   pos: { x: 30, y: 40 },

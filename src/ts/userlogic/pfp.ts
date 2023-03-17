@@ -29,9 +29,7 @@ import pfp7 from "../../assets/pfp/7.png";
 import pfp8 from "../../assets/pfp/8.png";
 import pfp9 from "../../assets/pfp/9.png";
 import def from "../../assets/pfp/null.png";
-import { Log, LogLevel } from "../console";
-import { UserData, UserName } from "./interfaces";
-import { getUserdata, setUserdata } from "./main";
+import { UserData } from "./interfaces";
 
 export const ProfilePictures: { [key: string]: string } = {
   pfp1,

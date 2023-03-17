@@ -19,5 +19,5 @@
 >
 <button
   class="fullwidth option centered"
-  on:click={() => applyFTSState("servconn")}>I Agree</button
+  on:click={() => applyFTSState("connecttocloud")}>I Agree</button
 >

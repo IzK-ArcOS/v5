@@ -24,7 +24,6 @@ export const MessagingApp: App = {
     version: "1.0.7",
     author: "ArcOS Team",
     icon: logo,
-    onlineOnly: true,
   },
   size: { w: 700, h: 450 },
   pos: { x: 100, y: 100 },

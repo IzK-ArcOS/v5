@@ -4,7 +4,6 @@
     PartialUserDir,
     UserDirectory,
   } from "../../../../ts/api/interface";
-  import { ConnectedServer } from "../../../../ts/api/main";
   import { FileBrowserDirContents } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { SettingsPages } from "../../../../ts/applogic/apps/SettingsApp/store";
   import DirLink from "./RightPane/DirLink.svelte";
@@ -13,20 +12,12 @@
   let dirs: PartialUserDir[] = [];
 
   FileBrowserDirContents.subscribe(async () => {
-    if (!$ConnectedServer) return (dirs = []);
-
     dirs = ((await getDirectory("./")) as UserDirectory).directories;
   });
 </script>
 
 <div class="right">
-  {#if $ConnectedServer}
-    {#each dirs as dir}
-      <DirLink {dir} />
-    {/each}
-  {:else}
-    {#each SettingsPages as page}
-      <SettingsLink {page} />
-    {/each}
-  {/if}
+  {#each dirs as dir}
+    <DirLink {dir} />
+  {/each}
 </div>

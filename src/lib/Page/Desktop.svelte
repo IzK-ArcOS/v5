@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import { get } from "svelte/store";
   import "../../css/desktop.css";
-  import { ConnectedServer } from "../../ts/api/main";
   import { importAutoLoaders } from "../../ts/applogic/aftermarket/autoload";
   import { importDefault } from "../../ts/applogic/imports";
   import { startKeyListener } from "../../ts/applogic/keyboard/listener";
@@ -44,7 +43,7 @@
 
     setTimeout(() => (show = true), 250);
 
-    if (get(ConnectedServer)) startMessageCheckInterval();
+    startMessageCheckInterval();
   });
 
   function resetDesktopState() {

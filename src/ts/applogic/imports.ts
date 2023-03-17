@@ -70,16 +70,6 @@ export async function importDefault(open = false) {
   const entries = Object.entries(DefaultApps);
 
   for (let i = 0; i < entries.length; i++) {
-    if (!get(ConnectedServer) && entries[i][1].info.onlineOnly) {
-      Log({
-        msg: `Not importing "${entries[i][0]}": it requires an ArcAPI.`,
-        source: `imports.ts: importDefault`,
-        level: LogLevel.warn,
-      });
-
-      continue;
-    }
-
     Log({
       msg: `Importing default application "${entries[i][0]}"...`,
       source: `imports.ts: importDefault`,

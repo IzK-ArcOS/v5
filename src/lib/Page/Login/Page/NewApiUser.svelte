@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { ConnectedServer } from "../../../../ts/api/main";
   import Loading from "./Content/Loading.svelte";
   import Cancel from "./NewApiUser/Cancel.svelte";
   import Form from "./NewApiUser/Form.svelte";
@@ -25,6 +24,6 @@
   {/if}
 </div>
 
-{#if $ConnectedServer && !loading}
+{#if !loading}
   <Cancel {show} />
 {/if}

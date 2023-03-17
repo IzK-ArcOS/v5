@@ -1,11 +1,7 @@
 import { get } from "svelte/store";
 import { apiCall, ConnectedServer } from "../api/main";
 import { UserToken } from "../userlogic/interfaces";
-import type {
-  Message,
-  PartiallyExtendedMessage,
-  PartialMessage,
-} from "./interface";
+import type { Message, PartiallyExtendedMessage } from "./interface";
 import { getMessage, getMessages } from "./main";
 
 export async function getFullTree(): Promise<PartiallyExtendedMessage[]> {

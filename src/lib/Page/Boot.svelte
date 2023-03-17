@@ -8,7 +8,6 @@
   import { LoggerApp } from "../../ts/applogic/apps/Logger";
   import { BugReportData } from "../../ts/bugrep";
   import { Log, LogLevel } from "../../ts/console";
-  import { userDataKey } from "../../ts/env/main";
   import { getUsers } from "../../ts/userlogic/main";
   import Window from "./Desktop/WindowStore/Window.svelte";
 
@@ -29,8 +28,7 @@
     t2 = setTimeout(fadeOut, 4000);
     t3 = setTimeout(redirect, 4750);
 
-    if (!(await checkServer()) && !localStorage.getItem(userDataKey))
-      status = "Preparing ArcOS";
+    if (!(await checkServer())) status = "Preparing ArcOS";
   });
 
   async function checkServer() {
@@ -103,8 +101,6 @@
       source: "Boot.svelte",
       msg: "Redirecting",
     });
-
-    const noUsers = Object.keys(await getUsers()).length == 0;
 
     applyState(targetState);
   }

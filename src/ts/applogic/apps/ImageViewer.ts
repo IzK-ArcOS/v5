@@ -14,7 +14,6 @@ export const ImageViewer: App = {
     author: "Izaak Kuipers",
     hidden: true,
     icon: logo,
-    onlineOnly: true,
   },
   size: { w: 500, h: 400 },
   pos: { x: 30, y: 40 },

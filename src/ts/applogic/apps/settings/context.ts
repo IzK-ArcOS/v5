@@ -1,13 +1,11 @@
-import { createOverlayableError } from "../../../errorlogic/overlay";
-import { deleteCustomTheme } from "../../../userlogic/themes/main";
-import type { AppContextMenu } from "../../interface";
 import theme from "../../../../assets/apps/settings/themes.svg";
-import { showOverlay } from "../../../window/overlay";
-import { get } from "svelte/store";
-import { ConnectedServer } from "../../../api/main";
 import { createDirectory } from "../../../api/fs/directory";
 import { writeFile } from "../../../api/fs/file";
+import { createOverlayableError } from "../../../errorlogic/overlay";
+import { deleteCustomTheme } from "../../../userlogic/themes/main";
+import { showOverlay } from "../../../window/overlay";
 import { openWindow } from "../../events";
+import type { AppContextMenu } from "../../interface";
 import { fbClass, FileBrowserSelectedFilename } from "../FileBrowser/main";
 
 const saveToFS = {

@@ -1,12 +1,8 @@
 import { get } from "svelte/store";
-import { ConnectedServer } from "../api/main";
 import { BugReportData } from "../bugrep";
 import { Log, LogLevel } from "../console";
-import { getDeviceInfo } from "../device/main";
 import { DevModeOverride } from "../devmode/props";
-import { makeNotification } from "../notiflogic/main";
 import { applyState } from "../state/main";
-import { getFreeSpace } from "../storage/main";
 import { UserData, UserName } from "./interfaces";
 import { committingUserData, setUserdata } from "./main";
 
@@ -26,13 +22,9 @@ export function commitUserdata(v: UserData) {
       source,
     });
 
-    if (getFreeSpace() < 256 && !get(ConnectedServer)) outOfSpace();
-
     DevModeOverride.set(v.devmode);
 
-    console.log(getDeviceInfo());
-
-    const changed = setUserdata(get(UserName), v);
+    const changed = setUserdata(v);
 
     unsetStatus();
 
@@ -62,16 +54,6 @@ function unsetStatus() {
   commitTimeout = setTimeout(() => {
     committingUserData.set(false);
   }, 1500);
-}
-
-function outOfSpace() {
-  makeNotification({
-    title: "Out of space",
-    message:
-      "LocalStorage is running out of free space. Please consider changing your preferences or switching to an ArcAPI.",
-    icon: "warning",
-    buttons: [],
-  });
 }
 
 function commitFailed() {
