@@ -1,5 +1,6 @@
 import { get } from "svelte/store";
 import { focusedWindowId } from "../applogic/store";
+import { UserName } from "../userlogic/interfaces";
 import type { ArcTermEnv } from "./env";
 import type { ArcTerm } from "./main";
 
@@ -38,6 +39,15 @@ export class ArcTermInput {
     this.lockInput = false;
   }
 
+  private getPrompt() {
+    const username = get(UserName);
+    const server = localStorage.getItem("arcos-server");
+    const path = this.term.path || "";
+    const prompt = this.env.prompt;
+
+    return `${username}@${server}: ${path} ${prompt}`;
+  }
+
   public createPrompt() {
     if (this.current) this.current.disabled = true;
 
@@ -48,7 +58,7 @@ export class ArcTermInput {
     wrap.className = "prompt";
 
     prompt.className = "str";
-    prompt.innerText = `${this.term.path || ""} ${this.env.prompt}`;
+    prompt.innerText = this.getPrompt();
 
     input.id = `input#${Math.floor(Math.random() * 1e9)}`;
     input.addEventListener("keydown", (e) => this.processInputEvent(e, input));

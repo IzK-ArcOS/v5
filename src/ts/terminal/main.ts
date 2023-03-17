@@ -33,6 +33,8 @@ export class ArcTerm {
   public async evaluate(cmd: string, args?: string[]) {
     const command = this.getCommand(cmd);
 
+    this.input.current.disabled = true;
+
     await command.exec(cmd, args, this);
 
     this.input.unlock();
