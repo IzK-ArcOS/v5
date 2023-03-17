@@ -56,8 +56,8 @@ export class ArcTerm {
     this.target.innerText = "";
 
     this.env = new ArcTermEnv();
-    this.input = new ArcTermInput(this.target, this.env, this);
-    this.util = new ArcTermUtil(this.target, this.app, this, this.env);
+    this.input = new ArcTermInput(this);
+    this.util = new ArcTermUtil(this);
   }
 
   public dispose() {

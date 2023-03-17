@@ -10,9 +10,9 @@ export class ArcTermInput {
   term: ArcTerm;
   current: HTMLInputElement;
 
-  constructor(t: HTMLDivElement, e: ArcTermEnv, T: ArcTerm) {
-    this.target = t;
-    this.env = e;
+  constructor(T: ArcTerm) {
+    this.target = T.target;
+    this.env = T.env;
     this.term = T;
 
     this.commandLoop();
