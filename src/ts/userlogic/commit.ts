@@ -11,6 +11,8 @@ const source = "UserLogic: UserData watch";
 let commitTimeout;
 
 export function commitUserdata(v: UserData) {
+  if (!v) return;
+
   clearTimeout(commitTimeout);
 
   committingUserData.set(true);
