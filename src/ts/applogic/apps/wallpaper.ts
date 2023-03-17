@@ -1,6 +1,9 @@
+import { get } from "svelte/store";
 import logo from "../../../assets/apps/settings/desktop.svg";
 import Wallpaper from "../../../lib/Page/Desktop/Wallpaper.svelte";
 import { SEP_ITEM } from "../../contextmenu/main";
+import { restart, shutdown } from "../../desktop/power";
+import { UserData } from "../../userlogic/interfaces";
 import { openWindow } from "../events";
 import type { App } from "../interface";
 import { openByKey } from "./SettingsApp/store";
@@ -31,31 +34,48 @@ export const DesktopWallpaper: App = {
   contextMenu: {
     "shell-wallpaper": [
       {
+        caption: "Toggle desktop icons",
+        action: () => {
+          const udata = get(UserData);
+
+          udata.sh.desktop.icons = !udata.sh.desktop.icons;
+
+          UserData.set(udata);
+        },
+        icon: "apps",
+      },
+      SEP_ITEM,
+      {
         caption: "File Manager",
         action: () => {
           openWindow("FileManager");
         },
-      },
-      SEP_ITEM,
-      {
-        caption: "App settings",
-        action: () => {
-          openByKey("Apps");
-        },
+        icon: "folder",
       },
       {
         caption: "Application Manager",
         action: () => {
           openWindow("AppMan");
         },
+        icon: "widgets",
+      },
+      {
+        caption: "App settings",
+        action: () => {
+          openByKey("Apps");
+        },
+        icon: "settings",
       },
       SEP_ITEM,
       {
-        caption: "Shut down...",
-        action: () => {
-          openWindow("Exit");
-        },
+        caption: "Shut down",
+        action: shutdown,
         icon: "power_settings_new",
+      },
+      {
+        caption: "Restart",
+        action: restart,
+        icon: "refresh",
       },
       SEP_ITEM,
       {

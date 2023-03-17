@@ -23,6 +23,7 @@ import { openWindow } from "./events";
 import type { App } from "./interface";
 import { loadWindow } from "./load";
 import { updateStores } from "./store";
+import { ArcTerm } from "./apps/ArcTerm";
 
 export const DefaultApps: { [key: string]: App } = {
   ErrCre: ErrorCreator,
@@ -46,6 +47,7 @@ export const DefaultApps: { [key: string]: App } = {
   ArcShell,
   DesktopWallpaper,
   DonutApp,
+  ArcTerm,
 };
 
 export const SystemApps: string[] = [

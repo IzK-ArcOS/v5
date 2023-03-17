@@ -1,0 +1,31 @@
+div.terminal-renderer {
+  margin: 0;
+  white-space: pre;
+  width: 100%;
+  height: 100%;
+}
+
+div.terminal-renderer * {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  font-family: "Source Code Pro", monospace;
+}
+
+div.terminal-renderer div.part {
+  display: block;
+  min-height: 17px;
+}
+div.terminal-renderer div.part.inline {
+  display: inline-block;
+}
+
+div.terminal-renderer div.prompt {
+  width: 100%;
+  display: flex;
+}
+
+div.terminal-renderer div.prompt input {
+  flex-grow: 1;
+}

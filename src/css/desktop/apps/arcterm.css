@@ -1,0 +1,17 @@
+@import url("../../terminal/main.css");
+
+window#ArcTerm {
+  background-color: #000a;
+  --fg: #ccc;
+  --win-bg: #3a3a3a;
+  --win-border: #555 1px solid;
+  --button-bg: #4a4a4a;
+  --button-hover-bg: #555555;
+  --button-active-bg: #2a2a2a;
+  --button-glass-bg: #fff1;
+  --button-glass-hover-bg: #fff3;
+  --button-glass-active-bg: #0005;
+}
+window#ArcTerm > div.body {
+  padding: 5px;
+}
