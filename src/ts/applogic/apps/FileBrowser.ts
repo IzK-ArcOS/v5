@@ -9,7 +9,7 @@ export const FileBrowserApp: App = {
     name: "File Manager",
     description: "Browse your files",
     builtin: true,
-    version: "1.0.0",
+    version: "2.5.1",
     author: "ArcOS Team",
     icon: logo,
     onlineOnly: true,

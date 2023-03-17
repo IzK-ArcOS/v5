@@ -22,7 +22,7 @@ export async function getDirectory(path: string = "./"): DirectoryGet {
     get(UserToken)
   )) as DirReadResponse;
 
-  if (!req.valid) return false;
+  if (!req || !req.valid) return false;
 
   return req.data;
 }

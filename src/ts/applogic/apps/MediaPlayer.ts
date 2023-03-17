@@ -8,7 +8,7 @@ export const MediaPlayerApp: App = {
     name: "Media Player",
     description: "Play audio files",
     builtin: true,
-    version: "1.0.0",
+    version: "2.0.0",
     author: "Izaak Kuipers",
     icon: logo,
     hidden: true,

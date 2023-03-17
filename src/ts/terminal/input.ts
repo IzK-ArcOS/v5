@@ -48,7 +48,7 @@ export class ArcTermInput {
     wrap.className = "prompt";
 
     prompt.className = "str";
-    prompt.innerText = this.env.prompt;
+    prompt.innerText = `${this.term.path || ""} ${this.env.prompt}`;
 
     input.id = `input#${Math.floor(Math.random() * 1e9)}`;
     input.addEventListener("keydown", (e) => this.processInputEvent(e, input));

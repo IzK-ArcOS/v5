@@ -13,7 +13,7 @@ export const DesktopWallpaper: App = {
     name: "Wallpaper",
     description: "The ArcOS wallpaper",
     builtin: true,
-    version: "1.0.0",
+    version: "4.0.0",
     author: "ArcOS Team",
     icon: logo,
     custom: true,

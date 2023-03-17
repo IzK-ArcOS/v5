@@ -9,7 +9,7 @@ export const AppManager: App = {
     name: "Application Manager",
     description: "Manage Open Apps",
     builtin: true,
-    version: "1.0.0",
+    version: "1.5.0",
     author: "Izaak Kuipers",
     icon: logo,
   },

@@ -8,7 +8,7 @@ export const CalculatorApp: App = {
     name: "Calculator",
     description: "ArcOS Calculator",
     builtin: true,
-    version: "1.0.0",
+    version: "2.0.0",
     author: "Izaak Kuipers",
     icon: logo,
   },

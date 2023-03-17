@@ -121,7 +121,7 @@ export const SettingsApp: App = {
     name: "System Settings",
     description: "Change the way ArcOS works",
     builtin: true,
-    version: "1.0.0",
+    version: "4.0.0",
     author: "ArcOS Team",
     icon: logo,
   },

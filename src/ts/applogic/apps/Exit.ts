@@ -7,7 +7,7 @@ export const Exit: App = {
     name: "Exit",
     description: "ArcOS Exit Menu",
     builtin: true,
-    version: "1.0.0",
+    version: "2.0.0",
     author: "Izaak Kuipers",
     icon: logo,
     hidden: true,

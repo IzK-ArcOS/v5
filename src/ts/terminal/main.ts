@@ -1,6 +1,6 @@
-import { closeWindow } from "../applogic/events";
+import { get } from "svelte/store";
+import { ConnectedServer } from "../api/main";
 import type { App } from "../applogic/interface";
-import { createOverlayableError } from "../errorlogic/overlay";
 import { ArcTermEnv } from "./env";
 import { initError } from "./error";
 import { ArcTermInput } from "./input";
@@ -22,6 +22,7 @@ export class ArcTerm {
   util: ArcTermUtil;
   env: ArcTermEnv;
   input: ArcTermInput;
+  path: string | false;
 
   constructor(t: HTMLDivElement, cS: CommandStore, a: App) {
     this.target = t;
@@ -34,9 +35,9 @@ export class ArcTerm {
   public async evaluate(cmd: string, args?: string[]) {
     const command = this.getCommand(cmd);
 
-    command.exec(cmd, args, this);
+    await command.exec(cmd, args, this);
 
-    await this.input.unlock();
+    this.input.unlock();
   }
 
   private getCommand(command: string) {
@@ -49,6 +50,8 @@ export class ArcTerm {
 
   private initialize() {
     if (!this.target) return initError(this.app.id);
+
+    this.path = get(ConnectedServer) ? "./" : false;
 
     this.target.innerText = "";
 

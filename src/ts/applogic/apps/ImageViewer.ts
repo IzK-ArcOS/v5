@@ -10,7 +10,7 @@ export const ImageViewer: App = {
     name: "Image Viewer",
     description: "Display images from the ArcAPI",
     builtin: true,
-    version: "1.0.0",
+    version: "2.0.1",
     author: "Izaak Kuipers",
     hidden: true,
     icon: logo,
