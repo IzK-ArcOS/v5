@@ -4,7 +4,7 @@ import { Log, LogLevel } from "../console";
 import { restart } from "../desktop/power";
 import { CurrentState } from "../state/main";
 import { commitUserdata } from "./commit";
-import { AllUsers, defaultUserData, UserData, UserToken } from "./interfaces";
+import { AllUsers, UserData, UserToken } from "./interfaces";
 
 export const committingUserData = writable<boolean>(false);
 
@@ -60,7 +60,7 @@ export async function getUserdata(name: string) {
 
   if (users[name]) return users[name];
 
-  return defaultUserData;
+  return;
 }
 
 export async function setUserdata(data: UserData): Promise<boolean> {
