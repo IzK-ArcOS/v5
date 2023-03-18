@@ -5,6 +5,7 @@
   import {
     focusedWindowId,
     getWindow,
+    isFullscreenWindow,
     maxZIndex,
     WindowStore,
   } from "../../../ts/applogic/store";
@@ -17,6 +18,12 @@
     oa = [];
 
     if (v) oa = v;
+
+    for (let i = 0; i < oa.length; i++) {
+      if (oa[i].state.windowState.fll) return isFullscreenWindow.set(true);
+    }
+
+    isFullscreenWindow.set(false);
   });
 
   focusedWindowId.subscribe((v) => {
