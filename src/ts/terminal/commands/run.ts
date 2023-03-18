@@ -10,18 +10,13 @@ export const Run: Command = {
   async exec(cmd, argv, term) {
     const path = term.path as string;
     const fn = argv.join(" ").trim();
-
-    term.util.writeLine(`ArcFS: getting '${path}'`);
-
     const dir = (await getDirectory(path)) as UserDirectory;
-
-    term.util.writeLine(`ArcFS: Looking for '${fn}'`);
 
     for (let i = 0; i < dir.files.length; i++) {
       const file = dir.files[i];
 
       if (file.filename == fn) {
-        term.util.writeLine(`Load: Opening ${fn} (${file.size} Bytes)`);
+        term.util.writeLine(`Opening ${fn} (${file.size} Bytes)`);
 
         o(file);
 
@@ -29,7 +24,7 @@ export const Run: Command = {
       }
     }
 
-    term.util.writeLine(`ArcFS: File Not Found!`);
+    term.util.writeLine(`The file doesn't exist on ArcFS.`);
   },
   description: "Run a file",
 };

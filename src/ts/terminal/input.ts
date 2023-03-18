@@ -25,8 +25,6 @@ export class ArcTermInput {
 
       this.lock();
 
-      this.term.util.writeLine("\n");
-
       this.target.append(this.createPrompt());
     });
   }

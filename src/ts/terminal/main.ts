@@ -37,12 +37,16 @@ export class ArcTerm {
 
     await command.exec(cmd, args, this);
 
+    this.util.writeLine("\n");
     this.input.unlock();
   }
 
   private getCommand(command: string) {
+    const c = command.toLowerCase();
     for (let i = 0; i < this.commands.length; i++) {
-      if (this.commands[i].keyword == command) return this.commands[i];
+      const k = this.commands[i].keyword.toLowerCase();
+
+      if (k == c) return this.commands[i];
     }
 
     return defaultCommand;

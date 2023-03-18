@@ -2,8 +2,11 @@ import { AppList } from "./commands/applist";
 import { Cd } from "./commands/cd";
 import { Clear } from "./commands/clear";
 import { Dir } from "./commands/dir";
+import { Edit } from "./commands/edit";
 import { Help } from "./commands/help";
+import { Mkdir } from "./commands/mkdir";
 import { Open } from "./commands/open";
+import { Rm } from "./commands/rm";
 import { Run } from "./commands/run";
 import type { Command, CommandStore } from "./interface";
 
@@ -23,4 +26,6 @@ export const arcCommands: CommandStore = [
   Dir,
   Cd,
   Run,
+  Mkdir,
+  Rm,
 ];
