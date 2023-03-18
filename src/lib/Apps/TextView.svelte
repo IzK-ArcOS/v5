@@ -32,7 +32,7 @@
 
     if (changing) return;
     if (!app.openedFile) return (fileContents = "");
-    if (currentFile == app.openedFile.path) return;
+    if (currentFile == app.openedFile.path && fileContents) return;
 
     const text = new TextDecoder().decode(app.openedFile.data);
 
