@@ -24,32 +24,34 @@
   let currentFile = "";
 
   onMount(() => {
+    app.events = {};
+
+    app.events.openFile = (app) => {
+      errored = false;
+
+      if (changing) return;
+      if (!app.openedFile) return (fileContents = "");
+      if (currentFile == app.openedFile.path && fileContents) return;
+
+      const text = new TextDecoder().decode(app.openedFile.data);
+
+      fileContents = text;
+      currentFile = app.openedFile.path;
+
+      TextEditorContent.set(fileContents);
+
+      const json = tryParse(fileContents);
+
+      if (!json) return;
+
+      if (json.error && json.valid == false) {
+        errored = true;
+
+        doLoadError(json.error.title, json.error.message);
+      }
+    };
+
     setShortcuts(app);
-  });
-
-  WindowStore.subscribe(() => {
-    errored = false;
-
-    if (changing) return;
-    if (!app.openedFile) return (fileContents = "");
-    if (currentFile == app.openedFile.path && fileContents) return;
-
-    const text = new TextDecoder().decode(app.openedFile.data);
-
-    fileContents = text;
-    currentFile = app.openedFile.path;
-
-    TextEditorContent.set(fileContents);
-
-    const json = tryParse(fileContents);
-
-    if (!json) return;
-
-    if (json.error && json.valid == false) {
-      errored = true;
-
-      doLoadError(json.error.title, json.error.message);
-    }
   });
 
   async function saveFile() {

@@ -75,3 +75,10 @@ window.window a {
   color: var(--accent);
   text-decoration: none;
 }
+
+window.window div.body code {
+  padding: 0 2.5px;
+  border-radius: var(--button-border-rad);
+  background-color: var(--button-active-bg);
+  font-family: "Source Code Pro", monospace;
+}

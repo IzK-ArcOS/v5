@@ -16,6 +16,6 @@ window#ArcTerm > div.body {
   padding: 5px;
 }
 window#ArcTerm > div.body div.terminal-renderer {
-  height: 100%;
+  /* height: 100%; */
   overflow-y: scroll;
 }

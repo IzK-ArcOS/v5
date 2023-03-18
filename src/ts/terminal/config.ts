@@ -1,4 +1,6 @@
 import { readFile, writeFile } from "../api/fs/file";
+import { errorMessage } from "../errorlogic/main";
+import { createOverlayableError } from "../errorlogic/overlay";
 import type { ArcTermEnv } from "./env";
 
 export class ArcTermConfig {
@@ -24,7 +26,11 @@ export class ArcTermConfig {
   public async loadConfigFile() {
     const file = await readFile(this.configPath);
 
-    if (!file) return this.writeConfig();
+    if (!file) {
+      this.fallbackError();
+
+      return this.writeConfig();
+    }
 
     const d = String.fromCharCode.apply(null, new Uint8Array(file));
 
@@ -51,5 +57,15 @@ export class ArcTermConfig {
     const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
 
     await writeFile(this.configPath, blob);
+  }
+
+  private fallbackError() {
+    errorMessage(
+      "Configuration file not found",
+      `Unable to find the configuration file used to change the functionality of ArcTerm. The default values have been applied and written to <code>${this.configPath}</code>.`,
+      null,
+      null,
+      { caption: "Understood", action() {} }
+    );
   }
 }
