@@ -13,6 +13,8 @@ export class ArcTermUtil {
     this.app = parent.app;
     this.term = parent;
     this.env = parent.env;
+
+    this.target.innerText = "";
   }
 
   public writeLine(str: string) {

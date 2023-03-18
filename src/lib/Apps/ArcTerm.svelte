@@ -26,6 +26,16 @@
         arcTerm = new ArcTerm(target, arcCommands, app);
       }
     };
+
+    app.events.blur = () => {
+      if (arcTerm && arcTerm.input && arcTerm.input.current)
+        arcTerm.input.current.disabled = true;
+    };
+
+    app.events.focus = () => {
+      if (arcTerm && arcTerm.input && arcTerm.input.current)
+        arcTerm.input.current.disabled = false;
+    };
   });
 
   function focus() {

@@ -41,9 +41,12 @@ export class ArcTermInput {
     const username = get(UserName);
     const server = localStorage.getItem("arcos-server");
     const path = (this.term.path || "./").replace("./", "");
-    const prompt = this.env.prompt;
+    const prompt = this.env.prompt
+      .replace("&u", username)
+      .replace("&s", server)
+      .replace("&p", path);
 
-    return `${username}: ~/${path} ${prompt}`;
+    return prompt;
   }
 
   public createPrompt() {

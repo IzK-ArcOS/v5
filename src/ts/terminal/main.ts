@@ -8,7 +8,9 @@ import { ArcTermUtil } from "./util";
 
 /**
  * @WARNING   This part of ArcOS is seperated from the Svelte framework in
- *            order to make it easier to write and manage.
+ *            order to make it easier to write and manage. Frequent checks
+ *            are performed throught ArcTerm classes in order to keep it clean
+ *            and stop it from breaking unexpectedly.
  *
  * - IzKuipers, march 17 2023
  */
@@ -52,16 +54,19 @@ export class ArcTerm {
     return defaultCommand;
   }
 
-  private initialize() {
+  private async initialize() {
     if (!this.target) return initError(this.app.id);
 
     this.path = "./";
-
-    this.target.innerText = "";
-
+    this.target.innerText = "hhh";
     this.env = new ArcTermEnv();
-    this.input = new ArcTermInput(this);
-    this.util = new ArcTermUtil(this);
+
+    setTimeout(() => {
+      this.util = new ArcTermUtil(this);
+      this.util.writeLine(`${this.env.greeting}\n\n`);
+
+      this.input = new ArcTermInput(this);
+    }, 300);
   }
 
   public dispose() {
