@@ -4,6 +4,7 @@
 
   import {
     focusedWindowId,
+    getOpenedStore,
     getWindow,
     isFullscreenWindow,
     maxZIndex,
@@ -19,8 +20,11 @@
 
     if (v) oa = v;
 
-    for (let i = 0; i < oa.length; i++) {
-      if (oa[i].state.windowState.fll) return isFullscreenWindow.set(true);
+    const openedStore = getOpenedStore();
+
+    for (let i = 0; i < openedStore.length; i++) {
+      if (openedStore[i].state.windowState.fll)
+        return isFullscreenWindow.set(true);
     }
 
     isFullscreenWindow.set(false);

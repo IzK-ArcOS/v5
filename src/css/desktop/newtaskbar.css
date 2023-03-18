@@ -43,3 +43,7 @@ div.newtb button.start img {
   height: 25px;
   width: 25px;
 }
+
+div.newtb button.start:not(.open) svg.accented-logo path {
+  --accent: #fff5;
+}
