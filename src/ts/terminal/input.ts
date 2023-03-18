@@ -42,10 +42,10 @@ export class ArcTermInput {
   private getPrompt() {
     const username = get(UserName);
     const server = localStorage.getItem("arcos-server");
-    const path = this.term.path || "";
+    const path = (this.term.path || "./").replace("./", "");
     const prompt = this.env.prompt;
 
-    return `${username}@${server}: ${path} ${prompt}`;
+    return `${username}: ~/${path} ${prompt}`;
   }
 
   public createPrompt() {

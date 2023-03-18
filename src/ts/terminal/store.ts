@@ -4,6 +4,7 @@ import { Clear } from "./commands/clear";
 import { Dir } from "./commands/dir";
 import { Help } from "./commands/help";
 import { Open } from "./commands/open";
+import { Run } from "./commands/run";
 import type { Command, CommandStore } from "./interface";
 
 export const defaultCommand: Command = {
@@ -14,4 +15,12 @@ export const defaultCommand: Command = {
   description: "Default command",
 };
 
-export const arcCommands: CommandStore = [Help, Clear, Open, AppList, Dir, Cd];
+export const arcCommands: CommandStore = [
+  Help,
+  Clear,
+  Open,
+  AppList,
+  Dir,
+  Cd,
+  Run,
+];
