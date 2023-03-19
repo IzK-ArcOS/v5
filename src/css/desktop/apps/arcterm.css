@@ -1,7 +1,7 @@
 @import url("../../terminal/main.css");
 
 window#ArcTerm {
-  background-color: #000c;
+  background-color: #000;
   --fg: #ccc;
   --win-bg: #3a3a3a;
   --win-border: #555 1px solid;
