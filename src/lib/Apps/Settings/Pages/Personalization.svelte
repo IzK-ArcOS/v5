@@ -37,6 +37,7 @@
   <select name="aa" id="bb" bind:value={$UserData.sh.desktop.theme}>
     <option value="dark">Darkmode</option>
     <option value="light">Lightmode</option>
+    <option value="amoled">Amoled</option>
     <option value="hc">High contrast</option>
   </select>
 </OptionSection>
