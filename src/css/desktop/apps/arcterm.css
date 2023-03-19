@@ -1,7 +1,7 @@
 @import url("../../terminal/main.css");
 
 window#ArcTerm {
-  background-color: #000;
+  background-color: #000c;
   --fg: #ccc;
   --win-bg: #3a3a3a;
   --win-border: #555 1px solid;
@@ -18,4 +18,11 @@ window#ArcTerm > div.body {
 window#ArcTerm > div.body div.terminal-renderer {
   /* height: 100%; */
   overflow-y: scroll;
+}
+
+window#ArcTerm > div.body div.terminal-renderer * {
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: break-spaces;
+  max-width: 100%;
 }

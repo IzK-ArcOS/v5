@@ -1,4 +1,6 @@
+import { get } from "svelte/store";
 import type { App } from "../applogic/interface";
+import { WindowStore } from "../applogic/store";
 import { ArcTermEnv } from "./env";
 import { initError } from "./error";
 import { ArcTermInput } from "./input";
@@ -66,6 +68,12 @@ export class ArcTerm {
       this.util.writeLine(`${this.env.greeting}\n\n`);
 
       this.input = new ArcTermInput(this);
+      if (!this.app) return;
+
+      this.app.size.w = this.env.width;
+      this.app.size.h = this.env.height;
+
+      WindowStore.set(get(WindowStore));
     }, 300);
   }
 
