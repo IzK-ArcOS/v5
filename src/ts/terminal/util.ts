@@ -53,7 +53,7 @@ export class ArcTermUtil {
 
     const out = document.createElement("div");
 
-    out.className = `part`;
+    out.className = `part `;
 
     if (inline) out.className += " inline";
 

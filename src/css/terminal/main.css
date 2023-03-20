@@ -15,8 +15,8 @@ div.terminal-renderer * {
 }
 
 div.terminal-renderer div.part {
-  display: block;
-  min-height: 17px;
+  display: block; /* 
+  min-height: 17px; */
 }
 div.terminal-renderer div.part.inline {
   display: inline-block;

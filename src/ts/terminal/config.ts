@@ -22,6 +22,18 @@ export class ArcTermConfig {
     "promptColor",
   ];
 
+  public getConfig() {
+    const obj = {};
+
+    for (let i = 0; i < this.configKeys.length; i++) {
+      const k = this.configKeys[i];
+
+      obj[k] = this.env[k];
+    }
+
+    return obj;
+  }
+
   public loadConfig(json: object) {
     for (let i = 0; i < this.configKeys.length; i++) {
       const k = this.configKeys[i];
@@ -42,7 +54,10 @@ export class ArcTermConfig {
       return this.writeConfig();
     }
 
-    const d = String.fromCharCode.apply(null, new Uint8Array(file));
+    const enc = new TextDecoder("utf-8");
+    const d = enc.decode(new Uint8Array(file));
+
+    console.log(d);
 
     let json;
 

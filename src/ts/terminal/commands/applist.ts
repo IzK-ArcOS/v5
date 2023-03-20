@@ -12,7 +12,7 @@ export const AppList: Command = {
     const hVer = `Version`;
     const header = `${hName}${hId}${hVer}`;
 
-    term.util.writeLine(header);
+    term.util.writeColor(`[${header}]`, "yellow");
     term.util.writeSeperator(header.length);
 
     for (let i = 0; i < ws.length; i++) {

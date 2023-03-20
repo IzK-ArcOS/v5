@@ -6,7 +6,7 @@ import { ArcTermCommandHandler } from "./commands";
 import { ArcTermEnv } from "./env";
 import { initError } from "./error";
 import { ArcTermInput } from "./input";
-import type { CommandStore } from "./interface";
+import type { Color, CommandStore } from "./interface";
 import { ArcTermIntro } from "./intro";
 import { defaultCommand } from "./store";
 import { ArcTermUtil } from "./util";
@@ -48,12 +48,9 @@ export class ArcTerm {
 
     setTimeout(() => {
       this.util = new ArcTermUtil(this);
-
-      ArcTermIntro(this);
-
-      this.util.writeLine(`${this.env.greeting}\n\n`);
-
       this.input = new ArcTermInput(this);
+
+      this.intro();
 
       if (!this.app) return;
 
@@ -72,5 +69,14 @@ export class ArcTerm {
     this.env = null;
     this.input.lock();
     this.input = null;
+  }
+
+  private intro() {
+    ArcTermIntro(this);
+
+    this.util.writeColor(
+      `${this.env.greeting}\n\n`,
+      this.env.promptColor as Color
+    );
   }
 }

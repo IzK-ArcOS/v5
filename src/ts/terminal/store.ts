@@ -5,6 +5,7 @@ import { Clear } from "./commands/clear";
 import { Colors } from "./commands/colors";
 import { Dir } from "./commands/dir";
 import { Echo } from "./commands/echo";
+import { Env } from "./commands/env";
 import { Help } from "./commands/help";
 import { Kill } from "./commands/kill";
 import { Mkdir } from "./commands/mkdir";
@@ -37,4 +38,5 @@ export const arcCommands: CommandStore = [
   Kill,
   Colors,
   Echo,
+  Env,
 ];
