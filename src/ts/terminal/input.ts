@@ -53,6 +53,7 @@ export class ArcTermInput {
     if (this.current) this.current.disabled = true;
 
     const wrap = document.createElement("div");
+    const inner = document.createElement("div");
     const input = document.createElement("input");
 
     wrap.className = "prompt";
@@ -70,7 +71,10 @@ export class ArcTermInput {
 
     this.current = input;
 
-    wrap.append(input);
+    inner.className = "inner";
+    inner.append(input);
+
+    wrap.append(inner);
 
     setTimeout(() => {
       if (get(focusedWindowId) == this.term.app.id) input.focus();

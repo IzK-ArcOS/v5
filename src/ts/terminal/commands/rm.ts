@@ -8,7 +8,11 @@ export const Rm: Command = {
     const dir = argv.join(" ");
     const name = (p != "./" ? `${p}/${dir}` : dir).replaceAll("//", "/");
 
-    await deleteItem(name);
+    try {
+      await deleteItem(name);
+    } catch {
+      term.util.Error(`Unable to delete "${dir}"`);
+    }
   },
   description: "Delete a file or folder",
 };

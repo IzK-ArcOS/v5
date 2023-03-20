@@ -12,6 +12,7 @@ div.desktop {
   color: var(--fg);
   opacity: 0;
   transition: opacity 0.6s;
+  overflow: hidden;
 }
 
 div.desktop.show {

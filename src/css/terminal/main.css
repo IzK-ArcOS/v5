@@ -28,7 +28,15 @@ div.terminal-renderer div.prompt {
 }
 
 div.terminal-renderer div.prompt input {
+  margin-top: auto !important;
+  display: block;
+}
+
+div.terminal-renderer div.prompt div.inner {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
 }
 
 div.terminal-renderer .clr-red {

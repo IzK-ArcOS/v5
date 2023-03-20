@@ -6,6 +6,7 @@ import { Colors } from "./commands/colors";
 import { Dir } from "./commands/dir";
 import { Echo } from "./commands/echo";
 import { Env } from "./commands/env";
+import { Exit } from "./commands/exit";
 import { Help } from "./commands/help";
 import { Kill } from "./commands/kill";
 import { Mkdir } from "./commands/mkdir";
@@ -24,19 +25,20 @@ export const defaultCommand: Command = {
 };
 
 export const arcCommands: CommandStore = [
-  Help,
-  Clear,
-  Open,
   AppList,
-  Dir,
-  Cd,
-  Run,
-  Mkdir,
-  Rm,
-  Reload,
   ATConf,
-  Kill,
+  Cd,
+  Clear,
   Colors,
+  Dir,
   Echo,
   Env,
+  Exit,
+  Help,
+  Kill,
+  Mkdir,
+  Open,
+  Rm,
+  Reload,
+  Run,
 ];
