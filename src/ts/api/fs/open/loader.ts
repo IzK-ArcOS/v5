@@ -61,13 +61,13 @@ export const FileLoaders: { [key: string]: UserFileLoader } = {
     extensions: [".arctheme"],
   },
   editFile: {
-    name: "Edit file",
+    name: "Edit config file",
     description: "Open file in Text Editor",
     icon: textEditorIcon,
     loader(file) {
       openWith("TextEditor", file, true);
     },
-    extensions: [],
+    extensions: [".conf"],
   },
   openInNew: {
     name: "Download",

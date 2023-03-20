@@ -52,7 +52,3 @@ div.terminal-renderer .clr-aqua {
 div.terminal-renderer .clr-purple {
   color: var(--clr-purple-fg);
 }
-
-div.terminal-renderer div.part * {
-  display: inline-block;
-}

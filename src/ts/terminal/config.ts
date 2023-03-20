@@ -12,7 +12,7 @@ export class ArcTermConfig {
     this.loadConfigFile();
   }
 
-  readonly configPath = "./@arcterm";
+  readonly configPath = "./arcterm.conf";
   private readonly configKeys = [
     "prompt",
     "greeting",
@@ -26,7 +26,10 @@ export class ArcTermConfig {
     for (let i = 0; i < this.configKeys.length; i++) {
       const k = this.configKeys[i];
 
-      if (this.env[k] && json[k]) this.env[k] = json[k];
+      const exists = this.env[k] && json;
+      const isType = typeof this.env[k] == typeof json[k];
+
+      if (exists && isType) this.env[k] = json[k];
     }
   }
 
