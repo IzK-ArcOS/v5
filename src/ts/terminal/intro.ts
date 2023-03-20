@@ -15,5 +15,5 @@ export function ArcTermIntro(term: ArcTerm) {
     term.util.writeColor(x[i], "blue");
   }
 
-  term.util.writeLine("");
+  term.util.writeLine("\n");
 }

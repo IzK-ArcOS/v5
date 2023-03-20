@@ -4,7 +4,7 @@ import type { Color } from "./interface";
 
 export class ArcTermEnv {
   config: ArcTermConfig;
-  prompt = "&u: ~/&p $ ";
+  prompt = "[&u]: [~/&p] $ ";
   promptColor: Color = "green";
   greeting = `ArcTerm & ArcOS v${ArcOSVersion}\n\nLicensed under GPLv3. Created by the ArcOS team.`;
   width = 700;
