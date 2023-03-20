@@ -30,6 +30,10 @@ export class ArcTermUtil {
     this.target.appendChild(el);
   }
 
+  public writeSeperator(length: number) {
+    this.writeLine(``.padEnd(length, "-"));
+  }
+
   public Error(context: string) {
     this.writeColor(`[Error]: ${context}`, "red");
   }
