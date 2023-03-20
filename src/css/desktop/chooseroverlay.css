@@ -146,6 +146,9 @@ window.overlay[id*="CHOOSER"] div.content div.list {
   padding: 5px;
   background-color: var(--win-bg);
   max-width: calc(100% - 150px);
+  overflow-y: scroll;
+  padding-right: 0;
+  overflow-x: hidden;
 }
 
 window.overlay[id*="CHOOSER"] div.content div.list button.item.head * {
