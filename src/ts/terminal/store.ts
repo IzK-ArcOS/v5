@@ -12,8 +12,11 @@ import { Kill } from "./commands/kill";
 import { Mkdir } from "./commands/mkdir";
 import { Open } from "./commands/open";
 import { Reload } from "./commands/reload";
+import { Restart } from "./commands/restart";
 import { Rm } from "./commands/rm";
 import { Run } from "./commands/run";
+import { Shutdown } from "./commands/shutdown";
+import { Ver } from "./commands/ver";
 import type { Command, CommandStore } from "./interface";
 
 export const defaultCommand: Command = {
@@ -40,5 +43,8 @@ export const arcCommands: CommandStore = [
   Open,
   Rm,
   Reload,
+  Restart,
   Run,
+  Shutdown,
+  Ver,
 ];
