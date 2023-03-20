@@ -12,13 +12,14 @@ export class ArcTermConfig {
     this.loadConfigFile();
   }
 
-  private readonly configPath = "./@arcterm";
+  readonly configPath = "./@arcterm";
   private readonly configKeys = [
     "prompt",
     "greeting",
     "width",
     "height",
     "noLogo",
+    "promptColor",
   ];
 
   public loadConfig(json: object) {
@@ -60,7 +61,9 @@ export class ArcTermConfig {
       data[k] = this.env[k];
     }
 
-    const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
+    const blob = new Blob([JSON.stringify(data, null, 2)], {
+      type: "application/json",
+    });
 
     await writeFile(this.configPath, blob);
   }

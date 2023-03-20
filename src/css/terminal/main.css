@@ -31,27 +31,26 @@ div.terminal-renderer div.prompt input {
   flex-grow: 1;
 }
 
-div.terminal-renderer div.clr-red {
+div.terminal-renderer .clr-red {
   color: var(--clr-red-fg);
 }
-
-div.terminal-renderer div.clr-green {
+div.terminal-renderer .clr-green {
   color: var(--clr-green-fg);
 }
-div.terminal-renderer div.clr-orange {
+div.terminal-renderer .clr-orange {
   color: var(--clr-orange-fg);
 }
-div.terminal-renderer div.clr-yellow {
+div.terminal-renderer .clr-yellow {
   color: var(--clr-yellow-fg);
 }
-div.terminal-renderer div.clr-blue {
+div.terminal-renderer .clr-blue {
   color: var(--clr-blue-fg);
 }
-div.terminal-renderer div.clr-aqua {
+div.terminal-renderer .clr-aqua {
   color: var(--clr-aqau-fg);
 }
-div.terminal-renderer div.clr-purple {
-  color: purple;
+div.terminal-renderer .clr-purple {
+  color: var(--clr-purple-fg);
 }
 
 div.terminal-renderer div.part * {

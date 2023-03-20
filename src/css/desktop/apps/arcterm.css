@@ -23,6 +23,8 @@ window#ArcTerm {
   --clr-blue-fg: #96d3ff;
   --clr-aqua-fg: #79ffd0;
   --clr-aqua-bg: #214538;
+  --clr-purple-fg: #d597ff;
+  --clr-purple-bg: #3b2748;
 }
 window#ArcTerm > div.body {
   padding: 5px;

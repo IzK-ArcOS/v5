@@ -21,6 +21,10 @@ export function setTargetFile(id: string, file: ArcFile): boolean {
   if (index == null) return false;
 
   ws[index].openedFile = file;
+
+  if (ws[index].events && ws[index].events.openFile)
+    ws[index].events.openFile(ws[index]);
+
   delete ws[index].overlays[id];
 
   WindowStore.set(ws);

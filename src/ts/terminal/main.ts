@@ -42,6 +42,8 @@ export class ArcTerm {
 
     await command.exec(cmd, args, this);
 
+    if (!this.util || !this.input) return;
+
     this.util.writeLine("\n");
     this.input.unlock();
   }
@@ -57,7 +59,7 @@ export class ArcTerm {
     return defaultCommand;
   }
 
-  private async initialize() {
+  public async initialize() {
     if (!this.target) return initError(this.app.id);
 
     this.path = "./";
@@ -72,6 +74,7 @@ export class ArcTerm {
       this.util.writeLine(`${this.env.greeting}\n\n`);
 
       this.input = new ArcTermInput(this);
+
       if (!this.app) return;
 
       this.app.size.w = this.env.width;
@@ -85,5 +88,9 @@ export class ArcTerm {
     if (!this.target) return;
 
     this.target.innerText = "";
+    this.util = null;
+    this.env = null;
+    this.input.lock();
+    this.input = null;
   }
 }

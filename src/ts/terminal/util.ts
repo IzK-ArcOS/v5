@@ -18,13 +18,20 @@ export class ArcTermUtil {
     this.target.innerText = "";
   }
 
-  public writeLine(str: string) {
+  public writeLine(str: string, inline = false) {
     const el = document.createElement("div");
 
     el.className = "part";
+
+    if (inline) el.className += " inline";
+
     el.innerText = `${str}`;
 
     this.target.appendChild(el);
+  }
+
+  public write(str: string) {
+    this.writeLine(str, true);
   }
 
   public writeColor(
@@ -43,7 +50,7 @@ export class ArcTermUtil {
     if (inline) out.className += " inline";
 
     for (let i = 0; i < x.length; i++) {
-      const part = document.createElement("div");
+      const part = document.createElement("span");
 
       const isPart = x[i].startsWith("[") && x[i].endsWith("]");
 

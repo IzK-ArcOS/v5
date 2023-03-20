@@ -31,7 +31,6 @@
 
       if (changing) return;
       if (!app.openedFile) return (fileContents = "");
-      if (currentFile == app.openedFile.path && fileContents) return;
 
       const text = new TextDecoder().decode(app.openedFile.data);
 
@@ -57,7 +56,7 @@
   async function saveFile() {
     saving = true;
 
-    saveTextEditorFile(fileContents, app.openedFile);
+    await saveTextEditorFile(fileContents, app.openedFile);
 
     saving = false;
   }
@@ -77,4 +76,4 @@
   {/if}
 </div>
 
-<Saving bind:saving bind:app />
+<Saving {saving} bind:app />

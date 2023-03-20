@@ -57,7 +57,13 @@ export class ArcTermInput {
 
     wrap.className = "prompt";
 
-    this.term.util.writeColor(this.getPrompt(), "green", "white", true, wrap);
+    this.term.util.writeColor(
+      this.getPrompt(),
+      this.env.promptColor,
+      "white",
+      true,
+      wrap
+    );
 
     input.id = `input#${Math.floor(Math.random() * 1e9)}`;
     input.addEventListener("keydown", (e) => this.processInputEvent(e, input));

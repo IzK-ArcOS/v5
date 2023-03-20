@@ -1,9 +1,6 @@
-import { writable } from "svelte/store";
 import logo from "../../../assets/apps/apppoker.svg";
-import AppInfoSvelte from "../../../lib/Apps/AppInfo.svelte";
 import TextView from "../../../lib/Apps/TextView.svelte";
 import type { App } from "../interface";
-import { setTitleSuffix } from "../title";
 
 export const TextEditor: App = {
   info: {
@@ -28,11 +25,4 @@ export const TextEditor: App = {
   content: TextView,
   glass: true,
   fileMimes: ["text/plain; charset=utf-8"],
-  events: {
-    openFile(app: App) {
-      if (!app.openedFile) return; /* 
-
-      setTitleSuffix(` - ${app.openedFile.path}`, app.id); */
-    },
-  },
 };

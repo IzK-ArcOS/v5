@@ -39,7 +39,7 @@
   });
 
   function focus() {
-    if (!arcTerm || !arcTerm.input.current) return;
+    if (!arcTerm || !arcTerm.input || !arcTerm.input.current) return;
 
     arcTerm.input.current.focus();
   }

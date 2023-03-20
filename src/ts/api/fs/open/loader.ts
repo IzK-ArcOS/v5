@@ -4,10 +4,12 @@ import apLoaderIcon from "../../../../assets/handlers/apploader.svg";
 import pdfOpenerIcon from "../../../../assets/handlers/pdfopener.svg";
 import openInNewIcon from "../../../../assets/handlers/openinnew.svg";
 import loadThemeIcon from "../../../../assets/handlers/loadtheme.svg";
+import textEditorIcon from "../../../../assets/apps/apppoker.svg";
 import { loadAppFile } from "../../../applogic/aftermarket/loader";
 import { errorMessage } from "../../../errorlogic/main";
 import { loadTheme, verifyTheme } from "../../../userlogic/themes/main";
 import type { UserTheme } from "../../../userlogic/themes/interface";
+import { openWith } from "../open";
 
 export const FileLoaders: { [key: string]: UserFileLoader } = {
   appLoader: {
@@ -57,6 +59,15 @@ export const FileLoaders: { [key: string]: UserFileLoader } = {
     },
     icon: loadThemeIcon,
     extensions: [".arctheme"],
+  },
+  editFile: {
+    name: "Edit file",
+    description: "Open file in Text Editor",
+    icon: textEditorIcon,
+    loader(file) {
+      openWith("TextEditor", file, true);
+    },
+    extensions: [],
   },
   openInNew: {
     name: "Download",

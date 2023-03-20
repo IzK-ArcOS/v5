@@ -17,12 +17,6 @@ export async function saveTextEditorFile(
   const data = new Blob([textContent]);
 
   await writeFile(openedFile.path, data);
-
-  const file = { ...openedFile, data: await data.arrayBuffer() };
-
-  setTimeout(() => {
-    openWith("TextEditor", file);
-  });
 }
 
 export async function setShortcuts(app: App) {
