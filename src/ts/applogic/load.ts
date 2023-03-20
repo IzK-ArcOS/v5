@@ -10,6 +10,7 @@ import type { App } from "./interface";
 import { registerAppShortcuts } from "./keyboard/main";
 import { updateStores, WindowStore } from "./store";
 import { makeNotification } from "../notiflogic/main";
+import { centerWindow } from "./center";
 
 export function loadWindow(id: string, app: App) {
   if (isLoaded(id))
@@ -67,6 +68,10 @@ export function loadWindow(id: string, app: App) {
       timeout: 6000,
     });
   }
+
+  setTimeout(() => {
+    if (app.pos.centered) centerWindow(id);
+  }, 300);
 
   Log({
     level: LogLevel.info,

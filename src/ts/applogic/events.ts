@@ -5,6 +5,7 @@ import { startOpened } from "../desktop/main";
 import { destroyOverlayableError } from "../errorlogic/overlay";
 import { getWindowElement } from "../window/main";
 import { hideOverlay } from "../window/overlay";
+import { centerWindow } from "./center";
 import { isDisabled, isLoaded, isOpened } from "./checks";
 import type { App } from "./interface";
 import {

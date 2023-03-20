@@ -1,4 +1,5 @@
 import { get } from "svelte/store";
+import { centerWindow } from "../applogic/center";
 import type { App } from "../applogic/interface";
 import { WindowStore } from "../applogic/store";
 import { ArcOSVersion } from "../env/main";

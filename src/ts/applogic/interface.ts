@@ -1,9 +1,9 @@
-import type { SvelteComponent, SvelteComponentDev } from "svelte/internal";
+import type { SvelteComponentDev } from "svelte/internal";
 import type { ErrorButton } from "../errorlogic/app";
 import type { AppKeyCombinations } from "./keyboard/interface";
 export interface App {
   info: GeneralAppInfo;
-  pos: XY;
+  pos: XY & { centered?: boolean };
   size: Size;
   minSize: Size;
   maxSize: Size;

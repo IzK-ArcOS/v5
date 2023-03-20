@@ -13,7 +13,7 @@ export const TextEditor: App = {
     icon: logo,
   },
   size: { w: 700, h: 550 },
-  pos: { x: 30, y: 40 },
+  pos: { x: 30, y: 40, centered: true },
   minSize: { w: 400, h: 300 },
   maxSize: { w: 1000, h: 800 },
   controls: { min: true, max: true, cls: true },
