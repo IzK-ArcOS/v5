@@ -7,3 +7,13 @@ export interface Command {
 }
 
 export type CommandStore = Command[];
+
+export type Color =
+  | "red"
+  | "green"
+  | "orange"
+  | "yellow"
+  | "blue"
+  | "purple"
+  | "aqua"
+  | "white";

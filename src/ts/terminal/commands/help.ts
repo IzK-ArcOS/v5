@@ -9,7 +9,7 @@ export const Help: Command = {
       const a = term.commands[i].keyword.toUpperCase().padEnd(15, " ");
       const b = term.commands[i].description;
 
-      term.util.writeLine(`${a}${b}`);
+      term.util.writeColor(`[${a}]${b}`, "orange");
     }
   },
   description: "The help menu",

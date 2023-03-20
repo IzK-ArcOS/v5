@@ -53,20 +53,18 @@ export class ArcTermInput {
     if (this.current) this.current.disabled = true;
 
     const wrap = document.createElement("div");
-    const prompt = document.createElement("div");
     const input = document.createElement("input");
 
     wrap.className = "prompt";
 
-    prompt.className = "str";
-    prompt.innerText = this.getPrompt();
+    this.term.util.writeColor(this.getPrompt(), "green", "white", true, wrap);
 
     input.id = `input#${Math.floor(Math.random() * 1e9)}`;
     input.addEventListener("keydown", (e) => this.processInputEvent(e, input));
 
     this.current = input;
 
-    wrap.append(prompt, input);
+    wrap.append(input);
 
     setTimeout(() => {
       if (get(focusedWindowId) == this.term.app.id) input.focus();

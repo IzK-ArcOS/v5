@@ -5,6 +5,7 @@ import { ArcTermEnv } from "./env";
 import { initError } from "./error";
 import { ArcTermInput } from "./input";
 import type { CommandStore } from "./interface";
+import { ArcTermIntro } from "./intro";
 import { defaultCommand } from "./store";
 import { ArcTermUtil } from "./util";
 
@@ -60,11 +61,14 @@ export class ArcTerm {
     if (!this.target) return initError(this.app.id);
 
     this.path = "./";
-    this.target.innerText = "hhh";
+    this.target.innerText = "Loading configuration... Please wait...";
     this.env = new ArcTermEnv();
 
     setTimeout(() => {
       this.util = new ArcTermUtil(this);
+
+      ArcTermIntro(this);
+
       this.util.writeLine(`${this.env.greeting}\n\n`);
 
       this.input = new ArcTermInput(this);
@@ -74,7 +78,7 @@ export class ArcTerm {
       this.app.size.h = this.env.height;
 
       WindowStore.set(get(WindowStore));
-    }, 300);
+    }, 500);
   }
 
   public dispose() {

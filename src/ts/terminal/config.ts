@@ -13,7 +13,13 @@ export class ArcTermConfig {
   }
 
   private readonly configPath = "./@arcterm";
-  private readonly configKeys = ["prompt", "greeting", "width", "height"];
+  private readonly configKeys = [
+    "prompt",
+    "greeting",
+    "width",
+    "height",
+    "noLogo",
+  ];
 
   public loadConfig(json: object) {
     for (let i = 0; i < this.configKeys.length; i++) {

@@ -5,6 +5,7 @@ import { Dir } from "./commands/dir";
 import { Help } from "./commands/help";
 import { Mkdir } from "./commands/mkdir";
 import { Open } from "./commands/open";
+import { Reload } from "./commands/reload";
 import { Rm } from "./commands/rm";
 import { Run } from "./commands/run";
 import type { Command, CommandStore } from "./interface";
@@ -27,4 +28,5 @@ export const arcCommands: CommandStore = [
   Run,
   Mkdir,
   Rm,
+  Reload,
 ];

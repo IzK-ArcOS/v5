@@ -8,6 +8,7 @@ export class ArcTermEnv {
   greeting = `ArcTerm & ArcOS v${ArcOSVersion}\n\nLicensed under GPLv3. Created by the ArcOS team.`;
   width = 700;
   height = 420;
+  noLogo: "yes" | "no" = "no";
 
   constructor() {
     this.config = new ArcTermConfig(this);

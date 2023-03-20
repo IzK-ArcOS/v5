@@ -3,6 +3,7 @@ div.terminal-renderer {
   white-space: pre;
   width: 100%;
   height: 100%;
+  font-family: "Source Code Pro", monospace;
 }
 
 div.terminal-renderer * {
@@ -28,4 +29,31 @@ div.terminal-renderer div.prompt {
 
 div.terminal-renderer div.prompt input {
   flex-grow: 1;
+}
+
+div.terminal-renderer div.clr-red {
+  color: var(--clr-red-fg);
+}
+
+div.terminal-renderer div.clr-green {
+  color: var(--clr-green-fg);
+}
+div.terminal-renderer div.clr-orange {
+  color: var(--clr-orange-fg);
+}
+div.terminal-renderer div.clr-yellow {
+  color: var(--clr-yellow-fg);
+}
+div.terminal-renderer div.clr-blue {
+  color: var(--clr-blue-fg);
+}
+div.terminal-renderer div.clr-aqua {
+  color: var(--clr-aqau-fg);
+}
+div.terminal-renderer div.clr-purple {
+  color: purple;
+}
+
+div.terminal-renderer div.part * {
+  display: inline-block;
 }
