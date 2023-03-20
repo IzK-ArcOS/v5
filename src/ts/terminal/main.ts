@@ -1,6 +1,8 @@
 import { get } from "svelte/store";
 import type { App } from "../applogic/interface";
 import { WindowStore } from "../applogic/store";
+import { ArcOSVersion } from "../env/main";
+import { ArcTermCommandHandler } from "./commands";
 import { ArcTermEnv } from "./env";
 import { initError } from "./error";
 import { ArcTermInput } from "./input";
@@ -26,6 +28,7 @@ export class ArcTerm {
   env: ArcTermEnv;
   input: ArcTermInput;
   path: string | false;
+  commandHandler: ArcTermCommandHandler;
 
   constructor(t: HTMLDivElement, cS: CommandStore, a: App) {
     this.target = t;
@@ -35,35 +38,12 @@ export class ArcTerm {
     this.initialize();
   }
 
-  public async evaluate(cmd: string, args?: string[]) {
-    const command = this.getCommand(cmd);
-
-    this.input.current.disabled = true;
-
-    await command.exec(cmd, args, this);
-
-    if (!this.util || !this.input) return;
-
-    this.util.writeLine("\n");
-    this.input.unlock();
-  }
-
-  private getCommand(command: string) {
-    const c = command.toLowerCase();
-    for (let i = 0; i < this.commands.length; i++) {
-      const k = this.commands[i].keyword.toLowerCase();
-
-      if (k == c) return this.commands[i];
-    }
-
-    return defaultCommand;
-  }
-
   public async initialize() {
     if (!this.target) return initError(this.app.id);
 
     this.path = "./";
-    this.target.innerText = "Loading configuration... Please wait...";
+    this.target.innerText = `v${ArcOSVersion}`;
+    this.commandHandler = new ArcTermCommandHandler(this);
     this.env = new ArcTermEnv();
 
     setTimeout(() => {

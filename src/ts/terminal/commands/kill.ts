@@ -1,9 +1,9 @@
-import { openWindow } from "../../applogic/events";
+import { closeWindow } from "../../applogic/events";
 import { getWindow } from "../../applogic/store";
 import type { Command } from "../interface";
 
-export const Open: Command = {
-  keyword: "open",
+export const Kill: Command = {
+  keyword: "kill",
   exec(cmd, argv, term) {
     const appId = argv[0];
 
@@ -11,9 +11,9 @@ export const Open: Command = {
 
     if (!window) return term.util.Error(`${appId}: app not found.`);
 
-    openWindow(appId, true);
+    closeWindow(appId);
 
-    term.util.writeLine(`Opened ${window.info.name}`);
+    term.util.writeLine(`Closed ${window.info.name}`);
   },
-  description: "Open a window",
+  description: "Terminate a program",
 };

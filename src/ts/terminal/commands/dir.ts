@@ -13,7 +13,7 @@ export const Dir: Command = {
 
     let totalSize = 0;
 
-    term.util.writeLine(`\nDirectory contents of ${path}`);
+    term.util.writeColor(`\nDirectory contents of [${path}]\n`, "blue");
 
     for (let i = 0; i < dirs.length; i++) {
       const name = dirs[i].name;

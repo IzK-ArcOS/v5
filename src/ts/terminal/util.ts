@@ -30,6 +30,10 @@ export class ArcTermUtil {
     this.target.appendChild(el);
   }
 
+  public Error(context: string) {
+    this.writeColor(`[Error]: ${context}`, "red");
+  }
+
   public write(str: string) {
     this.writeLine(str, true);
   }

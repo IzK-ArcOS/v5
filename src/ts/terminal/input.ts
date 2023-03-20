@@ -86,6 +86,6 @@ export class ArcTermInput {
 
     args.shift();
 
-    if (key == "enter") this.term.evaluate(cmd, args);
+    if (key == "enter") this.term.commandHandler.evaluate(cmd, args);
   }
 }
