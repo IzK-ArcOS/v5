@@ -2,7 +2,7 @@ import { ArcOSVersion } from "../env/main";
 import type { ArcTerm } from "./main";
 
 export function ArcTermIntro(term: ArcTerm) {
-  if (term.env.noLogo == "yes") return;
+  if (!term.env.logo) return;
 
   const x = [
     "   [_]         _____            ",

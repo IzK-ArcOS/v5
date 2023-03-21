@@ -1,13 +1,16 @@
 import { createOverlayableError } from "../../../errorlogic/overlay";
 import { showOverlay } from "../../../window/overlay";
-import type { App, AppContextMenu } from "../../interface";
+import type { App, AppContextMenu, ContextMenuItem } from "../../interface";
 import {
   fbClass,
   FileBrowserCopyingFilename,
+  FileBrowserCurrentDir,
   FileBrowserCuttingFilename,
   FileBrowserSelectedFilename,
 } from "./main";
 import trash from "../../../../assets/apps/logger/clear.svg";
+import { get } from "svelte/store";
+import { SEP_ITEM } from "../../../contextmenu/main";
 
 export const FileManagerContextMenu: AppContextMenu = {
   "listitem-dir": [
@@ -81,3 +84,47 @@ export const FileManagerContextMenu: AppContextMenu = {
     },
   ],
 };
+
+const listitemContext: ContextMenuItem[] = [
+  {
+    icon: "content_cut",
+    action(window, data, scope) {
+      const cdir = get(FileBrowserCurrentDir);
+      const path = `${cdir}/${data["name"]}`;
+      const name = data["name"];
+
+      FileBrowserCuttingFilename.set({
+        name,
+        scopedPath: path,
+      });
+    },
+  },
+  {
+    icon: "copy",
+    action(window, data, scope) {
+      const cdir = get(FileBrowserCurrentDir);
+      const path = `${cdir}/${data["name"]}`;
+      const name = data["name"];
+
+      FileBrowserCopyingFilename.set({
+        name,
+        scopedPath: path,
+      });
+    },
+  },
+  SEP_ITEM,
+  {
+    icon: "delete",
+    caption: "Delete item",
+    action(window, data, scope) {
+      const cdir = get(FileBrowserCurrentDir);
+      const path = `${cdir}/${data["name"]}`;
+      const name = data["name"];
+
+      FileBrowserCopyingFilename.set({
+        name,
+        scopedPath: path,
+      });
+    },
+  },
+];
