@@ -1,4 +1,5 @@
 import { AppList } from "./commands/applist";
+import { ArcFetch } from "./commands/arcfetch";
 import { ATConf } from "./commands/atconf";
 import { Cd } from "./commands/cd";
 import { Clear } from "./commands/clear";
@@ -30,6 +31,7 @@ export const defaultCommand: Command = {
 
 export const arcCommands: CommandStore = [
   AppList,
+  ArcFetch,
   ATConf,
   Cd,
   Clear,
