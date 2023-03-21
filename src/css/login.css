@@ -122,19 +122,17 @@ div.login div.topbar div.right {
 div.login div.hostname {
   opacity: 0.3;
 }
-
 /* 
 div.login div.center-absolute {
-    min-width:640px;
-    max-width:70%;
-    width:70%;
+  min-width: 640px;
+  max-width: 70%;
+  width: 70%;
 } */
 
 div.login div.center-absolute div.user-selector {
-  display: grid;
-  grid-template-columns: repeat(7, auto);
-  align-items: center;
-  align-content: center;
+  min-width: 640px;
+  max-width: 80vw;
+  width: 80vw;
   text-align: center;
 }
 
@@ -156,6 +154,7 @@ div.login div.center-absolute div.user-selector button.user {
   border: none;
   margin: 15px;
   width: 100px;
+  height: 130px;
   box-sizing: border-box;
   padding: 0;
   text-shadow: #000 0px 0 5px;
