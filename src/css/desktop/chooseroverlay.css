@@ -340,7 +340,7 @@ window.overlay[id*="CHOOSER"] div.tiled div.dirs {
   margin: 0;
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: var(--win-border);
+  border-bottom: var(--button-bg) 1px solid;
 }
 
 window.overlay[id*="CHOOSER"] div.tiled div.dirs button.tile.dir {
@@ -365,12 +365,20 @@ window.overlay[id*="CHOOSER"] div.tiled div.dirs button.tile.dir p.caption {
 
 window.overlay[id*="CHOOSER"] div.tiled div.files {
   display: grid;
-  grid-template-columns: repeat(auto-fit, max(85px));
+  grid-template-columns: repeat(auto-fit, 80px);
+  grid-template-rows: repeat(auto-fit, 85px);
 }
 window.overlay[id*="CHOOSER"] div.tiled div.files button {
-  max-width: 150px;
-  overflow: hidden;
-  padding: 5px;
+  height: fit-content;
+  margin-bottom: 12px;
+  border: none;
+  background-color: transparent;
+  vertical-align: top;
+  padding: 2px 5px !important;
+  margin: 0 !important;
+  border-radius: 5px;
+  word-break: break-all;
+  margin-bottom: 12px !important;
 }
 
 window.overlay[id*="CHOOSER"]
@@ -389,11 +397,13 @@ window.overlay[id*="CHOOSER"] div.tiled div.files button.selected {
 }
 
 window.overlay[id*="CHOOSER"] div.tiled div.files button img {
-  height: 48px;
+  height: 32px;
+  margin: 0 8px;
 }
 
 window.overlay[id*="CHOOSER"] div.tiled div.files button p.name {
   overflow: hidden;
   text-overflow: ellipsis;
   height: 2.5em;
+  margin: 0;
 }

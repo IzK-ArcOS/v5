@@ -46,6 +46,7 @@ div.desktopIcons button {
   vertical-align: top;
   padding: 2px 5px;
   border-radius: 5px;
+  word-break: break-all;
 }
 
 div.desktopIcons button:hover {

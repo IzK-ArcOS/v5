@@ -45,13 +45,21 @@ div.tileview div.folders button p.name {
 
 div.tileview div.files {
   display: grid;
-  grid-template-columns: repeat(auto-fit, max(85px));
+  grid-template-columns: repeat(auto-fit, 80px);
+  grid-template-rows: repeat(auto-fit, 85px);
 }
 
 div.tileview div.files button {
-  max-width: 150px;
-  overflow: hidden;
-  padding: 5px;
+  height: fit-content;
+  margin-bottom: 12px;
+  border: none;
+  background-color: transparent;
+  vertical-align: top;
+  padding: 2px 5px !important;
+  margin: 0 !important;
+  border-radius: 5px;
+  word-break: break-all;
+  margin-bottom: 12px !important;
 }
 
 div.tileview div.files button:not(:active):not(:hover):not(.selected) {
@@ -67,11 +75,13 @@ div.tileview div.files button.selected {
 }
 
 div.tileview div.files button img {
-  height: 48px;
+  height: 32px;
+  margin: 0 8px;
 }
 
 div.tileview div.files button p.name {
   overflow: hidden;
   text-overflow: ellipsis;
   height: 2.5em;
+  margin: 0;
 }
