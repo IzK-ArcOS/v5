@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { loginUsername } from "../../../../../ts/login/main";
+  import { applyLoginState, loginUsername } from "../../../../../ts/login/main";
   import ProfilePicture from "../../../../ProfilePicture.svelte";
   import Loading from "../Content/Loading.svelte";
   import Input from "./AuthForm/Input.svelte";
@@ -8,6 +8,12 @@
   let stay = false;
   export let authenticating = false;
   let pfp: string;
+
+  async function cancel() {
+    loginUsername.set(undefined);
+
+    applyLoginState("selector");
+  }
 </script>
 
 {#if !authenticating}
@@ -21,6 +27,7 @@
       <Input bind:stay bind:authenticating bind:pfp />
     </div>
     <Stay bind:stay />
+    <button class="switchuser" on:click={cancel}>Cancel</button>
   {:else}
     <Loading caption="Welcome" />
   {/if}

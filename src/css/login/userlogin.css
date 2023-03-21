@@ -80,23 +80,8 @@ div.userlogin div.cloudlogin form input.wrongpswd {
 }
 
 div.login button.switchuser {
-  position: absolute;
-  bottom: -70px;
-  left: 50%;
-  transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  margin-top: 50px;
-  opacity: 0;
-  visibility: hidden;
+  margin-top: 26px;
   transition: opacity 0.3s, visibility 0.3s, margin-top 0.3s;
-}
-
-div.login button.switchuser.show {
-  opacity: 1;
-  visibility: visible;
 }
 
 div.userlogin.newuser button.createbutton {

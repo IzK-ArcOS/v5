@@ -12,7 +12,7 @@ div.login div.background {
 }
 
 div.login div.background.zoom {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 div.login > * {

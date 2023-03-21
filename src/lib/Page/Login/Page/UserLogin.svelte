@@ -17,18 +17,8 @@
       show = true;
     }, 10);
   });
-
-  async function cancel() {
-    loginUsername.set(undefined);
-
-    applyLoginState("selector");
-  }
 </script>
 
 <div class="userlogin" class:show>
   <AuthForm bind:authenticating />
 </div>
-
-{#if !authenticating}
-  <button class="switchuser" class:show on:click={cancel}>Cancel</button>
-{/if}
