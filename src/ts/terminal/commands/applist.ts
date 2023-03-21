@@ -20,7 +20,7 @@ export const AppList: Command = {
       const name = ws[i].info.name.padEnd(30, " ");
       const version = ws[i].info.version;
 
-      term.util.writeLine(`${name}${id}${version}`);
+      term.util.writeColor(`${name}[${id}]${version}`, "gray");
     }
   },
   description: "List all- or opened ArcOS apps.",

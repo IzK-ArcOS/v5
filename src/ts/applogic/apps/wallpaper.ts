@@ -3,6 +3,7 @@ import logo from "../../../assets/apps/settings/desktop.svg";
 import Wallpaper from "../../../lib/Page/Desktop/Wallpaper.svelte";
 import { SEP_ITEM } from "../../contextmenu/main";
 import { restart, shutdown } from "../../desktop/power";
+import { ArcOSVersion } from "../../env/main";
 import { UserData } from "../../userlogic/interfaces";
 import { openWindow } from "../events";
 import type { App } from "../interface";
@@ -13,7 +14,7 @@ export const DesktopWallpaper: App = {
     name: "Wallpaper",
     description: "The ArcOS wallpaper",
     builtin: true,
-    version: "4.0.0",
+    version: ArcOSVersion,
     author: "ArcOS Team",
     icon: logo,
     custom: true,

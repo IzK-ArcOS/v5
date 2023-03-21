@@ -18,7 +18,7 @@ export class ArcTermUtil {
     this.target.innerText = "";
   }
 
-  public writeLine(str: string, inline = false) {
+  public writeLine(str: string, inline = false, target = this.target) {
     const el = document.createElement("div");
 
     el.className = "part";
@@ -27,7 +27,9 @@ export class ArcTermUtil {
 
     el.innerText = `${str}`;
 
-    this.target.appendChild(el);
+    target.appendChild(el);
+
+    return el;
   }
 
   public writeSeperator(length: number) {
@@ -38,8 +40,26 @@ export class ArcTermUtil {
     this.writeColor(`[Error]: ${context}`, "red");
   }
 
-  public write(str: string) {
-    this.writeLine(str, true);
+  public write(str: string, target = this.target) {
+    const el = this.writeLine(str, true, target);
+
+    return el;
+  }
+
+  public update(el: HTMLDivElement, str: string) {
+    if (!el) return false;
+
+    el.innerText = "";
+
+    this.write(str, this.target);
+  }
+
+  public updateColor(el: HTMLDivElement, str: string, color: Color) {
+    if (!el) return false;
+
+    el.innerText = "";
+
+    this.writeColor(str, color, "white", false, el);
   }
 
   public writeColor(
@@ -69,5 +89,7 @@ export class ArcTermUtil {
     }
 
     target.append(out);
+
+    return out;
   }
 }

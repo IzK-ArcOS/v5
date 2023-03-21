@@ -1,6 +1,7 @@
 import logo from "../../../assets/systemIcon.svg";
 import Shell from "../../../lib/Page/Desktop/Shell.svelte";
 import { SEP_ITEM } from "../../contextmenu/main";
+import { ArcOSVersion } from "../../env/main";
 import { openWindow } from "../events";
 import type { App } from "../interface";
 import { openByKey } from "./SettingsApp/store";
@@ -10,7 +11,7 @@ export const ArcShell: App = {
     name: "ArcShell",
     description: "The ArcOS Shell",
     builtin: true,
-    version: "4.0.0",
+    version: ArcOSVersion,
     author: "ArcOS Team",
     icon: logo,
     custom: true,

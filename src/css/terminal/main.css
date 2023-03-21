@@ -1,6 +1,6 @@
 div.terminal-renderer {
   margin: 0;
-  white-space: pre;
+  white-space: break-spaces;
   width: 100%;
   height: 100%;
   font-family: "Source Code Pro", monospace;
@@ -59,4 +59,8 @@ div.terminal-renderer .clr-aqua {
 }
 div.terminal-renderer .clr-purple {
   color: var(--clr-purple-fg);
+}
+
+div.terminal-renderer .clr-gray {
+  color: var(--clr-gray-fg);
 }

@@ -4,6 +4,7 @@ export const Colors: Command = {
   keyword: "colors",
   exec(cmd, argv, term) {
     const colors = [
+      "gray",
       "white",
       "red",
       "orange",

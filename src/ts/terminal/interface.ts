@@ -16,4 +16,5 @@ export type Color =
   | "blue"
   | "purple"
   | "aqua"
-  | "white";
+  | "white"
+  | "gray";
