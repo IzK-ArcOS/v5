@@ -1,6 +1,4 @@
 import { readFile, writeFile } from "../api/fs/file";
-import { errorMessage } from "../errorlogic/main";
-import { createOverlayableError } from "../errorlogic/overlay";
 import type { ArcTermEnv } from "./env";
 
 export class ArcTermConfig {
@@ -13,7 +11,7 @@ export class ArcTermConfig {
   }
 
   readonly configPath = "./arcterm.conf";
-  private readonly configKeys = ["prompt", "greeting", "noLogo", "promptColor"];
+  private readonly configKeys = ["prompt", "greeting", "logo", "promptColor"];
 
   public getConfig() {
     const obj = {};
@@ -31,7 +29,7 @@ export class ArcTermConfig {
     for (let i = 0; i < this.configKeys.length; i++) {
       const k = this.configKeys[i];
 
-      const exists = this.env[k] && json;
+      const exists = this.env[k] != null && json;
       const isType = typeof this.env[k] == typeof json[k];
 
       if (exists && isType) this.env[k] = json[k];
@@ -41,11 +39,7 @@ export class ArcTermConfig {
   public async loadConfigFile() {
     const file = await readFile(this.configPath);
 
-    if (!file) {
-      this.fallbackError();
-
-      return this.writeConfig();
-    }
+    if (!file) return this.writeConfig();
 
     const enc = new TextDecoder("utf-8");
     const d = enc.decode(new Uint8Array(file));
@@ -77,15 +71,5 @@ export class ArcTermConfig {
     });
 
     await writeFile(this.configPath, blob);
-  }
-
-  private fallbackError() {
-    errorMessage(
-      "Configuration file not found",
-      `Unable to find the configuration file used to change the functionality of ArcTerm. The default values have been applied and written to <code>${this.configPath}</code>.`,
-      null,
-      null,
-      { caption: "Understood", action() {} }
-    );
   }
 }

@@ -7,7 +7,7 @@ export class ArcTermEnv {
   prompt = "[&u]: [~/&p] $ ";
   promptColor: Color = "green";
   greeting = `ArcTerm & ArcOS v${ArcOSVersion}\n\nLicensed under GPLv3. Created by the ArcOS team.`;
-  noLogo: "yes" | "no" = "no";
+  logo: boolean = true;
 
   constructor() {
     this.config = new ArcTermConfig(this);
