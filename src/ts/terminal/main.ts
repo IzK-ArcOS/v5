@@ -1,7 +1,4 @@
-import { get } from "svelte/store";
-import { centerWindow } from "../applogic/center";
 import type { App } from "../applogic/interface";
-import { WindowStore } from "../applogic/store";
 import { ArcOSVersion } from "../env/main";
 import { ArcTermCommandHandler } from "./commands";
 import { ArcTermEnv } from "./env";
@@ -9,7 +6,6 @@ import { initError } from "./error";
 import { ArcTermInput } from "./input";
 import type { Color, CommandStore } from "./interface";
 import { ArcTermIntro } from "./intro";
-import { defaultCommand } from "./store";
 import { ArcTermUtil } from "./util";
 
 /**
@@ -54,11 +50,11 @@ export class ArcTerm {
       this.intro();
 
       if (!this.app) return;
-
+      /* 
       this.app.size.w = this.env.width;
       this.app.size.h = this.env.height;
 
-      WindowStore.set(get(WindowStore));
+      WindowStore.set(get(WindowStore)); */
     }, 500);
   }
 

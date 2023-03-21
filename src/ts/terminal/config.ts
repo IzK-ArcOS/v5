@@ -13,14 +13,7 @@ export class ArcTermConfig {
   }
 
   readonly configPath = "./arcterm.conf";
-  private readonly configKeys = [
-    "prompt",
-    "greeting",
-    "width",
-    "height",
-    "noLogo",
-    "promptColor",
-  ];
+  private readonly configKeys = ["prompt", "greeting", "noLogo", "promptColor"];
 
   public getConfig() {
     const obj = {};
