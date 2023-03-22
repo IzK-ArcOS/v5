@@ -60,6 +60,10 @@ div.userlogin div.cloudlogin div.field {
   display: flex;
 }
 
+div.userlogin div.cloudlogin div.field.hidden {
+  display: none !important;
+}
+
 div.userlogin div.cloudlogin i.host {
   opacity: 0.2;
   margin-top: 10px;

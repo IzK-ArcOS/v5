@@ -22,10 +22,11 @@
 {/if}
 
 <div class="cloudlogin">
+  <div class="field" class:hidden={authenticating}>
+    <Input bind:stay bind:authenticating bind:pfp />
+  </div>
+
   {#if !authenticating}
-    <div class="field">
-      <Input bind:stay bind:authenticating bind:pfp />
-    </div>
     <Stay bind:stay />
     <button class="switchuser" on:click={cancel}>Cancel</button>
   {:else}
