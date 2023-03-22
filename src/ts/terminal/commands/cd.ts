@@ -25,4 +25,5 @@ export const Cd: Command = {
     term.path = newDir;
   },
   description: "Change directory",
+  syntax: "[<path>]",
 };

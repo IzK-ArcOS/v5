@@ -26,7 +26,8 @@ export const Run: Command = {
 
     term.util.writeLine(`The file doesn't exist on ArcFS.`);
   },
-  description: "Run a file",
+  description: "Run a file from your ArcFS account.",
+  syntax: `"<[filename]>"`,
 };
 
 async function o(f: UserFile) {

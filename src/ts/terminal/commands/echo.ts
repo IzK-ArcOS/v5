@@ -14,4 +14,5 @@ export const Echo: Command = {
     }
   },
   description: "Echo a string.",
+  syntax: `"<[string]>"`,
 };

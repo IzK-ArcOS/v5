@@ -13,4 +13,5 @@ export const Mkdir: Command = {
     term.util.writeLine(`Directory '${dir}' created.`);
   },
   description: "Create a directory",
+  syntax: `"<[name]>"`,
 };

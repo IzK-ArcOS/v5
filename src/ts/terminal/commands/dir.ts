@@ -39,4 +39,5 @@ export const Dir: Command = {
     term.util.writeLine(`${totalf} ${bytes}`);
   },
   description: "List the contents of the current directory",
+  syntax: `<[path]>`,
 };

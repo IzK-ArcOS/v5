@@ -3,7 +3,10 @@ import type { Color, Command } from "../interface";
 export const Colors: Command = {
   keyword: "colors",
   exec(cmd, argv, term) {
-    const colors = [
+    const str =
+      argv.join(" ").trim() || "The quick brown fox jumps over the lazy dog.";
+
+    const colors: Color[] = [
       "gray",
       "white",
       "red",
@@ -16,14 +19,9 @@ export const Colors: Command = {
     ];
 
     for (let i = 0; i < colors.length; i++) {
-      term.util.writeColor(
-        `${colors[i].padEnd(
-          10,
-          " "
-        )}: [The quick brown fox jumps over the lazy dog.]`,
-        colors[i] as Color
-      );
+      term.util.writeColor(`${colors[i].padEnd(10, " ")}: [${str}]`, colors[i]);
     }
   },
   description: "Print out all ArcTerm colors",
+  syntax: "([sample?])",
 };

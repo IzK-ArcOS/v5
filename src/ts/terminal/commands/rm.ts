@@ -15,4 +15,5 @@ export const Rm: Command = {
     }
   },
   description: "Delete a file or folder",
+  syntax: `"<[name]>"`,
 };

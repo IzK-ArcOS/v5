@@ -16,4 +16,5 @@ export const Kill: Command = {
     term.util.writeLine(`Closed ${window.info.name}`);
   },
   description: "Terminate a program",
+  syntax: `"<[appId]>"`,
 };

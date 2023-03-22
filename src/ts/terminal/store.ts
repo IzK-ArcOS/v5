@@ -9,6 +9,7 @@ import { Echo } from "./commands/echo";
 import { Env } from "./commands/env";
 import { Exit } from "./commands/exit";
 import { Help } from "./commands/help";
+import { History } from "./commands/history";
 import { Kill } from "./commands/kill";
 import { LogDump } from "./commands/logdump";
 import { Mkdir } from "./commands/mkdir";
@@ -41,6 +42,7 @@ export const arcCommands: CommandStore = [
   Env,
   Exit,
   Help,
+  History,
   Kill,
   LogDump,
   Mkdir,

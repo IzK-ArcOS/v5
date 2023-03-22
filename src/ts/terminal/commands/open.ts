@@ -16,4 +16,5 @@ export const Open: Command = {
     term.util.writeLine(`Opened ${window.info.name}`);
   },
   description: "Open a window",
+  syntax: `"<[appId]>"`,
 };

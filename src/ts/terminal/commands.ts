@@ -3,11 +3,15 @@ import { defaultCommand } from "./store";
 
 export class ArcTermCommandHandler {
   term: ArcTerm;
+  history: string[] = [];
+
   constructor(term: ArcTerm) {
     this.term = term;
   }
 
   public async evaluate(cmd: string, args?: string[]) {
+    this.history.push(`${cmd} ${args.join(" ")}`);
+
     const command = this.getCommand(cmd);
 
     this.term.input.current.disabled = true;
@@ -20,8 +24,9 @@ export class ArcTermCommandHandler {
     this.term.input.unlock();
   }
 
-  private getCommand(command: string) {
+  public getCommand(command: string) {
     const c = command.toLowerCase();
+
     for (let i = 0; i < this.term.commands.length; i++) {
       const k = this.term.commands[i].keyword.toLowerCase();
 
