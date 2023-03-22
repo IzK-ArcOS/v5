@@ -7,6 +7,8 @@ export const Kill: Command = {
   exec(cmd, argv, term) {
     const appId = argv[0];
 
+    if (!appId) return term.util.Error("Missing application ID.");
+
     const window = getWindow(appId);
 
     if (!window) return term.util.Error(`${appId}: app not found.`);

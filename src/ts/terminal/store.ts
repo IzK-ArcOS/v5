@@ -13,12 +13,14 @@ import { History } from "./commands/history";
 import { Kill } from "./commands/kill";
 import { LogDump } from "./commands/logdump";
 import { Mkdir } from "./commands/mkdir";
+import { oa } from "./commands/oa";
 import { Open } from "./commands/open";
 import { Reload } from "./commands/reload";
 import { Restart } from "./commands/restart";
 import { Rm } from "./commands/rm";
 import { Run } from "./commands/run";
 import { Shutdown } from "./commands/shutdown";
+import { UDD } from "./commands/udd";
 import { Ver } from "./commands/ver";
 import type { Command, CommandStore } from "./interface";
 
@@ -46,11 +48,13 @@ export const arcCommands: CommandStore = [
   Kill,
   LogDump,
   Mkdir,
+  oa,
   Open,
   Rm,
   Reload,
   Restart,
   Run,
   Shutdown,
+  UDD,
   Ver,
 ];
