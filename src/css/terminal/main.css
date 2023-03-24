@@ -34,9 +34,12 @@ div.terminal-renderer div.prompt input {
   display: block;
 }
 
+div.terminal-renderer div.prompt input:focus {
+  color: var(--fg) !important;
+}
 div.terminal-renderer div.prompt input:disabled {
   opacity: 1 !important;
-  color: var(--fg);
+  color: var(--fg) !important;
 }
 
 div.terminal-renderer div.prompt div.inner {

@@ -39,7 +39,7 @@
     can be found in the README file of the
     <a href="https://github.com/IzK-ArcOS">ArcOS project page</a>.
   </Section>
-  <Section header="For Developers">
+  <!-- <Section header="For Developers">
     Are you a developer of ArcOS or do you like peeking behind the<br />
     scenes of sites you visit? Developer mode is a tool we use internally<br
     />to monitor different states in ArcOS. You can choose to enable it<br />
@@ -62,5 +62,5 @@
         Disable devmode
       </button>
     </div>
-  </Section>
+  </Section> -->
 </div>

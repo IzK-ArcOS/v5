@@ -1,6 +1,7 @@
 import { get } from "svelte/store";
 import { formatBytes } from "../../api/fs/sizes";
 import { getDeviceInfo } from "../../device/main";
+import { CurrentState } from "../../state/main";
 import { inTauri } from "../../tauri";
 import { UserName } from "../../userlogic/interfaces";
 import type { Color, Command } from "../interface";
@@ -31,7 +32,7 @@ async function getItems() {
     Processor: `${info.cpu.cores} cores`,
     GPU: `${info.gpu.vendor} ${info.gpu.model}`,
     Memory: `~ ${formatBytes(info.mem.kb)}`,
-    Mode: tauri ? `Desktop` : `Browser`,
+    Mode: (tauri ? `Desktop` : `Browser`) + ` (state ${get(CurrentState).key})`,
   });
 }
 

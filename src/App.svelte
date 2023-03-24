@@ -56,8 +56,10 @@
 
 <div class="app fullscreen" class:floating={devmode}>
   {#if $CurrentState}
-    <svelte:component this={$CurrentState.content} />
-    <DevBar bind:opened={devmode} />
+    <svelte:component
+      this={$CurrentState.content}
+    /><!-- 
+    <DevBar bind:opened={devmode} /> -->
   {/if}
   <BugReport />
 </div>
