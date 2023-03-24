@@ -1,16 +1,23 @@
-import { appWindow } from "@tauri-apps/api/window";
-import { unregister, register } from "@tauri-apps/api/globalShortcut";
 import { getVersion } from "@tauri-apps/api/app";
+import { register, unregisterAll } from "@tauri-apps/api/globalShortcut";
+import { appWindow, LogicalSize } from "@tauri-apps/api/window";
 
 export async function define() {
-  unregister("Ctrl+R");
-  unregister("Ctrl+Shift+R");
+  unregisterAll();
+  register("Ctrl+R", () => {
+    return false;
+  });
+  register("Ctrl+Shift+R", () => {
+    return false;
+  });
 
   register("Alt+Enter", async () => {
     const isFull = await appWindow.isFullscreen();
 
     await appWindow.setFullscreen(!isFull);
   });
+
+  appWindow.setMinSize(new LogicalSize(900, 500));
 }
 
 export async function inTauri() {
