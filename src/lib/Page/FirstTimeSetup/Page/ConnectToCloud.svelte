@@ -55,7 +55,7 @@
   data={{
     back: {
       disabled: false,
-      redir: "servconn",
+      redir: "license",
     },
     forw: {
       disabled: true,
