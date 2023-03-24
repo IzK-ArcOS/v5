@@ -1,10 +1,18 @@
+import { get } from "svelte/store";
 import { restart } from "../../desktop/power";
+import { CurrentState } from "../../state/main";
 import type { Command } from "../interface";
 
 export const Restart: Command = {
   keyword: "restart",
   exec(cmd, argv, term) {
-    restart();
+    if (get(CurrentState).key == "desktop") return restart();
+
+    term.util.writeColor("[RESTART]: Terminating NOW.", "green");
+
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   },
 
   description: "Restart ArcOS",
