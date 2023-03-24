@@ -1,0 +1,23 @@
+div.app > div#target.terminal-renderer {
+  background-color: #000c;
+  --fg: #ccc;
+  --win-bg: #3a3a3a;
+  --win-border: #555 1px solid;
+  --button-bg: #4a4a4a;
+  --button-hover-bg: #555555;
+  --button-active-bg: #2a2a2a;
+  --button-glass-bg: #fff1;
+  --button-glass-hover-bg: #fff3;
+  --button-glass-active-bg: #0005;
+  --clr-red-fg: #ff7e7e;
+  --clr-green-fg: #82ff80;
+  --clr-yellow-fg: #ffe073;
+  --clr-orange-fg: #ffad32;
+  --clr-blue-fg: #96d3ff;
+  --clr-aqua-fg: #79ffd0;
+  --clr-purple-fg: #d597ff;
+  --clr-gray-fg: #999;
+  padding: 5px;
+  height: 100vh;
+  overflow-y: scroll;
+}

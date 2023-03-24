@@ -77,7 +77,8 @@ export class ArcTermInput {
     wrap.append(inner);
 
     setTimeout(() => {
-      if (get(focusedWindowId) == this.term.app.id) input.focus();
+      if (this.term.app && get(focusedWindowId) == this.term.app.id)
+        input.focus();
     });
 
     return wrap;

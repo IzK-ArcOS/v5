@@ -12,13 +12,7 @@ export async function define() {
     const isFull = await appWindow.isFullscreen();
 
     await appWindow.setFullscreen(!isFull);
-
-    if (!isFull) appWindow.setMinSize(new LogicalSize(1000, 650));
   });
-
-  const isFull = await appWindow.isFullscreen();
-
-  if (!isFull) appWindow.setMinSize(new LogicalSize(1000, 650));
 }
 
 function unset() {

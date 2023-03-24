@@ -26,11 +26,18 @@ export class ArcTerm {
   input: ArcTermInput;
   path: string | false;
   commandHandler: ArcTermCommandHandler;
+  cb: (term: ArcTerm) => void;
 
-  constructor(t: HTMLDivElement, cS: CommandStore, a: App) {
+  constructor(
+    t: HTMLDivElement,
+    cS: CommandStore,
+    a: App,
+    cb?: (term: ArcTerm) => void
+  ) {
     this.target = t;
     this.commands = cS;
     this.app = a;
+    this.cb = cb;
 
     this.initialize();
   }
@@ -48,6 +55,8 @@ export class ArcTerm {
       this.input = new ArcTermInput(this);
 
       this.intro();
+
+      if (this.cb) this.cb(this);
 
       if (!this.app) return;
       /* 

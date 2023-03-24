@@ -1,4 +1,5 @@
 import { appWindow } from "@tauri-apps/api/window";
+import ArcTerm from "../../lib/Page/ArcTerm.svelte";
 import Blank from "../../lib/Page/Blank.svelte";
 import Boot from "../../lib/Page/Boot.svelte";
 import Desktop from "../../lib/Page/Desktop.svelte";
@@ -83,6 +84,15 @@ export const States = new Map<string, State>([
         loginUsername.set(null);
       },
       key: "shutdown",
+    },
+  ],
+  [
+    "arcterm",
+    {
+      name: "ArcTerm Mode",
+      content: ArcTerm,
+      attribs: {},
+      key: "arcterm",
     },
   ],
   [

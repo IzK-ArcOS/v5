@@ -4,6 +4,7 @@ div.terminal-renderer {
   width: 100%;
   height: 100%;
   font-family: "Source Code Pro", monospace;
+  color: var(--fg);
 }
 
 div.terminal-renderer * {
@@ -12,6 +13,7 @@ div.terminal-renderer * {
   background-color: transparent !important;
   border: none !important;
   font-family: "Source Code Pro", monospace;
+  font-size: 14px;
 }
 
 div.terminal-renderer div.part {
@@ -30,6 +32,11 @@ div.terminal-renderer div.prompt {
 div.terminal-renderer div.prompt input {
   margin-top: auto !important;
   display: block;
+}
+
+div.terminal-renderer div.prompt input:disabled {
+  opacity: 1 !important;
+  color: var(--fg);
 }
 
 div.terminal-renderer div.prompt div.inner {

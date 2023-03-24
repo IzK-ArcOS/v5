@@ -5,7 +5,7 @@
   import Input from "./AuthForm/Input.svelte";
   import Stay from "./AuthForm/Stay.svelte";
 
-  let stay = false;
+  let stay = true;
   export let authenticating = false;
   let pfp: string;
 

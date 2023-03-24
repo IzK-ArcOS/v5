@@ -1,20 +1,7 @@
-import { ConnectedServer } from "../../api/main";
-import {
-  FileBrowserCurrentDir,
-  FileBrowserDirContents,
-  FileBrowserSelectedFilename,
-} from "../../applogic/apps/FileBrowser/main";
-import { currentSettingsPage } from "../../applogic/apps/SettingsApp/main";
-import { OpenedStore, WindowStore } from "../../applogic/store";
-import { log } from "../../console";
-import { ErrorWindowStore as ErrStore } from "../../errorlogic/app";
-import { CurrentFTSState } from "../../fts/main";
-import { CurrentLoginState, loginUsername } from "../../login/main";
-import { UserName } from "../../userlogic/interfaces";
 import type { DevModeMutators } from "../interface";
 
 export const dmMutators: DevModeMutators = [
-  {
+  /* {
     caption: "WindowStore",
     store: WindowStore,
     value: "length",
@@ -59,5 +46,5 @@ export const dmMutators: DevModeMutators = [
     caption: "fbSelected",
     store: FileBrowserSelectedFilename,
     fallback: "none",
-  },
+  }, */
 ];
