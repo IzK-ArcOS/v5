@@ -1,6 +1,6 @@
 [package]
 name = "arcos-tauri"
-version = "5.0.0"
+version = "5.0.1"
 description = "ArcOS Desktop Environment"
 authors = ["IzKuipers"]
 license = "gpl-3.0"
