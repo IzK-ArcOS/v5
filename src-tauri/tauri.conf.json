@@ -2,13 +2,13 @@
   "build": {
     "beforeDevCommand": "yarn dev",
     "beforeBuildCommand": "yarn build",
-    "devPath": "http://localhost:1420",
+    "devPath": "http://localhost:5173",
     "distDir": "../dist",
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "arcos-tauri",
-    "version": "0.0.0"
+    "productName": "ArcOS",
+    "version": "5.0.0"
   },
   "tauri": {
     "allowlist": {
@@ -18,6 +18,12 @@
         "open": true
       },
       "globalShortcut": {
+        "all": true
+      },
+      "window": {
+        "all": true
+      },
+      "app": {
         "all": true
       }
     },
@@ -38,8 +44,8 @@
         "fullscreen": true,
         "resizable": true,
         "title": "ArcOS",
-        "width": 800,
-        "height": 600
+        "width": 900,
+        "height": 650
       }
     ]
   }

@@ -1,3 +1,4 @@
+import { appWindow } from "@tauri-apps/api/window";
 import Blank from "../../lib/Page/Blank.svelte";
 import Boot from "../../lib/Page/Boot.svelte";
 import Desktop from "../../lib/Page/Desktop.svelte";
@@ -100,6 +101,9 @@ export const States = new Map<string, State>([
       content: TurnedOff,
       attribs: {},
       key: "turnedoff",
+      async onload() {
+        await appWindow.close();
+      },
     },
   ],
 ]);

@@ -20,6 +20,7 @@ import { Restart } from "./commands/restart";
 import { Rm } from "./commands/rm";
 import { Run } from "./commands/run";
 import { Shutdown } from "./commands/shutdown";
+import { Tauri } from "./commands/tauri";
 import { UDD } from "./commands/udd";
 import { Ver } from "./commands/ver";
 import type { Command, CommandStore } from "./interface";
@@ -55,6 +56,7 @@ export const arcCommands: CommandStore = [
   Restart,
   Run,
   Shutdown,
+  Tauri,
   UDD,
   Ver,
 ];

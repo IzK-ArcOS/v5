@@ -1,16 +1,17 @@
 import { get } from "svelte/store";
 import { formatBytes } from "../../api/fs/sizes";
 import { getDeviceInfo } from "../../device/main";
+import { inTauri } from "../../tauri";
 import { UserName } from "../../userlogic/interfaces";
 import type { Color, Command } from "../interface";
 import type { ArcTerm } from "../main";
 
 export const ArcFetch: Command = {
   keyword: "arcfetch",
-  exec(cmd, argv, term) {
+  async exec(cmd, argv, term) {
     term.util.writeLine("\n");
 
-    graphic(term);
+    await graphic(term);
 
     term.util.writeLine("");
 
@@ -19,8 +20,10 @@ export const ArcFetch: Command = {
   description: "Show system information",
 };
 
-function getItems() {
+async function getItems() {
   const info = getDeviceInfo();
+
+  const tauri = await inTauri();
 
   return Object.entries({
     Server: localStorage.getItem("arcos-server"),
@@ -28,6 +31,7 @@ function getItems() {
     Processor: `${info.cpu.cores} cores`,
     GPU: `${info.gpu.vendor} ${info.gpu.model}`,
     Memory: `~ ${formatBytes(info.mem.kb)}`,
+    Mode: tauri ? `Desktop` : `Browser`,
   });
 }
 
@@ -41,14 +45,15 @@ function colorBar(term: ArcTerm) {
   }
 }
 
-function graphic(term: ArcTerm) {
-  const items = getItems();
+async function graphic(term: ArcTerm) {
+  const items = await getItems();
 
   const graphicParts = [
     "    _   ",
     "   /_\\  ",
     "  / _ \\ ",
     " /_/ \\_\\",
+    "        ",
     "        ",
   ];
 
