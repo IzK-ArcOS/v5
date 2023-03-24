@@ -20,6 +20,7 @@
   let t3 = null;
 
   let errored = false;
+  let altDown = false;
 
   onMount(async () => {
     status = "&nbsp;";
@@ -29,7 +30,13 @@
     t3 = setTimeout(redirect, 4750);
 
     if (!(await checkServer())) status = "Preparing ArcOS";
+
+    document.addEventListener("keydown", altDownCb);
   });
+
+  function altDownCb(e) {
+    if (e.altKey) altDown = true;
+  }
 
   async function checkServer() {
     const serverHost = localStorage.getItem("arcos-server");
@@ -102,11 +109,14 @@
       msg: "Redirecting",
     });
 
-    applyState(targetState);
+    removeEventListener("keydown", altDownCb);
+
+    applyState(altDown ? "arcterm" : targetState);
   }
 </script>
 
 <div class="{bootClass} boot fullscreen">
+  <div class="arcterm-load" class:visible={altDown}>ArcTerm Mode</div>
   <div class="center-absolute">
     <img alt="Logo" class="logo" src={logo} />
     <div class="slider userdefined">
