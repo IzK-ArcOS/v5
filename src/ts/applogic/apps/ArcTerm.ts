@@ -1,5 +1,6 @@
 import logo from "../../../assets/apps/arcterm.svg";
 import ArcTermSvelte from "../../../lib/Apps/ArcTerm.svelte";
+import { fullscreenToggle } from "../events";
 import type { App } from "../interface";
 
 export const ArcTerm: App = {
@@ -23,4 +24,15 @@ export const ArcTerm: App = {
   },
   content: ArcTermSvelte,
   glass: true,
+  events: {
+    keyboardShortcuts: [
+      {
+        alt: true,
+        key: "f",
+        action(app: App) {
+          fullscreenToggle(app.id);
+        },
+      },
+    ],
+  },
 };

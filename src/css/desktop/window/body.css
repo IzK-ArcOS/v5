@@ -30,6 +30,7 @@ window.fullscreen {
   max-height: unset !important;
   min-width: unset !important;
   min-height: unset !important;
+  resize: none !important;
 }
 
 window div.body div.center-flex {

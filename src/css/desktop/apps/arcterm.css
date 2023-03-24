@@ -34,3 +34,7 @@ window#ArcTerm > div.body div.terminal-renderer * {
   white-space: break-spaces;
   max-width: 100%;
 }
+
+window#ArcTerm.fullscreen {
+  background-color: #000 !important;
+}

@@ -1,7 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "../../css/desktop/apps/arcterm.css";
+  import { fullscreenToggle } from "../../ts/applogic/events";
   import type { App } from "../../ts/applogic/interface";
+  import { registerAppShortcuts } from "../../ts/applogic/keyboard/main";
+  import { isFullscreenWindow } from "../../ts/applogic/store";
   import { ArcTerm } from "../../ts/terminal/main";
   import { arcCommands } from "../../ts/terminal/store";
 
@@ -11,8 +14,6 @@
   let target: HTMLDivElement;
 
   onMount(() => {
-    app.events = {};
-
     app.events.close = () => {
       if (!arcTerm) return;
 
@@ -25,6 +26,8 @@
       if (!arcTerm) {
         arcTerm = new ArcTerm(target, arcCommands, app);
       }
+
+      if (app.state.windowState.fll) fullscreenToggle(app.id);
     };
 
     app.events.blur = () => {

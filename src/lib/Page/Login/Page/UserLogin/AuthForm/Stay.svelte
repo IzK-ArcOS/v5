@@ -1,5 +1,11 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   export let stay: boolean;
+
+  onMount(() => {
+    stay = true;
+  });
 </script>
 
 <span class="keep-loggedin-wrapper">

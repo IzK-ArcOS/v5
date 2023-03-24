@@ -234,3 +234,20 @@ export function headlessToggle(app: App) {
 
   updateStores();
 }
+export function fullscreenToggle(id: string) {
+  Log({
+    msg: `Switching fullscreen state of ${id}`,
+    source: "events.ts: fullscreenToggle",
+    level: LogLevel.info,
+  });
+
+  const ws = get(WindowStore);
+
+  for (let i = 0; i < ws.length; i++) {
+    if (ws[i].id != id) continue;
+
+    ws[i].state.windowState.fll = !ws[i].state.windowState.fll;
+  }
+
+  WindowStore.set(ws);
+}
