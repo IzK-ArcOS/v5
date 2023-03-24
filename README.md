@@ -2,6 +2,8 @@
 
 Welcome to the frontend for ArcOS! This repository is a rewrite of the original ArcOS project which can be found [here](https://github.com/IzK-ArcOS/ArcOS-Environment) (archived). It's written in Svelte and Typescript, making it extremely performant and easy to maintain.
 
+> **NEW!** We have begun rolling out the [ArcOS Desktop App](https://github.com/IzK-ArcOS/ArcOS-Frontend/releases)!
+
 ## Credits
 
 As with all projects, I must give credit where credit's due. The following is worth mentioning:
