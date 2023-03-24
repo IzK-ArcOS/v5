@@ -12,17 +12,17 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
+    "@tauri-apps/cli": "^1.2.2",
     "@tsconfig/svelte": "^2.0.1",
-    "svelte": "^3.44.0",
+    "@types/node": "^18.7.10",
+    "svelte": "^3.57.0",
     "svelte-check": "^2.2.7",
     "svelte-closable": "^0.0.0",
     "svelte-preprocess": "^4.9.8",
     "svelte-time": "^0.7.1",
     "tslib": "^2.3.1",
     "typescript": "^4.5.4",
-    "vite": "^4.1.1",
-    "@types/node": "^18.7.10",
-    "@tauri-apps/cli": "^1.2.2"
+    "vite": "^4.1.1"
   },
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
