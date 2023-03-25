@@ -1,5 +1,5 @@
 div.app > div#target.terminal-renderer {
-  background-color: #000c;
+  background-color: #000;
   --fg: #ccc;
   --win-bg: #3a3a3a;
   --win-border: #555 1px solid;

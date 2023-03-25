@@ -34,8 +34,8 @@
     document.addEventListener("keydown", altDownCb);
   });
 
-  function altDownCb(e) {
-    if (e.altKey) altDown = true;
+  function altDownCb(e: KeyboardEvent) {
+    if (e.altKey && e.key.toLowerCase() == "a") altDown = true;
   }
 
   async function checkServer() {

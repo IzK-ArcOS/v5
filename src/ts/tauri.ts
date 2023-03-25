@@ -20,7 +20,6 @@ function unset() {
 }
 
 export async function inTauri() {
-  console.log("Getting Tauri information");
   try {
     const ver = await getVersion();
 

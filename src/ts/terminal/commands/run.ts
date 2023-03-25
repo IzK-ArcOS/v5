@@ -24,7 +24,7 @@ export const Run: Command = {
       }
     }
 
-    term.util.writeLine(`The file doesn't exist on ArcFS.`);
+    term.util.Error(`The file doesn't exist on ArcFS.`);
   },
   description: "Run a file from your ArcFS account.",
   syntax: `"<[filename]>"`,

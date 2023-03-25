@@ -7,8 +7,4 @@ const app = new App({
 
 define();
 
-(async () => {
-  console.log(await inTauri());
-})();
-
 export default app;

@@ -12,8 +12,6 @@ export function centerWindow(id: string) {
       ws[i].pos = calculatePos(ws[i]);
 
       WindowStore.set(ws);
-
-      console.log(ws[i].pos);
     }
   }
 }

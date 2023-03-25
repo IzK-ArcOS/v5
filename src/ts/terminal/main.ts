@@ -54,9 +54,9 @@ export class ArcTerm {
       this.util = new ArcTermUtil(this);
       this.input = new ArcTermInput(this);
 
-      this.intro();
-
       if (this.cb) this.cb(this);
+
+      this.intro();
 
       if (!this.app) return;
       /* 

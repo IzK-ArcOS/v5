@@ -44,8 +44,6 @@ export class ArcTermConfig {
     const enc = new TextDecoder("utf-8");
     const d = enc.decode(new Uint8Array(file));
 
-    console.log(d);
-
     let json;
 
     try {

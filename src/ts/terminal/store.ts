@@ -17,6 +17,7 @@ import { oa } from "./commands/oa";
 import { Open } from "./commands/open";
 import { Reload } from "./commands/reload";
 import { Restart } from "./commands/restart";
+import { Rf } from "./commands/rf";
 import { Rm } from "./commands/rm";
 import { Run } from "./commands/run";
 import { Shutdown } from "./commands/shutdown";
@@ -35,9 +36,7 @@ export const defaultCommand: Command = {
 };
 
 export const arcCommands: CommandStore = [
-  AppList,
   ArcFetch,
-  ATConf,
   Cd,
   Clear,
   Colors,
@@ -47,18 +46,24 @@ export const arcCommands: CommandStore = [
   Exit,
   Help,
   History,
-  Kill,
   LogDump,
   Mkdir,
-  oa,
-  Open,
   Rm,
   Reload,
   Restart,
-  Run,
   Shutdown,
   StateCommand,
   Tauri,
   UDD,
   Ver,
+  Rf,
+];
+
+export const desktopSpecific: CommandStore = [
+  AppList,
+  ATConf,
+  Kill,
+  oa,
+  Open,
+  Run,
 ];

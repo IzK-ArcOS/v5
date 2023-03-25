@@ -60,7 +60,7 @@ export function shutdown() {
   shuttingDown.set(true);
 }
 
-export function restart() {
+export function restart(eraseToken = false) {
   let maxTimeout = 0;
 
   const ws = get(WindowStore);
@@ -72,8 +72,11 @@ export function restart() {
       closeWindow(ws[i].id);
     }, maxTimeout);
   }
-  localStorage.removeItem("arcos-remembered-token");
-  logoffToken();
+
+  if (eraseToken) {
+    localStorage.removeItem("arcos-remembered-token");
+    logoffToken();
+  }
 
   restarting.set(true);
 }

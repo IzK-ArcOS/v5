@@ -14,9 +14,13 @@ export const Help: Command = {
 };
 
 function all(term: ArcTerm) {
-  for (let i = 0; i < term.commands.length; i++) {
-    const a = term.commands[i].keyword.toUpperCase().padEnd(15, " ");
-    const b = term.commands[i].description;
+  const cmd = term.commands.sort((a, b) => {
+    return b.keyword < a.keyword ? 1 : -1;
+  });
+
+  for (let i = 0; i < cmd.length; i++) {
+    const a = cmd[i].keyword.toUpperCase().padEnd(15, " ");
+    const b = cmd[i].description;
 
     term.util.writeColor(`[${a}]${b}`, "orange");
   }

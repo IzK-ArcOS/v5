@@ -6,7 +6,7 @@
   import { registerAppShortcuts } from "../../ts/applogic/keyboard/main";
   import { isFullscreenWindow } from "../../ts/applogic/store";
   import { ArcTerm } from "../../ts/terminal/main";
-  import { arcCommands } from "../../ts/terminal/store";
+  import { arcCommands, desktopSpecific } from "../../ts/terminal/store";
 
   export let app: App;
 
@@ -24,7 +24,11 @@
 
     app.events.open = () => {
       if (!arcTerm) {
-        arcTerm = new ArcTerm(target, arcCommands, app);
+        arcTerm = new ArcTerm(
+          target,
+          [...arcCommands, ...desktopSpecific],
+          app
+        );
       }
 
       if (app.state.windowState.fll) fullscreenToggle(app.id);

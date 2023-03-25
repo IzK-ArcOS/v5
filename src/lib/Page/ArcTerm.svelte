@@ -1,39 +1,30 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import "../../css/arctermonly.css";
   import "../../css/terminal/main.css";
-  import { onMount } from "svelte";
-  import { generateCredToken } from "../../ts/api/cred";
-  import { loginUsingCreds } from "../../ts/api/getter";
+  import { rememberedLogin } from "../../ts/api/getter";
   import { ArcTerm } from "../../ts/terminal/main";
   import { arcCommands } from "../../ts/terminal/store";
-  import { UserData, UserName } from "../../ts/userlogic/interfaces";
-  import Setting from "./Desktop/ActionCenter/QuickSettings/Setting.svelte";
+  import { UserData } from "../../ts/userlogic/interfaces";
 
   let arcterm: ArcTerm;
   let target: HTMLDivElement;
 
   onMount(async () => {
-    const token = localStorage.getItem("arcos-remembered-token");
-
-    if (!token) return location.reload();
-
-    const [username, password] = atob(token).split(":");
-
-    const userdata = await loginUsingCreds(
-      generateCredToken({ username, password })
-    );
-
-    if (!userdata) return location.reload();
-
-    UserData.set(userdata);
-    UserName.set(username);
+    await rememberedLogin();
 
     setTimeout(() => {
+      if (!$UserData) {
+        target.innerText =
+          "Authentication failed! Please make sure you check\n'Stay logged in' at the login screen to enable this mode.\n\nRestarting in 5 seconds...";
+
+        return setTimeout(() => location.reload(), 5000);
+      }
+
       arcterm = new ArcTerm(target, arcCommands, null, (a) => {
         a.util.writeColor(
-          "You are currently in [ArcTerm mode]. Some commands may not work as expected.",
-          "orange",
-          "red"
+          "[█] You are currently in [ArcTerm mode].\n[█] Commands that require the ArcOS desktop have been disabled.",
+          "orange"
         );
 
         a.util.writeLine("\n");
@@ -45,11 +36,13 @@
     if (!arcterm || !arcterm.input || !arcterm.input.current) return;
 
     arcterm.input.current.focus();
+
+    if (!target) return;
+
+    target.scrollTop = target.offsetHeight;
   }
 
-  setInterval(() => {
-    focus();
-  }, 10);
+  setInterval(focus, 10);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
