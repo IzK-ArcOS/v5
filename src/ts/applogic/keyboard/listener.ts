@@ -55,7 +55,7 @@ function processEvent(e: KeyboardEvent) {
       /** */
       const isFocused = get(focusedWindowId) == entry[0] || combos[j].global;
 
-      if (!modifiers || key != pK || !isFocused) continue;
+      if (!modifiers || (key != pK && key) || !isFocused) continue;
 
       const app = combos[j].global ? null : getWindow(entry[0]);
 

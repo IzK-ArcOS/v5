@@ -1,6 +1,7 @@
 <script lang="ts">
   import "../../css/desktop/apps/exit.css";
   import { defaultDirectory } from "../../ts/api/interface";
+  import { ExitShowAT } from "../../ts/applogic/apps/Exit";
   import {
     FileBrowserCurrentDir,
     FileBrowserDeletingFilename,
@@ -55,11 +56,12 @@
       <span class="material-icons-round">refresh</span>
       <p class="caption">Restart</p>
     </button>
-    <button class="option" on:click={arcterm}>
-      <span class="material-icons-round">terminal</span>
-      <p class="caption">ArcTerm</p>
-    </button>
-
+    {#if $ExitShowAT}
+      <button class="option" on:click={arcterm}>
+        <span class="material-icons-round">terminal</span>
+        <p class="caption">ArcTerm</p>
+      </button>
+    {/if}
     <button class="cancel" on:click={cancel}>Cancel</button>
   </div>
 </div>

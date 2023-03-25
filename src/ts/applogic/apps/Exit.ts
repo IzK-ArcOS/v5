@@ -1,3 +1,4 @@
+import { writable } from "svelte/store";
 import logo from "../../../assets/apps/exit.svg";
 import ExitSvelte from "../../../lib/Apps/Exit.svelte";
 import type { App } from "../interface";
@@ -24,4 +25,21 @@ export const Exit: App = {
   },
   content: ExitSvelte,
   glass: false,
+
+  events: {
+    keyboardShortcuts: [
+      {
+        shift: true,
+        key: "",
+        action() {
+          ExitShowAT.set(true);
+        },
+      },
+    ],
+    close(app) {
+      ExitShowAT.set(false);
+    },
+  },
 };
+
+export const ExitShowAT = writable<boolean>(false);

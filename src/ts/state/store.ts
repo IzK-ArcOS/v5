@@ -14,7 +14,7 @@ export const States = new Map<string, State>([
   [
     "boot",
     {
-      name: "Boot",
+      name: "Booting...",
       content: Boot,
       attribs: {},
       key: "boot",
@@ -89,7 +89,7 @@ export const States = new Map<string, State>([
   [
     "arcterm",
     {
-      name: "ArcTerm Mode",
+      name: "ArcTerm",
       content: ArcTerm,
       attribs: {},
       key: "arcterm",
