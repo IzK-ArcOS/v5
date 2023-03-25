@@ -6,6 +6,7 @@
   import { formatBytes } from "../../ts/api/fs/sizes";
   import { rememberedLogin } from "../../ts/api/getter";
   import { ArcTerm } from "../../ts/terminal/main";
+  import { arcTermModeIntro } from "../../ts/terminal/mode";
   import { arcCommands } from "../../ts/terminal/store";
   import { UserData, UserName } from "../../ts/userlogic/interfaces";
 
@@ -23,31 +24,7 @@
         return setTimeout(() => location.reload(), 5000);
       }
 
-      const aapi = localStorage.getItem("arcos-server");
-      const user = $UserName;
-      const q = await getFSQuota();
-      const used = formatBytes(q.used);
-      const max = formatBytes(q.max);
-      const perc = ((100 / q.max) * q.used).toFixed(2);
-
-      arcterm = new ArcTerm(target, arcCommands, null, (a) => {
-        a.util.writeColor(
-          "[█] You are currently in [ArcTerm mode].\n[█] Commands that require the ArcOS desktop have been disabled.",
-          "orange"
-        );
-
-        a.util.writeColor(
-          `\nAuthenticated as [${user}] at [${aapi}]\n`,
-          "aqua"
-        );
-
-        a.util.writeColor(
-          `\n[ArcFS]: You are using [${used}] of [${max}] total (${perc}%)`,
-          "yellow"
-        );
-
-        a.util.writeLine("\n");
-      });
+      arcterm = new ArcTerm(target, arcCommands, null, arcTermModeIntro);
     }, 100);
   });
 

@@ -50,11 +50,12 @@ export class ArcTerm {
     this.commandHandler = new ArcTermCommandHandler(this);
     this.env = new ArcTermEnv();
 
-    setTimeout(() => {
+    setTimeout(async () => {
       this.util = new ArcTermUtil(this);
-      this.input = new ArcTermInput(this);
 
-      if (this.cb) this.cb(this);
+      if (this.cb) await this.cb(this);
+
+      this.input = new ArcTermInput(this);
 
       this.intro();
 
