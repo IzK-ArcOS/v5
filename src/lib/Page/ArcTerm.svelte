@@ -39,7 +39,7 @@
 
     if (!target) return;
 
-    target.scrollTop = target.offsetHeight;
+    target.scrollTo(0, target.scrollHeight);
   }
 
   setInterval(focus, 10);
