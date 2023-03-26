@@ -104,7 +104,7 @@ class CL {
   // Generate a list of keyboard shortcuts from keys to pass to the Calculator AppData.
   generateKeyboardShortcuts() {
     Log({
-      source: `${Store.Source} processKey`,
+      source: `${Store.Source} generateKeyboardShortcuts`,
       msg: `Generating keyboard shortcut array`,
       level: LogLevel.info,
     });
