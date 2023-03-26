@@ -2,6 +2,7 @@ import { get } from "svelte/store";
 import { writeFile } from "../../api/fs/file";
 import { fbClass } from "../../applogic/apps/FileBrowser/main";
 import { log as l } from "../../console";
+import sleep from "../../sleep";
 import type { Command } from "../interface";
 
 export const LogDump: Command = {
@@ -42,4 +43,3 @@ export const LogDump: Command = {
   },
   description: "Dump the log to a file",
 };
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

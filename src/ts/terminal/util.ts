@@ -15,7 +15,7 @@ export class ArcTermUtil {
     this.term = parent;
     this.env = parent.env;
 
-    this.target.innerText = "";
+    this.clear();
   }
 
   public writeLine(str: string, inline = false, target = this.target) {
@@ -91,5 +91,9 @@ export class ArcTermUtil {
     target.append(out);
 
     return out;
+  }
+
+  public clear() {
+    this.target.innerText = "";
   }
 }

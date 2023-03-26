@@ -71,7 +71,7 @@ export class ArcTerm {
   public dispose() {
     if (!this.target) return;
 
-    this.target.innerText = "";
+    this.util.clear();
     this.util = null;
     this.env = null;
     this.input.lock();
