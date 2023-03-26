@@ -65,12 +65,11 @@
           message:
             "ArcOS can't connect to the remote server. Please ensure<br>the server is online, or try again at a later date.",
           button: {
-            caption: "View logs",
-            action: () => {
-              errored = true;
-              LoggerApp.state.windowState.fll = true;
-            },
+            caption: "Retry",
+            action: () => location.reload(),
           },
+          source: "Boot",
+          details: `Can't connect to server ${serverHost}: none of the modes match`,
         },
       ]);
     }

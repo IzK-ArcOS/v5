@@ -30,8 +30,8 @@
     style="z-index: {$maxZIndex * 10};"
   >
     <div class="content">
-      <img class="logo" src={logo} alt="ArcOS" />
       <div>
+        <img class="logo" src={logo} alt="ArcOS" />
         <h3>
           <span class="material-icons-round">{data.icon}</span>{data.title}
         </h3>
