@@ -14,7 +14,7 @@ export class ArcTermCommandHandler {
 
     const command = this.getCommand(cmd);
 
-    this.term.input.current.disabled = true;
+    if (this.term.input) this.term.input.current.disabled = true;
 
     await command.exec(cmd, args, this.term);
 

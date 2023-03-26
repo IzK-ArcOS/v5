@@ -51,9 +51,8 @@
     clearTimeout(t2);
     clearTimeout(t3);
 
-    fadeIn();
+    setTimeout(fadeIn, 120);
 
-    status = "Connecting";
     connected = await testConnection(serverHost);
 
     if (!connected) {
