@@ -24,4 +24,5 @@ div.app > div#target.terminal-renderer::after {
   height: 100%;
   opacity: 0.05;
   pointer-events: none;
+  transition: unset;
 }
