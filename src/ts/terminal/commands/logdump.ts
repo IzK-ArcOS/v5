@@ -8,8 +8,8 @@ import type { Command } from "../interface";
 export const LogDump: Command = {
   keyword: "logdump",
   async exec(cmd, argv, term) {
-    const filename = `./LogDump-${Math.floor(Math.random() * 1e9)}.txt`;
-    term.util.writeColor(`Writing log to [${filename}]...\n`, "purple");
+    const filename = `LogDump-${Math.floor(Math.random() * 1e9)}.txt`;
+    term.util.writeColor(`Writing log to [./${filename}]...\n`, "purple");
 
     const log = get(l);
 
@@ -36,7 +36,9 @@ export const LogDump: Command = {
 
     const b = new Blob([str], { type: "text/plain" });
 
-    await writeFile(filename, b);
+    await writeFile(`./${filename}`, b);
+
+    term.vars.set("ldout", filename);
 
     term.util.writeColor(`\nWrote [${str.length}] bytes.`, "purple");
     fbClass.refresh();

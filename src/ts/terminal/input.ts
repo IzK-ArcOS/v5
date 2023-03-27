@@ -86,7 +86,7 @@ export class ArcTermInput {
   }
 
   private async processInputEvent(e: KeyboardEvent, input: HTMLInputElement) {
-    const split = this.term.vars.inline(input.value).split("&&");
+    const split = input.value.split("&&");
     const key = e.key.toLowerCase();
 
     console.log(key);
@@ -112,13 +112,17 @@ export class ArcTermInput {
 
   private async processCommands(split: string[]) {
     for (let i = 0; i < split.length; i++) {
-      const str = split[i].trim();
+      const str = this.term.vars.inline(split[i].trim());
       const args = str.split(" ");
       const cmd = args[0];
 
       args.shift();
 
       await this.term.commandHandler.evaluate(cmd, args);
+
+      this.lock();
     }
+
+    this.unlock();
   }
 }

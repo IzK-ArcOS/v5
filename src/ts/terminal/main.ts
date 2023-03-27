@@ -47,6 +47,8 @@ export class ArcTerm {
   public async initialize() {
     if (!this.target) return initError(this.app.id);
 
+    this.target.removeAttribute("style");
+
     this.path = "./";
     this.target.innerText = `v${ArcOSVersion}`;
     this.commandHandler = new ArcTermCommandHandler(this);
@@ -61,6 +63,11 @@ export class ArcTerm {
       this.input = new ArcTermInput(this);
 
       this.intro();
+
+      this.target.setAttribute(
+        "style",
+        `--terminal-accent: var(--clr-${this.env.promptColor}-fg);`
+      );
 
       if (!this.app) return;
       /* 
