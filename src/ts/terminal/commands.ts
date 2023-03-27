@@ -10,7 +10,7 @@ export class ArcTermCommandHandler {
   }
 
   public async evaluate(cmd: string, args?: string[]) {
-    this.history.push(`${cmd} ${args.join(" ")}`);
+    this.history.push(`${cmd} ${args.join(" ")}`.trim());
 
     const command = this.getCommand(cmd);
 

@@ -89,16 +89,36 @@ export class ArcTermInput {
     const split = this.term.vars.inline(input.value).split("&&");
     const key = e.key.toLowerCase();
 
-    if (key == "enter") {
-      for (let i = 0; i < split.length; i++) {
-        const str = split[i].trim();
-        const args = str.split(" ");
-        const cmd = args[0];
+    console.log(key);
 
-        args.shift();
+    switch (key) {
+      case "enter":
+        this.processCommands(split);
+        break;
+      case "f2":
+        this.restorePreviousCommand();
+        break;
+    }
+  }
 
-        await this.term.commandHandler.evaluate(cmd, args);
-      }
+  private restorePreviousCommand() {
+    const hist = this.term.commandHandler.history;
+    const latest = hist[hist.length - 1];
+
+    if (!this.current || !latest) return;
+
+    this.current.value = latest;
+  }
+
+  private async processCommands(split: string[]) {
+    for (let i = 0; i < split.length; i++) {
+      const str = split[i].trim();
+      const args = str.split(" ");
+      const cmd = args[0];
+
+      args.shift();
+
+      await this.term.commandHandler.evaluate(cmd, args);
     }
   }
 }
