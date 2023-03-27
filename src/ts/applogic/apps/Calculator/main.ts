@@ -36,15 +36,7 @@ class CL {
     keys: string[],
     overrides: CalculatorOverrides
   ): CalculatorKeys {
-    const keyCnt = keys.length;
-    const orsCnt = Object.values(overrides).length;
     const value: CalculatorKeys = [];
-
-    Log({
-      source: `${Store.Source} compileKeys`,
-      msg: `Compiling CalculatorKeys[] array with ${keyCnt} keys and ${orsCnt} overrides.`,
-      level: LogLevel.info,
-    });
 
     for (let i = 0; i < keys.length; i++) {
       let v: CalculatorKey = [null, null];
@@ -103,12 +95,6 @@ class CL {
 
   // Generate a list of keyboard shortcuts from keys to pass to the Calculator AppData.
   generateKeyboardShortcuts() {
-    Log({
-      source: `${Store.Source} generateKeyboardShortcuts`,
-      msg: `Generating keyboard shortcut array`,
-      level: LogLevel.info,
-    });
-
     let shortCuts: AppKeyCombinations = [];
 
     for (let i = 0; i < Store.Shortcuts.length; i++) {

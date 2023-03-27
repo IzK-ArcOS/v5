@@ -2,10 +2,7 @@
   import { onMount } from "svelte";
   import "./css/main.css";
   import BugReport from "./lib/BugReport.svelte";
-  import DevBar from "./lib/DevBar.svelte";
   import { logoffToken } from "./ts/api/cred";
-  import { assignHooks } from "./ts/applogic/aftermarket/hooks";
-  import { assignHookUpdateListeners } from "./ts/applogic/aftermarket/hooks/updaters";
   import { Log, LogLevel } from "./ts/console";
   import { assignDevMutators } from "./ts/devmode/mutators";
   import { DevModeOverride, updateDevModeProps } from "./ts/devmode/props";
@@ -33,8 +30,6 @@
 
     updateDevModeProps();
     assignDevMutators();
-    assignHooks();
-    assignHookUpdateListeners();
   });
 
   console.warn = (content: string, ...a: any) =>
