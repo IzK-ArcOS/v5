@@ -18,12 +18,15 @@ import { Open } from "./commands/open";
 import { Reload } from "./commands/reload";
 import { Restart } from "./commands/restart";
 import { Rf } from "./commands/rf";
+import { Ri } from "./commands/ri";
 import { Rm } from "./commands/rm";
 import { Run } from "./commands/run";
+import { Set } from "./commands/set";
 import { Shutdown } from "./commands/shutdown";
 import { StateCommand } from "./commands/state";
 import { Tauri } from "./commands/tauri";
 import { UDD } from "./commands/udd";
+import { Users } from "./commands/users";
 import { Ver } from "./commands/ver";
 import type { Command, CommandStore } from "./interface";
 
@@ -57,6 +60,9 @@ export const arcCommands: CommandStore = [
   UDD,
   Ver,
   Rf,
+  Ri,
+  Users,
+  Set,
 ];
 
 export const desktopSpecific: CommandStore = [

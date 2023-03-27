@@ -25,7 +25,7 @@ export class ArcTermUtil {
 
     if (inline) el.className += " inline";
 
-    el.innerText = `${str}`;
+    el.innerText = str;
 
     target.appendChild(el);
 
@@ -79,11 +79,11 @@ export class ArcTermUtil {
 
     for (let i = 0; i < x.length; i++) {
       const part = document.createElement("span");
-
       const isPart = x[i].startsWith("[") && x[i].endsWith("]");
+      const content = x[i].replaceAll("[", "").replaceAll("]", "");
 
       part.className = `clr-${isPart ? pri : sec}`;
-      part.innerText = x[i].replaceAll("[", "").replaceAll("]", "");
+      part.innerText = content;
 
       out.append(part);
     }
@@ -97,7 +97,7 @@ export class ArcTermUtil {
     const el = document.createElement("img");
 
     el.className = "image";
-    el.height = height;
+    el.style.height = `${height}em`;
     el.src = src;
 
     this.target.append(el);

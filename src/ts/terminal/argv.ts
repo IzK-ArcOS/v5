@@ -18,9 +18,9 @@ export function getSwitches(argv: string[]) {
 
   for (const key in switches) {
     switches[key] = switches[key].trim();
-
-    return switches;
   }
+
+  return switches;
 }
 
 export function switchExists(argv: string[], key: string): boolean {

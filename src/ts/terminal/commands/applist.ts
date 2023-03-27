@@ -1,13 +1,16 @@
 import { get } from "svelte/store";
 import type { App } from "../../applogic/interface";
 import { getOpenedStore, WindowStore } from "../../applogic/store";
+import { switchExists } from "../argv";
 import type { Command } from "../interface";
 import type { ArcTerm } from "../main";
 
 export const AppList: Command = {
   keyword: "applist",
   exec(cmd, argv, term) {
-    const store = argv[0] == "opened" ? getOpenedStore() : get(WindowStore);
+    const store = switchExists(argv, "open")
+      ? getOpenedStore()
+      : get(WindowStore);
 
     header(term);
 

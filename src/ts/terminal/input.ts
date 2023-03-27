@@ -67,6 +67,7 @@ export class ArcTermInput {
     );
 
     input.id = `input#${Math.floor(Math.random() * 1e9)}`;
+    input.spellcheck = false;
     input.addEventListener("keydown", (e) => this.processInputEvent(e, input));
 
     this.current = input;
@@ -84,13 +85,20 @@ export class ArcTermInput {
     return wrap;
   }
 
-  private processInputEvent(e: KeyboardEvent, input: HTMLInputElement) {
+  private async processInputEvent(e: KeyboardEvent, input: HTMLInputElement) {
+    const split = this.term.vars.inline(input.value).split("&&");
     const key = e.key.toLowerCase();
-    const args = input.value.split(" ");
-    const cmd = args[0];
 
-    args.shift();
+    if (key == "enter") {
+      for (let i = 0; i < split.length; i++) {
+        const str = split[i].trim();
+        const args = str.split(" ");
+        const cmd = args[0];
 
-    if (key == "enter") this.term.commandHandler.evaluate(cmd, args);
+        args.shift();
+
+        await this.term.commandHandler.evaluate(cmd, args);
+      }
+    }
   }
 }

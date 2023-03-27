@@ -1,12 +1,25 @@
 import { getVersion } from "@tauri-apps/api/app";
+import { listen, TauriEvent } from "@tauri-apps/api/event";
 import { register, unregisterAll } from "@tauri-apps/api/globalShortcut";
-import { appWindow, LogicalSize } from "@tauri-apps/api/window";
+import { appWindow } from "@tauri-apps/api/window";
+
+const blocks = ["Ctrl+R", "F5", "Ctrl+Shift+R", "Ctrl+P", "F3", "Ctrl+F"];
 
 export async function define() {
+  doRegister();
+
+  listen(TauriEvent.WINDOW_BLUR, unregisterAll);
+  listen(TauriEvent.WINDOW_FOCUS, doRegister);
+}
+
+function doRegister() {
   unregisterAll();
-  register("Ctrl+R", unset);
-  register("F5", unset);
-  register("Ctrl+Shift+R", unset);
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i];
+
+    register(block, unset);
+  }
 
   register("Alt+Enter", async () => {
     const isFull = await appWindow.isFullscreen();
@@ -16,7 +29,7 @@ export async function define() {
 }
 
 function unset() {
-  return false;
+  if (document.hasFocus()) return false;
 }
 
 export async function inTauri() {

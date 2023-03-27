@@ -19,3 +19,19 @@ export type Color =
   | "aqua"
   | "white"
   | "gray";
+
+export interface Variable {
+  get: () => string;
+  set?: (v: string) => Promise<any> | any;
+  value?: string;
+  readOnly: boolean;
+}
+
+export type VariableStore = { [key: string]: Variable };
+
+export interface StaticVariable {
+  value: string;
+  readOnly: boolean;
+}
+
+export type StaticVariableStore = { [key: string]: StaticVariable };

@@ -7,6 +7,7 @@ import { ArcTermInput } from "./input";
 import type { Color, CommandStore } from "./interface";
 import { ArcTermIntro } from "./intro";
 import { ArcTermUtil } from "./util";
+import { ArcTermVariables } from "./var";
 
 /**
  * @WARNING   This part of ArcOS is seperated from the Svelte framework in
@@ -23,8 +24,9 @@ export class ArcTerm {
   app: App;
   util: ArcTermUtil;
   env: ArcTermEnv;
+  vars: ArcTermVariables;
   input: ArcTermInput;
-  path: string | false;
+  path: string;
   commandHandler: ArcTermCommandHandler;
   cb: (term: ArcTerm) => void;
 
@@ -49,6 +51,7 @@ export class ArcTerm {
     this.target.innerText = `v${ArcOSVersion}`;
     this.commandHandler = new ArcTermCommandHandler(this);
     this.env = new ArcTermEnv();
+    this.vars = new ArcTermVariables(this);
 
     setTimeout(async () => {
       this.util = new ArcTermUtil(this);
