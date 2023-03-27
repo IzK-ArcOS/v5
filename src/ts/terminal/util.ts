@@ -93,6 +93,16 @@ export class ArcTermUtil {
     return out;
   }
 
+  public writeImage(src: string, height: number) {
+    const el = document.createElement("img");
+
+    el.className = "image";
+    el.height = height;
+    el.src = src;
+
+    this.target.append(el);
+  }
+
   public clear() {
     this.target.innerText = "";
   }

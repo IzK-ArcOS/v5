@@ -50,7 +50,7 @@
       }
     };
 
-    setShortcuts(app);
+    setShortcuts(app, saveFile);
   });
 
   async function saveFile() {

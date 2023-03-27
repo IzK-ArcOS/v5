@@ -19,7 +19,7 @@ export async function saveTextEditorFile(
   await writeFile(openedFile.path, data);
 }
 
-export async function setShortcuts(app: App) {
+export async function setShortcuts(app: App, save: () => void) {
   registerShortcuts(
     [
       {
@@ -38,6 +38,11 @@ export async function setShortcuts(app: App) {
           openWindow("MarkDownViewer");
           closeFile("MarkDownViewer");
         },
+      },
+      {
+        key: "s",
+        alt: true,
+        action: save,
       },
     ],
     "TextEditor"

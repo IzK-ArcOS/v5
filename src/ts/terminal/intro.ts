@@ -15,5 +15,7 @@ export function ArcTermIntro(term: ArcTerm) {
     term.util.writeColor(x[i], "blue");
   }
 
+  term.util.writeImage("https://http.cat/404", 150);
+
   term.util.writeLine("\n");
 }
