@@ -26,8 +26,8 @@
     <Input bind:stay bind:authenticating bind:pfp />
   </div>
 
-  {#if !authenticating}
-    <Stay bind:stay />
+  {#if !authenticating}<!-- 
+    <Stay bind:stay /> -->
     <button class="switchuser" on:click={cancel}>Cancel</button>
   {:else}
     <Loading caption="Welcome" />

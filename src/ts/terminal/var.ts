@@ -127,17 +127,31 @@ export class ArcTermVariables {
   }
 
   inline(str: string) {
-    const parts = str.split(/\$(\w*)/);
+    const variables = this.parseInlineNames(str);
 
-    let out = "";
+    if (!variables.length) return str;
 
-    for (let i = 0; i < parts.length; i++) {
-      const part = parts[i];
-      const value = this.get(part);
+    for (let i = 0; i < variables.length; i++) {
+      const part = `$${variables[i]}`;
 
-      out += value || part;
+      const value = this.get(variables[i]);
+
+      str = str.replace(part, value);
     }
 
-    return out;
+    return str;
+  }
+
+  private parseInlineNames(str: string): string[] {
+    const regex = /\$([a-zA-Z_][a-zA-Z0-9_]*)/g;
+    const matches: string[] = [];
+
+    let match: RegExpExecArray | null;
+
+    while ((match = regex.exec(str))) {
+      matches.push(match[1]);
+    }
+
+    return matches;
   }
 }

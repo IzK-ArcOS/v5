@@ -72,12 +72,12 @@ function auth(a: ArcTerm, user: string, plat: string) {
 }
 
 function api(a: ArcTerm, aapi: string) {
-  a.util.writeColor(`[(${aapi})]`, "gray", "white", true);
+  a.util.writeColor(` [(${aapi})]`, "gray", "white", true);
 }
 
-function usage(a: ArcTerm, used: string, maxs: string, perc: string) {
+function usage(a: ArcTerm, used: string, max: string, percent: string) {
   a.util.writeColor(
-    `\n[ArcFS]: You are using [${used}] of [${maxs}] total (${perc}%)\n`,
+    `\n[ArcFS]: You are using [${used}] of [${max}] total (${percent}%)\n`,
     "yellow"
   );
 }

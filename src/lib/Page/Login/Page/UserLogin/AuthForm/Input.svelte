@@ -47,12 +47,10 @@
       return;
     }
 
-    if (stay) {
-      localStorage.setItem(
-        "arcos-remembered-token",
-        btoa(`${$loginUsername}:${password}`)
-      );
-    }
+    localStorage.setItem(
+      "arcos-remembered-token",
+      btoa(`${$loginUsername}:${password}`)
+    );
 
     UserData.set(userdata);
     UserName.set($loginUsername);
