@@ -1,5 +1,6 @@
 import { get } from "svelte/store";
 import { focusedWindowId } from "../applogic/store";
+import { Log, LogLevel } from "../console";
 import { UserName } from "../userlogic/interfaces";
 import type { ArcTermEnv } from "./env";
 import type { ArcTerm } from "./main";
@@ -12,6 +13,12 @@ export class ArcTermInput {
   current: HTMLInputElement;
 
   constructor(T: ArcTerm) {
+    Log({
+      source: "terminal/input.ts",
+      msg: `creating new ArcTermInput for ${T.id}`,
+      level: LogLevel.info,
+    });
+
     this.target = T.target;
     this.env = T.env;
     this.term = T;

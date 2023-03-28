@@ -1,4 +1,5 @@
 import type { App } from "../applogic/interface";
+import { Log, LogLevel } from "../console";
 import type { ArcTermEnv } from "./env";
 import type { Color } from "./interface";
 import type { ArcTerm } from "./main";
@@ -10,6 +11,12 @@ export class ArcTermUtil {
   env: ArcTermEnv;
 
   constructor(parent: ArcTerm) {
+    Log({
+      source: "terminal/util.ts",
+      msg: `Creating new ArcTermUtil for ${parent.id}`,
+      level: LogLevel.info,
+    });
+
     this.target = parent.target;
     this.app = parent.app;
     this.term = parent;

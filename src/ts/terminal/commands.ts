@@ -1,3 +1,4 @@
+import { Log, LogLevel } from "../console";
 import type { ArcTerm } from "./main";
 import { defaultCommand } from "./store";
 
@@ -6,6 +7,12 @@ export class ArcTermCommandHandler {
   history: string[] = [];
 
   constructor(term: ArcTerm) {
+    Log({
+      source: "terminal/commands.ts",
+      msg: `creating new ArcTermCommandHandler for ${term.id}`,
+      level: LogLevel.info,
+    });
+
     this.term = term;
   }
 

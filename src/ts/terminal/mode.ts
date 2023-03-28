@@ -55,14 +55,16 @@ function disclaimer(a: ArcTerm) {
   a.util.clear();
 
   a.util.writeColor(
-    "[█] You are currently in [ArcTerm mode].\n[█] Commands that require the ArcOS desktop have been disabled.",
+    `[█] You are currently in [ArcTerm mode].\n[█] Commands that require the ArcOS desktop have been disabled.\n\n`,
     "orange"
   );
+
+  a.util.writeColor(`ArcTerm reference ID: [${a.id}]`, "blue");
 }
 
 function auth(a: ArcTerm, user: string, plat: string) {
   a.util.writeColor(
-    `\nAuthenticated as [${user}] at [${plat}] `,
+    `\nAuthenticated as [${user}] at [${plat}]`,
     "aqua",
     "white",
     true

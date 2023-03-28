@@ -20,6 +20,8 @@ export type Color =
   | "white"
   | "gray";
 
+export const colors = "red,orange,yellow,green,aqua,blue,purple".split(",");
+
 export interface Variable {
   get: () => string;
   set?: (v: string) => Promise<any> | any;

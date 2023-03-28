@@ -4,7 +4,7 @@ import { getDeviceInfo } from "../../device/main";
 import { CurrentState } from "../../state/main";
 import { inTauri } from "../../tauri";
 import { UserName } from "../../userlogic/interfaces";
-import type { Color, Command } from "../interface";
+import { Color, colors, Command } from "../interface";
 import type { ArcTerm } from "../main";
 
 export const ArcFetch: Command = {
@@ -37,8 +37,6 @@ async function getItems() {
 }
 
 function colorBar(term: ArcTerm) {
-  const colors = "red,orange,yellow,green,aqua,blue,purple".split(",");
-
   term.util.write("\n                        ");
 
   for (let i = 0; i < colors.length; i++) {

@@ -1,4 +1,12 @@
+import { Log, LogLevel } from "../console";
+
 export function getSwitches(argv: string[]) {
+  Log({
+    source: "terminal/argv.ts",
+    msg: `getSwitches: parsing argv with ${argv.length} items...`,
+    level: LogLevel.info,
+  });
+
   let switches: { [key: string]: string } = {};
   let currentArg = "";
 
@@ -24,6 +32,12 @@ export function getSwitches(argv: string[]) {
 }
 
 export function switchExists(argv: string[], key: string): boolean {
+  Log({
+    source: "terminal/argv.ts",
+    msg: `switchExists: ${key}`,
+    level: LogLevel.info,
+  });
+
   const switches = getSwitches(argv);
 
   for (const sw in switches) {

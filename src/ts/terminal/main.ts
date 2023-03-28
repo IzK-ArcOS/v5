@@ -1,4 +1,6 @@
+import { randomUUID } from "crypto";
 import type { App } from "../applogic/interface";
+import { Log, LogLevel } from "../console";
 import { ArcOSVersion } from "../env/main";
 import { ArcTermCommandHandler } from "./commands";
 import { ArcTermEnv } from "./env";
@@ -28,6 +30,7 @@ export class ArcTerm {
   input: ArcTermInput;
   path: string;
   commandHandler: ArcTermCommandHandler;
+  id: string;
   cb: (term: ArcTerm) => void;
 
   constructor(
@@ -36,6 +39,15 @@ export class ArcTerm {
     a: App,
     cb?: (term: ArcTerm) => void
   ) {
+    const rnd = () => Math.floor(Math.random() * 1e6);
+    this.id = `${rnd()}-${rnd()}-${rnd()}-${rnd()}`;
+
+    Log({
+      source: "terminal/main.ts",
+      msg: `Creating new ArcTerm with id ${this.id}`,
+      level: LogLevel.info,
+    });
+
     this.target = t;
     this.commands = cS;
     this.app = a;
@@ -52,7 +64,7 @@ export class ArcTerm {
     this.path = "./";
     this.target.innerText = `v${ArcOSVersion}`;
     this.commandHandler = new ArcTermCommandHandler(this);
-    this.env = new ArcTermEnv();
+    this.env = new ArcTermEnv(this);
     this.vars = new ArcTermVariables(this);
 
     setTimeout(async () => {
@@ -61,20 +73,10 @@ export class ArcTerm {
       if (this.cb) await this.cb(this);
 
       this.input = new ArcTermInput(this);
-
       this.intro();
-
-      this.target.setAttribute(
-        "style",
-        `--terminal-accent: var(--clr-${this.env.promptColor}-fg);`
-      );
+      this.flushAccent();
 
       if (!this.app) return;
-      /* 
-      this.app.size.w = this.env.width;
-      this.app.size.h = this.env.height;
-
-      WindowStore.set(get(WindowStore)); */
     }, 500);
   }
 
@@ -94,6 +96,15 @@ export class ArcTerm {
     this.util.writeColor(
       `${this.env.greeting}\n\n`,
       this.env.promptColor as Color
+    );
+  }
+
+  public flushAccent() {
+    if (this.app) return;
+
+    this.target.setAttribute(
+      "style",
+      `--terminal-accent: var(--clr-${this.env.promptColor}-fg);`
     );
   }
 }

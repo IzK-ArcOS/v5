@@ -1,12 +1,18 @@
 import { readFile, writeFile } from "../api/fs/file";
+import { Log, LogLevel } from "../console";
 import type { ArcTermEnv } from "./env";
 
 export class ArcTermConfig {
   env: ArcTermEnv;
 
   constructor(e: ArcTermEnv) {
-    this.env = e;
+    Log({
+      source: "terminal/config.ts",
+      msg: `creating new ArcTermConfig for parent env`,
+      level: LogLevel.info,
+    });
 
+    this.env = e;
     this.loadConfigFile();
   }
 
@@ -55,7 +61,7 @@ export class ArcTermConfig {
     this.loadConfig(json);
   }
 
-  private async writeConfig() {
+  public async writeConfig() {
     const data = {};
 
     for (let i = 0; i < this.configKeys.length; i++) {

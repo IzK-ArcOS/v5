@@ -22,8 +22,8 @@
   {:else}
     <Loading caption="Welcome" />
   {/if}
-</div>
 
-{#if !loading}
-  <Cancel {show} />
-{/if}
+  {#if !loading}
+    <Cancel {show} />
+  {/if}
+</div>

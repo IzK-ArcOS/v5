@@ -6,7 +6,7 @@ export const Set: Command = {
     const key = argv[0];
     const Regx = argv.join(" ").match(/"(.*?)"/);
 
-    if (Regx.length < 2) return term.util.Error("Missing value");
+    if (!Regx || Regx.length < 2) return term.vars.delete(key);
 
     const value = Regx[1];
 

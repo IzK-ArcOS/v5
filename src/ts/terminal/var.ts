@@ -2,7 +2,13 @@ import { get } from "svelte/store";
 import { getDirectory } from "../api/fs/directory";
 import { ArcOSVersion } from "../env/main";
 import { UserName } from "../userlogic/interfaces";
-import type { StaticVariableStore, Variable, VariableStore } from "./interface";
+import {
+  Color,
+  colors,
+  StaticVariableStore,
+  Variable,
+  VariableStore,
+} from "./interface";
 import type { ArcTerm } from "./main";
 
 export class ArcTermVariables {
@@ -11,7 +17,11 @@ export class ArcTermVariables {
   private store: VariableStore = {
     prompt: {
       get: () => this.term.env.prompt,
-      set: (v) => (this.term.env.prompt = v),
+      set: async (v) => {
+        this.term.env.prompt = v;
+
+        await this.term.env.config.writeConfig();
+      },
 
       readOnly: false,
     },
@@ -41,6 +51,20 @@ export class ArcTermVariables {
       },
       readOnly: false,
     },
+    color: {
+      get: () => this.term.env.promptColor,
+      set: async (v) => {
+        if (!colors.includes(v))
+          return this.term.util.Error("color is invalid, falling back.");
+
+        this.term.env.promptColor = v as Color;
+
+        await this.term.env.config.writeConfig();
+
+        this.term.flushAccent();
+      },
+      readOnly: false,
+    },
   };
 
   constructor(t: ArcTerm) {
@@ -67,6 +91,14 @@ export class ArcTermVariables {
     if (!this.store[key]) return key;
 
     return this.store[key].get();
+  }
+
+  async delete(key: string) {
+    if (!this.store[key] || this.store[key].readOnly) return false;
+
+    delete this.store[key];
+
+    return true;
   }
 
   async set(key: string, value: string) {
