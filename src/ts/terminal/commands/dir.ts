@@ -13,13 +13,13 @@ export const Dir: Command = {
 
     let totalSize = 0;
 
-    term.util.writeColor(`\nDirectory contents of [${path}]\n`, "blue");
+    term.std.writeColor(`\nDirectory contents of [${path}]\n`, "blue");
 
     for (let i = 0; i < dirs.length; i++) {
       const name = dirs[i].name;
       const size = `     <DIR>`;
 
-      term.util.writeLine(`${size} ${name}`);
+      term.std.writeLine(`${size} ${name}`);
     }
 
     for (let i = 0; i < files.length; i++) {
@@ -28,15 +28,15 @@ export const Dir: Command = {
 
       totalSize += files[i].size;
 
-      term.util.writeLine(`${size} ${name}`);
+      term.std.writeLine(`${size} ${name}`);
     }
 
-    term.util.writeLine("");
+    term.std.writeLine("");
 
     const totalf = formatBytes(totalSize).padStart(10, " ");
     const bytes = `(${totalSize} bytes)`;
 
-    term.util.writeLine(`${totalf} ${bytes}`);
+    term.std.writeLine(`${totalf} ${bytes}`);
   },
   description: "List the contents of the current directory",
   syntax: `<[path]>`,

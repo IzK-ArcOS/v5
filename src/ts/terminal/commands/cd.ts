@@ -20,7 +20,7 @@ export const Cd: Command = {
     if (dir == ".") return;
 
     if (!(await getDirectory(newDir)))
-      return term.util.writeLine(`Can't change to "${dir}": Path not found`);
+      return term.std.writeLine(`Can't change to "${dir}": Path not found`);
 
     term.path = newDir;
   },

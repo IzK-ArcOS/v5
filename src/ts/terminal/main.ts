@@ -8,6 +8,7 @@ import { initError } from "./error";
 import { ArcTermInput } from "./input";
 import type { Color, CommandStore } from "./interface";
 import { ArcTermIntro } from "./intro";
+import { ArcTermStd } from "./std";
 import { ArcTermUtil } from "./util";
 import { ArcTermVariables } from "./var";
 
@@ -24,6 +25,7 @@ export class ArcTerm {
   target: HTMLDivElement;
   commands: CommandStore;
   app: App;
+  std: ArcTermStd;
   util: ArcTermUtil;
   env: ArcTermEnv;
   vars: ArcTermVariables;
@@ -39,15 +41,6 @@ export class ArcTerm {
     a: App,
     cb?: (term: ArcTerm) => void
   ) {
-    const rnd = () => Math.floor(Math.random() * 1e6);
-    this.referenceId = `${rnd()}-${rnd()}-${rnd()}-${rnd()}`;
-
-    Log({
-      source: "terminal/main.ts",
-      msg: `Creating new ArcTerm with id ${this.referenceId}`,
-      level: LogLevel.info,
-    });
-
     this.target = t;
     this.commands = cS;
     this.app = a;
@@ -57,6 +50,15 @@ export class ArcTerm {
   }
 
   public async initialize() {
+    this.util = new ArcTermUtil(this);
+    this.referenceId = this.util.getReference();
+
+    Log({
+      source: `ArcTerm ${this.referenceId}`,
+      msg: `Initializing new ArcTerm`,
+      level: LogLevel.info,
+    });
+
     if (!this.target) return initError(this.app.id);
 
     this.target.removeAttribute("style");
@@ -68,13 +70,14 @@ export class ArcTerm {
     this.vars = new ArcTermVariables(this);
 
     setTimeout(async () => {
-      this.util = new ArcTermUtil(this);
+      this.std = new ArcTermStd(this);
 
       if (this.onload) await this.onload(this);
 
       this.input = new ArcTermInput(this);
-      this.intro();
-      this.flushAccent();
+
+      this.util.intro();
+      this.util.flushAccent();
 
       if (!this.app) return;
     }, 500);
@@ -83,28 +86,10 @@ export class ArcTerm {
   public dispose() {
     if (!this.target) return;
 
-    this.util.clear();
-    this.util = null;
+    this.std.clear();
+    this.std = null;
     this.env = null;
     this.input.lock();
     this.input = null;
-  }
-
-  private intro() {
-    ArcTermIntro(this);
-
-    this.util.writeColor(
-      `${this.env.greeting}\n\n`,
-      this.env.promptColor as Color
-    );
-  }
-
-  public flushAccent() {
-    if (this.app) return;
-
-    this.target.setAttribute(
-      "style",
-      `--terminal-accent: var(--clr-${this.env.promptColor}-fg);`
-    );
   }
 }

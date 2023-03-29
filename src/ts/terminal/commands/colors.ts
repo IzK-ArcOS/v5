@@ -19,7 +19,7 @@ export const Colors: Command = {
     ];
 
     for (let i = 0; i < colors.length; i++) {
-      term.util.writeColor(`${colors[i].padEnd(10, " ")}: [${str}]`, colors[i]);
+      term.std.writeColor(`${colors[i].padEnd(10, " ")}: [${str}]`, colors[i]);
     }
   },
   description: "Print out all ArcTerm colors",

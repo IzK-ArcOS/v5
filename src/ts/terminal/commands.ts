@@ -8,8 +8,8 @@ export class ArcTermCommandHandler {
 
   constructor(term: ArcTerm) {
     Log({
-      source: "terminal/commands.ts",
-      msg: `creating new ArcTermCommandHandler for ${term.referenceId}`,
+      source: `ArcTerm ${term.referenceId}`,
+      msg: `Creating new ArcTermCommandHandler`,
       level: LogLevel.info,
     });
 
@@ -25,9 +25,9 @@ export class ArcTermCommandHandler {
 
     await command.exec(cmd, args, this.term);
 
-    if (!this.term.util || !this.term.input) return;
+    if (!this.term.std || !this.term.input) return;
 
-    this.term.util.writeLine("\n");
+    this.term.std.writeLine("\n");
     this.term.input.unlock();
   }
 

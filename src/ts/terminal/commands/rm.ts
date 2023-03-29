@@ -11,7 +11,7 @@ export const Rm: Command = {
     try {
       await deleteItem(name);
     } catch {
-      term.util.Error(`Unable to delete "${dir}"`);
+      term.std.Error(`Unable to delete "${dir}"`);
     }
   },
   description: "Delete a file or folder",

@@ -10,7 +10,7 @@ export const Mkdir: Command = {
 
     const v = await createDirectory(name);
 
-    term.util.writeLine(`Directory '${dir}' created.`);
+    term.std.writeLine(`Directory '${dir}' created.`);
   },
   description: "Create a directory",
   syntax: `"<[name]>"`,

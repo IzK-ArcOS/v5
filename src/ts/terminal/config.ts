@@ -1,14 +1,15 @@
 import { readFile, writeFile } from "../api/fs/file";
 import { Log, LogLevel } from "../console";
 import type { ArcTermEnv } from "./env";
+import type { ArcTerm } from "./main";
 
 export class ArcTermConfig {
   env: ArcTermEnv;
 
-  constructor(e: ArcTermEnv) {
+  constructor(e: ArcTermEnv, t: ArcTerm) {
     Log({
-      source: "terminal/config.ts",
-      msg: `creating new ArcTermConfig for parent env`,
+      source: `ArcTerm ${t.referenceId}`,
+      msg: `Creating new ArcTermConfig`,
       level: LogLevel.info,
     });
 

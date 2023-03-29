@@ -5,7 +5,7 @@ export const Exit: Command = {
   keyword: "exit",
   exec(cmd, argv, term) {
     if (!term.app)
-      return term.util.Error(
+      return term.std.Error(
         "can't close ArcTerm: no associated app in constructor"
       );
 

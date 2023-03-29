@@ -16,7 +16,7 @@ export const Run: Command = {
       const file = dir.files[i];
 
       if (file.filename == fn) {
-        term.util.writeLine(`Opening ${fn} (${file.size} Bytes)`);
+        term.std.writeLine(`Opening ${fn} (${file.size} Bytes)`);
 
         o(file);
 
@@ -24,7 +24,7 @@ export const Run: Command = {
       }
     }
 
-    term.util.Error(`The file doesn't exist on ArcFS.`);
+    term.std.Error(`The file doesn't exist on ArcFS.`);
   },
   description: "Run a file from your ArcFS account.",
   syntax: `"<[filename]>"`,

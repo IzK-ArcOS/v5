@@ -11,7 +11,7 @@ export const oa: Command = {
     for (let i = 0; i < ws.length; i++) {
       if (ws[i].info.custom) continue;
 
-      term.util.writeColor(`Opening [${ws[i].id}]`, "orange");
+      term.std.writeColor(`Opening [${ws[i].id}]`, "orange");
 
       openWindow(ws[i].id, true);
     }

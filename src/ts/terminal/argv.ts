@@ -2,7 +2,7 @@ import { Log, LogLevel } from "../console";
 
 export function getSwitches(argv: string[]) {
   Log({
-    source: "terminal/argv.ts",
+    source: "ArcTerm",
     msg: `getSwitches: parsing argv with ${argv.length} items...`,
     level: LogLevel.info,
   });
@@ -33,7 +33,7 @@ export function getSwitches(argv: string[]) {
 
 export function switchExists(argv: string[], key: string): boolean {
   Log({
-    source: "terminal/argv.ts",
+    source: "ArcTerm",
     msg: `switchExists: ${key}`,
     level: LogLevel.info,
   });

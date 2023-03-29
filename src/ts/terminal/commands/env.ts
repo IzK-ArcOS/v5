@@ -10,9 +10,9 @@ export const Env: Command = {
       const str = e[i][1].toString();
       const key = e[i][0].padEnd(20, " ");
 
-      term.util.writeColor(`# [${key}]: `, "blue", "white", true);
-      term.util.write(`${str}`);
-      term.util.writeLine("");
+      term.std.writeColor(`# [${key}]: `, "blue", "white", true);
+      term.std.write(`${str}`);
+      term.std.writeLine("");
     }
 
     for (let i = 0; i < v.length; i++) {
@@ -21,9 +21,9 @@ export const Env: Command = {
 
       const prefix = v[i][1].readOnly ? "#" : " ";
 
-      term.util.writeColor(`${prefix} [${key}]: `, "aqua", "white", true);
-      term.util.write(`${str}`);
-      term.util.writeLine("");
+      term.std.writeColor(`${prefix} [${key}]: `, "aqua", "white", true);
+      term.std.write(`${str}`);
+      term.std.writeLine("");
     }
   },
   description: "List the environment and variables",

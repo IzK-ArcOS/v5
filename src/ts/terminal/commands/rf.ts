@@ -16,21 +16,21 @@ export const Rf: Command = {
       if (file.filename == fn) {
         const contents = await readFile(file.scopedPath);
 
-        if (!contents) return term.util.Error("Could not read the file.");
+        if (!contents) return term.std.Error("Could not read the file.");
 
         if (!file.mime.includes("text/"))
-          return term.util.Error("Not attempting to read non-text file.");
+          return term.std.Error("Not attempting to read non-text file.");
 
         const enc = new TextDecoder("utf-8");
         const d = enc.decode(new Uint8Array(contents));
 
-        term.util.writeLine(d);
+        term.std.writeLine(d);
 
         return;
       }
     }
 
-    term.util.Error(`The file doesn't exist on ArcFS.`);
+    term.std.Error(`The file doesn't exist on ArcFS.`);
   },
   description: "Read a file from ArcFS",
   syntax: "<[filename]>",

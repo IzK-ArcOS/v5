@@ -11,14 +11,14 @@ export const StateCommand: Command = {
     if (!state) {
       const s = get(CurrentState);
 
-      return term.util.writeColor(
+      return term.std.writeColor(
         `Current state: [${s.name}] (ArcOS.state.[${s.key}])`,
         "purple"
       );
     }
 
     if (!States.get(state))
-      return term.util.Error(`${state}: State doesn't exist.`);
+      return term.std.Error(`${state}: State doesn't exist.`);
 
     applyState(state);
   },

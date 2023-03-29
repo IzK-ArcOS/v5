@@ -12,7 +12,7 @@ export const Set: Command = {
 
     const setter = await term.vars.set(key, value);
 
-    if (!setter) term.util.Error("Variable is read-only!");
+    if (!setter) term.std.Error("Variable is read-only!");
   },
   description: "Set a variable",
   syntax: `<[key]> "<[value]>"`,

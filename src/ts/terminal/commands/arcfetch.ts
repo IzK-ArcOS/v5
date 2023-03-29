@@ -10,11 +10,11 @@ import type { ArcTerm } from "../main";
 export const ArcFetch: Command = {
   keyword: "arcfetch",
   async exec(cmd, argv, term) {
-    term.util.writeLine("\n");
+    term.std.writeLine("\n");
 
     await graphic(term);
 
-    term.util.writeLine("");
+    term.std.writeLine("");
 
     colorBar(term);
   },
@@ -37,10 +37,10 @@ async function getItems() {
 }
 
 function colorBar(term: ArcTerm) {
-  term.util.write("\n                        ");
+  term.std.write("\n                        ");
 
   for (let i = 0; i < colors.length; i++) {
-    term.util.writeColor("[██ ]", colors[i] as Color, "white", true);
+    term.std.writeColor("[██ ]", colors[i] as Color, "white", true);
   }
 }
 
@@ -57,10 +57,10 @@ async function graphic(term: ArcTerm) {
   ];
 
   for (let i = 0; i < graphicParts.length; i++) {
-    term.util.writeColor(`[${graphicParts[i]}]  `, "blue", "white", true);
+    term.std.writeColor(`[${graphicParts[i]}]  `, "blue", "white", true);
 
     if (items[i]) {
-      term.util.writeColor(
+      term.std.writeColor(
         `[${items[i][0].padEnd(12, " ")}]: ${items[i][1]}`,
         "purple",
         "white",
@@ -68,6 +68,6 @@ async function graphic(term: ArcTerm) {
       );
     }
 
-    term.util.writeLine("");
+    term.std.writeLine("");
   }
 }

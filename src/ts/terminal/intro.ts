@@ -12,8 +12,8 @@ export function ArcTermIntro(term: ArcTerm) {
   ];
 
   for (let i = 0; i < x.length; i++) {
-    term.util.writeColor(x[i], "blue");
+    term.std.writeColor(x[i], "blue");
   }
 
-  term.util.writeLine("\n");
+  term.std.writeLine("\n");
 }

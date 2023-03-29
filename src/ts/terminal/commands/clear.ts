@@ -6,7 +6,7 @@ export const Clear: Command = {
     term.input.current = null;
 
     setTimeout(() => {
-      term.util.clear();
+      term.std.clear();
 
       term.input.unlock();
     });

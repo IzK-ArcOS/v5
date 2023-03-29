@@ -8,7 +8,7 @@ export const Shutdown: Command = {
   exec(cmd, argv, term) {
     if (get(CurrentState).key == "desktop") return shutdown();
 
-    term.util.writeColor("[SHUTDOWN]: Terminating NOW.", "green");
+    term.std.writeColor("[SHUTDOWN]: Terminating NOW.", "green");
 
     setTimeout(() => {
       applyState("turnedoff");

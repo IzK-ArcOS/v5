@@ -33,7 +33,7 @@ import type { Command, CommandStore } from "./interface";
 export const defaultCommand: Command = {
   keyword: "default",
   exec: (cmd, _, term) => {
-    if (cmd) term.util.Error(`${cmd}: command not found.`);
+    if (cmd) term.std.Error(`${cmd}: command not found.`);
   },
   description: "Default command",
 };

@@ -8,7 +8,7 @@ export const Restart: Command = {
   exec(cmd, argv, term) {
     if (get(CurrentState).key == "desktop") return restart();
 
-    term.util.writeColor("[RESTART]: Terminating NOW.", "green");
+    term.std.writeColor("[RESTART]: Terminating NOW.", "green");
 
     setTimeout(() => {
       location.reload();

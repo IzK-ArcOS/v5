@@ -26,7 +26,7 @@ function output(term: ArcTerm, app: App) {
   const id = app.id.padEnd(30, " ");
   const name = app.info.name.padEnd(30, " ");
   const version = app.info.version;
-  term.util.writeColor(`${name}[${id}]${version}`, "gray");
+  term.std.writeColor(`${name}[${id}]${version}`, "gray");
 }
 
 function header(term: ArcTerm) {
@@ -36,6 +36,6 @@ function header(term: ArcTerm) {
 
   const head = `${hName}${hId}${hVer}`;
 
-  term.util.writeColor(`[${head}]`, "yellow");
-  term.util.writeSeperator(head.length);
+  term.std.writeColor(`[${head}]`, "yellow");
+  term.std.writeSeperator(head.length);
 }

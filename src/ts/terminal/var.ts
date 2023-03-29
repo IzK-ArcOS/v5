@@ -1,74 +1,15 @@
-import { get } from "svelte/store";
-import { getDirectory } from "../api/fs/directory";
-import { ArcOSVersion } from "../env/main";
-import { UserName } from "../userlogic/interfaces";
-import {
-  Color,
-  colors,
-  StaticVariableStore,
-  Variable,
-  VariableStore,
-} from "./interface";
+import type { StaticVariableStore, Variable, VariableStore } from "./interface";
 import type { ArcTerm } from "./main";
+import { getArcTermStore } from "./var/store";
 
 export class ArcTermVariables {
   term: ArcTerm;
 
-  private store: VariableStore = {
-    prompt: {
-      get: () => this.term.env.prompt,
-      set: async (v) => {
-        this.term.env.prompt = v;
-
-        await this.term.env.config.writeConfig();
-      },
-
-      readOnly: false,
-    },
-    server: {
-      get: () => localStorage.getItem("arcos-server"),
-      readOnly: true,
-    },
-    username: {
-      get: () => get(UserName),
-      readOnly: true,
-    },
-    version: {
-      get: () => ArcOSVersion,
-      readOnly: true,
-    },
-    pwd: {
-      get: () => this.term.path,
-      set: async (v) => {
-        const dir = await getDirectory(v);
-
-        if (!dir)
-          return this.term.util.Error(
-            `pwd: Directory doesn't exist, falling back.`
-          );
-
-        this.term.path = v;
-      },
-      readOnly: false,
-    },
-    color: {
-      get: () => this.term.env.promptColor,
-      set: async (v) => {
-        if (!colors.includes(v))
-          return this.term.util.Error("color is invalid, falling back.");
-
-        this.term.env.promptColor = v as Color;
-
-        await this.term.env.config.writeConfig();
-
-        this.term.flushAccent();
-      },
-      readOnly: false,
-    },
-  };
+  private store: VariableStore = {};
 
   constructor(t: ArcTerm) {
     this.term = t;
+    this.store = getArcTermStore(this.term);
   }
 
   async getAll(): Promise<StaticVariableStore> {
@@ -136,7 +77,7 @@ export class ArcTermVariables {
 
       const value = this.get(variables[i]);
 
-      str = str.replace(part, value);
+      str = str.replace(part, value == variables[i] ? part : value);
     }
 
     return str;

@@ -22,7 +22,7 @@ function all(term: ArcTerm) {
     const a = cmd[i].keyword.toUpperCase().padEnd(15, " ");
     const b = cmd[i].description;
 
-    term.util.writeColor(`[${a}]${b}`, "orange");
+    term.std.writeColor(`[${a}]${b}`, "orange");
   }
 }
 
@@ -30,14 +30,11 @@ function specific(command: string, term: ArcTerm) {
   const c = term.commandHandler.getCommand(command);
 
   if (!c || c.keyword == defaultCommand.keyword)
-    return term.util.Error(`${command}: command not found.`);
+    return term.std.Error(`${command}: command not found.`);
 
-  term.util.writeColor(
-    `[${c.keyword.toUpperCase()}]: ${c.description}`,
-    "blue"
-  );
+  term.std.writeColor(`[${c.keyword.toUpperCase()}]: ${c.description}`, "blue");
 
-  term.util.writeLine("\n");
+  term.std.writeLine("\n");
 
-  term.util.writeColor(`Usage: [${c.keyword}] ${c.syntax || ""}`, "blue");
+  term.std.writeColor(`Usage: [${c.keyword}] ${c.syntax || ""}`, "blue");
 }

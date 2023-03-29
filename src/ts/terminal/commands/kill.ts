@@ -7,15 +7,15 @@ export const Kill: Command = {
   exec(cmd, argv, term) {
     const appId = argv[0];
 
-    if (!appId) return term.util.Error("Missing application ID.");
+    if (!appId) return term.std.Error("Missing application ID.");
 
     const window = getWindow(appId);
 
-    if (!window) return term.util.Error(`${appId}: app not found.`);
+    if (!window) return term.std.Error(`${appId}: app not found.`);
 
     closeWindow(appId);
 
-    term.util.writeLine(`Closed ${window.info.name}`);
+    term.std.writeLine(`Closed ${window.info.name}`);
   },
   description: "Terminate a program",
   syntax: `"<[appId]>"`,

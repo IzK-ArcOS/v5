@@ -13,11 +13,11 @@ export class ArcTermEnv {
 
   constructor(term: ArcTerm) {
     Log({
-      source: "terminal/env.ts",
-      msg: `creating new ArcTermEnv for ${term.referenceId}`,
+      source: `ArcTerm ${term.referenceId}`,
+      msg: `Creating new ArcTermEnv`,
       level: LogLevel.info,
     });
 
-    this.config = new ArcTermConfig(this);
+    this.config = new ArcTermConfig(this, term);
   }
 }

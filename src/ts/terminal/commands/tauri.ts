@@ -7,7 +7,7 @@ export const Tauri: Command = {
   async exec(cmd, argv, term) {
     const is = await inTauri();
 
-    term.util.writeColor(
+    term.std.writeColor(
       `[STATUS]: You are ${is ? "in the Desktop app" : "in the Web version"}`,
       "aqua"
     );

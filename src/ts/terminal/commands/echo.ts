@@ -8,12 +8,12 @@ export const Echo: Command = {
     if (Regx && Regx.length > 1) {
       const text = term.vars.inline(Regx[1]);
 
-      term.util.writeLine(text);
+      term.std.writeLine(text);
 
       return;
     }
 
-    term.util.Error("Unable to echo: syntax invalid!");
+    term.std.Error("Unable to echo: syntax invalid!");
   },
   description: "Echo a string.",
   syntax: `"<[string]>"`,

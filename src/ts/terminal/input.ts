@@ -14,8 +14,8 @@ export class ArcTermInput {
 
   constructor(T: ArcTerm) {
     Log({
-      source: "terminal/input.ts",
-      msg: `creating new ArcTermInput for ${T.referenceId}`,
+      source: `ArcTerm ${T.referenceId}`,
+      msg: `Creating new ArcTermInput`,
       level: LogLevel.info,
     });
 
@@ -59,7 +59,7 @@ export class ArcTermInput {
   public createPrompt() {
     if (this.current) this.current.disabled = true;
 
-    if (!this.term.util) return;
+    if (!this.term.std) return;
 
     const wrap = document.createElement("div");
     const inner = document.createElement("div");
@@ -67,7 +67,7 @@ export class ArcTermInput {
 
     wrap.className = "prompt";
 
-    this.term.util.writeColor(
+    this.term.std.writeColor(
       this.getPrompt(),
       this.env.promptColor,
       "white",

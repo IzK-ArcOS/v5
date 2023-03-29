@@ -22,13 +22,13 @@ export const Ri: Command = {
       size = DEFSIZE;
     }
 
-    term.util.writeLine("\n");
+    term.std.writeLine("\n");
 
     if (file) return await displayFile(term, file, size || DEFSIZE);
 
     if (url) return displayUrl(term, url, size || DEFSIZE);
 
-    term.util.Error("Missing parameters.");
+    term.std.Error("Missing parameters.");
   },
   description: "Display image from ArcFS or URL",
 };
@@ -44,13 +44,13 @@ async function displayFile(term: ArcTerm, fn: string, height: number) {
     if (file.filename == fn) {
       const contents = await readFile(file.scopedPath);
 
-      if (!contents) return term.util.Error("Could not read the file.");
+      if (!contents) return term.std.Error("Could not read the file.");
 
       const blob = new Blob([new Uint8Array(contents)], { type: file.mime });
 
       const url = URL.createObjectURL(blob);
 
-      term.util.writeImage(url, height);
+      term.std.writeImage(url, height);
 
       return;
     }
@@ -58,5 +58,5 @@ async function displayFile(term: ArcTerm, fn: string, height: number) {
 }
 
 export function displayUrl(term: ArcTerm, url: string, height: number) {
-  term.util.writeImage(url, height || DEFSIZE);
+  term.std.writeImage(url, height || DEFSIZE);
 }

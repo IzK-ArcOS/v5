@@ -9,7 +9,7 @@ export const LogDump: Command = {
   keyword: "logdump",
   async exec(cmd, argv, term) {
     const filename = `LogDump-${Math.floor(Math.random() * 1e9)}.txt`;
-    term.util.writeColor(`Writing log to [./${filename}]...\n`, "purple");
+    term.std.writeColor(`Writing log to [./${filename}]...\n`, "purple");
 
     const log = get(l);
 
@@ -17,13 +17,13 @@ export const LogDump: Command = {
 
     const len = log.length;
 
-    const x = term.util.writeColor(`Item [0] of [${len}] processed.`, "blue");
+    const x = term.std.writeColor(`Item [0] of [${len}] processed.`, "blue");
 
     for (let i = 0; i < log.length; i++) {
       const curr = i + 1;
       const perc = Math.floor((100 / len) * (i + 1));
 
-      term.util.updateColor(
+      term.std.updateColor(
         x,
         `Item [${curr}] of [${len}] ([${perc}%]) processed.`,
         "blue"
@@ -40,7 +40,7 @@ export const LogDump: Command = {
 
     term.vars.set("ldout", filename);
 
-    term.util.writeColor(`\nWrote [${str.length}] bytes.`, "purple");
+    term.std.writeColor(`\nWrote [${str.length}] bytes.`, "purple");
     fbClass.refresh();
   },
   description: "Dump the log to a file",

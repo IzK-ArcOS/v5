@@ -9,11 +9,11 @@ export const Open: Command = {
 
     const window = getWindow(appId);
 
-    if (!window) return term.util.Error(`${appId}: app not found.`);
+    if (!window) return term.std.Error(`${appId}: app not found.`);
 
     openWindow(appId, true);
 
-    term.util.writeLine(`Opened ${window.info.name}`);
+    term.std.writeLine(`Opened ${window.info.name}`);
   },
   description: "Open a window",
   syntax: `"<[appId]>"`,

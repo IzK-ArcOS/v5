@@ -12,7 +12,7 @@ export const Users: Command = {
     for (let i = 0; i < entries.length; i++) {
       const role = entries[i][1].acc.admin ? "Administrator" : "Regular user";
       const name = entries[i][0].padEnd(getMaxLength(names), " ");
-      term.util.writeColor(`[${name}]: ${role}`, "blue");
+      term.std.writeColor(`[${name}]: ${role}`, "blue");
     }
   },
   description: "Display ArcAPI users",

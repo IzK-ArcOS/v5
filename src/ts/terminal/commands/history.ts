@@ -11,7 +11,7 @@ export const History: Command = {
     for (let i = 0; i < hist.length; i++) {
       const index = `${i}`.padStart(3, "0");
 
-      term.util.writeColor(`[${index}]: ${hist[i]}`, "yellow");
+      term.std.writeColor(`[${index}]: ${hist[i]}`, "yellow");
     }
   },
   description: "Show the command history",
@@ -23,7 +23,7 @@ function clear(term: ArcTerm) {
 
   term.commandHandler.history = [];
 
-  term.util.writeColor(
+  term.std.writeColor(
     `[SUCCESS]: History cleared, ${len} items removed.`,
     "green"
   );
