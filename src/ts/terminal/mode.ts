@@ -5,8 +5,11 @@ import { apiCall, ConnectedServer } from "../api/main";
 import sleep from "../sleep";
 import { UserName } from "../userlogic/interfaces";
 import type { ArcTerm } from "./main";
+import { authPrompt } from "./mode/auth";
 
 export async function arcTermModeIntro(a: ArcTerm) {
+  if (!(await authPrompt(a))) return;
+
   a.std.writeColor(`[1/3]: Starting ArcTerm Mode...`, "gray");
 
   await sleep(100);

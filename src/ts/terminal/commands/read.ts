@@ -4,7 +4,7 @@ export const Read: Command = {
   keyword: "read",
   async exec(cmd, argv, term) {
     const key = argv[0];
-    const value = await term.input.UserInput(`${key}: [`, `]`, 30);
+    const value = await term.std.read(`${key}: [`, `]`, 30);
 
     const setter = term.vars.set(key, value);
 

@@ -71,15 +71,16 @@ export class ArcTerm {
 
     setTimeout(async () => {
       this.std = new ArcTermStd(this);
+      this.input = new ArcTermInput(this);
+
+      this.input.lock();
 
       if (this.onload) await this.onload(this);
 
-      this.input = new ArcTermInput(this);
+      this.input.unlock();
 
       this.util.intro();
       this.util.flushAccent();
-
-      if (!this.app) return;
     }, 500);
   }
 

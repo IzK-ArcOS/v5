@@ -1,3 +1,4 @@
+import { writable } from "svelte/store";
 import type { App } from "../applogic/interface";
 import { Log, LogLevel } from "../console";
 import type { ArcTermEnv } from "./env";
@@ -112,5 +113,45 @@ export class ArcTermStd {
 
   public clear() {
     this.target.innerText = "";
+  }
+
+  public async read(
+    prefix: string,
+    suffix: string,
+    max: number,
+    pswd = false
+  ): Promise<string> {
+    if (!this.target) return "";
+
+    const current = this.term.input.current;
+    const commit = writable<boolean>(false);
+    const wrapper = document.createElement("div");
+    const input = document.createElement("input");
+
+    if (pswd) input.type = "password";
+
+    input.style.width = `${max * 8.41}px`;
+    input.maxLength = max;
+
+    wrapper.className = "userinput";
+    wrapper.append(prefix, input, suffix);
+
+    this.target.append(wrapper);
+    this.term.input.current = input;
+
+    input.addEventListener("keydown", (e) => {
+      const key = e.key.toLowerCase();
+
+      if (key == "enter") commit.set(true);
+    });
+
+    return new Promise<string>((resolve) => {
+      commit.subscribe((v) => {
+        if (!v) return;
+
+        this.term.input.current = current;
+        resolve(input.value);
+      });
+    });
   }
 }

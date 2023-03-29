@@ -39,6 +39,8 @@ export class ArcTermUtil {
   }
 
   public intro() {
+    if (!this.term || !this.term.std) return;
+
     ArcTermIntro(this.term);
 
     this.term.std.writeColor(

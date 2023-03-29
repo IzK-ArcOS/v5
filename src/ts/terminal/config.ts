@@ -1,5 +1,7 @@
+import { get } from "svelte/store";
 import { readFile, writeFile } from "../api/fs/file";
 import { Log, LogLevel } from "../console";
+import { UserData } from "../userlogic/interfaces";
 import type { ArcTermEnv } from "./env";
 import type { ArcTerm } from "./main";
 
@@ -44,6 +46,8 @@ export class ArcTermConfig {
   }
 
   public async loadConfigFile() {
+    if (!get(UserData)) return;
+
     const file = await readFile(this.configPath);
 
     if (!file) return this.writeConfig();
