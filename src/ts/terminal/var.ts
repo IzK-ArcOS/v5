@@ -19,7 +19,6 @@ export class ArcTermVariables {
     for (let i = 0; i < entries.length; i++) {
       const key = entries[i][0];
       const value = this.get(key);
-
       const ro = entries[i][1].readOnly;
 
       result[key] = { value, readOnly: ro };
