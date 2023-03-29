@@ -10,6 +10,7 @@
   import { Log, LogLevel } from "../../ts/console";
   import { getUsers } from "../../ts/userlogic/main";
   import Window from "./Desktop/WindowStore/Window.svelte";
+  import { ArcOSVersion } from "../../ts/env/main";
 
   let status = "";
   let bootClass = "";
@@ -35,7 +36,10 @@
   });
 
   function altDownCb(e: KeyboardEvent) {
-    if (e.altKey && e.key.toLowerCase() == "a") altDown = true;
+    if (!e.altKey || e.key.toLowerCase() != "a") return;
+
+    altDown = true;
+    status = "Loading ArcTerm";
   }
 
   async function checkServer() {
@@ -114,7 +118,7 @@
 </script>
 
 <div class="{bootClass} boot fullscreen">
-  <div class="arcterm-load" class:visible={altDown}>ArcTerm Mode</div>
+  <div class="arcterm-load visible">v{ArcOSVersion}</div>
   <div class="center-absolute">
     <img alt="Logo" class="logo" src={logo} />
     <div class="slider userdefined">

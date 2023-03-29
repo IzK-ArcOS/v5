@@ -20,20 +20,23 @@ export function getArcTermStore(term: ArcTerm): VariableStore {
 
         await term.env.config.writeConfig();
       },
-
+      canDelete: false,
       readOnly: false,
     },
     server: {
       get: () => localStorage.getItem("arcos-server"),
       readOnly: true,
+      canDelete: false,
     },
     username: {
       get: () => get(UserName),
       readOnly: true,
+      canDelete: false,
     },
     version: {
       get: () => ArcOSVersion,
       readOnly: true,
+      canDelete: false,
     },
     pwd: {
       get: () => term.path,
@@ -45,6 +48,7 @@ export function getArcTermStore(term: ArcTerm): VariableStore {
 
         term.path = v;
       },
+      canDelete: false,
       readOnly: false,
     },
     color: {
@@ -59,12 +63,14 @@ export function getArcTermStore(term: ArcTerm): VariableStore {
 
         term.util.flushAccent();
       },
+      canDelete: false,
       readOnly: false,
     },
     ref: {
       get: () => term.referenceId,
 
       readOnly: true,
+      canDelete: false,
     },
   };
 }

@@ -27,6 +27,7 @@ export interface Variable {
   set?: (v: string) => Promise<any> | any;
   value?: string;
   readOnly: boolean;
+  canDelete: boolean;
 }
 
 export type VariableStore = { [key: string]: Variable };

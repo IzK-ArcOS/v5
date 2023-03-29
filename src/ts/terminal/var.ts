@@ -39,6 +39,7 @@ export class ArcTermVariables {
         get: () => variable.value,
         set: (v) => (variable.value = v),
         readOnly: false,
+        canDelete: true,
         value,
       };
 
@@ -59,7 +60,12 @@ export class ArcTermVariables {
   }
 
   async delete(key: string) {
-    if (!this.store[key] || this.store[key].readOnly) return false;
+    if (
+      !this.store[key] ||
+      !this.store[key].canDelete ||
+      this.store[key].readOnly
+    )
+      return false;
 
     delete this.store[key];
 
