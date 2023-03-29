@@ -119,7 +119,7 @@ export class ArcTermInput {
 
   private async processCommands(split: string[]) {
     for (let i = 0; i < split.length; i++) {
-      const str = this.term.vars.inline(split[i].trim());
+      const str = this.term.vars.replace(split[i].trim());
       const args = str.split(" ");
       const cmd = args[0];
 

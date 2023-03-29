@@ -34,14 +34,6 @@ export class ArcTermVariables {
     return this.store[key].get();
   }
 
-  async delete(key: string) {
-    if (!this.store[key] || this.store[key].readOnly) return false;
-
-    delete this.store[key];
-
-    return true;
-  }
-
   async set(key: string, value: string) {
     if (!this.store[key]) {
       const variable: Variable = {
@@ -67,7 +59,15 @@ export class ArcTermVariables {
     return true;
   }
 
-  inline(str: string) {
+  async delete(key: string) {
+    if (!this.store[key] || this.store[key].readOnly) return false;
+
+    delete this.store[key];
+
+    return true;
+  }
+
+  replace(str: string) {
     const variables = this.parseInlineNames(str);
 
     if (!variables.length) return str;

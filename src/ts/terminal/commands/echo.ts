@@ -6,7 +6,7 @@ export const Echo: Command = {
     const Regx = argv.join(" ").match(/"(.*?)"/);
 
     if (Regx && Regx.length > 1) {
-      const text = term.vars.inline(Regx[1]);
+      const text = term.vars.replace(Regx[1]);
 
       term.std.writeLine(text);
 
