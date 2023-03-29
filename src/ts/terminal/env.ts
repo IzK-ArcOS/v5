@@ -14,7 +14,7 @@ export class ArcTermEnv {
   constructor(term: ArcTerm) {
     Log({
       source: "terminal/env.ts",
-      msg: `creating new ArcTermEnv for ${term.id}`,
+      msg: `creating new ArcTermEnv for ${term.referenceId}`,
       level: LogLevel.info,
     });
 

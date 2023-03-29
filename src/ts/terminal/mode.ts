@@ -59,7 +59,7 @@ function disclaimer(a: ArcTerm) {
     "orange"
   );
 
-  a.util.writeColor(`ArcTerm reference ID: [${a.id}]`, "blue");
+  a.util.writeColor(`ArcTerm reference ID: [${a.referenceId}]`, "blue");
 }
 
 function auth(a: ArcTerm, user: string, plat: string) {

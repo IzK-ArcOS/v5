@@ -13,7 +13,7 @@ export class ArcTermUtil {
   constructor(parent: ArcTerm) {
     Log({
       source: "terminal/util.ts",
-      msg: `Creating new ArcTermUtil for ${parent.id}`,
+      msg: `Creating new ArcTermUtil for ${parent.referenceId}`,
       level: LogLevel.info,
     });
 

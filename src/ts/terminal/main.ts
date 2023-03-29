@@ -30,8 +30,8 @@ export class ArcTerm {
   input: ArcTermInput;
   path: string;
   commandHandler: ArcTermCommandHandler;
-  id: string;
-  cb: (term: ArcTerm) => void;
+  referenceId: string;
+  onload: (term: ArcTerm) => void;
 
   constructor(
     t: HTMLDivElement,
@@ -40,18 +40,18 @@ export class ArcTerm {
     cb?: (term: ArcTerm) => void
   ) {
     const rnd = () => Math.floor(Math.random() * 1e6);
-    this.id = `${rnd()}-${rnd()}-${rnd()}-${rnd()}`;
+    this.referenceId = `${rnd()}-${rnd()}-${rnd()}-${rnd()}`;
 
     Log({
       source: "terminal/main.ts",
-      msg: `Creating new ArcTerm with id ${this.id}`,
+      msg: `Creating new ArcTerm with id ${this.referenceId}`,
       level: LogLevel.info,
     });
 
     this.target = t;
     this.commands = cS;
     this.app = a;
-    this.cb = cb;
+    this.onload = cb;
 
     this.initialize();
   }
@@ -70,7 +70,7 @@ export class ArcTerm {
     setTimeout(async () => {
       this.util = new ArcTermUtil(this);
 
-      if (this.cb) await this.cb(this);
+      if (this.onload) await this.onload(this);
 
       this.input = new ArcTermInput(this);
       this.intro();

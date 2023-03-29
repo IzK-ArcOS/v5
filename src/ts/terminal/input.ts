@@ -15,7 +15,7 @@ export class ArcTermInput {
   constructor(T: ArcTerm) {
     Log({
       source: "terminal/input.ts",
-      msg: `creating new ArcTermInput for ${T.id}`,
+      msg: `creating new ArcTermInput for ${T.referenceId}`,
       level: LogLevel.info,
     });
 
@@ -58,6 +58,8 @@ export class ArcTermInput {
 
   public createPrompt() {
     if (this.current) this.current.disabled = true;
+
+    if (!this.term.util) return;
 
     const wrap = document.createElement("div");
     const inner = document.createElement("div");

@@ -9,7 +9,7 @@ export class ArcTermCommandHandler {
   constructor(term: ArcTerm) {
     Log({
       source: "terminal/commands.ts",
-      msg: `creating new ArcTermCommandHandler for ${term.id}`,
+      msg: `creating new ArcTermCommandHandler for ${term.referenceId}`,
       level: LogLevel.info,
     });
 
