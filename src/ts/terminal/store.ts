@@ -6,7 +6,7 @@ import { Clear } from "./commands/clear";
 import { Colors } from "./commands/colors";
 import { Dir } from "./commands/dir";
 import { Echo } from "./commands/echo";
-import { Env } from "./commands/env";
+import { Vars } from "./commands/vars";
 import { Exit } from "./commands/exit";
 import { Help } from "./commands/help";
 import { History } from "./commands/history";
@@ -29,6 +29,7 @@ import { UDD } from "./commands/udd";
 import { Users } from "./commands/users";
 import { Ver } from "./commands/ver";
 import type { Command, CommandStore } from "./interface";
+import { Config } from "./commands/config";
 
 export const defaultCommand: Command = {
   keyword: "default",
@@ -45,7 +46,7 @@ export const arcCommands: CommandStore = [
   Colors,
   Dir,
   Echo,
-  Env,
+  Vars,
   Exit,
   Help,
   History,
@@ -63,6 +64,7 @@ export const arcCommands: CommandStore = [
   Ri,
   Users,
   Set,
+  Config,
 ];
 
 export const desktopSpecific: CommandStore = [

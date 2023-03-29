@@ -60,14 +60,9 @@ export class ArcTermVariables {
   }
 
   async delete(key: string) {
-    if (
-      !this.store[key] ||
-      !this.store[key].canDelete ||
-      this.store[key].readOnly
-    )
-      return false;
+    if (!this.store[key] || this.store[key].readOnly) return false;
 
-    delete this.store[key];
+    this.set(key, "");
 
     return true;
   }
@@ -82,7 +77,7 @@ export class ArcTermVariables {
 
       const value = this.get(variables[i]);
 
-      str = str.replace(part, value == variables[i] ? part : value);
+      str = str.replace(part, value == variables[i] && part ? part : value);
     }
 
     return str;
