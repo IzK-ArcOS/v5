@@ -129,7 +129,7 @@ const POWER_OPTIONS: SearchItem[] = [
   {
     caption: "Restart",
     description: "Leave the desktop and reload ArcOS",
-    action: restart,
+    action: () => restart(false),
     image: shutdownIcon,
   },
 ];

@@ -9,6 +9,7 @@ export const LogDump: Command = {
   keyword: "logdump",
   async exec(cmd, argv, term) {
     const filename = `LogDump-${Math.floor(Math.random() * 1e9)}.txt`;
+
     term.std.writeColor(`Writing log to [./${filename}]...\n`, "purple");
 
     const log = get(l);

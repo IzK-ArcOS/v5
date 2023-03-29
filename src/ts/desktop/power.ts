@@ -28,8 +28,6 @@ export function logoff() {
     }, maxTimeout);
   }
 
-  localStorage.removeItem("arcos-remembered-token");
-
   FileBrowserCurrentDir.set("./");
   FileBrowserSelectedFilename.set(null);
   FileBrowserDirContents.set(defaultDirectory);

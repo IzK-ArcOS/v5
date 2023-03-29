@@ -9,7 +9,7 @@ import type { ArcTerm } from "../main";
 export function getArcTermStore(term: ArcTerm): VariableStore {
   Log({
     source: `ArcTerm ${term.referenceId}`,
-    msg: "Getting ArcTerm variable store",
+    msg: "Creating new ArcTermVariableStore",
     level: LogLevel.info,
   });
   return {

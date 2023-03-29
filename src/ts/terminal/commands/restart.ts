@@ -6,7 +6,7 @@ import type { Command } from "../interface";
 export const Restart: Command = {
   keyword: "restart",
   exec(cmd, argv, term) {
-    if (get(CurrentState).key == "desktop") return restart();
+    if (get(CurrentState).key == "desktop") return restart(false);
 
     term.std.writeColor("[RESTART]: Terminating NOW.", "green");
 

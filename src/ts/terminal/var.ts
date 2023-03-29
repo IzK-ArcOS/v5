@@ -1,3 +1,4 @@
+import { Log, LogLevel } from "../console";
 import type { StaticVariableStore, Variable, VariableStore } from "./interface";
 import type { ArcTerm } from "./main";
 import { getArcTermStore } from "./var/store";
@@ -8,6 +9,12 @@ export class ArcTermVariables {
   private store: VariableStore = {};
 
   constructor(t: ArcTerm) {
+    Log({
+      source: `ArcTerm ${t.referenceId}`,
+      msg: "Creating new ArcTermVariables",
+      level: LogLevel.info,
+    });
+
     this.term = t;
     this.store = getArcTermStore(this.term);
   }

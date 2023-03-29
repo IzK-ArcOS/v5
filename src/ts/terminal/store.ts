@@ -30,6 +30,7 @@ import { Users } from "./commands/users";
 import { Ver } from "./commands/ver";
 import type { Command, CommandStore } from "./interface";
 import { Config } from "./commands/config";
+import { Read } from "./commands/read";
 
 export const defaultCommand: Command = {
   keyword: "default",
@@ -63,6 +64,7 @@ export const arcCommands: CommandStore = [
   Rf,
   Ri,
   Users,
+  Read,
   Set,
   Config,
 ];

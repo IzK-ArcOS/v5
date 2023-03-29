@@ -1,4 +1,4 @@
-import { get } from "svelte/store";
+import { get, writable } from "svelte/store";
 import { focusedWindowId } from "../applogic/store";
 import { Log, LogLevel } from "../console";
 import { UserName } from "../userlogic/interfaces";
@@ -131,5 +131,42 @@ export class ArcTermInput {
     }
 
     this.unlock();
+  }
+
+  public async UserInput(
+    prefix: string,
+    suffix: string,
+    max: number
+  ): Promise<string> {
+    if (!this.target) return "";
+
+    const current = this.current;
+    const commit = writable<boolean>(false);
+    const wrapper = document.createElement("div");
+    const input = document.createElement("input");
+
+    input.style.width = `${max * 8.41}px`;
+    input.maxLength = max;
+
+    wrapper.className = "userinput";
+    wrapper.append(prefix, input, suffix);
+
+    this.target.append(wrapper);
+    this.current = input;
+
+    input.addEventListener("keydown", (e) => {
+      const key = e.key.toLowerCase();
+
+      if (key == "enter") commit.set(true);
+    });
+
+    return new Promise<string>((resolve) => {
+      commit.subscribe((v) => {
+        if (!v) return;
+
+        this.current = current;
+        resolve(input.value);
+      });
+    });
   }
 }
