@@ -61,8 +61,8 @@ export const arcCommands: CommandStore = [
   Rm,
   Reload,
   Restart,
-  Shutdown,
-  StateCommand,
+  Shutdown /* 
+  StateCommand, */,
   Tauri,
   UDD,
   Ver,
