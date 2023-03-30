@@ -16,6 +16,10 @@ div.terminal-renderer * {
   font-size: 14px;
 }
 
+div.terminal-renderer input {
+  color: var(--fg);
+}
+
 div.terminal-renderer div.part {
   display: block; /* 
   min-height: 17px; */

@@ -31,6 +31,8 @@ import { Ver } from "./commands/ver";
 import type { Command, CommandStore } from "./interface";
 import { Config } from "./commands/config";
 import { Read } from "./commands/read";
+import { Reset } from "./commands/reset";
+import { Logout } from "./commands/logout";
 
 export const defaultCommand: Command = {
   keyword: "default",
@@ -52,6 +54,7 @@ export const arcCommands: CommandStore = [
   Help,
   History,
   LogDump,
+  Logout,
   Mkdir,
   Rm,
   Reload,
@@ -61,6 +64,7 @@ export const arcCommands: CommandStore = [
   Tauri,
   UDD,
   Ver,
+  Reset,
   Rf,
   Ri,
   Users,

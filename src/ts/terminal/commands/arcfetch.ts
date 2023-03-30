@@ -21,7 +21,7 @@ export const ArcFetch: Command = {
   description: "Show system information",
 };
 
-async function getItems() {
+async function getItems(a: ArcTerm) {
   const info = getDeviceInfo();
 
   const tauri = await inTauri();
@@ -33,11 +33,12 @@ async function getItems() {
     GPU: `${info.gpu.vendor} ${info.gpu.model}`,
     Memory: `~ ${formatBytes(info.mem.kb)}`,
     Mode: (tauri ? `Desktop` : `Browser`) + ` (state ${get(CurrentState).key})`,
+    Reference: a.referenceId,
   });
 }
 
 function colorBar(term: ArcTerm) {
-  term.std.write("\n                        ");
+  term.std.write("\n                            ");
 
   for (let i = 0; i < colors.length; i++) {
     term.std.writeColor("[██ ]", colors[i] as Color, "white", true);
@@ -45,9 +46,10 @@ function colorBar(term: ArcTerm) {
 }
 
 async function graphic(term: ArcTerm) {
-  const items = await getItems();
+  const items = await getItems(term);
 
   const graphicParts = [
+    "        ",
     "    _   ",
     "   /_\\  ",
     "  / _ \\ ",
@@ -57,7 +59,7 @@ async function graphic(term: ArcTerm) {
   ];
 
   for (let i = 0; i < graphicParts.length; i++) {
-    term.std.writeColor(`[${graphicParts[i]}]  `, "blue", "white", true);
+    term.std.writeColor(`  [${graphicParts[i]}]    `, "blue", "white", true);
 
     if (items[i]) {
       term.std.writeColor(

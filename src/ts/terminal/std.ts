@@ -142,7 +142,10 @@ export class ArcTermStd {
     input.addEventListener("keydown", (e) => {
       const key = e.key.toLowerCase();
 
-      if (key == "enter") commit.set(true);
+      if (key != "enter") return;
+
+      input.disabled = true;
+      commit.set(true);
     });
 
     return new Promise<string>((resolve) => {
