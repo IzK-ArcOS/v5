@@ -117,7 +117,7 @@ export class ArcTermInput {
     this.current.value = latest;
   }
 
-  private async processCommands(split: string[]) {
+  public async processCommands(split: string[]) {
     for (let i = 0; i < split.length; i++) {
       const str = this.term.vars.replace(split[i].trim());
       const args = str.split(" ");

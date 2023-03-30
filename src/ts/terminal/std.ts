@@ -10,6 +10,7 @@ export class ArcTermStd {
   app: App;
   term: ArcTerm;
   env: ArcTermEnv;
+  verbose = true;
 
   constructor(parent: ArcTerm) {
     Log({
@@ -45,6 +46,8 @@ export class ArcTermStd {
   }
 
   public Error(context: string) {
+    if (!this.verbose) return;
+
     this.writeColor(`[Error]: ${context}`, "red");
   }
 

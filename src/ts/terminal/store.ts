@@ -33,6 +33,8 @@ import { Config } from "./commands/config";
 import { Read } from "./commands/read";
 import { Reset } from "./commands/reset";
 import { Logout } from "./commands/logout";
+import { Exec } from "./commands/exec";
+import { Verbose } from "./commands/verbose";
 
 export const defaultCommand: Command = {
   keyword: "default",
@@ -71,6 +73,8 @@ export const arcCommands: CommandStore = [
   Read,
   Set,
   Config,
+  Exec,
+  Verbose,
 ];
 
 export const desktopSpecific: CommandStore = [
