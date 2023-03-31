@@ -25,12 +25,28 @@
   placeholder="Username"
   bind:value={username}
 />
-<input
-  type="password"
-  class="fullwidth centered"
-  placeholder="Password"
-  bind:value={password}
-/>
-<button class="option fullwidth" disabled={!username || !password}
-  >Continue</button
->
+<div class="input-wrap">
+  <input
+    type="password"
+    class="fullwidth centered"
+    placeholder="Password"
+    bind:value={password}
+  />
+  <button class="login material-icons-round" disabled={!username || !password}
+    >arrow_forward_ios</button
+  >
+</div>
+
+<style scoped>
+  button.login {
+    width: 36px;
+    height: 36px;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    font-size: 18px;
+  }
+
+  div.input-wrap {
+    display: flex;
+  }
+</style>
