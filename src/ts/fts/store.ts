@@ -1,6 +1,7 @@
 import connect from "../../assets/fts/connect.svg";
 import finish from "../../assets/fts/finish.svg";
 import license from "../../assets/fts/license.svg";
+import account from "../../assets/fts/account.svg";
 import wave from "../../assets/fts/wave.svg";
 import Auth from "../../lib/Page/FirstTimeSetup/Page/Auth.svelte";
 import ConnectToCloud from "../../lib/Page/FirstTimeSetup/Page/ConnectToCloud.svelte";
@@ -46,7 +47,7 @@ export const FTSStates = new Map<string, State>([
       content: Auth,
       attribs: {},
       key: "authform",
-      image: connect,
+      image: account,
     },
   ],
   [

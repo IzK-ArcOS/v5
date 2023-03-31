@@ -3,14 +3,39 @@
   import { onMount } from "svelte";
   import { getUsers } from "../../../../ts/userlogic/main";
   import Nav from "../Nav.svelte";
+  import { ConnectedServer } from "../../../../ts/api/main";
+  import { applyFTSState } from "../../../../ts/fts/main";
+  import { loginUsingCreds } from "../../../../ts/api/getter";
+  import { generateCredToken } from "../../../../ts/api/cred";
 
-  let users: string[] = [];
   let username = "";
   let password = "";
+  let error = false;
 
-  onMount(async () => {
-    users = Object.keys(await getUsers());
-  });
+  function changeServer() {
+    ConnectedServer.set(undefined);
+    localStorage.removeItem("arcos-server");
+
+    applyFTSState("connecttocloud");
+  }
+
+  async function login() {
+    const token = generateCredToken({ username, password });
+    const req = await loginUsingCreds(token);
+
+    if (!req) {
+      error = true;
+
+      setTimeout(() => {
+        error = false;
+      }, 1000);
+
+      return;
+    }
+
+    localStorage.setItem("arcos-remembered-token", token);
+    applyFTSState("finish");
+  }
 </script>
 
 <div class="header centered">
@@ -22,6 +47,7 @@
 <input
   type="text"
   class="fullwidth centered"
+  class:error
   placeholder="Username"
   bind:value={username}
 />
@@ -29,13 +55,19 @@
   <input
     type="password"
     class="fullwidth centered"
+    class:error
     placeholder="Password"
     bind:value={password}
   />
-  <button class="login material-icons-round" disabled={!username || !password}
-    >arrow_forward_ios</button
+  <button
+    class="login material-icons-round"
+    disabled={!username || !password}
+    on:click={login}
   >
+    arrow_forward_ios
+  </button>
 </div>
+<button class="flat centered" on:click={changeServer}>Change server</button>
 
 <style scoped>
   button.login {
@@ -48,5 +80,21 @@
 
   div.input-wrap {
     display: flex;
+    margin: 5px auto;
+    width: 65%;
+  }
+
+  div.input-wrap input {
+    margin: 0;
+    min-width: 100%;
+  }
+
+  input.error {
+    border-bottom: var(--clr-red-fg) 2px solid !important;
+  }
+
+  div.input-wrap button {
+    min-width: 36px;
+    margin-left: 10px;
   }
 </style>

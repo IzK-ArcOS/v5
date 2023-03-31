@@ -178,6 +178,16 @@ div.fts div.center-absolute div.right div.nav div div.progress div.inner {
   transition: width 0.5s;
 }
 
+button.flat {
+  background-color: transparent !important;
+  color: var(--clr-blue-fg) !important;
+}
+
+button.flat.centered {
+  margin: 15px auto;
+  display: block;
+}
+
 button.fullwidth {
   display: block;
   width: 100%;
