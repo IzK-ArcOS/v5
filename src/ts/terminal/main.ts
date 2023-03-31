@@ -2,6 +2,7 @@ import { randomUUID } from "crypto";
 import type { App } from "../applogic/interface";
 import { Log, LogLevel } from "../console";
 import { ArcOSVersion } from "../env/main";
+import sleep from "../sleep";
 import { ArcTermCommandHandler } from "./commands";
 import { ArcTermEnv } from "./env";
 import { initError } from "./error";
@@ -77,11 +78,13 @@ export class ArcTerm {
 
       if (this.onload) await this.onload(this);
 
+      await sleep(100);
+
       this.input.unlock();
 
       this.util.intro();
       this.util.flushAccent();
-    }, 500);
+    }, 100);
   }
 
   public dispose() {

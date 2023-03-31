@@ -5,6 +5,7 @@ div.terminal-renderer {
   height: 100%;
   font-family: "Source Code Pro", monospace;
   color: var(--fg);
+  font-size: 14px;
 }
 
 div.terminal-renderer * {

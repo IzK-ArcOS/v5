@@ -11,11 +11,7 @@
   let target: HTMLDivElement;
 
   onMount(async () => {
-    await rememberedLogin();
-
-    setTimeout(async () => {
-      arcterm = new ArcTerm(target, arcCommands, null, arcTermModeIntro);
-    }, 100);
+    arcterm = new ArcTerm(target, arcCommands, null, arcTermModeIntro);
   });
 
   function focus() {

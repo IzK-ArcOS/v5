@@ -1,21 +1,29 @@
 import { get } from "svelte/store";
 import { generateCredToken } from "../../api/cred";
 import { rememberedLogin } from "../../api/getter";
-import { ConnectedServer } from "../../api/main";
 import { testConnection } from "../../api/test";
 import { ArcOSVersion } from "../../env/main";
 import sleep from "../../sleep";
-import { UserData } from "../../userlogic/interfaces";
+import { UserName } from "../../userlogic/interfaces";
 import type { ArcTerm } from "../main";
 
 export async function authPrompt(a: ArcTerm) {
-  const udata = get(UserData);
+  const udata = get(UserName);
 
   if (udata) return true;
 
   let server = localStorage.getItem("arcos-server");
 
   if (!server) server = await serverConnect(a);
+
+  await rememberedLogin();
+
+  await sleep(250);
+
+  if (get(UserName)) {
+    await a.env.config.loadConfigFile();
+    return true;
+  }
 
   a.std.clear();
   a.std.writeLine(`ArcTerm ${ArcOSVersion} - ${server}\n\n`);
@@ -29,7 +37,7 @@ export async function authPrompt(a: ArcTerm) {
 
   await rememberedLogin();
 
-  if (!get(UserData)) {
+  if (!get(UserName)) {
     a.std.writeLine("Login incorrect, restarting in 5 seconds...");
 
     await sleep(5000);

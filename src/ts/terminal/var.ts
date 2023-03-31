@@ -69,7 +69,7 @@ export class ArcTermVariables {
   async delete(key: string) {
     if (!this.store[key] || this.store[key].readOnly) return false;
 
-    this.set(key, "");
+    await this.set(key, "");
 
     return true;
   }

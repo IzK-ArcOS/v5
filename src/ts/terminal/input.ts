@@ -32,7 +32,11 @@ export class ArcTermInput {
 
       this.lock();
 
-      this.target.append(this.createPrompt());
+      const prompt = this.createPrompt();
+
+      if (!prompt) return;
+
+      this.target.append(prompt);
     });
   }
 

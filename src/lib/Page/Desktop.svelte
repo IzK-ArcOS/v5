@@ -14,9 +14,11 @@
     assignDesktopListeners,
     desktopClassNames,
     loggingOff,
+    previouslyLoaded,
     showDesktop,
     startOpened,
   } from "../../ts/desktop/main";
+  import { restart } from "../../ts/desktop/power";
   import { DevModeOverride } from "../../ts/devmode/props";
   import { ErrorMessages } from "../../ts/errorlogic/app";
   import { startMessageCheckInterval } from "../../ts/messaging/interval";
@@ -34,6 +36,14 @@
   showDesktop.subscribe((v) => (show = v));
 
   onMount(() => {
+    if ($previouslyLoaded) {
+      restart(false);
+
+      return;
+    }
+
+    $previouslyLoaded = true;
+
     assignDesktopListeners();
     importDefault();
     resetDesktopState();

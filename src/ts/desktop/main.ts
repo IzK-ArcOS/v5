@@ -15,6 +15,7 @@ import { UserData } from "../userlogic/interfaces";
 import { reloadApps } from "../window/reload";
 import { ActionCenterOpened } from "./actioncenter/main";
 
+export const previouslyLoaded = writable<boolean>(false);
 export const startOpened = writable<boolean>(false);
 export const loggingOff = writable<boolean>(false);
 export const shuttingDown = writable<boolean>(false);

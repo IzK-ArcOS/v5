@@ -8,7 +8,6 @@ export const Logout: Command = {
 
     localStorage.removeItem("arcos-remembered-token");
     UserName.set(undefined);
-    UserData.set(null);
 
     term.dispose();
     setTimeout(() => {

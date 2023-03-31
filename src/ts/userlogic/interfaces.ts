@@ -64,5 +64,5 @@ export type ScopedAppData = {
 
 export type AllUsers = { [name: string]: UserData };
 export const UserData = writable<UserData>();
-export const UserName = writable<string>("ArcOS");
+export const UserName = writable<string>();
 export const UserToken = writable<string>();
