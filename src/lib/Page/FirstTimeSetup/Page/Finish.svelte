@@ -1,10 +1,8 @@
 <script lang="ts">
-  import { applyState } from "../../../../ts/state/main";
   import finish from "../../../../assets/fts/finish.svg";
-  import Nav from "../Nav.svelte";
 
   function restart() {
-    applyState("boot");
+    location.reload();
   }
 </script>
 
