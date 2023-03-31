@@ -27,7 +27,10 @@
         arcTerm = new ArcTerm(
           target,
           [...arcCommands, ...desktopSpecific],
-          app
+          app,
+          (a: ArcTerm) => {
+            a.std.clear();
+          }
         );
       }
 

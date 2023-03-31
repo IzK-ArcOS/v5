@@ -211,7 +211,8 @@ div.fts button:active {
   opacity: 0.5;
 }
 
-div.fts input {
+div.fts input,
+div.fts select {
   border: none;
   background-color: #fff1;
   padding: 10px 15px;
@@ -224,7 +225,8 @@ div.fts input {
 div.fts input:focus {
   border-bottom: var(--accent) 2px solid;
 }
-div.fts input.fullwidth {
+div.fts input.fullwidth,
+div.fts select.fullwidth {
   width: 100%;
   display: block;
   margin-bottom: 5px;

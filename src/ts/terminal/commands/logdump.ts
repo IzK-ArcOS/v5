@@ -32,7 +32,7 @@ export const LogDump: Command = {
 
       str += `[${log[i].timestamp} | ${log[i].source}] ${log[i].msg}\n`;
 
-      await sleep(25);
+      await sleep(5);
     }
 
     const b = new Blob([str], { type: "text/plain" });

@@ -23,8 +23,6 @@ export class ArcTermStd {
     this.app = parent.app;
     this.term = parent;
     this.env = parent.env;
-
-    this.clear();
   }
 
   public writeLine(str: string, inline = false, target = this.target) {
@@ -122,7 +120,8 @@ export class ArcTermStd {
     prefix: string,
     suffix: string,
     max: number,
-    pswd = false
+    pswd = false,
+    value = ""
   ): Promise<string> {
     if (!this.target) return "";
 
@@ -135,6 +134,7 @@ export class ArcTermStd {
 
     input.style.width = `${max * 8.41}px`;
     input.maxLength = max;
+    input.value = value;
 
     wrapper.className = "userinput";
     wrapper.append(prefix, input, suffix);

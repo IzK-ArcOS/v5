@@ -7,7 +7,7 @@ import sleep from "../../sleep";
 import { UserName } from "../../userlogic/interfaces";
 import type { ArcTerm } from "../main";
 
-export async function authPrompt(a: ArcTerm) {
+export async function authPrompt(a: ArcTerm, usr = "") {
   const udata = get(UserName);
 
   if (udata) return true;
@@ -28,24 +28,16 @@ export async function authPrompt(a: ArcTerm) {
   a.std.clear();
   a.std.writeLine(`ArcTerm ${ArcOSVersion} - ${server}\n\n`);
 
-  const username = await a.std.read(`${server} login: `, "", 100);
+  const username = await a.std.read(`${server} login: `, "", 100, false, usr);
   const password = await a.std.read("Password: ", "", 100, true);
 
-  const token = generateCredToken({ username, password });
+  const token = generateCredToken({ username: username, password });
 
   localStorage.setItem("arcos-remembered-token", token);
 
   await rememberedLogin();
 
-  if (!get(UserName)) {
-    a.std.writeLine("Login incorrect, restarting in 5 seconds...");
-
-    await sleep(5000);
-
-    location.reload();
-
-    return false;
-  }
+  if (!get(UserName)) return await authPrompt(a, username);
 
   await a.env.config.loadConfigFile();
 

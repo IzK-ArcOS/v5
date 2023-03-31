@@ -1,3 +1,4 @@
+import { switchExists } from "../argv";
 import type { Command } from "../interface";
 import type { ArcTerm } from "../main";
 import { defaultCommand } from "../store";
@@ -5,6 +6,12 @@ import { defaultCommand } from "../store";
 export const Help: Command = {
   keyword: "help",
   exec(cmd, argv, term) {
+    if (switchExists(argv, "count"))
+      return term.std.writeColor(
+        `ArcTerm has [${term.commands.length}] commands.`,
+        "aqua"
+      );
+
     if (argv[0]) return specific(argv[0], term);
 
     all(term);

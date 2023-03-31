@@ -2,7 +2,6 @@ import { get } from "svelte/store";
 import { getFSQuota } from "../api/fs/quota";
 import { formatBytes } from "../api/fs/sizes";
 import { apiCall, ConnectedServer } from "../api/main";
-import sleep from "../sleep";
 import { UserName } from "../userlogic/interfaces";
 import type { ArcTerm } from "./main";
 import { authPrompt } from "./mode/auth";
@@ -10,22 +9,12 @@ import { authPrompt } from "./mode/auth";
 export async function arcTermModeIntro(a: ArcTerm) {
   if (!(await authPrompt(a))) return;
 
-  a.std.writeColor(`[1/3]: Starting ArcTerm Mode...`, "gray");
-
-  await sleep(100);
-
   const aapi = localStorage.getItem("arcos-server");
   const user = get(UserName);
-
-  a.std.writeColor("[2/3]: Getting Filesystem Quota...", "gray");
-
   const quot = await getFSQuota();
   const used = formatBytes(quot.used);
   const maxs = formatBytes(quot.max);
   const perc = ((100 / quot.max) * quot.used).toFixed(2);
-
-  a.std.writeColor("[3/3]: Getting server information...", "gray");
-
   const conn = await apiCall(get(ConnectedServer), "connect", {});
   const plat = conn.platform;
 

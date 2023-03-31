@@ -62,10 +62,10 @@ export class ArcTerm {
 
     if (!this.target) return initError(this.app.id);
 
-    this.target.removeAttribute("style");
+    this.target.innerText = `Starting ArcTerm v${ArcOSVersion}...`;
 
+    this.target.removeAttribute("style");
     this.path = "./";
-    this.target.innerText = `v${ArcOSVersion}`;
     this.commandHandler = new ArcTermCommandHandler(this);
     this.env = new ArcTermEnv(this);
     this.vars = new ArcTermVariables(this);
@@ -81,7 +81,6 @@ export class ArcTerm {
       await sleep(100);
 
       this.input.unlock();
-
       this.util.intro();
       this.util.flushAccent();
     }, 100);

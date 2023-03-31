@@ -20,7 +20,7 @@
     if (testSuccess) {
       localStorage.setItem("arcos-server", server);
 
-      applyFTSState("finish");
+      applyFTSState("authform");
     } else {
       connectionError = true;
     }
@@ -59,7 +59,7 @@
     },
     forw: {
       disabled: true,
-      redir: "finish",
+      redir: "authform",
     },
     prog: {
       max: 4,
