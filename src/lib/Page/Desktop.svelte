@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { get } from "svelte/store";
   import "../../css/desktop.css";
+  import { checkForUpdates } from "../../tauri/updates";
   import { importAutoLoaders } from "../../ts/applogic/aftermarket/autoload";
   import { importDefault } from "../../ts/applogic/imports";
   import { startKeyListener } from "../../ts/applogic/keyboard/listener";
@@ -35,7 +35,7 @@
   desktopClassNames.subscribe((v) => (classes = v));
   showDesktop.subscribe((v) => (show = v));
 
-  onMount(() => {
+  onMount(async () => {
     if ($previouslyLoaded) {
       restart(false);
 
@@ -54,6 +54,8 @@
     setTimeout(() => (show = true), 250);
 
     startMessageCheckInterval();
+
+    checkForUpdates();
   });
 
   function resetDesktopState() {
