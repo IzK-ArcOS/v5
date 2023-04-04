@@ -4,6 +4,7 @@
 @import url("./theme/noani.css");
 @import url("./theme/amoled.css");
 @import url("./theme/hc.css");
+@import url("./theme/scifi.css");
 
 :root {
   --font: "Inter", sans-serif;

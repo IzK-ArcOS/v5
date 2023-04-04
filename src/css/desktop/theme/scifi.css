@@ -1,0 +1,73 @@
+:root .theme-scifi {
+  --fg: #7ad0d6;
+  --win-bg: #08151d;
+  --win-border-rad: 7.5px;
+  --win-border: #609495 1px solid;
+  --win-border-light: #317f87 1px solid;
+  --glass-bg: #08151da9;
+  --glass-alt-bg: #0b1c27a9;
+  --glass-ultralight: #0004;
+  --glass-ultradark: #0008;
+  --darkened-overlay: #0002;
+  --darkened-overlay-alt: #0004;
+  --startmenu-applist-item-bg: transparent;
+  --startmenu-applist-item-bg-hover: #ffffff05;
+  --startmenu-applist-item-bg-active: #0001;
+  --button-border-rad: 4px;
+  --button-bg: #173b3d;
+  --button-hover-bg: #215457;
+  --button-active-bg: #0b1f20;
+  --button-glass-bg: #73cfd511;
+  --button-glass-hover-bg: #73cfd522;
+  --button-glass-active-bg: #3e6f7222;
+  --clr-red-bg: #452929;
+  --clr-red-fg: #ff7e7e;
+  --clr-green-bg: #283e28;
+  --clr-green-fg: #a8ffa6;
+  --clr-yellow-bg: #49432e;
+  --clr-yellow-fg: #ffe073;
+  --clr-orange-bg: #543d1b;
+  --clr-orange-fg: #ffad32;
+  --clr-blue-bg: #273a48;
+  --clr-blue-fg: #96d3ff;
+  --clr-aqua-fg: #79ffd0;
+  --clr-aqua-bg: #214538;
+}
+
+:root .theme-scifi.noglass {
+  --glass-bg: #08151d;
+  --glass-alt-bg: #0b232e;
+  --glass-ultralight: #0d2533;
+  --glass-ultradark: #050d13;
+}
+
+.theme-scifi window div.titlebar * {
+  color: #c0c52d !important;
+}
+
+.theme-scifi div.wallpaper {
+  background-image: none !important;
+  background: linear-gradient(
+    to bottom,
+    var(--win-bg) 0%,
+    #02060a 100%
+  ) !important;
+}
+
+.theme-scifi div.newtb {
+  border-top: #18383a 1px solid !important;
+  background-color: transparent !important;
+}
+
+.theme-scifi ::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+.theme-scifi ::-webkit-scrollbar-thumb {
+  background: #c0c52d;
+}
+
+.theme-scifi .desktopIcon p {
+  color: var(--fg) !important;
+}
