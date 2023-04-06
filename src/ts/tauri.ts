@@ -3,7 +3,7 @@ import { listen, TauriEvent } from "@tauri-apps/api/event";
 import { register, unregisterAll } from "@tauri-apps/api/globalShortcut";
 import { appWindow } from "@tauri-apps/api/window";
 
-const blocks = ["Ctrl+R", "F5", "Ctrl+Shift+R", "Ctrl+P", "F3", "Ctrl+F"];
+const blocks = ["Ctrl+R", "F5", "Ctrl+Shift+R", "Ctrl+P", "F3", "Ctrl+F", "F7"];
 
 export async function define() {
   doRegister();
