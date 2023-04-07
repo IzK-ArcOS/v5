@@ -1,1 +1,1 @@
-export const ArcOSVersion = "5.0.4";
+export const ArcOSVersion = "5.0.5";
