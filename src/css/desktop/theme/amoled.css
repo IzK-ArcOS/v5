@@ -4,7 +4,7 @@
   --win-border-rad: 7.5px;
   --win-border: #333 1px solid;
   --win-border-light: #5554 1px solid;
-  --glass-bg: #000000a9;
+  --glass-bg: #00000083;
   --glass-alt-bg: #414141a2;
   --glass-ultralight: #0004;
   --glass-ultradark: #0008;
@@ -14,10 +14,10 @@
   --startmenu-applist-item-bg-hover: #ffffff05;
   --startmenu-applist-item-bg-active: #0001;
   --button-border-rad: 4px;
-  --button-bg: #222;
-  --button-hover-bg: #333;
-  --button-active-bg: #111;
-  --button-glass-bg: #fff1;
+  --button-bg: #111;
+  --button-hover-bg: #222;
+  --button-active-bg: #0a0a0a;
+  --button-glass-bg: rgba(255, 255, 255, 0.034);
   --button-glass-hover-bg: #fff3;
   --button-glass-active-bg: #1117;
   --clr-red-bg: #452929;
@@ -34,9 +34,25 @@
   --clr-aqua-bg: #214538;
 }
 
-:root .theme-dark.noglass {
+:root .theme-amoled.noglass {
   --glass-bg: #000;
   --glass-alt-bg: #111;
   --glass-ultralight: #000;
   --glass-ultradark: #000;
 }
+
+.theme-amoled window.window div.body input,
+.theme-amoled window.window div.body select {
+  border: var(--button-bg) 1px solid;
+}
+
+.theme-amoled div.newtb::after,
+.theme-amoled div.actioncenter::after,
+.theme-amoled div.startmenu::after {
+  opacity: 0.1;
+}
+/* 
+.theme-amoled div.newtb {
+  background-color: #ffffff07;
+}
+ */

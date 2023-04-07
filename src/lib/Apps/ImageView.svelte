@@ -19,5 +19,10 @@
 </script>
 
 {#if app.openedFile && url}
-  <img src={url} alt={app.openedFile.name} />
+  <img
+    src={url}
+    alt={app.openedFile.name}
+    data-caller="output"
+    data-path={app.openedFile.path}
+  />
 {/if}

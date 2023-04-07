@@ -75,7 +75,7 @@ export const DesktopWallpaper: App = {
       },
       {
         caption: "Restart",
-        action: restart,
+        action: () => restart(false),
         icon: "refresh",
       },
       SEP_ITEM,

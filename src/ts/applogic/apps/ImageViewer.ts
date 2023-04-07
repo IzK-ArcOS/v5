@@ -1,7 +1,8 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 import logo from "../../../assets/apps/imageviewer.svg";
 import ImageView from "../../../lib/Apps/ImageView.svelte";
 import TextView from "../../../lib/Apps/TextView.svelte";
+import { UserData } from "../../userlogic/interfaces";
 import type { App } from "../interface";
 import { setTitleSuffix } from "../title";
 
@@ -43,5 +44,20 @@ export const ImageViewer: App = {
 
       setTitleSuffix(` - ${app.openedFile.name}`, app.id);
     },
+  },
+  contextMenu: {
+    output: [
+      {
+        caption: "Set as wallpaper",
+        icon: "image",
+        action(window, data, scope) {
+          const udata = get(UserData);
+
+          udata.sh.desktop.wallpaper = `@local:${btoa(data["path"])}`;
+
+          UserData.set(udata);
+        },
+      },
+    ],
   },
 };

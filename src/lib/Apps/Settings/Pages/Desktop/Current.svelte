@@ -1,12 +1,15 @@
 <script lang="ts">
   import { UserData } from "../../../../../ts/userlogic/interfaces";
   import { getWallpaper } from "../../../../../ts/userlogic/wallpapers";
+
+  let url = "";
+
+  UserData.subscribe(async () => {
+    url = await getWallpaper($UserData.sh.desktop.wallpaper);
+  });
 </script>
 
-<div
-  class="current"
-  style="background-image: url({getWallpaper($UserData.sh.desktop.wallpaper)});"
->
+<div class="current" style="background-image: url({url});">
   <div
     class="fake-taskbar"
     class:colored={$UserData.sh.taskbar.colored}

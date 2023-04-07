@@ -13,6 +13,7 @@ import img11 from "../../assets/bg/img11.jpg";
 import img12 from "../../assets/bg/img12.png";
 import img13 from "../../assets/bg/img13.png";
 import img14 from "../../assets/bg/img14.jpg";
+import { readFile } from "../api/fs/file";
 import { Log, LogLevel } from "../console";
 
 export const Wallpapers: { [key: string]: string } = {
@@ -33,7 +34,7 @@ export const Wallpapers: { [key: string]: string } = {
   img12,
 };
 
-export function getWallpaper(id: string) {
+export async function getWallpaper(id: string) {
   Log({
     msg: `Getting wallpaper ${id.startsWith("img") ? id : "<custom>"}`,
     source: "userlogic/wallpapers.ts: getWallpaper",
@@ -41,6 +42,20 @@ export function getWallpaper(id: string) {
   });
 
   if (!id) return id;
+  if (id.startsWith("@local:"))
+    return await wallpaperFromFS(atob(id.replace("@local:", "")));
   if (id.startsWith("img")) return Wallpapers[id] || img04;
   return id;
+}
+
+export async function wallpaperFromFS(path: string) {
+  const file = await readFile(path);
+
+  if (!file) return this.writeConfig();
+
+  const url = URL.createObjectURL(
+    new Blob([new Uint8Array(file)], { type: "image/jpeg" })
+  );
+
+  return url;
 }

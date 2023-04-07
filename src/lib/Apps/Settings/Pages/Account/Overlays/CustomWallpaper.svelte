@@ -44,9 +44,9 @@
   UserData.subscribe((v) => {
     if (
       typeof v.sh.desktop.wallpaper == "string" &&
-      !v.sh.desktop.wallpaper.startsWith("img")
+      v.sh.desktop.wallpaper.startsWith("http")
     )
-      url = v.acc.profilePicture as string;
+      url = v.sh.desktop.wallpaper as string;
 
     check();
   });

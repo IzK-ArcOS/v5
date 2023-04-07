@@ -3,7 +3,7 @@
   input[type="radio"] {
     --active: var(--accent);
     --active-inner: #fff;
-    --focus: 2px rgba(39, 94, 254, 0.3);
+    --focus: 0px var(--accent);
     --border: var(--button-bg);
     --border-hover: var(--accent);
     --background: var(--button-active-bg);

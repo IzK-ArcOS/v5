@@ -6,6 +6,15 @@
   import Current from "./Desktop/Current.svelte";
   import AccentColor from "./Personalization/AccentColor.svelte";
   import ThemeRenderer from "./Theme/ThemeRenderer.svelte";
+
+  let reload = false;
+
+  UserData.subscribe(() => {
+    reload = true;
+    setTimeout(() => {
+      reload = false;
+    });
+  });
 </script>
 
 <h1>Appearance</h1>
@@ -14,13 +23,15 @@
     <Current />
   </div>
   <div class="themes">
-    {#each Object.entries(DefaultThemes) as theme}
-      <ThemeRenderer {theme} />
-    {/each}
-    {#if $UserData.sh.userThemes}
-      {#each Object.entries($UserData.sh.userThemes) as theme}
-        <ThemeRenderer {theme} user />
+    {#if !reload}
+      {#each Object.entries(DefaultThemes) as theme}
+        <ThemeRenderer {theme} />
       {/each}
+      {#if $UserData.sh.userThemes}
+        {#each Object.entries($UserData.sh.userThemes) as theme}
+          <ThemeRenderer {theme} user />
+        {/each}
+      {/if}
     {/if}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <button

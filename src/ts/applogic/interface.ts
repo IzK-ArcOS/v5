@@ -10,7 +10,7 @@ export interface App {
   controls: ControlsState;
   menubar?: WindowMenuBar;
   state: AppStates;
-  content: typeof SvelteComponentDev;
+  content: any;
   id?: string;
   glass: boolean;
   events?: AppEvents;
