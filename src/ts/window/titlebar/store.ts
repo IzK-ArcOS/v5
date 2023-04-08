@@ -18,7 +18,7 @@ export const titlebarButtons: { [key: string]: WindowControls } = {
   },
   og: {
     caption: "O.G.",
-    author: "ArcOS Team",
+    author: "WebOSv3 Team",
     content: Og,
   },
 };

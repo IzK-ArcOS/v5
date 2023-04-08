@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { UserTheme } from "../../../../../ts/userlogic/themes/interface";
-  import { loadTheme } from "../../../../../ts/userlogic/themes/main";
-  import { getWallpaper } from "../../../../../ts/userlogic/wallpapers";
+  import type { UserTheme } from "../../../../../../ts/userlogic/themes/interface";
+  import { loadTheme } from "../../../../../../ts/userlogic/themes/main";
+  import { getWallpaper } from "../../../../../../ts/userlogic/wallpapers";
 
   export let theme: [string, UserTheme];
   export let user = false;

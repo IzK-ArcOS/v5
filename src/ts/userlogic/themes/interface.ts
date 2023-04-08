@@ -17,6 +17,7 @@ export interface UserTheme {
   titleButtons: string;
   titlebarLeft: boolean;
   titlebarLarge: boolean;
+  titlebarCentered: boolean;
   taskbarColored: boolean;
 }
 

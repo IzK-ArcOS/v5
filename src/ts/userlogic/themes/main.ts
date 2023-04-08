@@ -38,6 +38,7 @@ export function loadTheme(context: UserTheme) {
   udata.sh.window.bigtb = context.titlebarLarge;
   udata.sh.window.lefttb = context.titlebarLeft;
   udata.sh.taskbar.colored = context.taskbarColored;
+  udata.sh.window.centertb = !!context.titlebarCentered;
 
   UserData.set(udata);
 }
@@ -65,6 +66,7 @@ export function saveCurrentTheme(name: string) {
     titlebarLarge: udata.sh.window.bigtb,
     titlebarLeft: udata.sh.window.lefttb,
     taskbarColored: udata.sh.taskbar.colored,
+    titlebarCentered: udata.sh.taskbar.centered,
   };
 
   if (!udata.sh.userThemes) udata.sh.userThemes = {};

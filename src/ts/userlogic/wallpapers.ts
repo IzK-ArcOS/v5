@@ -33,6 +33,13 @@ export const Wallpapers: { [key: string]: string } = {
   img11,
   img12,
 };
+const getters: [string, (id: string) => string | Promise<string>][] = [
+  [
+    "@local:",
+    async (id) => await wallpaperFromFS(atob(id.replace("@local:", ""))),
+  ],
+  ["img", (id) => Wallpapers[id] || img04],
+];
 
 export async function getWallpaper(id: string) {
   Log({
@@ -41,17 +48,33 @@ export async function getWallpaper(id: string) {
     level: LogLevel.info,
   });
 
-  if (!id) return id;
-  if (id.startsWith("@local:"))
-    return await wallpaperFromFS(atob(id.replace("@local:", "")));
-  if (id.startsWith("img")) return Wallpapers[id] || img04;
+  if (!id) return img04;
+
+  for (let i = 0; i < getters.length; i++) {
+    if (id.startsWith(getters[i][0])) return await getters[i][1](id);
+  }
+
   return id;
 }
 
 export async function wallpaperFromFS(path: string) {
+  Log({
+    source: "wallpapers.ts: wallpaperFromFS",
+    msg: `Reading wallpaper from path "${path}"...`,
+    level: LogLevel.info,
+  });
+
   const file = await readFile(path);
 
-  if (!file) return this.writeConfig();
+  if (!file) {
+    Log({
+      source: "wallpapers.ts: wallpaperFromFS",
+      msg: `Unable to get wallpaper "${path}"`,
+      level: LogLevel.error,
+    });
+
+    return img04;
+  }
 
   const url = URL.createObjectURL(
     new Blob([new Uint8Array(file)], { type: "image/jpeg" })

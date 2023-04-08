@@ -9,6 +9,28 @@ window div.titlebar p.title {
   display: flex;
 }
 
+window div.titlebar div.centeredtitle {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: inherit;
+  height: inherit;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  padding: 6px 5px;
+}
+
+window div.titlebar.centered div.centeredtitle {
+  opacity: 1;
+  visibility: visible;
+}
+
+window div.titlebar.centered p.title {
+  color: transparent;
+}
+
 window div.titlebar p.title * {
   vertical-align: middle;
   line-height: 18px;

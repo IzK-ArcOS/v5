@@ -61,7 +61,7 @@ div.desktopIcons button p.name {
   height: fit-content;
   max-height: 2.5em;
   text-shadow: #000 0 0 5px;
-  color: #ccc;
+  color: white;
 }
 
 div.desktopIcons button img {

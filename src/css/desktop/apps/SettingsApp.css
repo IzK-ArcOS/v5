@@ -6,8 +6,8 @@ window#SettingsApp div.titlebar {
   background-color: transparent !important;
 }
 
-window#SettingsApp > div.titlebar p.title {
-  background-color: var(--win-bg);
+window#SettingsApp > div.titlebar p.title,
+window#SettingsApp > div.titlebar div.centeredtitle {
   display: none;
 }
 

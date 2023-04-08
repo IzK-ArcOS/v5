@@ -1,4 +1,3 @@
-import type { SvelteComponentDev } from "svelte/internal";
 import type { ErrorButton } from "../errorlogic/app";
 import type { AppKeyCombinations } from "./keyboard/interface";
 export interface App {
@@ -46,7 +45,7 @@ export interface OverlayableError {
 export interface OverlayableApp {
   info: OverlayableAppInfo;
   size: Size;
-  content?: typeof SvelteComponentDev;
+  content?: any;
   parentId?: string;
   id?: string;
   show: boolean;

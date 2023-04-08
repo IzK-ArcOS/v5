@@ -5,16 +5,8 @@
   import OptionSection from "../OptionSection.svelte";
   import Current from "./Desktop/Current.svelte";
   import AccentColor from "./Personalization/AccentColor.svelte";
-  import ThemeRenderer from "./Theme/ThemeRenderer.svelte";
-
-  let reload = false;
-
-  UserData.subscribe(() => {
-    reload = true;
-    setTimeout(() => {
-      reload = false;
-    });
-  });
+  import Themes from "./Personalization/Themes.svelte";
+  import ThemeRenderer from "./Personalization/Themes/ThemeRenderer.svelte";
 </script>
 
 <h1>Appearance</h1>
@@ -22,24 +14,7 @@
   <div class="desktop-page">
     <Current />
   </div>
-  <div class="themes">
-    {#if !reload}
-      {#each Object.entries(DefaultThemes) as theme}
-        <ThemeRenderer {theme} />
-      {/each}
-      {#if $UserData.sh.userThemes}
-        {#each Object.entries($UserData.sh.userThemes) as theme}
-          <ThemeRenderer {theme} user />
-        {/each}
-      {/if}
-    {/if}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <button
-      class="themerenderer save material-icons-round"
-      title="Save current theme"
-      on:click={() => showOverlay("saveTheme", "SettingsApp")}>save</button
-    >
-  </div>
+  <Themes />
 </div>
 
 <OptionSection title="Style" context="Change the style of the UI">

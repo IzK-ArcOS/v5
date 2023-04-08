@@ -47,14 +47,17 @@
   }
 </script>
 
-<div class="titlebar" bind:this={titlebar} on:dblclick={max}>
+<div
+  class="titlebar"
+  bind:this={titlebar}
+  on:dblclick={max}
+  class:centered={$UserData.sh.window.centertb}
+>
+  <div class="centeredtitle">{app.info.name}{app.info.titleSuffix || ""}</div>
   <p class="title">
     <img class="icon" src={getAppIcon(app)} alt={app.info.name} />
     <span>
       {app.info.name}{app.info.titleSuffix || ""}
-      {#if isBoot}
-        (In recovery mode)
-      {/if}
     </span>
   </p>
   <div class="controls">

@@ -15,6 +15,7 @@ export interface UserData {
       bigtb: boolean; //done
       lefttb: boolean; //done
       buttons: string;
+      centertb: boolean;
     };
 
     desktop: {
