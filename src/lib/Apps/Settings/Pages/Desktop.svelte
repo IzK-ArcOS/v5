@@ -8,6 +8,7 @@
   import Current from "./Desktop/Current.svelte";
   import ImageSelector from "./Desktop/ImageSelector.svelte";
   import { UserData } from "../../../../ts/userlogic/interfaces";
+  import FilesystemWallpapers from "./Desktop/FilesystemWallpapers.svelte";
 
   function custom() {
     showOverlay("customWallpaper", "SettingsApp");
@@ -36,9 +37,10 @@
     {#each Object.entries(Wallpapers) as wallpaper}
       <ImageSelector {wallpaper} />
     {/each}
+    <FilesystemWallpapers />
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="wallpaper nobg customwp material-icons-round" on:click={custom}>
-      add
+      travel_explore
     </div>
   </div>
 

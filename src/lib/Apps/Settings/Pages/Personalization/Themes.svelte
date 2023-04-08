@@ -12,8 +12,6 @@
   UserData.subscribe((v) => {
     const freshEntries = Object.entries(v.sh.userThemes);
 
-    console.log(oldlength, freshEntries.length);
-
     if (oldlength == freshEntries.length) return;
 
     oldlength = freshEntries.length;

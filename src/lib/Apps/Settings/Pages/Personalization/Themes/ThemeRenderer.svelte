@@ -15,8 +15,6 @@
 
   onMount(async () => {
     url = await getWallpaper(theme[1].wallpaper);
-
-    console.log(url, theme[1].wallpaper);
   });
 </script>
 

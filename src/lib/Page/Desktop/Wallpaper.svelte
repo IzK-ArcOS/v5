@@ -7,7 +7,9 @@
   let url = "";
 
   UserData.subscribe(async () => {
-    url = await getWallpaper($UserData.sh.desktop.wallpaper);
+    const u = await getWallpaper($UserData.sh.desktop.wallpaper);
+
+    if (u != url) url = u;
   });
 </script>
 

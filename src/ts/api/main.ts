@@ -1,5 +1,8 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 import { BugReportData } from "../bugrep";
+import { createTrayIcon, disposeTrayIcon } from "../desktop/tray/main";
+import { errorMessage } from "../errorlogic/main";
+import { CurrentState } from "../state/main";
 import { generateCredToken } from "./cred";
 import type { Cred, DefaultResponse, Params } from "./interface";
 import { generateParamStr } from "./params";
@@ -27,15 +30,31 @@ export async function apiCall(
   const noAuth = !credAuth && !tokenAuth;
   const paramStr = generateParamStr(params);
 
-  const req = await fetch(
-    `${host}/${path}${paramStr}`,
-    noAuth ? { body: body } : init
-  );
+  let req;
+
+  try {
+    req = await fetch(
+      `${host}/${path}${paramStr}`,
+      noAuth ? { body: body } : init
+    );
+  } catch {
+    if (get(CurrentState).name == "Desktop") invalidServerResponse(path);
+
+    return {};
+  }
 
   const txt = await req.text();
 
-  if (!req.ok && tokenAuth && !`200|304`.includes(`${req.status}`))
-    return invalidServerResponse(req.status, host, path, txt);
+  if (
+    !req.ok &&
+    tokenAuth &&
+    !`200|304`.includes(`${req.status}`) &&
+    get(CurrentState).name == "Desktop"
+  ) {
+    invalidServerResponse(path);
+
+    return {};
+  }
 
   if (!noBody) {
     try {
@@ -48,39 +67,21 @@ export async function apiCall(
   return {};
 }
 
-export function invalidServerResponse(
-  code: number,
-  host: string,
-  path: string,
-  txt: string
-) {
-  let json;
+export function invalidServerResponse(path: string) {
+  createTrayIcon({
+    identifier: "ArcAPI Error",
+    icon: "warning",
+    image: null,
+    onOpen(tray) {
+      disposeTrayIcon(tray.identifier);
 
-  return;
-
-  try {
-    json = JSON.parse(txt);
-  } catch {
-    json = {
-      error: {
-        title: "Could not access ArcAPI",
-        message:
-          "The server did not return a valid status code. This may be because your token is invalid.",
-      },
-    };
-  }
-  BugReportData.set([
-    true,
-    {
-      icon: "settings_ethernet",
-      title: json.error.title,
-      message: `${json.error.message} This session can't continue. You can choose to restart.`,
-      button: {
-        action: () => location.reload(),
-        caption: "Restart",
-      },
-      source: `apiCall`,
-      details: `Host "${host}" returned invalid status code ${code} on endpoint /${path}`,
+      errorMessage(
+        `ArcAPI Error`,
+        `ArcOS was unable to make a request to ArcAPI on path "${path}". Please check your internet connection and try again.`,
+        null,
+        null,
+        { caption: "OK", action() {} }
+      );
     },
-  ]);
+  });
 }
