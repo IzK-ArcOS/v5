@@ -65,7 +65,7 @@
     const result = [];
     const dir = await getDirectory("./Wallpapers");
 
-    if (!dir) return;
+    if (!dir) return [];
 
     for (let i = 0; i < dir.files.length; i++) {
       const file = dir.files[i];
@@ -84,9 +84,5 @@
 {#if !loading}
   {#each wallpapers as wallpaper}
     <Wallpaper {wallpaper} />
-  {/each}
-{:else}
-  {#each new Array(count) as _}
-    <div class="wallpaper nobg customwp material-icons-round" />
   {/each}
 {/if}
