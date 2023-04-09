@@ -145,7 +145,7 @@ export const SettingsApp: App = {
   },
   events: {
     close() {
-      currentSettingsPage.set(null);
+      currentSettingsPage.set(SettingsPages[0]);
     },
     open() {
       currentSettingsPage.set(SettingsPages[0]);

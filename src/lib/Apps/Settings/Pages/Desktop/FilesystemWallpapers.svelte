@@ -15,6 +15,8 @@
   async function update() {
     const temp = [];
 
+    if ((await getFiles()).length == count) return;
+
     count = 0;
 
     const dir = await getDirectory("./Wallpapers");
@@ -57,6 +59,25 @@
     const blob = new Blob([new Uint8Array(file)], { type: "image/*" });
 
     return URL.createObjectURL(blob);
+  }
+
+  async function getFiles(): Promise<string[]> {
+    const result = [];
+    const dir = await getDirectory("./Wallpapers");
+
+    if (!dir) return;
+
+    for (let i = 0; i < dir.files.length; i++) {
+      const file = dir.files[i];
+
+      const { mime } = file;
+
+      if (!mime.startsWith("image")) continue;
+
+      result.push(file.scopedPath);
+    }
+
+    return result;
   }
 </script>
 
