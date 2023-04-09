@@ -47,6 +47,7 @@ window#SettingsApp div.desktop-page div.wallpaper.customwp {
 
 window#SettingsApp div.desktop-page div.wallpaper.customwp:hover {
   color: var(--accent);
+  filter: var(--elevated-accent-filter);
 }
 
 window#SettingsApp div.desktop-page div.current {

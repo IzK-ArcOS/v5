@@ -39,10 +39,20 @@
     {/each}
     <FilesystemWallpapers />
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div class="wallpaper nobg customwp material-icons-round" on:click={custom}>
+    <div
+      class="wallpaper nobg customwp material-icons-round"
+      title="Upload wallpaper"
+      on:click={upload}
+    >
+      upload
+    </div>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div
+      class="wallpaper nobg customwp material-icons-round"
+      title="Wallpaper from URL"
+      on:click={custom}
+    >
       travel_explore
     </div>
   </div>
-
-  <button on:click={upload}>Upload wallpaper</button>
 </div>

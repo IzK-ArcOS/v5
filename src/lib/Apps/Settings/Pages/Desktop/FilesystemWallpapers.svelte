@@ -8,11 +8,14 @@
 
   let wallpapers: { path: string; url: string }[] = [];
   let loading = false;
+  let count = 0;
 
   UserData.subscribe(update);
 
   async function update() {
     const temp = [];
+
+    count = 0;
 
     const dir = await getDirectory("./Wallpapers");
 
@@ -24,6 +27,8 @@
       const { scopedPath, mime } = file;
 
       if (!mime.startsWith("image")) continue;
+
+      count++;
 
       const contents = await readFile(scopedPath);
 
@@ -55,8 +60,12 @@
   }
 </script>
 
-{#if wallpapers && !loading}
+{#if !loading}
   {#each wallpapers as wallpaper}
     <Wallpaper {wallpaper} />
+  {/each}
+{:else}
+  {#each new Array(count) as _}
+    <div class="wallpaper nobg customwp material-icons-round" />
   {/each}
 {/if}

@@ -15,7 +15,7 @@
   }
 
   onMount(() => {
-    if (!$UserData.sh.desktop.wallpaper.startsWith("img")) {
+    if ($UserData.sh.desktop.wallpaper.startsWith("http")) {
       url = $UserData.sh.desktop.wallpaper;
     }
   });
