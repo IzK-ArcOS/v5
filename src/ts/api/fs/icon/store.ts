@@ -9,6 +9,7 @@ import archiveIcon from "../../../../assets/mimetypes/application-x-compress.svg
 import markDownIcon from "../../../../assets/apps/markdownviewer.svg";
 import soundIcon from "../../../../assets/mimetypes/audio-x-generic.svg";
 import themeIcon from "../../../../assets/handlers/loadtheme.svg";
+import arctermIcon from "../../../../assets/apps/arcterm.svg";
 
 export const extensionIcons: ExtMimes = [
   {
@@ -50,5 +51,9 @@ export const extensionIcons: ExtMimes = [
   {
     extensions: [".arctheme"],
     image: themeIcon,
+  },
+  {
+    extensions: ["arcterm.conf"],
+    image: arctermIcon,
   },
 ];

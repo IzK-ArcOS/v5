@@ -27,8 +27,15 @@ window div.titlebar.centered div.centeredtitle {
   visibility: visible;
 }
 
-window div.titlebar.centered p.title {
+window div.titlebar.centered p.title span {
   color: transparent;
+  visibility: hidden;
+  max-width: 0;
+  overflow: hidden;
+}
+
+window div.titlebar.centered p.title img.icon {
+  margin-right: 0;
 }
 
 window div.titlebar p.title * {
@@ -47,4 +54,9 @@ div.bigtitlebars window div.titlebar img.icon {
   height: 16px;
   margin: 0;
   margin-right: 5px;
+}
+
+div.bigtitlebars window div.titlebar.centered div.centeredtitle {
+  height: 17px;
+  margin: 5px 0;
 }

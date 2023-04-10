@@ -34,6 +34,8 @@ export function openWindow(id: string, openChild = false) {
 
     el.style.zIndex = `${get(maxZIndex)}`;
 
+    unminimizeWindow(window);
+
     return;
   }
 
@@ -199,6 +201,24 @@ export function minimizeWindow(app: App) {
   if (app.events && app.events.minimize) app.events.minimize(app);
 
   updateStores();
+}
+
+export function unminimizeWindow(app: App) {
+  Log({
+    msg: `Disabling minimized state of ${app.id}`,
+    source: "events.ts: unminimizeWindow",
+    level: LogLevel.info,
+  });
+
+  const ws = get(WindowStore);
+
+  for (let i = 0; i < ws.length; i++) {
+    if (ws[i].id == app.id) ws[i].state.windowState.min = false;
+  }
+
+  focusedWindowId.set(app.id);
+
+  WindowStore.set(ws);
 }
 
 export function fullscreenWindow(app: App) {
