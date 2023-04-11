@@ -1,4 +1,5 @@
 import { Log, LogLevel } from "../console";
+import { minArcAPI } from "../env/main";
 import ttlFetch from "../ttlFetch";
 import { ConnectedServer } from "./main";
 
@@ -31,6 +32,10 @@ export async function testConnection(server: string) {
         source: "api/test.ts: testConnection",
         level: LogLevel.warn,
       });
+
+      const rev = req.revision || 0;
+
+      if (rev < minArcAPI) return false;
 
       ConnectedServer.set(`${proto}://${server}:${port}`);
 
