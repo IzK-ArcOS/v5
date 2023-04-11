@@ -6,6 +6,7 @@ import { inTauri } from "../../tauri";
 import { UserName } from "../../userlogic/interfaces";
 import { Color, colors, Command } from "../interface";
 import type { ArcTerm } from "../main";
+import { minArcAPI } from "../../env/main";
 
 export const ArcFetch: Command = {
   keyword: "arcfetch",
@@ -27,7 +28,7 @@ async function getItems(a: ArcTerm) {
   const tauri = await inTauri();
 
   return Object.entries({
-    Server: localStorage.getItem("arcos-server"),
+    Server: `${localStorage.getItem("arcos-server")} @ rev ${minArcAPI}`,
     Username: get(UserName),
     Processor: `${info.cpu.cores} cores`,
     GPU: `${info.gpu.vendor} ${info.gpu.model}`,
