@@ -74,6 +74,7 @@ window.window input.fullwidth {
 window.window a {
   color: var(--accent);
   text-decoration: none;
+  filter: var(--elevated-accent-filter);
 }
 
 window.window div.body code {
