@@ -1,11 +1,9 @@
 <script lang="ts">
-  import type { PartialUserDir } from "../../../ts/api/interface";
   import icon from "../../../assets/apps/filemanager/folder.svg";
-  import type { Writable } from "svelte/store";
+  import type { PartialUserDir } from "../../../ts/api/interface";
 
   export let dir: PartialUserDir;
   export let setDir: (path: string) => void;
-  export let selected: Writable<string>;
 </script>
 
 <button class="item dir" on:dblclick={() => setDir(dir.scopedPath)}>

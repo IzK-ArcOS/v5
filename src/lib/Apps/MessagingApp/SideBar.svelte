@@ -17,7 +17,7 @@
 <div class="sidebar">
   <div class="pages">
     {#each Object.entries(MessagingPages) as page}
-      <Page id={page[0]} data={page[1]} />
+      <Page data={page[1]} />
     {/each}
   </div>
   <hr />

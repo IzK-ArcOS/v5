@@ -1,9 +1,7 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import type { MessagingPage } from "../../../../ts/messaging/paging/interface";
   import { messagingPage } from "../../../../ts/messaging/paging/store";
 
-  export let id: string;
   export let data: MessagingPage;
 
   function switchTo() {

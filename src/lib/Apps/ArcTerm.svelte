@@ -3,8 +3,6 @@
   import "../../css/desktop/apps/arcterm.css";
   import { fullscreenToggle } from "../../ts/applogic/events";
   import type { App } from "../../ts/applogic/interface";
-  import { registerAppShortcuts } from "../../ts/applogic/keyboard/main";
-  import { isFullscreenWindow } from "../../ts/applogic/store";
   import { ArcTerm } from "../../ts/terminal/main";
   import { arcCommands, desktopSpecific } from "../../ts/terminal/store";
 

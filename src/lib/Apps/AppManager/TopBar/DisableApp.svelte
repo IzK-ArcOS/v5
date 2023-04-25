@@ -1,7 +1,6 @@
 <script>
   import { appManSelected } from "../../../../ts/applogic/apps/AppManager/store";
   import { disableApp } from "../../../../ts/applogic/enabling";
-  import { closeWindow } from "../../../../ts/applogic/events";
 
   function disable() {
     disableApp($appManSelected);

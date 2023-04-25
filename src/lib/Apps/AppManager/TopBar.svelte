@@ -1,8 +1,5 @@
 <script lang="ts">
-  import {
-    appManSelected,
-    staticAppManActions,
-  } from "../../../ts/applogic/apps/AppManager/store";
+  import { staticAppManActions } from "../../../ts/applogic/apps/AppManager/store";
   import Action from "./TopBar/Action.svelte";
   import AppInfo from "./TopBar/AppInfo.svelte";
   import Close from "./TopBar/Close.svelte";

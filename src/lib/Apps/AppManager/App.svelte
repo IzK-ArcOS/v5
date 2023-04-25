@@ -1,8 +1,6 @@
 <script lang="ts">
-  import { get } from "svelte/store";
   import { appManSelected } from "../../../ts/applogic/apps/AppManager/store";
   import { isDisabled, isOpened } from "../../../ts/applogic/checks";
-  import { openWindow } from "../../../ts/applogic/events";
   import { getAppIcon, getOriginalIcon } from "../../../ts/applogic/icon";
   import type { App } from "../../../ts/applogic/interface";
 

@@ -47,7 +47,7 @@
       <div class="list">
         <TopRow />
         {#each $currentDir.directories as dir}
-          <Dir {setDir} {dir} {selected} />
+          <Dir {setDir} {dir} />
         {/each}
         {#each $currentDir.files as file}
           <File {file} {overlay} {selected} {processing} />

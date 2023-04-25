@@ -1,13 +1,12 @@
 <script lang="ts">
-  import type { UserFile } from "../../../ts/api/interface";
-  import icon from "../../../assets/apps/filemanager/file.svg";
   import { onMount } from "svelte";
+  import type { Writable } from "svelte/store";
+  import { readFile } from "../../../ts/api/fs/file";
   import { getMimeIcon } from "../../../ts/api/fs/icon";
   import { formatBytes } from "../../../ts/api/fs/sizes";
-  import { getChooserTarget, setTargetFile } from "../../../ts/chooser/store";
+  import type { UserFile } from "../../../ts/api/interface";
   import type { OverlayableApp } from "../../../ts/applogic/interface";
-  import { readFile } from "../../../ts/api/fs/file";
-  import type { Writable } from "svelte/store";
+  import { setTargetFile } from "../../../ts/chooser/store";
 
   export let overlay: OverlayableApp;
   export let selected: Writable<string>;

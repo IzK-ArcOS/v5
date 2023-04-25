@@ -3,7 +3,6 @@
   import ProfilePicture from "../../../../ProfilePicture.svelte";
   import Loading from "../Content/Loading.svelte";
   import Input from "./AuthForm/Input.svelte";
-  import Stay from "./AuthForm/Stay.svelte";
 
   let stay = true;
   export let authenticating = false;
@@ -23,7 +22,7 @@
 
 <div class="cloudlogin">
   <div class="field" class:hidden={authenticating}>
-    <Input bind:stay bind:authenticating bind:pfp />
+    <Input bind:authenticating bind:pfp />
   </div>
 
   {#if !authenticating}<!-- 

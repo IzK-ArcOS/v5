@@ -14,7 +14,6 @@
   } from "../../../../../../ts/userlogic/interfaces";
 
   export let authenticating: boolean;
-  export let stay: boolean;
 
   let password: string;
   let wrongpswd = false;
