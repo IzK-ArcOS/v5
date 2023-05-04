@@ -12,14 +12,14 @@ window#TextEditor textarea {
   padding: 5px;
 }
 
-window#TextEditor div.actions {
+window#TextEditor > div.body > div.actions {
   height: 40px;
   border-bottom: var(--win-border);
   padding: 5px;
   display: flex;
 }
 
-window#TextEditor div.actions button {
+window#TextEditor > div.body > div.actions button {
   height: 30px;
   width: 30px;
   padding: 0;

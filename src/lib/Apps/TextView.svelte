@@ -14,6 +14,7 @@
   import Bottom from "./TextView/Bottom.svelte";
   import Saving from "./TextView/Saving.svelte";
   import TextArea from "./TextView/TextArea.svelte";
+  import { showOverlay } from "../../ts/window/overlay";
 
   export let app: App;
 
@@ -50,10 +51,18 @@
       }
     };
 
+    app.events.open = onOpen;
+
     setShortcuts(app, saveFile);
   });
 
   async function saveFile() {
+    if (!app.openedFile.path) {
+      showOverlay("saveNewFile", "TextEditor");
+
+      return;
+    }
+
     saving = true;
 
     await saveTextEditorFile(fileContents, app.openedFile);
@@ -63,6 +72,17 @@
 
   async function onchange() {
     if ($TextEditorContent != fileContents) TextEditorContent.set(fileContents);
+  }
+
+  async function onOpen() {
+    if (app.openedFile) return;
+
+    app.openedFile = {
+      name: "Untitled",
+      path: "",
+      data: new ArrayBuffer(0),
+      mime: "text/plain",
+    };
   }
 </script>
 

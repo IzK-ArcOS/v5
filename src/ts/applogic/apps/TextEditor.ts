@@ -1,5 +1,6 @@
 import logo from "../../../assets/apps/apppoker.svg";
 import TextView from "../../../lib/Apps/TextView.svelte";
+import SaveNewFile from "../../../lib/Apps/TextView/overlays/SaveNewFile.svelte";
 import type { App } from "../interface";
 
 export const TextEditor: App = {
@@ -25,4 +26,16 @@ export const TextEditor: App = {
   content: TextView,
   glass: true,
   fileMimes: ["text/plain; charset=utf-8"],
+  overlays: {
+    saveNewFile: {
+      info: {
+        name: "Save file",
+        author: "Izaak Kuipers",
+        version: "1.0.0",
+      },
+      size: { w: NaN, h: NaN },
+      show: true,
+      content: SaveNewFile,
+    },
+  },
 };
