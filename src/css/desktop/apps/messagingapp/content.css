@@ -44,13 +44,13 @@ window#MessagingApp
   button {
   border: none;
   padding: 0;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   margin: 0;
-  margin-left: 6px;
+  margin-left: 3px;
   background-color: transparent;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 window#MessagingApp
