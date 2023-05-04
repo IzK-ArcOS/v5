@@ -7,10 +7,12 @@
   import { applyFTSState } from "../../../../ts/fts/main";
   import { loginUsingCreds } from "../../../../ts/api/getter";
   import { generateCredToken } from "../../../../ts/api/cred";
+  import Spinner from "../../../Spinner.svelte";
 
   let username = "";
   let password = "";
   let error = false;
+  let working = false;
 
   function changeServer() {
     ConnectedServer.set(undefined);
@@ -20,11 +22,13 @@
   }
 
   async function login() {
+    working = true;
     const token = generateCredToken({ username, password });
     const req = await loginUsingCreds(token);
 
     if (!req) {
       error = true;
+      working = false;
 
       setTimeout(() => {
         error = false;
@@ -35,6 +39,7 @@
 
     localStorage.setItem("arcos-remembered-token", token);
     applyFTSState("finish");
+    working = false;
   }
 </script>
 
@@ -61,10 +66,14 @@
   />
   <button
     class="login material-icons-round"
-    disabled={!username || !password}
+    disabled={!username || !password || working}
     on:click={login}
   >
-    arrow_forward_ios
+    {#if working}
+      <Spinner height={16} />
+    {:else}
+      arrow_forward_ios
+    {/if}
   </button>
 </div>
 <button class="flat centered" on:click={changeServer}>Change server</button>
