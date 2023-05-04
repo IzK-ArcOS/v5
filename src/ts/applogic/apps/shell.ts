@@ -1,3 +1,4 @@
+import { writable } from "svelte/store";
 import logo from "../../../assets/systemIcon.svg";
 import Shell from "../../../lib/Page/Desktop/Shell.svelte";
 import { SEP_ITEM } from "../../contextmenu/main";
@@ -56,3 +57,5 @@ export const ArcShell: App = {
     ],
   },
 };
+
+export const showShellShade = writable<boolean>(false);

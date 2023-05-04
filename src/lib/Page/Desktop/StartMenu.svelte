@@ -11,10 +11,9 @@
 </script>
 
 {#if $UserData}
-  <Frame />
   <div
     class="startmenu"
-    style="z-index: {$maxZIndex + 2};"
+    style="z-index: {$maxZIndex + 4};"
     class:open={$startOpened}
     class:small={$UserData.sh.start.small}
     class:colored={$UserData.sh.taskbar.colored}

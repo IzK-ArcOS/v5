@@ -62,7 +62,7 @@ window.window.overlay.visible {
 }
 
 window.window.overlay button.overlay-close.material-icons-round {
-  background-color: transparent;
+  background-color: transparent !important;
   padding: 0;
   margin: 0;
   position: absolute;
@@ -70,4 +70,12 @@ window.window.overlay button.overlay-close.material-icons-round {
   right: 10px;
   color: var(--fg);
   font-size: 15px;
+}
+
+window.window.overlay button.overlay-close.material-icons-round:hover {
+  opacity: 0.7;
+}
+
+window.window.overlay button.overlay-close.material-icons-round:active {
+  opacity: 0.4;
 }

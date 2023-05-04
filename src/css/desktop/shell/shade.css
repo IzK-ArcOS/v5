@@ -1,0 +1,13 @@
+div.shellshade {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #f0f4;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+div.shellshade.visible {
+  display: block;
+}

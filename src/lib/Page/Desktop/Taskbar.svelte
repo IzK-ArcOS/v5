@@ -22,7 +22,7 @@
 {#if $UserData}
   <div
     class="taskbar"
-    style="z-index: {$maxZIndex + 3};"
+    style="z-index: {$maxZIndex + 5};"
     class:docked={$UserData.sh.taskbar.docked}
     class:fullscreen={$isFullscreenWindow}
     class:centered={$UserData.sh.taskbar.centered}

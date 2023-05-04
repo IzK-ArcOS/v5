@@ -23,12 +23,6 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
-  class="actioncenter-shade"
-  class:opened
-  on:click={() => ($ActionCenterOpened = false)}
-  style="z-index: {$maxZIndex + 3};"
-/>
-<div
   class="actioncenter"
   class:docked={$UserData.sh.taskbar.docked}
   class:opened

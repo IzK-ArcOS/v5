@@ -3,6 +3,7 @@
   import ActionCenter from "./ActionCenter.svelte";
   import DesktopIcons from "./Shell/DesktopIcons.svelte";
   import HorizontalTaskbar from "./Shell/HorizontalTaskbar.svelte";
+  import Shade from "./Shell/Shade.svelte";
   import VerticalTaskbar from "./Shell/VerticalTaskbar.svelte";
   import StartMenu from "./StartMenu.svelte";
   import StartButton from "./Taskbar/StartButton.svelte";
@@ -12,6 +13,7 @@
   }
 </script>
 
+<Shade />
 <StartMenu />
 <HorizontalTaskbar><StartButton /></HorizontalTaskbar>
 <VerticalTaskbar><StartButton /></VerticalTaskbar>

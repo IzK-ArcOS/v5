@@ -6,7 +6,7 @@
 
 <div
   class="taskbar-v newtb"
-  style="z-index: {$maxZIndex + 3};"
+  style="z-index: {$maxZIndex + 5};"
   class:docked={$UserData.sh.taskbar.docked}
   class:centered={$UserData.sh.taskbar.centered}
   class:colored={$UserData.sh.taskbar.colored}
