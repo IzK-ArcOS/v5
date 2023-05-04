@@ -10,6 +10,7 @@
   } from "../../../ts/contextmenu/main";
   import { getWindowElementByEvent } from "../../../ts/window/main";
   import Item from "./ContextMenu/Item.svelte";
+  import { UserData } from "../../../ts/userlogic/interfaces";
 
   let x = 0;
   let y = 0;
@@ -49,11 +50,6 @@
     const caller = el?.dataset.caller;
 
     setTimeout(() => {
-      const mW = menuElement.offsetWidth;
-      const mH = menuElement.offsetHeight;
-
-      [x, y] = composePosition(e, mW, mH);
-
       items = getContextEntry(windowElement.id, caller) || [];
 
       if (!items.length) return;
@@ -63,6 +59,13 @@
       scopeMap = el.dataset;
 
       show = true;
+
+      setTimeout(() => {
+        const mW = menuElement.offsetWidth;
+        const mH = menuElement.offsetHeight;
+
+        [x, y] = composePosition(e, mW, mH);
+      });
     });
   }
 </script>
@@ -70,6 +73,7 @@
 <div
   class="contextmenu"
   class:show
+  class:compact={$UserData.sh.compactContext}
   bind:this={menuElement}
   style="top: {y}px; left: {x}px; z-index: {$maxZIndex + 10}"
 >

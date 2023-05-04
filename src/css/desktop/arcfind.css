@@ -129,8 +129,15 @@ div.arcfind-wrapper
   line-height: 32px;
 }
 
+div.arcfind-wrapper div.results button.result div.context {
+  overflow: hidden;
+}
+
 div.arcfind-wrapper div.results button.result div.context p.title {
   font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 div.arcfind-wrapper div.results button.result div.context p.description {

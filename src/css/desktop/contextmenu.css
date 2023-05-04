@@ -39,15 +39,23 @@ div.desktop div.contextmenu button.contextmenu-item {
   border-radius: var(--button-border-rad);
   padding: 5px;
   line-height: 18px;
+  align-items: center;
 }
 
 div.desktop div.contextmenu button.contextmenu-item::after {
   content: "";
   font-family: "Material Icons Round";
-  width: 18px;
+  width: 28px;
   height: 18px;
   font-size: 18px;
-  margin-left: 20px;
+  margin-left: auto;
+  padding-left: 10px;
+}
+
+div.desktop div.contextmenu.compact button.contextmenu-item::after {
+  font-size: 16px;
+  width: 26px;
+  height: 16px;
 }
 
 div.desktop div.contextmenu button.contextmenu-item.active::after {
@@ -69,15 +77,39 @@ div.desktop div.contextmenu button.contextmenu-item * {
   vertical-align: middle;
 }
 
-div.desktop
-  div.contextmenu
-  button.contextmenu-item
-  div.icon
-  > span.material-icons-round {
+div.desktop div.contextmenu:not(.compact) button.contextmenu-item div.icon > * {
   margin-right: 10px;
 }
 
 div.desktop div.contextmenu hr {
   margin: 5px;
   border: var(--button-glass-bg) 1px solid;
+}
+
+div.contextmenu.compact {
+  padding: 3px !important;
+  min-height: 32px !important;
+}
+
+div.contextmenu.compact button.contextmenu-item {
+  padding: 4px 6px !important;
+  font-size: 9pt;
+  height: 24px;
+  line-height: 16px;
+}
+
+div.desktop div.contextmenu.compact button.contextmenu-item div.icon {
+  height: 16px !important;
+  display: flex;
+}
+div.desktop div.contextmenu.compact button.contextmenu-item div.icon * {
+  vertical-align: middle;
+  margin: 0;
+  width: 16px;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+div.desktop div.contextmenu.compact hr {
+  margin: 3px 7px !important;
 }

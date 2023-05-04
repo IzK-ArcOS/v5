@@ -34,6 +34,7 @@ export interface UserData {
     noGlass: boolean; //done
     noQuickSettings: boolean;
     userThemes?: ThemeStore;
+    compactContext: boolean;
   };
 
   disabledApps: string[];

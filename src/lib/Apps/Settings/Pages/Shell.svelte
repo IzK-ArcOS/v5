@@ -77,3 +77,14 @@
     bind:checked={$UserData.sh.taskbar.colored}
   />
 </OptionSection>
+<hr />
+<OptionSection
+  title="Compact context menu"
+  context="Make the context menu more compact"
+>
+  <input
+    type="checkbox"
+    class="switch"
+    bind:checked={$UserData.sh.compactContext}
+  />
+</OptionSection>
