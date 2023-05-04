@@ -19,7 +19,13 @@
   }
 </script>
 
-<section class:collapsible class:collapsed class:opt>
-  <h3 class="header" on:click={collapse}>{header}</h3>
-  <slot />
-</section>
+<div class="section" class:collapsible class:collapsed class:opt>
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  {#if collapsible}
+    <div class="header" on:click={collapse}>{header}</div>
+  {:else}
+    <h3 class="header">{header}</h3>
+  {/if}
+
+  <div class="section-content"><slot /></div>
+</div>

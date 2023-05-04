@@ -3,7 +3,7 @@
   export let context: string;
 </script>
 
-<section class="opt">
+<div class="section opt">
   <div>
     <h3 class="header">{title}</h3>
     <p class="context">{context}</p>
@@ -11,4 +11,4 @@
   <div class="opt-sel">
     <slot />
   </div>
-</section>
+</div>

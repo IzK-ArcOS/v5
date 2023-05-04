@@ -2,9 +2,11 @@
   import logo from "../../../../assets/systemIcon.svg";
   import "../../../../css/desktop/apps/settings/about.css";
   import { DevModeOverride } from "../../../../ts/devmode/props";
+  import { ArcOSVersion } from "../../../../ts/env/main";
   import { errorMessage } from "../../../../ts/errorlogic/main";
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import Section from "../Section.svelte";
+  import SystemSection from "./About/SystemSection.svelte";
 
   function enableDevmode() {
     $UserData.devmode = true;
@@ -29,15 +31,30 @@
   <div class="product">
     <div><img src={logo} alt="ArcOS" class="logo" /></div>
     <div class="text">
-      <h1 class="name">ArcOS</h1>
+      <h1 class="name">ArcOS v{ArcOSVersion}</h1>
     </div>
   </div>
-  <Section header="License">
-    The whole ArcOS project is licensed under GPLv3.<br /><br />
-    More information about the license and the project as a whole
-    <br />
-    can be found in the README file of the
-    <a href="https://github.com/IzK-ArcOS">ArcOS project page</a>.
+  <SystemSection />
+  <Section header="License Information" collapsible collapsed>
+    The whole ArcOS project is licensed under GPLv3. More information about the
+    license and the project as a whole can be found in the README file of the
+    <a href="https://github.com/IzK-ArcOS" target="_blank">ArcOS project page</a
+    >.
+  </Section>
+  <Section header="Credits" collapsible collapsed>
+    Thanks to the following people:
+    <ul>
+      <li>Papirus Development Team for their icon set</li>
+      <li>SWHFotografie for wallpapers img08 and img13</li>
+      <li>Kees van Voorthuizen for wallpaper img14</li>
+    </ul>
+  </Section>
+  <Section header="About" collapsible collapsed>
+    ArcOS started of as a weekend project, but these days it is a huge project
+    with tons of amazing features. Every version of this project up to this
+    point has been lead by me, Izaak Kuipers.<br /><br />Feel free to visit our
+    GitHub for more information about the project, and how you can contribute to
+    it.
   </Section>
   <!-- <Section header="For Developers">
     Are you a developer of ArcOS or do you like peeking behind the<br />

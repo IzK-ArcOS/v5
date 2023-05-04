@@ -1,7 +1,14 @@
 div.about-page div.product {
   display: flex;
   width: 100%;
-  margin: 0px 0;
+  margin: 40px 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.about-page div.product > * {
+  max-width: fit-content;
+  margin: 0 auto;
 }
 
 div.about-page div.product div {
@@ -11,15 +18,12 @@ div.about-page div.product div {
 
 div.about-page div.product h1 {
   margin: 0 !important;
-  line-height: 60px;
-}
-
-div.about-page div.product div.text {
-  text-align: right;
+  /* line-height: 60px; */
+  font-size: 25px;
 }
 
 div.about-page div.product img.logo {
-  height: 60px;
+  height: 100px;
 }
 
 div.about-page h3.header {
@@ -31,4 +35,37 @@ div.about-page div.devmode button.devmode {
   background-color: transparent !important;
   padding: 0 !important;
   margin: 15px 5px !important;
+}
+
+div.about-page div.section {
+  margin: 0 30px !important;
+  margin-bottom: 5px !important;
+}
+
+div.about-page div.section div.row {
+  display: flex;
+  padding: 10px;
+  border-bottom: var(--button-bg) 1px solid;
+}
+
+div.about-page div.section div.row div.key {
+  margin-right: auto;
+}
+
+div.about-page div.section div.row:first-child {
+  padding-top: 5px;
+}
+
+div.about-page div.section div.row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+div.about-page div.section div.row button.material-icons-round {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  line-height: inherit;
+  margin-left: 5px;
+  font-size: 18px;
 }
