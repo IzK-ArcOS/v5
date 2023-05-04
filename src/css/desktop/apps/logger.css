@@ -5,6 +5,7 @@ window#LoggerApp div.body {
 
 window#LoggerApp div.sidebar {
   width: 300px;
+  min-width: 300px;
   max-width: 300px;
   height: 100%;
   border-right: var(--win-border);

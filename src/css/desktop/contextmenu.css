@@ -41,6 +41,19 @@ div.desktop div.contextmenu button.contextmenu-item {
   line-height: 18px;
 }
 
+div.desktop div.contextmenu button.contextmenu-item::after {
+  content: "";
+  font-family: "Material Icons Round";
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+div.desktop div.contextmenu button.contextmenu-item.active::after {
+  content: "check";
+}
+
 div.desktop div.contextmenu button.contextmenu-item:hover {
   background-color: var(--button-glass-bg);
 }

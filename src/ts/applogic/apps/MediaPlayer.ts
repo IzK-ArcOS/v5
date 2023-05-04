@@ -1,6 +1,7 @@
 import logo from "../../../assets/apps/mediaplayer.svg";
 import MediaPlayer from "../../../lib/Apps/MediaPlayer.svelte";
-import { closeWindow } from "../events";
+import { createTrayIcon, disposeTrayIcon } from "../../desktop/tray/main";
+import { closeWindow, openWindow } from "../events";
 import type { App } from "../interface";
 
 export const MediaPlayerApp: App = {
@@ -28,7 +29,22 @@ export const MediaPlayerApp: App = {
   fileMimes: ["audio/x-flac", "audio/wave", "audio/mpeg"],
   events: {
     open: (app: App) => {
-      if (!app.openedFile) closeWindow("MediaPlayerApp");
+      if (!app.openedFile) {
+        disposeTrayIcon("MediaPlayerApp");
+        return closeWindow("MediaPlayerApp");
+      }
+
+      createTrayIcon({
+        onOpen() {
+          openWindow("MediaPlayerApp");
+        },
+        image: logo,
+        identifier: "MediaPlayerApp",
+      });
+    },
+
+    close() {
+      disposeTrayIcon("MediaPlayerApp");
     },
   },
 };

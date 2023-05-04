@@ -40,8 +40,8 @@ div.newtb button.start {
 }
 
 div.newtb button.start img {
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
 }
 
 div.newtb button.start:not(.open) svg.accented-logo path {

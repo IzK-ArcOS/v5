@@ -35,7 +35,7 @@ export const DesktopWallpaper: App = {
   contextMenu: {
     "shell-wallpaper": [
       {
-        caption: "Toggle desktop icons",
+        caption: "Show desktop icons",
         action: () => {
           const udata = get(UserData);
 
@@ -44,6 +44,7 @@ export const DesktopWallpaper: App = {
           UserData.set(udata);
         },
         icon: "apps",
+        isActive: () => get(UserData).sh.desktop.icons,
       },
       SEP_ITEM,
       {

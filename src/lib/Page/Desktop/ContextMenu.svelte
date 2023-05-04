@@ -32,6 +32,7 @@
 
   function handleEvent(e: MouseEvent) {
     show = false;
+    items = [];
 
     e.preventDefault();
 
@@ -47,21 +48,21 @@
 
     const caller = el?.dataset.caller;
 
-    items = getContextEntry(windowElement.id, caller) || [];
-
-    if (!items.length) return;
-
-    scope = caller;
-    window = windowData;
-    scopeMap = el.dataset;
-
-    show = true;
-
     setTimeout(() => {
       const mW = menuElement.offsetWidth;
       const mH = menuElement.offsetHeight;
 
       [x, y] = composePosition(e, mW, mH);
+
+      items = getContextEntry(windowElement.id, caller) || [];
+
+      if (!items.length) return;
+
+      scope = caller;
+      window = windowData;
+      scopeMap = el.dataset;
+
+      show = true;
     });
   }
 </script>
