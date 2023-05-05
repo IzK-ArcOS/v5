@@ -1,0 +1,30 @@
+window#HelpCenter > div.body {
+  display: flex;
+  padding: 0;
+  border-top: var(--win-border);
+}
+
+window#HelpCenter > div.body div.sidebar {
+  height: 100%;
+  border-left: var(--win-border);
+  box-sizing: border-box;
+  padding: 5px;
+  width: 200px;
+  overflow-y: scroll;
+}
+
+window#HelpCenter > div.body div.article-renderer {
+  height: 100%;
+  background-color: var(--win-bg);
+  flex-grow: 1;
+  max-width: calc(100% - 200px);
+}
+
+window#HelpCenter > div.body div.sidebar > button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  background-color: transparent;
+  padding: 5px;
+}

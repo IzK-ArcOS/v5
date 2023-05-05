@@ -24,6 +24,7 @@ import type { App } from "./interface";
 import { loadWindow } from "./load";
 import { updateStores } from "./store";
 import { ArcTerm } from "./apps/ArcTerm";
+import { HelpCenter } from "./apps/HelpCenter";
 
 export const DefaultApps: { [key: string]: App } = {
   ErrCre: ErrorCreator,
@@ -48,6 +49,7 @@ export const DefaultApps: { [key: string]: App } = {
   DesktopWallpaper,
   DonutApp,
   ArcTerm,
+  HelpCenter,
 };
 
 export const SystemApps: string[] = [

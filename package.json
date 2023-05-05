@@ -35,6 +35,8 @@
     "marked-extended-tables": "^1.0.5",
     "mime-types": "^2.1.35",
     "svelte-click-outside": "^1.0.0",
-    "svelte-markdown": "^0.2.3"
+    "svelte-markdown": "^0.2.3",
+    "svelte-preprocess-markdown": "^2.7.3",
+    "vite-plugin-markdown": "^2.1.0"
   }
 }
