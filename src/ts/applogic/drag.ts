@@ -17,52 +17,71 @@ export function dragWindow(
       level: LogLevel.error,
     });
 
-  window.addEventListener("mousedown", (e: MouseEvent) => {
-    let x, y;
-    if (app.info.custom) return;
+  ["mousedown", "touchstart"].forEach((k) =>
+    window.addEventListener(k, (e: MouseEvent) => {
+      let x, y;
+      if (app.info.custom) return;
 
-    focusedWindowId.set(app.id);
+      focusedWindowId.set(app.id);
 
-    if (e.composedPath().includes(titlebar)) {
-      let xA: number, yA: number, xB: number, yB: number;
+      if (e.composedPath().includes(titlebar)) {
+        let xA: number, yA: number, xB: number, yB: number;
 
-      e.preventDefault();
+        e.preventDefault();
 
-      document.onmousemove = (e: MouseEvent) => {
-        app.snapped = false;
+        document.onmousemove = (e: MouseEvent) => {
+          app.snapped = false;
 
-        WindowStore.set(get(WindowStore));
+          WindowStore.set(get(WindowStore));
 
-        xA = xB - e.clientX;
-        yA = yB - e.clientY;
+          process(e.clientX, e.clientY);
+        };
 
-        xB = e.clientX;
-        yB = e.clientY;
+        document.ontouchmove = (e: TouchEvent) => {
+          console.log(e);
+          app.snapped = false;
 
-        let top = window.offsetTop - yA;
-        const left = window.offsetLeft - xA;
+          WindowStore.set(get(WindowStore));
 
-        if (top < 0) top = 0;
+          if (!e.touches.length || k == "mousedown") return;
 
-        window.style.top = top + "px";
-        window.style.left = left + "px";
+          process(e.touches[0].clientX, e.touches[0].clientY);
+        };
 
-        app.pos.x = left;
-        app.pos.y = top;
+        function process(x: number, y: number) {
+          xA = xB - x;
+          yA = yB - y;
 
-        checkZones(xB, yB, app.id);
+          xB = x;
+          yB = y;
 
-        [x, y] = [xB, yB];
-      };
+          let top = window.offsetTop - yA;
+          const left = window.offsetLeft - xA;
 
-      document.onmouseup = () => {
-        checkZones(x, y, app.id);
-        snapWindow(app.id);
-        leftZoneTriggered.set(false);
-        rightZoneTriggered.set(false);
-        document.onmouseup = null;
-        document.onmousemove = null;
-      };
-    }
-  });
+          if (top < 0) top = 0;
+
+          window.style.top = top + "px";
+          window.style.left = left + "px";
+
+          app.pos.x = left;
+          app.pos.y = top;
+
+          checkZones(xB, yB, app.id);
+
+          [x, y] = [xB, yB];
+        }
+
+        document.onmouseup = document.ontouchend = () => {
+          checkZones(x, y, app.id);
+          snapWindow(app.id);
+          leftZoneTriggered.set(false);
+          rightZoneTriggered.set(false);
+          document.onmouseup = null;
+          document.onmousemove = null;
+          document.ontouchend = null;
+          document.ontouchmove = null;
+        };
+      }
+    })
+  );
 }
