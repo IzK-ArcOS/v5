@@ -31,10 +31,10 @@ export const TextEditor: App = {
       info: {
         name: "Save file",
         author: "Izaak Kuipers",
-        version: "1.0.0",
+        version: "1.0.1",
       },
       size: { w: NaN, h: NaN },
-      show: true,
+      show: false,
       content: SaveNewFile,
     },
   },
