@@ -9,6 +9,7 @@ export default {
     title: "Personalization",
     content: NotImplemented,
     authors: ["Izaak Kuipers"],
+    sep: true,
   },
   personalizationPerformance: {
     title: "Performance",
