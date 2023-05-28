@@ -11,14 +11,12 @@ export default {
     title: "Log Types",
     authors: ["Izaak Kuipers"],
     content: NotImplemented,
-    sep: true,
     parentId: "logging",
   },
   loggingDevTools: {
     title: "Developer Tools",
     authors: ["Izaak Kuipers"],
     content: NotImplemented,
-    sep: true,
     parentId: "logging",
   },
 } as HelpCenterStore;
