@@ -35,7 +35,7 @@
 </script>
 
 <div class="wrapper">
-  <img src={icon} alt="Run" />
+  <img src={icon} alt="Save File" />
   <div class="inner">
     <p class="caption">Enter a path to save this file to:</p>
     <input type="text" bind:value />
@@ -43,7 +43,7 @@
 </div>
 <div class="actions">
   <div class="inner">
-    <button on:click={save} disabled={!value}>Run</button>
+    <button on:click={save} disabled={!value}>Save</button>
     <button on:click={closeThis}>Cancel</button>
   </div>
 </div>

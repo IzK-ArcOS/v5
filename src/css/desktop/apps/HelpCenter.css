@@ -18,13 +18,19 @@ window#HelpCenter > div.body div.article-renderer {
   background-color: var(--win-bg);
   flex-grow: 1;
   max-width: calc(100% - 200px);
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-window#HelpCenter > div.body div.sidebar > button {
+window#HelpCenter > div.body div.sidebar button {
   display: block;
   width: 100%;
   text-align: left;
   margin: 0;
   background-color: transparent;
   padding: 5px;
+}
+
+window#HelpCenter > div.body div.sidebar div.indent {
+  padding-left: 15px;
 }
