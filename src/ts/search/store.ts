@@ -129,6 +129,7 @@ export function compileSearchableHelpArticles(): SearchItem[] {
   for (let i = 0; i < entries.length; i++) {
     result.push({
       image: helpCenterIcon,
+      description: "Help Center",
       caption: entries[i][1].title,
       action: () => {
         openWindow("HelpCenter");

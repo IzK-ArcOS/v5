@@ -9,6 +9,7 @@ import arcterm from "./store/arcterm";
 import arcfs from "./store/arcfs";
 import arcfind from "./store/arcfind";
 import apps from "./store/apps";
+import logging from "./store/logging";
 
 export const helpCenterArticles: HelpCenterStore = {
   homePage: {
@@ -24,6 +25,7 @@ export const helpCenterArticles: HelpCenterStore = {
   ...arcfs,
   ...arcfind,
   ...apps,
+  ...logging,
 };
 
 export const currentArticle = writable<string>();

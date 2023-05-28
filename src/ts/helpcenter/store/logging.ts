@@ -1,25 +1,24 @@
 import NotImplemented from "../../../lib/HelpCenter/NotImplemented.svelte";
 import type { HelpCenterStore } from "../interface";
-import messaging from "./apps/messaging";
 
 export default {
-  apps: {
-    title: "Apps",
+  logging: {
+    title: "Logging",
+    authors: ["Izaak Kuipers"],
+    content: NotImplemented,
+  },
+  loggingTypes: {
+    title: "Log Types",
     authors: ["Izaak Kuipers"],
     content: NotImplemented,
     sep: true,
+    parentId: "logging",
   },
-  appsSystem: {
-    title: "About System Apps",
+  loggingDevTools: {
+    title: "Developer Tools",
     authors: ["Izaak Kuipers"],
     content: NotImplemented,
-    parentId: "apps",
+    sep: true,
+    parentId: "logging",
   },
-  appsTurnOnAndOff: {
-    title: "Turn apps on and off",
-    authors: ["Izaak Kuipers"],
-    content: NotImplemented,
-    parentId: "apps",
-  },
-  ...messaging,
 } as HelpCenterStore;
