@@ -4,7 +4,6 @@ export interface HelpCenterArticle {
   content: any;
   parentId?: string;
   sep?: boolean;
-  seeAlso: string[];
 }
 
 export type HelpCenterStore = { [key: string]: HelpCenterArticle };

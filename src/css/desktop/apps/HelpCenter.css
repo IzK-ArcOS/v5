@@ -9,7 +9,7 @@ window#HelpCenter > div.body div.sidebar {
   border-left: var(--win-border);
   box-sizing: border-box;
   padding: 5px;
-  width: 200px;
+  width: 250px;
   overflow-y: scroll;
 }
 
@@ -17,7 +17,7 @@ window#HelpCenter > div.body div.article-renderer {
   height: 100%;
   background-color: var(--win-bg);
   flex-grow: 1;
-  max-width: calc(100% - 200px);
+  max-width: calc(100% - 250px);
   padding: 20px;
   box-sizing: border-box;
 }
