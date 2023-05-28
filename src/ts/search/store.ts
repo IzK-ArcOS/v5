@@ -8,6 +8,7 @@ import type { SearchItem } from "./interface";
 import shutdownIcon from "../../assets/apps/exit.svg";
 import searchIcon from "../../assets/arcfind.svg";
 import fileIcon from "../../assets/mimetypes/text-plain.svg";
+import helpCenterIcon from "../../assets/apps/helpcenter.svg";
 import { apiCall, ConnectedServer } from "../api/main";
 import { UserToken } from "../userlogic/interfaces";
 import type { UserFile } from "../api/interface";
@@ -17,6 +18,7 @@ import {
   deleteNotification,
   makeNotification,
 } from "../notiflogic/main";
+import { currentArticle, helpCenterArticles } from "../helpcenter/store";
 
 let FILE_CACHE: SearchItem[] = [];
 
@@ -25,8 +27,9 @@ export async function getSearchItems(): Promise<SearchItem[]> {
   const settings = compileSearchableSettingsPages();
   const powerOpt: SearchItem[] = POWER_OPTIONS;
   const files: SearchItem[] = await getFiles();
+  const helpArticles = compileSearchableHelpArticles();
 
-  return [...apps, ...settings, ...powerOpt, ...files];
+  return [...apps, ...settings, ...powerOpt, ...files, ...helpArticles];
 }
 
 export async function getFiles() {
@@ -112,6 +115,25 @@ export function compileSearchableSettingsPages(): SearchItem[] {
         setTimeout(() => {
           currentSettingsPage.set(page);
         });
+      },
+    });
+  }
+
+  return result;
+}
+
+export function compileSearchableHelpArticles(): SearchItem[] {
+  const result: SearchItem[] = [];
+  const entries = Object.entries(helpCenterArticles);
+
+  for (let i = 0; i < entries.length; i++) {
+    result.push({
+      image: helpCenterIcon,
+      caption: entries[i][1].title,
+      action: () => {
+        openWindow("HelpCenter");
+
+        currentArticle.set(entries[i][0]);
       },
     });
   }
