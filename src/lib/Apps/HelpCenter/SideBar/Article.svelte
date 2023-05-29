@@ -12,7 +12,11 @@
   }
 </script>
 
-<button class="article-link" on:click={open}>
+<button
+  class="article-link"
+  on:click={open}
+  class:selected={$currentArticle == id}
+>
   {article.title}
 </button>
 <div class="indent">
