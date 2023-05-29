@@ -10,6 +10,7 @@ import arcfs from "./store/arcfs";
 import arcfind from "./store/arcfind";
 import apps from "./store/apps";
 import logging from "./store/logging";
+import RecentChanges from "../../lib/HelpCenter/RecentChanges.svelte";
 
 export const helpCenterArticles: HelpCenterStore = {
   homePage: {
@@ -20,7 +21,7 @@ export const helpCenterArticles: HelpCenterStore = {
   },
   homePageChanges: {
     title: "Recent Changes",
-    content: NotImplemented,
+    content: RecentChanges,
     authors: ["Izaak Kuipers"],
     parentId: "homePage",
   },

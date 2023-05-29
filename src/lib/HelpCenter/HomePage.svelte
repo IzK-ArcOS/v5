@@ -11,3 +11,5 @@
 <Redirect id="personalization" />
 <Redirect id="arctermConfiguration" />
 <Redirect id="appsTurnOnAndOff" />
+<hr />
+<Redirect id="homePageChanges" />

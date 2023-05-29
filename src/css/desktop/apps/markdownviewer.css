@@ -88,9 +88,9 @@ div.markdownrenderer table tr:nth-child(2n) {
 }
 
 div.markdownrenderer hr {
-  height: 0.25em;
+  height: 1px;
   padding: 0;
-  margin: 24px 0;
+  margin: 15px 0;
   background-color: var(--button-bg);
   border: 0;
 }

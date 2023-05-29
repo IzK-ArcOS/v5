@@ -2,8 +2,7 @@ import { ArcOSVersion } from "../ts/env/main";
 import { makeNotification } from "../ts/notiflogic/main";
 import { inTauri } from "../ts/tauri";
 
-export async function getLatestVersion(): Promise<Version> {
-  const current = parseVersion(ArcOSVersion);
+export async function getLatestRelease(): Promise<GitHubRelease> {
   try {
     const req = (await (
       await fetch(
@@ -11,6 +10,19 @@ export async function getLatestVersion(): Promise<Version> {
         { cache: "no-store" }
       )
     ).json()) as GitHubRelease;
+
+    return req;
+  } catch {
+    return null;
+  }
+}
+
+export async function getLatestVersion(): Promise<Version> {
+  const current = parseVersion(ArcOSVersion);
+  try {
+    const req = await getLatestRelease();
+
+    if (!req) return current;
 
     const version = parseVersion(filterTagName(req.tag_name));
 

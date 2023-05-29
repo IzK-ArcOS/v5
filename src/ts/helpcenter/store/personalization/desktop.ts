@@ -14,14 +14,8 @@ export default {
     content: NotImplemented,
     parentId: "personalizationDesktop",
   },
-  personalizationDesktopCustomThemes: {
-    title: "Custom Themes",
-    authors: ["Izaak Kuipers"],
-    content: NotImplemented,
-    parentId: "personalizationDesktop",
-  },
   personalizationDesktopCustomWallpapers: {
-    title: "Custom Wallpapers",
+    title: "Wallpapers",
     authors: ["Izaak Kuipers"],
     content: NotImplemented,
     parentId: "personalizationDesktop",
