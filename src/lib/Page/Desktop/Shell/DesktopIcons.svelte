@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import "../../../../css/desktop/desktopicons.css";
   import { isPopulatable } from "../../../../ts/applogic/checks";
   import { WindowStore } from "../../../../ts/applogic/store";

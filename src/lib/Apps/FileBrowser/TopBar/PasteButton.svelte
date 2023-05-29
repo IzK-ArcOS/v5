@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { copyItem } from "../../../../ts/api/fs/mutate";
   import { renameItem } from "../../../../ts/api/fs/rename";
   import {

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { accentColors } from "../../../../../ts/desktop/accent";
   import OptionSection from "../../OptionSection.svelte";
   import Color from "./AccentColor/Color.svelte";

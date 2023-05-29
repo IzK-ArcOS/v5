@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { applyLoginState } from "../../../../../ts/login/main";
 </script>
 

@@ -18,6 +18,12 @@ export const helpCenterArticles: HelpCenterStore = {
     sep: true,
     authors: ["Izaak Kuipers"],
   },
+  homePageChanges: {
+    title: "Recent Changes",
+    content: NotImplemented,
+    authors: ["Izaak Kuipers"],
+    parentId: "homePage",
+  },
   ...personalization,
   ...actioncenter,
   ...accounts,

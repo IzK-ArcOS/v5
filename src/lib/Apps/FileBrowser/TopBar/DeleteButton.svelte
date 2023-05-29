@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { deleteItem } from "../../../../ts/api/fs/file";
   import {
     fbClass,

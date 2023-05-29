@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { UserData } from "../../../../ts/userlogic/interfaces";
 
   function toggleQuicks() {

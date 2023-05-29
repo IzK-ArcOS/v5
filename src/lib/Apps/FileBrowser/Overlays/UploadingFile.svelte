@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
   import icon from "../../../../assets/apps/filemanager/upload.svg";
   import "../../../../css/desktop/apps/filebrowser/overlays/uploadingfile.css";
   import {
     FileBrowserUploadFile,
-    FileBrowserUploadProgress
+    FileBrowserUploadProgress,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
 </script>
 

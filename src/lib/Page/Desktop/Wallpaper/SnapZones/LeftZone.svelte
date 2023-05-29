@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { leftZoneTriggered } from "../../../../../ts/applogic/snapzones/store";
 </script>
 

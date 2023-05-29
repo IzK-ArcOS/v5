@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { appManSelected } from "../../../ts/applogic/apps/AppManager/store";
   import {
     getWindow,

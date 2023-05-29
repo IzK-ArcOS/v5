@@ -1,0 +1,49 @@
+window#HelpCenter > div.body {
+  display: flex;
+  padding: 0;
+  border-top: var(--win-border);
+}
+
+window#HelpCenter > div.body div.article-renderer {
+  height: 100%;
+  background-color: var(--win-bg);
+  flex-grow: 1;
+  max-width: calc(100% - 250px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+window#HelpCenter > div.body div.article-renderer button.redirect {
+  display: block;
+  width: 60%;
+  text-align: left;
+  margin: 10px 5px;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+}
+
+window#HelpCenter > div.body div.article-renderer button.redirect::before {
+  content: "link";
+  font-family: "Material Icons Round";
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+window#HelpCenter > div.body div.article-renderer button.redirect::after {
+  content: "arrow_forward_ios";
+  font-family: "Material Icons Round";
+  font-size: 14px;
+  vertical-align: middle;
+  position: absolute;
+  right: 0;
+  line-height: 20px;
+  opacity: 0;
+  margin-right: 10px;
+}
+
+window#HelpCenter > div.body div.article-renderer button.redirect:hover::after {
+  margin-right: 0;
+  opacity: 1;
+}

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { rightZoneTriggered } from "../../../../../ts/applogic/snapzones/store";
 </script>
 
