@@ -152,3 +152,21 @@ div.arcfind-wrapper div.results button.result.selected {
 div.arcfind-wrapper div.results button.result:active {
   background-color: var(--button-glass-active-bg);
 }
+
+div.arcfind-wrapper div.results div.loading,
+div.arcfind-wrapper div.results div.no-results {
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+div.arcfind-wrapper div.results div.no-results {
+  opacity: 0.5;
+  font-style: italic;
+}
+
+div.arcfind-wrapper div.results div.loading img {
+  height: 20px !important;
+}

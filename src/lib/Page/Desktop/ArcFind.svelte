@@ -3,16 +3,24 @@
   import { maxZIndex } from "../../../ts/applogic/store";
   import type { SearchItem } from "../../../ts/search/interface";
   import { Search, showArcFind } from "../../../ts/search/main";
+  import Loading from "./ArcFind/Loading.svelte";
+  import NoResults from "./ArcFind/NoResults.svelte";
   import Result from "./ArcFind/Result.svelte";
 
   let query = "";
   let index = 0;
+  let loading = false;
+  let initial = false;
 
   let searchBox: HTMLInputElement;
 
   let results: SearchItem[] = [];
 
   async function search() {
+    if (!query) return (initial = false);
+    initial = true;
+    loading = true;
+
     const items = [];
 
     const fuseResults = await Search(query);
@@ -23,6 +31,7 @@
 
     index = -1;
     results = items.slice(0, 6);
+    loading = false;
   }
 
   function submit(e: Event) {
@@ -51,6 +60,7 @@
     results = [];
     query = "";
     index = -1;
+    initial = false;
   }
 
   function closeThis() {
@@ -109,11 +119,17 @@
     </form>
     <button class="material-icons-round">search</button>
   </div>
-  {#if results.length}
+  {#if initial}
     <div class="results">
-      {#each results as result, i}
-        <Result {index} {result} resultIndex={i} />
-      {/each}
+      {#if results.length}
+        {#each results as result, i}
+          <Result {index} {result} resultIndex={i} />
+        {/each}
+      {:else if loading}
+        <Loading />
+      {:else}
+        <NoResults />
+      {/if}
     </div>
   {/if}
   <button class="material-icons-round close" on:click={closeThis}>close</button>
