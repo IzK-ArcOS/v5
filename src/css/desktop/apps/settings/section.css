@@ -1,0 +1,149 @@
+window#SettingsApp div.section {
+  padding: 10px 0;
+}
+
+window#SettingsApp div.section:not(.opt) h3.header {
+  margin: 0;
+}
+
+window#SettingsApp div.section:not(.opt) p.context {
+  margin: 3px 0;
+  margin-bottom: 15px;
+  opacity: 0.6;
+}
+
+window#SettingsApp div.section.collapsible {
+  border: var(--button-bg) 1px solid;
+  padding: 10px;
+  padding-top: 0px;
+  border-radius: 5px;
+  transition: max-height 0.2s, border 0.3s !important;
+  overflow: hidden;
+  max-height: 500px;
+  margin: 10px 0;
+}
+
+window#SettingsApp div.section.opt {
+  display: flex;
+  height: 60px;
+  max-width: 610px;
+}
+
+window#SettingsApp div.section.opt h3.header {
+  margin: 0;
+}
+
+window#SettingsApp div.section.opt p.context {
+  margin-bottom: 0;
+  opacity: 0.6;
+}
+
+window#SettingsApp div.section.opt div.opt-sel {
+  margin: 0;
+  margin-left: auto;
+}
+
+window#SettingsApp div.section.opt div.opt-sel input.switch {
+  margin: 9px 0;
+}
+
+window#SettingsApp div.section.opt div.opt-sel select {
+  min-width: 100px;
+  margin: 5px 0;
+  height: 30px;
+  background-color: var(--button-bg);
+}
+
+window#SettingsApp div.section.opt div.opt-sel select:hover {
+  background-color: var(--button-hover-bg);
+}
+
+window#SettingsApp div.section.opt div.opt-sel button {
+  height: 26px;
+  margin: 7px 0;
+}
+
+window#SettingsApp div.section.collapsible.collapsed:hover {
+  border: var(--button-hover-bg) 1px solid;
+}
+
+window#SettingsApp div.section.collapsible.collapsed:hover > div.header {
+  background-color: var(--button-hover-bg);
+}
+
+window#SettingsApp div.section.collapsible > div.header::after {
+  content: "expand_more";
+  font-family: "Material Icons Round";
+  position: absolute;
+  right: 10px;
+  font-size: 20px;
+  transition: transform 0.3s;
+}
+
+window#SettingsApp div.section.collapsible > section.opt {
+  margin: 0 7.5px;
+}
+
+window#SettingsApp div.section.collapsible.collapsed {
+  border: var(--button-bg) 1px solid;
+}
+
+window#SettingsApp div.section.collapsible > div.header::after {
+  transform: rotate(0deg);
+}
+
+window#SettingsApp div.section.collapsible.collapsed > div.header::after {
+  transform: rotate(-90deg);
+}
+
+window#SettingsApp div.section.collapsible > p {
+  max-width: 100%;
+  display: block;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+window#SettingsApp div.section.collapsible > div.header {
+  background-color: var(--button-bg);
+  width: calc(100% + 20px);
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border-radius: 0;
+  margin-left: -10px !important;
+  font-weight: normal;
+  font-size: inherit;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  margin-top: 0;
+  position: relative;
+}
+
+window#SettingsApp div.section.collapsible + section.collapsible {
+  margin-top: -8px;
+}
+
+window#SettingsApp div.section.collapsible * {
+  vertical-align: middle;
+}
+
+window#SettingsApp div.section.collapsible.collapsed {
+  max-height: 40px;
+}
+
+window#SettingsApp div.section.collapsible div.section-content {
+  padding: 10px 0;
+  white-space: normal;
+  box-sizing: border-box;
+}
+
+window#SettingsApp div.section ul {
+  margin: 10px 20px;
+  list-style-type: disc;
+  width: fit-content;
+}
+
+window#SettingsApp div.section ul li {
+  margin: 0;
+  margin-bottom: 10px;
+}

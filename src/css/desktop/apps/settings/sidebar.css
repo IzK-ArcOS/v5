@@ -1,0 +1,183 @@
+window#SettingsApp div.sidebar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 250px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  padding-top: 40px;
+  border-right: var(--win-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+window#SettingsApp div.sidebar.collapsed {
+  width: 60px;
+  padding: 10px;
+  padding-top: 35px;
+}
+
+window#SettingsApp div.sidebar.collapsed button.page span.caption {
+  display: none;
+}
+
+window#SettingsApp div.sidebar.collapsed button.page {
+  padding-left: 10px;
+}
+
+window#SettingsApp div.sidebar.collapsed button.page img {
+  margin-right: 0 !important;
+}
+
+window#SettingsApp div.sidebar.collapsed div.userprofile {
+  padding: 0;
+}
+
+window#SettingsApp div.sidebar.collapsed div.userprofile div.username {
+  display: none;
+}
+
+window#SettingsApp div.sidebar.collapsed div.userprofile > span {
+  margin: 0 auto;
+}
+
+window#SettingsApp div.sidebar.collapsed div.userprofile div.pfprenderer {
+  margin-right: 0;
+}
+
+window#SettingsApp div.sidebar hr {
+  border: var(--button-glass-hover-bg) 1px solid;
+}
+
+window#SettingsApp div.sidebar button.page {
+  display: block;
+  text-align: left;
+  width: 100%;
+  background-color: transparent;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-left: 0;
+  position: relative;
+  white-space: nowrap;
+  margin: 5px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+window#SettingsApp div.sidebar.collapsed button.page.menu {
+  width: 38px;
+  left: 10px;
+}
+
+window#SettingsApp div.sidebar button.page.menu {
+  width: 28px;
+  text-overflow: unset;
+  overflow: visible;
+  white-space: initial;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  z-index: 1000;
+  margin: 0;
+}
+
+window#SettingsApp div.sidebar button.page::before {
+  width: 3px;
+  content: " ";
+  height: 3px;
+  margin: 12.5px 0;
+  background-color: transparent;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  border-radius: 1.5px;
+  transition: all 0.3s;
+}
+
+window#SettingsApp div.sidebar button.page.selected::before {
+  background-color: var(--accent);
+  height: 16px;
+  margin: 6px 0;
+  filter: var(--elevated-accent-filter);
+}
+
+window#SettingsApp div.sidebar button.page::after {
+  content: " ";
+
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  opacity: 0.3; /* 
+  margin: -1px; */
+}
+
+window#SettingsApp div.sidebar.collapsed button.page.selected::after {
+  background-color: var(--accent);
+}
+
+window#SettingsApp div.sidebar button.page.selected,
+window#SettingsApp div.sidebar button.page:hover {
+  background-color: var(--button-glass-bg);
+}
+
+window#SettingsApp div.sidebar button.page:active {
+  background-color: var(--button-glass-active-bg);
+}
+
+window#SettingsApp div.sidebar button.page.selected {
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+window#SettingsApp div.sidebar button.page img.icon {
+  height: 18px;
+  margin-right: 10px;
+}
+
+window#SettingsApp div.sidebar button.page span.material-icons-round {
+  margin: 0;
+}
+
+window#SettingsApp div.sidebar * {
+  vertical-align: middle;
+}
+
+window#SettingsApp div.sidebar div.userprofile {
+  margin-top: auto;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+}
+
+window#SettingsApp div.sidebar div.userprofile * {
+  vertical-align: middle;
+}
+
+window#SettingsApp div.sidebar div.userprofile div.pfp {
+  margin-right: 10px;
+  border: var(--accent) 2px solid;
+}
+
+window#SettingsApp div.sidebar div.userprofile p {
+  display: block;
+  margin: 0;
+  opacity: 0.4;
+}
+
+window#SettingsApp div.sidebar div.userprofile p.name {
+  font-weight: bold;
+  opacity: 1;
+}
+
+window#SettingsApp div.sidebar div.userprofile p.name span.developer {
+  margin-left: 0px;
+  vertical-align: middle;
+  font-size: 16px;
+}

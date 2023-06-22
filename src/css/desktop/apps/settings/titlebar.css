@@ -1,0 +1,15 @@
+window#SettingsApp div.titlebar {
+  padding: 10px !important;
+  height: 40px !important;
+  background-color: transparent !important;
+}
+
+window#SettingsApp > div.titlebar p.title,
+window#SettingsApp > div.titlebar div.centeredtitle {
+  display: none;
+}
+window#SettingsApp.lefttb div.titlebar div.controls {
+  left: unset !important;
+  margin-left: auto !important;
+  position: relative !important;
+}

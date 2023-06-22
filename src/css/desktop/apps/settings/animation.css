@@ -1,0 +1,31 @@
+.slide-in-left {
+  animation: slide-in-left forwards;
+  animation-duration: 0.3s;
+}
+
+.slide-out-right {
+  animation: slide-out-right forwards;
+  animation-duration: 0.3s;
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    margin-left: -20px;
+  }
+  to {
+    opacity: unset;
+    margin-left: initial;
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    opacity: 1;
+    margin-left: 0;
+  }
+  to {
+    opacity: 0;
+    margin-left: 20px;
+  }
+}

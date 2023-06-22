@@ -1,0 +1,59 @@
+window#SettingsApp div.body:not(.overlay) {
+  height: calc(100% - 40px) !important;
+  margin-top: 40px !important;
+}
+
+window#SettingsApp div.content {
+  position: absolute;
+  width: calc(100% - 250px);
+  height: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: var(--win-bg);
+  top: 0px;
+  right: 0px;
+  margin-left: 0px;
+  transition: all 0.3s, margin-left 0s;
+  overflow-y: auto;
+}
+
+window#SettingsApp div.content.collapsed {
+  width: calc(100% - 60px);
+}
+
+window#SettingsApp div.content button.action {
+  display: block;
+  width: 60%;
+  max-width: 300px;
+  text-align: left;
+  padding: 15px;
+}
+
+window#SettingsApp div.content button.martop {
+  margin-top: 15px;
+}
+
+window#SettingsApp div.content div.inner > h1 {
+  margin-top: 0;
+}
+
+window#SettingsApp div.content.static {
+  animation: none !important;
+  opacity: 1 !important;
+  margin-left: 0px !important;
+  overflow-y: auto;
+}
+
+window#SettingsApp div.content div.inner {
+  white-space: nowrap;
+  position: relative;
+  height: 100%;
+}
+
+window#SettingsApp div.content div.inner.transition {
+  opacity: 0;
+  margin-right: 30px;
+  margin-left: 30px;
+
+  min-width: inherit;
+}
