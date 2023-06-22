@@ -13,6 +13,14 @@
   let password = "";
   let error = false;
   let working = false;
+  let loading = true;
+
+  onMount(async () => {
+    const users = await getUsers();
+
+    if (!users.length) applyFTSState("finish");
+    loading = false;
+  });
 
   function changeServer() {
     ConnectedServer.set(undefined);
@@ -43,40 +51,42 @@
   }
 </script>
 
-<div class="header centered">
-  <img src={account} alt="Login" />
-  <h1>Who are you?</h1>
-  <p class="subtitle">Let's get you logged in</p>
-</div>
+{#if !loading}
+  <div class="header centered">
+    <img src={account} alt="Login" />
+    <h1>Who are you?</h1>
+    <p class="subtitle">Let's get you logged in</p>
+  </div>
 
-<input
-  type="text"
-  class="fullwidth centered"
-  class:error
-  placeholder="Username"
-  bind:value={username}
-/>
-<div class="input-wrap">
   <input
-    type="password"
+    type="text"
     class="fullwidth centered"
     class:error
-    placeholder="Password"
-    bind:value={password}
+    placeholder="Username"
+    bind:value={username}
   />
-  <button
-    class="login material-icons-round"
-    disabled={!username || !password || working}
-    on:click={login}
-  >
-    {#if working}
-      <Spinner height={16} />
-    {:else}
-      arrow_forward_ios
-    {/if}
-  </button>
-</div>
-<button class="flat centered" on:click={changeServer}>Change server</button>
+  <div class="input-wrap">
+    <input
+      type="password"
+      class="fullwidth centered"
+      class:error
+      placeholder="Password"
+      bind:value={password}
+    />
+    <button
+      class="login material-icons-round"
+      disabled={!username || !password || working}
+      on:click={login}
+    >
+      {#if working}
+        <Spinner height={16} />
+      {:else}
+        arrow_forward_ios
+      {/if}
+    </button>
+  </div>
+  <button class="flat centered" on:click={changeServer}>Change server</button>
+{/if}
 
 <style scoped>
   button.login {

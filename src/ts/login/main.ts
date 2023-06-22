@@ -38,6 +38,16 @@ export async function loginOnMount() {
 
   setTimeout(() => {
     if (!state) applyLoginState(remembered ? "autologin" : "selector");
+
+    if (!Object.keys(users).length && !remembered) {
+      if (!server) {
+        applyState("fts");
+      } else {
+        applyLoginState("newapiuser");
+      }
+
+      return;
+    }
   }, 100);
 
   if (
@@ -63,15 +73,5 @@ export async function loginOnMount() {
     setTimeout(() => {
       applyState("desktop");
     }, 2000);
-  }
-
-  if (!Object.keys(users).length && !remembered) {
-    if (!server) {
-      applyState("fts");
-    } else {
-      applyLoginState("newapiuser");
-    }
-
-    return;
   }
 }
