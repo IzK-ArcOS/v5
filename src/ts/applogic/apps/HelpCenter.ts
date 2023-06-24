@@ -1,5 +1,6 @@
 import logo from "../../../assets/apps/helpcenter.svg";
 import HelpCenterSvelte from "../../../lib/Apps/HelpCenter.svelte";
+import { createOverlayableError } from "../../errorlogic/overlay";
 import type { App } from "../interface";
 
 export const HelpCenter: App = {
@@ -24,4 +25,17 @@ export const HelpCenter: App = {
   },
   content: HelpCenterSvelte,
   glass: true,
+  events: {
+    open() {
+      createOverlayableError(
+        {
+          title: "Caution!",
+          message:
+            "This application is still in development past the release of 5.0.6. It was hidden to prevent you from seeing this half finished help center. Do not take the content or UI serious.",
+          buttons: [{ caption: "OK", action() {} }],
+        },
+        "HelpCenter"
+      );
+    },
+  },
 };
