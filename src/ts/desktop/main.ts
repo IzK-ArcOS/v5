@@ -36,6 +36,7 @@ export function assignDesktopListeners() {
       if (udata.sh.noGlass) classes += `noglass `;
       if (udata.sh.window.bigtb) classes += `bigtitlebars `;
       if (udata.sh.desktop.sharp) classes += `sharp `;
+      if (udata.sh.taskbar.isLauncher) classes += `is-launcher `;
 
       desktopClassNames.set(classes);
     }

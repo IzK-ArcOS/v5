@@ -5,38 +5,51 @@
 
 <h1>Shell</h1>
 <OptionSection
-  title="Center taskbar buttons"
-  context="Centers the taskbar app buttons"
+  title="Launcher Mode"
+  context="Use a GNOME-style launcher instead of the taskbar"
 >
   <input
     type="checkbox"
     id="a"
     class="switch"
-    bind:checked={$UserData.sh.taskbar.centered}
+    bind:checked={$UserData.sh.taskbar.isLauncher}
   />
 </OptionSection>
-<OptionSection
-  title="Taskbar app labels"
-  context="Display app names on the taskbar"
->
-  <input
-    type="checkbox"
-    id="a"
-    class="switch"
-    bind:checked={$UserData.sh.taskbar.labels}
-    disabled={!!$UserData.sh.taskbar.pos}
-  />
-</OptionSection>
-<OptionSection
-  title="Taskbar position"
-  context="Where do you want the taskbar?"
->
-  <select bind:value={$UserData.sh.taskbar.pos}>
-    <option value="vertical">Left</option>
-    <option value="">Bottom</option>
-    <option value="vertical-right">Right</option>
-  </select>
-</OptionSection>
+{#if !$UserData.sh.taskbar.isLauncher}
+  <OptionSection
+    title="Center taskbar buttons"
+    context="Centers the taskbar app buttons"
+  >
+    <input
+      type="checkbox"
+      id="a"
+      class="switch"
+      bind:checked={$UserData.sh.taskbar.centered}
+    />
+  </OptionSection>
+  <OptionSection
+    title="Taskbar app labels"
+    context="Display app names on the taskbar"
+  >
+    <input
+      type="checkbox"
+      id="a"
+      class="switch"
+      bind:checked={$UserData.sh.taskbar.labels}
+      disabled={!!$UserData.sh.taskbar.pos}
+    />
+  </OptionSection>
+  <OptionSection
+    title="Taskbar position"
+    context="Where do you want the taskbar?"
+  >
+    <select bind:value={$UserData.sh.taskbar.pos}>
+      <option value="vertical">Left</option>
+      <option value="">Bottom</option>
+      <option value="vertical-right">Right</option>
+    </select>
+  </OptionSection>
+{/if}
 <hr />
 <OptionSection title="Small start menu" context="Make the start menu smaller">
   <input

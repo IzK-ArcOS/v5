@@ -2,6 +2,7 @@
 @import url("./desktop/wallpaper.css");
 /* @import url("./desktop/taskbar.css"); */
 @import url("./desktop/newtaskbar.css");
+@import url("./desktop/launcher.css");
 @import url("./desktop/startmenu.css");
 @import url("./desktop/window.css");
 @import url("./desktop/notification.css");

@@ -1,0 +1,27 @@
+div.launcher-bar > div.opened-apps button.activated {
+  background-color: var(--button-glass-bg);
+}
+
+div.launcher-bar > div.opened-apps button.activated::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-2.5px);
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+  background-color: var(--accent);
+  filter: var(--elevated-accent-filter);
+}
+
+div.launcher-bar > div.opened-apps button.minimized {
+  opacity: 0.5;
+}
+
+div.launcher-bar > div.opened-apps {
+  display: flex;
+  gap: 10px;
+  padding-left: 10px;
+  border-left: var(--win-border-light);
+}

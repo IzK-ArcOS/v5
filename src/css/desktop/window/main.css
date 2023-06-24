@@ -75,27 +75,34 @@ window.custom div.body {
   transition: all 0.2s;
 }
 
-div.desktop:not([class*="tb-vertical"]) .window.max {
+div.desktop:not(.is-launcher):not([class*="tb-vertical"]) .window.max {
   top: 0px !important;
   left: 0px !important;
   width: 100% !important;
   height: calc(100% - 45px) !important;
 }
 
-div.desktop.tb-vertical .window.max {
+div.desktop:not(.is-launcher).tb-vertical .window.max {
   top: 0px !important;
   left: 65px !important;
 }
 
-div.desktop[class*="tb-vertical"] .window.max {
+div.desktop:not(.is-launcher)[class*="tb-vertical"] .window.max {
   height: 100% !important;
   width: calc(100% - 65px) !important;
 }
 
-div.desktop.tb-vertical-right .window.max {
+div.desktop:not(.is-launcher).tb-vertical-right .window.max {
   left: 0px !important;
   right: unset !important;
   top: 0px !important;
+}
+
+div.desktop.is-launcher .window.max:not(.fullscreen) {
+  top: 35px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: calc(100% - 35px) !important;
 }
 
 .window.visible {
@@ -142,20 +149,21 @@ div.desktop.tb-vertical-right .window.max {
   pointer-events: none;
 }
 
-div.tbdocked .window.max {
+div.tbdocked:not(.is-launcher) .window.max {
   height: calc(100% - 45px) !important;
 }
 
-div.tbdocked.tb-vertical .window.max {
+div.tbdocked:not(.is-launcher).tb-vertical .window.max {
   min-width: calc(100% - 45px) !important;
   left: 45px !important;
 }
 
-div.tbdocked.tb-vertical-right .window.max {
+div.tbdocked:not(.is-launcher).tb-vertical-right .window.max {
   min-width: calc(100% - 45px) !important;
 }
 
-div.desktop:not(.tbdocked):not([class*="tb-vertical"]) .window.max {
+div.desktop:not(.is-launcher):not(.tbdocked):not([class*="tb-vertical"])
+  .window.max {
   height: calc(100% - 65px) !important;
 }
 

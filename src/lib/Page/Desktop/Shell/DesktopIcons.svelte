@@ -7,7 +7,7 @@
 </script>
 
 {#if $UserData.sh.desktop.icons}
-  <div class="desktopIcons">
+  <div class="desktopIcons" class:launcher={$UserData.sh.taskbar.isLauncher}>
     {#each $WindowStore as app}
       {#if isPopulatable(app)}
         <DesktopIcon {app} />

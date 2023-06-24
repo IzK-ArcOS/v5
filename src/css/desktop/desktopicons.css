@@ -8,6 +8,10 @@ div.desktopIcons {
   overflow: hidden;
 }
 
+div.desktopIcons.launcher {
+  padding-top: 35px !important;
+}
+
 div.desktop.tbdocked:not(.tb-vertical):not(.tb-vertical-right)
   div.desktopIcons {
   height: calc(100% - 45px);

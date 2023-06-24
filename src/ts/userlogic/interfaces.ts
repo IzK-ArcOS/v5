@@ -9,6 +9,7 @@ export interface UserData {
       pos: "vertical" | "" | "vertical-right";
       docked: boolean; //done
       colored: boolean;
+      isLauncher: boolean;
     };
 
     window: {

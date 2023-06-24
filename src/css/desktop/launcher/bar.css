@@ -1,0 +1,56 @@
+@import url("./bar/colored.css");
+@import url("./bar/opened.css");
+
+div.launcher-bar {
+  position: absolute;
+  bottom: 20px;
+  height: 70px;
+  min-width: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: var(--glass-ultradark-bg);
+  border: var(--win-border-light);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+  backdrop-filter: blur(var(--glass-blur));
+  display: flex;
+  gap: 10px;
+}
+
+div.desktop.theme-light div.launcher-bar {
+  background-color: #fffa;
+  color: #222;
+}
+
+div.launcher-bar button {
+  width: 48px;
+  height: 48px;
+  border: none;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 0;
+  position: relative;
+}
+
+div.launcher-bar button:hover {
+  background-color: var(--button-glass-bg);
+}
+
+div.launcher-bar button:active {
+  background-color: var(--button-glass-active-bg);
+}
+
+div.launcher-bar button img {
+  height: 24px;
+}
+
+div.launcher-bar > button.apps {
+  background-color: var(--button-glass-bg);
+  padding: 0;
+}
+
+div.launcher-bar > button.apps > img {
+  height: 28px;
+}
