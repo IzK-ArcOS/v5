@@ -98,11 +98,18 @@ div.desktop:not(.is-launcher).tb-vertical-right .window.max {
   top: 0px !important;
 }
 
-div.desktop.is-launcher .window.max:not(.fullscreen) {
-  top: 35px !important;
+div.desktop.is-launcher.tb-docked .window.max:not(.fullscreen) {
+  top: 30px !important;
   left: 0 !important;
   width: 100% !important;
-  height: calc(100% - 35px) !important;
+  height: calc(100% - 30px) !important;
+}
+
+div.desktop.is-launcher:not(.tb-docked) .window.max:not(.fullscreen) {
+  top: 50px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: calc(100% - 50px) !important;
 }
 
 .window.visible {

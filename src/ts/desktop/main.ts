@@ -37,6 +37,7 @@ export function assignDesktopListeners() {
       if (udata.sh.window.bigtb) classes += `bigtitlebars `;
       if (udata.sh.desktop.sharp) classes += `sharp `;
       if (udata.sh.taskbar.isLauncher) classes += `is-launcher `;
+      if (udata.sh.taskbar.docked) classes += `tb-docked `;
 
       desktopClassNames.set(classes);
     }

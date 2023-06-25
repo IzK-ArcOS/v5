@@ -25,6 +25,7 @@ import { loadWindow } from "./load";
 import { updateStores } from "./store";
 import { ArcTerm } from "./apps/ArcTerm";
 import { HelpCenter } from "./apps/HelpCenter";
+import { AppLauncher } from "./apps/AppLauncher";
 
 export const DefaultApps: { [key: string]: App } = {
   ErrCre: ErrorCreator,
@@ -46,6 +47,7 @@ export const DefaultApps: { [key: string]: App } = {
   MarkDownViewer,
   MediaPlayerApp,
   ArcShell,
+  AppLauncher,
   DesktopWallpaper,
   DonutApp,
   ArcTerm,

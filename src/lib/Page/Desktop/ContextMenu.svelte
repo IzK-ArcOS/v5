@@ -74,6 +74,7 @@
   class="contextmenu"
   class:show
   class:compact={$UserData.sh.compactContext}
+  class:colored={$UserData.sh.taskbar.colored}
   bind:this={menuElement}
   style="top: {y}px; left: {x}px; z-index: {$maxZIndex + 10}"
 >

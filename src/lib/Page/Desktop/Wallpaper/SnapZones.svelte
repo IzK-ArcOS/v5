@@ -9,6 +9,7 @@
 <div
   class="snapzones"
   class:docked={$UserData.sh.taskbar.docked}
+  class:launcher={$UserData.sh.taskbar.isLauncher}
   style="z-index:{$maxZIndex + 5};"
 >
   <LeftZone />

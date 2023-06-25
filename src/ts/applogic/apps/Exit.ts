@@ -24,7 +24,7 @@ export const Exit: App = {
     windowState: { min: false, max: false, fll: true },
   },
   content: ExitSvelte,
-  glass: false,
+  glass: true,
 
   events: {
     keyboardShortcuts: [

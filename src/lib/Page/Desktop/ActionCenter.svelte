@@ -25,6 +25,7 @@
 <div
   class="actioncenter"
   class:docked={$UserData.sh.taskbar.docked}
+  class:launcher={$UserData.sh.taskbar.isLauncher}
   class:opened
   class:noquick={$UserData.sh.noQuickSettings}
   class:colored={$UserData.sh.taskbar.colored}

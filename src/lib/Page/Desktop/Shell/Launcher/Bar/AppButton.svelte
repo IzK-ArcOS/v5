@@ -1,13 +1,14 @@
 <script lang="ts">
-  import { isMinimized } from "../../../../../ts/applogic/checks";
-  import type { App } from "../../../../../ts/applogic/interface";
+  import { isMinimized } from "../../../../../../ts/applogic/checks";
+  import { getOriginalIcon } from "../../../../../../ts/applogic/icon";
+  import type { App } from "../../../../../../ts/applogic/interface";
   import {
     WindowStore,
     focusedWindowId,
     maxZIndex,
     updateStores,
-  } from "../../../../../ts/applogic/store";
-  import { getWindowElement } from "../../../../../ts/window/main";
+  } from "../../../../../../ts/applogic/store";
+  import { getWindowElement } from "../../../../../../ts/window/main";
 
   export let app: App;
 
@@ -39,5 +40,5 @@
   on:click={e}
   class:activated={app.id == $focusedWindowId}
 >
-  <img src={app.info.icon} alt={app.info.name} />
+  <img src={getOriginalIcon(app.id) || app.info.icon} alt={app.info.name} />
 </button>

@@ -1,25 +1,36 @@
 @import url("./bar/colored.css");
 @import url("./bar/opened.css");
+@import url("./bar/trigger.css");
 
 div.launcher-bar {
   position: absolute;
-  bottom: 20px;
+  bottom: -90px;
+  opacity: 0;
+  visibility: hidden;
   height: 70px;
-  min-width: 50%;
+  min-width: 25%;
   left: 50%;
-  transform: translate(-50%);
-  background-color: var(--glass-ultradark-bg);
+  transform: translate(-50%) scale(0.8);
+  background-color: var(--glass-ultradark);
   border: var(--win-border-light);
   border-radius: 10px;
-  overflow: hidden;
   padding: 10px;
   box-sizing: border-box;
   backdrop-filter: blur(var(--glass-blur));
   display: flex;
   gap: 10px;
+  transition: all 0.4s, color 0.1s, background-color 0.3s !important;
 }
 
-div.desktop.theme-light div.launcher-bar {
+div.launcher-bar.visible {
+  bottom: 20px;
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%) scale(1);
+}
+
+div.desktop.theme-light div.launcher-bar,
+div.desktop.theme-light div.launcher-topbar {
   background-color: #fffa;
   color: #222;
 }

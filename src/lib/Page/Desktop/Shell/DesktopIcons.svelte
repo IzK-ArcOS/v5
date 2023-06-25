@@ -7,7 +7,12 @@
 </script>
 
 {#if $UserData.sh.desktop.icons}
-  <div class="desktopIcons" class:launcher={$UserData.sh.taskbar.isLauncher}>
+  <div
+    class="desktopIcons"
+    class:launcher={$UserData.sh.taskbar.isLauncher}
+    class:undocked-launcher={$UserData.sh.taskbar.isLauncher &&
+      !$UserData.sh.taskbar.docked}
+  >
     {#each $WindowStore as app}
       {#if isPopulatable(app)}
         <DesktopIcon {app} />

@@ -2,7 +2,8 @@
   border: transparent 1px solid !important;
 } */
 
-div.launcher-bar::after {
+div.launcher-bar::after,
+div.launcher-topbar::after {
   content: " ";
 
   border-radius: inherit;
@@ -17,6 +18,7 @@ div.launcher-bar::after {
   pointer-events: none;
 }
 
-div.launcher-bar.colored::after {
+div.launcher-bar.colored::after,
+div.launcher-topbar.colored::after {
   background-color: var(--accent);
 }

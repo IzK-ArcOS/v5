@@ -16,6 +16,11 @@ div.actioncenter {
   overflow: hidden;
 }
 
+div.actioncenter.launcher {
+  top: 52px;
+  height: calc(100% - 62px);
+}
+
 div.actioncenter::after {
   content: " ";
 
@@ -39,22 +44,29 @@ div.actioncenter.colored::after {
   background-color: var(--accent);
 }
 
-div[class*="tb-vertical"] div.actioncenter {
+div[class*="tb-vertical"] div.actioncenter:not(.launcher) {
   height: calc(100% - 20px);
 }
 
-div[class*="tb-vertical"] div.actioncenter.docked {
+div[class*="tb-vertical"] div.actioncenter.docked:not(.launcher) {
   height: 100%;
   border-right: unset;
 }
 
-div.actioncenter.docked {
+div.actioncenter.docked:not(.launcher) {
   height: calc(100% - 45px);
   top: 0px;
   right: -400px;
   border-radius: 0px;
   /* border: transparent 1px solid; 
   border-left: var(--glass-alt-bg) 1px solid;*/
+}
+
+div.actioncenter.docked.launcher {
+  top: 32px;
+  right: -400px;
+  height: calc(100% - 30px);
+  border-radius: 0;
 }
 
 div.actioncenter.noquick div.quicksettings {
@@ -123,11 +135,11 @@ div.actioncenter.opened {
   opacity: 1;
 }
 
-div.tb-vertical-right div.actioncenter.opened.docked {
+div.tb-vertical-right div.actioncenter.opened.docked:not(.launcher) {
   right: 45px;
 }
 
-div.tb-vertical-right div.actioncenter.opened {
+div.tb-vertical-right div.actioncenter.opened:not(.launcher) {
   right: 65px;
 }
 

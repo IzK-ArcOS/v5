@@ -1,5 +1,8 @@
+import { openWindow } from "../../../applogic/events";
+import { showArcFind } from "../../../search/main";
 import { UserData } from "../../../userlogic/interfaces";
 import { reloadApps } from "../../../window/reload";
+import { ActionCenterOpened } from "../main";
 import type { QuickSetting } from "./interface";
 
 export const QuickSettings: QuickSetting[] = [
@@ -99,26 +102,27 @@ export const QuickSettings: QuickSetting[] = [
     caption: "",
   },
   {
-    icon: "",
-    iconOff: "",
+    icon: "search",
+    iconOff: "search",
     getter() {
       return false;
     },
     setter() {
+      showArcFind.set(true);
       return false;
     },
-    caption: "",
+    caption: "Search",
   },
   {
-    icon: "",
-    iconOff: "",
+    icon: "logout",
+    iconOff: "logout",
     getter() {
       return false;
     },
     setter() {
-      /* reloadApps(); */
+      openWindow("Exit");
       return false;
     },
-    caption: "",
+    caption: "Exit",
   },
 ];

@@ -9,7 +9,11 @@ div.desktopIcons {
 }
 
 div.desktopIcons.launcher {
-  padding-top: 35px !important;
+  padding-top: 40px !important;
+}
+
+div.desktopIcons.undocked-launcher {
+  padding-top: 52px !important;
 }
 
 div.desktop.tbdocked:not(.tb-vertical):not(.tb-vertical-right)

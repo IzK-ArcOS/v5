@@ -10,9 +10,8 @@
   class:docked={$UserData.sh.taskbar.docked}
   class:centered={$UserData.sh.taskbar.centered}
   class:colored={$UserData.sh.taskbar.colored}
-  class:visible={$UserData.sh.taskbar.pos != ""}
-  class:right={$UserData.sh.taskbar.pos == "vertical-right" &&
-    !$isFullscreenWindow}
+  class:visible={$UserData.sh.taskbar.pos != "" && !$isFullscreenWindow}
+  class:right={$UserData.sh.taskbar.pos == "vertical-right"}
   data-caller="shell-taskbar"
 >
   <slot />

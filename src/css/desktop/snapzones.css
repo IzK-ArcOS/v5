@@ -29,6 +29,16 @@ div.desktop.tb-vertical div.snapzones {
   --h: 100%;
 }
 
+div.desktop div.snapzones.launcher:not(.docked) {
+  --y: 42px;
+  --h: calc(100% - 42px);
+}
+
+div.desktop div.snapzones.launcher.docked {
+  --y: 32px;
+  --h: calc(100% - 32px);
+}
+
 div.desktop.tb-vertical-right div.snapzones {
   --x: 0px;
   --w: var(--f);

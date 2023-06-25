@@ -9,6 +9,8 @@
   import { committingUserData } from "../../../../ts/userlogic/main";
   import upload from "../../../../assets/upload.svg";
 
+  export let hasClock = true;
+
   let time = "";
 
   onMount(() => {
@@ -31,7 +33,9 @@
   <button class="icon committer" class:inactive={!$committingUserData}>
     <img src={upload} alt="Committing" />
   </button>
-  <div class="clock">{time}</div>
+  {#if hasClock}
+    <div class="clock">{time}</div>
+  {/if}
   <button
     class="material-icons-round ac-open"
     on:click={toggleActionCenter}

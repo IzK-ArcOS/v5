@@ -103,7 +103,7 @@
 
 <div
   class="arcfind-wrapper"
-  style="z-index: {$maxZIndex + 15};"
+  style="z-index: {$maxZIndex + 30};"
   class:show={$showArcFind}
 >
   <div class="arcfind">
