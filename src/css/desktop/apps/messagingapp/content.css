@@ -138,6 +138,7 @@ window#MessagingApp div.body > div.content div.target-selector::after {
 window#MessagingApp div.body > div.content div.target-options {
   position: absolute;
   background-color: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
   border: var(--button-bg) 1px solid;
   width: 100%;

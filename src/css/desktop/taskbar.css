@@ -6,6 +6,7 @@ div.taskbar {
   width: calc(100% - 20px);
   height: 45px;
   background-color: var(--glass-ultradark);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
   border-radius: var(--win-border-rad);
   border: var(--glass-alt-bg) 1px solid;

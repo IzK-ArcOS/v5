@@ -35,6 +35,7 @@ div.boot.fadeout * {
 div.boot * {
   -webkit-user-drag: none;
   user-select: none;
+  -webkit-user-select: none;
 }
 
 div.boot div.center-absolute img.logo {

@@ -43,6 +43,7 @@ div.fts div.center-absolute div.left {
   border-right: var(--win-border);
   left: 0px;
   padding: 15px;
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
 }
 

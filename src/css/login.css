@@ -44,6 +44,7 @@ div.login button:not(.user) {
   border: none;
   border-radius: 7.5px;
   transition: background-color 0.3s, opacity 0.15s;
+  -webkit-backdrop-filter: blur(7.5px);
   backdrop-filter: blur(7.5px);
 }
 

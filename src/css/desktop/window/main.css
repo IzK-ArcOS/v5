@@ -4,6 +4,7 @@
   left: 50px;
   /* background-color: var(--win-bg, #353535); */
   background-color: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
   color: var(--fg, #ccc);
   border-radius: var(--win-border-rad, 7.5px);
@@ -63,7 +64,8 @@ window.custom div.body {
 
 .window.glass {
   background-color: var(--glass-bg, #353535a2);
-  backdrop-filter: blur(var(--glass-blur, 10px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 10px));
+  backdrop-filter: blur(var(--glass-blur));
 }
 
 .window.max {

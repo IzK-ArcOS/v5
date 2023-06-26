@@ -49,7 +49,7 @@ div.userlogin div.cloudlogin button.material-icons-round {
   opacity: 1 !important;
 
   font-size: 13px;
-  backdrop-filter: unset;
+  -webkit-backdrop-filter: unset;
 }
 
 div.userlogin div.cloudlogin button.material-icons-round:disabled {

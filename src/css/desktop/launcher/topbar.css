@@ -8,6 +8,7 @@ div.launcher-topbar {
   height: 32px;
   background-color: var(--glass-ultradark);
   display: flex;
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
 }
 

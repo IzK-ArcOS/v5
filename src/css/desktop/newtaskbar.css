@@ -9,6 +9,7 @@ div.taskbar-v {
   left: 10px;
   box-sizing: border-box;
   background-color: var(--glass-ultradark);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
   border: var(--glass-alt-bg) 1px solid;
   display: flex;

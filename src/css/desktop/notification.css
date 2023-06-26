@@ -17,6 +17,7 @@ div.notification {
   max-height: 200px;
   box-sizing: border-box;
   padding: 15px;
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
 }
 
@@ -64,7 +65,7 @@ div.notification.ac {
   margin-bottom: 15px;
   border-bottom: var(--win-border-light);
   border-radius: 0;
-  backdrop-filter: unset;
+  -webkit-backdrop-filter: unset;
 }
 
 div.notification.ac div.buttons {

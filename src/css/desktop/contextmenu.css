@@ -5,6 +5,7 @@ div.desktop div.contextmenu {
   top: 0px;
   left: 0px;
   background-color: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
   color: var(--fg);
   border: var(--win-border);

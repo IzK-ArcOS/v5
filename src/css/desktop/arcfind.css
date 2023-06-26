@@ -12,7 +12,7 @@ div.arcfind-wrapper {
   opacity: 0;
   visibility: hidden;
   background-color: #111a;
-  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
 }
 
 div.arcfind-wrapper.show {
@@ -89,6 +89,7 @@ div.arcfind-wrapper div.results {
   margin-top: 10px;
   border-radius: var(--win-border-rad);
   border: var(--win-border);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
   padding: 5px;
   box-sizing: border-box;

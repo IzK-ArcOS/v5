@@ -70,6 +70,7 @@ window#SettingsApp div.desktop-page div.current div.fake-taskbar {
   width: calc(100% - 10px);
   height: 15px;
   border-radius: 3px;
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
   border: var(--win-border-light);
 }
