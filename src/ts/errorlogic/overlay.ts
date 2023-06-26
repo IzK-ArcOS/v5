@@ -1,11 +1,17 @@
 import { get } from "svelte/store";
 import type { OverlayableError } from "../applogic/interface";
 import { WindowStore } from "../applogic/store";
+import { Log, LogLevel } from "../console";
 
 export function createOverlayableError(
   error: OverlayableError,
   targetId: string
 ): boolean {
+  Log({
+    source: "errorlogic/overlay.ts",
+    msg: `Creating error "${error.title}" for parent ${targetId}`,
+    level: LogLevel.info,
+  });
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {

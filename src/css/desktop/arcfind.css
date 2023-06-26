@@ -13,6 +13,7 @@ div.arcfind-wrapper {
   visibility: hidden;
   background-color: #111a;
   -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
 }
 
 div.arcfind-wrapper.show {

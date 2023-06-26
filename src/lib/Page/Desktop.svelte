@@ -27,6 +27,7 @@
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
+  import { checkLinux } from "../../ts/tauri/linux";
 
   let show = false;
   let classes = "";
@@ -53,8 +54,8 @@
     setTimeout(() => (show = true), 250);
 
     startMessageCheckInterval();
-
     checkForUpdates();
+    checkLinux();
   });
 
   function resetDesktopState() {
