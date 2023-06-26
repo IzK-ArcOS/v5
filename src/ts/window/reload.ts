@@ -24,7 +24,7 @@ export function reloadApps() {
       icon: "autorenew",
       buttons: [
         {
-          capt: "Open Apps Settings",
+          caption: "Open Apps Settings",
           action: () => {
             openByKey("Apps");
           },

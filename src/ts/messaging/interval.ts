@@ -45,7 +45,7 @@ async function tick() {
     image: await getUserPfp(message.sender),
     buttons: [
       {
-        capt: "Open Messages",
+        caption: "Open Messages",
         action: () => {
           messageUpdateTrigger();
           openWindow("MessagingApp");

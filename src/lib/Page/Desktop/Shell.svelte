@@ -1,6 +1,7 @@
 <script lang="ts">
   import { UserData } from "../../../ts/userlogic/interfaces";
   import ActionCenter from "./ActionCenter.svelte";
+  import PushNotification from "./PushNotification.svelte";
   import HorizontalTaskbar from "./Shell/HorizontalTaskbar.svelte";
   import Launcher from "./Shell/Launcher.svelte";
   import Shade from "./Shell/Shade.svelte";
@@ -21,3 +22,4 @@
   <StartButton />
 </Taskbar> -->
 <ActionCenter />
+<PushNotification />

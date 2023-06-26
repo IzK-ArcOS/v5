@@ -135,7 +135,7 @@
       message: `A new feature update has been released to ArcOS. Do you want to check it out?`,
       buttons: [
         {
-          capt: "Learn more",
+          caption: "Learn more",
           action: () => {
             errorMessage(
               "This is a test error message",

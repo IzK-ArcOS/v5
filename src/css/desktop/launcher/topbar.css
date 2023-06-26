@@ -1,12 +1,12 @@
 div.launcher-topbar {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  width: calc(100% - 20px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: none;
+  border-radius: 0;
   height: 32px;
   background-color: var(--glass-ultradark);
-  border: var(--win-border-light);
-  border-radius: 5px;
   display: flex;
   backdrop-filter: blur(var(--glass-blur));
 }

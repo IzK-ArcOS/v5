@@ -2,7 +2,9 @@
   position: absolute;
   top: 50px;
   left: 50px;
-  background-color: var(--win-bg, #353535);
+  /* background-color: var(--win-bg, #353535); */
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
   color: var(--fg, #ccc);
   border-radius: var(--win-border-rad, 7.5px);
   border: var(--win-border, rgb(107, 107, 107) 1px solid);
@@ -98,18 +100,11 @@ div.desktop:not(.is-launcher).tb-vertical-right .window.max {
   top: 0px !important;
 }
 
-div.desktop.is-launcher.tb-docked .window.max:not(.fullscreen) {
-  top: 30px !important;
+div.desktop.is-launcher .window.max:not(.fullscreen) {
+  top: 32px !important;
   left: 0 !important;
   width: 100% !important;
-  height: calc(100% - 30px) !important;
-}
-
-div.desktop.is-launcher:not(.tb-docked) .window.max:not(.fullscreen) {
-  top: 50px !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: calc(100% - 50px) !important;
+  height: calc(100% - 32px) !important;
 }
 
 .window.visible {

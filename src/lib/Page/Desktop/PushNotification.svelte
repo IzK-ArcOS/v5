@@ -71,7 +71,7 @@
     <p class="message">{@html data.message}</p>
     <div class="buttons">
       {#each data.buttons as btn}
-        <button on:click={buttonEvent(btn.action)}>{btn.capt}</button>
+        <button on:click={buttonEvent(btn.action)}>{btn.caption}</button>
       {/each}
     </div>
   {/if}

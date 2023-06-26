@@ -1,5 +1,6 @@
 window#AppInfo div.name {
   display: flex;
+  margin-top: 10px;
 }
 
 window#AppInfo div.name img {

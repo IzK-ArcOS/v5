@@ -74,7 +74,7 @@ export async function checkForUpdates() {
       message: `ArcOS Desktop ${version} is available for download. Install it to get the latest features.`,
       buttons: [
         {
-          capt: "Open",
+          caption: "Open",
           action: () => window.open(RELEASE_URL, "_blank"),
         },
       ],

@@ -8,7 +8,7 @@ export interface NotificationData {
 }
 
 export interface NotificationButton {
-  capt: string;
+  caption: string;
   action: () => void;
 }
 

@@ -26,7 +26,6 @@
   import ArcFind from "./Desktop/ArcFind.svelte";
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
-  import PushNotification from "./Desktop/PushNotification.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
 
   let show = false;
@@ -80,6 +79,5 @@
     <ErrorDialogStore />
     <ContextMenu />
     <ArcFind />
-    <PushNotification />
   </div>
 {/if}

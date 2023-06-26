@@ -43,4 +43,5 @@
   >
     notifications
   </button>
+  <slot />
 </div>

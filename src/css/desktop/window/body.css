@@ -9,6 +9,11 @@ window div.body {
   margin-top: 30px;
 }
 
+window:not(.custom):not(.headless):not(.glass) div.body {
+  background-color: var(--win-bg);
+  border-top: var(--win-border);
+}
+
 window.headless div.titlebar {
   display: none;
 }

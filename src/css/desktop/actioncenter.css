@@ -17,8 +17,8 @@ div.actioncenter {
 }
 
 div.actioncenter.launcher {
-  top: 52px;
-  height: calc(100% - 62px);
+  top: 42px;
+  height: calc(100% - 52px);
 }
 
 div.actioncenter::after {
@@ -58,14 +58,11 @@ div.actioncenter.docked:not(.launcher) {
   top: 0px;
   right: -400px;
   border-radius: 0px;
-  /* border: transparent 1px solid; 
-  border-left: var(--glass-alt-bg) 1px solid;*/
 }
 
 div.actioncenter.docked.launcher {
   top: 32px;
-  right: -400px;
-  height: calc(100% - 30px);
+  height: calc(100% - 32px);
   border-radius: 0;
 }
 

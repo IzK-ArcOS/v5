@@ -39,7 +39,7 @@
   <div class="buttons">
     <div class="inner">
       {#each notification[1].buttons as button}
-        <button on:click={buttonEvent(button.action)}>{button.capt}</button>
+        <button on:click={buttonEvent(button.action)}>{button.caption}</button>
       {/each}
     </div>
   </div>

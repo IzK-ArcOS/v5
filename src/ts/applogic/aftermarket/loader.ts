@@ -76,7 +76,7 @@ export function loadAppFile(data: ArcFile) {
       message: `Do you want to import application file "${data.name}" every time you log in?`,
       buttons: [
         {
-          capt: "Yes",
+          caption: "Yes",
           action() {
             const udata = get(UserData);
 
@@ -88,7 +88,7 @@ export function loadAppFile(data: ArcFile) {
           },
         },
         {
-          capt: "Don't show again",
+          caption: "Don't show again",
           action() {
             const udata = get(UserData);
 
