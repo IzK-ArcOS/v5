@@ -1,6 +1,7 @@
 import { get } from "svelte/store";
 import type { App } from "./interface";
 import { getWindow, WindowStore } from "./store";
+import { UserData } from "../userlogic/interfaces";
 
 export function isLoaded(id: string): boolean {
   const ws = get(WindowStore);
@@ -41,5 +42,7 @@ export function isDisabled(id: string): boolean {
 }
 
 export function isPopulatable(app: App) {
+  if (get(UserData).sh.showHiddenApps && !app.disabled) return true;
+
   return !app.disabled && !app.info.hidden && !app.info.custom;
 }

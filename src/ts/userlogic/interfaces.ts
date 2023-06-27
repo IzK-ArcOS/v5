@@ -36,6 +36,7 @@ export interface UserData {
     noQuickSettings: boolean;
     userThemes?: ThemeStore;
     compactContext: boolean;
+    showHiddenApps?: boolean;
   };
 
   disabledApps: string[];

@@ -66,6 +66,8 @@ div.desktopIcons button p.name {
   max-height: 2.5em;
   text-shadow: #000 0 0 5px;
   color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 div.desktopIcons button img {

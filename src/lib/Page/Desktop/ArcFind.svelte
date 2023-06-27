@@ -7,6 +7,8 @@
   import NoResults from "./ArcFind/NoResults.svelte";
   import Result from "./ArcFind/Result.svelte";
 
+  export let inlined = false;
+
   let query = "";
   let index = 0;
   let loading = false;
@@ -103,8 +105,9 @@
 
 <div
   class="arcfind-wrapper"
+  class:inlined
   style="z-index: {$maxZIndex + 30};"
-  class:show={$showArcFind}
+  class:show={$showArcFind || inlined}
 >
   <div class="arcfind">
     <form on:submit={submit}>
@@ -132,5 +135,9 @@
       {/if}
     </div>
   {/if}
-  <button class="material-icons-round close" on:click={closeThis}>close</button>
+  {#if !inlined}
+    <button class="material-icons-round close" on:click={closeThis}
+      >close</button
+    >
+  {/if}
 </div>

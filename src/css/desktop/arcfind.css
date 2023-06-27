@@ -16,10 +16,22 @@ div.arcfind-wrapper {
   backdrop-filter: blur(30px);
 }
 
+div.arcfind-wrapper.inlined {
+  position: initial;
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  backdrop-filter: unset;
+}
+
 div.arcfind-wrapper.show {
   opacity: 1;
   pointer-events: initial;
   visibility: visible;
+}
+
+div.arcfind-wrapper:not(.show) * {
+  pointer-events: none !important;
 }
 
 div.arcfind-wrapper button.material-icons-round.close {
@@ -50,6 +62,7 @@ div.arcfind-wrapper div.arcfind {
   border-radius: var(--win-border-rad);
   margin-top: 5%;
   display: flex;
+  backdrop-filter: blur(var(--glass-blur));
 }
 
 div.arcfind-wrapper div.arcfind button {

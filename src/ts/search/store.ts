@@ -27,11 +27,13 @@ const powerOptions: SearchItem[] = [
 ];
 
 export async function getSearchItems(): Promise<SearchItem[]> {
-  let result: SearchItem[] = powerOptions;
+  let result: SearchItem[] = [...powerOptions];
 
   for (let i = 0; i < searchProviders.length; i++) {
     result.push(...(await searchProviders[i]()));
   }
+
+  console.log(result);
 
   return result;
 }

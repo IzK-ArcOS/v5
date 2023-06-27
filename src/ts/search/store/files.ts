@@ -17,8 +17,8 @@ import { FileBrowserCurrentDir } from "../../applogic/apps/FileBrowser/main";
 let FILE_CACHE: SearchItem[] = [];
 
 export async function compileSearchableFiles() {
-  if (FILE_CACHE.length) return FILE_CACHE;
-
+  /* if (FILE_CACHE.length && FILE_CACHE[0]) return FILE_CACHE;
+   */
   const server = get(ConnectedServer);
 
   if (!server) return [];

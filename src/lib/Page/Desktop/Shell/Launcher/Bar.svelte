@@ -1,10 +1,11 @@
 <script lang="ts">
   import logo from "../../../../../assets/systemIcon.svg";
+  import { isOpened } from "../../../../../ts/applogic/checks";
+  import { closeWindow, openWindow } from "../../../../../ts/applogic/events";
   import type { App } from "../../../../../ts/applogic/interface";
   import {
     WindowStore,
     getOpenedStore,
-    isFullscreenWindow,
     maxZIndex,
   } from "../../../../../ts/applogic/store";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
@@ -31,17 +32,25 @@
       visible = false;
     }, 1000);
   }
+
+  function toggleLauncher() {
+    openWindow("AppLauncher");
+  }
 </script>
 
 <div
   class="launcher-bar"
   class:colored={$UserData.sh.taskbar.colored}
-  class:visible={visible && !$isFullscreenWindow}
+  class:visible
   style="z-index: {$maxZIndex + 20}"
   on:mouseenter={mouseenter}
   on:mouseleave={mouseleave}
 >
-  <button class="apps">
+  <button
+    class="apps"
+    on:click={toggleLauncher}
+    disabled={!!oa.filter((a) => a.id == "AppLauncher").length}
+  >
     <img src={logo} alt="ArcOS" />
   </button>
   <div class="opened-apps">

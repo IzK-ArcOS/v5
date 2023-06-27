@@ -19,7 +19,7 @@ export const Dir: Command = {
       const name = dirs[i].name;
       const size = `     <DIR>`;
 
-      term.std.writeLine(`${size} ${name}`);
+      term.std.writeColor(`[${size}] ${name}`, "gray", "white");
     }
 
     for (let i = 0; i < files.length; i++) {
@@ -28,7 +28,7 @@ export const Dir: Command = {
 
       totalSize += files[i].size;
 
-      term.std.writeLine(`${size} ${name}`);
+      term.std.writeColor(`[${size}] ${name}`, "gray", "white");
     }
 
     term.std.writeLine("");

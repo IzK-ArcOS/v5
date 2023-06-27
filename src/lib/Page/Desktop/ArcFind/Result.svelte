@@ -2,6 +2,7 @@
   import type { SearchItem } from "../../../../ts/search/interface";
   import searchIcon from "../../../../assets/arcfind.svg";
   import { showArcFind } from "../../../../ts/search/main";
+  import { closeWindow } from "../../../../ts/applogic/events";
 
   export let result: SearchItem;
   export let index: number;
@@ -10,6 +11,7 @@
   function trigger() {
     result.action(result);
     showArcFind.set(false);
+    closeWindow("AppLauncher");
   }
 </script>
 

@@ -14,6 +14,7 @@ import { applyState } from "../state/main";
 import { UserData } from "../userlogic/interfaces";
 import { reloadApps } from "../window/reload";
 import { ActionCenterOpened } from "./actioncenter/main";
+import { isOpened } from "../applogic/checks";
 
 export const previouslyLoaded = writable<boolean>(false);
 export const startOpened = writable<boolean>(false);
@@ -133,7 +134,12 @@ export function assignDesktopListeners() {
       alt: true,
       global: true,
       action: () => {
-        showArcFind.set(!get(showArcFind));
+        if (get(UserData).sh.taskbar.isLauncher) {
+          openWindow("AppLauncher");
+          return showArcFind.set(false);
+        }
+        if (!isOpened("AppLauncher")) showArcFind.set(!get(showArcFind));
+        else showArcFind.set(false);
       },
     },
     {

@@ -6,12 +6,14 @@
   import { startOpened } from "../../../../ts/desktop/main";
 
   export let app: App;
+  export let onopen = () => {};
 
   function open() {
     openWindow(app.id);
 
     updateStores();
     startOpened.set(false);
+    onopen();
   }
 </script>
 

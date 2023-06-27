@@ -2,6 +2,7 @@ import { get } from "svelte/store";
 import { WindowStore } from "../../applogic/store";
 import type { SearchItem } from "../interface";
 import { openWindow } from "../../applogic/events";
+import { isPopulatable } from "../../applogic/checks";
 
 export function compileSearchableApps(): SearchItem[] {
   const result: SearchItem[] = [];
@@ -9,7 +10,7 @@ export function compileSearchableApps(): SearchItem[] {
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
-    if (ws[i].info.hidden || ws[i].info.custom) continue;
+    if (!isPopulatable(ws[i])) continue;
 
     result.push({
       caption: ws[i].info.name,

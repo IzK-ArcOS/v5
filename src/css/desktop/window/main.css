@@ -19,6 +19,10 @@
   margin-top: 50px;
 }
 
+window.overlay {
+  background-color: var(--win-bg, #353535);
+}
+
 window.window.snapping {
   transform: scale(75%) translateY(-25%);
   opacity: 0.9;

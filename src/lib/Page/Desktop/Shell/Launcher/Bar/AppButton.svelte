@@ -1,5 +1,6 @@
 <script lang="ts">
   import { isMinimized } from "../../../../../../ts/applogic/checks";
+  import { closeWindow } from "../../../../../../ts/applogic/events";
   import { getOriginalIcon } from "../../../../../../ts/applogic/icon";
   import type { App } from "../../../../../../ts/applogic/interface";
   import {

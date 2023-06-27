@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { updateStores } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import OptionSection from "../OptionSection.svelte";
 </script>
@@ -57,6 +58,18 @@
     id="a"
     class="switch"
     bind:checked={$UserData.sh.start.small}
+  />
+</OptionSection>
+<OptionSection
+  title="Show hidden apps"
+  context="Display hidden apps in the start menu"
+>
+  <input
+    type="checkbox"
+    id="a"
+    class="switch"
+    bind:checked={$UserData.sh.showHiddenApps}
+    on:click={updateStores}
   />
 </OptionSection>
 <hr />
