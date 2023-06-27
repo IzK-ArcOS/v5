@@ -5,3 +5,5 @@ export interface SearchItem {
   image?: string;
   description?: string;
 }
+
+export type SearchProvider = () => Promise<SearchItem[]> | SearchItem[];

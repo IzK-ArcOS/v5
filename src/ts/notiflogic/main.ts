@@ -9,8 +9,8 @@ export const NotificationStore: Writable<NST> = writable<NST>({});
 let globalNotifTimeout: ReturnType<typeof setTimeout>;
 
 export function makeNotification(data: NotificationData) {
-  if (isDisabled("ArcShell"))
-    return errorMessage(
+  if (isDisabled("ArcShell")) {
+    errorMessage(
       data.title,
       data.message,
       data.image,
@@ -18,6 +18,8 @@ export function makeNotification(data: NotificationData) {
       { caption: "OK", action() {} },
       ...data.buttons
     );
+    return;
+  }
 
   clearTimeout(globalNotifTimeout);
 

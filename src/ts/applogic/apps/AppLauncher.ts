@@ -1,5 +1,5 @@
 import logo from "../../../assets/apps/default.svg";
-import ExitSvelte from "../../../lib/Apps/Exit.svelte";
+import AppLauncherSvelte from "../../../lib/Apps/AppLauncher.svelte";
 import type { App } from "../interface";
 
 export const AppLauncher: App = {
@@ -22,6 +22,6 @@ export const AppLauncher: App = {
     resizable: false,
     windowState: { min: false, max: false, fll: true },
   },
-  content: ExitSvelte,
+  content: AppLauncherSvelte,
   glass: true,
 };
