@@ -53,9 +53,8 @@ class CS {
   ];
   public Overrides: CalculatorOverrides = {
     "*": "x",
-    "/": ":",
     "**": "^",
-    "%": "mod()",
+    "%": "mod",
   };
   public altClasses = ["+", "-", "/", "*", "**", "%", "."];
 }
