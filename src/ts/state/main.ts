@@ -1,3 +1,4 @@
+import { appWindow } from "@tauri-apps/api/window";
 import { writable } from "svelte/store";
 import { logoffToken } from "../api/cred";
 import { InvalidStateBugrep } from "../bugrep";
@@ -25,6 +26,11 @@ export function applyState(stateKey: string) {
     const t = `ArcOS | ${state.name}`;
 
     document.title = t;
+    try {
+      appWindow.setTitle(state.name);
+    } catch {
+      /** */
+    }
 
     if (stateKey != "desktop") logoffToken();
 

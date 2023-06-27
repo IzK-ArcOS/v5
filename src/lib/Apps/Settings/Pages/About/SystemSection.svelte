@@ -4,13 +4,15 @@
   import Section from "../../Section.svelte";
   import { getDeviceInfo } from "../../../../../ts/device/main";
   import { formatBytes } from "../../../../../ts/api/fs/sizes";
+  import { inTauri } from "../../../../../ts/tauri";
   import { createOverlayableError } from "../../../../../ts/errorlogic/overlay";
 
   let deviceInfo: DeviceInfo;
-  let isDesktop = false;
+  let isTauri = false;
 
   onMount(async () => {
     deviceInfo = await getDeviceInfo();
+    isTauri = await inTauri();
   });
 
   function ramInfo() {
@@ -47,7 +49,7 @@
     </div>
     <div class="row">
       <div class="key">ArcOS Mode</div>
-      <div class="value">{isDesktop ? "Desktop app" : "Browser"}</div>
+      <div class="value">{isTauri ? "Desktop app" : "Browser"}</div>
     </div>
   </Section>
 {/if}

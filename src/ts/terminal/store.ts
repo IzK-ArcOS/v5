@@ -4,23 +4,18 @@ import { ATConf } from "./commands/atconf";
 import { Cd } from "./commands/cd";
 import { Clear } from "./commands/clear";
 import { Colors } from "./commands/colors";
-import { Config } from "./commands/config";
-import { Desktop } from "./commands/desktop";
 import { Dir } from "./commands/dir";
 import { Echo } from "./commands/echo";
-import { Exec } from "./commands/exec";
+import { Vars } from "./commands/vars";
 import { Exit } from "./commands/exit";
 import { Help } from "./commands/help";
 import { History } from "./commands/history";
 import { Kill } from "./commands/kill";
 import { LogDump } from "./commands/logdump";
-import { Logout } from "./commands/logout";
 import { Mkdir } from "./commands/mkdir";
 import { oa } from "./commands/oa";
 import { Open } from "./commands/open";
-import { Read } from "./commands/read";
 import { Reload } from "./commands/reload";
-import { Reset } from "./commands/reset";
 import { Restart } from "./commands/restart";
 import { Rf } from "./commands/rf";
 import { Ri } from "./commands/ri";
@@ -28,12 +23,19 @@ import { Rm } from "./commands/rm";
 import { Run } from "./commands/run";
 import { Set } from "./commands/set";
 import { Shutdown } from "./commands/shutdown";
+import { StateCommand } from "./commands/state";
+import { Tauri } from "./commands/tauri";
 import { UDD } from "./commands/udd";
 import { Users } from "./commands/users";
-import { Vars } from "./commands/vars";
 import { Ver } from "./commands/ver";
-import { Verbose } from "./commands/verbose";
 import type { Command, CommandStore } from "./interface";
+import { Config } from "./commands/config";
+import { Read } from "./commands/read";
+import { Reset } from "./commands/reset";
+import { Logout } from "./commands/logout";
+import { Exec } from "./commands/exec";
+import { Verbose } from "./commands/verbose";
+import { Desktop } from "./commands/desktop";
 
 export const defaultCommand: Command = {
   keyword: "default",
@@ -62,6 +64,7 @@ export const arcCommands: CommandStore = [
   Restart,
   Shutdown /* 
   StateCommand, */,
+  Tauri,
   UDD,
   Ver,
   Reset,
