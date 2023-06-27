@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "../../css/desktop.css";
-  import { checkForUpdates } from "../../tauri/updates";
   import { importAutoLoaders } from "../../ts/applogic/aftermarket/autoload";
   import { importDefault } from "../../ts/applogic/imports";
   import { startKeyListener } from "../../ts/applogic/keyboard/listener";
@@ -27,7 +26,6 @@
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
-  import { checkLinux } from "../../ts/tauri/linux";
 
   let show = false;
   let classes = "";
@@ -54,8 +52,6 @@
     setTimeout(() => (show = true), 250);
 
     startMessageCheckInterval();
-    checkForUpdates();
-    checkLinux();
   });
 
   function resetDesktopState() {

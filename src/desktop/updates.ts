@@ -1,6 +1,4 @@
 import { ArcOSVersion } from "../ts/env/main";
-import { makeNotification } from "../ts/notiflogic/main";
-import { inTauri } from "../ts/tauri";
 
 export async function getLatestRelease(): Promise<GitHubRelease> {
   try {
@@ -56,28 +54,4 @@ export function versionBigger(a: Version, b: Version) {
   }
 
   return false;
-}
-
-export async function checkForUpdates() {
-  if (!(await inTauri())) return;
-
-  const release = await getLatestVersion();
-
-  if (versionBigger(release, parseVersion(ArcOSVersion))) {
-    const version = `v${release.join(".")}`;
-    const RELEASE_URL =
-      "https://github.com/IzK-ArcOS/ArcOS-Frontend/releases/latest";
-
-    makeNotification({
-      icon: "sync",
-      title: "Updates available!",
-      message: `ArcOS Desktop ${version} is available for download. Install it to get the latest features.`,
-      buttons: [
-        {
-          caption: "Open",
-          action: () => window.open(RELEASE_URL, "_blank"),
-        },
-      ],
-    });
-  }
 }
