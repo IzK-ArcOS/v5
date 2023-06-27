@@ -17,10 +17,14 @@ export const Cd: Command = {
       return;
     }
 
+    if (dir.includes("//")) return term.std.Error("Malformed path");
+
+    if (dir == "/") return (term.path = "./");
+
     if (dir == ".") return;
 
     if (!(await getDirectory(newDir)))
-      return term.std.writeLine(`Can't change to "${dir}": Path not found`);
+      return term.std.Error(`Can't change to "${dir}": Path not found`);
 
     term.path = newDir;
   },
