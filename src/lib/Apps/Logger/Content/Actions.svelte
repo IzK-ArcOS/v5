@@ -33,6 +33,16 @@
   });
 
   function filter(level: LogLevel) {
+    if (currentFilter == level) {
+      const source = `${currentSource}`;
+      setView(null);
+      setTimeout(() => {
+        setView(source);
+      });
+
+      return;
+    }
+
     if (!original.length) original = logItems;
 
     const items = [];
