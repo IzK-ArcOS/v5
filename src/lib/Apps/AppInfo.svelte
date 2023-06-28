@@ -40,6 +40,12 @@
 
     disablePoke = isDisabled("AppPoker");
   }
+
+  function poke() {
+    if (data.core) return;
+
+    AppPokerData.set(data);
+  }
 </script>
 
 {#if data}
@@ -88,6 +94,10 @@
       <div class="value">{data.pos.x || d}x{data.pos.y || d}</div>
     </div>
     <div class="property">
+      <div>Core Application:</div>
+      <div class="value">{data.core}</div>
+    </div>
+    <div class="property">
       <div>Window controls:</div>
       <div class="value">
         <div class="controls">
@@ -108,13 +118,13 @@
       <div class="value">
         <button
           on:click={() => openWindow($id)}
-          disabled={data.opened || data.disabled}
+          disabled={data.opened || data.disabled || data.core}
         >
           Open
         </button>
         <button
-          on:click={() => AppPokerData.set(data)}
-          disabled={data.disabled || disablePoke}
+          on:click={poke}
+          disabled={data.disabled || disablePoke || data.core}
         >
           Poke
         </button>

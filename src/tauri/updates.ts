@@ -35,7 +35,9 @@ export async function getLatestVersion(): Promise<Version> {
 }
 
 export function parseVersion(verStr: string): Version {
-  const split = verStr.split(".");
+  const split = verStr.replaceAll("v", "").split(".");
+
+  console.log(split);
 
   return [split[0], split[1], split[2]].map((a) => {
     try {
@@ -59,7 +61,7 @@ export function versionBigger(a: Version, b: Version) {
 }
 
 export async function checkForUpdates() {
-  if (!(await inTauri())) return;
+  /* if (!(await inTauri())) return; */
 
   const release = await getLatestVersion();
 

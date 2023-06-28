@@ -36,11 +36,6 @@ export const DesktopWallpaper: App = {
   content: Wallpaper,
   glass: false,
   events: {},
-  disabledWarning: {
-    title: "No Wallpaper",
-    message:
-      "The Wallpaper is disabled, so you don't have a wallpaper or any desktop icons. Please re-enable the DesktopWallpaper application to return this fuctionality.",
-  },
   contextMenu: {
     "shell-wallpaper": [
       {
@@ -98,4 +93,5 @@ export const DesktopWallpaper: App = {
       },
     ],
   },
+  core: true,
 };

@@ -56,6 +56,7 @@ export const ArcShell: App = {
       },
     ],
   },
+  core: true,
 };
 
 export const showShellShade = writable<boolean>(false);

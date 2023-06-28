@@ -25,6 +25,8 @@ export function openWindow(id: string, openChild = false) {
 
   const window = getWindow(id);
 
+  if (window && window.core) return;
+
   if (!isLoaded(id) || isOpened(id)) {
     const el = getWindowElement(window);
 
@@ -126,6 +128,8 @@ export function closeWindow(id: string) {
   const ws = get(WindowStore);
   const window = getWindow(id);
 
+  if (window && window.core) return;
+
   for (let i = 0; i < ws.length; i++) {
     if (ws[i] && ws[i].id == id) {
       ws[i].opened = false;
@@ -172,6 +176,8 @@ export function maximizeWindow(app: App) {
     level: LogLevel.info,
   });
 
+  if (app.core) return;
+
   app.state.windowState.max = !app.state.windowState.max;
 
   focusedWindowId.set(app.id);
@@ -187,6 +193,8 @@ export function minimizeWindow(app: App) {
     source: "events.ts: minimizeWindow",
     level: LogLevel.info,
   });
+
+  if (app.core) return;
 
   app.state.windowState.min = !app.state.windowState.min;
 
@@ -210,6 +218,8 @@ export function unminimizeWindow(app: App) {
     level: LogLevel.info,
   });
 
+  if (app.core) return;
+
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
@@ -227,6 +237,8 @@ export function fullscreenWindow(app: App) {
     source: "events.ts: fullscreenWindow",
     level: LogLevel.info,
   });
+
+  if (app.core) return;
 
   app.state.windowState.fll = !app.state.windowState.fll;
 
@@ -248,6 +260,8 @@ export function headlessToggle(app: App) {
     level: LogLevel.info,
   });
 
+  if (app.core) return;
+
   app.state.headless = !app.state.headless;
 
   focusedWindowId.set(app.id);
@@ -265,6 +279,8 @@ export function fullscreenToggle(id: string) {
 
   for (let i = 0; i < ws.length; i++) {
     if (ws[i].id != id) continue;
+
+    if (ws[i].core) continue;
 
     ws[i].state.windowState.fll = !ws[i].state.windowState.fll;
   }

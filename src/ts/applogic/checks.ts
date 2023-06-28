@@ -42,7 +42,8 @@ export function isDisabled(id: string): boolean {
 }
 
 export function isPopulatable(app: App) {
-  if (get(UserData).sh.showHiddenApps && !app.disabled) return true;
+  if (get(UserData).sh.showHiddenApps && !app.disabled && !app.core)
+    return true;
 
   return !app.disabled && !app.info.hidden && !app.info.custom;
 }

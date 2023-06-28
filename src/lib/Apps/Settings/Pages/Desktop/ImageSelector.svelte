@@ -12,7 +12,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
   class="wallpaper"
-  style="background-image: url({wallpaper[1]});"
+  style="background-image: url({wallpaper[1].url});"
   title={wallpaper[0] == "img0" ? "(none)" : wallpaper[0]}
   class:selected={$UserData.sh.desktop.wallpaper == wallpaper[0]}
   on:click={change}

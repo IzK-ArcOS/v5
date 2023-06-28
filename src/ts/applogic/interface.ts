@@ -25,6 +25,7 @@ export interface App {
   contextMenu?: AppContextMenu;
   disabledWarning?: { title: string; message: string };
   snapped?: boolean;
+  core?: boolean;
 }
 export interface OverlayableError {
   title: string;
