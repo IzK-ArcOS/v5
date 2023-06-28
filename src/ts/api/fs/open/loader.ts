@@ -1,14 +1,13 @@
-import type { ArcFile } from "../../../applogic/interface";
-import type { UserFileLoader } from "../../interface";
-import apLoaderIcon from "../../../../assets/handlers/apploader.svg";
-import pdfOpenerIcon from "../../../../assets/handlers/pdfopener.svg";
-import openInNewIcon from "../../../../assets/handlers/openinnew.svg";
-import loadThemeIcon from "../../../../assets/handlers/loadtheme.svg";
 import textEditorIcon from "../../../../assets/apps/apppoker.svg";
+import apLoaderIcon from "../../../../assets/handlers/apploader.svg";
+import loadThemeIcon from "../../../../assets/handlers/loadtheme.svg";
+import openInNewIcon from "../../../../assets/handlers/openinnew.svg";
+import pdfOpenerIcon from "../../../../assets/handlers/pdfopener.svg";
 import { loadAppFile } from "../../../applogic/aftermarket/loader";
 import { errorMessage } from "../../../errorlogic/main";
-import { loadTheme, verifyTheme } from "../../../userlogic/themes/main";
 import type { UserTheme } from "../../../userlogic/themes/interface";
+import { loadTheme, verifyTheme } from "../../../userlogic/themes/main";
+import type { UserFileLoader } from "../../interface";
 import { openWith } from "../open";
 
 export const FileLoaders: { [key: string]: UserFileLoader } = {

@@ -1,3 +1,4 @@
+import type { ArcFile } from "../api/interface";
 import type { ErrorButton } from "../errorlogic/app";
 import type { AppKeyCombinations } from "./keyboard/interface";
 export interface App {
@@ -25,15 +26,6 @@ export interface App {
   disabledWarning?: { title: string; message: string };
   snapped?: boolean;
 }
-
-export interface ArcFile {
-  name: string;
-  path: string;
-  data: ArrayBuffer;
-  mime: string;
-  anymime?: boolean;
-}
-
 export interface OverlayableError {
   title: string;
   message: string;

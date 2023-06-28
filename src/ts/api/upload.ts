@@ -3,8 +3,8 @@ import {
   fbClass,
   FileBrowserUploadFile,
 } from "../applogic/apps/FileBrowser/main";
-import type { ArcFile } from "../applogic/interface";
 import { writeFile } from "./fs/file";
+import type { ArcFile } from "./interface";
 
 export async function directSingleUpload(
   path: string,

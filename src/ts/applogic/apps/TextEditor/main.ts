@@ -5,8 +5,9 @@ import { openWith } from "../../../api/fs/open";
 import { showOpenFileDialog } from "../../../chooser/main";
 import { createOverlayableError } from "../../../errorlogic/overlay";
 import { closeWindow, openWindow } from "../../events";
-import type { App, ArcFile } from "../../interface";
+import type { App } from "../../interface";
 import { registerShortcuts } from "../../keyboard/main";
+import type { ArcFile } from "../../../api/interface";
 
 export const TextEditorContent = writable<string>(null);
 

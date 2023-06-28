@@ -5,18 +5,17 @@
   import { getMimeIcon } from "../../../../ts/api/fs/icon";
   import { openUserFile, openWithDialog } from "../../../../ts/api/fs/open";
   import { formatBytes } from "../../../../ts/api/fs/sizes";
-  import type { UserFile } from "../../../../ts/api/interface";
+  import type { ArcFile, PartialArcFile } from "../../../../ts/api/interface";
   import {
     FileBrowserCuttingFilename as cutting,
     FileBrowserDirContents,
     FileBrowserOpeningFile,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import type { ArcFile } from "../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
-  export let file: UserFile;
+  export let file: PartialArcFile;
 
   let img = icon;
 
@@ -89,7 +88,9 @@
     img = getMimeIcon(file.filename);
   });
 
-  FileBrowserDirContents.subscribe(() => (img = getMimeIcon(file.filename)));
+  FileBrowserDirContents.subscribe(() => {
+    img = getMimeIcon(file.filename);
+  });
 </script>
 
 <button

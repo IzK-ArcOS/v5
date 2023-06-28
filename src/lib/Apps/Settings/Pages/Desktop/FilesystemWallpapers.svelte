@@ -26,7 +26,7 @@
     for (let i = 0; i < dir.files.length; i++) {
       const file = dir.files[i];
 
-      const { scopedPath, mime } = file;
+      const { scopedPath: scopedPath, mime } = file;
 
       if (!mime.startsWith("image")) continue;
 

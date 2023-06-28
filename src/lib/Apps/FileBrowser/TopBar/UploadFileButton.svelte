@@ -7,10 +7,10 @@
     FileBrowserCurrentDir,
     FileBrowserUploadFile,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import type { ArcFile } from "../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import { makeNotification } from "../../../../ts/notiflogic/main";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
+  import type { ArcFile } from "../../../../ts/api/interface";
 
   let uploader: HTMLInputElement;
 

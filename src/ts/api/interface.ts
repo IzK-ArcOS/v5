@@ -1,5 +1,3 @@
-import type { ArcFile } from "../applogic/interface";
-
 export interface Cred {
   username: string;
   password: string;
@@ -15,7 +13,7 @@ export interface ApiError {
 export interface UserDirectory {
   name: string;
   scopedPath: string;
-  files: UserFile[];
+  files: PartialArcFile[];
   directories: PartialUserDir[];
 }
 
@@ -24,11 +22,19 @@ export interface PartialUserDir {
   scopedPath: string;
 }
 
-export interface UserFile {
+export interface PartialArcFile {
   size?: number;
   mime: string;
   filename: string;
   scopedPath: string;
+}
+
+export interface ArcFile {
+  name: string;
+  path: string;
+  data: ArrayBuffer;
+  mime: string;
+  anymime?: boolean;
 }
 
 export interface DirReadResponse {

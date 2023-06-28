@@ -3,7 +3,7 @@
   import type { Writable } from "svelte/store";
   import { readFile } from "../../../../ts/api/fs/file";
   import { getMimeIcon } from "../../../../ts/api/fs/icon";
-  import type { UserFile } from "../../../../ts/api/interface";
+  import type { PartialArcFile } from "../../../../ts/api/interface";
   import type { OverlayableApp } from "../../../../ts/applogic/interface";
   import { setTargetFile } from "../../../../ts/chooser/store";
 
@@ -32,7 +32,7 @@
     $processing = false;
   }
 
-  export let file: UserFile;
+  export let file: PartialArcFile;
 </script>
 
 <button

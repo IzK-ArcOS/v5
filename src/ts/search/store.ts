@@ -33,7 +33,5 @@ export async function getSearchItems(): Promise<SearchItem[]> {
     result.push(...(await searchProviders[i]()));
   }
 
-  console.log(result);
-
   return result;
 }

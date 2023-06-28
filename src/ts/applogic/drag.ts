@@ -38,7 +38,6 @@ export function dragWindow(
         };
 
         document.ontouchmove = (e: TouchEvent) => {
-          console.log(e);
           app.snapped = false;
 
           WindowStore.set(get(WindowStore));

@@ -3,11 +3,10 @@ import { OpenWithFile } from "../../applogic/apps/OpenWith";
 import { isDisabled } from "../../applogic/checks";
 import { enableApp } from "../../applogic/enabling";
 import { openWindow } from "../../applogic/events";
-import type { ArcFile } from "../../applogic/interface";
 import { focusedWindowId, WindowStore } from "../../applogic/store";
 import { Log, LogLevel } from "../../console";
 import { errorMessage } from "../../errorlogic/main";
-import type { UserFile, UserFileLoader } from "../interface";
+import type { ArcFile, PartialArcFile, UserFileLoader } from "../interface";
 import { readFile } from "./file";
 import { FileLoaders } from "./open/loader";
 
@@ -135,7 +134,9 @@ export function openWith(
   return false;
 }
 
-export async function openUserFile(file: UserFile): Promise<ArcFile | true> {
+export async function openUserFile(
+  file: PartialArcFile
+): Promise<ArcFile | true> {
   Log({
     source: `fs/open.ts: openUserFile`,
     msg: `Converting "${file.filename}": UserFile -> ArcFile: to make openable`,

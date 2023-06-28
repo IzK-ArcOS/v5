@@ -1,7 +1,7 @@
 import { get } from "svelte/store";
 import { getDirectory } from "../../api/fs/directory";
 import { openUserFile, openWithDialog } from "../../api/fs/open";
-import type { UserDirectory, UserFile } from "../../api/interface";
+import type { UserDirectory, PartialArcFile } from "../../api/interface";
 import { WindowStore } from "../../applogic/store";
 import type { Command } from "../interface";
 
@@ -30,7 +30,7 @@ export const Run: Command = {
   syntax: `"<[filename]>"`,
 };
 
-async function o(f: UserFile) {
+async function o(f: PartialArcFile) {
   const scope = f.scopedPath;
 
   if (scope.startsWith("./")) f.scopedPath = scope.replace("./", "");

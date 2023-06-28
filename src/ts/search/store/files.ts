@@ -1,4 +1,4 @@
-import type { UserFile } from "../../api/interface";
+import type { PartialArcFile } from "../../api/interface";
 import { ConnectedServer, apiCall } from "../../api/main";
 import {
   closeNotification,
@@ -25,7 +25,7 @@ export async function compileSearchableFiles() {
 
   const result: SearchItem[] = [];
   const req = await apiCall(server, "fs/tree", {}, get(UserToken));
-  const files = req.data as UserFile[];
+  const files = req.data as PartialArcFile[];
 
   for (let i = 0; i < files.length; i++) {
     result.push({
@@ -33,7 +33,7 @@ export async function compileSearchableFiles() {
       action: async () => {
         const notif = makeNotification({
           title: "Loading file",
-          message: `Loading file ${files[i].filename} from the ArcAPI. This can take a while, depending on your internet connection and the size of the file.`,
+          message: `Loading file ${files[i].scopedPath} from the ArcAPI. This can take a while, depending on your internet connection and the size of the file.`,
           buttons: [],
           image: searchIcon,
         });

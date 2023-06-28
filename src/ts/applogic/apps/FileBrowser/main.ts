@@ -6,18 +6,18 @@ import {
   defaultDirectory,
   PartialUserDir,
   UserDirectory,
-  UserFile,
+  PartialArcFile,
+  ArcFile,
 } from "../../../api/interface";
 import { Log, LogLevel } from "../../../console";
 import { createOverlayableError } from "../../../errorlogic/overlay";
 import { hideOverlay, showOverlay } from "../../../window/overlay";
-import type { ArcFile } from "../../interface";
 import trash from "../../../../assets/apps/logger/clear.svg";
 
 export let FileBrowserCurrentDir = writable<string>("./");
 export let FileBrowserDirContents = writable<UserDirectory>(defaultDirectory);
 export let FileBrowserSelectedFilename = writable<string>(null);
-export let FileBrowserOpeningFile = writable<UserFile>(null);
+export let FileBrowserOpeningFile = writable<PartialArcFile>(null);
 export let FileBrowserDeletingFilename = writable<string>(null);
 export let FileBrowserUploadFile = writable<ArcFile>(null);
 export let FileBrowserOpenCancelled = writable<boolean>(false);

@@ -1,24 +1,20 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { get } from "svelte/store";
   import "../../css/desktop/apps/filebrowser.css";
-  import type { PartialUserDir, UserFile } from "../../ts/api/interface";
+  import type { PartialArcFile, PartialUserDir } from "../../ts/api/interface";
   import { defaultDirectory } from "../../ts/api/interface";
   import {
-    fbClass,
-    FileBrowserCurrentDir,
     FileBrowserDirContents,
+    fbClass,
   } from "../../ts/applogic/apps/FileBrowser/main";
   import type { App } from "../../ts/applogic/interface";
-  import { WindowStore } from "../../ts/applogic/store";
   import { ScopedAppData, UserData } from "../../ts/userlogic/interfaces";
   import ListView from "./FileBrowser/ListView.svelte";
-  import PathCrumbs from "./FileBrowser/PathCrumbs.svelte";
   import SideBar from "./FileBrowser/SideBar.svelte";
   import TileView from "./FileBrowser/TileView.svelte";
   import TopBar from "./FileBrowser/TopBar.svelte";
 
-  let files: UserFile[] = [];
+  let files: PartialArcFile[] = [];
   let dirs: PartialUserDir[] = [];
   let tiledMode = false;
 

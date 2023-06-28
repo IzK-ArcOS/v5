@@ -1,9 +1,9 @@
 import { get } from "svelte/store";
 import { UserData } from "../../userlogic/interfaces";
 import { loadAppFile } from "./loader";
-import type { ArcFile } from "../interface";
 import { readFile } from "../../api/fs/file";
 import { errorMessage } from "../../errorlogic/main";
+import type { ArcFile } from "../../api/interface";
 
 export async function importAutoLoaders() {
   const udata = get(UserData);

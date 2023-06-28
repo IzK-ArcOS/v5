@@ -46,3 +46,18 @@ export function Log(data: LogItem) {
 
   console.log(`ArcOS: ${t} [${d.capt}] ${data.source}: ${data.msg}`);
 }
+
+export function compileStringLog(): string[] {
+  const result: string[] = [];
+  const logs = get(log);
+
+  for (let i = 0; i < logs.length; i++) {
+    const item = logs[i];
+    const caption = LogLevelData[LogLevel[item.level]].capt;
+    const time = dayjs(item.timestamp || 0).format("HH:mm:ss.mmm");
+
+    result.push(`${time} [${caption}] ${item.source}: ${item.msg}`);
+  }
+
+  return result;
+}

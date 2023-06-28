@@ -1,13 +1,14 @@
 <script lang="ts">
   import "../../css/desktop/apps/AppLauncher.css";
-  import { isPopulatable } from "../../ts/applogic/checks";
+  import { isOpened, isPopulatable } from "../../ts/applogic/checks";
   import { closeWindow } from "../../ts/applogic/events";
   import { WindowStore, focusedWindowId } from "../../ts/applogic/store";
   import ArcFind from "../Page/Desktop/ArcFind.svelte";
   import AppListItem from "../Page/Desktop/StartMenu/AppListItem.svelte";
 
   focusedWindowId.subscribe((v) => {
-    if (v != "AppLauncher") closeWindow("AppLauncher");
+    if (v != "AppLauncher" && isOpened("AppLauncher"))
+      closeWindow("AppLauncher");
   });
 </script>
 

@@ -4,8 +4,8 @@ import { errorMessage } from "../../errorlogic/main";
 import { makeNotification } from "../../notiflogic/main";
 import { UserData } from "../../userlogic/interfaces";
 import { isLoaded } from "../checks";
-import type { ArcFile } from "../interface";
 import type { ExternalAppLoaderContent } from "./interface";
+import type { ArcFile } from "../../api/interface";
 
 export function loadExternalApp(info: ExternalAppLoaderContent) {
   const styleTag = document.createElement("style");

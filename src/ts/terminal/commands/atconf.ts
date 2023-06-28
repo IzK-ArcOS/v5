@@ -1,6 +1,6 @@
 import { readFile } from "../../api/fs/file";
 import { FileLoaders } from "../../api/fs/open/loader";
-import type { ArcFile } from "../../applogic/interface";
+import type { ArcFile } from "../../api/interface";
 import type { Command } from "../interface";
 
 export const ATConf: Command = {

@@ -1,12 +1,15 @@
 <script lang="ts">
   import "../../../css/desktop/apps/filebrowser/tile.css";
-  import type { PartialUserDir, UserFile } from "../../../ts/api/interface";
+  import type {
+    PartialUserDir,
+    PartialArcFile,
+  } from "../../../ts/api/interface";
   import { FileBrowserRefreshing } from "../../../ts/applogic/apps/FileBrowser/main";
   import Spinner from "../../Spinner.svelte";
   import Dir from "./TileView/Dir.svelte";
   import File from "./TileView/File.svelte";
 
-  export let files: UserFile[] = [];
+  export let files: PartialArcFile[] = [];
   export let dirs: PartialUserDir[] = [];
 
   files;

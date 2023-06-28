@@ -1,14 +1,13 @@
-import { randomUUID } from "crypto";
+import { get } from "svelte/store";
 import type { App } from "../applogic/interface";
-import { Log, LogLevel } from "../console";
+import { Log, LogLevel, compileStringLog, log } from "../console";
 import { ArcOSVersion } from "../env/main";
 import sleep from "../sleep";
 import { ArcTermCommandHandler } from "./commands";
 import { ArcTermEnv } from "./env";
 import { initError } from "./error";
 import { ArcTermInput } from "./input";
-import type { Color, CommandStore } from "./interface";
-import { ArcTermIntro } from "./intro";
+import type { CommandStore } from "./interface";
 import { ArcTermStd } from "./std";
 import { ArcTermUtil } from "./util";
 import { ArcTermVariables } from "./var";
@@ -83,7 +82,7 @@ export class ArcTerm {
       this.input.unlock();
       this.util.intro();
       this.util.flushAccent();
-    }, 100);
+    }, 1000);
   }
 
   public dispose() {

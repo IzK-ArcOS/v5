@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <td class="key">Path</td>
-      <td>{$FileBrowserOpeningFile.scopedPath}</td>
+      <td>{$FileBrowserOpeningFile.filename}</td>
     </tr>
     <tr>
       <td class="key">Mimetype</td>

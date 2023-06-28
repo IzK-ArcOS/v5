@@ -1,6 +1,5 @@
 import { get, writable } from "svelte/store";
-import type { Params } from "../api/interface";
-import type { ArcFile } from "../applogic/interface";
+import type { ArcFile, Params } from "../api/interface";
 import { WindowStore } from "../applogic/store";
 import type { ChooseDialogTargets } from "./interface";
 

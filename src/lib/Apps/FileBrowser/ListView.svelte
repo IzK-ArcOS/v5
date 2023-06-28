@@ -1,6 +1,9 @@
 <script lang="ts">
   import { getParentDirectory } from "../../../ts/api/fs/main";
-  import type { PartialUserDir, UserFile } from "../../../ts/api/interface";
+  import type {
+    PartialUserDir,
+    PartialArcFile,
+  } from "../../../ts/api/interface";
   import {
     fbClass,
     FileBrowserCurrentDir,
@@ -11,7 +14,7 @@
   import File from "./ListView/File.svelte";
   import TopRow from "./ListView/TopRow.svelte";
 
-  export let files: UserFile[] = [];
+  export let files: PartialArcFile[] = [];
   export let dirs: PartialUserDir[] = [];
 </script>
 
