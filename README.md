@@ -24,7 +24,7 @@ Images 1, 2, 3, 4, 5, 6, 7 and 10 are made by me, the rest are licensed.
 | `img08`   | SWHFotografie                                        | Wandelbos, Tilburg, the Netherlands |
 | `img13`   | SWHFotografie                                        | the Hague, the Netherlands          |
 | `img14`   | [@keesvv](https://github.com/keesvv)                 | Scheveningen, the Netherlands       |
-| `img15`   | [@matteoscaringi](https://github.com/matteoscaringi) | Corfu, Greek                        |
+| `img15`   | [@matteoscaringi](https://github.com/matteoscaringi) | Corfu, Greece                       |
 
 I want to thank all of these authors for providing their photos and images for use as ArcOS wallpapers. Any and all contributions are greatly appreciated.
 
