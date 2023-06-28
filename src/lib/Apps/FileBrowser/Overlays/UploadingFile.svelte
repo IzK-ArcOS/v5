@@ -1,6 +1,7 @@
 <script lang="ts">
   import icon from "../../../../assets/apps/filemanager/upload.svg";
   import "../../../../css/desktop/apps/filebrowser/overlays/uploadingfile.css";
+  import { getServer } from "../../../../ts/api/server";
   import {
     FileBrowserUploadFile,
     FileBrowserUploadProgress,
@@ -34,7 +35,7 @@
     </tr>
     <tr>
       <td class="key">Target</td>
-      <td>{localStorage.getItem("arcos-server")}</td>
+      <td>{getServer()}</td>
     </tr>
   </table>
 {/if}

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { getServer } from "../../../../../../ts/api/server";
   import type { App } from "../../../../../../ts/applogic/interface";
   import {
     UserData,
@@ -20,7 +21,7 @@
     />
     <h1>{$UserName}</h1>
     <p class="hostname">
-      {localStorage.getItem("arcos-server") || location.hostname}
+      {getServer() || location.hostname}
     </p>
   </div>
 </div>

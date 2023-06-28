@@ -5,11 +5,12 @@ import { apiCall, ConnectedServer } from "../api/main";
 import { UserName } from "../userlogic/interfaces";
 import type { ArcTerm } from "./main";
 import { authPrompt } from "./mode/auth";
+import { getServer } from "../api/server";
 
 export async function arcTermModeIntro(a: ArcTerm) {
   if (!(await authPrompt(a))) return;
 
-  const aapi = localStorage.getItem("arcos-server");
+  const aapi = getServer();
   const user = get(UserName);
   const quot = await getFSQuota();
   const used = formatBytes(quot.used);

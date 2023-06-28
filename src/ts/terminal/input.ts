@@ -4,6 +4,7 @@ import { Log, LogLevel } from "../console";
 import { UserName } from "../userlogic/interfaces";
 import type { ArcTermEnv } from "./env";
 import type { ArcTerm } from "./main";
+import { getServer } from "../api/server";
 
 export class ArcTermInput {
   private lockInput = false;
@@ -50,7 +51,7 @@ export class ArcTermInput {
 
   private getPrompt() {
     const username = get(UserName);
-    const server = localStorage.getItem("arcos-server");
+    const server = getServer();
     const path = (this.term.path || "./").replace("./", "");
     const prompt = this.env.prompt
       .replace("&u", username)

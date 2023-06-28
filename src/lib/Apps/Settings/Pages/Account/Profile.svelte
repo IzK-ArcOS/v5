@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { getServer } from "../../../../../ts/api/server";
   import { DevModeOverride } from "../../../../../ts/devmode/props";
   import { UserData, UserName } from "../../../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../../../ts/userlogic/pfp";
@@ -32,7 +33,7 @@
       {$UserName}
     </p>
     <p class="host" data-caller="accountpage-hostname">
-      {localStorage.getItem("arcos-server") || location.hostname}
+      {getServer() || location.hostname}
       {#if $DevModeOverride}
         (developer)
       {/if}

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { getServer } from "../../../../ts/api/server";
   import { DevModeOverride } from "../../../../ts/devmode/props";
 
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
@@ -19,6 +20,7 @@
 </script>
 
 <div class="userprofile">
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <span on:click={showPfp}><ProfilePicture src={pfp} height={36} /></span>
   <div class="username">
     <p class="name">
@@ -28,7 +30,7 @@
       {/if}
     </p>
     <p class="hostname">
-      {localStorage.getItem("arcos-server") || location.hostname}
+      {getServer() || location.hostname}
     </p>
   </div>
 </div>

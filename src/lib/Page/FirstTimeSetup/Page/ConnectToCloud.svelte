@@ -1,6 +1,7 @@
 <script lang="ts">
   import connectIcon from "../../../../assets/fts/connect.svg";
   import "../../../../css/fts/page/connecttocloud.css";
+  import { addServer } from "../../../../ts/api/server";
   import { testConnection } from "../../../../ts/api/test";
   import { applyFTSState } from "../../../../ts/fts/main";
   import Nav from "../Nav.svelte";
@@ -18,7 +19,7 @@
     const testSuccess = await testConnection(server);
 
     if (testSuccess) {
-      localStorage.setItem("arcos-server", server);
+      addServer(server);
 
       applyFTSState("authform");
     } else {

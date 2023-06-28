@@ -6,13 +6,14 @@ import { ArcOSVersion } from "../../env/main";
 import sleep from "../../sleep";
 import { UserName } from "../../userlogic/interfaces";
 import type { ArcTerm } from "../main";
+import { addServer, getServer } from "../../api/server";
 
 export async function authPrompt(a: ArcTerm, usr = "") {
   const udata = get(UserName);
 
   if (udata) return true;
 
-  let server = localStorage.getItem("arcos-server");
+  let server = getServer();
 
   if (!server) server = await serverConnect(a);
 
@@ -64,7 +65,7 @@ async function serverConnect(a: ArcTerm) {
     return "";
   }
 
-  localStorage.setItem("arcos-server", s);
+  addServer(s);
 
   return s;
 }

@@ -7,6 +7,7 @@ import { UserName } from "../../userlogic/interfaces";
 import { Color, colors, Command } from "../interface";
 import type { ArcTerm } from "../main";
 import { minArcAPI } from "../../env/main";
+import { getServer } from "../../api/server";
 
 export const ArcFetch: Command = {
   keyword: "arcfetch",
@@ -28,7 +29,7 @@ async function getItems(a: ArcTerm) {
   const tauri = await inTauri();
 
   return Object.entries({
-    Server: `${localStorage.getItem("arcos-server")} @ rev ${minArcAPI}`,
+    Server: `${getServer()} @ rev ${minArcAPI}`,
     Username: get(UserName),
     Processor: `${info.cpu.cores} cores`,
     GPU: `${info.gpu.vendor} ${info.gpu.model}`,

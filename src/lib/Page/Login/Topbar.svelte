@@ -6,6 +6,7 @@
     CurrentLoginState,
     loginUsername,
   } from "../../../ts/login/main";
+  import { getServer } from "../../../ts/api/server";
 
   let time: string = "";
   let show = false;
@@ -15,7 +16,7 @@
     setInterval(() => (time = dayjs().format("HH:mm")), 500);
     setTimeout(() => (show = true), 750);
 
-    const server = localStorage.getItem("arcos-server");
+    const server = getServer();
 
     host = server ? `API: ${server}` : `Local: ${location.hostname}`;
   });

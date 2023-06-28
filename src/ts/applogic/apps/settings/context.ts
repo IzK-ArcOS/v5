@@ -1,6 +1,7 @@
 import theme from "../../../../assets/apps/settings/themes.svg";
 import { createDirectory } from "../../../api/fs/directory";
 import { writeFile } from "../../../api/fs/file";
+import { getServer } from "../../../api/server";
 import { createOverlayableError } from "../../../errorlogic/overlay";
 import { deleteCustomTheme } from "../../../userlogic/themes/main";
 import { showOverlay } from "../../../window/overlay";
@@ -72,9 +73,7 @@ export const SettingsAppContext: AppContextMenu = {
     {
       caption: "Copy server",
       action: () => {
-        navigator.clipboard.writeText(
-          localStorage.getItem("arcos-server") || "localhost"
-        );
+        navigator.clipboard.writeText(getServer() || "localhost");
       },
       icon: "copy",
     },

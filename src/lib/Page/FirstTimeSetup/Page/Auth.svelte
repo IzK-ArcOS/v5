@@ -8,6 +8,7 @@
   import { loginUsingCreds } from "../../../../ts/api/getter";
   import { generateCredToken } from "../../../../ts/api/cred";
   import Spinner from "../../../Spinner.svelte";
+  import { getServer, removeServer } from "../../../../ts/api/server";
 
   let username = "";
   let password = "";
@@ -24,7 +25,7 @@
 
   function changeServer() {
     ConnectedServer.set(undefined);
-    localStorage.removeItem("arcos-server");
+    removeServer(getServer());
 
     applyFTSState("connecttocloud");
   }

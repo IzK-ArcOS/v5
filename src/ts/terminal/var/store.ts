@@ -5,6 +5,7 @@ import { ArcOSVersion } from "../../env/main";
 import { UserName } from "../../userlogic/interfaces";
 import { Color, colors, VariableStore } from "../interface";
 import type { ArcTerm } from "../main";
+import { getServer } from "../../api/server";
 
 export function getArcTermStore(term: ArcTerm): VariableStore {
   Log({
@@ -24,7 +25,7 @@ export function getArcTermStore(term: ArcTerm): VariableStore {
       readOnly: false,
     },
     server: {
-      get: () => localStorage.getItem("arcos-server"),
+      get: () => getServer(),
       readOnly: true,
       canDelete: false,
     },

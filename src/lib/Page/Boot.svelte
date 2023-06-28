@@ -11,6 +11,7 @@
   import { getUsers } from "../../ts/userlogic/main";
   import Window from "./Desktop/WindowStore/Window.svelte";
   import { ArcOSVersion } from "../../ts/env/main";
+  import { getServer } from "../../ts/api/server";
 
   let status = "";
   let bootClass = "";
@@ -43,7 +44,7 @@
   }
 
   async function checkServer() {
-    const serverHost = localStorage.getItem("arcos-server");
+    const serverHost = getServer();
 
     let connected = false;
 
