@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import type { UserTheme } from "../../../../../../ts/userlogic/themes/interface";
   import { loadTheme } from "../../../../../../ts/userlogic/themes/main";
-  import { getWallpaper } from "../../../../../../ts/userlogic/wallpapers";
+  import { getWallpaper } from "../../../../../../ts/userlogic/wallpapers/main";
 
   export let theme: [string, UserTheme];
   export let user = false;
@@ -14,7 +14,7 @@
   }
 
   onMount(async () => {
-    url = await getWallpaper(theme[1].wallpaper);
+    url = (await getWallpaper(theme[1].wallpaper)).url;
   });
 </script>
 

@@ -1,7 +1,8 @@
 <script lang="ts">
   import { UserData } from "../../../../../ts/userlogic/interfaces";
+  import type { Wallpaper } from "../../../../../ts/userlogic/wallpapers/interface";
 
-  export let wallpaper: [string, string];
+  export let wallpaper: [string, Wallpaper];
 
   function change() {
     $UserData.sh.desktop.wallpaper = wallpaper[0];

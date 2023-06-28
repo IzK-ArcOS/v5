@@ -1,11 +1,10 @@
 <script lang="ts">
   import { UserData } from "../../../../../ts/userlogic/interfaces";
-  import { getWallpaper } from "../../../../../ts/userlogic/wallpapers";
-
+  import { getWallpaper } from "../../../../../ts/userlogic/wallpapers/main";
   let url = "";
 
   UserData.subscribe(async () => {
-    url = await getWallpaper($UserData.sh.desktop.wallpaper);
+    url = (await getWallpaper($UserData.sh.desktop.wallpaper)).url;
   });
 </script>
 

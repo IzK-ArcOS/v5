@@ -3,12 +3,12 @@
   import "../../../../css/desktop/apps/settings/desktop.css";
   import { createDirectory } from "../../../../ts/api/fs/directory";
   import { directSingleUpload } from "../../../../ts/api/upload";
-  import { Wallpapers } from "../../../../ts/userlogic/wallpapers";
   import { showOverlay } from "../../../../ts/window/overlay";
   import Current from "./Desktop/Current.svelte";
   import ImageSelector from "./Desktop/ImageSelector.svelte";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import FilesystemWallpapers from "./Desktop/FilesystemWallpapers.svelte";
+  import { Wallpapers } from "../../../../ts/userlogic/wallpapers/store";
 
   function custom() {
     showOverlay("customWallpaper", "SettingsApp");
