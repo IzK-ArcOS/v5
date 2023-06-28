@@ -8,6 +8,8 @@ export const Rm: Command = {
     const dir = argv.join(" ");
     const name = (p != "./" ? `${p}/${dir}` : dir).replaceAll("//", "/");
 
+    if (!dir.trim().length) return term.std.Error("Missing filename");
+
     try {
       await deleteItem(name);
     } catch {
