@@ -13,6 +13,7 @@ import img11 from "../../assets/bg/img11.jpg";
 import img12 from "../../assets/bg/img12.png";
 import img13 from "../../assets/bg/img13.png";
 import img14 from "../../assets/bg/img14.jpg";
+import img15 from "../../assets/bg/img15.jpg";
 import { readFile } from "../api/fs/file";
 import { Log, LogLevel } from "../console";
 
@@ -26,6 +27,7 @@ export const Wallpapers: { [key: string]: string } = {
   img08,
   img13,
   img14,
+  img15,
   img06,
   img07,
   img09,
