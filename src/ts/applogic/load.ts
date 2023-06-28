@@ -1,16 +1,13 @@
-import poker from "../../assets/apps/apppoker.svg";
 import { get } from "svelte/store";
 import { Log, LogLevel } from "../console";
-import { createTrayIcon, disposeTrayIcon } from "../desktop/tray/main";
-import { errorMessage } from "../errorlogic/main";
+import { makeNotification } from "../notiflogic/main";
 import { UserData } from "../userlogic/interfaces";
+import { centerWindow } from "./center";
 import { isLoaded } from "./checks";
-import { SystemApps } from "./imports";
 import type { App } from "./interface";
 import { registerAppShortcuts } from "./keyboard/main";
-import { updateStores, WindowStore } from "./store";
-import { makeNotification } from "../notiflogic/main";
-import { centerWindow } from "./center";
+import { WindowStore, updateStores } from "./store";
+import { SystemApps } from "./imports/store";
 
 export function loadWindow(id: string, app: App) {
   if (isLoaded(id))

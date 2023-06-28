@@ -3,7 +3,6 @@
   import "../../css/desktop.css";
   import { checkForUpdates } from "../../tauri/updates";
   import { importAutoLoaders } from "../../ts/applogic/aftermarket/autoload";
-  import { importDefault } from "../../ts/applogic/imports";
   import { startKeyListener } from "../../ts/applogic/keyboard/listener";
   import {
     isFullscreenWindow,
@@ -28,6 +27,7 @@
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
   import { checkLinux } from "../../ts/tauri/linux";
+  import { importDefault } from "../../ts/applogic/imports/main";
 
   let show = false;
   let classes = "";

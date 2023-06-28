@@ -6,7 +6,7 @@
   import { disableApp, enableApp } from "../../ts/applogic/enabling";
   import { openWindow } from "../../ts/applogic/events";
   import { getAppIcon } from "../../ts/applogic/icon";
-  import { SystemApps } from "../../ts/applogic/imports";
+  import { SystemApps } from "../../ts/applogic/imports/store";
   import type { App } from "../../ts/applogic/interface";
   import { getWindow, WindowStore } from "../../ts/applogic/store";
 

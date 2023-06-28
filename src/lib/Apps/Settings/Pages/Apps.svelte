@@ -1,8 +1,6 @@
 <script lang="ts">
   import "../../../../css/desktop/apps/settings/apps.css";
-  import { importDefault } from "../../../../ts/applogic/imports";
   import { WindowStore } from "../../../../ts/applogic/store";
-  import OptionSection from "../OptionSection.svelte";
   import AppButton from "./Apps/AppButton.svelte";
   import HiddenAppButton from "./Apps/HiddenAppButton.svelte";
 

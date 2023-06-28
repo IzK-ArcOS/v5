@@ -1,8 +1,8 @@
 import { get } from "svelte/store";
 import { openByKey } from "../applogic/apps/SettingsApp/store";
-import { importDefault } from "../applogic/imports";
 import { WindowStore } from "../applogic/store";
 import { makeNotification } from "../notiflogic/main";
+import { importDefault } from "../applogic/imports/main";
 
 export function reloadApps() {
   const ws = get(WindowStore);

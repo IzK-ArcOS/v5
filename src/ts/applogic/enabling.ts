@@ -3,8 +3,8 @@ import { Log, LogLevel } from "../console";
 import { errorMessage } from "../errorlogic/main";
 import { UserData } from "../userlogic/interfaces";
 import { closeWindow } from "./events";
-import { SystemApps } from "./imports";
 import { updateStores, WindowStore } from "./store";
+import { SystemApps } from "./imports/store";
 
 export function disableApp(id: string) {
   Log({
