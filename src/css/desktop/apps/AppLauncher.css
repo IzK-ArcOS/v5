@@ -46,7 +46,7 @@ window#AppLauncher div.arcfind-wrapper {
 window#AppLauncher div.arcfind-wrapper div.arcfind button {
   background-color: transparent;
   border: none;
-  color: var(--fg);
+  color: #ccc;
   min-width: 48px;
   margin: 0;
   font-size: 18.2px;
