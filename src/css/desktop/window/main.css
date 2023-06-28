@@ -19,6 +19,11 @@
   margin-top: 50px;
 }
 
+.window,
+.window * {
+  pointer-events: none !important;
+}
+
 window.overlay {
   background-color: var(--win-bg, #353535);
 }
@@ -35,10 +40,6 @@ window.window.snapped {
   max-height: unset !important;
   border-radius: 0 !important;
   resize: none;
-}
-
-.window * {
-  pointer-events: none;
 }
 
 window.custom {
@@ -120,8 +121,9 @@ div.desktop.is-launcher .window.max:not(.fullscreen) {
   margin-top: 00px;
 }
 
+.window.visible,
 .window.visible * {
-  pointer-events: initial;
+  pointer-events: initial !important;
 }
 
 .window.nobg {

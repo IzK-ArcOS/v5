@@ -43,6 +43,8 @@ export async function apiCall(
     return {};
   }
 
+  const statusCode = req.status;
+
   const txt = await req.text();
 
   if (
@@ -53,18 +55,18 @@ export async function apiCall(
   ) {
     invalidServerResponse(path);
 
-    return {};
+    return { statusCode };
   }
 
   if (!noBody) {
     try {
-      return JSON.parse(txt);
+      return { ...JSON.parse(txt), statusCode };
     } catch {
-      return {};
+      return { statusCode };
     }
   }
 
-  return {};
+  return { statusCode };
 }
 
 export function invalidServerResponse(path: string) {

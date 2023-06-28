@@ -50,24 +50,26 @@ export async function changeUsername(old: string, newName: string) {
     get(UserToken)
   );
 
+  const isValid = req.statusCode == 200;
+
   UserName.set(newName);
 
-  if (!req.valid) return false;
+  if (!isValid) return false;
 
   const remembed = localStorage.getItem("arcos-remembered-token");
 
-  if (!remembed || !req.valid) return req.valid;
+  if (!remembed) return false;
 
   const rememberedUsername = atob(remembed).split(":")[0];
 
-  if (rememberedUsername != old) return req.valid;
+  if (rememberedUsername != old) return false;
 
   localStorage.setItem(
     "arcos-remembered-token",
     btoa(`${newName}:${atob(remembed).split(":")[1]}`)
   );
 
-  return req.valid;
+  return isValid;
 }
 
 export async function logoffToken() {

@@ -148,6 +148,7 @@ div.login div.center-absolute div.user-selector button.createacc {
   -moz-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   min-width: 150px;
+  border: var(--button-glass-bg) 1px solid;
 }
 
 div.login div.center-absolute div.user-selector button.user {

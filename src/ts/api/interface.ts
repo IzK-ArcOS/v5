@@ -53,6 +53,7 @@ export interface DefaultResponse {
     title: string;
     message: string;
   };
+  statusCode?: number;
 }
 
 export interface UserFileLoader {

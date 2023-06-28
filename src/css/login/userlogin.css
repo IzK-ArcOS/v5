@@ -43,14 +43,16 @@ div.userlogin div.cloudlogin button.material-icons-round {
   padding: 0;
   color: #ccc;
   width: 36px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+  height: 36px;
+  border-radius: 0;
   background-color: #fff1;
   opacity: 1 !important;
 
-  font-size: 13px;
+  font-size: 16px;
   -webkit-backdrop-filter: unset;
   backdrop-filter: unset;
+  border-left: var(--button-glass-bg) 1px solid;
+  background-color: transparent;
 }
 
 div.userlogin div.cloudlogin button.material-icons-round:disabled {
@@ -59,6 +61,17 @@ div.userlogin div.cloudlogin button.material-icons-round:disabled {
 
 div.userlogin div.cloudlogin div.field {
   display: flex;
+  align-items: center;
+  border: var(--button-glass-bg) 1px solid;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #fff1;
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+div.userlogin div.cloudlogin div.field input {
+  border-radius: 0;
+  background-color: transparent;
 }
 
 div.userlogin div.cloudlogin div.field.hidden {
@@ -75,11 +88,6 @@ div.userlogin div.cloudlogin form {
   display: inline-block;
 }
 
-div.userlogin div.cloudlogin form input {
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
-}
-
 div.userlogin div.cloudlogin form input.wrongpswd {
   background-color: rgba(255, 99, 71, 0.377);
 }
@@ -87,6 +95,7 @@ div.userlogin div.cloudlogin form input.wrongpswd {
 div.login button.switchuser {
   margin-top: 26px;
   transition: opacity 0.3s, visibility 0.3s, margin-top 0.3s;
+  border: var(--button-glass-bg) 1px solid !important;
 }
 
 div.userlogin.newuser button.createbutton {

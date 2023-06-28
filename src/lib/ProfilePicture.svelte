@@ -17,5 +17,6 @@
     border-radius: 50%;
     background-position: center;
     display: inline-block;
+    background-color: var(--button-glass-bg);
   }
 </style>
