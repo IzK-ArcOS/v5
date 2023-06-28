@@ -1,4 +1,7 @@
+import { get } from "svelte/store";
+import { getServer } from "../api/server";
 import { Log, LogLevel } from "../console";
+import { UserName } from "../userlogic/interfaces";
 import type { Color } from "./interface";
 import { ArcTermIntro } from "./intro";
 import type { ArcTerm } from "./main";
@@ -43,9 +46,14 @@ export class ArcTermUtil {
 
     ArcTermIntro(this.term);
 
-    this.term.std.writeColor(
-      `${this.term.env.greeting}\n\n`,
-      this.term.env.promptColor as Color
-    );
+    const username = get(UserName);
+    const server = getServer();
+    const path = (this.term.path || "./").replace("./", "");
+    const out = this.term.env.greeting
+      .replace("&u", username)
+      .replace("&s", server)
+      .replace("&p", path);
+
+    this.term.std.writeColor(`${out}\n\n`, this.term.env.promptColor as Color);
   }
 }

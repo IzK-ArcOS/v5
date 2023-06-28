@@ -61,7 +61,7 @@ export function addServer(server: string, makeDefault = true): void {
 
   const all = getAllServers();
 
-  all.push(server);
+  if (!all.includes(server)) all.push(server);
 
   localStorage.setItem("arcos-servers", JSON.stringify(all));
 
