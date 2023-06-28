@@ -13,7 +13,7 @@
   let data: App;
   let isEnabled = true;
   let disablePoke = false;
-  let d = "Auto";
+  let d = "(unset)";
 
   function updateState() {
     if (isEnabled) enableApp($id);
