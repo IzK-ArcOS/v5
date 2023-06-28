@@ -123,6 +123,16 @@ div.login div.topbar div.right {
 div.login div.hostname {
   opacity: 0.3;
 }
+
+div.login select.host {
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  padding-right: 10px;
+  background-color: #0000;
+  width: fit-content;
+  opacity: 0.5;
+}
 /* 
 div.login div.center-absolute {
   min-width: 640px;

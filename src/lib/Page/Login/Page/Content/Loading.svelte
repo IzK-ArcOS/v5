@@ -1,11 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import def from "../../../../../assets/pfp/null.png";
+  import systemIcon from "../../../../../assets/systemIcon.svg";
   import { getUserPfp } from "../../../../../ts/api/pfp";
   import { loginUsername } from "../../../../../ts/login/main";
-  import { UserData, UserName } from "../../../../../ts/userlogic/interfaces";
-  import { getUserdata } from "../../../../../ts/userlogic/main";
-  import systemIcon from "../../../../../assets/systemIcon.svg";
-  import def from "../../../../../assets/pfp/null.png";
+  import { UserName } from "../../../../../ts/userlogic/interfaces";
   import ProfilePicture from "../../../../ProfilePicture.svelte";
   import Spinner from "../../../../Spinner.svelte";
 
@@ -13,19 +12,17 @@
   export let username: string = "";
 
   let name = "";
-  let data: UserData;
   let pfp = "";
 
   onMount(async () => {
     name = $loginUsername || $UserName || username;
-    data = await getUserdata(name);
     pfp = await getUserPfp(name);
 
     if (pfp == def) pfp = systemIcon;
   });
 </script>
 
-{#if data && pfp}
+{#if pfp}
   <div class="userlogin show">
     <ProfilePicture src={pfp} height={151} />
     <h1>{name}</h1>

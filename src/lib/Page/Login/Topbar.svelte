@@ -6,19 +6,19 @@
     CurrentLoginState,
     loginUsername,
   } from "../../../ts/login/main";
-  import { getServer } from "../../../ts/api/server";
+  import { getAllServers, getServer } from "../../../ts/api/server";
+  import { applyState } from "../../../ts/state/main";
 
   let time: string = "";
+  let selectedServer = getServer();
   let show = false;
-  let host = "";
+  let servers = [];
 
   onMount(() => {
     setInterval(() => (time = dayjs().format("HH:mm")), 500);
     setTimeout(() => (show = true), 750);
 
-    const server = getServer();
-
-    host = server ? `API: ${server}` : `Local: ${location.hostname}`;
+    servers = getAllServers();
   });
 
   function shutdown() {
@@ -30,6 +30,16 @@
     loginUsername.set("ArcOS");
     applyLoginState("restart");
   }
+
+  function changeServer() {
+    setTimeout(() => {
+      if (selectedServer == "$new") return applyState("fts");
+
+      localStorage.setItem("arcos-current-server", selectedServer);
+
+      restart();
+    });
+  }
 </script>
 
 {#if $CurrentLoginState}
@@ -37,9 +47,12 @@
     class="topbar"
     class:show={($CurrentLoginState.attribs.topbar || false) && show}
   >
-    <div class="hostname">
-      {host}
-    </div>
+    <select on:change={changeServer} bind:value={selectedServer} class="host">
+      {#each servers as server}
+        <option value={server}>{server}</option>
+      {/each}
+      <option value="$new">Add Server...</option>
+    </select>
     <div class="clock">
       {time}
     </div>
