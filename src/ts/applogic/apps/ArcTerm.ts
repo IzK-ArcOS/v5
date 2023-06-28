@@ -28,6 +28,7 @@ export const ArcTerm: App = {
     keyboardShortcuts: [
       {
         alt: true,
+        shift: true,
         key: "f",
         action(app: App) {
           fullscreenToggle(app.id);

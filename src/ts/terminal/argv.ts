@@ -28,6 +28,8 @@ export function getSwitches(argv: string[]) {
     switches[key] = switches[key].trim();
   }
 
+  console.log(switches);
+
   return switches;
 }
 
