@@ -7,7 +7,7 @@ div.fts {
   background-size: cover;
   background-image: url("../assets/bg/img15.jpg");
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity 1s;
 }
 
 div.fts *:not(.material-icons-round) {

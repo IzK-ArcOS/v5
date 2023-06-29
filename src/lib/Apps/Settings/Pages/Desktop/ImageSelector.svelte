@@ -13,7 +13,9 @@
 <div
   class="wallpaper"
   style="background-image: url({wallpaper[1].url});"
-  title={wallpaper[0] == "img0" ? "(none)" : wallpaper[0]}
+  title={wallpaper[0] == "img0"
+    ? "(none)"
+    : `${wallpaper[1].name} from ${wallpaper[1].author}`}
   class:selected={$UserData.sh.desktop.wallpaper == wallpaper[0]}
   on:click={change}
 >
