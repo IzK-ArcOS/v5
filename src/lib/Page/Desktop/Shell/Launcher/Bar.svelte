@@ -8,6 +8,7 @@
     getOpenedStore,
     maxZIndex,
   } from "../../../../../ts/applogic/store";
+  import { showArcFind } from "../../../../../ts/search/main";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
   import AppButton from "./Bar/AppButton.svelte";
   import Trigger from "./Bar/Trigger.svelte";
@@ -34,7 +35,7 @@
   }
 
   function toggleLauncher() {
-    openWindow("AppLauncher");
+    $showArcFind = !$showArcFind;
   }
 </script>
 
@@ -42,15 +43,11 @@
   class="launcher-bar"
   class:colored={$UserData.sh.taskbar.colored}
   class:visible
-  style="z-index: {$maxZIndex + 20}"
+  style="z-index: {$maxZIndex + 31}"
   on:mouseenter={mouseenter}
   on:mouseleave={mouseleave}
 >
-  <button
-    class="apps"
-    on:click={toggleLauncher}
-    disabled={!!oa.filter((a) => a.id == "AppLauncher").length}
-  >
+  <button class="apps" on:click={toggleLauncher}>
     <img src={logo} alt="ArcOS" />
   </button>
   <div class="opened-apps">

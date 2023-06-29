@@ -11,7 +11,6 @@
   function trigger() {
     result.action(result);
     showArcFind.set(false);
-    closeWindow("AppLauncher");
   }
 </script>
 

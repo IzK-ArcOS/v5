@@ -134,12 +134,7 @@ export function assignDesktopListeners() {
       alt: true,
       global: true,
       action: () => {
-        if (get(UserData).sh.taskbar.isLauncher) {
-          openWindow("AppLauncher");
-          return showArcFind.set(false);
-        }
-        if (!isOpened("AppLauncher")) showArcFind.set(!get(showArcFind));
-        else showArcFind.set(false);
+        showArcFind.set(!get(showArcFind));
       },
     },
     {
