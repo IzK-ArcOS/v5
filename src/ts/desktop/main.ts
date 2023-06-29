@@ -12,9 +12,7 @@ import { CurrentNotification } from "../notiflogic/main";
 import { showArcFind } from "../search/main";
 import { applyState } from "../state/main";
 import { UserData } from "../userlogic/interfaces";
-import { reloadApps } from "../window/reload";
 import { ActionCenterOpened } from "./actioncenter/main";
-import { isOpened } from "../applogic/checks";
 
 export const previouslyLoaded = writable<boolean>(false);
 export const startOpened = writable<boolean>(false);
@@ -105,26 +103,6 @@ export function assignDesktopListeners() {
         CurrentNotification.set(null);
 
         focusedWindowId.set(null);
-      },
-      global: true,
-    },
-    {
-      key: "r",
-      alt: true,
-      shift: true,
-      action() {
-        startOpened.set(false);
-        ActionCenterOpened.set(false);
-
-        reloadApps();
-
-        setTimeout(() => {
-          isFullscreenWindow.set(true);
-        }, 100);
-
-        setTimeout(() => {
-          isFullscreenWindow.set(false);
-        }, 1000);
       },
       global: true,
     },

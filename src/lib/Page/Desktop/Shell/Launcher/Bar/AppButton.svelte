@@ -9,6 +9,7 @@
     maxZIndex,
     updateStores,
   } from "../../../../../../ts/applogic/store";
+  import { showArcFind } from "../../../../../../ts/search/main";
   import { getWindowElement } from "../../../../../../ts/window/main";
 
   export let app: App;
@@ -32,6 +33,8 @@
     const window = getWindowElement(app);
 
     window.style.zIndex = $maxZIndex.toString();
+
+    showArcFind.set(false);
   }
 </script>
 

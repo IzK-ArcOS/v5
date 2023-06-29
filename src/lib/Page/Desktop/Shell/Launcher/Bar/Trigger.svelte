@@ -22,7 +22,7 @@
 
 <div
   class="launcher-bar-trigger"
-  style="z-index: {$maxZIndex + 21}"
+  style="z-index: {$maxZIndex + 32}"
   on:mouseenter={mouseenter}
   on:mouseleave={mouseleave}
 />

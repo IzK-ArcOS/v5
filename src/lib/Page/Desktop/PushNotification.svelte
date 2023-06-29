@@ -54,6 +54,7 @@
   class:hidden={!data || hide}
   class:colored={$UserData.sh.taskbar.colored}
   class:nobutt={data && !data.buttons.length}
+  class:launcher={$UserData.sh.taskbar.isLauncher}
   style="z-index: {$maxZIndex + 4}"
 >
   {#if data}

@@ -10,10 +10,14 @@ window div.titlebar {
   width: 100%;
   box-sizing: border-box;
   padding: 5px;
-  opacity: 0.6;
   display: flex;
   position: absolute;
   z-index: 100;
+  background-color: var(--win-bg);
+}
+
+window:not(.focused) div.titlebar > * {
+  opacity: 0.6 !important;
 }
 
 window div.titlebar * {
@@ -22,6 +26,7 @@ window div.titlebar * {
 
 window.focused div.titlebar {
   opacity: 1;
+  background-color: transparent;
 }
 
 window.glass:not(.focused) {

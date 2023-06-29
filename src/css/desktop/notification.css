@@ -21,11 +21,15 @@ div.notification {
   backdrop-filter: blur(var(--glass-blur));
 }
 
+div.notification.launcher {
+  top: 40px;
+}
+
 div.notification:not(.nobutt) {
   padding-bottom: 65px;
 }
 
-div.notification::after {
+div.notification:not(.ac)::after {
   content: " ";
 
   border-radius: inherit;
@@ -40,11 +44,11 @@ div.notification::after {
   pointer-events: none;
 }
 
-div.notification.colored {
+div.notification:not(.ac).colored {
   border: var(--glass-ultradark) 1px solid;
 }
 
-div.notification.colored::after {
+div.notification:not(.ac).colored::after {
   background-color: var(--accent);
 }
 
@@ -65,6 +69,7 @@ div.notification.ac {
   margin-bottom: 15px;
   border-bottom: var(--win-border-light);
   border-radius: 0;
+  backdrop-filter: unset;
   -webkit-backdrop-filter: unset;
 }
 
@@ -102,10 +107,13 @@ div.notification p.title {
   margin-bottom: 10px;
   display: flex;
   line-height: 24px;
+  align-items: center;
+  gap: 5px;
 }
 
 div.notification p.title span.material-icons-round {
   margin-left: 0;
+  font-size: 20px;
 }
 
 div.notification p.title img {
