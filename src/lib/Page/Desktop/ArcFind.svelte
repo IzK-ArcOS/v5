@@ -1,11 +1,15 @@
 <script lang="ts">
   import "../../../css/desktop/arcfind.css";
-  import { maxZIndex } from "../../../ts/applogic/store";
+  import { isPopulatable } from "../../../ts/applogic/checks";
+  import { closeWindow } from "../../../ts/applogic/events";
+  import { WindowStore, maxZIndex } from "../../../ts/applogic/store";
   import type { SearchItem } from "../../../ts/search/interface";
   import { Search, showArcFind } from "../../../ts/search/main";
+  import sleep from "../../../ts/sleep";
   import Loading from "./ArcFind/Loading.svelte";
   import NoResults from "./ArcFind/NoResults.svelte";
   import Result from "./ArcFind/Result.svelte";
+  import AppListItem from "./StartMenu/AppListItem.svelte";
 
   export let inlined = false;
 
@@ -70,10 +74,15 @@
     showArcFind.set(false);
   }
 
-  showArcFind.subscribe((v) => {
+  showArcFind.subscribe(async (v) => {
     reset();
 
-    if (v) setTimeout(() => searchBox.focus(), 100);
+    if (!v) return;
+
+    await sleep(500);
+    searchBox.focus();
+    await sleep(200);
+    searchBox.focus();
   });
 
   function mutateIndex(e: KeyboardEvent) {
@@ -111,14 +120,16 @@
 >
   <div class="arcfind">
     <form on:submit={submit}>
-      <input
-        type="text"
-        placeholder="Search ArcOS"
-        bind:value={query}
-        on:input={search}
-        on:keydown={mutateIndex}
-        bind:this={searchBox}
-      />
+      {#if $showArcFind}
+        <input
+          type="text"
+          placeholder="Search ArcOS"
+          bind:value={query}
+          on:input={search}
+          on:keydown={mutateIndex}
+          bind:this={searchBox}
+        />
+      {/if}
     </form>
     <button class="material-icons-round">search</button>
   </div>
@@ -135,6 +146,14 @@
       {/if}
     </div>
   {/if}
+
+  <div class="apps" class:hide={!!query}>
+    {#each $WindowStore as app}
+      {#if isPopulatable(app)}
+        <AppListItem {app} onopen={() => ($showArcFind = false)} />
+      {/if}
+    {/each}
+  </div>
   {#if !inlined}
     <button class="material-icons-round close" on:click={closeThis}
       >close</button

@@ -5,6 +5,7 @@
   import type { App } from "../../ts/applogic/interface";
   import { ArcTerm } from "../../ts/terminal/main";
   import { arcCommands, desktopSpecific } from "../../ts/terminal/store";
+  import { focusedWindowId } from "../../ts/applogic/store";
 
   export let app: App;
 
@@ -47,7 +48,13 @@
   });
 
   function focus() {
-    if (!arcTerm || !arcTerm.input || !arcTerm.input.current) return;
+    if (
+      !arcTerm ||
+      !arcTerm.input ||
+      !arcTerm.input.current ||
+      $focusedWindowId != "ArcTerm"
+    )
+      return;
 
     arcTerm.input.current.focus();
 

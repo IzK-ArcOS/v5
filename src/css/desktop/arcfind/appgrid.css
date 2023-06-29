@@ -1,0 +1,31 @@
+div.arcfind-wrapper div.apps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 110px);
+  grid-template-rows: repeat(auto-fit, 110px);
+  max-width: 750px;
+  margin: 0 auto;
+  max-height: 470px;
+  overflow-y: auto;
+  grid-gap: 15px;
+  margin-top: 100px;
+}
+
+div.arcfind-wrapper div.apps.hide {
+  display: none;
+}
+
+div.arcfind-wrapper div.apps button.item {
+  background-color: transparent;
+  text-align: center;
+  height: fit-content;
+  margin: 0;
+  color: #ccc;
+  border: none;
+}
+
+div.arcfind-wrapper div.apps button.item img {
+  display: block;
+  height: 48px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}

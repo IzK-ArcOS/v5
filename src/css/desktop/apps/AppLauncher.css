@@ -2,32 +2,6 @@ window#AppLauncher {
   background-color: #0009;
 }
 
-window#AppLauncher div.apps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 110px);
-  grid-template-rows: repeat(auto-fit, 110px);
-  max-width: 750px;
-  margin: 0 auto;
-  max-height: 470px;
-  overflow-y: auto;
-  grid-gap: 10px;
-}
-
-window#AppLauncher div.apps button.item {
-  background-color: transparent;
-  gap: 15px;
-  text-align: center;
-  height: fit-content;
-  margin: 0;
-}
-
-window#AppLauncher div.apps button.item img {
-  display: block;
-  height: 48px;
-  margin: 0 auto;
-  margin-bottom: 10px;
-}
-
 window#AppLauncher div.body {
   display: flex;
   justify-content: center;
