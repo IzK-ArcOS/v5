@@ -28,6 +28,8 @@ div.userlogin input:not([type*="checkbox"]) {
   border-radius: 5px;
   background-color: #fff1;
   border: none;
+  backdrop-filter: blur(var(--glass-blur));
+  border: var(--button-glass-bg) 1px solid;
 }
 
 div.userlogin input.block,
@@ -65,13 +67,14 @@ div.userlogin div.cloudlogin div.field {
   border: var(--button-glass-bg) 1px solid;
   overflow: hidden;
   border-radius: 10px;
-  background-color: #fff1;
+  background-color: #ffffff08;
   backdrop-filter: blur(var(--glass-blur));
 }
 
 div.userlogin div.cloudlogin div.field input {
   border-radius: 0;
-  background-color: transparent;
+  background-color: transparent !important;
+  border: none;
 }
 
 div.userlogin div.cloudlogin div.field.hidden {
@@ -100,11 +103,12 @@ div.login button.switchuser {
 
 div.userlogin.newuser button.createbutton {
   color: #ccc;
-  height: 36px;
+  height: 38px;
   padding: 0;
-  min-width: 36px;
+  min-width: 38px;
   margin: 0;
   margin-left: 10px;
+  background-color: #fff3;
 }
 
 div.userlogin.newuser div.input-wrapper {

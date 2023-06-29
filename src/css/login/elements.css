@@ -1,0 +1,30 @@
+div.login a {
+  color: var(--accent) !important;
+  text-decoration: none;
+}
+
+div.login button:not(.user) {
+  padding: 10px 20px;
+  background-color: #ffffff08;
+  border: none;
+  border-radius: 7.5px;
+  transition: background-color 0.3s, opacity 0.15s;
+  -webkit-backdrop-filter: blur(7.5px);
+  backdrop-filter: blur(7.5px);
+}
+
+div.login button:not(.user):hover {
+  background-color: #fff1;
+}
+
+div.login button:not(.user):active {
+  opacity: 0.4;
+}
+
+div.login button:disabled {
+  opacity: 0.4;
+}
+
+div.login button.nopad {
+  padding: 0;
+}

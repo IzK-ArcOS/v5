@@ -1,18 +1,12 @@
+@import url("./login/background.css");
+@import url("./login/elements.css");
+@import url("./login/topbar.css");
+@import url("./login/selector.css");
+
 div.login {
   background-color: #000;
   transition: opacity 0.3s;
   opacity: 0;
-}
-
-div.login div.background {
-  background-image: url("../assets/bg/img09.png");
-  background-position: center;
-  background-size: cover;
-  transition: transform 0.6s;
-}
-
-div.login div.background.zoom {
-  transform: scale(1.1);
 }
 
 div.login > * {
@@ -31,167 +25,6 @@ div.login.show {
 div.login *:not(.material-icons-round) {
   color: #ccc;
   font-family: "Inter", sans-serif;
-}
-
-div.login a {
-  color: var(--accent) !important;
-  text-decoration: none;
-}
-
-div.login button:not(.user) {
-  padding: 10px 20px;
-  background-color: #ffffff08;
-  border: none;
-  border-radius: 7.5px;
-  transition: background-color 0.3s, opacity 0.15s;
-  -webkit-backdrop-filter: blur(7.5px);
-  backdrop-filter: blur(7.5px);
-}
-
-div.login button:not(.user):hover {
-  background-color: #fff1;
-}
-
-div.login button:not(.user):active {
-  opacity: 0.4;
-}
-
-div.login button:disabled {
-  opacity: 0.4;
-}
-
-div.login button.nopad {
-  padding: 0;
-}
-
-div.login div.topbar div.right button.nopad {
-  width: 22px;
-  height: 22px;
-  box-sizing: border-box;
-  border-radius: 11px;
-  background-color: transparent;
-  margin-left: 5px;
-}
-
-div.login div.topbar div.right button.nopad:hover {
-  background-color: #0003;
-}
-
-div.login div.topbar div.right button.nopad span.material-icons-round {
-  padding: 0;
-  margin: 0;
-}
-
-div.login div.topbar {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 35px;
-  background-color: #0002;
-  box-sizing: border-box;
-  padding: 7px 10px;
-  opacity: 0;
-  transition: opacity 0.4s, top 0.4s;
-  top: -17.5px;
-}
-
-div.login div.topbar.show {
-  opacity: 1;
-  top: 0px;
-}
-
-div.login div.topbar div.clock {
-  position: absolute;
-  top: 7px;
-  left: 50%;
-  transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  font-weight: bold;
-}
-
-div.login div.topbar div.right {
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  font-size: 15px;
-}
-
-div.login div.hostname {
-  opacity: 0.3;
-}
-
-div.login select.host {
-  background-color: transparent;
-  border: none;
-  font-size: 14px;
-  padding-right: 10px;
-  background-color: #0000;
-  width: fit-content;
-  opacity: 0.5;
-}
-/* 
-div.login div.center-absolute {
-  min-width: 640px;
-  max-width: 70%;
-  width: 70%;
-} */
-
-div.login div.center-absolute div.user-selector {
-  min-width: 640px;
-  max-width: 80vw;
-  width: 80vw;
-  text-align: center;
-}
-
-div.login div.center-absolute div.user-selector button.createacc {
-  display: block;
-  position: fixed;
-  bottom: -70px;
-  left: 50%;
-  transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  min-width: 150px;
-  border: var(--button-glass-bg) 1px solid;
-}
-
-div.login div.center-absolute div.user-selector button.user {
-  background-color: transparent;
-  border: none;
-  margin: 15px;
-  width: 100px;
-  height: 130px;
-  box-sizing: border-box;
-  padding: 0;
-  text-shadow: #000 0px 0 5px;
-  border-radius: 10px;
-  padding: 10px 0px;
-  transition: background-color 0.15s, opacity 0.3s;
-}
-
-div.login div.center-absolute div.user-selector button.user:hover {
-  background-color: #0005;
-}
-
-div.login div.center-absolute div.user-selector button.user:active {
-  opacity: 0.4;
-}
-
-div.login div.center-absolute div.user-selector button.user img {
-  border-radius: 50%;
-  height: 75px;
-  width: 75px;
-  box-shadow: 0px 0px 10px #000a;
-}
-
-div.login div.center-absolute div.user-selector button.user p {
-  margin-bottom: 0;
 }
 
 div.login div.darken {
