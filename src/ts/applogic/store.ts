@@ -9,12 +9,6 @@ export const maxZIndex = writable<number>(1e9);
 export const focusedWindowId: Writable<string> = writable<string>(null);
 
 export function getWindow(id: string): App {
-  /*   Log({
-    msg: `Getting appData of ${id} from WindowStore`,
-    source: "store.ts: getWindow",
-    level: LogLevel.info,
-  }); */
-
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
