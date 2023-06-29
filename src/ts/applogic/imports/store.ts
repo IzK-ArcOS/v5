@@ -9,6 +9,7 @@ import { Exit } from "../apps/Exit";
 import { FileBrowserApp } from "../apps/FileBrowser";
 import { HelpCenter } from "../apps/HelpCenter";
 import { ImageViewer } from "../apps/ImageViewer";
+import { LightsOff } from "../apps/LightsOff";
 import { LoggerApp } from "../apps/Logger";
 import { MarkDownViewer } from "../apps/MarkDownViewer";
 import { MediaPlayerApp } from "../apps/MediaPlayer";
@@ -44,6 +45,7 @@ export const DefaultApps: { [key: string]: App } = {
   DonutApp,
   ArcTerm,
   HelpCenter,
+  LightsOff,
 };
 
 export const SystemApps: string[] = [
