@@ -1,5 +1,7 @@
 @import url("./titlebar/controls.css");
 @import url("./titlebar/title.css");
+@import url("./titlebar/big.css");
+@import url("./titlebar/left.css");
 
 window div.titlebar div.controls button:active {
   opacity: 0.2;
@@ -31,28 +33,4 @@ window.focused div.titlebar {
 
 window.glass:not(.focused) {
   background: var(--win-bg);
-}
-
-div.bigtitlebars window div.titlebar {
-  padding: 10px;
-  height: 40px;
-}
-
-div.bigtitlebars window:not(.headless) div.body {
-  height: calc(100% - 40px);
-  margin-top: 40px;
-}
-
-window.lefttb div.titlebar p.title {
-  margin-left: auto;
-}
-
-window.lefttb div.titlebar div.controls {
-  margin-left: unset;
-  position: absolute;
-  left: 5px;
-}
-
-div.bigtitlebars window.lefttb div.titlebar div.controls {
-  left: 10px;
 }

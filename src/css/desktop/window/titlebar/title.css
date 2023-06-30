@@ -1,3 +1,5 @@
+@import url("./title/centered.css");
+
 window div.titlebar p.title {
   margin: 0;
   border-radius: 5px;
@@ -7,35 +9,6 @@ window div.titlebar p.title {
   white-space: nowrap;
   text-overflow: ellipsis;
   display: flex;
-}
-
-window div.titlebar div.centeredtitle {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: inherit;
-  height: inherit;
-  text-align: center;
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  padding: 6px 5px;
-}
-
-window div.titlebar.centered div.centeredtitle {
-  opacity: 1;
-  visibility: visible;
-}
-
-window div.titlebar.centered p.title span {
-  color: transparent;
-  visibility: hidden;
-  max-width: 0;
-  overflow: hidden;
-}
-
-window div.titlebar.centered p.title img.icon {
-  margin-right: 0;
 }
 
 window div.titlebar p.title * {
@@ -54,9 +27,4 @@ div.bigtitlebars window div.titlebar img.icon {
   height: 16px;
   margin: 0;
   margin-right: 5px;
-}
-
-div.bigtitlebars window div.titlebar.centered div.centeredtitle {
-  height: 17px;
-  margin: 5px 0;
 }

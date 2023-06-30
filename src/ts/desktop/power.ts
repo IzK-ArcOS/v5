@@ -1,11 +1,10 @@
 import { get } from "svelte/store";
 import { logoffToken } from "../api/cred";
 import { defaultDirectory } from "../api/interface";
-import { apiCall } from "../api/main";
 import {
   FileBrowserCurrentDir,
-  FileBrowserDirContents,
   FileBrowserDeletingFilename,
+  FileBrowserDirContents,
   FileBrowserSelectedFilename,
 } from "../applogic/apps/FileBrowser/main";
 import { closeWindow } from "../applogic/events";
@@ -13,7 +12,7 @@ import { WindowStore } from "../applogic/store";
 import { ErrorMessages, ErrorWindowStore } from "../errorlogic/app";
 import { selectedMessageId } from "../messaging/main";
 import { NotificationStore } from "../notiflogic/main";
-import { loggingOff, restarting, shuttingDown } from "./main";
+import { restarting, shuttingDown } from "./main";
 
 export function logoff() {
   let maxTimeout = 0;
@@ -37,7 +36,6 @@ export function logoff() {
   ErrorMessages.set([]);
   WindowStore.set([]);
   selectedMessageId.set(null);
-  loggingOff.set(true);
 }
 
 export function shutdown() {

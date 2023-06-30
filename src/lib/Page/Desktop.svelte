@@ -3,6 +3,7 @@
   import "../../css/desktop.css";
   import { checkForUpdates } from "../../tauri/updates";
   import { importAutoLoaders } from "../../ts/applogic/aftermarket/autoload";
+  import { importDefault } from "../../ts/applogic/imports/main";
   import { startKeyListener } from "../../ts/applogic/keyboard/listener";
   import {
     isFullscreenWindow,
@@ -12,7 +13,6 @@
   import {
     assignDesktopListeners,
     desktopClassNames,
-    loggingOff,
     previouslyLoaded,
     showDesktop,
     startOpened,
@@ -21,13 +21,12 @@
   import { DevModeOverride } from "../../ts/devmode/props";
   import { ErrorMessages } from "../../ts/errorlogic/app";
   import { startMessageCheckInterval } from "../../ts/messaging/interval";
+  import { checkLinux } from "../../ts/tauri/linux";
   import { UserData, UserName } from "../../ts/userlogic/interfaces";
   import ArcFind from "./Desktop/ArcFind.svelte";
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
-  import { checkLinux } from "../../ts/tauri/linux";
-  import { importDefault } from "../../ts/applogic/imports/main";
 
   let show = false;
   let classes = "";
@@ -63,13 +62,12 @@
     isFullscreenWindow.set(false);
     updateStores();
     startOpened.set(false);
-    loggingOff.set(false);
     ErrorMessages.set([]);
     DevModeOverride.set($UserData.devmode);
   }
 </script>
 
-{#if $UserData && $UserName && !$loggingOff}
+{#if $UserData && $UserName}
   <div
     class="desktop theme-{$UserData.sh.desktop.theme} tb-{$UserData.sh.taskbar
       .pos} fullscreen {classes}"

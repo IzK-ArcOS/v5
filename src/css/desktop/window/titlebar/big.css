@@ -1,0 +1,9 @@
+div.bigtitlebars window div.titlebar {
+  padding: 10px;
+  height: 40px;
+}
+
+div.bigtitlebars window:not(.headless) div.body {
+  height: calc(100% - 40px);
+  margin-top: 40px;
+}

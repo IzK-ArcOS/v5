@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
 import logo from "../../../assets/apps/donut.png";
 import Donut from "../../../lib/Apps/Donut.svelte";
-import { ArcOSVersion } from "../../../ts/env/main";
+import { ArcOSVersion } from "../../env/main";
 import { openChildWindow } from "../events";
 import type { App } from "../interface";
 

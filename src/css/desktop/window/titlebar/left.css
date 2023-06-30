@@ -1,0 +1,17 @@
+window.lefttb div.titlebar p.title {
+  margin-left: auto;
+}
+
+window.lefttb div.titlebar div.controls {
+  margin-left: unset;
+  position: absolute;
+  left: 5px;
+}
+
+div.bigtitlebars window.lefttb div.titlebar div.controls {
+  left: 10px;
+}
+
+window.lefttb div.titlebar div.controls button.traffic-cls {
+  margin-left: 5px;
+}

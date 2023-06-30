@@ -10,9 +10,8 @@
   } from "../../ts/applogic/apps/FileBrowser/main";
   import { closeWindow } from "../../ts/applogic/events";
   import type { App } from "../../ts/applogic/interface";
-  import { isFullscreenWindow, WindowStore } from "../../ts/applogic/store";
-  import { loggingOff } from "../../ts/desktop/main";
-  import { logoff, restart, shutdown } from "../../ts/desktop/power";
+  import { WindowStore, isFullscreenWindow } from "../../ts/applogic/store";
+  import { restart, shutdown } from "../../ts/desktop/power";
   import { ErrorMessages, ErrorWindowStore } from "../../ts/errorlogic/app";
   import { selectedMessageId } from "../../ts/messaging/main";
   import { NotificationStore } from "../../ts/notiflogic/main";

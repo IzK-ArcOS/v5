@@ -1,6 +1,6 @@
 import logo from "../../../assets/apps/error.svg";
 import ErrorCreatorSvelte from "../../../lib/Apps/ErrorCreator.svelte";
-import { ArcOSVersion } from "../../../ts/env/main";
+import { ArcOSVersion } from "../../env/main";
 import type { App } from "../interface";
 
 export const ErrorCreator: App = {
