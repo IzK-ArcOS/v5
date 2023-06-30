@@ -21,7 +21,7 @@
     if (testSuccess) {
       addServer(server);
 
-      applyFTSState("authform");
+      applyFTSState("authmode");
     } else {
       connectionError = true;
     }

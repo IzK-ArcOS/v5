@@ -7,13 +7,12 @@ import img05 from "../../../assets/bg/img05.png";
 import img06 from "../../../assets/bg/img06.jpg";
 import img07 from "../../../assets/bg/img07.jpg";
 import img08 from "../../../assets/bg/img08.jpg";
-import img09 from "../../../assets/bg/img09.png";
-import img10 from "../../../assets/bg/img10.png";
 import img11 from "../../../assets/bg/img11.jpg";
 import img12 from "../../../assets/bg/img12.png";
 import img13 from "../../../assets/bg/img13.png";
 import img14 from "../../../assets/bg/img14.jpg";
 import img15 from "../../../assets/bg/img15.jpg";
+import img16 from "../../../assets/bg/img16.jpg";
 import type { Wallpaper } from "./interface";
 
 export const Wallpapers: { [key: string]: Wallpaper } = {
@@ -47,11 +46,12 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
   },
   img06: { url: img06, author: "Izaak Kuipers", name: "ArcOS Beta Dark" },
   img07: { url: img07, author: "Izaak Kuipers", name: "ArcOS Beta Light" },
-  img09: { url: img09, author: "Unknown", name: "Login Background" },
-  img10: {
-    url: img10,
-    author: "Izaak Kuipers",
+  /* img09: { url: img09, author: "Unknown", name: "Login Background" }, */
+  img16: {
+    url: img16,
+    author: "Matteo Scaringi, Izaak Kuipers",
     name: "Login Background - Blurred",
+    source: "Corfu, Greece",
   },
   img11: { url: img11, author: "Unknown", name: "Legacy Login" },
   img12: { url: img12, author: "Izaak Kuipers", name: "Gradiented Waves" },
