@@ -9,7 +9,7 @@
 
 <div class:indent={!top}>
   <Node {key} {value} />
-  {#if typeof value == "object"}
+  {#if typeof value == "object" && value}
     {#each Object.entries(value) as child}
       <Branch key={child[0]} value={child[1]} />
     {/each}

@@ -1,7 +1,7 @@
 div.desktopIcons {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 80px);
+  grid-template-columns: repeat(10, 80px);
   grid-template-rows: repeat(auto-fit, 85px);
   padding: 10px;
   height: calc(100% - 65px);

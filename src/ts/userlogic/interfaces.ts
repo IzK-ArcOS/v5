@@ -25,6 +25,9 @@ export interface UserData {
       theme: "light" | "dark" | string;
       sharp: boolean;
       accent: string;
+      pinnedApps: string[];
+      pinnedFolders: string[];
+      pinnedFiles: string[];
     };
 
     start: {
