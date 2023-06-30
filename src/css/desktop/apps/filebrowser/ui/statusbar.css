@@ -1,0 +1,27 @@
+window#FileManager div.body div.bottom {
+  height: 25px;
+  border-top: var(--win-border);
+  line-height: 15px;
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+window#FileManager div.body div.bottom div.right {
+  display: flex;
+  margin-left: auto;
+  width: 50%;
+}
+
+window#FileManager div.body div.section {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 24px;
+  padding: 5px 7.5px;
+  border-left: var(--button-bg) 1px solid;
+}

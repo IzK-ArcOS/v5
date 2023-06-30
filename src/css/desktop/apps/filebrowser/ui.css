@@ -1,6 +1,6 @@
 @import url("./ui/topbar.css");
 @import url("./ui/sidebar.css");
-
+@import url("./ui/statusbar.css");
 window#FileManager > div.body {
   padding: 0;
   z-index: 1;
@@ -9,7 +9,7 @@ window#FileManager > div.body {
 window#FileManager > div.body div.content {
   position: absolute;
   width: calc(100% - 150px);
-  height: calc(100% - 70px);
+  height: calc(100% - 70px - 25px);
   box-sizing: border-box;
   background-color: var(--win-bg);
   top: 70px;
@@ -24,7 +24,7 @@ window#FileManager > div.body div.content {
 window#FileManager > div.body div.sidebar {
   position: absolute;
   width: 150px;
-  height: calc(100% - 70px);
+  height: calc(100% - 70px - 25px);
   box-sizing: border-box;
   top: 70px;
   left: 0px;
@@ -52,4 +52,18 @@ window#FileManager div.topbar {
   box-sizing: border-box;
   display: flex;
   border-bottom: var(--win-border);
+}
+
+div.bigtitlebars window#FileManager div.topbar {
+  top: 40px !important;
+}
+
+div.bigtitlebars window#FileManager > div.body div.content {
+  height: calc(100% - 80px - 25px);
+  top: 80px;
+}
+
+div.bigtitlebars window#FileManager > div.body div.sidebar {
+  height: calc(100% - 80px - 25px);
+  top: 80px;
 }

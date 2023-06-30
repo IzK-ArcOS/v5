@@ -13,6 +13,7 @@
   import SideBar from "./FileBrowser/SideBar.svelte";
   import TileView from "./FileBrowser/TileView.svelte";
   import TopBar from "./FileBrowser/TopBar.svelte";
+  import Bottom from "./FileBrowser/Bottom.svelte";
 
   let files: PartialArcFile[] = [];
   let dirs: PartialUserDir[] = [];
@@ -49,3 +50,4 @@
     <ListView {files} {dirs} />
   {/if}
 </div>
+<Bottom />

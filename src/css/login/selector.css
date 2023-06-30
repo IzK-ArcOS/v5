@@ -5,20 +5,6 @@ div.login div.center-absolute div.user-selector {
   text-align: center;
 }
 
-div.login div.center-absolute div.user-selector button.createacc {
-  display: block;
-  position: fixed;
-  bottom: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  min-width: 150px;
-  border: var(--button-glass-bg) 1px solid;
-}
-
 div.login div.center-absolute div.user-selector button.user {
   background-color: transparent;
   border: none;
