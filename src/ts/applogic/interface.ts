@@ -1,6 +1,7 @@
 import type { ArcFile } from "../api/interface";
 import type { ErrorButton } from "../errorlogic/app";
 import type { AppKeyCombinations } from "./keyboard/interface";
+import type { AppRuntime } from "./runtime/main";
 export interface App {
   info: GeneralAppInfo;
   pos: XY & { centered?: boolean };
@@ -26,6 +27,7 @@ export interface App {
   disabledWarning?: { title: string; message: string };
   snapped?: boolean;
   core?: boolean;
+  runtime?: typeof AppRuntime;
 }
 export interface OverlayableError {
   title: string;

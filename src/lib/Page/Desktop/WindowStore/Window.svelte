@@ -18,6 +18,7 @@
   import OverlayableWindow from "./OverlayableWindow.svelte";
   import Content from "./Window/Content.svelte";
   import Titlebar from "./Window/Titlebar.svelte";
+  import type { AppRuntime } from "../../../../ts/applogic/runtime/main";
 
   export let app: App = null;
 
@@ -29,6 +30,7 @@
   let window: HTMLDivElement;
   let posUsed = false;
   let titlebar: HTMLDivElement;
+  let runtime: AppRuntime;
 
   export let exttransition = false;
 
@@ -59,8 +61,6 @@
   });
 
   function handleMouse() {
-    /*     if (app.info.custom) return; */
-
     $focusedWindowId = app.id;
   }
 
@@ -69,6 +69,10 @@
 
     if (v == app.id && app.events.focus) app.events.focus(app);
     if (v != app.id && app.events.blur) app.events.blur(app);
+  });
+
+  onMount(() => {
+    if (app.runtime) runtime = new app.runtime(app, app.events);
   });
 </script>
 
