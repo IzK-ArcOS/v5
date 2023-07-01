@@ -5,7 +5,7 @@ window div.titlebar div.centeredtitle {
   width: inherit;
   height: inherit;
   text-align: center;
-  pointer-events: none;
+  pointer-events: none !important;
   opacity: 0;
   visibility: hidden;
   padding: 6px 5px;
