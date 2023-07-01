@@ -16,10 +16,10 @@
     connecting = true;
     connectionError = false;
 
-    const testSuccess = await testConnection(server);
+    const testSuccess = await testConnection(server.trim());
 
     if (testSuccess) {
-      addServer(server);
+      addServer(server.trim());
 
       applyFTSState("authmode");
     } else {

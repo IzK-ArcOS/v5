@@ -23,6 +23,11 @@ window#ArcTerm {
 window#ArcTerm > div.body {
   padding: 5px;
 }
+
+window#ArcTerm > div.titlebar {
+  background-color: transparent !important;
+}
+
 window#ArcTerm > div.body div.terminal-renderer {
   /* height: 100%; */
   overflow-y: hidden;
