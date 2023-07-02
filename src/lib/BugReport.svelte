@@ -1,7 +1,7 @@
 <script lang="ts">
-  import logo from "../assets/systemIcon.svg";
   import "../css/bugrep.css";
   import { maxZIndex } from "../ts/applogic/store";
+  import { Logo } from "../ts/branding";
   import { BugReportData } from "../ts/bugrep";
   import type { BugReport } from "../ts/bugrep/interface";
 
@@ -26,7 +26,7 @@
   <div class="bugrep fullscreen" class:show style="z-index: {$maxZIndex * 10};">
     <div class="content">
       <div>
-        <img class="logo" src={logo} alt="ArcOS" />
+        <img class="logo" src={Logo()} alt="ArcOS" />
         <h3>
           <span class="material-icons-round">{data.icon}</span>{data.title}
         </h3>

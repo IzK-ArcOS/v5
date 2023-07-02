@@ -1,6 +1,6 @@
 <script lang="ts">
-  import logo from "../../../../assets/systemIcon.svg";
   import "../../../../css/desktop/apps/settings/about.css";
+  import { Logo } from "../../../../ts/branding";
   import { ArcOSVersion } from "../../../../ts/env/main";
   import Section from "../Section.svelte";
   import SystemSection from "./About/SystemSection.svelte";
@@ -8,7 +8,7 @@
 
 <div class="about-page">
   <div class="product">
-    <div><img src={logo} alt="ArcOS" class="logo" /></div>
+    <div><img src={Logo()} alt="ArcOS" class="logo" /></div>
     <div class="text">
       <h1 class="name">ArcOS v{ArcOSVersion}</h1>
     </div>

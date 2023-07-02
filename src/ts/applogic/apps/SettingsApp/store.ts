@@ -4,7 +4,6 @@ import desktopIcon from "../../../../assets/apps/settings/desktop.svg";
 import personalizationIcon from "../../../../assets/apps/settings/personalization.svg";
 import shellIcon from "../../../../assets/apps/settings/taskbar.svg";
 import windowsIcon from "../../../../assets/apps/settings/windows.svg";
-import systemIcon from "../../../../assets/systemIcon.svg";
 import About from "../../../../lib/Apps/Settings/Pages/About.svelte";
 import Account from "../../../../lib/Apps/Settings/Pages/Account.svelte";
 import Apps from "../../../../lib/Apps/Settings/Pages/Apps.svelte";
@@ -12,6 +11,7 @@ import Desktop from "../../../../lib/Apps/Settings/Pages/Desktop.svelte";
 import Personalization from "../../../../lib/Apps/Settings/Pages/Personalization.svelte";
 import Shell from "../../../../lib/Apps/Settings/Pages/Shell.svelte";
 import Windows from "../../../../lib/Apps/Settings/Pages/Windows.svelte";
+import { Logo } from "../../../branding";
 import { openWindow } from "../../events";
 import type { SettingsPage } from "./interface";
 import { currentSettingsPage } from "./main";
@@ -52,7 +52,7 @@ export const SettingsPages: SettingsPage[] = [
   },
   {
     name: "About",
-    icon: systemIcon,
+    icon: Logo(),
     content: About,
   },
 ];

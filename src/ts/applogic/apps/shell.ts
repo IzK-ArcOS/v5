@@ -1,11 +1,11 @@
 import { writable } from "svelte/store";
-import logo from "../../../assets/systemIcon.svg";
 import Shell from "../../../lib/Page/Desktop/Shell.svelte";
 import { SEP_ITEM } from "../../contextmenu/main";
 import { ArcOSVersion } from "../../env/main";
 import { openWindow } from "../events";
 import type { App } from "../interface";
 import { openByKey } from "./SettingsApp/store";
+import { Logo } from "../../branding";
 
 export const ArcShell: App = {
   info: {
@@ -14,7 +14,7 @@ export const ArcShell: App = {
     builtin: true,
     version: ArcOSVersion,
     author: "ArcOS Team",
-    icon: logo,
+    icon: Logo(),
     custom: true,
   },
   size: { w: NaN, h: NaN },

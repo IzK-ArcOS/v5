@@ -1,13 +1,11 @@
 <script lang="ts">
-  import logo from "../../../../../assets/systemIcon.svg";
-  import { isOpened } from "../../../../../ts/applogic/checks";
-  import { closeWindow, openWindow } from "../../../../../ts/applogic/events";
   import type { App } from "../../../../../ts/applogic/interface";
   import {
     WindowStore,
     getOpenedStore,
     maxZIndex,
   } from "../../../../../ts/applogic/store";
+  import { Logo } from "../../../../../ts/branding";
   import { showArcFind } from "../../../../../ts/search/main";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
   import AppButton from "./Bar/AppButton.svelte";
@@ -48,7 +46,7 @@
   on:mouseleave={mouseleave}
 >
   <button class="apps" on:click={toggleLauncher}>
-    <img src={logo} alt="ArcOS" />
+    <img src={Logo()} alt="ArcOS" />
   </button>
   <div class="opened-apps">
     {#each oa as app}

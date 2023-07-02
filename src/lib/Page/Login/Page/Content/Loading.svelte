@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import def from "../../../../../assets/pfp/null.png";
-  import systemIcon from "../../../../../assets/systemIcon.svg";
   import { getUserPfp } from "../../../../../ts/api/pfp";
   import { loginUsername } from "../../../../../ts/login/main";
   import { UserName } from "../../../../../ts/userlogic/interfaces";
   import ProfilePicture from "../../../../ProfilePicture.svelte";
   import Spinner from "../../../../Spinner.svelte";
+  import { Logo } from "../../../../../ts/branding";
 
   export let caption: string;
   export let username: string = "";
@@ -18,7 +18,7 @@
     name = $loginUsername || $UserName || username;
     pfp = await getUserPfp(name);
 
-    if (pfp == def) pfp = systemIcon;
+    if (pfp == def) pfp = Logo();
   });
 </script>
 

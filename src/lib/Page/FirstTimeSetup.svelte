@@ -1,6 +1,5 @@
 <script lang="ts">
   import "../../css/fts.css";
-  import logo from "../../assets/systemIcon.svg";
   import { onMount } from "svelte";
   import Right from "./FirstTimeSetup/Right.svelte";
   import { applyFTSState, CurrentFTSState } from "../../ts/fts/main";

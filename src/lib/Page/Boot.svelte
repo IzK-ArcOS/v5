@@ -2,7 +2,6 @@
   import { applyState } from "../../ts/state/main";
 
   import { onMount } from "svelte";
-  import logo from "../../assets/systemIcon.svg";
   import "../../css/boot.css";
   import { getServer } from "../../ts/api/server";
   import { testConnection } from "../../ts/api/test";
@@ -12,6 +11,7 @@
   import { ArcOSVersion } from "../../ts/env/main";
   import Window from "./Desktop/WindowStore/Window.svelte";
   import { LogLevel } from "../../ts/console/interface";
+  import { Logo } from "../../ts/branding";
 
   let status = "";
   let bootClass = "";
@@ -121,7 +121,7 @@
 <div class="{bootClass} boot fullscreen">
   <div class="arcterm-load visible">v{ArcOSVersion}</div>
   <div class="center-absolute">
-    <img alt="Logo" class="logo" src={logo} />
+    <img alt="Logo" class="logo" src={Logo()} />
     <div class="slider userdefined">
       <div class="line dark" />
       <div class="subline dark inc" />

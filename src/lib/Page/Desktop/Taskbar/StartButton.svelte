@@ -1,5 +1,5 @@
 <script lang="ts">
-  import arcos from "../../../../assets/systemIcon.svg";
+  import { Logo } from "../../../../ts/branding";
   import { startOpened } from "../../../../ts/desktop/main";
 
   function toggle() {
@@ -8,5 +8,5 @@
 </script>
 
 <button class="start" class:open={$startOpened} on:click={toggle}>
-  <img src={arcos} alt="ArcOS Logo" />
+  <img src={Logo()} alt="ArcOS Logo" />
 </button>
