@@ -1,0 +1,26 @@
+name: Feature Request
+description: Suggest a feature for ArcOS to have!
+title: "[Feature]: "
+labels: ["enhancement"]
+#assignees:
+#  - assignees names go here
+body:
+  - type: markdown
+    attributes:
+      value: ArcOS is (more than likely) never going to stop adding features. Adding ideas here can help improve and make ArcOS more functional and fun! **Never** give up on your great ideas!
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Describe the new feature
+      description: Describe how the feature might work and how to do it. You may also insert pictures and videos.
+      placeholder: "Ex: The feature would do ... which can be accessed by doing ..."
+    validations:
+      required: true
+  - type: textarea
+    id: feature-usefulness
+    attributes:
+      label: Describe why the feature is useful
+      description: Describe how the feature might be useful to others. 
+      placeholder: "Ex: It would be useful because ..."
+    validations:
+      required: true
