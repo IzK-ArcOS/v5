@@ -1,17 +1,14 @@
 <script lang="ts">
   import { applyState } from "../../ts/state/main";
-
   import { onMount } from "svelte";
   import "../../css/boot.css";
   import { getServer } from "../../ts/api/server";
   import { testConnection } from "../../ts/api/test";
-  import { LoggerApp } from "../../ts/applogic/apps/Logger";
+  import { Logo } from "../../ts/branding";
   import { BugReportData } from "../../ts/bugrep";
   import { Log } from "../../ts/console";
-  import { ArcOSVersion } from "../../ts/env/main";
-  import Window from "./Desktop/WindowStore/Window.svelte";
   import { LogLevel } from "../../ts/console/interface";
-  import { Logo } from "../../ts/branding";
+  import { ArcOSVersion } from "../../ts/env/main";
 
   let status = "";
   let bootClass = "";
@@ -21,7 +18,6 @@
   let t2 = null;
   let t3 = null;
 
-  let errored = false;
   let altDown = false;
 
   onMount(async () => {
@@ -130,11 +126,3 @@
     <p class="status">{@html status}</p>
   </div>
 </div>
-{#if errored}
-  <Window
-    isBoot
-    max
-    visible
-    app={{ ...LoggerApp, glass: false, id: "LoggerApp" }}
-  />
-{/if}
