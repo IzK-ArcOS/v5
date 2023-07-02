@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { log, LogLevel } from "../../../../../ts/console";
+  import { LogStore } from "../../../../../ts/console";
+  import { LogLevel } from "../../../../../ts/console/interface";
   import Filter from "./Filters/Filter.svelte";
 
   export let filter: (filter: LogLevel) => void;
@@ -13,7 +14,7 @@
     [LogLevel.critical, "cancel"],
   ];
 
-  log.subscribe(() => {
+  LogStore.subscribe(() => {
     currentFilter = null;
   });
 </script>

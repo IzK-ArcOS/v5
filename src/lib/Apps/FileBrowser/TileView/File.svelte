@@ -1,8 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import icon from "../../../../assets/apps/filemanager/file.svg";
-  import { getMimeIcon } from "../../../../ts/api/fs/icon";
-  import { openUserFile, openWithDialog } from "../../../../ts/api/fs/open";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
+  import {
+    openUserFile,
+    openWithDialog,
+  } from "../../../../ts/api/fs/open/main";
   import { formatBytes } from "../../../../ts/api/fs/sizes";
   import type { ArcFile, PartialArcFile } from "../../../../ts/api/interface";
   import {

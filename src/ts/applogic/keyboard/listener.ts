@@ -1,8 +1,9 @@
 import { get } from "svelte/store";
-import { Log, LogLevel } from "../../console";
+import { Log } from "../../console";
 import { CurrentState } from "../../state/main";
 import { focusedWindowId, getWindow } from "../store";
 import { appShortcuts } from "./main";
+import { LogLevel } from "../../console/interface";
 
 const banned = ["tab", "pagedown", "pageup"];
 

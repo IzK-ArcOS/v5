@@ -1,4 +1,5 @@
-import { Log, LogLevel } from "../console";
+import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 import { createOverlayableError } from "../errorlogic/overlay";
 import { inTauri } from "../tauri";
 

@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import type { Writable } from "svelte/store";
   import { readFile } from "../../../ts/api/fs/file";
-  import { getMimeIcon } from "../../../ts/api/fs/icon";
+  import { getMimeIcon } from "../../../ts/api/fs/icon/main";
   import { formatBytes } from "../../../ts/api/fs/sizes";
   import type { PartialArcFile } from "../../../ts/api/interface";
   import type { OverlayableApp } from "../../../ts/applogic/interface";

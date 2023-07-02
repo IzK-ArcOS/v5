@@ -1,10 +1,11 @@
 import { get, writable } from "svelte/store";
 import { apiCall, ConnectedServer } from "../api/main";
-import { Log, LogLevel } from "../console";
+import { Log } from "../console";
 import { restart } from "../desktop/power";
 import { CurrentState } from "../state/main";
 import { commitUserdata } from "./commit";
 import { AllUsers, UserData, UserToken } from "./interfaces";
+import { LogLevel } from "../console/interface";
 
 export const committingUserData = writable<boolean>(false);
 

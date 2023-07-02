@@ -2,23 +2,19 @@
   import { onMount } from "svelte";
   import { generateCSS } from "../../../../ts/applogic/css";
   import { dragWindow } from "../../../../ts/applogic/drag";
-  import {
-    maxSizeExceedsLiteral,
-    minSizeExceedsLiteral,
-  } from "../../../../ts/applogic/error";
   import type { App } from "../../../../ts/applogic/interface";
+  import type { AppRuntime } from "../../../../ts/applogic/runtime/main";
   import {
     draggingId,
     leftZoneTriggered,
     rightZoneTriggered,
   } from "../../../../ts/applogic/snapzones/store";
-  import { focusedWindowId, WindowStore } from "../../../../ts/applogic/store";
+  import { WindowStore, focusedWindowId } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import OverlayableErrorWindow from "./OverlayableErrorWindow.svelte";
   import OverlayableWindow from "./OverlayableWindow.svelte";
   import Content from "./Window/Content.svelte";
   import Titlebar from "./Window/Titlebar.svelte";
-  import type { AppRuntime } from "../../../../ts/applogic/runtime/main";
 
   export let app: App = null;
 
@@ -41,11 +37,8 @@
   });
 
   function update() {
-    if (app.minSize.w > app.size.w || app.minSize.h > app.size.h)
-      return minSizeExceedsLiteral(app);
-
-    if (app.maxSize.w < app.minSize.w || app.maxSize.h < app.minSize.h)
-      return maxSizeExceedsLiteral(app);
+    if (app.minSize.w > app.size.w || app.minSize.h > app.size.h) return;
+    if (app.maxSize.w < app.minSize.w || app.maxSize.h < app.minSize.h) return;
 
     cssString = generateCSS(app, !posUsed);
 

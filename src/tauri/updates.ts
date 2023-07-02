@@ -1,6 +1,5 @@
 import { ArcOSVersion } from "../ts/env/main";
 import { makeNotification } from "../ts/notiflogic/main";
-import { inTauri } from "../ts/tauri";
 
 export async function getLatestRelease(): Promise<GitHubRelease> {
   try {

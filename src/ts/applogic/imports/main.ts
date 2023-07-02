@@ -1,6 +1,6 @@
-import { Log, LogLevel } from "../../console";
+import { Log } from "../../console";
+import { LogLevel } from "../../console/interface";
 import { openWindow } from "../events";
-import type { App } from "../interface";
 import { loadWindow } from "../load";
 import { updateStores } from "../store";
 import { DefaultApps } from "./store";

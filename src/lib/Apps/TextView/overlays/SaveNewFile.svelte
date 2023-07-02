@@ -1,7 +1,7 @@
 <script lang="ts">
   import { get } from "svelte/store";
   import icon from "../../../../assets/apps/textview/save.svg";
-  import { openUserFile } from "../../../../ts/api/fs/open";
+  import { openUserFile } from "../../../../ts/api/fs/open/main";
   import {
     TextEditorContent,
     saveTextEditorFile,

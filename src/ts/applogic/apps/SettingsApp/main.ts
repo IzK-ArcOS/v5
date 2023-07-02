@@ -1,8 +1,9 @@
 import { writable } from "svelte/store";
-import { Log, LogLevel } from "../../../console";
+import { Log } from "../../../console";
 import { hotSwapAppIcon } from "../../icon";
 import { setTitleSuffix } from "../../title";
 import type { SettingsPage } from "./interface";
+import { LogLevel } from "../../../console/interface";
 
 export const currentSettingsPage = writable<SettingsPage>(null);
 export const currentCollapsibleT = writable<string>(null);

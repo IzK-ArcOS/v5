@@ -1,6 +1,6 @@
 import { get } from "svelte/store";
 import { getDirectory } from "../../api/fs/directory";
-import { openUserFile, openWithDialog } from "../../api/fs/open";
+import { openUserFile, openWithDialog } from "../../api/fs/open/main";
 import type { UserDirectory, PartialArcFile } from "../../api/interface";
 import { WindowStore } from "../../applogic/store";
 import type { Command } from "../interface";

@@ -1,8 +1,9 @@
 import { get } from "svelte/store";
-import { Log, LogLevel } from "../console";
+import { Log } from "../console";
 import { UserData } from "../userlogic/interfaces";
 import { isLoaded } from "./checks";
 import { openWindow } from "./events";
+import { LogLevel } from "../console/interface";
 
 export function autoRunApplications() {
   Log({

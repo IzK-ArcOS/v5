@@ -1,5 +1,6 @@
 import { get, writable, Writable } from "svelte/store";
-import { Log, LogLevel } from "../console";
+import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 import type { App } from "./interface";
 
 export const OpenedStore: Writable<App[]> = writable<App[]>([]);

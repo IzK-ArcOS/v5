@@ -5,6 +5,7 @@ import {
 } from "../applogic/apps/FileBrowser/main";
 import { writeFile } from "./fs/file";
 import type { ArcFile } from "./interface";
+import { fileToArcFile } from "./fs/convert";
 
 export async function directSingleUpload(
   path: string,
@@ -43,12 +44,7 @@ async function fileUpload(file: File, dir: string): Promise<string> {
   const content = new Blob([new Uint8Array(await file.arrayBuffer())]);
   const path = `${dir}/${file.name}`.split("//").join("/");
 
-  const data: ArcFile = {
-    name: file.name,
-    path,
-    data: await file.arrayBuffer(),
-    mime: "ArcOS Uploadable",
-  };
+  const data = await fileToArcFile(file, path);
 
   FileBrowserUploadFile.set(data);
 

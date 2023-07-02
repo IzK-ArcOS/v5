@@ -1,11 +1,12 @@
 <script lang="ts">
   import "../../css/desktop/apps/logger.css";
   import type { App } from "../../ts/applogic/interface";
-  import { Log, log, LogItem, LogLevel } from "../../ts/console";
+  import { Log, LogStore } from "../../ts/console";
   import {
     collectLogsBySource,
     IterableCollectorResult,
   } from "../../ts/console/collector";
+  import { LogLevel, type LogItem } from "../../ts/console/interface";
   import type { ScopedAppData } from "../../ts/userlogic/interfaces";
   import Content from "./Logger/Content.svelte";
   import Sidebar from "./Logger/Sidebar.svelte";
@@ -38,10 +39,10 @@
     currentSource = source;
   }
 
-  log.subscribe(() => {
+  LogStore.subscribe(() => {
     logs = Object.entries(collectLogsBySource());
 
-    app.info.titleSuffix = ` - ${$log.length} items`;
+    app.info.titleSuffix = ` - ${$LogStore.length} items`;
   });
 </script>
 

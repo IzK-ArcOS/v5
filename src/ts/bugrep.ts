@@ -1,18 +1,8 @@
 import { writable } from "svelte/store";
-import { Log, LogLevel } from "./console";
 import { applyState } from "./state/main";
-
-export interface BugReport {
-  icon: string;
-  title: string;
-  message: string;
-  details?: string;
-  source?: string;
-  button?: {
-    action: () => void;
-    caption: string;
-  };
-}
+import type { BugReport } from "./bugrep/interface";
+import { Log } from "./console";
+import { LogLevel } from "./console/interface";
 
 export const BugReportData = writable<[boolean, BugReport]>();
 

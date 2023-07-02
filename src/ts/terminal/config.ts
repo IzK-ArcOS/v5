@@ -1,9 +1,10 @@
 import { get } from "svelte/store";
 import { readFile, writeFile } from "../api/fs/file";
-import { Log, LogLevel } from "../console";
+import { Log } from "../console";
 import { UserData } from "../userlogic/interfaces";
 import type { ArcTermEnv } from "./env";
 import type { ArcTerm } from "./main";
+import { LogLevel } from "../console/interface";
 
 export class ArcTermConfig {
   env: ArcTermEnv;

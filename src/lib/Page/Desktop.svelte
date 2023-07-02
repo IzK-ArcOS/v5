@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import "../../css/desktop.css";
   import { checkForUpdates } from "../../tauri/updates";
-  import { importAutoLoaders } from "../../ts/applogic/aftermarket/autoload";
   import { importDefault } from "../../ts/applogic/imports/main";
   import { startKeyListener } from "../../ts/applogic/keyboard/listener";
   import {
@@ -18,7 +17,6 @@
     startOpened,
   } from "../../ts/desktop/main";
   import { restart } from "../../ts/desktop/power";
-  import { DevModeOverride } from "../../ts/devmode/props";
   import { ErrorMessages } from "../../ts/errorlogic/app";
   import { startMessageCheckInterval } from "../../ts/messaging/interval";
   import { checkLinux } from "../../ts/tauri/linux";
@@ -48,8 +46,6 @@
     resetDesktopState();
     startKeyListener();
 
-    importAutoLoaders();
-
     setTimeout(() => (show = true), 250);
 
     startMessageCheckInterval();
@@ -63,7 +59,6 @@
     updateStores();
     startOpened.set(false);
     ErrorMessages.set([]);
-    DevModeOverride.set($UserData.devmode);
   }
 </script>
 

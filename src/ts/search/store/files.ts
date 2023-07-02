@@ -10,7 +10,7 @@ import searchIcon from "../../../assets/arcfind.svg";
 import fileIcon from "../../../assets/mimetypes/text-plain.svg";
 import { get } from "svelte/store";
 import { UserToken } from "../../userlogic/interfaces";
-import { openUserFile, openWithDialog } from "../../api/fs/open";
+import { openUserFile, openWithDialog } from "../../api/fs/open/main";
 import { WindowStore } from "../../applogic/store";
 import { FileBrowserCurrentDir } from "../../applogic/apps/FileBrowser/main";
 

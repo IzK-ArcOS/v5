@@ -10,7 +10,7 @@
   import { hideOverlay } from "../../../../ts/window/overlay";
   import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
   import { renameItem } from "../../../../ts/api/fs/rename";
-  import { getMimeIcon } from "../../../../ts/api/fs/icon";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
 
   let newName = "";
   let img = "";

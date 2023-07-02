@@ -1,4 +1,5 @@
-import { Log, LogLevel } from "../../console";
+import { Log } from "../../console";
+import { LogLevel } from "../../console/interface";
 import type { App } from "../interface";
 import type { AppKeyCombinations } from "./interface";
 

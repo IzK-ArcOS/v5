@@ -1,20 +1,20 @@
 import { get } from "svelte/store";
-import { Log, LogLevel } from "../console";
+import { Log } from "../console";
 import { ActionCenterOpened } from "../desktop/actioncenter/main";
 import { startOpened } from "../desktop/main";
 import { destroyOverlayableError } from "../errorlogic/overlay";
 import { getWindowElement } from "../window/main";
 import { hideOverlay } from "../window/overlay";
-import { centerWindow } from "./center";
-import { isDisabled, isLoaded, isOpened } from "./checks";
+import { isLoaded, isOpened } from "./checks";
 import type { App } from "./interface";
 import {
+  WindowStore,
   focusedWindowId,
   getWindow,
   maxZIndex,
   updateStores,
-  WindowStore,
 } from "./store";
+import { LogLevel } from "../console/interface";
 
 export function openWindow(id: string, openChild = false) {
   Log({

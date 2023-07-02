@@ -6,7 +6,6 @@ export function getParentDirectory(p: string) {
 
   if (p == "./") return p;
   if (!split.length) return p;
-
   if (split.length == 1) return "./";
 
   split.splice(-1);

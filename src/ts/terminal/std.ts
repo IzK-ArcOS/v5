@@ -1,9 +1,10 @@
 import { writable } from "svelte/store";
 import type { App } from "../applogic/interface";
-import { Log, LogLevel } from "../console";
+import { Log } from "../console";
 import type { ArcTermEnv } from "./env";
 import type { Color } from "./interface";
 import type { ArcTerm } from "./main";
+import { LogLevel } from "../console/interface";
 
 export class ArcTermStd {
   target: HTMLDivElement;

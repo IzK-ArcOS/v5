@@ -4,14 +4,14 @@
   import { onMount } from "svelte";
   import logo from "../../assets/systemIcon.svg";
   import "../../css/boot.css";
+  import { getServer } from "../../ts/api/server";
   import { testConnection } from "../../ts/api/test";
   import { LoggerApp } from "../../ts/applogic/apps/Logger";
   import { BugReportData } from "../../ts/bugrep";
-  import { Log, LogLevel } from "../../ts/console";
-  import { getUsers } from "../../ts/userlogic/main";
-  import Window from "./Desktop/WindowStore/Window.svelte";
+  import { Log } from "../../ts/console";
   import { ArcOSVersion } from "../../ts/env/main";
-  import { getServer } from "../../ts/api/server";
+  import Window from "./Desktop/WindowStore/Window.svelte";
+  import { LogLevel } from "../../ts/console/interface";
 
   let status = "";
   let bootClass = "";

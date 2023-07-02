@@ -1,14 +1,16 @@
 import { get } from "svelte/store";
-import { OpenWithFile } from "../../applogic/apps/OpenWith";
-import { isDisabled } from "../../applogic/checks";
-import { enableApp } from "../../applogic/enabling";
-import { openWindow } from "../../applogic/events";
-import { focusedWindowId, WindowStore } from "../../applogic/store";
-import { Log, LogLevel } from "../../console";
-import { errorMessage } from "../../errorlogic/main";
-import type { ArcFile, PartialArcFile, UserFileLoader } from "../interface";
-import { readFile } from "./file";
-import { FileLoaders } from "./open/loader";
+import { OpenWithFile } from "../../../applogic/apps/OpenWith";
+import { isDisabled } from "../../../applogic/checks";
+import { enableApp } from "../../../applogic/enabling";
+import { openWindow } from "../../../applogic/events";
+import { focusedWindowId, WindowStore } from "../../../applogic/store";
+import { Log } from "../../../console";
+import { errorMessage } from "../../../errorlogic/main";
+import type { ArcFile, PartialArcFile, UserFileLoader } from "../../interface";
+import { readFile } from "../file";
+import { FileLoaders } from "./loader";
+import { LogLevel } from "../../../console/interface";
+import { partialFileToComplete } from "../convert";
 
 export function findAppToOpen(mime: string): string[] {
   Log({
@@ -143,12 +145,7 @@ export async function openUserFile(
     level: LogLevel.info,
   });
 
-  let data: ArcFile = {
-    data: (await readFile(file.scopedPath)) as ArrayBuffer,
-    name: file.filename,
-    path: file.scopedPath,
-    mime: file.mime,
-  };
+  let data = await partialFileToComplete(file);
 
   const apps = findAppToOpen(file.mime);
   const loaders = findLoaderToOpen(file.filename);

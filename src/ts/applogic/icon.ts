@@ -1,8 +1,9 @@
 import { get } from "svelte/store";
-import { Log, LogLevel } from "../console";
+import { LogLevel } from "../console/interface";
 import type { App } from "./interface";
 import { WindowStore } from "./store";
 import def from "../../assets/apps/unknown.svg";
+import { Log } from "../console";
 
 export function hotSwapAppIcon(icon: string, appId: string) {
   Log({

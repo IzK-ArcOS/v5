@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { openWith } from "../../../ts/api/fs/open";
+  import { openWith } from "../../../ts/api/fs/open/main";
   import type { ArcFile, UserFileLoader } from "../../../ts/api/interface";
   import { OpenWithFile } from "../../../ts/applogic/apps/OpenWith";
   import { closeWindow } from "../../../ts/applogic/events";

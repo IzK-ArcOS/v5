@@ -2,10 +2,10 @@
   import logo from "../assets/systemIcon.svg";
   import "../css/bugrep.css";
   import { maxZIndex } from "../ts/applogic/store";
-  import { BugReport, BugReportData } from "../ts/bugrep";
+  import { BugReportData } from "../ts/bugrep";
+  import type { BugReport } from "../ts/bugrep/interface";
 
   let show: boolean = false;
-  let className = "";
   let data: BugReport;
 
   function buttonEvent() {
@@ -18,17 +18,12 @@
     if (v) {
       show = v[0];
       data = v[1];
-
-      className = show ? "show" : "";
     }
   });
 </script>
 
 {#if show}
-  <div
-    class="bugrep fullscreen {className}"
-    style="z-index: {$maxZIndex * 10};"
-  >
+  <div class="bugrep fullscreen" class:show style="z-index: {$maxZIndex * 10};">
     <div class="content">
       <div>
         <img class="logo" src={logo} alt="ArcOS" />

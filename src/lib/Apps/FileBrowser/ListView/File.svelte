@@ -2,8 +2,11 @@
   import { onMount } from "svelte";
   import icon from "../../../../assets/apps/filemanager/file.svg";
   import { readFile } from "../../../../ts/api/fs/file";
-  import { getMimeIcon } from "../../../../ts/api/fs/icon";
-  import { openUserFile, openWithDialog } from "../../../../ts/api/fs/open";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
+  import {
+    openUserFile,
+    openWithDialog,
+  } from "../../../../ts/api/fs/open/main";
   import { formatBytes } from "../../../../ts/api/fs/sizes";
   import type { ArcFile, PartialArcFile } from "../../../../ts/api/interface";
   import {
@@ -14,6 +17,7 @@
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
+  import { partialFileToComplete } from "../../../../ts/api/fs/convert";
 
   export let file: PartialArcFile;
 
@@ -70,12 +74,7 @@
 
     showOverlay("openingFile", "FileManager");
 
-    let data: ArcFile = {
-      data: (await readFile(file.scopedPath)) as ArrayBuffer,
-      name: file.filename,
-      path: file.scopedPath,
-      mime: file.mime,
-    };
+    const data = await partialFileToComplete(file);
 
     openAny(data);
 

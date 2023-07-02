@@ -1,6 +1,5 @@
 <script lang="ts">
   import { getServer } from "../../../../ts/api/server";
-  import { DevModeOverride } from "../../../../ts/devmode/props";
 
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../../ts/userlogic/pfp";
@@ -25,9 +24,6 @@
   <div class="username">
     <p class="name">
       {$UserName}
-      {#if $DevModeOverride}
-        <span class="material-icons-round developer">bug_report</span>
-      {/if}
     </p>
     <p class="hostname">
       {getServer() || location.hostname}

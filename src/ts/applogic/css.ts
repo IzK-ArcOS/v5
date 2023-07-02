@@ -1,4 +1,3 @@
-import { Log, LogLevel } from "../console";
 import type { App, OverlayableApp } from "./interface";
 
 export function generateCSS(app: App, usePos: boolean) {

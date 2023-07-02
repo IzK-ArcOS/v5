@@ -2,7 +2,7 @@
   import defaultIcon from "../../../../assets/mimetypes/text-plain.svg";
   import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
   import { writeFile } from "../../../../ts/api/fs/file";
-  import { getMimeIcon } from "../../../../ts/api/fs/icon";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
   import {
     fbClass,
     FileBrowserCurrentDir,

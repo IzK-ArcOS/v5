@@ -1,5 +1,6 @@
 import { get } from "svelte/store";
-import { Log, LogLevel } from "../console";
+import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 import { WindowStore } from "./store";
 
 export function setTitleSuffix(content: string, appId: string) {

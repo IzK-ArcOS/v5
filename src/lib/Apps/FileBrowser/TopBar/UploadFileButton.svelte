@@ -11,6 +11,10 @@
   import { makeNotification } from "../../../../ts/notiflogic/main";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
   import type { ArcFile } from "../../../../ts/api/interface";
+  import {
+    fileToArcFile,
+    partialFileToComplete,
+  } from "../../../../ts/api/fs/convert";
 
   let uploader: HTMLInputElement;
 
@@ -53,12 +57,7 @@
     const content = new Blob([new Uint8Array(await file.arrayBuffer())]);
     const path = `${$FileBrowserCurrentDir}/${file.name}`.split("//").join("/");
 
-    const data: ArcFile = {
-      name: file.name,
-      path,
-      data: await file.arrayBuffer(),
-      mime: "ArcOS Uploadable",
-    };
+    const data = await fileToArcFile(file, path);
 
     FileBrowserUploadFile.set(data);
 

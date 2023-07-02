@@ -4,7 +4,7 @@
     findAppToOpen,
     getAllFileHandlers,
     openWith,
-  } from "../../ts/api/fs/open";
+  } from "../../ts/api/fs/open/main";
   import { FileLoaders } from "../../ts/api/fs/open/loader";
   import type { UserFileLoader } from "../../ts/api/interface";
   import { OpenWithFile } from "../../ts/applogic/apps/OpenWith";

@@ -1,11 +1,12 @@
 import { get } from "svelte/store";
 import { getDirectory } from "../../api/fs/directory";
-import { Log, LogLevel } from "../../console";
+import { Log } from "../../console";
 import { ArcOSVersion } from "../../env/main";
 import { UserName } from "../../userlogic/interfaces";
 import { Color, colors, VariableStore } from "../interface";
 import type { ArcTerm } from "../main";
 import { getServer } from "../../api/server";
+import { LogLevel } from "../../console/interface";
 
 export function getArcTermStore(term: ArcTerm): VariableStore {
   Log({

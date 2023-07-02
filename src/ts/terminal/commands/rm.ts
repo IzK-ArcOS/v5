@@ -1,4 +1,4 @@
-import { deleteItem } from "../../api/fs/file";
+import { deleteItem } from "../../api/fs/delete";
 import type { Command } from "../interface";
 
 export const Rm: Command = {

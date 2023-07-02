@@ -9,7 +9,7 @@
  */
 
 import { get, writable } from "svelte/store";
-import { Log, LogLevel } from "../../../console";
+import { Log } from "../../../console";
 import type { AppKeyCombinations } from "../../keyboard/interface";
 import type {
   CalculatorKey,
@@ -17,6 +17,7 @@ import type {
   CalculatorOverrides,
 } from "./interface";
 import { CalculatorStore as Store } from "./store";
+import { LogLevel } from "../../../console/interface";
 
 export const CalculatorValue = writable<string>("");
 

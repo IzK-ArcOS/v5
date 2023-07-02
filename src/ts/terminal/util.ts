@@ -1,10 +1,11 @@
 import { get } from "svelte/store";
 import { getServer } from "../api/server";
-import { Log, LogLevel } from "../console";
+import { Log } from "../console";
 import { UserName } from "../userlogic/interfaces";
 import type { Color } from "./interface";
 import { ArcTermIntro } from "./intro";
 import type { ArcTerm } from "./main";
+import { LogLevel } from "../console/interface";
 
 export class ArcTermUtil {
   term: ArcTerm;

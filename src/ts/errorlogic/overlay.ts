@@ -1,7 +1,8 @@
 import { get } from "svelte/store";
 import type { OverlayableError } from "../applogic/interface";
 import { WindowStore } from "../applogic/store";
-import { Log, LogLevel } from "../console";
+import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 
 export function createOverlayableError(
   error: OverlayableError,

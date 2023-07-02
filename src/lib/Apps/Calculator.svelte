@@ -6,7 +6,8 @@
     CalculatorValue,
   } from "../../ts/applogic/apps/Calculator/main";
   import { CalculatorStore } from "../../ts/applogic/apps/Calculator/store";
-  import { Log, LogLevel } from "../../ts/console";
+  import { Log } from "../../ts/console";
+  import { LogLevel } from "../../ts/console/interface";
 
   let value = "";
 

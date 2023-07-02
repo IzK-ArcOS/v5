@@ -1,6 +1,6 @@
-import { get } from "svelte/store";
 import type { App } from "../applogic/interface";
-import { Log, LogLevel, compileStringLog, log } from "../console";
+import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 import { ArcOSVersion } from "../env/main";
 import sleep from "../sleep";
 import { ArcTermCommandHandler } from "./commands";

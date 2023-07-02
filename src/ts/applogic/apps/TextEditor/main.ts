@@ -1,7 +1,7 @@
 import { get, writable } from "svelte/store";
 import { writeFile } from "../../../api/fs/file";
 import { closeFile } from "../../../api/fs/main";
-import { openWith } from "../../../api/fs/open";
+import { openWith } from "../../../api/fs/open/main";
 import { showOpenFileDialog } from "../../../chooser/main";
 import { createOverlayableError } from "../../../errorlogic/overlay";
 import { closeWindow, openWindow } from "../../events";

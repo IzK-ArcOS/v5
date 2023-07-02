@@ -1,6 +1,5 @@
 <script lang="ts">
   import { getServer } from "../../../../../ts/api/server";
-  import { DevModeOverride } from "../../../../../ts/devmode/props";
   import { UserData, UserName } from "../../../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../../../ts/userlogic/pfp";
   import { showOverlay } from "../../../../../ts/window/overlay";
@@ -14,10 +13,6 @@
 
   function changePfp() {
     showOverlay("pfpSel", "SettingsApp");
-  }
-
-  function openExplorer() {
-    showOverlay("udataExplorer", "SettingsApp");
   }
 </script>
 
@@ -34,9 +29,6 @@
     </p>
     <p class="host" data-caller="accountpage-hostname">
       {getServer() || location.hostname}
-      {#if $DevModeOverride}
-        (developer)
-      {/if}
     </p>
   </div>
 </div>

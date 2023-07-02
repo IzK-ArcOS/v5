@@ -1,5 +1,6 @@
 import { get } from "svelte/store";
-import { Log, LogLevel } from "../console";
+import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 import { makeNotification } from "../notiflogic/main";
 import { UserData } from "../userlogic/interfaces";
 import { centerWindow } from "./center";

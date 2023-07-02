@@ -4,9 +4,10 @@ import {
   FileBrowserOpenCancelled,
   FileBrowserUploadProgress,
 } from "../../applogic/apps/FileBrowser/main";
-import { Log, LogLevel } from "../../console";
+import { Log } from "../../console";
+import { LogLevel } from "../../console/interface";
 import { UserToken } from "../../userlogic/interfaces";
-import { apiCall, ConnectedServer } from "../main";
+import { ConnectedServer } from "../main";
 import { generateParamStr } from "../params";
 
 export const abortFileReader = writable<boolean>(false);
@@ -28,8 +29,7 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
     },
   };
 
-  let controller = new AbortController();
-
+  const controller = new AbortController();
   const params = generateParamStr({ path: btoa(path) });
 
   let req = await fetch(`${server}/fs/file/get${params}`, {
@@ -63,30 +63,6 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
   req = null;
 
   return await x.arrayBuffer();
-}
-
-export async function deleteItem(path: string) {
-  Log({
-    source: "fs/file.ts: deleteItem",
-    msg: `Deleting item "${path}" from ArcFS`,
-    level: LogLevel.info,
-  });
-
-  const server = get(ConnectedServer);
-
-  if (!server) return false;
-
-  const req = await apiCall(
-    server,
-    "fs/rm",
-    { path: btoa(path) },
-    get(UserToken),
-    null,
-    null,
-    true
-  );
-
-  return !(req.valid == false);
 }
 
 export async function writeFile(path: string, data: Blob): Promise<boolean> {

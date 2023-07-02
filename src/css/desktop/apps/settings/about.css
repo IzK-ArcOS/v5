@@ -30,13 +30,6 @@ div.about-page h3.header {
   margin-bottom: 5px !important;
 }
 
-div.about-page div.devmode button.devmode {
-  display: inline-block;
-  background-color: transparent !important;
-  padding: 0 !important;
-  margin: 15px 5px !important;
-}
-
 div.about-page div.section {
   margin: 0 30px !important;
   margin-bottom: 5px !important;

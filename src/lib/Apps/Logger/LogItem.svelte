@@ -1,6 +1,6 @@
 <script lang="ts">
   import dayjs from "dayjs";
-  import { LogItem, LogLevel } from "../../../ts/console";
+  import { LogItem, LogLevel } from "../../../ts/console/interface";
 
   export let logItem: LogItem;
 
