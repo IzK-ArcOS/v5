@@ -1,0 +1,67 @@
+name: Security Report
+description: Help us to make ArcOS more secure!
+title: "[Security]: "
+labels: ["bug", "help wanted", "triage"]
+#assignees:
+#  - assignees names go here
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for filling out this security report! By doing so, you're helping ArcOS become safer for you and everyone else. Secure it to win it!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What caused the error?
+      description: Describe clearly what happened and how to recreate it. You may also insert pictures and videos.
+      placeholder: "Ex: When trying to do ... it started to do ... "
+    validations:
+      required: true
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Edition
+      description: What Edition of ArcOS are you running?
+      options:
+        - Website
+        - Desktop (Specfiy version below)
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: ArcOS Version
+      description: If you're using the web version, you can skip this part.
+      placeholder: "Ex: v5.0.6"
+    validations:
+      required: false
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: If you are using a browser, which browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - Opera/(GX)
+  - type: input
+    id: other-browers
+    attributes:
+      label: Other Browser(s)
+      description: If your browser wasn't listed, list it/them here.
+      placeholder: List the browsers here.
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Detail(s)
+      description: In case we need to contact you for more information on the bug.
+      placeholder: "Ex: email@example.com, @username, user#0000, etc."
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log output
+      description: If possible, enter in any logs so we can better understand what's causing the issue.
+      render: shell
