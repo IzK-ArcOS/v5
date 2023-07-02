@@ -2,8 +2,7 @@ import type { App, OverlayableApp } from "./interface";
 
 export function generateCSS(app: App, usePos: boolean) {
   let cssString = "";
-  /* 
-  if (!app.state.windowState.max) { */
+
   cssString += `min-width: ${app.minSize.w}px;`;
   cssString += `min-height: ${app.minSize.h}px;`;
   cssString += `max-width: ${app.maxSize.w}px;`;
@@ -14,7 +13,6 @@ export function generateCSS(app: App, usePos: boolean) {
   }
   cssString += `width: ${app.size.w}px;`;
   cssString += `height: ${app.size.h}px;`;
-  /*   } */
 
   return cssString;
 }

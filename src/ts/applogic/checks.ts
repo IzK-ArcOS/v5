@@ -6,11 +6,7 @@ import { UserData } from "../userlogic/interfaces";
 export function isLoaded(id: string): boolean {
   const ws = get(WindowStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i] && ws[i].id == id) return true;
-  }
-
-  return false;
+  return !!ws.filter((a) => a && a.id == id).length;
 }
 
 export function isOpened(id: string): boolean {
@@ -24,21 +20,13 @@ export function isOpened(id: string): boolean {
 export function isMinimized(id: string): boolean {
   const ws = get(WindowStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i] && ws[i].id == id && ws[i].state.windowState.min) return true;
-  }
-
-  return false;
+  return !!ws.filter((a) => a && a.id == id && a.state.windowState.min).length;
 }
 
 export function isDisabled(id: string): boolean {
   const ws = get(WindowStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i] && ws[i].id == id && ws[i].disabled) return true;
-  }
-
-  return false;
+  return !!ws.filter((a) => a && a.id == id && a.disabled).length;
 }
 
 export function isPopulatable(app: App) {

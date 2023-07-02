@@ -1,8 +1,6 @@
 import { openWindow } from "../../../applogic/events";
 import { showArcFind } from "../../../search/main";
 import { UserData } from "../../../userlogic/interfaces";
-import { reloadApps } from "../../../window/reload";
-import { ActionCenterOpened } from "../main";
 import type { QuickSetting } from "./interface";
 
 export const QuickSettings: QuickSetting[] = [

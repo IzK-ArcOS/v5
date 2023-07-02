@@ -17,33 +17,19 @@ export function loadWindow(id: string, app: App) {
       msg: `Window ${id} already exists in WindowStore.`,
       source: "AppLogic: loadWindow",
     });
+
   const ws = get(WindowStore);
   const data = { ...app, id };
-  const children: App[] = [];
-  const entries = Object.entries(data.children || {});
-
-  for (let i = 0; i < entries.length; i++) {
-    children.push({
-      ...entries[i][1],
-      id: entries[i][0],
-      parentId: id,
-      opened: false,
-      info: { ...entries[i][1].info, hidden: true },
-    });
-  }
-
+  const children = getChildren(app, id);
   const userdata = get(UserData);
+  const disabledList = userdata.disabledApps;
 
   if (!userdata.disabledApps) {
     userdata.disabledApps = [];
     UserData.set(userdata);
   }
 
-  if (
-    userdata &&
-    userdata.disabledApps.includes(id) &&
-    !SystemApps.includes(id)
-  )
+  if (disabledList.includes(id) && !SystemApps.includes(id))
     data.disabled = true;
 
   ws.push(data);
@@ -55,8 +41,6 @@ export function loadWindow(id: string, app: App) {
   WindowStore.set(ws);
 
   registerAppShortcuts(id, app);
-
-  const disabledList = get(UserData).disabledApps;
 
   if (app.disabledWarning && disabledList.includes(id)) {
     makeNotification({
@@ -76,6 +60,23 @@ export function loadWindow(id: string, app: App) {
     msg: `Loaded ${id} into WindowStore.`,
     source: "AppLogic: loadWindow",
   });
+}
+
+export function getChildren(app: App, id: string) {
+  const entries = Object.entries(app.children || {});
+  const children: App[] = [];
+
+  for (let i = 0; i < entries.length; i++) {
+    children.push({
+      ...entries[i][1],
+      id: entries[i][0],
+      parentId: id,
+      opened: false,
+      info: { ...entries[i][1].info, hidden: true },
+    });
+  }
+
+  return children;
 }
 
 export function unloadWindow(id: string) {

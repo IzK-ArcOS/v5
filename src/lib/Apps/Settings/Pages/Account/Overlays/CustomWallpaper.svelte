@@ -31,6 +31,8 @@
   }
 
   async function checkImage(url): Promise<boolean> {
+    if (!url) return;
+
     const img = new Image();
 
     img.src = url;

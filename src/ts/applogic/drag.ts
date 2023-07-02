@@ -6,6 +6,10 @@ import { leftZoneTriggered, rightZoneTriggered } from "./snapzones/store";
 import { focusedWindowId, WindowStore } from "./store";
 import { LogLevel } from "../console/interface";
 
+/**
+ * @WARNING This file needs a mass refactor, do not report issues related to the code execution within this file.
+ */
+
 export function dragWindow(
   app: App,
   window: HTMLDivElement,

@@ -80,6 +80,7 @@ export function getZoneElements() {
 }
 
 export function snapWindow(id: string) {
+  console.table({ id });
   const leftTriggered = get(leftZoneTriggered);
   const rightTriggered = get(rightZoneTriggered);
 

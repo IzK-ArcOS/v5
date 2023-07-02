@@ -13,19 +13,10 @@ import { ErrorMessages, ErrorWindowStore } from "../errorlogic/app";
 import { selectedMessageId } from "../messaging/main";
 import { NotificationStore } from "../notiflogic/main";
 import { restarting, shuttingDown } from "./main";
+import { closeAllProgressively } from "../applogic/close";
 
 export function logoff() {
-  let maxTimeout = 0;
-
-  const ws = get(WindowStore);
-
-  for (let i = 0; i < ws.length; i++) {
-    maxTimeout += 50;
-
-    setTimeout(() => {
-      closeWindow(ws[i].id);
-    }, maxTimeout);
-  }
+  closeAllProgressively();
 
   FileBrowserCurrentDir.set("./");
   FileBrowserSelectedFilename.set(null);
@@ -39,17 +30,7 @@ export function logoff() {
 }
 
 export function shutdown() {
-  let maxTimeout = 0;
-
-  const ws = get(WindowStore);
-
-  for (let i = 0; i < ws.length; i++) {
-    maxTimeout += 50;
-
-    setTimeout(() => {
-      closeWindow(ws[i].id);
-    }, maxTimeout);
-  }
+  closeAllProgressively();
 
   logoffToken();
 
@@ -57,17 +38,7 @@ export function shutdown() {
 }
 
 export function restart(eraseToken = false) {
-  let maxTimeout = 0;
-
-  const ws = get(WindowStore);
-
-  for (let i = 0; i < ws.length; i++) {
-    maxTimeout += 50;
-
-    setTimeout(() => {
-      closeWindow(ws[i].id);
-    }, maxTimeout);
-  }
+  closeAllProgressively();
 
   if (eraseToken) {
     localStorage.removeItem("arcos-remembered-token");

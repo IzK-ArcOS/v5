@@ -1,16 +1,15 @@
 import { writable } from "svelte/store";
 import HomePage from "../../lib/HelpCenter/HomePage.svelte";
-import type { HelpCenterStore } from "./interface";
-import NotImplemented from "../../lib/HelpCenter/NotImplemented.svelte";
-import personalization from "./store/personalization";
-import actioncenter from "./store/actioncenter";
-import accounts from "./store/accounts";
-import arcterm from "./store/arcterm";
-import arcfs from "./store/arcfs";
-import arcfind from "./store/arcfind";
-import apps from "./store/apps";
-import logging from "./store/logging";
 import RecentChanges from "../../lib/HelpCenter/RecentChanges.svelte";
+import type { HelpCenterStore } from "./interface";
+import accounts from "./store/accounts";
+import actioncenter from "./store/actioncenter";
+import apps from "./store/apps";
+import arcfind from "./store/arcfind";
+import arcfs from "./store/arcfs";
+import arcterm from "./store/arcterm";
+import logging from "./store/logging";
+import personalization from "./store/personalization";
 
 export const helpCenterArticles: HelpCenterStore = {
   homePage: {

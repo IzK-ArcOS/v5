@@ -61,7 +61,7 @@
 
 <div class="winstore">
   {#each oa as app}
-    {#if app && !app.disabled}
+    {#if app}
       <Window {app} />
     {/if}
   {/each}

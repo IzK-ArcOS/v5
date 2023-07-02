@@ -1,6 +1,5 @@
 import { get } from "svelte/store";
 import { getWindowElement } from "../window/main";
-import { generateCSS } from "./css";
 import type { App, XY } from "./interface";
 import { WindowStore } from "./store";
 
