@@ -1,0 +1,68 @@
+name: Bug Report
+description: Help us to make ArcOS better!
+title: "[Bug]: "
+labels: ["bug"]
+#assignees:
+#  - assignees names go here
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to fill out this bug report! By doing so, you're helping ArcOS become a better, more stable platform! Power to you!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe clearly what happened. You may also insert pictures and videos.
+      placeholder: "Ex: When trying to do ... it started to do ... when it should have done ... instead."
+    validations:
+      required: true
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Edition
+      description: What Edition of ArcOS are you running?
+      options:
+        - Desktop (Specfiy version below)
+        - Website
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: ArcOS Version
+      description: If you're using the web version, you can skip this part.
+      placeholder: "Ex: v5.0.6"
+    validations:
+      required: false
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: If you are using a browser, which browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - Opera/(GX)
+  - type: input
+    id: other-browers
+    attributes:
+      label: Other Browser(s)
+      description: If your browser wasn't listed, list it/them here.
+      placeholder: List the browsers here.
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Detail(s)
+      description: In case we need to contact you for more information on the bug.
+      placeholder: "Ex: email@example.com, @username, user#0000, etc."
+    validations:
+      required: false
+# If you want to let people use logs here, i'm leaving this here.
+#  - type: textarea
+#    id: logs
+#    attributes:
+#      label: Log output
+#      description: Any log output that you have will go here.
+#      render: shell
