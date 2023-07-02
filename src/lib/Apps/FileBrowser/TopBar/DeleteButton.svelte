@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { deleteItem } from "../../../../ts/api/fs/file";
   import {
     fbClass,
     FileBrowserCurrentDir,
@@ -10,6 +9,7 @@
   import trash from "../../../../assets/apps/logger/clear.svg";
   import warning from "../../../../assets/apps/error.svg";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
+  import { deleteItem } from "../../../../ts/api/fs/delete";
 
   function deleteSelected() {
     createOverlayableError(

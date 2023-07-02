@@ -146,13 +146,13 @@ window#MessagingApp div.body > div.content div.target-options {
   box-sizing: border-box;
   padding: 5px;
   border-radius: 5px;
-  visibility: hidden;
-  opacity: 0;
   right: 0px;
   top: 0px;
   margin-top: -5px;
   max-height: 182px;
   overflow-y: scroll;
+  transition: opacity 0.3s, visibility 0.3s, pointer-events 0s;
+  display: none;
 }
 
 window#MessagingApp div.body > div.content div.target-options * {
@@ -160,8 +160,7 @@ window#MessagingApp div.body > div.content div.target-options * {
 }
 
 window#MessagingApp div.body > div.content div.target-options.visible {
-  opacity: 1;
-  visibility: visible;
+  display: block;
 }
 
 window#MessagingApp div.body > div.content div.target-options.visible * {
