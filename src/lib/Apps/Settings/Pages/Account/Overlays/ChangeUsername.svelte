@@ -1,7 +1,8 @@
 <script lang="ts">
+  import usericon from "../../../../../../assets/apps/settings/account.svg";
+  import "../../../../../../css/desktop/apps/settings/account/changeUname.css";
   import { changeUsername } from "../../../../../../ts/api/cred";
-  import { resetAppIcon } from "../../../../../../ts/applogic/icon";
-  import type { App } from "../../../../../../ts/applogic/interface";
+  import type { Process } from "../../../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
   import {
     UserData,
@@ -10,13 +11,11 @@
   import { getProfilePicture } from "../../../../../../ts/userlogic/pfp";
   import { hideOverlay } from "../../../../../../ts/window/overlay";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
-  import usericon from "../../../../../../assets/apps/settings/account.svg";
-  import "../../../../../../css/desktop/apps/settings/account/changeUname.css";
 
   let img = "";
 
   export let id: string;
-  export let app: App;
+  export let parent: Process;
 
   let newName = "";
 
@@ -36,7 +35,7 @@
           buttons: [{ caption: "OK", action: reset }],
           image: usericon,
         },
-        "SettingsApp"
+        parent.id
       );
 
     createOverlayableError(
@@ -46,12 +45,12 @@
         buttons: [{ caption: "OK", action: closeThis }],
         image: usericon,
       },
-      "SettingsApp"
+      parent.id
     );
   }
 
   function cancel() {
-    hideOverlay(id, app.id);
+    hideOverlay(id, parent.id);
   }
 
   function reset() {

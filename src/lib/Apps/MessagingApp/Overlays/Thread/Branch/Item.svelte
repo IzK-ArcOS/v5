@@ -8,8 +8,8 @@
   } from "../../../../../../ts/messaging/main";
   import { hideOverlay } from "../../../../../../ts/window/overlay";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
-  import OtherItems from "../../../../Settings/Pages/Account/StorageBar/OtherItems.svelte";
   import Branch from "../Branch.svelte";
+  import { getPID } from "../../../../../../ts/applogic/pid";
 
   export let item: PartiallyExtendedMessage;
 
@@ -22,7 +22,7 @@
   function openThis() {
     $selectedMessageId = item.id;
 
-    hideOverlay("thread", "MessagingApp");
+    hideOverlay("thread", getPID("MessagingApp"));
     threadMessageId.set(null);
   }
 </script>

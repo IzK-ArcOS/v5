@@ -5,6 +5,7 @@ import TextView from "../../../lib/Apps/TextView.svelte";
 import { UserData } from "../../userlogic/interfaces";
 import type { App } from "../interface";
 import { setTitleSuffix } from "../title";
+import { ProcessStore } from "../store";
 
 export const ImageViewer: App = {
   info: {
@@ -16,16 +17,15 @@ export const ImageViewer: App = {
     hidden: true,
     icon: logo,
   },
-  size: { w: 500, h: 400 },
-  pos: { x: 30, y: 40 },
+  initialSize: { w: 500, h: 400 },
   minSize: { w: 500, h: 400 },
   maxSize: { w: 1000, h: 700 },
-  controls: { min: true, max: true, cls: true },
-  state: {
+  controls: { minimized: true, maximized: true, close: true },
+  windowProperties: {
     headless: false,
     resizable: true,
-    windowState: { min: false, max: false, fll: false },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
   content: ImageView,
   glass: true,
   fileMimes: [
@@ -39,10 +39,12 @@ export const ImageViewer: App = {
     "image/gif",
   ],
   events: {
-    openFile(app: App) {
-      if (!app.openedFile) return;
+    openFile(pid: number) {
+      const process = get(ProcessStore)[pid];
 
-      setTitleSuffix(` - ${app.openedFile.name}`, app.id);
+      if (!process.openedFile) return;
+
+      setTitleSuffix(` - ${process.openedFile.name}`, pid);
     },
   },
   contextMenu: {

@@ -2,14 +2,14 @@
   import { onMount } from "svelte";
   import type { Writable } from "svelte/store";
   import { readFile } from "../../../../ts/api/fs/file";
-  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon";
   import type { PartialArcFile } from "../../../../ts/api/interface";
   import type { OverlayableApp } from "../../../../ts/applogic/interface";
   import { setTargetFile } from "../../../../ts/chooser/store";
 
-  export let overlay: OverlayableApp;
   export let selected: Writable<string>;
   export let processing: Writable<boolean>;
+  export let pid: number;
 
   let img = "";
 
@@ -27,7 +27,7 @@
       mime: file.mime,
     };
 
-    setTargetFile(overlay.id, data);
+    setTargetFile(pid, data);
 
     $processing = false;
   }

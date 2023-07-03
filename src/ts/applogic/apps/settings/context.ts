@@ -5,8 +5,9 @@ import { getServer } from "../../../api/server";
 import { createOverlayableError } from "../../../errorlogic/overlay";
 import { deleteCustomTheme } from "../../../userlogic/themes/main";
 import { showOverlay } from "../../../window/overlay";
-import { openWindow } from "../../events";
+import { createProcess } from "../../events";
 import type { AppContextMenu } from "../../interface";
+import { getPID } from "../../pid";
 import { fbClass, FileBrowserSelectedFilename } from "../FileBrowser/main";
 
 const saveToFS = {
@@ -21,7 +22,7 @@ const saveToFS = {
 
     await writeFile(path, blob);
 
-    openWindow("FileManager");
+    createProcess("FileManager");
 
     await fbClass.goToDirectory("./Themes");
 
@@ -52,7 +53,7 @@ export const SettingsAppContext: AppContextMenu = {
               { caption: "Cancel", action() {} },
             ],
           },
-          "SettingsApp"
+          getPID("SettingsApp")
         );
       },
       icon: "delete",
@@ -66,7 +67,7 @@ export const SettingsAppContext: AppContextMenu = {
     {
       caption: "View user data",
       action: () => {
-        showOverlay("udataExplorer", "SettingsApp");
+        showOverlay("udataExplorer", getPID("SettingsApp"));
       },
       icon: "account_tree",
     },

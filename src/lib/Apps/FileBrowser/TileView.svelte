@@ -5,12 +5,14 @@
     PartialArcFile,
   } from "../../../ts/api/interface";
   import { FileBrowserRefreshing } from "../../../ts/applogic/apps/FileBrowser/main";
+  import type { Process } from "../../../ts/applogic/interface";
   import Spinner from "../../Spinner.svelte";
   import Dir from "./TileView/Dir.svelte";
   import File from "./TileView/File.svelte";
 
   export let files: PartialArcFile[] = [];
   export let dirs: PartialUserDir[] = [];
+  export let process: Process;
 
   files;
   dirs;
@@ -39,7 +41,7 @@
     {#if files.length}
       <div class="files">
         {#each files as file}
-          <File {file} />
+          <File {file} {process} />
         {/each}
       </div>
     {/if}

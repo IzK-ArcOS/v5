@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { openWindow } from "../../../../ts/applogic/events";
+  import { createProcess } from "../../../../ts/applogic/events";
   import { startOpened } from "../../../../ts/desktop/main";
   import { showArcFind } from "../../../../ts/search/main";
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
@@ -9,12 +9,12 @@
   let pfp: string;
 
   function exit() {
-    openWindow("Exit");
+    createProcess("Exit");
     startOpened.set(false);
   }
 
   function settings() {
-    openWindow("SettingsApp");
+    createProcess("SettingsApp");
     startOpened.set(false);
   }
 

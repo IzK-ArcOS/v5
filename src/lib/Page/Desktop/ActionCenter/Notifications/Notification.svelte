@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ActionCenterOpened } from "../../../../../ts/desktop/actioncenter/main";
+  import { actionCenterOpened } from "../../../../../ts/desktop/actioncenter/main";
   import type { NotificationData } from "../../../../../ts/notiflogic/interfaces";
   import {
     CurrentNotification,
@@ -20,7 +20,7 @@
 
       close();
 
-      ActionCenterOpened.set(false);
+      actionCenterOpened.set(false);
     };
   }
 </script>

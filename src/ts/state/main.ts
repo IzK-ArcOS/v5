@@ -2,10 +2,10 @@ import { appWindow } from "@tauri-apps/api/window";
 import { writable } from "svelte/store";
 import { logoffToken } from "../api/cred";
 import { InvalidStateBugrep } from "../bugrep";
-import { Log } from "../console";
+import { Log, LogLevel } from "../console";
+import { Var } from "../env/vars";
 import type { State } from "./interfaces";
 import { States } from "./store";
-import { LogLevel } from "../console/interface";
 
 export const CurrentState = writable<State>(States[0]);
 

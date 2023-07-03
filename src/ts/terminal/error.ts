@@ -1,8 +1,8 @@
-import { closeWindow } from "../applogic/events";
+import { closeProcess } from "../applogic/events";
 import { createOverlayableError } from "../errorlogic/overlay";
 import icon from "../../assets/apps/arcterm.svg";
 
-export function initError(id: string) {
+export function initError(pid: number) {
   createOverlayableError(
     {
       title: "Can't initialize terminal",
@@ -12,12 +12,12 @@ export function initError(id: string) {
         {
           caption: "Close",
           action() {
-            closeWindow(id);
+            closeProcess(pid);
           },
         },
       ],
       image: icon,
     },
-    id
+    pid
   );
 }

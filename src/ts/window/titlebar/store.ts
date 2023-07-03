@@ -32,19 +32,18 @@ export const DummyApp: App = {
     author: "Robots",
     icon: dummyIcon,
   },
-  pos: { x: 0, y: 0 },
   minSize: { w: 0, h: 0 },
   maxSize: { w: 0, h: 0 },
-  size: { w: 0, h: 0 },
-  controls: { min: true, max: true, cls: true },
-  state: {
+  initialSize: { w: 0, h: 0 },
+  controls: { minimized: true, maximized: true, close: true },
+  windowProperties: {
     headless: false,
     resizable: true,
-    windowState: {
-      fll: false,
-      max: false,
-      min: false,
-    },
+  },
+  initialWindowState: {
+    fullscreen: false,
+    maximized: false,
+    minimized: false,
   },
   glass: false,
   content: null,

@@ -1,7 +1,7 @@
 <script lang="ts">
   import "../../../../css/desktop/desktopicons.css";
   import { isPopulatable } from "../../../../ts/applogic/checks";
-  import { WindowStore } from "../../../../ts/applogic/store";
+  import { AppStore } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import DesktopIcon from "./DesktopIcons/DesktopIcon.svelte";
 </script>
@@ -13,7 +13,7 @@
     class:undocked-launcher={$UserData.sh.taskbar.isLauncher &&
       !$UserData.sh.taskbar.docked}
   >
-    {#each $WindowStore as app}
+    {#each Object.entries($AppStore) as [id, app]}
       {#if isPopulatable(app)}
         <DesktopIcon {app} />
       {/if}

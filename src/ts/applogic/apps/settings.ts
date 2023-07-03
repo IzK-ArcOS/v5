@@ -125,19 +125,18 @@ export const SettingsApp: App = {
     author: "ArcOS Team",
     icon: logo,
   },
-  size: { w: 730, h: 500 },
-  pos: { x: 30, y: 40 },
+  initialSize: { w: 730, h: 500 },
   minSize: { w: 730, h: 500 },
   maxSize: { w: 1100, h: 600 },
-  controls: { min: true, max: true, cls: true },
-  state: {
+  controls: { minimized: true, maximized: true, close: true },
+  windowProperties: {
     headless: false,
     resizable: true,
-    windowState: { min: false, max: false, fll: false },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
   content: SettingsAppSvelte,
   glass: true,
-  overlays: {
+  overlayApps: {
     ...ProfilePictureOverlays,
     ...AccountPageOverlays,
     ...DesktopOverlays,

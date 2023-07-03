@@ -1,33 +1,33 @@
 import { get } from "svelte/store";
-import { Log } from "../console";
-import type { App } from "./interface";
 import { checkZones, snapWindow } from "./snapzones/main";
 import { leftZoneTriggered, rightZoneTriggered } from "./snapzones/store";
-import { focusedWindowId, WindowStore } from "./store";
-import { LogLevel } from "../console/interface";
-
-/**
- * @WARNING This file needs a mass refactor, do not report issues related to the code execution within this file.
- */
+import { ProcessStore, focusedProcessPid, maxZIndex } from "./store";
 
 export function dragWindow(
-  app: App,
+  pid: number,
   window: HTMLDivElement,
   titlebar: HTMLDivElement
 ) {
-  if (!app || !window || !titlebar)
+  const process = get(ProcessStore)[pid];
+  /* 
+  if (!process || !window || !titlebar) {
     return Log({
-      msg: `Can't drag ${app.id}: one or more required elements are missing!`,
+      msg: `Can't drag ${pid}: one or more required elements are missing!`,
       source: "drag.ts: dragWindow",
       level: LogLevel.error,
     });
+  } */
 
   ["mousedown", "touchstart"].forEach((k) =>
     window.addEventListener(k, (e: MouseEvent) => {
-      let x, y;
-      if (app.info.custom) return;
+      maxZIndex.set(get(maxZIndex) + 1);
 
-      focusedWindowId.set(app.id);
+      window.style.zIndex = `${maxZIndex} !important`;
+
+      let x, y;
+      if (process.app.info.custom) return;
+
+      focusedProcessPid.set(pid);
 
       if (e.composedPath().includes(titlebar)) {
         let xA: number, yA: number, xB: number, yB: number;
@@ -35,24 +35,18 @@ export function dragWindow(
         e.preventDefault();
 
         document.onmousemove = (e: MouseEvent) => {
-          app.snapped = false;
-
-          WindowStore.set(get(WindowStore));
-
-          process(e.clientX, e.clientY);
+          process.snapped = false;
+          move(e.clientX, e.clientY);
         };
 
         document.ontouchmove = (e: TouchEvent) => {
-          app.snapped = false;
-
-          WindowStore.set(get(WindowStore));
-
+          process.snapped = false;
           if (!e.touches.length || k == "mousedown") return;
 
-          process(e.touches[0].clientX, e.touches[0].clientY);
+          move(e.touches[0].clientX, e.touches[0].clientY);
         };
 
-        function process(x: number, y: number) {
+        function move(x: number, y: number) {
           xA = xB - x;
           yA = yB - y;
 
@@ -67,17 +61,17 @@ export function dragWindow(
           window.style.top = top + "px";
           window.style.left = left + "px";
 
-          app.pos.x = left;
-          app.pos.y = top;
+          process.pos.x = left;
+          process.pos.y = top;
 
-          checkZones(xB, yB, app.id);
+          checkZones(xB, yB, pid);
 
           [x, y] = [xB, yB];
         }
 
         document.onmouseup = document.ontouchend = () => {
-          checkZones(x, y, app.id);
-          snapWindow(app.id);
+          checkZones(x, y, pid);
+          snapWindow(pid);
           leftZoneTriggered.set(false);
           rightZoneTriggered.set(false);
           document.onmouseup = null;

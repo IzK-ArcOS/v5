@@ -1,8 +1,7 @@
 <script lang="ts">
   import clear from "../../../../../assets/apps/logger/clear.svg";
   import type { App } from "../../../../../ts/applogic/interface";
-  import { Log, LogStore } from "../../../../../ts/console";
-  import { LogItem, LogLevel } from "../../../../../ts/console/interface";
+  import { Log, log, LogItem, LogLevel } from "../../../../../ts/console";
   import {
     ScopedAppData,
     UserData,
@@ -17,9 +16,9 @@
   export let app: App;
 
   function clearCategory(source: string) {
-    for (let i = 0; i < $LogStore.length; i++) {
-      if ($LogStore[i].source == source) {
-        $LogStore.splice(i, 1);
+    for (let i = 0; i < $log.length; i++) {
+      if ($log[i].source == source) {
+        $log.splice(i, 1);
       }
     }
 
@@ -27,7 +26,7 @@
 
     logItems = [];
 
-    LogStore.set($LogStore);
+    log.set($log);
   }
 
   function refresh() {

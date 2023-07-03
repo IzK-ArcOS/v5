@@ -3,7 +3,7 @@ import { apiCall, ConnectedServer } from "../api/main";
 import { UserToken } from "../userlogic/interfaces";
 
 export async function sendMessage(receiver: string, body: string) {
-  const server = get(ConnectedServer);
+  const server = await get(ConnectedServer);
 
   if (!server) return false;
 
@@ -24,7 +24,7 @@ export async function replyToMessage(
   receiver: string,
   body: string
 ) {
-  const server = get(ConnectedServer);
+  const server = await get(ConnectedServer);
 
   if (!server) return false;
 

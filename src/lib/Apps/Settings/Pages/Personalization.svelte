@@ -1,12 +1,12 @@
 <script lang="ts">
+  import type { Process } from "../../../../ts/applogic/interface";
   import { UserData } from "../../../../ts/userlogic/interfaces";
-  import { DefaultThemes } from "../../../../ts/userlogic/themes/store";
-  import { showOverlay } from "../../../../ts/window/overlay";
   import OptionSection from "../OptionSection.svelte";
   import Current from "./Desktop/Current.svelte";
   import AccentColor from "./Personalization/AccentColor.svelte";
   import Themes from "./Personalization/Themes.svelte";
-  import ThemeRenderer from "./Personalization/Themes/ThemeRenderer.svelte";
+
+  export let process: Process;
 </script>
 
 <h1>Appearance</h1>
@@ -14,7 +14,7 @@
   <div class="desktop-page">
     <Current />
   </div>
-  <Themes />
+  <Themes {process} />
 </div>
 
 <OptionSection title="Style" context="Change the style of the UI">

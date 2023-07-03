@@ -11,7 +11,6 @@ const overlays: { [key: string]: OverlayableApp } = {
       version: "1.0.0",
     },
     size: { w: 550, h: 400 },
-    show: false,
     content: Thread,
   },
 };
@@ -25,17 +24,16 @@ export const MessagingApp: App = {
     author: "ArcOS Team",
     icon: logo,
   },
-  size: { w: 700, h: 450 },
-  pos: { x: 100, y: 100 },
+  initialSize: { w: 700, h: 450 },
   minSize: { w: 700, h: 450 },
   maxSize: { w: 1000, h: 600 },
-  controls: { min: true, max: true, cls: true },
-  state: {
+  controls: { minimized: true, maximized: true, close: true },
+  windowProperties: {
     headless: false,
     resizable: true,
-    windowState: { min: false, max: false, fll: false },
   },
-  overlays,
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
+  overlayApps: overlays,
   content: MessagingAppSvelte,
   glass: true,
 };

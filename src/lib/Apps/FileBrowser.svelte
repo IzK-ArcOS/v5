@@ -7,7 +7,7 @@
     FileBrowserDirContents,
     fbClass,
   } from "../../ts/applogic/apps/FileBrowser/main";
-  import type { App } from "../../ts/applogic/interface";
+  import type { App, Process } from "../../ts/applogic/interface";
   import { ScopedAppData, UserData } from "../../ts/userlogic/interfaces";
   import ListView from "./FileBrowser/ListView.svelte";
   import SideBar from "./FileBrowser/SideBar.svelte";
@@ -20,6 +20,7 @@
   let tiledMode = false;
 
   export let app: App;
+  export let process: Process;
   export let appdata: ScopedAppData;
 
   UserData.subscribe(() => {
@@ -41,13 +42,13 @@
   });
 </script>
 
-<TopBar bind:appdata {app} />
+<TopBar bind:appdata {app} {process} />
 <SideBar />
 <div class="content">
   {#if tiledMode}
-    <TileView {files} {dirs} />
+    <TileView {files} {dirs} {process} />
   {:else}
-    <ListView {files} {dirs} />
+    <ListView {files} {dirs} {process} />
   {/if}
 </div>
 <Bottom />

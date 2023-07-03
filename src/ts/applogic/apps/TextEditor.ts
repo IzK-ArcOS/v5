@@ -13,20 +13,19 @@ export const TextEditor: App = {
     hidden: false,
     icon: logo,
   },
-  size: { w: 700, h: 550 },
-  pos: { x: 30, y: 40, centered: true },
+  initialSize: { w: 700, h: 550 },
   minSize: { w: 400, h: 300 },
   maxSize: { w: 1000, h: 800 },
-  controls: { min: true, max: true, cls: true },
-  state: {
+  controls: { minimized: true, maximized: true, close: true },
+  windowProperties: {
     headless: false,
     resizable: true,
-    windowState: { min: false, max: false, fll: false },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
   content: TextView,
   glass: true,
   fileMimes: ["text/plain; charset=utf-8"],
-  overlays: {
+  overlayApps: {
     saveNewFile: {
       info: {
         name: "Save file",
@@ -34,7 +33,6 @@ export const TextEditor: App = {
         version: "1.0.1",
       },
       size: { w: NaN, h: NaN },
-      show: false,
       content: SaveNewFile,
     },
   },

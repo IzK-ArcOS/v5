@@ -2,7 +2,7 @@
   import passwordIcon from "../../../../../../assets/apps/settings/password.svg";
   import "../../../../../../css/desktop/apps/settings/account/changePswd.css";
   import { changePassword } from "../../../../../../ts/api/cred";
-  import type { App } from "../../../../../../ts/applogic/interface";
+  import type { Process } from "../../../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
   import {
     UserData,
@@ -15,7 +15,7 @@
   let img = "";
 
   export let id: string;
-  export let app: App;
+  export let parent: Process;
 
   let oldPswd = "";
   let newPswd = "";
@@ -26,7 +26,7 @@
   });
 
   function cancel() {
-    hideOverlay(id, app.id);
+    hideOverlay(id, parent.id);
   }
 
   function closeThis() {
@@ -46,7 +46,7 @@
           buttons: [{ caption: "OK", action: reset }],
           image: passwordIcon,
         },
-        app.id
+        parent.id
       );
 
     createOverlayableError(
@@ -56,7 +56,7 @@
         buttons: [{ caption: "OK", action: closeThis }],
         image: passwordIcon,
       },
-      app.id
+      parent.id
     );
   }
 

@@ -13,18 +13,17 @@ export const FileBrowserApp: App = {
     author: "ArcOS Team",
     icon: logo,
   },
-  size: { w: 700, h: 450 },
-  pos: { x: 30, y: 40 },
+  initialSize: { w: 700, h: 450 },
   minSize: { w: 700, h: 450 },
   maxSize: { w: 1000, h: 600 },
-  controls: { min: true, max: true, cls: true },
-  state: {
+  controls: { minimized: true, maximized: true, close: true },
+  windowProperties: {
     headless: false,
     resizable: true,
-    windowState: { min: false, max: false, fll: false },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
   content: FileBrowser,
   glass: true,
-  overlays: fbOverlays,
+  overlayApps: fbOverlays,
   contextMenu: FileManagerContextMenu,
 };

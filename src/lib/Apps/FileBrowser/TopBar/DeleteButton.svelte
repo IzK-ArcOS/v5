@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { deleteItem } from "../../../../ts/api/fs/file";
   import {
     fbClass,
     FileBrowserCurrentDir,
@@ -9,7 +10,9 @@
   import trash from "../../../../assets/apps/logger/clear.svg";
   import warning from "../../../../assets/apps/error.svg";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
-  import { deleteItem } from "../../../../ts/api/fs/delete";
+  import type { Process } from "../../../../ts/applogic/interface";
+
+  export let process: Process;
 
   function deleteSelected() {
     createOverlayableError(
@@ -25,7 +28,7 @@
         ],
         image: trash,
       },
-      "FileManager"
+      process.id
     );
   }
 
@@ -34,7 +37,7 @@
 
     FileBrowserDeletingFilename.set($FileBrowserSelectedFilename);
 
-    showOverlay("deletingItem", "FileManager");
+    showOverlay("deletingItem", process.id);
 
     const valid = await deleteItem(path);
 
@@ -47,7 +50,7 @@
           buttons: [{ caption: "OK", action() {} }],
           image: warning,
         },
-        "FileManager"
+        process.id
       );
 
     FileBrowserSelectedFilename.set(null);
@@ -55,7 +58,7 @@
     fbClass.refresh();
 
     setTimeout(() => {
-      hideOverlay("deletingItem", "FileManager");
+      hideOverlay("deletingItem", process.id);
     }, 100);
   }
 </script>

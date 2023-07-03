@@ -1,28 +1,28 @@
 <script lang="ts">
   import "../../css/desktop/apps/imageviewer.css";
-  import type { App } from "../../ts/applogic/interface";
-  import { WindowStore } from "../../ts/applogic/store";
+  import type { App, Process } from "../../ts/applogic/interface";
+  import { AppStore } from "../../ts/applogic/store";
 
-  export let app: App;
+  export let process: Process;
 
   let url = "";
 
-  WindowStore.subscribe(() => {
-    if (!app.openedFile) return (url = "");
+  AppStore.subscribe(() => {
+    if (!process.openedFile) return (url = "");
 
-    const blob = new Blob([new Uint8Array(app.openedFile.data)], {
-      type: app.openedFile.mime,
+    const blob = new Blob([new Uint8Array(process.openedFile.data)], {
+      type: process.openedFile.mime,
     });
 
     url = URL.createObjectURL(blob);
   });
 </script>
 
-{#if app.openedFile && url}
+{#if process.openedFile && url}
   <img
     src={url}
-    alt={app.openedFile.name}
+    alt={process.openedFile.name}
     data-caller="output"
-    data-path={app.openedFile.path}
+    data-path={process.openedFile.path}
   />
 {/if}

@@ -15,16 +15,15 @@ export const LightsOff: App = {
     hidden: false,
     icon: logo,
   },
-  size: { w: NaN, h: NaN },
-  pos: { x: 80, y: 80 },
+  initialSize: { w: NaN, h: NaN },
   minSize: { w: NaN, h: NaN },
   maxSize: { w: NaN, h: NaN },
-  controls: { min: true, max: false, cls: true },
-  state: {
+  controls: { minimized: true, maximized: false, close: true },
+  windowProperties: {
     headless: false,
     resizable: false,
-    windowState: { min: false, max: false, fll: false },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
   content: LightsOffSvelte,
   glass: true,
   events: {

@@ -6,9 +6,11 @@
   import { formatBytes } from "../../../../../ts/api/fs/sizes";
   import { inTauri } from "../../../../../ts/tauri";
   import { createOverlayableError } from "../../../../../ts/errorlogic/overlay";
+  import type { Process } from "../../../../../ts/applogic/interface";
 
   let deviceInfo: DeviceInfo;
   let isTauri = false;
+  export let process: Process;
 
   onMount(async () => {
     deviceInfo = await getDeviceInfo();
@@ -23,7 +25,7 @@
           "The memory amount visible to ArcOS may be less than you actually have. This is not a bug, but rather a limitation of the browser you are running. Most browsers can only detect up to 8GB of RAM.",
         buttons: [{ caption: "Understood", action() {} }],
       },
-      "SettingsApp"
+      process.id
     );
   }
 </script>

@@ -13,16 +13,15 @@ export const Exit: App = {
     icon: logo,
     hidden: true,
   },
-  size: { w: 280, h: 50 },
-  pos: { x: 30, y: 40 },
+  initialSize: { w: 280, h: 50 },
   minSize: { w: 280, h: 50 },
   maxSize: { w: 280, h: 50 },
-  controls: { min: false, max: false, cls: true },
-  state: {
+  controls: { minimized: false, maximized: false, close: true },
+  windowProperties: {
     headless: true,
     resizable: false,
-    windowState: { min: false, max: false, fll: true },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: true },  
   content: ExitSvelte,
   glass: true,
 

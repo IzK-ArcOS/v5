@@ -27,6 +27,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="target-wrapper">
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div class="target-selector" on:click={toggle}>
     <div class="current">
       <ProfilePicture src={pfp || defaultProfile} height={32} />

@@ -1,9 +1,12 @@
 <script lang="ts">
   import "../../../../css/desktop/apps/settings/about.css";
+  import type { Process } from "../../../../ts/applogic/interface";
   import { Logo } from "../../../../ts/branding";
   import { ArcOSVersion } from "../../../../ts/env/main";
   import Section from "../Section.svelte";
   import SystemSection from "./About/SystemSection.svelte";
+
+  export let process: Process;
 </script>
 
 <div class="about-page">
@@ -13,7 +16,7 @@
       <h1 class="name">ArcOS v{ArcOSVersion}</h1>
     </div>
   </div>
-  <SystemSection />
+  <SystemSection {process} />
   <Section header="License Information" collapsible collapsed>
     The whole ArcOS project is licensed under GPLv3. More information about the
     license and the project as a whole can be found in the README file of the

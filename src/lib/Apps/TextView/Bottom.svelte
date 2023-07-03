@@ -1,8 +1,8 @@
 <script lang="ts">
   import { formatBytes } from "../../../ts/api/fs/sizes";
-  import type { App } from "../../../ts/applogic/interface";
+  import type { Process } from "../../../ts/applogic/interface";
   export let fileContents: string;
-  export let app: App;
+  export let process: Process;
 </script>
 
 <div class="bottom">
@@ -11,10 +11,10 @@
       Size: {formatBytes(fileContents.length)}
     </div>
     <div class="section">
-      {app.openedFile.name}
+      {process.openedFile.name}
     </div>
     <div class="section">
-      {app.openedFile.mime.split(";")[0]}
+      {process.openedFile.mime.split(";")[0]}
     </div>
   </div>
 </div>

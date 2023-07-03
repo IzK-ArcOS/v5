@@ -9,18 +9,15 @@
   export let cls: () => void;
 </script>
 
-<button class="reset" on:click={min} disabled={isBoot || !app.controls.min}
-  >🗕</button
+<button
+  class="reset"
+  on:click={min}
+  disabled={isBoot || !app.controls.minimized}>🗕</button
 >
-<!-- <button
-  class="reset material-icons-round"
-  on:click={max}
-  disabled={isBoot || !app.controls.max}>crop_square</button
-> -->
 <button
   class="reset close"
   on:click={cls}
-  disabled={isBoot || !app.controls.cls}>✖</button
+  disabled={isBoot || !app.controls.close}>✖</button
 >
 
 <style scoped>

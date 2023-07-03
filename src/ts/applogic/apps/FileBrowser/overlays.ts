@@ -15,7 +15,6 @@ export const fbOverlays: { [key: string]: OverlayableApp } = {
     },
     content: OpeningFile,
     size: { w: 430, h: 165 },
-    show: false,
   },
   deletingItem: {
     info: {
@@ -25,7 +24,6 @@ export const fbOverlays: { [key: string]: OverlayableApp } = {
     },
     content: DeletingItem,
     size: { w: 430, h: 75 },
-    show: false,
   },
   createFolder: {
     info: {
@@ -35,7 +33,6 @@ export const fbOverlays: { [key: string]: OverlayableApp } = {
     },
     content: CreateFolder,
     size: { w: 350, h: 115 },
-    show: false,
   },
   createFile: {
     info: {
@@ -45,7 +42,6 @@ export const fbOverlays: { [key: string]: OverlayableApp } = {
     },
     content: CreateFile,
     size: { w: 350, h: 115 },
-    show: false,
   },
   uploadingFile: {
     info: {
@@ -55,7 +51,6 @@ export const fbOverlays: { [key: string]: OverlayableApp } = {
     },
     content: UploadingFile,
     size: { w: 430, h: 175 },
-    show: false,
   },
   renameItem: {
     info: {
@@ -65,6 +60,5 @@ export const fbOverlays: { [key: string]: OverlayableApp } = {
     },
     content: RenameItem,
     size: { w: 350, h: 115 },
-    show: false,
   },
 };

@@ -1,28 +1,24 @@
 <script lang="ts">
-  import { appManSelected } from "../../../ts/applogic/apps/AppManager/store";
-  import {
-    getWindow,
-    OpenedStore,
-    WindowStore,
-  } from "../../../ts/applogic/store";
-  import { ErrorWindowStore } from "../../../ts/errorlogic/app";
+  import { appManSelectedPid } from "../../../ts/applogic/apps/AppManager/store";
+  import { AppStore, ProcessStore } from "../../../ts/applogic/store";
+  import { ErrorProcesses } from "../../../ts/errorlogic/app";
 </script>
 
 <div class="bottombar">
   <div class="right">
-    {#if $appManSelected && !$appManSelected.startsWith("error_")}
+    {#if $appManSelectedPid && $appManSelectedPid > 0}
       <div class="section">
-        Snapped: {getWindow($appManSelected).snapped ? "yes" : "no"}
+        Snapped: {$ProcessStore[$appManSelectedPid].snapped ? "yes" : "no"}
       </div>
     {/if}
     <div class="section">
-      Running: {$OpenedStore.length}
+      Running: {Object.keys($ProcessStore).length}
     </div>
     <div class="section">
-      Loaded: {$WindowStore.length}
+      Loaded: {Object.keys($AppStore).length}
     </div>
     <div class="section">
-      Dialogs: {$ErrorWindowStore.length}
+      Dialogs: {Object.keys($ErrorProcesses).length}
     </div>
   </div>
 </div>

@@ -9,20 +9,20 @@
     FileBrowserSelectedFilename,
   } from "../../ts/applogic/apps/FileBrowser/main";
   import { closeWindow } from "../../ts/applogic/events";
-  import type { App } from "../../ts/applogic/interface";
-  import { WindowStore, isFullscreenWindow } from "../../ts/applogic/store";
+  import type { App, Process } from "../../ts/applogic/interface";
+  import { AppStore, isFullscreenWindow } from "../../ts/applogic/store";
   import { restart, shutdown } from "../../ts/desktop/power";
-  import { ErrorMessages, ErrorWindowStore } from "../../ts/errorlogic/app";
+  import { ErrorMessages, ErrorProcesses } from "../../ts/errorlogic/app";
   import { selectedMessageId } from "../../ts/messaging/main";
   import { NotificationStore } from "../../ts/notiflogic/main";
   import { applyState } from "../../ts/state/main";
 
-  export let app: App;
+  export let process: Process;
 
   function cancel() {
     isFullscreenWindow.set(false);
 
-    closeWindow(app.id);
+    closeWindow(process.id);
   }
 
   function arcterm() {
@@ -31,9 +31,9 @@
     FileBrowserDirContents.set(defaultDirectory);
     FileBrowserDeletingFilename.set(null);
     NotificationStore.set({});
-    ErrorWindowStore.set([]);
+    ErrorProcesses.set([]);
     ErrorMessages.set([]);
-    WindowStore.set([]);
+    AppStore.set({});
     selectedMessageId.set(null);
 
     applyState("arcterm");

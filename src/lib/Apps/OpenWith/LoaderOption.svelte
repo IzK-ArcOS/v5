@@ -9,6 +9,7 @@
   export let selected = "";
   export let loaderOptions: UserFileLoader[];
   export let options: App[];
+  export let pid: number;
 
   function select() {
     selected = loader.name;
@@ -21,7 +22,7 @@
       OpenWithFile.set(null);
     }, 1000);
 
-    closeWindow("OpenWithApp");
+    closeWindow(pid);
 
     loaderOptions = [];
     options = [];

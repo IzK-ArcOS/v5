@@ -10,8 +10,8 @@ import searchIcon from "../../../assets/arcfind.svg";
 import fileIcon from "../../../assets/mimetypes/text-plain.svg";
 import { get } from "svelte/store";
 import { UserToken } from "../../userlogic/interfaces";
-import { openUserFile, openWithDialog } from "../../api/fs/open/main";
-import { WindowStore } from "../../applogic/store";
+import { openUserFile, openWithDialog } from "../../api/fs/open";
+import { AppStore } from "../../applogic/store";
 import { FileBrowserCurrentDir } from "../../applogic/apps/FileBrowser/main";
 
 let FILE_CACHE: SearchItem[] = [];
@@ -48,7 +48,7 @@ export async function compileSearchableFiles() {
         deleteNotification(notif);
         closeNotification();
 
-        WindowStore.set(get(WindowStore));
+        AppStore.set(get(AppStore));
 
         if (file == true) return;
 

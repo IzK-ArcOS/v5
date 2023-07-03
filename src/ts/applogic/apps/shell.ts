@@ -2,7 +2,7 @@ import { writable } from "svelte/store";
 import Shell from "../../../lib/Page/Desktop/Shell.svelte";
 import { SEP_ITEM } from "../../contextmenu/main";
 import { ArcOSVersion } from "../../env/main";
-import { openWindow } from "../events";
+import { createProcess } from "../events";
 import type { App } from "../interface";
 import { openByKey } from "./SettingsApp/store";
 import { Logo } from "../../branding";
@@ -17,16 +17,15 @@ export const ArcShell: App = {
     icon: Logo(),
     custom: true,
   },
-  size: { w: NaN, h: NaN },
-  pos: { x: 0, y: 0 },
+  initialSize: { w: NaN, h: NaN },
   minSize: { w: NaN, h: NaN },
   maxSize: { w: NaN, h: NaN },
-  controls: { min: false, max: false, cls: false },
-  state: {
+  controls: { minimized: false, maximized: false, close: false },
+  windowProperties: {
     headless: true,
     resizable: false,
-    windowState: { min: false, max: false, fll: true },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: true },
   content: Shell,
   glass: false,
   events: {},
@@ -35,7 +34,7 @@ export const ArcShell: App = {
       {
         caption: "Application Manager",
         action: () => {
-          openWindow("AppMan");
+          createProcess("AppMan");
         },
       },
       SEP_ITEM,
@@ -43,7 +42,7 @@ export const ArcShell: App = {
         icon: "settings",
         caption: "Shell settings",
         action: () => {
-          openWindow("SettingsApp");
+          createProcess("SettingsApp");
           setTimeout(() => {
             openByKey("Shell");
           });

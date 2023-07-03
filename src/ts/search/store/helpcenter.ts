@@ -1,7 +1,7 @@
 import { currentArticle, helpCenterArticles } from "../../helpcenter/store";
 import type { SearchItem } from "../interface";
 import helpCenterIcon from "../../../assets/apps/helpcenter.svg";
-import { openWindow } from "../../applogic/events";
+import { createProcess } from "../../applogic/events";
 
 export function compileSearchableHelpArticles(): SearchItem[] {
   const result: SearchItem[] = [];
@@ -13,7 +13,7 @@ export function compileSearchableHelpArticles(): SearchItem[] {
       description: "Help Center",
       caption: entries[i][1].title,
       action: () => {
-        openWindow("HelpCenter");
+        createProcess("HelpCenter");
 
         currentArticle.set(entries[i][0]);
       },

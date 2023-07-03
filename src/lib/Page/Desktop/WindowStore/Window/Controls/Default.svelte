@@ -13,21 +13,21 @@
 <button
   class="material-icons-round reset"
   on:click={min}
-  disabled={!app.controls.min || isBoot}
+  disabled={!app.controls.minimized || isBoot}
 >
   minimize
 </button>
 <button
   class="material-icons-round reset"
   on:click={max}
-  disabled={!app.controls.max || isBoot}
+  disabled={!app.controls.maximized || isBoot}
 >
   crop_square
 </button>
 <button
   class="material-icons-round reset"
   on:click={cls}
-  disabled={!app.controls.cls || isBoot}
+  disabled={!app.controls.close || isBoot}
 >
   close
 </button>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import "../../../css/desktop/actioncenter.css";
   import { maxZIndex } from "../../../ts/applogic/store";
-  import { ActionCenterOpened } from "../../../ts/desktop/actioncenter/main";
+  import { actionCenterOpened } from "../../../ts/desktop/actioncenter/main";
   import {
     CurrentNotification,
     NotificationStore,
@@ -13,7 +13,7 @@
 
   let opened = false;
 
-  ActionCenterOpened.subscribe((v) => (opened = v));
+  actionCenterOpened.subscribe((v) => (opened = v));
 
   function clear() {
     NotificationStore.set({});

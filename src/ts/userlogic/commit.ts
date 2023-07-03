@@ -1,10 +1,10 @@
 import { get } from "svelte/store";
 import { BugReportData } from "../bugrep";
-import { Log } from "../console";
+import { Log, LogLevel } from "../console";
+import { DevModeOverride } from "../devmode/props";
 import { applyState } from "../state/main";
 import { UserData, UserName } from "./interfaces";
 import { committingUserData, setUserdata } from "./main";
-import { LogLevel } from "../console/interface";
 
 const source = "UserLogic: UserData watch";
 
@@ -23,6 +23,8 @@ export function commitUserdata(v: UserData) {
       msg: "Change Detected, committing",
       source,
     });
+
+    DevModeOverride.set(v.devmode);
 
     const changed = setUserdata(v);
 

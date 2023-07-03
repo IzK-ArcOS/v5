@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { openWindow } from "../../../../ts/applogic/events";
+  import { createProcess, openWindow } from "../../../../ts/applogic/events";
   import { getAppIcon, getOriginalIcon } from "../../../../ts/applogic/icon";
   import type { App } from "../../../../ts/applogic/interface";
   import { updateStores } from "../../../../ts/applogic/store";
@@ -9,7 +9,7 @@
   export let onopen = () => {};
 
   function open() {
-    openWindow(app.id);
+    createProcess(app.id);
 
     updateStores();
     startOpened.set(false);
@@ -17,11 +17,7 @@
   }
 </script>
 
-<button class="item" on:click={open} disabled={app.opened}>
-  <img
-    src={getOriginalIcon(app.id) || getAppIcon(app)}
-    class="icon"
-    alt={app.info.name}
-  />
+<button class="item" on:click={open}>
+  <img src={getAppIcon(app)} class="icon" alt={app.info.name} />
   {app.info.name}
 </button>

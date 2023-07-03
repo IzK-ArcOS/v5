@@ -11,8 +11,10 @@
   import { getParentMessage } from "../../../../ts/messaging/thread";
   import { showOverlay } from "../../../../ts/window/overlay";
   import Header from "./Viewer/Header.svelte";
+  import type { Process } from "../../../../ts/applogic/interface";
 
   export let message: Message;
+  export let process: Process;
 
   let threadLoading = false;
 
@@ -25,7 +27,7 @@
 
     threadMessageId.set(id);
 
-    showOverlay("thread", "MessagingApp");
+    showOverlay("thread", process.id);
 
     threadLoading = false;
   }

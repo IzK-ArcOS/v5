@@ -11,16 +11,15 @@ export const LoggerApp: App = {
     author: "ArcOS Team",
     icon: logo,
   },
-  size: { w: 900, h: 600 },
-  pos: { x: 30, y: 40 },
+  initialSize: { w: 900, h: 600 },
   minSize: { w: 900, h: 600 },
   maxSize: { w: 901, h: 601 },
-  controls: { min: true, max: true, cls: true },
-  state: {
+  controls: { minimized: true, maximized: true, close: true },
+  windowProperties: {
     headless: false,
     resizable: false,
-    windowState: { min: false, max: false, fll: false },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
   content: Logger,
   glass: true,
 };

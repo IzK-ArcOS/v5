@@ -1,12 +1,13 @@
 <script lang="ts">
   import { SettingsPages } from "../../../ts/applogic/apps/SettingsApp/store";
-  import type { App } from "../../../ts/applogic/interface";
+  import type { App, Process } from "../../../ts/applogic/interface";
   import { ScopedAppData, UserData } from "../../../ts/userlogic/interfaces";
   import Page from "./Sidebar/Page.svelte";
   import UserProfile from "./Sidebar/UserProfile.svelte";
 
   export let appdata: ScopedAppData;
   export let app: App;
+  export let process: Process;
 
   function toggleCollapsed() {
     appdata.collapsed = !appdata.collapsed;
@@ -30,5 +31,5 @@
       <Page {page} />
     {/each}
   </div>
-  <UserProfile />
+  <UserProfile {process} />
 </div>

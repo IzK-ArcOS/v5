@@ -1,5 +1,4 @@
-import { Log } from "../console";
-import { LogLevel } from "../console/interface";
+import { Log, LogLevel } from "../console";
 import { ArcOSVersion } from "../env/main";
 import { ArcTermConfig } from "./config";
 import type { Color } from "./interface";

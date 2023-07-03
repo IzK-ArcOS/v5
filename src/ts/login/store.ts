@@ -4,7 +4,6 @@ import Restart from "../../lib/Page/Login/Page/Restart.svelte";
 import Selector from "../../lib/Page/Login/Page/Selector.svelte";
 import Shutdown from "../../lib/Page/Login/Page/Shutdown.svelte";
 import UserLogin from "../../lib/Page/Login/Page/UserLogin.svelte";
-import NewApiUser from "../../lib/Page/Login/Page/NewApiUser.svelte";
 import type { State } from "../state/interfaces";
 
 export const LoginStates = new Map<string, State>([
@@ -68,7 +67,7 @@ export const LoginStates = new Map<string, State>([
       key: "restart",
     },
   ],
-  [
+  /* [
     "newapiuser",
     {
       name: "New User",
@@ -79,7 +78,7 @@ export const LoginStates = new Map<string, State>([
       },
       key: "newapiuser",
     },
-  ],
+  ], */
   [
     "autologin",
     {

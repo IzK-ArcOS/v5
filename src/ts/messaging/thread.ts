@@ -38,7 +38,7 @@ export async function getPartialTree(
 export async function getParentMessage(id: string): Promise<Message> {
   const messages = await getMessages();
 
-  let replier: string;
+  let replier;
 
   for (let i = 0; i < messages.length; i++) {
     if (messages[i].id == id) replier = messages[i].replyingTo;

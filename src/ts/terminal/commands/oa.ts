@@ -1,19 +1,19 @@
 import { get } from "svelte/store";
-import { openWindow } from "../../applogic/events";
-import { WindowStore } from "../../applogic/store";
+import { createProcess } from "../../applogic/events";
+import { AppStore } from "../../applogic/store";
 import type { Command } from "../interface";
 
 export const oa: Command = {
   keyword: "oa",
   exec(cmd, argv, term) {
-    const ws = get(WindowStore);
+    const appStore = Object.entries(get(AppStore));
 
-    for (let i = 0; i < ws.length; i++) {
-      if (ws[i].info.custom) continue;
+    for (let i = 0; i < appStore.length; i++) {
+      if (appStore[i][1].info.custom) continue;
 
-      term.std.writeColor(`Opening [${ws[i].id}]`, "orange");
+      term.std.writeColor(`Opening [${appStore[i][1].id}]`, "orange");
 
-      openWindow(ws[i].id, true);
+      createProcess(appStore[i][1].id, term.process.id);
     }
   },
   description: "Open all apps",

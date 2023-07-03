@@ -11,7 +11,6 @@ export function getAppPreference(
 
   return udata.appdata[id][key];
 }
-
 export function setAppPreference(
   id: string,
   key: string,

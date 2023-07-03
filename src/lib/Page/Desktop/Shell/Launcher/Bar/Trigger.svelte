@@ -20,6 +20,7 @@
   }
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
   class="launcher-bar-trigger"
   style="z-index: {$maxZIndex + 32}"

@@ -12,7 +12,7 @@ import Personalization from "../../../../lib/Apps/Settings/Pages/Personalization
 import Shell from "../../../../lib/Apps/Settings/Pages/Shell.svelte";
 import Windows from "../../../../lib/Apps/Settings/Pages/Windows.svelte";
 import { Logo } from "../../../branding";
-import { openWindow } from "../../events";
+import { createProcess } from "../../events";
 import type { SettingsPage } from "./interface";
 import { currentSettingsPage } from "./main";
 
@@ -72,7 +72,7 @@ export function openByKey(key: string) {
 
   if (!page) return;
 
-  openWindow("SettingsApp");
+  createProcess("SettingsApp");
 
   setTimeout(() => {
     currentSettingsPage.set(page);

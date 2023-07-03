@@ -28,6 +28,7 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div id="target" class="terminal-renderer" bind:this={target} on:click={focus}>
   authenticating with ArcAPI...
 </div>

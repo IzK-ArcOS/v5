@@ -1,6 +1,5 @@
 import { AppInfo } from "../apps/AppInfo";
 import { AppManager } from "../apps/AppManager";
-import { AppPoker } from "../apps/AppPoke";
 import { ArcTerm } from "../apps/ArcTerm";
 import { CalculatorApp } from "../apps/Calculator";
 import { DonutApp } from "../apps/Donut";
@@ -33,7 +32,6 @@ export const DefaultApps: { [key: string]: App } = {
   TestApp: TestApp, */,
   LoggerApp,
   /** Hidden applications */
-  AppPoker: AppPoker,
   Exit: Exit,
   AppInfo,
   ImageViewer,

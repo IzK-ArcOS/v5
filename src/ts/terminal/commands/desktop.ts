@@ -7,7 +7,7 @@ import { getSwitches } from "../argv";
 export const Desktop: Command = {
   keyword: "desktop",
   exec(cmd, argv, term) {
-    if (term.app)
+    if (term.process)
       return term.std.Error("You already are in the ArcOS desktop!");
 
     if (get(previouslyLoaded) && !getSwitches(argv)["force"])

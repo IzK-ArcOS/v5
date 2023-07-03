@@ -2,6 +2,7 @@ import logo from "../../../assets/apps/helpcenter.svg";
 import HelpCenterSvelte from "../../../lib/Apps/HelpCenter.svelte";
 import { createOverlayableError } from "../../errorlogic/overlay";
 import type { App } from "../interface";
+import { getPID } from "../pid";
 
 export const HelpCenter: App = {
   info: {
@@ -13,16 +14,15 @@ export const HelpCenter: App = {
     icon: logo,
     hidden: true,
   },
-  size: { w: 800, h: 600 },
-  pos: { x: 30, y: 40 },
+  initialSize: { w: 800, h: 600 },
   minSize: { w: 800, h: 600 },
   maxSize: { w: 901, h: 700 },
-  controls: { min: true, max: true, cls: true },
-  state: {
+  controls: { minimized: true, maximized: true, close: true },
+  windowProperties: {
     headless: false,
     resizable: false,
-    windowState: { min: false, max: false, fll: false },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
   content: HelpCenterSvelte,
   glass: true,
   events: {
@@ -34,7 +34,7 @@ export const HelpCenter: App = {
             "This application is still in development past the release of 5.0.6. It was hidden to prevent you from seeing this half finished help center. Do not take the content or UI serious.",
           buttons: [{ caption: "OK", action() {} }],
         },
-        "HelpCenter"
+        getPID("HelpCenter")
       );
     },
   },

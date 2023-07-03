@@ -1,22 +1,19 @@
 import { get } from "svelte/store";
 import { getWindowElement } from "../window/main";
-import type { App, XY } from "./interface";
-import { WindowStore } from "./store";
+import { generateCSS } from "./css";
+import type { App, Process, Position } from "./interface";
+import { AppStore, ProcessStore } from "./store";
 
-export function centerWindow(id: string) {
-  const ws = get(WindowStore);
+export function centerWindow(pid: number) {
+  const processStore = get(ProcessStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == id) {
-      ws[i].pos = calculatePos(ws[i]);
+  processStore[pid].pos = calculatePos(pid);
 
-      WindowStore.set(ws);
-    }
-  }
+  ProcessStore.set(processStore);
 }
 
-export function calculatePos(app: App): XY & { centered: true } {
-  const el = getWindowElement(app);
+export function calculatePos(pid: number): Position & { centered: true } {
+  const el = getWindowElement(pid);
 
   const windowWidth = el.offsetWidth;
   const windowHeight = el.offsetHeight;

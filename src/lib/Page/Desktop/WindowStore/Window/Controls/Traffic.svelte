@@ -13,18 +13,18 @@
 <button
   class="traffic-cls reset"
   on:click={cls}
-  disabled={!app.controls.cls || isBoot}
+  disabled={!app.controls.close || isBoot}
 />
 
 <button
   class="traffic-min reset"
   on:click={min}
-  disabled={!app.controls.min || isBoot}
+  disabled={!app.controls.minimized || isBoot}
 />
 <button
   class="traffic-max reset"
   on:click={max}
-  disabled={!app.controls.max || isBoot}
+  disabled={!app.controls.maximized || isBoot}
 />
 
 <style scoped>

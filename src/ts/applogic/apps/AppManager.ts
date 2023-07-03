@@ -13,16 +13,15 @@ export const AppManager: App = {
     author: "Izaak Kuipers",
     icon: logo,
   },
-  size: { w: 600, h: 500 },
-  pos: { x: 30, y: 40 },
+  initialSize: { w: 600, h: 500 },
   minSize: { w: 600, h: 500 },
   maxSize: { w: 600, h: 500 },
-  controls: { min: false, max: true, cls: true },
-  state: {
+  controls: { minimized: false, maximized: true, close: true },
+  windowProperties: {
     headless: false,
     resizable: false,
-    windowState: { min: false, max: false, fll: false },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
   content: AppManagerSvelte,
   glass: true,
   events: {
@@ -37,7 +36,7 @@ export const AppManager: App = {
       disposeTrayIcon("Application Manager");
     },
   },
-  overlays: {
+  overlayApps: {
     run: {
       info: {
         name: "Run",
@@ -45,7 +44,6 @@ export const AppManager: App = {
         version: "1.0.0",
       },
       size: { w: NaN, h: NaN },
-      show: false,
       content: RunDialog,
     },
   },

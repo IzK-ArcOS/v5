@@ -1,20 +1,22 @@
 <script lang="ts">
   import icon from "../../../../assets/apps/settings/apps.svg";
   import { isDisabled, isOpened } from "../../../../ts/applogic/checks";
-  import { openWindow } from "../../../../ts/applogic/events";
-  import { WindowStore } from "../../../../ts/applogic/store";
+  import { createProcess, openWindow } from "../../../../ts/applogic/events";
+  import { getPID } from "../../../../ts/applogic/pid";
+  import { AppStore } from "../../../../ts/applogic/store";
   import { hideOverlay } from "../../../../ts/window/overlay";
 
   let value: string;
 
   function run() {
-    openWindow(value, true);
+    createProcess(value);
 
     closeThis();
   }
 
   function closeThis() {
-    hideOverlay("run", "AppMan");
+    // getPID is valid here because we only allow one AppMan process instance
+    hideOverlay("run", getPID("AppMan"));
   }
 </script>
 
@@ -25,9 +27,9 @@
       Select the ID of the app you want to run from the following list:
     </p>
     <select bind:value>
-      {#each $WindowStore as window}
-        {#if !isOpened(window.id) && !window.info.custom && !isDisabled(window.id)}
-          <option value={window.id}>{window.id}</option>
+      {#each Object.entries($AppStore) as [id, app]}
+        {#if !app.info.custom && !isDisabled(id)}
+          <option value={id}>{id} - {app.info.name}</option>
         {/if}
       {/each}
     </select>

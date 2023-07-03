@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { App } from "../../../../ts/applogic/interface";
-  import { getOpenedStore, WindowStore } from "../../../../ts/applogic/store";
+  import type { Process } from "../../../../ts/applogic/interface";
+  import { ProcessStore } from "../../../../ts/applogic/store";
   import Spinner from "../../../Spinner.svelte";
 
   import TaskbarButton from "../Taskbar/TaskbarButton.svelte";
@@ -9,10 +9,10 @@
 
   let show = false;
 
-  let oa: App[] = [];
+  let oa: [string, Process][] = [];
 
-  WindowStore.subscribe(() => {
-    oa = getOpenedStore();
+  ProcessStore.subscribe((v) => {
+    oa = Object.entries(v);
   });
 
   onMount(() => {
@@ -25,9 +25,9 @@
 </script>
 
 <div class="buttons">
-  {#each oa as app}
-    {#if !app.disabled}
-      <TaskbarButton {app} />
+  {#each oa as [_, proc]}
+    {#if !proc.app.disabled}
+      <TaskbarButton process={proc} />
     {/if}
   {/each}
 </div>

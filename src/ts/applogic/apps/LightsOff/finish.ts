@@ -4,6 +4,7 @@ import { LO_LEVEL, loadLevel } from "./grid/levels";
 import { LOContainsLights } from "./grid";
 import { LOClicks } from "./game";
 import { get } from "svelte/store";
+import { getPID } from "../../pid";
 export function LOFinish() {
   LO_LEVEL.set(0);
   LOClicks.set(0);
@@ -17,7 +18,7 @@ export function LOFinish() {
       buttons: [{ caption: "OK", action() {} }],
       image: icon,
     },
-    "LightsOff"
+    getPID("LightsOff")
   );
 
   return false;

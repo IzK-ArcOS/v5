@@ -9,7 +9,7 @@ import { SEP_ITEM } from "../../contextmenu/main";
 import { restart, shutdown } from "../../desktop/power";
 import { ArcOSVersion } from "../../env/main";
 import { UserData } from "../../userlogic/interfaces";
-import { openWindow } from "../events";
+import { createProcess } from "../events";
 import type { App } from "../interface";
 import { openByKey } from "./SettingsApp/store";
 
@@ -23,16 +23,15 @@ export const DesktopWallpaper: App = {
     icon: logo,
     custom: true,
   },
-  size: { w: NaN, h: NaN },
-  pos: { x: 0, y: 0 },
+  initialSize: { w: NaN, h: NaN },
   minSize: { w: NaN, h: NaN },
   maxSize: { w: NaN, h: NaN },
-  controls: { min: false, max: false, cls: false },
-  state: {
+  controls: { minimized: false, maximized: false, close: false },
+  windowProperties: {
     headless: true,
     resizable: false,
-    windowState: { min: false, max: false, fll: true },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: true },
   content: Wallpaper,
   glass: false,
   events: {},
@@ -54,14 +53,14 @@ export const DesktopWallpaper: App = {
       {
         caption: "File Manager",
         action: () => {
-          openWindow("FileManager");
+          createProcess("FileManager");
         },
         image: fileManager,
       },
       {
         caption: "Application Manager",
         action: () => {
-          openWindow("AppMan");
+          createProcess("AppMan");
         },
         image: appMan,
       },

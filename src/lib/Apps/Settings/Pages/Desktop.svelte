@@ -9,9 +9,12 @@
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import FilesystemWallpapers from "./Desktop/FilesystemWallpapers.svelte";
   import { Wallpapers } from "../../../../ts/userlogic/wallpapers/store";
+  import type { Process } from "../../../../ts/applogic/interface";
+
+  export let process: Process;
 
   function custom() {
-    showOverlay("customWallpaper", "SettingsApp");
+    showOverlay("customWallpaper", process.id);
   }
 
   async function upload() {
@@ -39,6 +42,7 @@
     {/each}
     <FilesystemWallpapers />
     <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div
       class="wallpaper nobg customwp material-icons-round"
       title="Upload wallpaper"
@@ -47,6 +51,7 @@
       upload
     </div>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div
       class="wallpaper nobg customwp material-icons-round"
       title="Wallpaper from URL"

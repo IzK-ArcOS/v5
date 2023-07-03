@@ -1,7 +1,8 @@
-import type { App } from "../applogic/interface";
+import type { App, Process } from "../applogic/interface";
+import { Log, LogLevel } from "../console";
 
-export function getWindowElement(app: App): HTMLDivElement {
-  const el = document.querySelector(`window#${app.id}`);
+export function getWindowElement(pid: number): HTMLDivElement {
+  const el = document.querySelector(`[data-pid="${pid}"]`);
 
   return el as HTMLDivElement;
 }

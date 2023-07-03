@@ -1,54 +1,45 @@
 import { get } from "svelte/store";
-import { LogLevel } from "../console/interface";
+import { Log, LogLevel } from "../console";
 import type { App } from "./interface";
-import { WindowStore } from "./store";
+import { AppStore } from "./store";
 import def from "../../assets/apps/unknown.svg";
-import { Log } from "../console";
 
-export function hotSwapAppIcon(icon: string, appId: string) {
+export function hotSwapAppIcon(icon: string, pid: number) {
   Log({
-    msg: `Changing app icon for ${appId} to ${icon}`,
+    msg: `Changing app icon for ${pid} to ${icon}`,
     source: "icon.ts: hotSwapAppIcon",
     level: LogLevel.info,
   });
 
-  const ws = get(WindowStore);
+  const appStore = get(AppStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == appId) {
-      if (!Originals[appId]) Originals[appId] = `${getAppIcon(ws[i])}`;
+  if (!Originals[pid]) Originals[pid] = `${getAppIcon(appStore[pid])}`;
 
-      ws[i].info.icon = icon;
-    }
-  }
+  appStore[pid].info.icon = icon;
 
-  WindowStore.set(ws);
+  AppStore.set(appStore);
 }
 
-export function getOriginalIcon(appId: string) {
-  return Originals[appId];
+export function getOriginalIcon(pid: number) {
+  return Originals[pid];
 }
 
-export function resetAppIcon(appId: string) {
+export function resetAppIcon(pid: number) {
   Log({
-    msg: `Restting icon of ${appId}`,
+    msg: `Restting icon of ${pid}`,
     source: "icon.ts: resetAppIcon",
     level: LogLevel.info,
   });
 
-  if (!Originals[appId]) return;
+  if (!Originals[pid]) return;
 
-  const ws = get(WindowStore);
+  const appStore = get(AppStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == appId) {
-      ws[i].info.icon = Originals[appId];
+  appStore[pid].info.icon = Originals[pid];
 
-      delete Originals[appId];
-    }
-  }
+  AppStore.set(appStore);
 
-  WindowStore.set(ws);
+  delete Originals[pid];
 }
 
 export function getAppIcon(app: App): string {
@@ -57,4 +48,4 @@ export function getAppIcon(app: App): string {
   return app.info.icon;
 }
 
-const Originals: { [key: string]: string } = {};
+const Originals: { [key: number]: string } = {};

@@ -1,9 +1,11 @@
 <script lang="ts">
+  import type { Process } from "../../../../../ts/applogic/interface";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
-  import type { ThemeStore } from "../../../../../ts/userlogic/themes/interface";
   import { DefaultThemes } from "../../../../../ts/userlogic/themes/store";
   import { showOverlay } from "../../../../../ts/window/overlay";
   import ThemeRenderer from "./Themes/ThemeRenderer.svelte";
+
+  export let process: Process;
 
   let oldlength = 0;
 
@@ -37,6 +39,6 @@
   <button
     class="themerenderer save material-icons-round"
     title="Save current theme"
-    on:click={() => showOverlay("saveTheme", "SettingsApp")}>save</button
+    on:click={() => showOverlay("saveTheme", process.id)}>save</button
   >
 </div>

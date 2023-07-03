@@ -65,6 +65,12 @@ export const ProfilePictures: { [key: string]: string } = {
 };
 
 export function getProfilePicture(id: number | string) {
+  /*   Log({
+    msg: `Getting profile picture "${id}"`,
+    source: "userlogic/pfp.ts: getProfilePicture",
+    level: LogLevel.info,
+  }); */
+
   if (typeof id == "number") return ProfilePictures[`pfp${id}`] || def;
 
   return id.toString();

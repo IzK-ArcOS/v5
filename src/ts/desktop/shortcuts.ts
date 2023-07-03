@@ -1,38 +1,39 @@
 import { get } from "svelte/store";
-import { closeWindow, openWindow } from "../applogic/events";
+import { closeProcess, createProcess } from "../applogic/events";
 import { registerShortcuts } from "../applogic/keyboard/main";
 import {
-  focusedWindowId,
-  getOpenedStore,
-  getWindow,
+  ProcessStore,
+  focusedProcessPid,
   isFullscreenWindow,
 } from "../applogic/store";
 import { startOpened } from "./main";
-import { ActionCenterOpened } from "./actioncenter/main";
+import { actionCenterOpened } from "./actioncenter/main";
 import { CurrentNotification } from "../notiflogic/main";
 import { showArcFind } from "../search/main";
 
 export function registerDesktopShortcuts() {
-  registerShortcuts([
+  registerShortcuts(0, [
     {
       key: "q",
       alt: true,
       action() {
-        if (!getOpenedStore().length) {
-          openWindow("Exit");
+        const processStore = get(ProcessStore);
+        if (!processStore) {
+          createProcess("Exit");
         } else {
-          const window = getWindow(get(focusedWindowId));
+          const focusedWindowPid = get(focusedProcessPid);
+          const window = processStore[focusedWindowPid];
 
-          if (window.state.windowState.fll) isFullscreenWindow.set(false);
+          if (window.windowState.fullscreen) isFullscreenWindow.set(false);
 
-          closeWindow(get(focusedWindowId));
+          closeProcess(focusedWindowPid);
         }
 
         startOpened.set(false);
-        ActionCenterOpened.set(false);
+        actionCenterOpened.set(false);
         CurrentNotification.set(null);
 
-        focusedWindowId.set(null);
+        focusedProcessPid.set(null);
       },
       global: true,
     },
@@ -50,7 +51,7 @@ export function registerDesktopShortcuts() {
       alt: true,
       global: true,
       action: () => {
-        ActionCenterOpened.set(!get(ActionCenterOpened));
+        actionCenterOpened.set(!get(actionCenterOpened));
       },
     },
     {
@@ -59,7 +60,7 @@ export function registerDesktopShortcuts() {
       shift: true,
       global: true,
       action: () => {
-        openWindow("AppMan");
+        createProcess("AppMan");
       },
     },
   ]);

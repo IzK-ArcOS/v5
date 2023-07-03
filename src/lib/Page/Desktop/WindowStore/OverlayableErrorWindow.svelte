@@ -7,8 +7,8 @@
   } from "../../../../ts/applogic/interface";
   import { destroyOverlayableError } from "../../../../ts/errorlogic/overlay";
 
-  export let app: App;
   export let error: OverlayableError;
+  export let pid: number;
 
   let show = false;
 
@@ -16,7 +16,7 @@
     show = false;
 
     setTimeout(() => {
-      destroyOverlayableError(error.id, app.id);
+      destroyOverlayableError(error.id, pid);
     }, 100);
   }
 

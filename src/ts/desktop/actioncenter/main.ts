@@ -1,9 +1,9 @@
 import { get, writable } from "svelte/store";
 
-export const ActionCenterOpened = writable<boolean>(false);
+export const actionCenterOpened = writable<boolean>(false);
 
 export function toggleActionCenter() {
-  const newValue = !get(ActionCenterOpened);
+  const newValue = !get(actionCenterOpened);
 
-  ActionCenterOpened.set(newValue);
+  actionCenterOpened.set(newValue);
 }

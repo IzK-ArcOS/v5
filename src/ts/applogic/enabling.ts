@@ -1,11 +1,10 @@
 import { get } from "svelte/store";
-import { Log } from "../console";
+import { Log, LogLevel } from "../console";
 import { errorMessage } from "../errorlogic/main";
 import { UserData } from "../userlogic/interfaces";
-import { closeWindow } from "./events";
-import { updateStores, WindowStore } from "./store";
+import { closeProcess } from "./events";
+import { AppStore } from "./store";
 import { SystemApps } from "./imports/store";
-import { LogLevel } from "../console/interface";
 
 export function disableApp(id: string) {
   Log({
@@ -26,20 +25,17 @@ export function disableApp(id: string) {
 
   const udata = get(UserData);
 
-  closeWindow(id);
+  // TODO close all processes running this app
+  // closeProcess(id);
 
   if (!udata.disabledApps.includes(id)) udata.disabledApps.push(id);
 
-  const ws = get(WindowStore);
+  const appStore = get(AppStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == id) ws[i].disabled = true;
-  }
+  appStore[id].disabled = true;
 
   UserData.set(udata);
-  WindowStore.set(ws);
-
-  updateStores();
+  AppStore.set(appStore);
 }
 
 export function enableApp(id: string) {
@@ -55,14 +51,12 @@ export function enableApp(id: string) {
     if (udata.disabledApps[i] == id) udata.disabledApps.splice(i, 1);
   }
 
-  const ws = get(WindowStore);
+  const appStore = get(AppStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == id) ws[i].disabled = false;
-  }
+  appStore[id].disabled = false;
 
-  WindowStore.set(ws);
+  AppStore.set(appStore);
   UserData.set(udata);
 
-  updateStores();
+   
 }

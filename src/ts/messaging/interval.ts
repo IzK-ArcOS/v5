@@ -1,7 +1,6 @@
 import { get } from "svelte/store";
 import { getUserPfp } from "../api/pfp";
-import { isOpened } from "../applogic/checks";
-import { openWindow } from "../applogic/events";
+import { createProcess } from "../applogic/events";
 import { makeNotification } from "../notiflogic/main";
 import { UserName } from "../userlogic/interfaces";
 import { getUnreadMessages } from "./get";
@@ -32,7 +31,6 @@ async function tick() {
 
   if (
     !message ||
-    isOpened("MessagingApp") ||
     pollBlockList.includes(message.id)
   )
     return;
@@ -48,7 +46,7 @@ async function tick() {
         caption: "Open Messages",
         action: () => {
           messageUpdateTrigger();
-          openWindow("MessagingApp");
+          createProcess("MessagingApp");
         },
       },
     ],

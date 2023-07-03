@@ -13,16 +13,15 @@ export const AppInfo: App = {
     hidden: true,
     icon: logo,
   },
-  size: { w: 500, h: 450 },
-  pos: { x: 30, y: 40 },
+  initialSize: { w: 500, h: 450 },
   minSize: { w: 500, h: 450 },
   maxSize: { w: 500, h: 450 },
-  controls: { min: true, max: false, cls: true },
-  state: {
+  controls: { minimized: true, maximized: false, close: true },
+  windowProperties: {
     headless: false,
     resizable: false,
-    windowState: { min: false, max: false, fll: false },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
   content: AppInfoSvelte,
   glass: false,
   events: {

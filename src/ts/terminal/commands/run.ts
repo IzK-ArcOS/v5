@@ -1,8 +1,8 @@
 import { get } from "svelte/store";
 import { getDirectory } from "../../api/fs/directory";
-import { openUserFile, openWithDialog } from "../../api/fs/open/main";
+import { openUserFile, openWithDialog } from "../../api/fs/open";
 import type { UserDirectory, PartialArcFile } from "../../api/interface";
-import { WindowStore } from "../../applogic/store";
+import { AppStore } from "../../applogic/store";
 import type { Command } from "../interface";
 
 export const Run: Command = {
@@ -37,7 +37,7 @@ async function o(f: PartialArcFile) {
 
   const file = await openUserFile(f);
 
-  WindowStore.set(get(WindowStore));
+  AppStore.set(get(AppStore));
 
   if (file == true) return;
 

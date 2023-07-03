@@ -2,13 +2,12 @@ import { get, writable } from "svelte/store";
 import { loginUsingCreds } from "../api/getter";
 import { ConnectedServer } from "../api/main";
 import { InvalidStateBugrep } from "../bugrep";
-import { Log } from "../console";
+import { Log, LogLevel } from "../console";
 import type { State } from "../state/interfaces";
 import { applyState } from "../state/main";
 import { UserData, UserName } from "../userlogic/interfaces";
 import { getUsers } from "../userlogic/main";
 import { LoginStates } from "./store";
-import { LogLevel } from "../console/interface";
 
 export const CurrentLoginState = writable<State>();
 export const loginUsername = writable<string>();

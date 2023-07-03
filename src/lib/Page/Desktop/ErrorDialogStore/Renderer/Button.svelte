@@ -3,7 +3,7 @@
     ErrorButton,
     ErrorMessage,
   } from "../../../../../ts/errorlogic/app";
-  import { closeError } from "../../../../../ts/errorlogic/main";
+  import { closeErrorProcess } from "../../../../../ts/errorlogic/main";
 
   export let button: ErrorButton;
   export let msg: ErrorMessage;
@@ -15,7 +15,7 @@
   }
 
   function close() {
-    closeError(msg.id);
+    closeErrorProcess(parseInt(msg.id));
   }
 </script>
 

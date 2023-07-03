@@ -1,7 +1,7 @@
 import { get } from "svelte/store";
 import { writeFile } from "../../api/fs/file";
 import { fbClass } from "../../applogic/apps/FileBrowser/main";
-import { LogStore } from "../../console";
+import { log as l } from "../../console";
 import sleep from "../../sleep";
 import type { Command } from "../interface";
 
@@ -12,7 +12,7 @@ export const LogDump: Command = {
 
     term.std.writeColor(`Writing log to [./${filename}]...\n`, "purple");
 
-    const log = get(LogStore);
+    const log = get(l);
 
     let str = "-- [START OF LOG] --\n";
 

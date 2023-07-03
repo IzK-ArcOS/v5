@@ -7,30 +7,30 @@ import {
   FileBrowserDirContents,
   FileBrowserSelectedFilename,
 } from "../applogic/apps/FileBrowser/main";
-import { closeWindow } from "../applogic/events";
-import { WindowStore } from "../applogic/store";
-import { ErrorMessages, ErrorWindowStore } from "../errorlogic/app";
+import { closeProcess } from "../applogic/events";
+import { AppStore, ProcessStore } from "../applogic/store";
+import { ErrorMessages, ErrorProcesses } from "../errorlogic/app";
 import { selectedMessageId } from "../messaging/main";
 import { NotificationStore } from "../notiflogic/main";
 import { restarting, shuttingDown } from "./main";
-import { closeAllProgressively } from "../applogic/close";
 
 export function logoff() {
-  closeAllProgressively();
+  closeAllProcesses();
 
   FileBrowserCurrentDir.set("./");
   FileBrowserSelectedFilename.set(null);
   FileBrowserDirContents.set(defaultDirectory);
   FileBrowserDeletingFilename.set(null);
   NotificationStore.set({});
-  ErrorWindowStore.set([]);
+  ErrorProcesses.set([]);
   ErrorMessages.set([]);
-  WindowStore.set([]);
+  AppStore.set({});
+  ProcessStore.set({})
   selectedMessageId.set(null);
 }
 
 export function shutdown() {
-  closeAllProgressively();
+  closeAllProcesses();
 
   logoffToken();
 
@@ -38,7 +38,7 @@ export function shutdown() {
 }
 
 export function restart(eraseToken = false) {
-  closeAllProgressively();
+  closeAllProcesses();
 
   if (eraseToken) {
     localStorage.removeItem("arcos-remembered-token");
@@ -46,4 +46,19 @@ export function restart(eraseToken = false) {
   }
 
   restarting.set(true);
+}
+
+export function closeAllProcesses() {
+  let maxTimeout = 0;
+
+  const processes = Object.entries(get(ProcessStore));
+
+  for (let i = 0; i < processes.length; i++) {
+    maxTimeout += 50;
+
+    setTimeout(() => {
+      closeProcess(processes[i][1].id);
+    }, maxTimeout);
+  }
+
 }

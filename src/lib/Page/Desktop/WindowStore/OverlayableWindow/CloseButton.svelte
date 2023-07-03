@@ -1,12 +1,12 @@
 <script lang="ts">
-  import type { App } from "../../../../../ts/applogic/interface";
+  import type { Process } from "../../../../../ts/applogic/interface";
   import { hideOverlay } from "../../../../../ts/window/overlay";
 
-  export let app: App;
   export let id: string;
+  export let parent: Process;
 
   function closeThis() {
-    hideOverlay(id, app.id);
+    hideOverlay(id, parent.id);
   }
 </script>
 

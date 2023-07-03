@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { LogStore } from "../../../../../../ts/console";
-  import { LogLevel } from "../../../../../../ts/console/interface";
+  import { log, LogLevel } from "../../../../../../ts/console";
 
   export let data: [LogLevel, string];
   export let currentSource: string;
@@ -10,15 +9,12 @@
 
   let disable = false;
 
-  LogStore.subscribe(() => {
+  log.subscribe(() => {
     setTimeout(() => {
       let count = 0;
 
-      for (let i = 0; i < $LogStore.length; i++) {
-        if (
-          $LogStore[i].level == data[0] &&
-          $LogStore[i].source == currentSource
-        )
+      for (let i = 0; i < $log.length; i++) {
+        if ($log[i].level == data[0] && $log[i].source == currentSource)
           count++;
       }
 

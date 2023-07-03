@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { maxZIndex, WindowStore } from "../../../ts/applogic/store";
+  import { maxZIndex, AppStore } from "../../../ts/applogic/store";
   import { startOpened } from "../../../ts/desktop/main";
   import { UserData } from "../../../ts/userlogic/interfaces";
   import BottomPane from "./StartMenu/BottomPane.svelte";
@@ -7,7 +7,7 @@
   import LeftPane from "./StartMenu/LeftPane.svelte";
   import RightPane from "./StartMenu/RightPane.svelte";
 
-  $: WindowStore;
+  $: AppStore;
 </script>
 
 {#if $UserData}

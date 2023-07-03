@@ -1,14 +1,14 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "../../css/desktop/apps/mediaplayer.css";
-  import { getMimeIcon } from "../../ts/api/fs/icon/main";
-  import type { App } from "../../ts/applogic/interface";
+  import { getMimeIcon } from "../../ts/api/fs/icon";
+  import type { App, Process } from "../../ts/applogic/interface";
   import { registerShortcuts } from "../../ts/applogic/keyboard/main";
-  import { WindowStore } from "../../ts/applogic/store";
+  import { AppStore } from "../../ts/applogic/store";
 
   let audioObject: HTMLAudioElement;
 
-  export let app: App;
+  export let process: Process;
   let barWidth = 0;
 
   let duration = 0;
@@ -17,14 +17,18 @@
   let filename = "";
   let paused = true;
 
-  WindowStore.subscribe(() => {
-    if (!app.openedFile || !audioObject || filename == app.openedFile.name)
+  AppStore.subscribe(() => {
+    if (
+      !process.openedFile ||
+      !audioObject ||
+      filename == process.openedFile.name
+    )
       return;
 
-    filename = app.openedFile.name;
+    filename = process.openedFile.name;
 
     url = URL.createObjectURL(
-      new Blob([app.openedFile.data], { type: app.openedFile.mime })
+      new Blob([process.openedFile.data], { type: process.openedFile.mime })
     );
 
     setTimeout(() => {
@@ -58,7 +62,7 @@
   }
 
   onMount(() => {
-    registerShortcuts([
+    registerShortcuts(process.id, [
       {
         key: "space",
         action: () => {
@@ -69,7 +73,7 @@
   });
 </script>
 
-{#if app.openedFile}
+{#if process.openedFile}
   <audio
     src={url}
     controls
@@ -109,11 +113,11 @@
       <div class="bar">
         <div class="inner" style="width: {barWidth}%;" />
       </div>
-      <div class="filename" title={app.openedFile.path}>
+      <div class="filename" title={process.openedFile.path}>
         <img
-          src={getMimeIcon(app.openedFile.name)}
-          alt={app.openedFile.name}
-        /><span>{app.openedFile.path}</span>
+          src={getMimeIcon(process.openedFile.name)}
+          alt={process.openedFile.name}
+        /><span>{process.openedFile.path}</span>
       </div>
     </div>
   {/if}

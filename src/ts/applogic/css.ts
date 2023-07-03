@@ -1,18 +1,25 @@
+import { get } from "svelte/store";
+import { Log, LogLevel } from "../console";
 import type { App, OverlayableApp } from "./interface";
+import { ProcessStore, focusedProcessPid, maxZIndex } from "./store";
 
-export function generateCSS(app: App, usePos: boolean) {
+export function generateCSS(pid: number, usePos: boolean) {
+  const process = get(ProcessStore)[pid];
+
   let cssString = "";
-
-  cssString += `min-width: ${app.minSize.w}px;`;
-  cssString += `min-height: ${app.minSize.h}px;`;
-  cssString += `max-width: ${app.maxSize.w}px;`;
-  cssString += `max-height: ${app.maxSize.h}px;`;
+  /* 
+  if (!app.state.windowState.max) { */
+  cssString += `min-width: ${process.app.minSize.w}px;`;
+  cssString += `min-height: ${process.app.minSize.h}px;`;
+  cssString += `max-width: ${process.app.maxSize.w}px;`;
+  cssString += `max-height: ${process.app.maxSize.h}px;`;
   if (usePos) {
-    cssString += `left: ${app.pos.x}px;`;
-    cssString += `top: ${app.pos.y}px;`;
+    cssString += `left: ${process.pos.x}px;`;
+    cssString += `top: ${process.pos.y}px;`;
   }
-  cssString += `width: ${app.size.w}px;`;
-  cssString += `height: ${app.size.h}px;`;
+  cssString += `width: ${process.app.initialSize.w}px;`;
+  cssString += `height: ${process.app.initialSize.h}px;`;
+  /*   } */
 
   return cssString;
 }

@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
   import type { Writable } from "svelte/store";
   import { readFile } from "../../../ts/api/fs/file";
   import type { UserDirectory } from "../../../ts/api/interface";
@@ -57,3 +57,4 @@
     >
   </div>
 </div>
+ -->

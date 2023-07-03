@@ -1,9 +1,9 @@
 <script lang="ts">
   import { closeWindow } from "../../../../../ts/applogic/events";
   import { getAppIcon } from "../../../../../ts/applogic/icon";
-  import type { App } from "../../../../../ts/applogic/interface";
+  import type { App, Process } from "../../../../../ts/applogic/interface";
   import { updateStores } from "../../../../../ts/applogic/store";
-  import { closeError } from "../../../../../ts/errorlogic/main";
+  import { closeErrorProcess } from "../../../../../ts/errorlogic/main";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
   import { titlebarButtons } from "../../../../../ts/window/titlebar/store";
   import Default from "./Controls/Default.svelte";
@@ -12,19 +12,20 @@
   export let titlebar: HTMLDivElement;
   export let app: App;
   export let isBoot = false;
+  export let process: Process;
 
   function min() {
-    app.state.windowState.min = !app.state.windowState.min;
+    process.windowState.minimized = !process.windowState.minimized;
 
     updateStores();
   }
 
   function max() {
-    if (!app.controls.max) return;
+    if (!app.controls.maximized) return;
 
-    app.state.windowState.max = !app.state.windowState.max;
+    process.windowState.maximized = !process.windowState.maximized;
 
-    if (app.state.windowState.max) exttransition = true;
+    if (process.windowState.maximized) exttransition = true;
     else {
       setTimeout(() => {
         exttransition = false;
@@ -40,13 +41,14 @@
       ? parseInt(id.replace("error_", ""))
       : -1;
 
-    if (errorId > 0) closeError(errorId);
-    else closeWindow(app.id);
+    if (errorId > 0) closeErrorProcess(errorId);
+    else closeWindow(process.id);
 
-    if (isBoot) app.opened = false;
+    /* if (isBoot) app = false; */
   }
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
   class="titlebar"
   bind:this={titlebar}

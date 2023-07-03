@@ -1,6 +1,6 @@
 <script lang="ts">
   import "../../../../../../css/desktop/apps/settings/account/udataExplorer.css";
-  import type { App } from "../../../../../../ts/applogic/interface";
+  import type { App, Process } from "../../../../../../ts/applogic/interface";
   import {
     UserData,
     UserName,
@@ -9,11 +9,11 @@
   import Branch from "./UserDataExplorer/Branch.svelte";
   import Node from "./UserDataExplorer/Node.svelte";
 
-  export let app: App;
   export let id: string;
+  export let parent: Process;
 </script>
 
-<CloseButton {app} {id} />
+<CloseButton {id} {parent} />
 {#if $UserData}
   <div class="overlay-head">
     <h2 class="header">User Data for {$UserName}</h2>

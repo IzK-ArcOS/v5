@@ -1,22 +1,23 @@
-import { closeWindow } from "../../applogic/events";
-import { getWindow } from "../../applogic/store";
+import { get } from "svelte/store";
+import { closeProcess } from "../../applogic/events";
+import { ProcessStore } from "../../applogic/store";
 import type { Command } from "../interface";
 
 export const Kill: Command = {
   keyword: "kill",
   exec(cmd, argv, term) {
-    const appId = argv[0];
+    const processId = parseInt(argv[0]);
 
-    if (!appId) return term.std.Error("Missing application ID.");
+    if (!processId) return term.std.Error("Missing or invalid PID.");
 
-    const window = getWindow(appId);
+    const process = get(ProcessStore)[processId];
 
-    if (!window) return term.std.Error(`${appId}: app not found.`);
+    if (!process) return term.std.Error(`${processId}: prcoess not found.`);
 
-    closeWindow(appId);
+    closeProcess(processId);
 
-    term.std.writeLine(`Closed ${window.info.name}`);
+    term.std.writeLine(`Closed ${process.app.info.name}`);
   },
-  description: "Terminate a program",
-  syntax: `"<[appId]>"`,
+  description: "Terminate a process",
+  syntax: `"<[PID]>"`,
 };

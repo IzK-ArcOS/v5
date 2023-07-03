@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { WindowStore } from "../../../../ts/applogic/store";
+  import { AppStore } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import OptionSection from "../OptionSection.svelte";
 </script>
@@ -69,7 +69,7 @@
     id="a"
     class="switch"
     bind:checked={$UserData.sh.showHiddenApps}
-    on:click={() => ($WindowStore = $WindowStore)}
+    on:click={() => ($AppStore = $AppStore)}
   />
 </OptionSection>
 <hr />

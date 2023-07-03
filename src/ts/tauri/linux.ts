@@ -1,5 +1,5 @@
-import { Log } from "../console";
-import { LogLevel } from "../console/interface";
+import { getPID } from "../applogic/pid";
+import { Log, LogLevel } from "../console";
 import { createOverlayableError } from "../errorlogic/overlay";
 import { inTauri } from "../tauri";
 
@@ -26,6 +26,6 @@ export async function checkLinux() {
         "You are running the ArcOS Desktop App on Linux. There will be inconsistencies and problems with doing this, such as poor performance and incorrect font rendering. It is recommended to run the Desktop App only on Windows until a solution to this problem has been found.",
       buttons: [{ caption: "OK", action() {} }],
     },
-    "ArcShell"
+    getPID("ArcShell")
   );
 }

@@ -4,7 +4,7 @@ import {
   fbClass,
   FileBrowserSelectedFilename,
 } from "../../applogic/apps/FileBrowser/main";
-import { openWindow } from "../../applogic/events";
+import { createProcess } from "../../applogic/events";
 import { createOverlayableError } from "../../errorlogic/overlay";
 import type { Message } from "../interface";
 import { creatingMessage, replyMessageId, selectedMessageId } from "../main";
@@ -12,6 +12,7 @@ import { deleteMessage } from "../mutate";
 import { messageUpdateTrigger } from "../updates";
 import type { MessageItemAction, MsgAppActions } from "./interface";
 import icon from "../../../assets/apps/error.svg";
+import { getPID } from "../../applogic/pid";
 
 export const messageSidebarActions: MsgAppActions = [
   {
@@ -46,7 +47,7 @@ export const messageItemActions: MessageItemAction[] = [
 
       await writeFile(path, blob);
 
-      openWindow("FileManager");
+      createProcess("FileManager");
 
       await fbClass.goToDirectory("./Messages");
 
@@ -76,7 +77,7 @@ export const messageItemActions: MessageItemAction[] = [
             { caption: "Cancel", action: () => {} },
           ],
         },
-        "MessagingApp"
+        getPID("MessagingApp")
       );
     },
   },

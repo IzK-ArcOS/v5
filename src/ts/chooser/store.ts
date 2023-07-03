@@ -1,32 +1,36 @@
 import { get, writable } from "svelte/store";
 import type { ArcFile, Params } from "../api/interface";
-import { WindowStore } from "../applogic/store";
+import { AppStore, ProcessStore } from "../applogic/store";
 import type { ChooseDialogTargets } from "./interface";
 
-export const chooseTargets: ChooseDialogTargets = writable<Params>({});
+export const chooseTargets: ChooseDialogTargets = writable<{
+  [key: string]: number;
+}>({});
 
-export function setTargetFile(id: string, file: ArcFile): boolean {
+export function setTargetFile(id: number, file: ArcFile): boolean {
   const targets = get(chooseTargets);
   const targetId = targets[id];
 
-  const ws = get(WindowStore);
+  const processStore = get(ProcessStore);
 
   let index = null;
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == targetId) index = i;
+  for (const strI in processStore) {
+    const i = parseInt(strI);
+    if (processStore[i].id == targetId) index = i;
   }
 
   if (index == null) return false;
 
-  ws[index].openedFile = file;
+  processStore[index].openedFile = file;
 
-  if (ws[index].events && ws[index].events.openFile)
-    ws[index].events.openFile(ws[index]);
+  const processEvents = processStore[index].app.events;
+  if (processEvents && processEvents.openFile)
+    processEvents.openFile(processStore[index].app.pid);
 
-  delete ws[index].overlays[id];
+  delete processStore[index].overlayProcesses[id];
 
-  WindowStore.set(ws);
+  ProcessStore.set(processStore);
 
   delete targets[id];
 
@@ -35,18 +39,18 @@ export function setTargetFile(id: string, file: ArcFile): boolean {
   return true;
 }
 
-export function getChooserTarget(id: string): string | false {
+export function getChooserTarget(id: string): number | false {
   const targets = get(chooseTargets);
 
   return targets[id] || false;
 }
 
-export function assignTarget(id: string, targetId: string): boolean {
+export function assignTarget(id: string, targetPid: number): boolean {
   const targets = get(chooseTargets);
 
   if (targets[id]) return false;
 
-  targets[id] = targetId;
+  targets[id] = targetPid;
 
   chooseTargets.set(targets);
 

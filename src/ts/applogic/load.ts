@@ -1,46 +1,59 @@
 import { get } from "svelte/store";
-import { Log } from "../console";
-import { LogLevel } from "../console/interface";
+import { Log, LogLevel } from "../console";
 import { makeNotification } from "../notiflogic/main";
 import { UserData } from "../userlogic/interfaces";
 import { centerWindow } from "./center";
 import { isLoaded } from "./checks";
 import type { App } from "./interface";
-import { registerAppShortcuts } from "./keyboard/main";
-import { WindowStore, updateStores } from "./store";
+import { registerProcessShortcuts } from "./keyboard/main";
+import { AppStore } from "./store";
 import { SystemApps } from "./imports/store";
 
-export function loadWindow(id: string, app: App) {
+export function loadApp(id: string, app: App) {
   if (isLoaded(id))
     return Log({
       level: LogLevel.error,
-      msg: `Window ${id} already exists in WindowStore.`,
-      source: "AppLogic: loadWindow",
+      msg: `App ${id} already exists in AppStore.`,
+      source: "AppLogic: loadApp",
     });
+  const appStore = get(AppStore);
+  const appData = { ...app, id };
+  // const children: App[] = [];
+  // const entries = Object.entries(data.children || {});
 
-  const ws = get(WindowStore);
-  const data = { ...app, id };
-  const children = getChildren(app, id);
+  // for (let i = 0; i < entries.length; i++) {
+  //   children.push({
+  //     ...entries[i][1],
+  //     id: entries[i][0],
+  //     parentId: id,
+  //     opened: false,
+  //     info: { ...entries[i][1].info, hidden: true },
+  //   });
+  // }
+
   const userdata = get(UserData);
-  const disabledList = userdata.disabledApps;
 
   if (!userdata.disabledApps) {
     userdata.disabledApps = [];
     UserData.set(userdata);
   }
 
-  if (disabledList.includes(id) && !SystemApps.includes(id))
-    data.disabled = true;
+  if (
+    userdata &&
+    userdata.disabledApps.includes(id) &&
+    !SystemApps.includes(id)
+  )
+    appData.disabled = true;
 
-  ws.push(data);
+  appStore[id] = appData;
 
-  for (let i = 0; i < children.length; i++) {
-    ws.push(children[i]);
-  }
+  // for (let i = 0; i < children.length; i++) {
+  //   appStore.push(children[i]);
+  // }
 
-  WindowStore.set(ws);
+  AppStore.set(appStore);
 
-  registerAppShortcuts(id, app);
+  const disabledList = get(UserData).disabledApps;
 
   if (app.disabledWarning && disabledList.includes(id)) {
     makeNotification({
@@ -51,48 +64,23 @@ export function loadWindow(id: string, app: App) {
     });
   }
 
-  setTimeout(() => {
-    if (app.pos.centered) centerWindow(id);
-  }, 300);
-
   Log({
     level: LogLevel.info,
-    msg: `Loaded ${id} into WindowStore.`,
-    source: "AppLogic: loadWindow",
+    msg: `Loaded ${id} into AppStore.`,
+    source: "AppLogic: loadApp",
   });
 }
 
-export function getChildren(app: App, id: string) {
-  const entries = Object.entries(app.children || {});
-  const children: App[] = [];
-
-  for (let i = 0; i < entries.length; i++) {
-    children.push({
-      ...entries[i][1],
-      id: entries[i][0],
-      parentId: id,
-      opened: false,
-      info: { ...entries[i][1].info, hidden: true },
-    });
-  }
-
-  return children;
-}
-
 export function unloadWindow(id: string) {
-  const ws = get(WindowStore);
+  const appStore = get(AppStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == id) {
-      Log({
-        level: LogLevel.info,
-        msg: `Unloading ${id} from WindowStore.`,
-        source: "AppLogic: unloadWindow",
-      });
-      ws.splice(i, 1);
-    }
-  }
+  Log({
+    level: LogLevel.info,
+    msg: `Unloading ${id} from WindowStore.`,
+    source: "AppLogic: unloadWindow",
+  });
+  delete appStore[id];
 
-  WindowStore.set(ws);
-  updateStores();
+  AppStore.set(appStore);
+   
 }

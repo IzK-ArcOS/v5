@@ -1,9 +1,12 @@
 <script lang="ts">
   import warning from "../../../../../assets/apps/error.svg";
+  import type { Process } from "../../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../../ts/errorlogic/overlay";
   import { deleteUser } from "../../../../../ts/userlogic/main";
   import { showOverlay } from "../../../../../ts/window/overlay";
   import OptionSection from "../../OptionSection.svelte";
+
+  export let process: Process;
 
   function deleteAccount() {
     createOverlayableError(
@@ -17,16 +20,16 @@
           { action: () => {}, caption: "Back to safety" },
         ],
       },
-      "SettingsApp"
+      process.id
     );
   }
 
   function changeName() {
-    showOverlay("changeUsername", "SettingsApp");
+    showOverlay("changeUsername", process.id);
   }
 
   function changePswd() {
-    showOverlay("changePswd", "SettingsApp");
+    showOverlay("changePswd", process.id);
   }
 </script>
 

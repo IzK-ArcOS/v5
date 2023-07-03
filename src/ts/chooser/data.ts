@@ -1,18 +1,22 @@
 import ChooserOverlay from "../../lib/Apps/ChooserOverlay.svelte";
-import type { OverlayableApp } from "../applogic/interface";
+import type { OverlayableProcess } from "../applogic/interface";
+import { generatePID } from "../applogic/pid";
 
-export function generateChooserOverlayData(
+export function generateChooserOverlayProcess(
   title: string = "Choose File"
-): OverlayableApp {
+): OverlayableProcess {
   return {
-    info: {
-      name: title,
-      author: "ArcOS Generated",
-      version: "1",
+    overlayableApp: {
+      info: {
+        name: title,
+        author: "ArcOS Generated",
+        version: "1",
+      },
+      size: { w: NaN, h: NaN },
+      id: "FileChooser",
+      content: ChooserOverlay,
     },
-    size: { w: NaN, h: NaN },
+    id: `FileChooser_${generatePID()}`,
     show: true,
-    id: `CHOOSER#${Math.floor(Math.random() * 1e6)}`,
-    content: ChooserOverlay,
   };
 }

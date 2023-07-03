@@ -1,3 +1,4 @@
+import { DevModeOverride } from "../devmode/props";
 import { ErrorMessages } from "../errorlogic/app";
 import { NotificationStore } from "../notiflogic/main";
 import { UserName } from "../userlogic/interfaces";
@@ -8,4 +9,5 @@ export default function () {
   loginUsername.set(undefined);
   NotificationStore.set({});
   ErrorMessages.set([]);
+  DevModeOverride.set(false);
 }

@@ -1,11 +1,51 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import "./css/main.css";
   import BugReport from "./lib/BugReport.svelte";
   import { logoffToken } from "./ts/api/cred";
-  import { Logo } from "./ts/branding";
+  import { Log, LogLevel } from "./ts/console";
+  import { assignDevMutators } from "./ts/devmode/mutators";
+  import { DevModeOverride, updateDevModeProps } from "./ts/devmode/props";
+  import { dmMutators } from "./ts/devmode/store/mutators";
+  import { dmTriggers } from "./ts/devmode/store/triggers";
   import { applyState, CurrentState } from "./ts/state/main";
+  import { Logo } from "./ts/branding";
+
+  let devmode = false;
+
+  DevModeOverride.subscribe((v) => {
+    if (!v && !import.meta.env.DEV) devmode = false;
+  });
 
   applyState("boot");
+
+  onMount(() => {
+    dmMutators.unshift({
+      caption: "CurrentState",
+      store: CurrentState,
+      value: "key",
+      fallback: "unknown",
+    });
+
+    dmTriggers.unshift(CurrentState);
+
+    updateDevModeProps();
+    assignDevMutators();
+  });
+
+  console.warn = (content: string, ...a: any) =>
+    Log({
+      source: "Console",
+      msg: content + a.join(" "),
+      level: LogLevel.warn,
+    });
+
+  console.error = (content: string, ...a: any[]) =>
+    Log({
+      source: "Console",
+      msg: content + a.join(" "),
+      level: LogLevel.error,
+    });
 
   window.addEventListener("beforeunload", logoffToken);
 </script>
@@ -14,9 +54,12 @@
   <link rel="icon" href={Logo()} />
 </svelte:head>
 
-<div class="app fullscreen">
+<div class="app fullscreen" class:floating={devmode}>
   {#if $CurrentState}
-    <svelte:component this={$CurrentState.content} />
+    <svelte:component
+      this={$CurrentState.content}
+    /><!-- 
+    <DevBar bind:opened={devmode} /> -->
   {/if}
   <BugReport />
 </div>

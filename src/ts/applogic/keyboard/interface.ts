@@ -5,7 +5,7 @@ export interface AppKeyCombination {
   ctrl?: boolean;
   shift?: boolean;
   key?: string;
-  action(app: App): void;
+  action(pid: number): void;
   global?: boolean;
 }
 

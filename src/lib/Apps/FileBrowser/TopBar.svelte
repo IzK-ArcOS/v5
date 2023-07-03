@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { App } from "../../../ts/applogic/interface";
+  import type { App, Process } from "../../../ts/applogic/interface";
   import type { ScopedAppData } from "../../../ts/userlogic/interfaces";
   import AdressBar from "./PathCrumbs.svelte";
   import CopyButton from "./TopBar/CopyButton.svelte";
@@ -15,6 +15,7 @@
 
   export let appdata: ScopedAppData;
   export let app: App;
+  export let process: Process;
 </script>
 
 <div class="topbar">
@@ -26,13 +27,13 @@
       <CopyButton />
       <PasteButton />
       <div class="sep" />
-      <DeleteButton />
-      <RenameButton />
+      <DeleteButton {process} />
+      <RenameButton {process} />
     </div>
     <div class="group">
-      <NewFolderButton />
-      <CreateButton />
-      <UploadFileButton />
+      <NewFolderButton {process} />
+      <CreateButton {process} />
+      <UploadFileButton {process} />
     </div>
     <Views bind:appdata bind:app />
   </div>

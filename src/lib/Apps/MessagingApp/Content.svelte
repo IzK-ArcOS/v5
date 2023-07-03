@@ -11,8 +11,10 @@
   import Editor from "./Content/Editor.svelte";
   import NoContent from "./Content/NoContent.svelte";
   import Viewer from "./Content/Viewer.svelte";
+  import type { Process } from "../../../ts/applogic/interface";
 
   let message: Message;
+  export let process: Process;
 
   selectedMessageId.subscribe(async (v) => {
     if (!v) return (message = null);
@@ -27,7 +29,7 @@
           buttons: [{ caption: "OK", action() {} }],
           image: icon,
         },
-        "MessagingApp"
+        process.id
       );
 
     message = null;
@@ -39,9 +41,9 @@
 
 <div class="content">
   {#if message && !$creatingMessage}
-    <Viewer {message} />
+    <Viewer {message} {process} />
   {:else if $creatingMessage}
-    <Editor />
+    <Editor {process} />
   {:else}
     <NoContent />
   {/if}

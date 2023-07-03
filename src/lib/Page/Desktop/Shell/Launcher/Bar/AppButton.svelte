@@ -2,35 +2,35 @@
   import { isMinimized } from "../../../../../../ts/applogic/checks";
   import { closeWindow } from "../../../../../../ts/applogic/events";
   import { getOriginalIcon } from "../../../../../../ts/applogic/icon";
-  import type { App } from "../../../../../../ts/applogic/interface";
+  import type { App, Process } from "../../../../../../ts/applogic/interface";
   import {
-    WindowStore,
-    focusedWindowId,
+    AppStore,
+    focusedProcessPid,
     maxZIndex,
     updateStores,
   } from "../../../../../../ts/applogic/store";
   import { showArcFind } from "../../../../../../ts/search/main";
   import { getWindowElement } from "../../../../../../ts/window/main";
 
-  export let app: App;
+  export let process: Process;
 
   let minimized = false;
 
-  WindowStore.subscribe(() => {
-    minimized = isMinimized(app.id);
+  AppStore.subscribe(() => {
+    minimized = isMinimized(process.id);
   });
 
   function e() {
-    if ($focusedWindowId == app.id)
-      app.state.windowState.min = !app.state.windowState.min;
-    else app.state.windowState.min = false;
+    if ($focusedProcessPid == process.id)
+      process.windowState.minimized = !process.windowState.minimized;
+    else process.windowState.minimized = false;
 
     updateStores();
 
     $maxZIndex++;
-    $focusedWindowId = app.id;
+    $focusedProcessPid = process.id;
 
-    const window = getWindowElement(app);
+    const window = getWindowElement(process.id);
 
     window.style.zIndex = $maxZIndex.toString();
 
@@ -39,10 +39,10 @@
 </script>
 
 <button
-  title={app.info.name}
+  title={process.app.info.name}
   class:minimized
   on:click={e}
-  class:activated={app.id == $focusedWindowId}
+  class:activated={process.id == $focusedProcessPid}
 >
-  <img src={getOriginalIcon(app.id) || app.info.icon} alt={app.info.name} />
+  <img src={process.app.info.icon} alt={process.app.info.name} />
 </button>

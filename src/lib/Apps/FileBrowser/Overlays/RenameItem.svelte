@@ -1,20 +1,21 @@
 <script lang="ts">
   import icon from "../../../../assets/apps/filemanager/folder.svg";
-  import { createDirectory } from "../../../../ts/api/fs/directory";
+  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon";
+  import { renameItem } from "../../../../ts/api/fs/rename";
   import {
     fbClass,
     FileBrowserCurrentDir,
     FileBrowserDirContents,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import type { Process } from "../../../../ts/applogic/interface";
   import { hideOverlay } from "../../../../ts/window/overlay";
-  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
-  import { renameItem } from "../../../../ts/api/fs/rename";
-  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
+
+  export let parent: Process;
 
   let newName = "";
   let img = "";
-
   let isDir = false;
   let exists = false;
 
@@ -68,7 +69,7 @@
   }
 
   function cancel() {
-    hideOverlay("renameItem", "FileManager");
+    hideOverlay("renameItem", parent.id);
   }
 </script>
 

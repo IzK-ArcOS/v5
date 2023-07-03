@@ -7,11 +7,13 @@
   import { getUsers } from "../../../../ts/userlogic/main";
   import Bottom from "./Editor/Bottom.svelte";
   import TargetSelector from "./Editor/TargetSelector.svelte";
+  import type { Process } from "../../../../ts/applogic/interface";
 
   let users: [string, UserData][] = [];
   let target = "";
   let content = "";
   let viewing = false;
+  export let process: Process;
 
   onMount(async () => {
     users = Object.entries(await getUsers());
@@ -40,4 +42,4 @@
   </div>
 {/if}
 
-<Bottom {target} {content} bind:viewing />
+<Bottom {process} {target} {content} bind:viewing />

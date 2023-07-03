@@ -1,17 +1,19 @@
 <script lang="ts">
   import { FileBrowserOpeningFile } from "../../../../ts/applogic/apps/FileBrowser/main";
-
   import "../../../../css/desktop/apps/filebrowser/overlays/openingfile.css";
   import icon from "../../../../assets/apps/filemanager/memory.svg";
   import Spinner from "../../../Spinner.svelte";
   import { formatBytes } from "../../../../ts/api/fs/sizes";
   import { hideOverlay } from "../../../../ts/window/overlay";
   import { abortFileReader } from "../../../../ts/api/fs/file";
+  import type { Process } from "../../../../ts/applogic/interface";
+
+  export let parent: Process;
 
   function abort() {
     abortFileReader.set(true);
 
-    hideOverlay("openingFile", "FileManager");
+    hideOverlay("openingFile", parent.id);
   }
 </script>
 

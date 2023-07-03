@@ -14,16 +14,15 @@ export const OpenWithApp: App = {
     hidden: true,
     icon: logo,
   },
-  size: { w: 450, h: 550 },
-  pos: { x: 30, y: 40 },
+  initialSize: { w: 450, h: 550 },
   minSize: { w: 450, h: 550 },
   maxSize: { w: 450, h: 550 },
-  controls: { min: false, max: false, cls: false },
-  state: {
+  controls: { minimized: false, maximized: false, close: false },
+  windowProperties: {
     headless: true,
     resizable: false,
-    windowState: { min: false, max: false, fll: true },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: true },
   content: OpenWith,
   glass: true,
   events: {

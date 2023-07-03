@@ -1,8 +1,11 @@
 <script lang="ts">
+  import type { Process } from "../../../../ts/applogic/interface";
   import { showOverlay } from "../../../../ts/window/overlay";
 
+  export let process: Process;
+
   function show() {
-    showOverlay("createFile", "FileManager");
+    showOverlay("createFile", process.id);
   }
 </script>
 

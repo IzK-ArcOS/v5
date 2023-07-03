@@ -1,48 +1,63 @@
 import type { ArcFile } from "../api/interface";
 import type { ErrorButton } from "../errorlogic/app";
 import type { AppKeyCombinations } from "./keyboard/interface";
-import type { AppRuntime } from "./runtime/main";
+import type { ProcessRuntime as ProcessRuntime } from "./runtime/main";
 export interface App {
   info: GeneralAppInfo;
-  pos: XY & { centered?: boolean };
-  size: Size;
+  id?: string;
+  pid?: number;
+  initialSize: Size;
   minSize: Size;
   maxSize: Size;
-  controls: ControlsState;
   menubar?: WindowMenuBar;
-  state: AppStates;
+  controls: ControlsConfiguration;
   content: any;
-  id?: string;
   glass: boolean;
-  events?: AppEvents;
   disabled?: boolean;
-  opened?: boolean;
-  parentId?: string;
-  overlays?: { [key: string]: OverlayableApp };
-  errorOverlays?: OverlayableError[];
-  children?: { [key: string]: App };
+  events?: ProcessEvents;
   fileMimes?: string[];
-  openedFile?: ArcFile;
   contextMenu?: AppContextMenu;
   disabledWarning?: { title: string; message: string };
-  snapped?: boolean;
   core?: boolean;
-  runtime?: typeof AppRuntime;
+  windowProperties: WindowProperties;
+  initialWindowState: WindowState;
+  overlayApps?: { [key: string]: OverlayableApp };
 }
+
+export interface Process {
+  app: App;
+  id: number;
+  children?: { [key: number]: Process };
+  parentPid?: number;
+  pos: Position & { centered?: boolean };
+  size: Size;
+  windowState: WindowState;
+  openedFile?: ArcFile;
+  overlayProcesses?: { [key: string]: OverlayableProcess };
+  errorProcessOverlays?: { [key: number]: OverlayableError };
+  snapped?: boolean;
+  runtime?: typeof ProcessRuntime;
+}
+
 export interface OverlayableError {
   title: string;
   message: string;
   buttons: ErrorButton[];
   image?: string;
-  id?: string;
+  id?: number;
 }
 
 export interface OverlayableApp {
   info: OverlayableAppInfo;
   size: Size;
   content?: any;
-  parentId?: string;
   id?: string;
+}
+
+export interface OverlayableProcess {
+  overlayableApp: OverlayableApp;
+  id: string;
+  parentPid?: number;
   show: boolean;
 }
 
@@ -64,24 +79,24 @@ export interface OverlayableAppInfo {
   version: string;
 }
 
-export interface AppStates {
+export interface WindowProperties {
   headless: boolean;
   resizable: boolean;
-  windowState: WindowState;
 }
 
 export type Size = { w: number; h: number };
-export type XY = { x: number; y: number };
+export type Position = { x: number; y: number };
+
 export interface WindowState {
-  min: boolean; // Minimized
-  max: boolean; // Maximized
-  fll: boolean; // Fullscreen
+  minimized: boolean;
+  maximized: boolean;
+  fullscreen: boolean;
 }
 
-export interface ControlsState {
-  min: boolean; // Minimized
-  max: boolean; // Maximized
-  cls: boolean; // Close
+export interface ControlsConfiguration {
+  minimized: boolean;
+  maximized: boolean;
+  close: boolean;
 }
 
 export interface ContextMenuItem {
@@ -109,16 +124,16 @@ export interface WindowMenuItem {
   menuItems?: WindowMenuItem[];
 }
 
-export interface AppEvents {
-  open?(app: App): void;
-  close?(app: App): void;
-  maximize?(app: App): void;
-  minimize?(app: App): void;
-  enterFullscreen?(app: App): void;
-  leaveFullscreen?(app: App): void;
-  openFile?(app: App): void;
-  blur?(app: App): void;
-  focus?(app: App): void;
+export interface ProcessEvents {
+  open?(pid: number): void;
+  close?(pid: number): void;
+  maximize?(pid: number): void;
+  minimize?(pid: number): void;
+  enterFullscreen?(pid: number): void;
+  leaveFullscreen?(pid: number): void;
+  openFile?(pid: number): void;
+  blur?(pid: number): void;
+  focus?(pid: number): void;
   keyboardShortcuts?: AppKeyCombinations;
 }
 
@@ -127,4 +142,4 @@ export interface AppEvents {
  * btn: Button
  * mnu: Menu
  */
-export type WindowMenuBarItemType = "sep" | "btn" | "mnu";
+export type WindowMenuBarItemType = "Separator" | "Button" | "Menu";

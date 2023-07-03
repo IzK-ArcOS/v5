@@ -1,24 +1,14 @@
 <script lang="ts">
-  import type { App } from "../../../../../ts/applogic/interface";
-  import {
-    WindowStore,
-    getOpenedStore,
-    maxZIndex,
-  } from "../../../../../ts/applogic/store";
+  import { ProcessStore, maxZIndex } from "../../../../../ts/applogic/store";
   import { Logo } from "../../../../../ts/branding";
   import { showArcFind } from "../../../../../ts/search/main";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
   import AppButton from "./Bar/AppButton.svelte";
   import Trigger from "./Bar/Trigger.svelte";
 
-  let oa: App[] = [];
   let visible = false;
   let dockfocused = false;
   let interval: NodeJS.Timeout;
-
-  WindowStore.subscribe(() => {
-    oa = getOpenedStore();
-  });
 
   function mouseenter() {
     dockfocused = true;
@@ -37,6 +27,7 @@
   }
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
   class="launcher-bar"
   class:colored={$UserData.sh.taskbar.colored}
@@ -49,9 +40,9 @@
     <img src={Logo()} alt="ArcOS" />
   </button>
   <div class="opened-apps">
-    {#each oa as app}
-      {#if !app.info.hidden}
-        <AppButton {app} />
+    {#each Object.entries($ProcessStore) as [pid, proc]}
+      {#if !proc.app.info.hidden}
+        <AppButton process={proc} />
       {/if}
     {/each}
   </div>

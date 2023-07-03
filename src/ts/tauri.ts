@@ -3,16 +3,6 @@ import { listen, TauriEvent } from "@tauri-apps/api/event";
 import { register, unregisterAll } from "@tauri-apps/api/globalShortcut";
 import { appWindow } from "@tauri-apps/api/window";
 
-/**
- * WARNING:
- *
- * This file will soon be discarded when ArcOS transitions from Tauri to
- * Electron. Issues related to this file will be ignored.
- *
- * - IzKuipers, July 2nd 11:14 AM -
- * UTC+2
- */
-
 const blocks = ["Ctrl+R", "F5", "Ctrl+Shift+R", "Ctrl+P", "F3", "Ctrl+F", "F7"];
 
 export async function define() {

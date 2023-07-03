@@ -1,18 +1,25 @@
 <script lang="ts">
   import { getServer } from "../../../../../ts/api/server";
+  import type { Process } from "../../../../../ts/applogic/interface";
+  import { DevModeOverride } from "../../../../../ts/devmode/props";
   import { UserData, UserName } from "../../../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../../../ts/userlogic/pfp";
   import { showOverlay } from "../../../../../ts/window/overlay";
   import ProfilePicture from "../../../../ProfilePicture.svelte";
 
   let pfp = "";
+  export let process: Process;
 
   UserData.subscribe((v) => {
     pfp = getProfilePicture(v.acc.profilePicture);
   });
 
   function changePfp() {
-    showOverlay("pfpSel", "SettingsApp");
+    showOverlay("pfpSel", process.id);
+  }
+
+  function openExplorer() {
+    showOverlay("udataExplorer", process.id);
   }
 </script>
 
@@ -29,6 +36,9 @@
     </p>
     <p class="host" data-caller="accountpage-hostname">
       {getServer() || location.hostname}
+      {#if $DevModeOverride}
+        (developer)
+      {/if}
     </p>
   </div>
 </div>

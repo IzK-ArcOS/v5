@@ -1,13 +1,15 @@
 <script lang="ts">
   import "../../../../../../css/desktop/apps/settings/savetheme.css";
+  import type { Process } from "../../../../../../ts/applogic/interface";
   import { saveCurrentTheme } from "../../../../../../ts/userlogic/themes/main";
   import { hideOverlay } from "../../../../../../ts/window/overlay";
   import Current from "../../Desktop/Current.svelte";
 
   let name: string;
+  export let parent: Process;
 
   function closeThis() {
-    hideOverlay("saveTheme", "SettingsApp");
+    hideOverlay("saveTheme", parent.id);
   }
 
   function save() {

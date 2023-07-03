@@ -11,6 +11,7 @@ import {
 import trash from "../../../../assets/apps/logger/clear.svg";
 import { get } from "svelte/store";
 import { SEP_ITEM } from "../../../contextmenu/main";
+import { getPID } from "../../pid";
 
 export const FileManagerContextMenu: AppContextMenu = {
   "listitem-dir": [
@@ -31,7 +32,7 @@ export const FileManagerContextMenu: AppContextMenu = {
       action: (_: App, data: DOMStringMap) => {
         FileBrowserSelectedFilename.set(data.name);
 
-        showOverlay("renameItem", "FileManager");
+        showOverlay("renameItem", getPID("FileManager"));
       },
     },
     {
@@ -78,7 +79,7 @@ export const FileManagerContextMenu: AppContextMenu = {
             ],
             image: trash,
           },
-          "FileManager"
+          getPID("FileManager")
         );
       },
     },

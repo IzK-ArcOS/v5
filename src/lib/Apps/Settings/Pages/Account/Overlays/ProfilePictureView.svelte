@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getServer } from "../../../../../../ts/api/server";
-  import type { App } from "../../../../../../ts/applogic/interface";
+  import type { App, Process } from "../../../../../../ts/applogic/interface";
   import {
     UserData,
     UserName,
@@ -9,10 +9,10 @@
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
 
   export let id: string;
-  export let app: App;
+  export let parent: Process;
 </script>
 
-<CloseButton {id} {app} />
+<CloseButton {id} {parent} />
 <div class="center-flex text-center">
   <div class="flex-stop">
     <ProfilePicture

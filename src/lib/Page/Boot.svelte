@@ -1,14 +1,14 @@
 <script lang="ts">
   import { applyState } from "../../ts/state/main";
+
   import { onMount } from "svelte";
   import "../../css/boot.css";
   import { getServer } from "../../ts/api/server";
   import { testConnection } from "../../ts/api/test";
-  import { Logo } from "../../ts/branding";
   import { BugReportData } from "../../ts/bugrep";
-  import { Log } from "../../ts/console";
-  import { LogLevel } from "../../ts/console/interface";
+  import { Log, LogLevel } from "../../ts/console";
   import { ArcOSVersion } from "../../ts/env/main";
+  import { Logo } from "../../ts/branding";
 
   let status = "";
   let bootClass = "";

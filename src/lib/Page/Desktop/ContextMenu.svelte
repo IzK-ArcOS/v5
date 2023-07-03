@@ -41,7 +41,9 @@
 
     if (!windowElement) return;
 
-    const windowData = getWindow(windowElement.id);
+    const pid = parseInt(windowElement.dataset.pid);
+
+    const windowData = getWindow(pid);
 
     const el = getCallerScope(e);
 
@@ -50,7 +52,7 @@
     const caller = el?.dataset.caller;
 
     setTimeout(() => {
-      items = getContextEntry(windowElement.id, caller) || [];
+      items = getContextEntry(pid, caller) || [];
 
       if (!items.length) return;
 

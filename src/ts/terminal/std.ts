@@ -1,14 +1,13 @@
 import { writable } from "svelte/store";
-import type { App } from "../applogic/interface";
-import { Log } from "../console";
+import type { Process } from "../applogic/interface";
+import { Log, LogLevel } from "../console";
 import type { ArcTermEnv } from "./env";
 import type { Color } from "./interface";
 import type { ArcTerm } from "./main";
-import { LogLevel } from "../console/interface";
 
 export class ArcTermStd {
   target: HTMLDivElement;
-  app: App;
+  process: Process;
   term: ArcTerm;
   env: ArcTermEnv;
   verbose = true;
@@ -21,7 +20,7 @@ export class ArcTermStd {
     });
 
     this.target = parent.target;
-    this.app = parent.app;
+    this.process = parent.process;
     this.term = parent;
     this.env = parent.env;
   }

@@ -5,8 +5,11 @@
   import def from "../../../../../../assets/pfp/null.png";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
   import { UserData } from "../../../../../../ts/userlogic/interfaces";
+  import type { Process } from "../../../../../../ts/applogic/interface";
   let img = "";
   let valid = false;
+
+  export let parent: Process;
 
   async function check() {
     const v = await checkImage(img);
@@ -17,12 +20,12 @@
   function apply() {
     applyCustomPfp(img);
 
-    hideOverlay("customPfp", "SettingsApp");
-    hideOverlay("pfpSel", "SettingsApp");
+    hideOverlay("customPfp", parent.id);
+    hideOverlay("pfpSel", parent.id);
   }
 
   function cancel() {
-    hideOverlay("customPfp", "SettingsApp");
+    hideOverlay("customPfp", parent.id);
   }
 
   async function checkImage(url): Promise<boolean> {

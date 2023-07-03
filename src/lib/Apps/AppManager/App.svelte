@@ -1,40 +1,36 @@
 <script lang="ts">
-  import { appManSelected } from "../../../ts/applogic/apps/AppManager/store";
+  import { appManSelectedPid } from "../../../ts/applogic/apps/AppManager/store";
   import { isDisabled, isOpened } from "../../../ts/applogic/checks";
   import { getAppIcon, getOriginalIcon } from "../../../ts/applogic/icon";
-  import type { App } from "../../../ts/applogic/interface";
+  import type { App, Process } from "../../../ts/applogic/interface";
 
-  export let app: App;
+  export let proc: Process;
   export let error = false;
 
   function select() {
-    $appManSelected = app.id;
+    $appManSelectedPid = proc.id;
   }
 </script>
 
-{#if app && ((!isDisabled(app.id) && isOpened(app.id)) || error)}
+{#if proc && proc.app && (!isDisabled(proc.app.id) || error)}
   <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div
     class="appinstance"
-    class:closed={!app.opened}
     on:click={select}
-    class:selected={$appManSelected == app.id}
+    class:selected={$appManSelectedPid == proc.id}
   >
     <div>
-      <img src={getOriginalIcon(app.id) || getAppIcon(app)} alt="" />
+      <img src={getOriginalIcon(proc.id) || getAppIcon(proc.app)} alt="" />
     </div>
     <div class="appname">
-      {app.info.name}
+      {proc.app.info.name}
       {#if error}
         (Dialog)
       {/if}
     </div>
     <div class="id">
-      {#if app.parentId}
-        {app.parentId}.{app.id}
-      {:else}
-        {app.id}
-      {/if}
+      {proc.app.id} ({proc.id})
     </div>
   </div>
 {/if}

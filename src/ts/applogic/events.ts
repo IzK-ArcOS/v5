@@ -1,69 +1,70 @@
 import { get } from "svelte/store";
-import { Log } from "../console";
-import { ActionCenterOpened } from "../desktop/actioncenter/main";
+import { Log, LogLevel } from "../console";
+import { actionCenterOpened } from "../desktop/actioncenter/main";
 import { startOpened } from "../desktop/main";
 import { destroyOverlayableError } from "../errorlogic/overlay";
 import { getWindowElement } from "../window/main";
 import { hideOverlay } from "../window/overlay";
-import { isLoaded, isOpened } from "./checks";
-import type { App } from "./interface";
+import { centerWindow } from "./center";
+import type { App, Process } from "./interface";
+import { registerProcessShortcuts } from "./keyboard/main";
+import { generatePID } from "./pid";
 import {
-  WindowStore,
-  focusedWindowId,
-  getWindow,
+  ProcessStore,
+  focusedProcessPid,
+  getApp,
   maxZIndex,
   updateStores,
 } from "./store";
-import { LogLevel } from "../console/interface";
 
-export function openWindow(id: string, openChild = false) {
+export function createProcess(
+  appId: string,
+  parentPid?: number
+): number | null {
   Log({
-    msg: `Opening ${id}`,
+    msg: `Opening ${appId}`,
     source: "events.ts: openWindow",
     level: LogLevel.info,
   });
 
-  const window = getWindow(id);
+  const app = getApp(appId);
 
-  if (window && window.core) return;
+  if (!app) {
+    Log({
+      msg: `Can't create process for ${appId}: app not found`,
+      source: "events.ts: openWindow",
+      level: LogLevel.error,
+    });
 
-  if (!isLoaded(id) || isOpened(id)) {
-    const el = getWindowElement(window);
-
-    if (!el) return;
-
-    maxZIndex.set(get(maxZIndex) + 1);
-
-    el.style.zIndex = `${get(maxZIndex)}`;
-
-    unminimizeWindow(window);
-
-    return;
+    return null;
   }
 
-  if (window.parentId && !isOpened(window.parentId)) {
-    if (!openChild) {
-      Log({
-        source: "events.ts: openWindow",
-        msg: `The parent "${window.parentId}" of child window "${window.id}" must be opened before the child can be opened.`,
-        level: LogLevel.error,
-      });
-      return false;
-    }
+  const procStore = get(ProcessStore);
 
-    openWindow(window.parentId);
-  }
+  const pid = generatePID();
 
-  const ws = get(WindowStore);
+  const process: Process = {
+    app: { ...app, pid },
+    id: pid,
+    pos: { x: 0, y: 0 },
+    size: app.initialSize,
+    windowState: app.initialWindowState,
+    parentPid: parentPid,
+    overlayProcesses: {},
+  };
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == id) ws[i].opened = true;
-  }
+  procStore[process.id] = process;
 
-  WindowStore.set(ws);
+  ProcessStore.set(procStore);
+
+  /* centerWindow(process.id); */
+
+  registerProcessShortcuts(process);
+
+  if (app && app.core) return;
 
   setTimeout(() => {
-    const el = getWindowElement(window);
+    const el = getWindowElement(process.id);
 
     if (!el) return;
 
@@ -71,219 +72,196 @@ export function openWindow(id: string, openChild = false) {
 
     el.style.zIndex = `${get(maxZIndex)}`;
 
-    focusedWindowId.set(id);
+    focusedProcessPid.set(process.id);
   }, 10);
 
   startOpened.set(false);
-  ActionCenterOpened.set(false);
+  actionCenterOpened.set(false);
 
-  updateStores();
+  focusedProcessPid.set(process.id);
 
-  focusedWindowId.set(id);
+  if (app.events && app.events.open) app.events.open(process.id);
 
-  if (window.events && window.events.open) window.events.open(window);
-
-  return true;
+  return process.id;
 }
 
-export function openChildWindow(parentId: string, childId: string) {
-  const ws = get(WindowStore);
-
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].parentId == parentId && ws[i].id == childId) {
-      openWindow(childId);
-
-      return true;
-    }
-  }
-
-  return false;
-}
-
-export function closeChildWindow(parent: App, childId: string) {
-  const ws = get(WindowStore);
-
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].parentId == parent.id && ws[i].id == childId) {
-      closeWindow(childId);
-
-      return true;
-    }
-  }
-
-  return false;
-}
-
-export function closeWindow(id: string) {
+export function closeProcess(pid: number): boolean {
   Log({
-    msg: `Closing ${id}`,
+    msg: `Closing ${pid}`,
     source: "events.ts: closeWindow",
     level: LogLevel.info,
   });
 
-  if (!isOpened(id)) {
+  const processStore = get(ProcessStore);
+
+  if (!processStore[pid]) {
     return false;
   }
 
-  const ws = get(WindowStore);
-  const window = getWindow(id);
+  if (processStore[pid] && processStore[pid].app.core) return;
 
-  if (window && window.core) return;
-
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i] && ws[i].id == id) {
-      ws[i].opened = false;
-      ws[i].openedFile = null;
-      break;
-    }
-  }
-
-  if (window.children) {
-    const entries = Object.entries(window.children);
+  if (processStore[pid].errorProcessOverlays) {
+    const entries = Object.entries(processStore[pid].errorProcessOverlays);
 
     for (let i = 0; i < entries.length; i++) {
-      closeChildWindow(window, entries[i][0]);
+      destroyOverlayableError(entries[i][1].id, process.pid);
     }
   }
 
-  if (window.errorOverlays) {
-    for (let i = 0; i < window.errorOverlays.length; i++) {
-      destroyOverlayableError(window.errorOverlays[i].id, window.id);
-    }
-  }
-
-  if (window.overlays) {
-    const entries = Object.entries(window.overlays);
+  if (processStore[pid].overlayProcesses) {
+    const entries = Object.entries(processStore[pid].overlayProcesses);
 
     for (let i = 0; i < entries.length; i++) {
-      hideOverlay(entries[i][0], id);
+      hideOverlay(entries[i][1].id, pid);
     }
   }
 
-  window.snapped = false;
+  if (processStore[pid].children) {
+    const entries = Object.entries(processStore[pid].children);
 
-  WindowStore.set(ws);
+    for (let i = 0; i < entries.length; i++) {
+      closeProcess(entries[i][1].id);
+    }
+  }
 
-  if (window.events && window.events.close) window.events.close(window);
+  processStore[pid].snapped = false;
+
+  const processEvents = processStore[pid].app.events;
+  if (processEvents && processEvents.close) processEvents.close(process.pid);
+
+  delete processStore[pid];
+
+  ProcessStore.set(processStore);
 
   return true;
 }
 
-export function maximizeWindow(app: App) {
+export function toggleWindowMaximization(pid: number) {
   Log({
-    msg: `Switching maximized state of ${app.id}`,
+    msg: `Switching maximized state of process ${process.pid}`,
     source: "events.ts: maximizeWindow",
     level: LogLevel.info,
   });
 
-  if (app.core) return;
+  const processStore = get(ProcessStore);
 
-  app.state.windowState.max = !app.state.windowState.max;
+  if (processStore[pid].app.core) return;
 
-  focusedWindowId.set(app.id);
+  processStore[pid].windowState.maximized =
+    !processStore[pid].windowState.maximized;
 
-  if (app.events && app.events.maximize) app.events.maximize(app);
+  focusedProcessPid.set(process.pid);
+
+  ProcessStore.set(processStore);
+
+  if (processStore[pid].app.events && processStore[pid].app.events.maximize)
+    processStore[pid].app.events.maximize(pid);
 
   updateStores();
 }
 
-export function minimizeWindow(app: App) {
+export function toggleWindowMinimization(pid: number) {
   Log({
-    msg: `Switching minimized state of ${app.id}`,
+    msg: `Switching minimized state of process ${pid}`,
     source: "events.ts: minimizeWindow",
     level: LogLevel.info,
   });
 
-  if (app.core) return;
+  const processStore = get(ProcessStore);
 
-  app.state.windowState.min = !app.state.windowState.min;
+  if (processStore[pid].app.core) return;
 
-  focusedWindowId.set(null);
+  processStore[pid].windowState.minimized =
+    !processStore[pid].windowState.minimized;
 
-  if (app.state.windowState.min) {
-    const el = getWindowElement(app);
+  focusedProcessPid.set(null);
+
+  if (processStore[pid].windowState.minimized) {
+    const el = getWindowElement(pid);
 
     el.style.zIndex = "0";
   }
 
-  if (app.events && app.events.minimize) app.events.minimize(app);
+  if (processStore[pid].app.events && processStore[pid].app.events.minimize)
+    processStore[pid].app.events.minimize(pid);
 
-  updateStores();
+  ProcessStore.set(processStore);
 }
 
-export function unminimizeWindow(app: App) {
+export function unminimizeWindow(pid: number) {
   Log({
-    msg: `Disabling minimized state of ${app.id}`,
+    msg: `Disabling minimized state of process ${pid}`,
     source: "events.ts: unminimizeWindow",
     level: LogLevel.info,
   });
 
-  if (app.core) return;
+  const processStore = get(ProcessStore);
 
-  const ws = get(WindowStore);
+  if (processStore[pid].app.core) return;
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == app.id) ws[i].state.windowState.min = false;
-  }
+  processStore[pid].windowState.minimized = false;
 
-  focusedWindowId.set(app.id);
+  focusedProcessPid.set(pid);
 
-  WindowStore.set(ws);
+  ProcessStore.set(processStore);
 }
 
-export function fullscreenWindow(app: App) {
+export function toggleWindowFullscreenization(pid: number) {
   Log({
-    msg: `Switching fullscreen state of ${app.id}`,
+    msg: `Switching fullscreen state of ${pid}`,
     source: "events.ts: fullscreenWindow",
     level: LogLevel.info,
   });
 
-  if (app.core) return;
+  const processStore = get(ProcessStore);
 
-  app.state.windowState.fll = !app.state.windowState.fll;
+  if (processStore[pid].app.core) return;
 
-  focusedWindowId.set(app.id);
+  processStore[pid].windowState.fullscreen =
+    !processStore[pid].windowState.fullscreen;
 
-  if (app.events && app.events.enterFullscreen && app.state.windowState.fll)
-    app.events.enterFullscreen(app);
+  focusedProcessPid.set(pid);
 
-  if (app.events && app.events.leaveFullscreen && !app.state.windowState.fll)
-    app.events.leaveFullscreen(app);
+  const processEvents = processStore[pid].app.events;
 
-  updateStores();
+  if (
+    processEvents &&
+    processEvents.enterFullscreen &&
+    processStore[pid].windowState.fullscreen
+  )
+    processEvents.enterFullscreen(pid);
+
+  if (
+    processEvents &&
+    processEvents.leaveFullscreen &&
+    !processStore[pid].windowState.fullscreen
+  )
+    processEvents.leaveFullscreen(pid);
+
+  ProcessStore.set(processStore);
 }
 
-export function headlessToggle(app: App) {
+export function toggleHeadlessWindowProperty(pid: number) {
   Log({
-    msg: `Switching headless state of ${app.id}`,
+    msg: `Switching headless state of ${pid}`,
     source: "events.ts: headlessToggle",
     level: LogLevel.info,
   });
 
-  if (app.core) return;
+  const processStore = get(ProcessStore);
 
-  app.state.headless = !app.state.headless;
+  if (processStore[pid].app.core) return;
 
-  focusedWindowId.set(app.id);
+  processStore[pid].app.windowProperties.headless =
+    !processStore[pid].app.windowProperties.headless;
 
-  updateStores();
+  focusedProcessPid.set(pid);
+
+  ProcessStore.set(processStore);
 }
-export function fullscreenToggle(id: string) {
-  Log({
-    msg: `Switching fullscreen state of ${id}`,
-    source: "events.ts: fullscreenToggle",
-    level: LogLevel.info,
-  });
 
-  const ws = get(WindowStore);
+// DUMMY FUNCTION
+export function closeWindow(pid: number) {}
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id != id) continue;
-
-    if (ws[i].core) continue;
-
-    ws[i].state.windowState.fll = !ws[i].state.windowState.fll;
-  }
-
-  WindowStore.set(ws);
-}
+// DUMMY FUNCTION
+export function openWindow(app: App) {}

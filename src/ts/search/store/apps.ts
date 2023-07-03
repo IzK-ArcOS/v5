@@ -1,23 +1,23 @@
 import { get } from "svelte/store";
-import { WindowStore } from "../../applogic/store";
+import { AppStore } from "../../applogic/store";
 import type { SearchItem } from "../interface";
-import { openWindow } from "../../applogic/events";
+import { createProcess } from "../../applogic/events";
 import { isPopulatable } from "../../applogic/checks";
 
 export function compileSearchableApps(): SearchItem[] {
   const result: SearchItem[] = [];
 
-  const ws = get(WindowStore);
+  const apps = Object.entries(get(AppStore));
 
-  for (let i = 0; i < ws.length; i++) {
-    if (!isPopulatable(ws[i])) continue;
+  for (let i = 0; i < apps.length; i++) {
+    if (!isPopulatable(apps[i][1])) continue;
 
     result.push({
-      caption: ws[i].info.name,
-      description: ws[i].info.description,
-      image: ws[i].info.icon,
+      caption: apps[i][1].info.name,
+      description: apps[i][1].info.description,
+      image: apps[i][1].info.icon,
       action: () => {
-        openWindow(ws[i].id);
+        createProcess(apps[i][0]);
       },
     });
   }

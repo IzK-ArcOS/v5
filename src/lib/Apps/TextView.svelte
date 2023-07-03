@@ -7,8 +7,8 @@
     setShortcuts,
     TextEditorContent,
   } from "../../ts/applogic/apps/TextEditor/main";
-  import type { App } from "../../ts/applogic/interface";
-  import { WindowStore } from "../../ts/applogic/store";
+  import type { App, Process } from "../../ts/applogic/interface";
+  import { AppStore } from "../../ts/applogic/store";
   import { tryParse } from "../../ts/json";
   import Actions from "./TextView/Actions.svelte";
   import Bottom from "./TextView/Bottom.svelte";
@@ -16,7 +16,9 @@
   import TextArea from "./TextView/TextArea.svelte";
   import { showOverlay } from "../../ts/window/overlay";
 
+  export let process: Process;
   export let app: App;
+  export let pid: number;
 
   let errored = false;
   let saving = false;
@@ -31,12 +33,12 @@
       errored = false;
 
       if (changing) return;
-      if (!app.openedFile) return (fileContents = "");
+      if (!process.openedFile) return (fileContents = "");
 
-      const text = new TextDecoder().decode(app.openedFile.data);
+      const text = new TextDecoder().decode(process.openedFile.data);
 
       fileContents = text;
-      currentFile = app.openedFile.path;
+      currentFile = process.openedFile.path;
 
       TextEditorContent.set(fileContents);
 
@@ -47,25 +49,25 @@
       if (json.error && json.valid == false) {
         errored = true;
 
-        doLoadError(json.error.title, json.error.message);
+        doLoadError(pid, json.error.title, json.error.message);
       }
     };
 
     app.events.open = onOpen;
 
-    setShortcuts(app, saveFile);
+    setShortcuts(process, saveFile);
   });
 
   async function saveFile() {
-    if (!app.openedFile.path) {
-      showOverlay("saveNewFile", "TextEditor");
+    if (!process.openedFile.path) {
+      showOverlay("saveNewFile", pid);
 
       return;
     }
 
     saving = true;
 
-    await saveTextEditorFile(fileContents, app.openedFile);
+    await saveTextEditorFile(fileContents, process.openedFile);
 
     saving = false;
   }
@@ -75,9 +77,9 @@
   }
 
   async function onOpen() {
-    if (app.openedFile) return;
+    if (process.openedFile) return;
 
-    app.openedFile = {
+    process.openedFile = {
       name: "Untitled",
       path: "",
       data: new ArrayBuffer(0),
@@ -86,14 +88,15 @@
   }
 </script>
 
-<Actions {app} {saveFile} />
+{#if process}
+  <Actions {process} {saveFile} />
 
-<div class="content" class:nofile={!app.openedFile}>
-  {#if app.openedFile && !errored}
-    <TextArea bind:fileContents {onchange} />
+  <div class="content" class:nofile={!process.openedFile}>
+    {#if process.openedFile && !errored}
+      <TextArea bind:fileContents {onchange} />
 
-    <Bottom {fileContents} {app} />
-  {/if}
-</div>
-
-<Saving {saving} bind:app />
+      <Bottom {fileContents} {process} />
+    {/if}
+  </div>
+  <Saving {saving} parent={process} />
+{/if}

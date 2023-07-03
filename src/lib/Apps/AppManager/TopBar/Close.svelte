@@ -1,15 +1,16 @@
 <script lang="ts">
-  import { appManSelected } from "../../../../ts/applogic/apps/AppManager/store";
+  import { appManSelectedPid } from "../../../../ts/applogic/apps/AppManager/store";
   import { closeWindow } from "../../../../ts/applogic/events";
 
   function terminate() {
-    closeWindow($appManSelected);
+    console.log($appManSelectedPid);
+    /* closeWindow($appManSelected); */
 
-    $appManSelected = null;
+    $appManSelectedPid = null;
   }
 </script>
 
-<button class="action" disabled={!$appManSelected} on:click={terminate}>
+<button class="action" disabled={!$appManSelectedPid} on:click={terminate}>
   <span class="material-icons-round">close</span>
   <p class="caption">Close</p>
 </button>

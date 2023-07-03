@@ -1,11 +1,11 @@
 <script lang="ts">
   import { isPopulatable } from "../../../../ts/applogic/checks";
-  import { WindowStore } from "../../../../ts/applogic/store";
+  import { AppStore } from "../../../../ts/applogic/store";
   import AppListItem from "./AppListItem.svelte";
 </script>
 
 <div class="left">
-  {#each $WindowStore as app}
+  {#each Object.entries($AppStore) as [id, app]}
     {#if isPopulatable(app)}
       <AppListItem {app} />
     {/if}

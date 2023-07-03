@@ -1,8 +1,11 @@
 <script lang="ts">
+  import type { Process } from "../../../../ts/applogic/interface";
   import { showOverlay } from "../../../../ts/window/overlay";
 
+  export let process: Process;
+
   function trigger() {
-    showOverlay("createFolder", "FileManager");
+    showOverlay("createFolder", process.id);
   }
 </script>
 

@@ -1,5 +1,4 @@
-import { Log } from "../console";
-import { LogLevel } from "../console/interface";
+import { Log, LogLevel } from "../console";
 
 export function getSwitches(argv: string[]) {
   Log({

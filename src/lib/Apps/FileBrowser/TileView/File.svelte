@@ -1,24 +1,21 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import icon from "../../../../assets/apps/filemanager/file.svg";
-  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
-  import {
-    openUserFile,
-    openWithDialog,
-  } from "../../../../ts/api/fs/open/main";
-  import { formatBytes } from "../../../../ts/api/fs/sizes";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon";
+  import { openUserFile, openWithDialog } from "../../../../ts/api/fs/open";
   import type { ArcFile, PartialArcFile } from "../../../../ts/api/interface";
   import {
-    FileBrowserCuttingFilename as cutting,
     FileBrowserDirContents,
     FileBrowserOpeningFile,
     FileBrowserSelectedFilename,
+    FileBrowserCuttingFilename as cutting,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import type { Process } from "../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   export let file: PartialArcFile;
-
+  export let process: Process;
   let img = icon;
 
   function select() {
@@ -27,11 +24,12 @@
 
   async function open() {
     $FileBrowserOpeningFile = file;
-    showOverlay("openingFile", "FileManager");
+
+    showOverlay("openingFile", process.id);
 
     let openResult = await openUserFile(file);
 
-    hideOverlay("openingFile", "FileManager");
+    hideOverlay("openingFile", process.id);
 
     $FileBrowserOpeningFile = null;
 
@@ -56,7 +54,7 @@
           ],
           image: icon,
         },
-        "FileManager"
+        process.id
       );
     }
 

@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { App } from "../../../../ts/applogic/interface";
-  import { LogStore } from "../../../../ts/console";
-  import type { LogItem, LogLevel } from "../../../../ts/console/interface";
+  import { log, LogItem, LogLevel } from "../../../../ts/console";
   import type { ScopedAppData } from "../../../../ts/userlogic/interfaces";
   import Filters from "./Actions/Filters.svelte";
   import Static from "./Actions/Static.svelte";
@@ -16,7 +15,7 @@
   let original: LogItem[] = [];
   let currentFilter: LogLevel;
 
-  LogStore.subscribe((v) => {
+  log.subscribe((v) => {
     updating = true;
 
     original = [];

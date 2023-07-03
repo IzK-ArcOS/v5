@@ -1,5 +1,6 @@
+import { get } from "svelte/store";
 import type { ContextMenuItem } from "../applogic/interface";
-import { getWindow } from "../applogic/store";
+import { ProcessStore } from "../applogic/store";
 
 export const SEP_ITEM = { sep: true };
 
@@ -60,14 +61,14 @@ export function getCallerScope(e: MouseEvent): HTMLDivElement {
 }
 
 export function getContextEntry(
-  windowId: string,
+  pid: number,
   scope: string
 ): ContextMenuItem[] | false {
-  const window = getWindow(windowId);
+  const process = get(ProcessStore)[pid];
 
-  if (!window || !window.contextMenu) return false;
+  if (!process || !process.app.contextMenu) return false;
 
-  const menu = Object.entries(window.contextMenu);
+  const menu = Object.entries(process.app.contextMenu);
 
   for (let i = 0; i < menu.length; i++) {
     if (scope.includes(menu[i][0])) return menu[i][1];

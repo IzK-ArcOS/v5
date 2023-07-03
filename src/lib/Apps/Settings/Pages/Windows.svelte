@@ -1,7 +1,10 @@
 <script lang="ts">
+  import type { Process } from "../../../../ts/applogic/interface";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import { showOverlay } from "../../../../ts/window/overlay";
   import OptionSection from "../OptionSection.svelte";
+
+  export let process: Process;
 </script>
 
 <h1>Windows</h1>
@@ -33,7 +36,7 @@
   />
 </OptionSection>
 <OptionSection title="Titlebar Buttons" context="Change the titlebar controls">
-  <button on:click={() => showOverlay("changeTitleButtons", "SettingsApp")}
+  <button on:click={() => showOverlay("changeTitleButtons", process.id)}
     >Change...</button
   >
 </OptionSection>

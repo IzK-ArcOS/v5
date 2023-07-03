@@ -9,9 +9,11 @@
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { hideOverlay } from "../../../../ts/window/overlay";
   import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
+  import type { Process } from "../../../../ts/applogic/interface";
+
+  export let parent: Process;
 
   let folderName = "";
-
   let exists = false;
 
   function updateExists() {
@@ -40,7 +42,7 @@
   }
 
   function cancel() {
-    hideOverlay("createFolder", "FileManager");
+    hideOverlay("createFolder", parent.id);
     folderName = "";
   }
 </script>

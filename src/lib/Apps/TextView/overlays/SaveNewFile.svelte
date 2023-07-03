@@ -1,17 +1,20 @@
 <script lang="ts">
   import { get } from "svelte/store";
   import icon from "../../../../assets/apps/textview/save.svg";
-  import { openUserFile } from "../../../../ts/api/fs/open/main";
+  import { openUserFile } from "../../../../ts/api/fs/open";
   import {
     TextEditorContent,
     saveTextEditorFile,
   } from "../../../../ts/applogic/apps/TextEditor/main";
   import { hideOverlay } from "../../../../ts/window/overlay";
+  import type { Process } from "../../../../ts/applogic/interface";
+
+  export let parent: Process;
 
   let value = "";
 
   function closeThis() {
-    hideOverlay("saveNewFile", "TextEditor");
+    hideOverlay("saveNewFile", parent.id);
   }
 
   async function save() {

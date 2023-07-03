@@ -11,11 +11,9 @@
   import { makeNotification } from "../../../../ts/notiflogic/main";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
   import type { ArcFile } from "../../../../ts/api/interface";
-  import {
-    fileToArcFile,
-    partialFileToComplete,
-  } from "../../../../ts/api/fs/convert";
+  import type { Process } from "../../../../ts/applogic/interface";
 
+  export let process: Process;
   let uploader: HTMLInputElement;
 
   async function doUpload() {
@@ -30,11 +28,11 @@
           buttons: [{ caption: "Understood", action() {} }],
           image: upload,
         },
-        "FileManager"
+        process.id
       );
     }
 
-    showOverlay("uploadingFile", "FileManager");
+    showOverlay("uploadingFile", process.id);
 
     let maxTimeout = 50;
 
@@ -47,7 +45,7 @@
     }
 
     setTimeout(() => {
-      hideOverlay("uploadingFile", "FileManager");
+      hideOverlay("uploadingFile", process.id);
 
       fbClass.refresh();
     }, maxTimeout + 500);
@@ -57,7 +55,12 @@
     const content = new Blob([new Uint8Array(await file.arrayBuffer())]);
     const path = `${$FileBrowserCurrentDir}/${file.name}`.split("//").join("/");
 
-    const data = await fileToArcFile(file, path);
+    const data: ArcFile = {
+      name: file.name,
+      path,
+      data: await file.arrayBuffer(),
+      mime: "ArcOS Uploadable",
+    };
 
     FileBrowserUploadFile.set(data);
 

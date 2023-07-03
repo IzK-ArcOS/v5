@@ -1,11 +1,10 @@
-import { get } from "svelte/store";
-import { getServer } from "../api/server";
-import { focusedWindowId } from "../applogic/store";
-import { Log } from "../console";
+import { get, writable } from "svelte/store";
+import { focusedProcessPid } from "../applogic/store";
+import { Log, LogLevel } from "../console";
 import { UserName } from "../userlogic/interfaces";
 import type { ArcTermEnv } from "./env";
 import type { ArcTerm } from "./main";
-import { LogLevel } from "../console/interface";
+import { getServer } from "../api/server";
 
 export class ArcTermInput {
   private lockInput = false;
@@ -93,7 +92,7 @@ export class ArcTermInput {
     wrap.append(inner);
 
     setTimeout(() => {
-      if (this.term.app && get(focusedWindowId) == this.term.app.id)
+      if (this.term.process && get(focusedProcessPid) == this.term.process.id)
         input.focus();
     });
 

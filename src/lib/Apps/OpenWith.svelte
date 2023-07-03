@@ -4,13 +4,18 @@
     findAppToOpen,
     getAllFileHandlers,
     openWith,
-  } from "../../ts/api/fs/open/main";
+  } from "../../ts/api/fs/open";
   import { FileLoaders } from "../../ts/api/fs/open/loader";
   import type { UserFileLoader } from "../../ts/api/interface";
   import { OpenWithFile } from "../../ts/applogic/apps/OpenWith";
   import { closeWindow } from "../../ts/applogic/events";
   import type { App } from "../../ts/applogic/interface";
-  import { getWindow, isFullscreenWindow } from "../../ts/applogic/store";
+  import { getPID } from "../../ts/applogic/pid";
+  import {
+    AppStore,
+    getWindow,
+    isFullscreenWindow,
+  } from "../../ts/applogic/store";
   import LoaderOption from "./OpenWith/LoaderOption.svelte";
   import Option from "./OpenWith/Option.svelte";
 
@@ -18,6 +23,7 @@
   let loaderOptions: UserFileLoader[] = [];
   let selected = "";
   let filename = "";
+  export let pid: number;
 
   OpenWithFile.subscribe((v) => {
     if (!v) return (filename = "file");
@@ -53,7 +59,7 @@
   });
 
   function openThis() {
-    const window = getWindow(selected);
+    const window = $AppStore[selected];
     if (window) {
       openWith(window.id, $OpenWithFile, $OpenWithFile.anymime);
     } else {
@@ -74,7 +80,7 @@
 
   function closeThis() {
     isFullscreenWindow.set(false);
-    closeWindow("OpenWithApp");
+    closeWindow(getPID("OpenWithApp"));
   }
 </script>
 
@@ -89,6 +95,7 @@
         bind:loaderOptions
         bind:options
         bind:selected
+        {pid}
       />
     {/each}
     {#if !options.length}
@@ -102,6 +109,7 @@
         bind:loaderOptions
         bind:options
         bind:selected
+        {pid}
       />
     {/each}
     {#if !loaderOptions.length}

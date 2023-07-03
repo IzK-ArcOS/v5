@@ -46,6 +46,7 @@ export interface UserData {
   autoRun: string[];
   autoLoads: string[];
   askPresist: boolean;
+  devmode: boolean;
 
   acc: {
     enabled: boolean;

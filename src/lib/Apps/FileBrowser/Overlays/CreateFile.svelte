@@ -2,14 +2,17 @@
   import defaultIcon from "../../../../assets/mimetypes/text-plain.svg";
   import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
   import { writeFile } from "../../../../ts/api/fs/file";
-  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon";
   import {
     fbClass,
     FileBrowserCurrentDir,
     FileBrowserDirContents,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import type { Process } from "../../../../ts/applogic/interface";
   import { hideOverlay } from "../../../../ts/window/overlay";
+
+  export let parent: Process;
 
   let filename = "";
   let img = "";
@@ -43,7 +46,7 @@
   }
 
   function cancel() {
-    hideOverlay("createFile", "FileManager");
+    hideOverlay("createFile", parent.id);
     filename = "";
   }
 </script>

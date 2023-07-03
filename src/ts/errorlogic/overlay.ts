@@ -1,33 +1,31 @@
 import { get } from "svelte/store";
 import type { OverlayableError } from "../applogic/interface";
-import { WindowStore } from "../applogic/store";
-import { Log } from "../console";
-import { LogLevel } from "../console/interface";
+import { AppStore, ProcessStore } from "../applogic/store";
+import { Log, LogLevel } from "../console";
 
-export function createOverlayableError(
-  error: OverlayableError,
-  targetId: string
-): boolean {
+export function createOverlayableError(error: OverlayableError, targetPid: number): boolean {
   Log({
     source: "errorlogic/overlay.ts",
-    msg: `Creating error "${error.title}" for parent ${targetId}`,
+    msg: `Creating error "${error.title}" for parent ${targetPid}`,
     level: LogLevel.info,
   });
-  const ws = get(WindowStore);
+  const processStore = get(ProcessStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    const window = ws[i];
+  for (const strI in processStore) {
+    const i = parseInt(strI);
+    const process = processStore[i];
 
-    if (window.id != targetId) continue;
+    if (process.id != targetPid) continue;
 
-    if (!window.errorOverlays) window.errorOverlays = [];
+    if (!process.errorProcessOverlays) process.errorProcessOverlays = [];
 
-    window.errorOverlays.push({
+    const overlayErrorId: number = Math.floor(Math.random() * 1e9);
+    process.errorProcessOverlays[overlayErrorId] = {
       ...error,
-      id: `${Math.floor(Math.random() * 1e9)}`,
-    });
+      id: overlayErrorId,
+    };
 
-    WindowStore.set(ws);
+    ProcessStore.set(processStore);
 
     return true;
   }
@@ -35,26 +33,14 @@ export function createOverlayableError(
   return false;
 }
 
-export function destroyOverlayableError(errorId: string, ownerId: string) {
-  const ws = get(WindowStore);
+export function destroyOverlayableError(errorId: number, ownerPid: number): boolean {
+  const processStore = get(ProcessStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    const window = ws[i];
+  if (!processStore[ownerPid].errorProcessOverlays[errorId]) return false;
 
-    if (window.id != ownerId || !window.errorOverlays) continue;
+  delete processStore[ownerPid].errorProcessOverlays[errorId];
 
-    const errors = window.errorOverlays;
+  ProcessStore.set(processStore);
 
-    for (let j = 0; j < errors.length; j++) {
-      if (errors[j].id != errorId) continue;
-
-      errors.splice(j, 1);
-
-      WindowStore.set(ws);
-
-      return true;
-    }
-  }
-
-  return false;
+  return true;
 }

@@ -1,9 +1,8 @@
 import { get } from "svelte/store";
-import { Log } from "../../console";
+import { Log, LogLevel } from "../../console";
 import { UserToken } from "../../userlogic/interfaces";
 import type { DirectoryGet, DirReadResponse } from "../interface";
 import { apiCall, ConnectedServer } from "../main";
-import { LogLevel } from "../../console/interface";
 
 export async function getDirectory(path: string = "./"): DirectoryGet {
   Log({

@@ -1,5 +1,4 @@
-import { Log } from "../console";
-import { LogLevel } from "../console/interface";
+import { Log, LogLevel } from "../console";
 import type { StaticVariableStore, Variable, VariableStore } from "./interface";
 import type { ArcTerm } from "./main";
 import { getArcTermStore } from "./var/store";

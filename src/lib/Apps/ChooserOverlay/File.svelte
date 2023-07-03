@@ -1,8 +1,8 @@
-<script lang="ts">
+<!-- <script lang="ts">
   import { onMount } from "svelte";
   import type { Writable } from "svelte/store";
   import { readFile } from "../../../ts/api/fs/file";
-  import { getMimeIcon } from "../../../ts/api/fs/icon/main";
+  import { getMimeIcon } from "../../../ts/api/fs/icon";
   import { formatBytes } from "../../../ts/api/fs/sizes";
   import type { PartialArcFile } from "../../../ts/api/interface";
   import type { OverlayableApp } from "../../../ts/applogic/interface";
@@ -47,3 +47,4 @@
   <div class="mime">{file.mime.split("; ")[0].split("/").join(" - ")}</div>
   <div class="size">{formatBytes(file.size)}</div>
 </button>
+ -->

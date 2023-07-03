@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
   import type { Writable } from "svelte/store";
   import type { UserDirectory } from "../../../ts/api/interface";
   import type { OverlayableApp } from "../../../ts/applogic/interface";
@@ -26,3 +26,4 @@
     {/each}
   </div>
 </div>
+ -->

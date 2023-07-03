@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { App } from "../../../../../../ts/applogic/interface";
+  import type { Process } from "../../../../../../ts/applogic/interface";
   import { UserData } from "../../../../../../ts/userlogic/interfaces";
   import { ProfilePictures } from "../../../../../../ts/userlogic/pfp";
   import {
@@ -10,7 +10,7 @@
 
   let pfps: string[] = [];
   export let id: string;
-  export let app: App;
+  export let parent: Process;
 
   onMount(() => {
     pfps = Object.values(ProfilePictures);
@@ -23,11 +23,11 @@
   }
 
   function hide() {
-    hideOverlay(id, app.id);
+    hideOverlay(id, parent.id);
   }
 
   function custom() {
-    showOverlay("customPfp", "SettingsApp");
+    showOverlay("customPfp", parent.id);
   }
 </script>
 

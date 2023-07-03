@@ -1,29 +1,29 @@
 import { get } from "svelte/store";
-import { WindowStore } from "../applogic/store";
-import { generateChooserOverlayData } from "./data";
+import { ProcessStore } from "../applogic/store";
+import { generateChooserOverlayProcess } from "./data";
 import { assignTarget } from "./store";
+import { makeNotification } from "../notiflogic/main";
 
-export function showOpenFileDialog(targetId: string) {
-  const ws = get(WindowStore);
+export function showOpenFileDialog(targetPid: number) {
+  makeNotification({
+    title: "Not possible",
+    message:
+      "Due to PID conversion the ChooserOverlay (open file dialog) has been disabled due to incompatibilities. This is not a bug, but rather a temporary required block.",
+    buttons: [],
+    timeout: 3000,
+  });
+  return;
 
-  let index = null;
+  const processStore = get(ProcessStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == targetId) {
-      index = i;
-      break;
-    }
-  }
+  const overlay = generateChooserOverlayProcess();
 
-  if (index == null) return false;
+  assignTarget(overlay.id, targetPid);
 
-  const overlay = generateChooserOverlayData();
+  if (processStore[targetPid] && !processStore[targetPid].overlayProcesses)
+    processStore[targetPid].overlayProcesses = {};
 
-  assignTarget(overlay.id, targetId);
+  processStore[targetPid].overlayProcesses[overlay.id] = overlay;
 
-  if (!ws[index].overlays) ws[index].overlays = {};
-
-  ws[index].overlays[overlay.id] = overlay;
-
-  WindowStore.set(ws);
+  ProcessStore.set(processStore);
 }

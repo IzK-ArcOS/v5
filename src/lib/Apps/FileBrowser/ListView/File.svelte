@@ -2,11 +2,8 @@
   import { onMount } from "svelte";
   import icon from "../../../../assets/apps/filemanager/file.svg";
   import { readFile } from "../../../../ts/api/fs/file";
-  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
-  import {
-    openUserFile,
-    openWithDialog,
-  } from "../../../../ts/api/fs/open/main";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon";
+  import { openUserFile, openWithDialog } from "../../../../ts/api/fs/open";
   import { formatBytes } from "../../../../ts/api/fs/sizes";
   import type { ArcFile, PartialArcFile } from "../../../../ts/api/interface";
   import {
@@ -17,9 +14,10 @@
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
-  import { partialFileToComplete } from "../../../../ts/api/fs/convert";
+  import type { Process } from "../../../../ts/applogic/interface";
 
   export let file: PartialArcFile;
+  export let process: Process;
 
   let img = icon;
 
@@ -29,11 +27,11 @@
 
   async function open() {
     $FileBrowserOpeningFile = file;
-    showOverlay("openingFile", "FileManager");
+    showOverlay("openingFile", process.id);
 
     let openResult = await openUserFile(file);
 
-    hideOverlay("openingFile", "FileManager");
+    hideOverlay("openingFile", process.id);
 
     $FileBrowserOpeningFile = null;
 
@@ -58,7 +56,7 @@
           ],
           image: icon,
         },
-        "FileManager"
+        process.id
       );
     }
 
@@ -72,13 +70,18 @@
   async function openWith() {
     $FileBrowserOpeningFile = file;
 
-    showOverlay("openingFile", "FileManager");
+    showOverlay("openingFile", process.id);
 
-    const data = await partialFileToComplete(file);
+    let data: ArcFile = {
+      data: (await readFile(file.scopedPath)) as ArrayBuffer,
+      name: file.filename,
+      path: file.scopedPath,
+      mime: file.mime,
+    };
 
     openAny(data);
 
-    hideOverlay("openingFile", "FileManager");
+    hideOverlay("openingFile", process.id);
 
     $FileBrowserOpeningFile = file;
   }

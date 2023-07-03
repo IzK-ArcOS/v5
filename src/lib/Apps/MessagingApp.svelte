@@ -8,6 +8,9 @@
   import ListBar from "./MessagingApp/ListBar.svelte";
   import { onMount } from "svelte";
   import Content from "./MessagingApp/Content.svelte";
+  import type { Process } from "../../ts/applogic/interface";
+
+  export let process: Process;
 
   onMount(() => {
     $messagingPage = MessagingPages["inbox"];
@@ -17,5 +20,5 @@
 <SideBar />
 {#if $messagingPage}
   <ListBar />
-  <Content />
+  <Content {process} />
 {/if}

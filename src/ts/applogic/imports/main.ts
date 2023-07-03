@@ -1,8 +1,7 @@
-import { Log } from "../../console";
-import { LogLevel } from "../../console/interface";
-import { openWindow } from "../events";
-import { loadWindow } from "../load";
-import { updateStores } from "../store";
+import { Log, LogLevel } from "../../console";
+import { createProcess } from "../events";
+import type { App } from "../interface";
+import { loadApp } from "../load";
 import { DefaultApps } from "./store";
 
 export async function importDefault(open = false) {
@@ -21,10 +20,10 @@ export async function importDefault(open = false) {
       level: LogLevel.info,
     });
 
-    await loadWindow(entries[i][0], entries[i][1]);
+    await loadApp(entries[i][0], entries[i][1]);
 
-    if (open) openWindow(entries[i][0]);
+    if (open) createProcess(entries[i][0]);
   }
 
-  updateStores();
+   
 }

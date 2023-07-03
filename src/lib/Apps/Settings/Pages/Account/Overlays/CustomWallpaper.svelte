@@ -5,8 +5,12 @@
   import desktop from "../../../../../../assets/apps/settings/desktop.svg";
   import { UserData } from "../../../../../../ts/userlogic/interfaces";
   import { onMount } from "svelte";
+  import type { Process } from "../../../../../../ts/applogic/interface";
+
   let valid = false;
   let url: string;
+
+  export let parent: Process;
 
   function load() {
     $UserData.sh.desktop.wallpaper = url;
@@ -27,12 +31,10 @@
   }
 
   function cancel() {
-    hideOverlay("customWallpaper", "SettingsApp");
+    hideOverlay("customWallpaper", parent.id);
   }
 
   async function checkImage(url): Promise<boolean> {
-    if (!url) return;
-
     const img = new Image();
 
     img.src = url;

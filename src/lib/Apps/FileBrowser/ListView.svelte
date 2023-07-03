@@ -9,6 +9,7 @@
     FileBrowserCurrentDir,
     FileBrowserRefreshing,
   } from "../../../ts/applogic/apps/FileBrowser/main";
+  import type { Process } from "../../../ts/applogic/interface";
   import Spinner from "../../Spinner.svelte";
   import Dir from "./ListView/Dir.svelte";
   import File from "./ListView/File.svelte";
@@ -16,6 +17,7 @@
 
   export let files: PartialArcFile[] = [];
   export let dirs: PartialUserDir[] = [];
+  export let process: Process;
 </script>
 
 {#if !dirs.length && !files.length}
@@ -37,7 +39,7 @@
         <Dir {dir} />
       {/each}
       {#each files as file}
-        <File {file} />
+        <File {file} {process} />
       {/each}
     </div>
   </div>

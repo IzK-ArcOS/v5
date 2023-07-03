@@ -13,16 +13,15 @@ export const ErrorCreator: App = {
     icon: logo,
     hidden: true,
   },
-  size: { w: 300, h: 267 },
-  pos: { x: 30, y: 40 },
+  initialSize: { w: 300, h: 267 },
   minSize: { w: 300, h: 253 },
   maxSize: { w: 300, h: 253 },
-  controls: { min: true, max: false, cls: true },
-  state: {
+  controls: { minimized: true, maximized: false, close: true },
+  windowProperties: {
     headless: false,
     resizable: false,
-    windowState: { min: false, max: false, fll: false },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
   content: ErrorCreatorSvelte,
   glass: true,
 };

@@ -1,26 +1,21 @@
 import { get } from "svelte/store";
-import { Log } from "../console";
-import { LogLevel } from "../console/interface";
-import { WindowStore } from "./store";
+import { Log, LogLevel } from "../console";
+import { AppStore, ProcessStore } from "./store";
 
-export function setTitleSuffix(content: string, appId: string) {
+export function setTitleSuffix(content: string, pid: number) {
   Log({
-    msg: `Setting title suffix of ${appId}`,
+    msg: `Setting title suffix of ${pid}`,
     source: "title.ts: setTitleSuffix",
     level: LogLevel.info,
   });
 
-  const ws = get(WindowStore);
+  const processStore = get(ProcessStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == appId) {
-      if (!Originals[appId]) Originals[appId] = `${ws[i].info.titleSuffix}`;
+  if (!Originals[pid]) Originals[pid] = `${processStore[pid].app.info.titleSuffix}`;
 
-      ws[i].info.titleSuffix = content;
-    }
-  }
+  processStore[pid].app.info.titleSuffix = content;
 
-  WindowStore.set(ws);
+  ProcessStore.set(processStore);
 }
 
 export function resetTitleSuffix(appId: string) {
@@ -32,17 +27,13 @@ export function resetTitleSuffix(appId: string) {
 
   if (!Originals[appId]) return;
 
-  const ws = get(WindowStore);
+  const appStore = get(AppStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == appId) {
-      ws[i].info.titleSuffix = Originals[appId];
+  appStore[appId].info.titleSuffix = Originals[appId];
 
-      delete Originals[appId];
-    }
-  }
+  delete Originals[appId];
 
-  WindowStore.set(ws);
+  AppStore.set(appStore);
 }
 
 const Originals: { [key: string]: string } = {};

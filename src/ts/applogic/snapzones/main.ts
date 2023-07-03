@@ -1,36 +1,36 @@
 import { get } from "svelte/store";
 import { getWindowElement } from "../../window/main";
-import { openWindow } from "../events";
-import { getWindow, WindowStore } from "../store";
+import { createProcess } from "../events";
+import { AppStore, ProcessStore } from "../store";
 import type { SnapTriggerBounds } from "./interface";
-import { draggingId, leftZoneTriggered, rightZoneTriggered } from "./store";
+import { draggingPid, leftZoneTriggered, rightZoneTriggered } from "./store";
 
-export function checkZones(x: number, y: number, id: string) {
-  const gB = getBounds();
-  const gW = getWindow(id);
+export function checkZones(x: number, y: number, pid: number) {
+  const bounds = getBounds();
+  const process = get(ProcessStore)[pid];
 
-  if (id.startsWith("error_")) return;
+  // if (pid.startsWith("error_")) return;
 
-  const cF = gW.state.resizable || gW.controls.max;
+  const isResizable = process.app.windowProperties.resizable || process.app.controls.maximized;
 
-  if (!gW || !gB) return;
+  if (!process || !bounds) return;
 
-  const l = gB.lTrig;
-  const r = gB.rTrig;
+  const l = bounds.lTrig;
+  const r = bounds.rTrig;
 
-  const isL = cF && x > l.xStart && x < l.xEnd && y > l.yStart && y < l.yEnd;
-  const isR = cF && x > r.xStart && x < r.xEnd && y > r.yStart && y < r.yEnd;
+  const isL = isResizable && x > l.xStart && x < l.xEnd && y > l.yStart && y < l.yEnd;
+  const isR = isResizable && x > r.xStart && x < r.xEnd && y > r.yStart && y < r.yEnd;
 
   leftZoneTriggered.set(isL);
   rightZoneTriggered.set(isR);
 
-  draggingId.set(isL || isR ? id : null);
+  draggingPid.set(isL || isR ? pid : null);
 }
 
-export function getBounds(): SnapTriggerBounds | false {
+export function getBounds(): SnapTriggerBounds | null {
   const [lTrig, rTrig, lZone, rZone] = getZoneElements();
 
-  if (!lTrig || !rTrig || !lZone || !rZone) return false;
+  if (!lTrig || !rTrig || !lZone || !rZone) return null;
 
   const bWidth = document.body.offsetWidth;
 
@@ -79,77 +79,64 @@ export function getZoneElements() {
   return arr as HTMLDivElement[];
 }
 
-export function snapWindow(id: string) {
-  console.table({ id });
+export function snapWindow(pid: number) {
   const leftTriggered = get(leftZoneTriggered);
   const rightTriggered = get(rightZoneTriggered);
 
-  if (leftTriggered || rightTriggered) draggingId.set(id);
+  if (leftTriggered || rightTriggered) draggingPid.set(pid);
 
   if (leftTriggered) snapLeft();
   if (rightTriggered) snapRight();
 }
 
 function snapLeft() {
-  const [gB, id, wE] = getData();
+  const [bounds, pid, windowElement] = getData();
 
-  if (!wE || !gB) return;
+  if (!windowElement || !bounds) return;
 
   let [x, y, w, h] = [0, 0, 0, 0];
 
-  const ws = get(WindowStore);
+  const processStore = get(ProcessStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    const W = ws[i];
+  processStore[pid].pos.x = x = bounds.lZone.xStart;
+  processStore[pid].pos.y = y = bounds.lZone.yStart;
+  processStore[pid].size.w = w = bounds.lZone.xEnd;
+  processStore[pid].size.h = h = bounds.lZone.yEnd;
 
-    if (W.id == id) {
-      W.pos.x = x = gB.lZone.xStart;
-      W.pos.y = y = gB.lZone.yStart;
-      W.size.w = w = gB.lZone.xEnd;
-      W.size.h = h = gB.lZone.yEnd;
+  processStore[pid].snapped = true;
 
-      W.snapped = true;
-    }
-  }
+  ProcessStore.set(processStore);
 
-  WindowStore.set(ws);
-
-  commitWindow(wE, x, y, w, h);
+  commitWindow(windowElement, x, y, w, h);
 }
 
-function getData(): [SnapTriggerBounds, string, HTMLDivElement] {
-  const gB = getBounds() as SnapTriggerBounds;
-  const id = get(draggingId);
-  const wE = getWindowElement(getWindow(id));
+function getData(): [SnapTriggerBounds, number, HTMLDivElement] {
+  const bounds = getBounds() as SnapTriggerBounds;
+  const pid = get(draggingPid);
+  const windowElement = getWindowElement(pid);
 
-  return [gB, id, wE];
+  return [bounds, pid, windowElement];
 }
 
 function snapRight() {
-  const [gB, id, wE] = getData();
+  const [bounds, pid, windowElement] = getData();
 
-  if (!wE || !gB) return;
+  if (!windowElement || !bounds) return;
 
   let [x, y, w, h] = [0, 0, 0, 0];
 
-  const ws = get(WindowStore);
+  const processStore = get(ProcessStore);
 
-  for (let i = 0; i < ws.length; i++) {
-    const W = ws[i];
+  processStore[pid].pos.x = x = bounds.rZone.xStart;
+  processStore[pid].pos.y = y = bounds.rZone.yStart;
+  processStore[pid].size.w = w = bounds.rZone.xEnd - bounds.rZone.xStart;
+  processStore[pid].size.h = h = bounds.rZone.yEnd - bounds.rZone.yStart;
 
-    if (W.id == id) {
-      W.pos.x = x = gB.rZone.xStart;
-      W.pos.y = y = gB.rZone.yStart;
-      W.size.w = w = gB.rZone.xEnd - gB.rZone.xStart;
-      W.size.h = h = gB.rZone.yEnd - gB.rZone.yStart;
+  processStore[pid].snapped = true;
 
-      W.snapped = true;
-    }
-  }
+  ProcessStore.set(processStore);
 
-  WindowStore.set(ws);
-
-  commitWindow(wE, x, y, w, h);
+  commitWindow(windowElement, x, y, w, h);
 }
 
 function commitWindow(
@@ -165,6 +152,6 @@ function commitWindow(
     window.style.width = w + "px";
     window.style.height = h + "px";
 
-    openWindow(get(draggingId));
+    // createProcess(get(draggingPid));
   }, 5);
 }

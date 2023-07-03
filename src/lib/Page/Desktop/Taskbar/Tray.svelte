@@ -2,7 +2,7 @@
   import dayjs from "dayjs";
   import { onMount } from "svelte";
   import {
-    ActionCenterOpened,
+    actionCenterOpened,
     toggleActionCenter,
   } from "../../../../ts/desktop/actioncenter/main";
   import { trayIcons } from "../../../../ts/desktop/tray/main";
@@ -39,7 +39,7 @@
   <button
     class="material-icons-round ac-open"
     on:click={toggleActionCenter}
-    class:opened={$ActionCenterOpened}
+    class:opened={$actionCenterOpened}
   >
     notifications
   </button>

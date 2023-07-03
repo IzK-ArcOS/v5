@@ -1,17 +1,17 @@
 <script lang="ts">
   import { isMinimized } from "../../../../ts/applogic/checks";
-  import { getAppIcon, getOriginalIcon } from "../../../../ts/applogic/icon";
-  import type { App } from "../../../../ts/applogic/interface";
+  import { getAppIcon } from "../../../../ts/applogic/icon";
+  import type { Process } from "../../../../ts/applogic/interface";
   import {
-    focusedWindowId,
+    AppStore,
+    focusedProcessPid,
     maxZIndex,
     updateStores,
-    WindowStore,
   } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import { getWindowElement } from "../../../../ts/window/main";
 
-  export let app: App;
+  export let process: Process;
 
   let showLabel = false;
   let minimized = false;
@@ -20,21 +20,21 @@
     showLabel = v.sh.taskbar.labels;
   });
 
-  WindowStore.subscribe(() => {
-    minimized = isMinimized(app.id);
+  AppStore.subscribe(() => {
+    minimized = isMinimized(process.id);
   });
 
   function e() {
-    if ($focusedWindowId == app.id)
-      app.state.windowState.min = !app.state.windowState.min;
-    else app.state.windowState.min = false;
+    if ($focusedProcessPid == process.id)
+      process.windowState.minimized = !process.windowState.minimized;
+    else process.windowState.minimized = false;
 
     updateStores();
 
     $maxZIndex++;
-    $focusedWindowId = app.id;
+    $focusedProcessPid = process.id;
 
-    const window = getWindowElement(app);
+    const window = getWindowElement(process.id);
 
     window.style.zIndex = $maxZIndex.toString();
   }
@@ -44,14 +44,10 @@
   class="appbutton"
   class:minimized
   on:click={e}
-  class:activated={app.id == $focusedWindowId}
+  class:activated={process.id == $focusedProcessPid}
 >
-  <img
-    src={getOriginalIcon(app.id) || getAppIcon(app)}
-    alt={app.info.name}
-    class="icon"
-  />
+  <img src={getAppIcon(process.app)} alt={process.app.info.name} class="icon" />
   {#if showLabel}
-    <span>{app.info.name}</span>
+    <span>{process.app.info.name}</span>
   {/if}
 </button>

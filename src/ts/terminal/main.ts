@@ -1,6 +1,6 @@
-import type { App } from "../applogic/interface";
-import { Log } from "../console";
-import { LogLevel } from "../console/interface";
+import { get } from "svelte/store";
+import type { Process } from "../applogic/interface";
+import { Log, LogLevel, compileStringLog, log } from "../console";
 import { ArcOSVersion } from "../env/main";
 import sleep from "../sleep";
 import { ArcTermCommandHandler } from "./commands";
@@ -24,7 +24,7 @@ import { ArcTermVariables } from "./var";
 export class ArcTerm {
   target: HTMLDivElement;
   commands: CommandStore;
-  app: App;
+  process: Process;
   std: ArcTermStd;
   util: ArcTermUtil;
   env: ArcTermEnv;
@@ -36,14 +36,14 @@ export class ArcTerm {
   onload: (term: ArcTerm) => void;
 
   constructor(
-    t: HTMLDivElement,
-    cS: CommandStore,
-    a: App,
+    windowElement: HTMLDivElement,
+    commandStore: CommandStore,
+    process: Process,
     cb?: (term: ArcTerm) => void
   ) {
-    this.target = t;
-    this.commands = cS;
-    this.app = a;
+    this.target = windowElement;
+    this.commands = commandStore;
+    this.process = process;
     this.onload = cb;
 
     this.initialize();
@@ -59,7 +59,7 @@ export class ArcTerm {
       level: LogLevel.info,
     });
 
-    if (!this.target) return initError(this.app.id);
+    if (!this.target) return initError(this.process.id);
 
     this.target.innerText = `Starting ArcTerm v${ArcOSVersion}...`;
 

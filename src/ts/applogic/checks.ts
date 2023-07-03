@@ -1,32 +1,37 @@
 import { get } from "svelte/store";
 import type { App } from "./interface";
-import { getWindow, WindowStore } from "./store";
+import { AppStore, ProcessStore } from "./store";
 import { UserData } from "../userlogic/interfaces";
 
 export function isLoaded(id: string): boolean {
-  const ws = get(WindowStore);
+  const apps = Object.entries(get(AppStore));
 
-  return !!ws.filter((a) => a && a.id == id).length;
+  for (let i = 0; i < apps.length; i++) {
+    if (apps[i][1] && apps[i][1].id == id) return true;
+  }
+
+  return false;
 }
 
-export function isOpened(id: string): boolean {
-  const window = getWindow(id);
+export function isMinimized(pid: number): boolean {
+  const processStore = get(ProcessStore);
 
-  if (!window) return false;
+  for (const strI in processStore) {
+    const i = parseInt(strI);
+    if (processStore[i] && processStore[i].id == pid && processStore[i].windowState.minimized) return true;
+  }
 
-  return window.opened;
-}
-
-export function isMinimized(id: string): boolean {
-  const ws = get(WindowStore);
-
-  return !!ws.filter((a) => a && a.id == id && a.state.windowState.min).length;
+  return false;
 }
 
 export function isDisabled(id: string): boolean {
-  const ws = get(WindowStore);
+  const apps = Object.entries(get(AppStore));
 
-  return !!ws.filter((a) => a && a.id == id && a.disabled).length;
+  for (let i = 0; i < apps.length; i++) {
+    if (apps[i][1] && apps[i][1].id == id && apps[i][1].disabled) return true;
+  }
+
+  return false;
 }
 
 export function isPopulatable(app: App) {
@@ -34,4 +39,9 @@ export function isPopulatable(app: App) {
     return true;
 
   return !app.disabled && !app.info.hidden && !app.info.custom;
+}
+
+// DUMMY FUNCTION
+export function isOpened(app: App) {
+
 }

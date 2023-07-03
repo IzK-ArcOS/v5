@@ -1,9 +1,8 @@
 import { get } from "svelte/store";
-import { Log } from "../console";
+import { Log, LogLevel } from "../console";
 import { UserData } from "../userlogic/interfaces";
 import { isLoaded } from "./checks";
-import { openWindow } from "./events";
-import { LogLevel } from "../console/interface";
+import { createProcess } from "./events";
 
 export function autoRunApplications() {
   Log({
@@ -17,7 +16,7 @@ export function autoRunApplications() {
   const autoRun = udata.autoRun || [];
 
   for (let i = 0; i < autoRun.length; i++) {
-    if (isLoaded(autoRun[i])) openWindow(autoRun[i]);
+    if (isLoaded(autoRun[i])) createProcess(autoRun[i]);
     else
       Log({
         msg: `Can't start ${autoRun[i]} at index ${i}: not loaded.`,

@@ -10,7 +10,9 @@
   } from "../../../../../ts/messaging/send";
   import { messageUpdateTrigger } from "../../../../../ts/messaging/updates";
   import icon from "../../../../../assets/apps/error.svg";
+  import type { Process } from "../../../../../ts/applogic/interface";
 
+  export let process: Process;
   export let content: string;
   export let target: string;
   export let viewing: boolean;
@@ -44,7 +46,7 @@
           },
         ],
       },
-      "MessagingApp"
+      process.id
     );
   }
 

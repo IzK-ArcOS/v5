@@ -1,41 +1,41 @@
 <script lang="ts">
   import { currentSettingsPage } from "../../../ts/applogic/apps/SettingsApp/main";
+  import type { Process } from "../../../ts/applogic/interface";
   import { ScopedAppData, UserData } from "../../../ts/userlogic/interfaces";
 
   export let appdata: ScopedAppData;
+  export let process: Process;
 
-  let cName = "";
-
+  let className = "";
   let settingsPage;
-
-  let t;
+  let cname;
 
   currentSettingsPage.subscribe((v) => {
-    clearTimeout(t);
+    clearTimeout(cname);
 
-    cName = "static";
+    className = "static";
 
     if ($UserData && !$UserData.sh.anim && v) return (settingsPage = v);
     if (!v || (settingsPage && v.name == settingsPage.name)) return;
 
-    cName = "slide-out-right";
+    className = "slide-out-right";
 
-    t = setTimeout(() => {
+    cname = setTimeout(() => {
       settingsPage = v;
 
-      cName = "slide-in-left";
+      className = "slide-in-left";
 
-      t = setTimeout(() => {
-        cName = "static";
+      cname = setTimeout(() => {
+        className = "static";
       }, 301);
     }, 500);
   });
 </script>
 
 <div class="content" class:collapsed={appdata.collapsed}>
-  <div class="inner {cName}">
+  <div class="inner {className}">
     {#if settingsPage}
-      <svelte:component this={settingsPage.content} />
+      <svelte:component this={settingsPage.content} {process} />
     {/if}
   </div>
 </div>

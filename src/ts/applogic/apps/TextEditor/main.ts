@@ -1,11 +1,11 @@
 import { get, writable } from "svelte/store";
 import { writeFile } from "../../../api/fs/file";
 import { closeFile } from "../../../api/fs/main";
-import { openWith } from "../../../api/fs/open/main";
+import { openWith } from "../../../api/fs/open";
 import { showOpenFileDialog } from "../../../chooser/main";
 import { createOverlayableError } from "../../../errorlogic/overlay";
-import { closeWindow, openWindow } from "../../events";
-import type { App } from "../../interface";
+import { closeProcess, createProcess } from "../../events";
+import type { Process } from "../../interface";
 import { registerShortcuts } from "../../keyboard/main";
 import type { ArcFile } from "../../../api/interface";
 
@@ -20,24 +20,24 @@ export async function saveTextEditorFile(
   await writeFile(openedFile.path, data);
 }
 
-export async function setShortcuts(app: App, save: () => void) {
-  registerShortcuts(
+export async function setShortcuts(process: Process, save: () => void) {
+  registerShortcuts(process.id,
     [
       {
         key: "o",
         alt: true,
         action: () => {
-          showOpenFileDialog(app.id);
+          showOpenFileDialog(process.id);
         },
       },
       {
         key: "m",
         alt: true,
         action: () => {
-          if (!app.openedFile || !app.openedFile.name.endsWith(".md")) return;
+          if (!process.openedFile || !process.openedFile.name.endsWith(".md")) return;
 
-          openWindow("MarkDownViewer");
-          closeFile("MarkDownViewer");
+          createProcess(process.app.id);
+          closeFile(process.id);
         },
       },
       {
@@ -45,24 +45,23 @@ export async function setShortcuts(app: App, save: () => void) {
         alt: true,
         action: save,
       },
-    ],
-    "TextEditor"
+    ]
   );
 
-  app.events.close = () => {
+  process.app.events.close = () => {
     if (get(TextEditorContent)) {
-      closeWindow("MarkDownViewer");
+      closeProcess(process.id);
     }
   };
 }
 
-export async function doLoadError(title: string, message: string) {
+export async function doLoadError(pid: number, title: string, message: string) {
   return createOverlayableError(
     {
       title: title,
       message: message,
-      buttons: [{ caption: "Close", action: () => closeWindow("TextEditor") }],
+      buttons: [{ caption: "Close", action: () => closeProcess(pid) }],
     },
-    "TextEditor"
+    pid
   );
 }

@@ -1,9 +1,8 @@
 import { writable } from "svelte/store";
 import { InvalidStateBugrep } from "../bugrep";
-import { Log } from "../console";
+import { Log, LogLevel } from "../console";
 import type { State } from "../state/interfaces";
 import { FTSStates } from "./store";
-import { LogLevel } from "../console/interface";
 
 export const CurrentFTSState = writable<State>();
 

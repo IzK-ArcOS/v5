@@ -12,16 +12,15 @@ export const CalculatorApp: App = {
     author: "Izaak Kuipers",
     icon: logo,
   },
-  size: { w: 340, h: NaN },
-  pos: { x: 60, y: 60 },
+  initialSize: { w: 340, h: NaN },
   minSize: { w: 340, h: NaN },
   maxSize: { w: 340, h: NaN },
-  controls: { min: true, max: false, cls: true },
-  state: {
+  controls: { minimized: true, maximized: false, close: true },
+  windowProperties: {
     headless: false,
     resizable: false,
-    windowState: { min: false, max: false, fll: false },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
   content: Calculator,
   glass: true,
   events: {

@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
   import { onMount } from "svelte";
   import { writable } from "svelte/store";
   import { getDirectory } from "../../ts/api/fs/directory";
@@ -69,3 +69,4 @@
   </div>
   <BottomPane {currentDir} {currentPath} {selected} {overlay} {processing} />
 {/if}
+ -->

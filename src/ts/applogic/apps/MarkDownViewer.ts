@@ -3,7 +3,7 @@ import icon from "../../../assets/apps/markdownviewer.svg";
 import MarkDownViewerSvelte from "../../../lib/Apps/MarkDownViewer.svelte";
 import { resetTitleSuffix, setTitleSuffix } from "../title";
 import { get } from "svelte/store";
-import { getWindow, WindowStore } from "../store";
+import { AppStore, ProcessStore } from "../store";
 import { closeFile } from "../../api/fs/main";
 
 export const MarkDownViewer: App = {
@@ -16,24 +16,25 @@ export const MarkDownViewer: App = {
     builtin: true,
     hidden: true,
   },
-  size: { w: 700, h: 550 },
-  pos: { x: 30, y: 40 },
+  initialSize: { w: 700, h: 550 },
   minSize: { w: 400, h: 300 },
   maxSize: { w: 1000, h: 800 },
-  controls: { min: true, max: true, cls: true },
-  state: {
+  controls: { minimized: true, maximized: true, close: true },
+  windowProperties: {
     headless: false,
     resizable: true,
-    windowState: { min: false, max: false, fll: false },
   },
+  initialWindowState: { minimized: false, maximized: false, fullscreen: false },
   content: MarkDownViewerSvelte,
   glass: false,
   fileMimes: ["text/plain; charset=utf-8", "text/markdown; charset=utf-8"],
   events: {
-    openFile(app: App) {
-      if (!app.openedFile) return;
+    openFile(pid: number) {
+      const process = get(ProcessStore)[pid];
 
-      setTitleSuffix(` - ${app.openedFile.path}`, app.id);
+      if (!process.openedFile) return;
+
+      setTitleSuffix(` - ${process.openedFile.path}`, pid);
     },
   },
 };

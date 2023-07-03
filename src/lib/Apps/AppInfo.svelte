@@ -1,14 +1,13 @@
 <script lang="ts">
   import "../../css/desktop/apps/AppInfo.css";
   import { AppInfoId as id } from "../../ts/applogic/apps/AppInfo";
-  import { AppPokerData } from "../../ts/applogic/apps/AppManager/Manager";
   import { isDisabled } from "../../ts/applogic/checks";
   import { disableApp, enableApp } from "../../ts/applogic/enabling";
-  import { openWindow } from "../../ts/applogic/events";
+  import { createProcess } from "../../ts/applogic/events";
   import { getAppIcon } from "../../ts/applogic/icon";
   import { SystemApps } from "../../ts/applogic/imports/store";
   import type { App } from "../../ts/applogic/interface";
-  import { getWindow, WindowStore } from "../../ts/applogic/store";
+  import { AppStore, ProcessStore, getWindow } from "../../ts/applogic/store";
 
   let data: App;
   let isEnabled = true;
@@ -19,32 +18,27 @@
     if (isEnabled) enableApp($id);
     else disableApp($id);
 
-    data = getWindow($id);
+    data = $AppStore[$id];
 
     if (!data) return;
 
-    isEnabled = !getWindow($id).disabled;
+    isEnabled = !data.disabled;
   }
 
   id.subscribe(update);
-  WindowStore.subscribe(update);
+  AppStore.subscribe(update);
+  ProcessStore.subscribe(update);
 
   function update() {
     if (!$id) return;
 
-    data = getWindow($id);
+    data = $AppStore[$id];
 
     if (!data) return;
 
-    isEnabled = !getWindow($id).disabled;
+    isEnabled = !data.disabled;
 
     disablePoke = isDisabled("AppPoker");
-  }
-
-  function poke() {
-    if (data.core) return;
-
-    AppPokerData.set(data);
   }
 </script>
 
@@ -57,11 +51,7 @@
       <p class="appname">{data.info.name}</p>
       <p class="description">
         {data.info.description}
-        {#if data.parentId}
-          ({data.parentId}.{data.id})
-        {:else}
-          ({data.id})
-        {/if}
+        ({data.id})
       </p>
     </div>
     <div class="actions">
@@ -77,7 +67,9 @@
   <div class="properties">
     <div class="property">
       <div>Size:</div>
-      <div class="value">{data.size.w || d}x{data.size.h || d}</div>
+      <div class="value">
+        {data.initialSize.w || d}x{data.initialSize.h || d}
+      </div>
     </div>
     <div class="property">
       <div>Minimal size:</div>
@@ -90,10 +82,6 @@
     </div>
     <hr />
     <div class="property">
-      <div>Start position:</div>
-      <div class="value">{data.pos.x || d}x{data.pos.y || d}</div>
-    </div>
-    <div class="property">
       <div>Core Application:</div>
       <div class="value">{data.core}</div>
     </div>
@@ -101,13 +89,19 @@
       <div>Window controls:</div>
       <div class="value">
         <div class="controls">
-          <button class="material-icons-round" disabled={!data.controls.min}>
+          <button
+            class="material-icons-round"
+            disabled={!data.controls.minimized}
+          >
             minimize
           </button>
-          <button class="material-icons-round" disabled={!data.controls.max}>
+          <button
+            class="material-icons-round"
+            disabled={!data.controls.maximized}
+          >
             crop_square
           </button>
-          <button class="material-icons-round" disabled={!data.controls.cls}>
+          <button class="material-icons-round" disabled={!data.controls.close}>
             close
           </button>
         </div>
@@ -117,16 +111,10 @@
       <div>Actions</div>
       <div class="value">
         <button
-          on:click={() => openWindow($id)}
-          disabled={data.opened || data.disabled || data.core}
+          on:click={() => createProcess($id)}
+          disabled={data.disabled || data.core}
         >
-          Open
-        </button>
-        <button
-          on:click={poke}
-          disabled={data.disabled || disablePoke || data.core}
-        >
-          Poke
+          Spawn Process
         </button>
       </div>
     </div>

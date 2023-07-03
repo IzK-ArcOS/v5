@@ -1,5 +1,9 @@
-import systemIcon from "../assets/systemIcon.svg";
-import devIcon from "../assets/devIcon.svg";
-import { Dev } from "./env/main";
+import release from "../assets/branding/systemIcon.svg";
+import development from "../assets/branding/devIcon.svg";
+import unstable from "../assets/branding/unstIcon.png";
+import admin from "../assets/branding/adminIcon.png";
 
-export const Logo = () => (Dev ? devIcon : systemIcon);
+const MODES = { release, development, unstable, admin };
+const ARCOS_MODE = "unstable";
+
+export const Logo = (m?: string) => MODES[m || ARCOS_MODE] || release;

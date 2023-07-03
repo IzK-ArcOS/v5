@@ -1,9 +1,8 @@
 import { get } from "svelte/store";
-import { Log } from "../../console";
+import { Log, LogLevel } from "../../console";
 import { CurrentState } from "../../state/main";
-import { focusedWindowId, getWindow } from "../store";
+import { focusedProcessPid, ProcessStore } from "../store";
 import { appShortcuts } from "./main";
-import { LogLevel } from "../../console/interface";
 
 const banned = ["tab", "pagedown", "pageup"];
 
@@ -54,13 +53,13 @@ function processEvent(e: KeyboardEvent) {
       const pK = e.key.toLowerCase().trim();
       const key = combos[j].key.trim().toLowerCase();
       /** */
-      const isFocused = get(focusedWindowId) == entry[0] || combos[j].global;
+      const isFocused = get(focusedProcessPid) == entry[0] || combos[j].global;
 
       if (!modifiers || (key != pK && key) || !isFocused) continue;
 
-      const app = combos[j].global ? null : getWindow(entry[0]);
+      const pid = combos[j].global ? null : entry[0];
 
-      combos[j].action(app);
+      combos[j].action(pid);
     }
   }
 }

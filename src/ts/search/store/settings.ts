@@ -1,6 +1,6 @@
 import { currentSettingsPage } from "../../applogic/apps/SettingsApp/main";
 import { SettingsPages } from "../../applogic/apps/SettingsApp/store";
-import { openWindow } from "../../applogic/events";
+import { createProcess } from "../../applogic/events";
 import type { SearchItem } from "../interface";
 
 export function compileSearchableSettingsPages(): SearchItem[] {
@@ -14,7 +14,7 @@ export function compileSearchableSettingsPages(): SearchItem[] {
       image: page.icon,
       caption: page.name,
       action: () => {
-        openWindow("SettingsApp");
+        createProcess("SettingsApp");
 
         setTimeout(() => {
           currentSettingsPage.set(page);

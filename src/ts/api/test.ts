@@ -1,5 +1,4 @@
-import { Log } from "../console";
-import { LogLevel } from "../console/interface";
+import { Log, LogLevel } from "../console";
 import { minArcAPI } from "../env/main";
 import ttlFetch from "../ttlFetch";
 import { ConnectedServer } from "./main";
