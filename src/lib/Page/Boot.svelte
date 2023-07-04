@@ -1,14 +1,15 @@
 <script lang="ts">
   import { applyState } from "../../ts/state/main";
-
   import { onMount } from "svelte";
   import "../../css/boot.css";
   import { getServer } from "../../ts/api/server";
   import { testConnection } from "../../ts/api/test";
-  import { BugReportData } from "../../ts/bugrep";
-  import { Log, LogLevel } from "../../ts/console";
-  import { ArcOSVersion } from "../../ts/env/main";
   import { Logo } from "../../ts/branding";
+  import { BugReportData } from "../../ts/bugrep";
+  import { Log } from "../../ts/console";
+  import { LogLevel } from "../../ts/console/interface";
+  import { ArcOSVersion } from "../../ts/env/main";
+  import { getAuthcode } from "../../ts/api/authcode";
 
   let status = "";
   let bootClass = "";
@@ -41,6 +42,7 @@
 
   async function checkServer() {
     const serverHost = getServer();
+    const authCode = getAuthcode(serverHost);
 
     let connected = false;
 
@@ -54,7 +56,7 @@
 
     setTimeout(fadeIn, 120);
 
-    connected = await testConnection(serverHost);
+    connected = await testConnection(serverHost, authCode);
 
     if (!connected) {
       fadeOut();

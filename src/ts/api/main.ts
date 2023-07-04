@@ -1,13 +1,11 @@
 import { get, writable } from "svelte/store";
-import { BugReportData } from "../bugrep";
-import { createTrayIcon, disposeTrayIcon } from "../desktop/tray/main";
-import { errorMessage } from "../errorlogic/main";
 import { CurrentState } from "../state/main";
 import { generateCredToken } from "./cred";
 import type { Cred, DefaultResponse, Params } from "./interface";
 import { generateParamStr } from "./params";
 
 export const ConnectedServer = writable<string>(null);
+export const ServerAuthCode = writable<string>(null);
 
 export async function apiCall(
   host: string,
@@ -28,7 +26,7 @@ export async function apiCall(
   };
 
   const noAuth = !credAuth && !tokenAuth;
-  const paramStr = generateParamStr(params);
+  const paramStr = generateParamStr({ ...params, ac: get(ServerAuthCode) });
 
   let req;
 
@@ -38,8 +36,6 @@ export async function apiCall(
       noAuth ? { body: body } : init
     );
   } catch {
-    if (get(CurrentState).name == "Desktop") invalidServerResponse(path);
-
     return {};
   }
 
@@ -53,8 +49,6 @@ export async function apiCall(
     !`200|304`.includes(`${req.status}`) &&
     get(CurrentState).name == "Desktop"
   ) {
-    invalidServerResponse(path);
-
     return { statusCode };
   }
 
@@ -67,23 +61,4 @@ export async function apiCall(
   }
 
   return { statusCode };
-}
-
-export function invalidServerResponse(path: string) {
-  createTrayIcon({
-    identifier: "ArcAPI Error",
-    icon: "warning",
-    image: null,
-    onOpen(tray) {
-      disposeTrayIcon(tray.identifier);
-
-      errorMessage(
-        `ArcAPI Error`,
-        `ArcOS was unable to make a request to ArcAPI on path "${path}". Please check your internet connection and try again.`,
-        null,
-        null,
-        { caption: "OK", action() {} }
-      );
-    },
-  });
 }

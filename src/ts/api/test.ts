@@ -1,7 +1,8 @@
-import { Log, LogLevel } from "../console";
+import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 import { minArcAPI } from "../env/main";
 import ttlFetch from "../ttlFetch";
-import { ConnectedServer } from "./main";
+import { ConnectedServer, ServerAuthCode } from "./main";
 
 // [https?,port][]
 export const TEST_MODES: [boolean, number][] = [
@@ -12,11 +13,11 @@ export const TEST_MODES: [boolean, number][] = [
   [true, 3333],
 ];
 
-export async function testConnection(server: string) {
+export async function testConnection(server: string, authCode: string = "") {
   for (let i = 0; i < TEST_MODES.length; i++) {
     const proto = `http${TEST_MODES[i][0] ? "s" : ""}`;
     const port = TEST_MODES[i][1];
-    const url = `${proto}://${server}:${port}/connect`;
+    const url = `${proto}://${server}:${port}/connect?ac=${authCode}`;
 
     Log({
       msg: `Testing ${server} on port ${port} and protocol ${proto}...`,
@@ -38,6 +39,7 @@ export async function testConnection(server: string) {
       if (rev < minArcAPI) return false;
 
       ConnectedServer.set(`${proto}://${server}:${port}`);
+      ServerAuthCode.set(authCode);
 
       return req && !!req.valid;
     } catch {
