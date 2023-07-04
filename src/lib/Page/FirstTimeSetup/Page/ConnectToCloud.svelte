@@ -1,25 +1,26 @@
 <script lang="ts">
   import connectIcon from "../../../../assets/fts/connect.svg";
   import "../../../../css/fts/page/connecttocloud.css";
+  import { setAuthcode } from "../../../../ts/api/authcode";
   import { addServer } from "../../../../ts/api/server";
   import { testConnection } from "../../../../ts/api/test";
   import { applyFTSState } from "../../../../ts/fts/main";
   import Nav from "../Nav.svelte";
 
   let server = "";
-
   let connecting = false;
-
   let connectionError = false;
+  let authCode = "";
 
   async function connect() {
     connecting = true;
     connectionError = false;
 
-    const testSuccess = await testConnection(server.trim());
+    const testSuccess = await testConnection(server.trim(), authCode.trim());
 
     if (testSuccess) {
       addServer(server.trim());
+      setAuthcode(server.trim(), authCode.trim());
 
       applyFTSState("authmode");
     } else {
@@ -39,6 +40,11 @@
   class="fullwidth centered"
   placeholder="Server name"
   bind:value={server}
+/>
+<input
+  class="fullwidth centered"
+  placeholder="Server authentication code (optional)"
+  bind:value={authCode}
 />
 <button
   class="fullwidth option centered"

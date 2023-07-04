@@ -9,6 +9,7 @@
   import { Log } from "../../ts/console";
   import { LogLevel } from "../../ts/console/interface";
   import { ArcOSVersion } from "../../ts/env/main";
+  import { getAuthcode } from "../../ts/api/authcode";
 
   let status = "";
   let bootClass = "";
@@ -41,6 +42,7 @@
 
   async function checkServer() {
     const serverHost = getServer();
+    const authCode = getAuthcode(serverHost);
 
     let connected = false;
 
@@ -54,7 +56,7 @@
 
     setTimeout(fadeIn, 120);
 
-    connected = await testConnection(serverHost);
+    connected = await testConnection(serverHost, authCode);
 
     if (!connected) {
       fadeOut();
