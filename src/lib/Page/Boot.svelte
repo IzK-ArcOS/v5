@@ -2,7 +2,7 @@
   import { applyState } from "../../ts/state/main";
   import { onMount } from "svelte";
   import "../../css/boot.css";
-  import { getServer } from "../../ts/api/server";
+  import { getAllServers, getServer } from "../../ts/api/server";
   import { testConnection } from "../../ts/api/test";
   import { Logo } from "../../ts/branding";
   import { BugReportData } from "../../ts/bugrep";
@@ -10,6 +10,7 @@
   import { LogLevel } from "../../ts/console/interface";
   import { ArcOSVersion } from "../../ts/env/main";
   import { getAuthcode } from "../../ts/api/authcode";
+  import { ConnectedServer, ServerAuthCode } from "../../ts/api/main";
 
   let status = "";
   let bootClass = "";
@@ -49,6 +50,8 @@
     if (!serverHost) {
       return;
     }
+
+    if (authCode) status = "Connecting Securely";
 
     clearTimeout(t1);
     clearTimeout(t2);
@@ -117,7 +120,10 @@
 </script>
 
 <div class="{bootClass} boot fullscreen">
-  <div class="arcterm-load visible">v{ArcOSVersion}</div>
+  <div class="arcterm-load visible">
+    v{ArcOSVersion} - {$ServerAuthCode ? "Private" : "Public"} - {getAllServers()
+      .length} servers - current: {getServer()}
+  </div>
   <div class="center-absolute">
     <img alt="Logo" class="logo" src={Logo()} />
     <div class="slider userdefined">
