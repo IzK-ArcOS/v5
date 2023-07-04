@@ -32,7 +32,7 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
 
   let controller = new AbortController();
 
-  const params = generateParamStr({ authCode, path: btoa(path) });
+  const params = generateParamStr({ ac: authCode, path: btoa(path) });
 
   let req = await fetch(`${server}/fs/file/get${params}`, {
     ...init,
