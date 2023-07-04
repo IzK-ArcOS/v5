@@ -9,6 +9,7 @@ import { LogLevel } from "../../console/interface";
 import { UserToken } from "../../userlogic/interfaces";
 import { ConnectedServer } from "../main";
 import { generateParamStr } from "../params";
+import { getAuthcode } from "../authcode";
 
 export const abortFileReader = writable<boolean>(false);
 
@@ -20,6 +21,7 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
   });
 
   const server = get(ConnectedServer);
+  const authCode = getAuthcode(server);
 
   if (!server) return false;
 
@@ -30,7 +32,7 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
   };
 
   const controller = new AbortController();
-  const params = generateParamStr({ path: btoa(path) });
+  const params = generateParamStr({ ac: authCode, path: btoa(path) });
 
   let req = await fetch(`${server}/fs/file/get${params}`, {
     ...init,
