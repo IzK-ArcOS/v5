@@ -9,6 +9,7 @@ import { UserToken } from "../../userlogic/interfaces";
 import { apiCall, ConnectedServer } from "../main";
 import { generateParamStr } from "../params";
 import { getAuthcode } from "../authcode";
+import { getServer } from "../server";
 
 export const abortFileReader = writable<boolean>(false);
 
@@ -20,7 +21,7 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
   });
 
   const server = get(ConnectedServer);
-  const authCode = getAuthcode(server);
+  const authCode = getAuthcode(getServer());
 
   if (!server) return false;
 
