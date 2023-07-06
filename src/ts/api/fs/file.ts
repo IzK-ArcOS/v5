@@ -70,10 +70,11 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
 
 export async function writeFile(path: string, data: Blob): Promise<boolean> {
   const server = get(ConnectedServer);
+  const authCode = getAuthcode(getServer());
 
   if (!server) return false;
 
-  const params = generateParamStr({ path: btoa(path) });
+  const params = generateParamStr({ path: btoa(path), ac: authCode });
 
   const req = await axios.post(`${server}/fs/file/write${params}`, data, {
     headers: {
