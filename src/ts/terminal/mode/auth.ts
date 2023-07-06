@@ -7,30 +7,31 @@ import sleep from "../../sleep";
 import { UserName } from "../../userlogic/interfaces";
 import type { ArcTerm } from "../main";
 import { addServer, getServer } from "../../api/server";
+import { setAuthcode } from "../../api/authcode";
 
-export async function authPrompt(a: ArcTerm, usr = "") {
+export async function authPrompt(term: ArcTerm, usr = "") {
   const udata = get(UserName);
 
   if (udata) return true;
 
-  let server = getServer();
+  let api = getServer();
 
-  if (!server) server = await serverConnect(a);
+  if (!api) api = await serverConnect(term);
 
   await rememberedLogin();
 
   await sleep(250);
 
   if (get(UserName)) {
-    await a.env.config.loadConfigFile();
+    await term.env.config.loadConfigFile();
     return true;
   }
 
-  a.std.clear();
-  a.std.writeLine(`ArcTerm ${ArcOSVersion} - ${server}\n\n`);
+  term.std.clear();
+  term.std.writeLine(`ArcTerm ${ArcOSVersion} - ${api}\n\n`);
 
-  const username = await a.std.read(`${server} login: `, "", 100, false, usr);
-  const password = await a.std.read("Password: ", "", 100, true);
+  const username = await term.std.read(`${api} login: `, "", 100, false, usr);
+  const password = await term.std.read("Password: ", "", 100, true);
 
   const token = generateCredToken({ username: username, password });
 
@@ -38,34 +39,27 @@ export async function authPrompt(a: ArcTerm, usr = "") {
 
   await rememberedLogin();
 
-  if (!get(UserName)) return await authPrompt(a, username);
+  if (!get(UserName)) return await authPrompt(term, username);
 
-  await a.env.config.loadConfigFile();
+  await term.env.config.loadConfigFile();
 
   return true;
 }
 
-async function serverConnect(a: ArcTerm) {
-  a.std.clear();
-  a.std.writeLine(`ArcTerm ${ArcOSVersion} - Connect to server\n\n`);
+async function serverConnect(term: ArcTerm) {
+  term.std.clear();
+  term.std.writeLine(`ArcTerm ${ArcOSVersion} - Connect to server\n\n`);
 
-  const s = await a.std.read("Server: ", "", 50);
+  const server = await term.std.read("Server: ", "", 50);
+  const authCode = await term.std.read("Code (optional): ", "", 64, true);
 
-  a.std.writeLine(`Connecting to ${s}...`);
+  term.std.writeLine(`Connecting to ${server}...`);
 
-  if (!(await testConnection(s))) {
-    a.std.writeLine(`Connection failed! Restarting...`);
+  if (!(await testConnection(server, authCode)))
+    return await serverConnect(term);
 
-    await sleep(1000);
+  addServer(server);
+  setAuthcode(server, authCode);
 
-    location.reload();
-
-    await sleep(2000);
-
-    return "";
-  }
-
-  addServer(s);
-
-  return s;
+  return server;
 }
