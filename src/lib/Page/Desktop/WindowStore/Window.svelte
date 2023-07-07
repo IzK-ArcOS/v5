@@ -15,6 +15,7 @@
   import OverlayableWindow from "./OverlayableWindow.svelte";
   import Content from "./Window/Content.svelte";
   import Titlebar from "./Window/Titlebar.svelte";
+  import { ArcSoundBus } from "../../../../ts/sound/main";
 
   export let app: App = null;
 
@@ -34,6 +35,8 @@
     focusedWindowId.set(app.id);
 
     update();
+
+    if (app.id.startsWith("error_")) ArcSoundBus.playSound("arcos.dialog.info");
   });
 
   function update() {

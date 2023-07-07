@@ -21,7 +21,11 @@ export async function getReceivedMessages() {
   let returnValue: PartialMessage[] = [];
 
   for (let i = 0; i < messages.length; i++) {
-    if (messages[i].receiver == get(UserName)) returnValue.push(messages[i]);
+    if (
+      messages[i].receiver == get(UserName) &&
+      messages[i].sender != get(UserName)
+    )
+      returnValue.push(messages[i]);
   }
 
   return returnValue;

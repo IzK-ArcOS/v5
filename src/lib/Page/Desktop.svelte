@@ -25,6 +25,7 @@
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
+  import { ArcSoundBus } from "../../ts/sound/main";
 
   let show = false;
   let classes = "";
@@ -33,6 +34,8 @@
   showDesktop.subscribe((v) => (show = v));
 
   onMount(async () => {
+    ArcSoundBus.playSound("arcos.system.logon");
+
     if ($previouslyLoaded) {
       restart(false);
 

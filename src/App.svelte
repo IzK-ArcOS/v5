@@ -1,9 +1,11 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import "./css/main.css";
   import BugReport from "./lib/BugReport.svelte";
   import { logoffToken } from "./ts/api/cred";
   import { Logo } from "./ts/branding";
   import { applyState, CurrentState } from "./ts/state/main";
+  import { ArcSoundBus } from "./ts/sound/main";
 
   applyState("boot");
 

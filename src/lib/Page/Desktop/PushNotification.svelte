@@ -8,6 +8,7 @@
     deleteNotification,
     NotificationStore,
   } from "../../../ts/notiflogic/main";
+  import { ArcSoundBus } from "../../../ts/sound/main";
   import { UserData } from "../../../ts/userlogic/interfaces";
 
   let data: NotificationData = null;
@@ -21,6 +22,7 @@
       id = v;
 
       setTimeout(() => {
+        ArcSoundBus.playSound("arcos.notification");
         hide = false;
         data = $NotificationStore[v];
       }, 250);
