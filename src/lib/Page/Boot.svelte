@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { applyState } from "../../ts/state/main";
   import { onMount } from "svelte";
   import "../../css/boot.css";
+  import { getAuthcode } from "../../ts/api/authcode";
+  import { ServerAuthCode } from "../../ts/api/main";
   import { getAllServers, getServer } from "../../ts/api/server";
   import { testConnection } from "../../ts/api/test";
   import { Logo } from "../../ts/branding";
@@ -9,8 +10,7 @@
   import { Log } from "../../ts/console";
   import { LogLevel } from "../../ts/console/interface";
   import { ArcOSVersion } from "../../ts/env/main";
-  import { getAuthcode } from "../../ts/api/authcode";
-  import { ConnectedServer, ServerAuthCode } from "../../ts/api/main";
+  import { applyState } from "../../ts/state/main";
 
   let status = "";
   let bootClass = "";
@@ -21,18 +21,25 @@
   let t3 = null;
 
   let altDown = false;
+  let progressBar = false;
 
   onMount(async () => {
-    status = "&nbsp;";
+    status = "Press any key to start";
 
     t1 = setTimeout(fadeIn, 500);
+
+    document.addEventListener("keydown", start, { once: true });
+  });
+
+  async function start() {
+    progressBar = true;
     t2 = setTimeout(fadeOut, 4000);
     t3 = setTimeout(redirect, 4750);
 
     if (!(await checkServer())) status = "Preparing ArcOS";
 
     document.addEventListener("keydown", altDownCb);
-  });
+  }
 
   function altDownCb(e: KeyboardEvent) {
     if (!e.altKey || e.key.toLowerCase() != "a") return;
@@ -124,12 +131,14 @@
     v{ArcOSVersion} - {$ServerAuthCode ? "Private" : "Public"} - {getAllServers()
       .length} servers - current: {getServer()}
   </div>
-  <div class="center-absolute">
-    <img alt="Logo" class="logo" src={Logo()} />
+  <div class="center">
+    <img alt="Logo" class="logo" class:color={progressBar} src={Logo()} />
     <div class="slider userdefined">
-      <div class="line dark" />
-      <div class="subline dark inc" />
-      <div class="subline dark dec" />
+      {#if progressBar}
+        <div class="line dark" />
+        <div class="subline dark inc" />
+        <div class="subline dark dec" />
+      {/if}
     </div>
     <p class="status">{@html status}</p>
   </div>

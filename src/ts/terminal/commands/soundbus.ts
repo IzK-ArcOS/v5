@@ -13,6 +13,9 @@ export const SoundBusCommand: Command = {
       case "stop":
         stop(cmd, argv, term);
         break;
+      case "list":
+        list(term);
+        break;
       default:
         term.std.Error("Missing or invalid subcommand.");
     }
@@ -25,7 +28,10 @@ function play(cmd: string, argv: string[], term: ArcTerm) {
 
   const valid = ArcSoundBus.playSound(sound);
 
-  if (!valid) term.std.Error(`Can't play sound [${sound}]: not found.`);
+  if (!valid)
+    term.std.Error(
+      `Can't play sound [${sound}]: the sound could not be found or it is already playing.`
+    );
   else term.std.writeColor(`Playing sound [${sound}]`, "blue");
 }
 
@@ -39,4 +45,16 @@ function stop(cmd: string, argv: string[], term: ArcTerm) {
       `Can't stop sound [${sound}]: the requested sound is not playing.`
     );
   else term.std.writeColor(`Stopping sound [${sound}]`, "blue");
+}
+
+function list(term: ArcTerm) {
+  const sounds = ArcSoundBus.getStore();
+
+  for (let i = 0; i < sounds.length; i++) {
+    const sound = sounds[i];
+    const id = sound[0].padEnd(32, " ");
+    const source = sound[1];
+
+    term.std.writeColor(`[${id}]${source}`, "blue");
+  }
 }

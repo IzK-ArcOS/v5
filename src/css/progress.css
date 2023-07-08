@@ -27,7 +27,6 @@
 }
 
 .slider.userdefined {
-  position: absolute;
   width: 0px;
   height: 5px;
   overflow-x: hidden;
