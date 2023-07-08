@@ -24,7 +24,7 @@ Execute the following commands in order to run the frontend:
 
 > cd ArcOS-Frontend
 
-> npm install
+> npm install 
 > npm run dev
 ```
 
@@ -54,10 +54,20 @@ $ npm run dev
 ```
 
 </details>
+<br>
+
+**Note: If `npm install` doesn't work, try using `--force` to fix the problem**
 
 ---
 
-Once those commands have been executed the frontend should be running on port `5173`. Open this port in your browser, and you'll be presented with the First Time Setup. Of course, in order to get the most out of your instance, you may want to get an ArcAPI running as well.
+<!-- Once those commands have been executed the frontend should be running on port `5173`. Open this port in your browser, and you'll be presented with the First Time Setup. Of course, in order to get the most out of your instance, you may want to get an ArcAPI running as well. -->
+
+Once you've gotten the frontend compiled, you may now run it using
+```
+npx serve dist
+```
+
+This will host the frontend on `localhost:3000` and can be run from there.
 
 ## Running an ArcAPI locally
 

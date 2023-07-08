@@ -28,6 +28,10 @@ Images 1, 2, 3, 4, 5, 6, 7 and 10 are made by me, the rest are licensed.
 
 I want to thank all of these authors for providing their photos and images for use as ArcOS wallpapers. Any and all contributions are greatly appreciated.
 
+## Getting Started
+
+If you want to compile the ArcOS frontend from source, you may do so by going to the [Getting Started](docs/Getting%20Started.md) page in the repository.
+
 ## License
 
 All code in this project was created by me or by other members of the ArcOS Team. All files in this repository are thereby licensed under [GPLv3](./LICENSE).
