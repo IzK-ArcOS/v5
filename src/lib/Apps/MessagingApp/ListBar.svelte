@@ -65,8 +65,10 @@
   {#if $messagingPage}
     <div class="header">
       <p class="title">{$messagingPage.name}</p>
-      <button class="material-icons-round refresh" on:click={refresh}
-        >sync</button
+      <button
+        class="material-icons-round refresh"
+        disabled={loading}
+        on:click={refresh}>sync</button
       >
     </div>
     <div class="list">

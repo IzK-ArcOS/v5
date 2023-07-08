@@ -16,7 +16,7 @@ export async function sendMessage(receiver: string, body: string) {
     body
   );
 
-  return !req;
+  return req.data.id;
 }
 
 export async function replyToMessage(

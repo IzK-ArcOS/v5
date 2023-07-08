@@ -3,6 +3,7 @@
   import {
     creatingMessage,
     replyMessageId,
+    selectedMessageId,
   } from "../../../../../ts/messaging/main";
   import {
     replyToMessage,
@@ -15,15 +16,26 @@
   export let target: string;
   export let viewing: boolean;
 
+  let loading = false;
+
   async function send() {
+    loading = true;
     if ($replyMessageId) await replyToMessage($replyMessageId, target, content);
-    else await sendMessage(target, content);
+    else {
+      const id = await sendMessage(target, content);
+
+      setTimeout(() => {
+        selectedMessageId.set(id);
+      }, 50);
+    }
 
     creatingMessage.set(false);
     messageUpdateTrigger();
+    loading = false;
   }
 
   function cancel() {
+    loading = true;
     createOverlayableError(
       {
         title: "Delete message?",
@@ -36,11 +48,15 @@
             action: () => {
               creatingMessage.set(false);
               messageUpdateTrigger();
+
+              loading = false;
             },
           },
           {
             caption: "Cancel",
-            action: () => {},
+            action: () => {
+              loading = false;
+            },
           },
         ],
       },
@@ -76,9 +92,9 @@
     </div>
   {/if}
   <div class="right">
-    <button on:click={cancel}>Delete</button>
-    <button on:click={send} disabled={!content || !target}
-      >{$replyMessageId ? "Reply" : "Send"}</button
-    >
+    <button on:click={cancel} disabled={loading}>Delete</button>
+    <button on:click={send} disabled={!content || !target || loading}>
+      {loading ? "..." : $replyMessageId ? "Reply" : "Send"}
+    </button>
   </div>
 </div>

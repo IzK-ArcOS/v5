@@ -10,12 +10,14 @@ window#MessagingApp > div.body > div {
 }
 
 window#MessagingApp > div.body > div.sidebar {
-  width: 40px;
+  min-width: 40px !important;
+  width: 40px !important;
   border-right: var(--win-border);
 }
 
 window#MessagingApp > div.body > div.listbar {
-  width: 250px;
+  min-width: 250px !important;
+  width: 250px !important;
   border-right: var(--win-border);
   padding: 5px;
 }

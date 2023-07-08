@@ -42,7 +42,7 @@
 <div class="markdownrenderer">
   <SvelteMarkdown source={message.body} />
 </div>
-{#if message.replyingTo || message.replies}
+{#if message.replyingTo || message.replies.length}
   <div class="reply-wrapper">
     <p class="caption">Message is part of a thread.</p>
     <div class="right">
