@@ -2,6 +2,8 @@ import { getVersion } from "@tauri-apps/api/app";
 import { listen, TauriEvent } from "@tauri-apps/api/event";
 import { register, unregisterAll } from "@tauri-apps/api/globalShortcut";
 import { appWindow } from "@tauri-apps/api/window";
+import { Log } from "./console";
+import { LogLevel } from "./console/interface";
 
 /**
  * WARNING:
@@ -16,6 +18,13 @@ import { appWindow } from "@tauri-apps/api/window";
 const blocks = ["Ctrl+R", "F5", "Ctrl+Shift+R", "Ctrl+P", "F3", "Ctrl+F", "F7"];
 
 export async function define() {
+  if (!window["__TAURI_IPC__"])
+    return Log({
+      msg: "Not binding Tauri definitions: not in Tauri",
+      level: LogLevel.warn,
+      source: "tauri.ts: define",
+    });
+
   doRegister();
 
   listen(TauriEvent.WINDOW_BLUR, unregisterAll);
@@ -43,6 +52,8 @@ function unset() {
 }
 
 export async function inTauri() {
+  if (!window["__TAURI_IPC__"]) return false;
+
   try {
     const ver = await getVersion();
 
@@ -50,4 +61,12 @@ export async function inTauri() {
   } catch {
     return false;
   }
+}
+
+export function setWindowTitle(title: string) {
+  if (!window["__TAURI_IPC__"]) return false;
+
+  appWindow.setTitle(title);
+
+  return true;
 }

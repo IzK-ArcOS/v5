@@ -35,7 +35,6 @@ export const LightsOff: App = {
         shift: true,
         ctrl: true,
         action: () => {
-          console.log("next lo level");
           loadLevel(get(LO_LEVEL) + 1);
         },
       },

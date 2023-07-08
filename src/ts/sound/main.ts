@@ -38,6 +38,8 @@ export class SoundBus {
     this._bus[id] = element;
 
     element.onended = () => delete this._bus[id];
+
+    return true;
   }
 
   public stopSound(id: string) {
@@ -46,6 +48,8 @@ export class SoundBus {
     this._bus[id].src = null;
     this._bus[id].currentTime = -1;
     this._bus[id].pause();
+
+    return true;
   }
 }
 

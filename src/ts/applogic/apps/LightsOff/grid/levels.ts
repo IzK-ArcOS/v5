@@ -66,7 +66,6 @@ export const LOLevels: LightsOffGrid[] = [
 ];
 
 export function loadLevel(level: number) {
-  console.log(loadLevel, level, LOLevels.length);
   if (level >= LOLevels.length) return LOFinish();
   if (!LOLevels[level]) return;
 

@@ -6,6 +6,7 @@ import { Log } from "../console";
 import type { State } from "./interfaces";
 import { States } from "./store";
 import { LogLevel } from "../console/interface";
+import { setWindowTitle } from "../tauri";
 
 export const CurrentState = writable<State>(States[0]);
 
@@ -27,9 +28,9 @@ export function applyState(stateKey: string) {
 
     document.title = t;
     try {
-      appWindow.setTitle(state.name);
+      setWindowTitle(state.name);
     } catch {
-      /** */
+      /** failing quietly */
     }
 
     if (stateKey != "desktop") logoffToken();

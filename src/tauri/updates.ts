@@ -36,8 +36,6 @@ export async function getLatestVersion(): Promise<Version> {
 export function parseVersion(verStr: string): Version {
   const split = verStr.replaceAll("v", "").split(".");
 
-  console.log(split);
-
   return [split[0], split[1], split[2]].map((a) => {
     try {
       return parseInt(a);

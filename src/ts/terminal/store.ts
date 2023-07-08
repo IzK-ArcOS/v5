@@ -36,6 +36,7 @@ import { Logout } from "./commands/logout";
 import { Exec } from "./commands/exec";
 import { Verbose } from "./commands/verbose";
 import { Desktop } from "./commands/desktop";
+import { SoundBusCommand } from "./commands/soundbus";
 
 export const defaultCommand: Command = {
   keyword: "default",
@@ -73,6 +74,7 @@ export const arcCommands: CommandStore = [
   Users,
   Read,
   Set,
+  SoundBusCommand,
   Config,
   Exec,
   Verbose,
