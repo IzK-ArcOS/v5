@@ -21,4 +21,4 @@
   <DesktopIcons />
 </div>
 
-<SnapZones />
+<!-- <SnapZones /> -->

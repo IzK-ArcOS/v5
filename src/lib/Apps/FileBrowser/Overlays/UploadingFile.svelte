@@ -6,6 +6,7 @@
     FileBrowserUploadFile,
     FileBrowserUploadProgress,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import ApiReveal from "../../../APIReveal.svelte";
 </script>
 
 {#if $FileBrowserUploadFile}
@@ -35,7 +36,7 @@
     </tr>
     <tr>
       <td class="key">Target</td>
-      <td>{getServer()}</td>
+      <td><ApiReveal /></td>
     </tr>
   </table>
 {/if}

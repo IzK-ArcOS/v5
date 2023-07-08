@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { getServer } from "../../../../../../ts/api/server";
   import type { App } from "../../../../../../ts/applogic/interface";
   import {
     UserData,
     UserName,
   } from "../../../../../../ts/userlogic/interfaces";
+  import ApiReveal from "../../../../../APIReveal.svelte";
   import CloseButton from "../../../../../Page/Desktop/WindowStore/OverlayableWindow/CloseButton.svelte";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
 
@@ -21,7 +21,7 @@
     />
     <h1>{$UserName}</h1>
     <p class="hostname">
-      {getServer() || location.hostname}
+      <ApiReveal />
     </p>
   </div>
 </div>

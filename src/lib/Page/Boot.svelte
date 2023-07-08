@@ -11,6 +11,7 @@
   import { LogLevel } from "../../ts/console/interface";
   import { ArcOSVersion } from "../../ts/env/main";
   import { applyState } from "../../ts/state/main";
+  import ApiReveal from "../APIReveal.svelte";
 
   let status = "";
   let bootClass = "";
@@ -129,7 +130,7 @@
 <div class="{bootClass} boot fullscreen">
   <div class="arcterm-load visible">
     v{ArcOSVersion} - {$ServerAuthCode ? "Private" : "Public"} - {getAllServers()
-      .length} servers - current: {getServer()}
+      .length} servers - current: <ApiReveal />
   </div>
   <div class="center">
     <img alt="Logo" class="logo" class:color={progressBar} src={Logo()} />

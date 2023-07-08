@@ -3,6 +3,7 @@
   import { UserData, UserName } from "../../../../../ts/userlogic/interfaces";
   import { getProfilePicture } from "../../../../../ts/userlogic/pfp";
   import { showOverlay } from "../../../../../ts/window/overlay";
+  import ApiReveal from "../../../../APIReveal.svelte";
   import ProfilePicture from "../../../../ProfilePicture.svelte";
 
   let pfp = "";
@@ -28,7 +29,7 @@
       {$UserName}
     </p>
     <p class="host" data-caller="accountpage-hostname">
-      {getServer() || location.hostname}
+      <ApiReveal />
     </p>
   </div>
 </div>

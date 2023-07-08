@@ -13,6 +13,8 @@ import img13 from "../../../assets/bg/img13.png";
 import img14 from "../../../assets/bg/img14.jpg";
 import img15 from "../../../assets/bg/img15.jpg";
 import img16 from "../../../assets/bg/img16.jpg";
+import img17 from "../../../assets/bg/img17.jpg";
+import img18 from "../../../assets/bg/img18.jpg";
 import type { Wallpaper } from "./interface";
 
 export const Wallpapers: { [key: string]: Wallpaper } = {
@@ -44,6 +46,19 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     name: "Corfu",
     source: "Corfu, Greece",
   },
+  img17: {
+    url: img17,
+    author: "Blocky (Cy)",
+    name: "Sunset Sky",
+    source: "Fairfield Bay, US",
+  },
+  img18: {
+    url: img18,
+    author: "SWHFotografie",
+    name: "Wilhelmina Sunset",
+    source: "Wilheminakanaal, Tilburg, The Netherlands",
+  },
+
   img06: { url: img06, author: "Izaak Kuipers", name: "ArcOS Beta Dark" },
   img07: { url: img07, author: "Izaak Kuipers", name: "ArcOS Beta Light" },
   /* img09: { url: img09, author: "Unknown", name: "Login Background" }, */
