@@ -3,6 +3,24 @@
 div.boot {
   background-color: #000;
   opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.boot div.center {
+  min-width: fit-content;
+  text-align: center !important;
+  display: flex;
+  flex-direction: column;
+}
+
+div.boot div.center div.slider {
+  margin: 0 auto;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  margin-top: 20px;
 }
 
 div.boot div.arcterm-load {
@@ -38,15 +56,19 @@ div.boot * {
   -webkit-user-select: none;
 }
 
-div.boot div.center-absolute img.logo {
+div.boot div.center img.logo {
   height: 150px;
   margin-bottom: 20px;
 }
+/* 
+div.boot div.center img.logo:not(.color) {
+  filter: grayscale(50%);
+} */
 
 div.slider.userdefined {
   width: 150px;
   border-radius: 3.5px;
-  background-color: rgb(8, 8, 8);
+  background-color: rgb(20, 20, 20);
   height: 7px;
   transition: opacity 1.5s;
   margin-top: 20px;
@@ -71,9 +93,8 @@ div.subline.dark.dec {
 }
 
 p.status {
-  margin-top: 50px;
+  margin-top: 23px;
   text-align: center;
   font-family: "Inter", sans-serif;
   color: #eee;
-  font-family: 13px;
 }

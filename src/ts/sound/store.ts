@@ -5,6 +5,8 @@ import dialogInfo from "../../assets/audio/Info.wav";
 import notification from "../../assets/audio/Notification.wav";
 import systemLogon from "../../assets/audio/logon.wav";
 import systemLogoff from "../../assets/audio/logoff.wav";
+import click from "../../assets/audio/click.wav";
+
 export const ArcSounds: SoundStore = {
   "arcos.dialog.error": dialogError,
   "arcos.dialog.warning": dialogWarning,
@@ -12,4 +14,5 @@ export const ArcSounds: SoundStore = {
   "arcos.notification": notification,
   "arcos.system.logon": systemLogon,
   "arcos.system.logoff": systemLogoff,
+  "arcos.click": click,
 };
