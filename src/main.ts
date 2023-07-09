@@ -6,14 +6,9 @@ import { LogLevel } from "./ts/console/interface";
 import { define } from "./ts/tauri";
 import { preventAnchorRedirects } from "./ts/ui/anchor";
 
-await getMode();
 migrateToMulti();
 preventAnchorRedirects();
 define();
-
-const app = new App({
-  target: document.getElementById("app"),
-});
 
 document.addEventListener("contextmenu", (e) => e.preventDefault());
 
@@ -30,5 +25,9 @@ console.error = (content: string, ...a: any[]) =>
     msg: content + a.join(" "),
     level: LogLevel.error,
   });
+
+const app = new App({
+  target: document.getElementById("app"),
+});
 
 export default app;
