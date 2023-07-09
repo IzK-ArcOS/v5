@@ -25,7 +25,7 @@ Execute the following commands in order to run the frontend:
 > cd ArcOS-Frontend
 
 > npm install 
-> npm run dev
+> npm run build
 ```
 
 </details>
@@ -50,7 +50,7 @@ $ git clone https://github.com/IzK-ArcOS/ArcOS-Frontend
 $ cd ArcOS-Frontend
 
 $ npm install
-$ npm run dev
+$ npm run build
 ```
 
 </details>
