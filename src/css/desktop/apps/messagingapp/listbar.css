@@ -5,12 +5,13 @@ window#MessagingApp div.body div.listbar {
 }
 
 window#MessagingApp div.body div.listbar div.header {
-  height: 30px;
+  height: 40px;
   border-bottom: var(--win-border);
   line-height: 30px;
-  padding: 0 10px;
+  padding: 0 15px;
   box-sizing: border-box;
   display: flex;
+  align-items: center;
 }
 window#MessagingApp
   div.body

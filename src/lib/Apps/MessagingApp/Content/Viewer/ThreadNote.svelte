@@ -15,6 +15,7 @@
         ? message.id
         : (await getParentMessage(message.id)).id;
 
+    threadMessageId.set(null);
     threadMessageId.set(id);
 
     showOverlay("thread", "MessagingApp");
