@@ -111,8 +111,9 @@ export const States = new Map<string, State>([
       attribs: {},
       key: "turnedoff",
       async onload() {
+        window.close();
         // ! Closing App Window Code Goes Here !
-        console.log("Closing App Window Goes Here");
+        /* console.log("Closing App Window Goes Here"); */
       },
     },
   ],

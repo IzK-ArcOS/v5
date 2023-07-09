@@ -38,6 +38,5 @@ export function SwitchLightsState(x: number, y: number) {
 }
 
 LOGrid.subscribe((v) => {
-  console.table(v);
   checkNextLevel();
 });
