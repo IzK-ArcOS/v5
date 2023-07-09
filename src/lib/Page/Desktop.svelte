@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "../../css/desktop.css";
-  import { checkForUpdates } from "../../tauri/updates";
+  import { checkForUpdates } from "../../updates/main";
   import { importDefault } from "../../ts/applogic/imports/main";
   import { startKeyListener } from "../../ts/applogic/keyboard/listener";
   import {
@@ -19,7 +19,6 @@
   import { restart } from "../../ts/desktop/power";
   import { ErrorMessages } from "../../ts/errorlogic/app";
   import { startMessageCheckInterval } from "../../ts/messaging/interval";
-  import { checkLinux } from "../../ts/tauri/linux";
   import { UserData, UserName } from "../../ts/userlogic/interfaces";
   import ArcFind from "./Desktop/ArcFind.svelte";
   import ContextMenu from "./Desktop/ContextMenu.svelte";
@@ -53,7 +52,6 @@
 
     startMessageCheckInterval();
     checkForUpdates();
-    checkLinux();
   });
 
   function resetDesktopState() {

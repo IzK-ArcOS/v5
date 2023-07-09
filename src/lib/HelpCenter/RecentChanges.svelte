@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { getLatestRelease } from "../../tauri/updates";
+  import { getLatestRelease } from "../../updates/main";
   import SvelteMarkdown from "svelte-markdown";
   import Spinner from "../Spinner.svelte";
 

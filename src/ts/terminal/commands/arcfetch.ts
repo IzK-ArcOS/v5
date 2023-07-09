@@ -2,7 +2,6 @@ import { get } from "svelte/store";
 import { formatBytes } from "../../api/fs/sizes";
 import { getDeviceInfo } from "../../device/main";
 import { CurrentState } from "../../state/main";
-import { inTauri } from "../../tauri";
 import { UserName } from "../../userlogic/interfaces";
 import { Color, colors, Command } from "../interface";
 import type { ArcTerm } from "../main";
@@ -26,7 +25,7 @@ export const ArcFetch: Command = {
 async function getItems(a: ArcTerm) {
   const info = getDeviceInfo();
 
-  const tauri = await inTauri();
+  const deskop = false;
 
   return Object.entries({
     Server: `${getServer()} @ rev ${minArcAPI}`,
@@ -34,7 +33,8 @@ async function getItems(a: ArcTerm) {
     Processor: `${info.cpu.cores} cores`,
     GPU: `${info.gpu.vendor} ${info.gpu.model}`,
     Memory: `~ ${formatBytes(info.mem.kb)}`,
-    Mode: (tauri ? `Desktop` : `Browser`) + ` (state ${get(CurrentState).key})`,
+    Mode:
+      (deskop ? `Desktop` : `Browser`) + ` (state ${get(CurrentState).key})`,
     Reference: a.referenceId,
   });
 }

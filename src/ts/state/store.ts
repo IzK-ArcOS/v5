@@ -1,4 +1,3 @@
-import { appWindow } from "@tauri-apps/api/window";
 import ArcTerm from "../../lib/Page/ArcTerm.svelte";
 import Blank from "../../lib/Page/Blank.svelte";
 import Boot from "../../lib/Page/Boot.svelte";
@@ -112,7 +111,8 @@ export const States = new Map<string, State>([
       attribs: {},
       key: "turnedoff",
       async onload() {
-        await appWindow.close();
+        // ! Closing App Window Code Goes Here !
+        console.log("Closing App Window Goes Here");
       },
     },
   ],

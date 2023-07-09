@@ -1,4 +1,3 @@
-import { appWindow } from "@tauri-apps/api/window";
 import { writable } from "svelte/store";
 import { logoffToken } from "../api/cred";
 import { InvalidStateBugrep } from "../bugrep";
@@ -6,7 +5,6 @@ import { Log } from "../console";
 import type { State } from "./interfaces";
 import { States } from "./store";
 import { LogLevel } from "../console/interface";
-import { setWindowTitle } from "../tauri";
 
 export const CurrentState = writable<State>(States[0]);
 
@@ -27,11 +25,6 @@ export function applyState(stateKey: string) {
     const t = `ArcOS | ${state.name}`;
 
     document.title = t;
-    try {
-      setWindowTitle(state.name);
-    } catch {
-      /** failing quietly */
-    }
 
     if (stateKey != "desktop") logoffToken();
 

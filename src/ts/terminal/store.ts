@@ -24,7 +24,7 @@ import { Run } from "./commands/run";
 import { Set } from "./commands/set";
 import { Shutdown } from "./commands/shutdown";
 import { StateCommand } from "./commands/state";
-import { Tauri } from "./commands/tauri";
+import { InDesktop } from "./commands/indesktop";
 import { UDD } from "./commands/udd";
 import { Users } from "./commands/users";
 import { Ver } from "./commands/ver";
@@ -65,7 +65,7 @@ export const arcCommands: CommandStore = [
   Restart,
   Shutdown /* 
   StateCommand, */,
-  Tauri,
+  InDesktop,
   UDD,
   Ver,
   Reset,

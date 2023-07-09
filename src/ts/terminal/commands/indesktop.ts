@@ -1,11 +1,9 @@
 import type { Command } from "../interface";
 
-import { inTauri } from "../../tauri";
-
-export const Tauri: Command = {
-  keyword: "tauri",
+export const InDesktop: Command = {
+  keyword: "indesktop",
   async exec(cmd, argv, term) {
-    const is = await inTauri();
+    const is = false;
 
     term.std.writeColor(
       `[STATUS]: You are ${is ? "in the Desktop app" : "in the Web version"}`,
