@@ -33,6 +33,7 @@
   });
 
   async function start() {
+    status = "&nbsp;";
     progressBar = true;
     t2 = setTimeout(fadeOut, 4000);
     t3 = setTimeout(redirect, 4750);
