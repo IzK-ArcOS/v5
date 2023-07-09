@@ -15,20 +15,22 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    height: inherit;
+    display: inline-flex;
   }
 
   span span {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: none;
   }
 
-  span.reveal:not(:hover) span.api {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+  span.reveal:hover span.api {
+    display: inline-block;
   }
 
+  span.reveal:not(:hover) span.place {
+    display: inline-block;
+  }
+  /* 
   span.reveal:not(:hover) span.place {
     opacity: 1;
     visibility: visible;
@@ -45,5 +47,5 @@
     opacity: 1;
     visibility: visible;
     pointer-events: initial;
-  }
+  } */
 </style>

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { createOverlayableError } from "../../../../../ts/errorlogic/overlay";
   import {
     creatingMessage,
     replyMessageId,
@@ -10,7 +9,7 @@
     sendMessage,
   } from "../../../../../ts/messaging/send";
   import { messageUpdateTrigger } from "../../../../../ts/messaging/updates";
-  import icon from "../../../../../assets/apps/error.svg";
+  import Cancel from "./Bottom/Cancel.svelte";
 
   export let content: string;
   export let target: string;
@@ -32,36 +31,6 @@
     creatingMessage.set(false);
     messageUpdateTrigger();
     loading = false;
-  }
-
-  function cancel() {
-    loading = true;
-    createOverlayableError(
-      {
-        title: "Delete message?",
-        message:
-          "Are you sure you want to delete this draft? This cannot be undone.",
-        image: icon,
-        buttons: [
-          {
-            caption: "Delete",
-            action: () => {
-              creatingMessage.set(false);
-              messageUpdateTrigger();
-
-              loading = false;
-            },
-          },
-          {
-            caption: "Cancel",
-            action: () => {
-              loading = false;
-            },
-          },
-        ],
-      },
-      "MessagingApp"
-    );
   }
 
   function editor() {
@@ -92,9 +61,9 @@
     </div>
   {/if}
   <div class="right">
-    <button on:click={cancel} disabled={loading}>Delete</button>
+    <Cancel bind:loading />
     <button on:click={send} disabled={!content || !target || loading}>
-      {loading ? "..." : $replyMessageId ? "Reply" : "Send"}
+      {loading ? "Loading..." : $replyMessageId ? "Reply" : "Send"}
     </button>
   </div>
 </div>

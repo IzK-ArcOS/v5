@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import SvelteMarkdown from "svelte-markdown";
-  import { get } from "svelte/store";
   import { getMessage, replyMessageId } from "../../../../ts/messaging/main";
   import type { UserData } from "../../../../ts/userlogic/interfaces";
   import { getUsers } from "../../../../ts/userlogic/main";
