@@ -5,6 +5,7 @@
   import { addServer } from "../../../../ts/api/server";
   import { testConnection } from "../../../../ts/api/test";
   import { applyFTSState } from "../../../../ts/fts/main";
+  import { ArcSoundBus } from "../../../../ts/sound/main";
   import Nav from "../Nav.svelte";
 
   let server = "";
@@ -24,6 +25,7 @@
 
       applyFTSState("authmode");
     } else {
+      ArcSoundBus.playSound("arcos.dialog.error");
       connectionError = true;
     }
 

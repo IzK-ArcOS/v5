@@ -5,7 +5,7 @@ import dialogInfo from "../../assets/audio/Info.wav";
 import notification from "../../assets/audio/Notification.wav";
 import systemLogon from "../../assets/audio/logon.wav";
 import systemLogoff from "../../assets/audio/logoff.wav";
-import click from "../../assets/audio/click.wav";
+import click from "../../assets/audio/click-loud.wav";
 import mwomp from "../../assets/audio/mwomp.mp3";
 
 export const ArcSounds: SoundStore = {

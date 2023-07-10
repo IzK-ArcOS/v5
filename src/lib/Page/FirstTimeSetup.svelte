@@ -4,12 +4,17 @@
   import Right from "./FirstTimeSetup/Right.svelte";
   import { applyFTSState, CurrentFTSState } from "../../ts/fts/main";
   import { FTSStates } from "../../ts/fts/store";
+  import sleep from "../../ts/sleep";
+  import { ArcSoundBus } from "../../ts/sound/main";
 
   let show = false;
 
-  onMount(() => {
-    setTimeout(() => (show = true), 500);
-    setTimeout(() => applyFTSState("welcome"), 1000);
+  onMount(async () => {
+    await sleep(500);
+    show = true;
+    ArcSoundBus.playSound("arcos.system.logon");
+    await sleep(500);
+    applyFTSState("welcome");
   });
 </script>
 

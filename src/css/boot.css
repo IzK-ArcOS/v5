@@ -57,8 +57,10 @@ div.boot * {
 }
 
 div.boot div.center img.logo {
+  width: 150px;
   height: 150px;
   margin-bottom: 20px;
+  margin: 0 auto;
 }
 /* 
 div.boot div.center img.logo:not(.color) {

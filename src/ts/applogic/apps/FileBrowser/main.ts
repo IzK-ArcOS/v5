@@ -14,6 +14,7 @@ import { hideOverlay, showOverlay } from "../../../window/overlay";
 import trash from "../../../../assets/apps/logger/clear.svg";
 import { LogLevel } from "../../../console/interface";
 import { deleteItem } from "../../../api/fs/delete";
+import { ArcSoundBus } from "../../../sound/main";
 
 export let FileBrowserCurrentDir = writable<string>("./");
 export let FileBrowserDirContents = writable<UserDirectory>(defaultDirectory);
@@ -77,6 +78,8 @@ class FileBrowserClass {
     FileBrowserSelectedFilename.set(null);
 
     FileBrowserCurrentDir.set(path);
+
+    ArcSoundBus.playSound("arcos.click");
 
     await this.refresh();
   }

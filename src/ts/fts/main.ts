@@ -4,6 +4,7 @@ import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 import type { State } from "../state/interfaces";
 import { FTSStates } from "./store";
+import { ArcSoundBus } from "../sound/main";
 
 export const CurrentFTSState = writable<State>();
 
@@ -18,6 +19,8 @@ export function applyFTSState(stateKey: string) {
     const state = FTSStates.get(stateKey);
 
     CurrentFTSState.set(state);
+
+    ArcSoundBus.playSound("arcos.click");
 
     return;
   }

@@ -1,7 +1,11 @@
 <script lang="ts">
   import finish from "../../../../assets/fts/finish.svg";
+  import sleep from "../../../../ts/sleep";
+  import { ArcSoundBus } from "../../../../ts/sound/main";
 
-  function restart() {
+  async function restart() {
+    ArcSoundBus.playSound("arcos.system.logoff");
+    await sleep(1000);
     location.reload();
   }
 </script>
