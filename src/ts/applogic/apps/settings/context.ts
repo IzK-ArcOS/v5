@@ -12,7 +12,9 @@ import { fbClass, FileBrowserSelectedFilename } from "../FileBrowser/main";
 const saveToFS = {
   caption: "Save to ArcFS",
   action: async (_, data) => {
-    const blob = new Blob([data.json], { type: "application/json" });
+    const blob = new Blob([JSON.stringify(JSON.parse(data.json), null, 2)], {
+      type: "application/json",
+    });
 
     await createDirectory("./Themes");
 
