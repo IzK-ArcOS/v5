@@ -31,7 +31,7 @@ Images 1, 2, 3, 4, 5, 6, 7 and 10 are made by me, the rest are licensed.
 | Wallpaper `img17`   | [@Blockyheadman](https://github.com/matteoscaringi)      | Fairfield Bay, US                         |
 | ArcOS Sounds        | [u/CalligrafiX](https://www.reddit.com/user/CalligrafiX) |                                           |
 
-I want to thank all of these authors for providing their photos and images for use as ArcOS wallpapers. Any and all contributions are greatly appreciated.
+I want to thank all of these authors for providing their photos, images and other assets for use in ArcOS. Any and all contributions are greatly appreciated. 
 
 ## Getting Started
 
