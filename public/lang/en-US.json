@@ -1,0 +1,12 @@
+{
+  "boot.keyPressWait": "Press any key to start",
+  "boot.connectSecure": "Connecting Securely",
+  "boot.preparing": "Preparing ArcOS",
+  "boot.detailStr": "v%% - %% - %% servers - current: ",
+  "server.public": "Public",
+  "server.private": "Private",
+  "apiReveal": "Hover to show ArcAPI",
+  "arcterm.start": "Starting ArcTerm v%%",
+  "arcterm.modeNotice": "[█] You are currently in [ArcTerm mode].\n[█] Commands that require the ArcOS desktop have been disabled.\n\n",
+  "arcterm.modeReference": "ArcTerm reference ID: [%%]"
+}

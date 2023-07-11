@@ -6,6 +6,7 @@ import { UserName } from "../userlogic/interfaces";
 import type { ArcTerm } from "./main";
 import { authPrompt } from "./mode/auth";
 import { getServer } from "../api/server";
+import { D } from "../language/main";
 
 export async function arcTermModeIntro(a: ArcTerm) {
   if (!(await authPrompt(a))) return;
@@ -28,21 +29,12 @@ export async function arcTermModeIntro(a: ArcTerm) {
 function disclaimer(a: ArcTerm) {
   a.std.clear();
 
-  a.std.writeColor(
-    `[█] You are currently in [ArcTerm mode].\n[█] Commands that require the ArcOS desktop have been disabled.\n\n`,
-    "orange"
-  );
-
-  a.std.writeColor(`ArcTerm reference ID: [${a.referenceId}]`, "blue");
+  a.std.writeColor(D("at.mode.notice"), "orange");
+  a.std.writeColor(D("at.mode.reference", a.referenceId), "blue");
 }
 
 function auth(a: ArcTerm, user: string, plat: string) {
-  a.std.writeColor(
-    `\nAuthenticated as [${user}] at [${plat}]`,
-    "aqua",
-    "white",
-    true
-  );
+  a.std.writeColor(D("at.mode.authNotice", user, plat), "aqua", "white", true);
 }
 
 function api(a: ArcTerm, aapi: string) {
@@ -50,8 +42,5 @@ function api(a: ArcTerm, aapi: string) {
 }
 
 function usage(a: ArcTerm, used: string, max: string, percent: string) {
-  a.std.writeColor(
-    `\n[ArcFS]: You are using [${used}] of [${max}] total (${percent}%)\n`,
-    "yellow"
-  );
+  a.std.writeColor(D("at.mode.fsNotice", used, max, percent), "yellow");
 }

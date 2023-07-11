@@ -2,6 +2,7 @@ import type { App } from "../applogic/interface";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 import { ArcOSVersion } from "../env/main";
+import { D } from "../language/main";
 import sleep from "../sleep";
 import { ArcTermCommandHandler } from "./commands";
 import { ArcTermEnv } from "./env";
@@ -61,7 +62,7 @@ export class ArcTerm {
 
     if (!this.target) return initError(this.app.id);
 
-    this.target.innerText = `Starting ArcTerm v${ArcOSVersion}...`;
+    this.target.innerText = D("at.start", ArcOSVersion);
 
     this.target.removeAttribute("style");
     this.path = "./";

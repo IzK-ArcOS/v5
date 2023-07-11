@@ -7,6 +7,7 @@ import { Color, colors, VariableStore } from "../interface";
 import type { ArcTerm } from "../main";
 import { getServer } from "../../api/server";
 import { LogLevel } from "../../console/interface";
+import { D } from "../../language/main";
 
 export function getArcTermStore(term: ArcTerm): VariableStore {
   Log({
@@ -45,8 +46,7 @@ export function getArcTermStore(term: ArcTerm): VariableStore {
       set: async (v) => {
         const dir = await getDirectory(v);
 
-        if (!dir)
-          return term.std.Error(`pwd: Directory doesn't exist, falling back.`);
+        if (!dir) return term.std.Error(D("at.var.pwdError"));
 
         term.path = v;
       },
@@ -56,8 +56,7 @@ export function getArcTermStore(term: ArcTerm): VariableStore {
     color: {
       get: () => term.env.promptColor,
       set: async (v) => {
-        if (!colors.includes(v))
-          return term.std.Error("color is invalid, falling back.");
+        if (!colors.includes(v)) return term.std.Error(D("at.var.colorError"));
 
         term.env.promptColor = v as Color;
 

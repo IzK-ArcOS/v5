@@ -37,11 +37,12 @@ import { Exec } from "./commands/exec";
 import { Verbose } from "./commands/verbose";
 import { Desktop } from "./commands/desktop";
 import { SoundBusCommand } from "./commands/soundbus";
+import { D } from "../language/main";
 
 export const defaultCommand: Command = {
   keyword: "default",
   exec: (cmd, _, term) => {
-    if (cmd) term.std.Error(`${cmd}: command not found.`);
+    if (cmd) term.std.Error(D("at.command.default", cmd));
   },
   description: "Default command",
 };

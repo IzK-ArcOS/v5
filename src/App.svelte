@@ -6,12 +6,15 @@
   import { getMode, Logo } from "./ts/branding";
   import { applyState, CurrentState } from "./ts/state/main";
   import { ArcSoundBus } from "./ts/sound/main";
+  import { setLanguage } from "./ts/language/load";
 
   let run = false;
   let logo = "";
 
   onMount(async () => {
     await getMode();
+
+    await setLanguage("nl-NL");
 
     applyState("boot");
 

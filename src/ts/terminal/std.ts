@@ -5,6 +5,7 @@ import type { ArcTermEnv } from "./env";
 import type { Color } from "./interface";
 import type { ArcTerm } from "./main";
 import { LogLevel } from "../console/interface";
+import { D } from "../language/main";
 
 export class ArcTermStd {
   target: HTMLDivElement;
@@ -47,7 +48,7 @@ export class ArcTermStd {
   public Error(context: string) {
     if (!this.verbose) return;
 
-    this.writeColor(`[Error]: ${context}`, "red");
+    this.writeColor(D("at.error", context), "red");
   }
 
   public write(str: string, target = this.target) {

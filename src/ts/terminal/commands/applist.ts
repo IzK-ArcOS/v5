@@ -4,6 +4,7 @@ import { getOpenedStore, WindowStore } from "../../applogic/store";
 import { switchExists } from "../argv";
 import type { Command } from "../interface";
 import type { ArcTerm } from "../main";
+import { D } from "../../language/main";
 
 export const AppList: Command = {
   keyword: "applist",
@@ -18,8 +19,8 @@ export const AppList: Command = {
       output(term, store[i]);
     }
   },
-  description: "List all- or opened ArcOS apps.",
-  syntax: "([opened?])",
+  description: D("at.cmd.applist.description"),
+  syntax: "(--[open]?)",
 };
 
 function output(term: ArcTerm, app: App) {
@@ -30,9 +31,9 @@ function output(term: ArcTerm, app: App) {
 }
 
 function header(term: ArcTerm) {
-  const hName = `Name`.padEnd(30, " ");
-  const hId = `ID`.padEnd(30, " ");
-  const hVer = `Version`;
+  const hName = D("at.cmd.applist.name").padEnd(30, " ");
+  const hId = D("at.cmd.applist.id").padEnd(30, " ");
+  const hVer = D("at.cmd.applist.version");
 
   const head = `${hName}${hId}${hVer}`;
 
