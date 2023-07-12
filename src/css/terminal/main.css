@@ -6,6 +6,7 @@ div.terminal-renderer {
   font-family: "Source Code Pro", monospace;
   color: var(--fg);
   font-size: 14px;
+  cursor: none;
 }
 
 div.terminal-renderer * {
@@ -15,6 +16,7 @@ div.terminal-renderer * {
   border: none !important;
   font-family: "Source Code Pro", monospace;
   font-size: 14px;
+  cursor: none;
 }
 
 div.terminal-renderer input {

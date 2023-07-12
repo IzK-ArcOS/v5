@@ -40,7 +40,7 @@ div#app *:not(.window)::before {
 
 div#app button,
 div#app a {
-  cursor: pointer;
+  cursor: none;
 }
 
 .material-icons-round {

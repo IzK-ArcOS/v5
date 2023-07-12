@@ -1,3 +1,13 @@
+<style>
+	* {
+		cursor: none;
+	}
+	a[itemprop="url"] {
+	  pointer-events: none;
+	  cursor: none;
+	}
+</style>
+
 <script lang="ts">
   import { onMount } from "svelte";
   import "./css/main.css";
@@ -6,6 +16,7 @@
   import { getMode, Logo } from "./ts/branding";
   import { applyState, CurrentState } from "./ts/state/main";
   import { ArcSoundBus } from "./ts/sound/main";
+import Cursor from './Cursor.svelte';
 
   let run = false;
   let logo = "";
@@ -20,40 +31,15 @@
     logo = Logo();
     run = true;
   });
-export class AppComponent  {
-    
-      top:any;
-      left:any;
-      expand=false;
-    
-      constructor() {}
-    
-    
-      @HostListener('document:click', ['$event'])
-      onClick($event) {
-         this.expand=true;
-         setTimeout(() => {
-          this.expand=false;
-         }, 500)
-     }
-    
-    @HostListener('document:mousemove', ['$event'])
-      onMousemove($event) {
-        this.top=($event.pageY - 10)+ "px";
-        this.left= ($event.pageX - 10)+ "px";
-     }
-    
-    
-    }
-
 </script>
+
+// <Cursor color="green" mixBlendMode="exclusion" size="28" />
 
 <svelte:head>
   <link rel="icon" href={logo} />
 </svelte:head>
 
 {#if run}
-<div class="cursor" [style.top]="top" [style.left]="left" [ngClass]="{'expand':expand}"></div>
   <div class="app fullscreen">
     {#if $CurrentState}
       <svelte:component this={$CurrentState.content} />
