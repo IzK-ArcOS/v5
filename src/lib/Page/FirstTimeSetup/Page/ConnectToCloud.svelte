@@ -5,9 +5,7 @@
   import { addServer } from "../../../../ts/api/server";
   import { testConnection } from "../../../../ts/api/test";
   import { applyFTSState } from "../../../../ts/fts/main";
-  import { D } from "../../../../ts/language/main";
   import { ArcSoundBus } from "../../../../ts/sound/main";
-  import L from "../../../Language/L.svelte";
   import Nav from "../Nav.svelte";
 
   let server = "";
@@ -37,17 +35,17 @@
 
 <div class="header centered">
   <img src={connectIcon} alt="Mode" />
-  <h1><L id="fts.ctc.header" /></h1>
-  <p class="subtitle"><L id="fts.ctc.subtitle" /></p>
+  <h1>Time to get connected</h1>
+  <p class="subtitle">Enter the hostname of your ArcAPI:</p>
 </div>
 <input
   class="fullwidth centered"
-  placeholder={D("fts.ctc.serverPlaceholder")}
+  placeholder="Server name"
   bind:value={server}
 />
 <input
   class="fullwidth centered"
-  placeholder={D("fts.ctc.authCodePlaceholder")}
+  placeholder="Server authentication code (optional)"
   bind:value={authCode}
 />
 <button
@@ -55,16 +53,11 @@
   disabled={!server || connecting}
   on:click={connect}
 >
-  {#if !connecting}
-    <L id="fts.ctc.continue" />
-  {:else}
-    <L id="fts.ctc.connecting" />
-  {/if}
+  {#if !connecting}Connect to server{:else}Connecting...{/if}
 </button>
 {#if connectionError}
   <p class="fullwidth centered connect-error">
-    <span class="material-icons-round">error</span>
-    <L id="fts.ctc.failure" />
+    <span class="material-icons-round">error</span>Connection to ArcAPI failed!
   </p>
 {/if}
 <Nav

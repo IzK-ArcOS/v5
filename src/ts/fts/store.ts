@@ -11,13 +11,12 @@ import Finish from "../../lib/Page/FirstTimeSetup/Page/Finish.svelte";
 import License from "../../lib/Page/FirstTimeSetup/Page/License.svelte";
 import NewAuth from "../../lib/Page/FirstTimeSetup/Page/NewAuth.svelte";
 import Welcome from "../../lib/Page/FirstTimeSetup/Page/Welcome.svelte";
-import { D } from "../language/main";
 import type { State } from "../state/interfaces";
 export const FTSStates = new Map<string, State>([
   [
     "welcome",
     {
-      name: D("fts.welcome"),
+      name: "Welcome",
       content: Welcome,
       attribs: {},
       key: "welcome",
@@ -27,7 +26,7 @@ export const FTSStates = new Map<string, State>([
   [
     "license",
     {
-      name: D("fts.license"),
+      name: "License",
       content: License,
       attribs: {},
       key: "license",
@@ -37,7 +36,7 @@ export const FTSStates = new Map<string, State>([
   [
     "connecttocloud",
     {
-      name: D("fts.ctc"),
+      name: "Connect to ArcOS",
       content: ConnectToCloud,
       attribs: {},
       key: "connecttocloud",
@@ -48,7 +47,7 @@ export const FTSStates = new Map<string, State>([
   [
     "authmode",
     {
-      name: D("fts.authmode"),
+      name: "User Mode",
       content: AuthMode,
       attribs: {},
       key: "authmode",
@@ -58,7 +57,7 @@ export const FTSStates = new Map<string, State>([
   [
     "auth-existing",
     {
-      name: D("fts.ea"),
+      name: "Existing User",
       content: ExistingAuth,
       attribs: {},
       key: "auth-existing",
@@ -68,7 +67,7 @@ export const FTSStates = new Map<string, State>([
   [
     "auth-new",
     {
-      name: D("fts.na"),
+      name: "Create Account",
       content: NewAuth,
       attribs: {},
       key: "auth-new",
@@ -78,7 +77,7 @@ export const FTSStates = new Map<string, State>([
   [
     "finish",
     {
-      name: D("fts.finish"),
+      name: "Finish",
       content: Finish,
       attribs: {},
       key: "finish",
