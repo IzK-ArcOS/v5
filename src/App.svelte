@@ -15,7 +15,6 @@
   import { logoffToken } from "./ts/api/cred";
   import { getMode, Logo } from "./ts/branding";
   import { applyState, CurrentState } from "./ts/state/main";
-  import { ArcSoundBus } from "./ts/sound/main";
 import Cursor from './Cursor.svelte';
 
   let run = false;
