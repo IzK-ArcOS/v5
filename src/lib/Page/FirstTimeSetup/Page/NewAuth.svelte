@@ -1,29 +1,19 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import account from "../../../../assets/fts/account.svg";
   import { generateCredToken } from "../../../../ts/api/cred";
   import { loginUsingCreds } from "../../../../ts/api/getter";
   import { ConnectedServer, apiCall } from "../../../../ts/api/main";
   import { applyFTSState } from "../../../../ts/fts/main";
+  import { D } from "../../../../ts/language/main";
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
-  import { getUsers } from "../../../../ts/userlogic/main";
+  import L from "../../../Language/L.svelte";
   import Spinner from "../../../Spinner.svelte";
 
   let username = "";
   let password = "";
   let error = false;
   let working = false;
-  let loading = true;
-
-  onMount(async () => {
-    loading = true;
-
-    const users = await getUsers();
-
-    if (!Object.entries(users).length) applyFTSState("finish");
-
-    loading = false;
-  });
+  let loading = false;
 
   function changeServer() {
     applyFTSState("connecttocloud");
@@ -70,15 +60,15 @@
 {#if !loading}
   <div class="header centered">
     <img src={account} alt="Login" />
-    <h1>Hello, stranger!</h1>
-    <p class="subtitle">Let's get you an account</p>
+    <h1><L id="fts.na.header" /></h1>
+    <p class="subtitle"><L id="fts.na.subtitle" /></p>
   </div>
 
   <input
     type="text"
     class="fullwidth centered"
     class:error
-    placeholder="Username"
+    placeholder={D("username")}
     bind:value={username}
   />
   <div class="input-wrap">
@@ -86,7 +76,7 @@
       type="password"
       class="fullwidth centered"
       class:error
-      placeholder="Password"
+      placeholder={D("password")}
       bind:value={password}
     />
     <button

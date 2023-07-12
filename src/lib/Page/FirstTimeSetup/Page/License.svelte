@@ -1,6 +1,7 @@
 <script lang="ts">
   import license from "../../../../assets/fts/license.svg";
   import { applyFTSState } from "../../../../ts/fts/main";
+  import L from "../../../Language/L.svelte";
 
   function openIt() {
     window.open(
@@ -12,12 +13,19 @@
 
 <div class="header centered">
   <img src={license} alt="Mode" />
-  <h1>License agreement</h1>
-  <p class="subtitle">By using ArcOS, you agree to the GPLv3 License.</p>
+  <h1>
+    <L id="fts.license.header" />
+  </h1>
+  <p class="subtitle">
+    <L id="fts.license.subtitle" />
+  </p>
 </div>
-<button class="fullwidth option centered" on:click={openIt}>Open license</button
->
+<button class="fullwidth option centered" on:click={openIt}>
+  <L id="fts.license.open" />
+</button>
 <button
   class="fullwidth option centered"
-  on:click={() => applyFTSState("connecttocloud")}>I Agree</button
+  on:click={() => applyFTSState("connecttocloud")}
 >
+  <L id="fts.license.agree" />
+</button>

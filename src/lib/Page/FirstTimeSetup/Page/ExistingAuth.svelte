@@ -6,6 +6,8 @@
   import { applyFTSState } from "../../../../ts/fts/main";
   import { getUsers } from "../../../../ts/userlogic/main";
   import Spinner from "../../../Spinner.svelte";
+  import L from "../../../Language/L.svelte";
+  import { D } from "../../../../ts/language/main";
 
   let username = "";
   let password = "";
@@ -48,15 +50,19 @@
 {#if !loading}
   <div class="header centered">
     <img src={account} alt="Login" />
-    <h1>Who are you?</h1>
-    <p class="subtitle">Let's get you logged in</p>
+    <h1>
+      <L id="fts.ea.header" />
+    </h1>
+    <p class="subtitle">
+      <L id="fts.ea.subtitle" />
+    </p>
   </div>
 
   <input
     type="text"
     class="fullwidth centered"
     class:error
-    placeholder="Username"
+    placeholder={D("username")}
     bind:value={username}
   />
   <div class="input-wrap">
@@ -64,7 +70,7 @@
       type="password"
       class="fullwidth centered"
       class:error
-      placeholder="Password"
+      placeholder={D("password")}
       bind:value={password}
     />
     <button
