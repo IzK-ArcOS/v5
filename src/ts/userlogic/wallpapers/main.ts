@@ -14,7 +14,7 @@ const getters: [string, (id: string) => Wallpaper | Promise<Wallpaper>][] = [
   ["img", (id) => Wallpapers[id] || Wallpapers["img04"]],
 ];
 
-export async function getWallpaper(id: string) {
+export async function getWallpaper(id: string): Promise<Wallpaper> {
   Log({
     msg: `Getting wallpaper ${id.startsWith("img") ? id : "<custom>"}`,
     source: "userlogic/wallpapers.ts: getWallpaper",
@@ -22,6 +22,8 @@ export async function getWallpaper(id: string) {
   });
 
   if (!id) return Wallpapers["img04"];
+
+  if (id.startsWith("http")) return { author: "The Web", name: id, url: id };
 
   for (let i = 0; i < getters.length; i++) {
     if (id.startsWith(getters[i][0])) return await getters[i][1](id);
