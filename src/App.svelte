@@ -20,6 +20,32 @@
     logo = Logo();
     run = true;
   });
+export class AppComponent  {
+    
+      top:any;
+      left:any;
+      expand=false;
+    
+      constructor() {}
+    
+    
+      @HostListener('document:click', ['$event'])
+      onClick($event) {
+         this.expand=true;
+         setTimeout(() => {
+          this.expand=false;
+         }, 500)
+     }
+    
+    @HostListener('document:mousemove', ['$event'])
+      onMousemove($event) {
+        this.top=($event.pageY - 10)+ "px";
+        this.left= ($event.pageX - 10)+ "px";
+     }
+    
+    
+    }
+
 </script>
 
 <svelte:head>
@@ -27,6 +53,7 @@
 </svelte:head>
 
 {#if run}
+<div class="cursor" [style.top]="top" [style.left]="left" [ngClass]="{'expand':expand}"></div>
   <div class="app fullscreen">
     {#if $CurrentState}
       <svelte:component this={$CurrentState.content} />
