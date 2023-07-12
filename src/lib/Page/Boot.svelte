@@ -12,41 +12,40 @@
   import { ArcOSVersion } from "../../ts/env/main";
   import { applyState } from "../../ts/state/main";
   import ApiReveal from "../APIReveal.svelte";
+  import { BootFail } from "../../ts/boot/fail";
+  import sleep from "../../ts/sleep";
 
   let status = "";
   let bootClass = "";
   let targetState = "login";
 
-  let t1 = null;
-  let t2 = null;
-  let t3 = null;
-
-  let altDown = false;
-  let progressBar = false;
+  let loadingArcTerm = false;
+  let progress = false;
 
   onMount(async () => {
     status = "Press any key to start";
 
-    t1 = setTimeout(fadeIn, 500);
+    document.addEventListener("keydown", startBooting, { once: true });
+    document.addEventListener("keydown", arcTermShortcut, { once: true });
 
-    document.addEventListener("keydown", start, { once: true });
+    await sleep(500);
+
+    bootClass = "fadein";
   });
 
-  async function start() {
+  async function startBooting() {
     status = "&nbsp;";
-    progressBar = true;
-    t2 = setTimeout(fadeOut, 4000);
-    t3 = setTimeout(redirect, 4750);
+    progress = true;
 
     if (!(await checkServer())) status = "Preparing ArcOS";
 
-    document.addEventListener("keydown", altDownCb);
+    await redirect();
   }
 
-  function altDownCb(e: KeyboardEvent) {
+  function arcTermShortcut(e: KeyboardEvent) {
     if (!e.altKey || e.key.toLowerCase() != "a") return;
 
-    altDown = true;
+    loadingArcTerm = true;
     status = "Loading ArcTerm";
   }
 
@@ -54,65 +53,21 @@
     const serverHost = getServer();
     const authCode = getAuthcode(serverHost);
 
-    let connected = false;
-
-    if (!serverHost) {
-      return;
-    }
+    if (!serverHost) return;
 
     if (authCode) status = "Connecting Securely";
 
-    clearTimeout(t1);
-    clearTimeout(t2);
-    clearTimeout(t3);
-
-    setTimeout(fadeIn, 120);
-
-    connected = await testConnection(serverHost, authCode);
+    const connected = await testConnection(serverHost, authCode);
 
     if (!connected) {
-      fadeOut();
-      return BugReportData.set([
-        true,
-        {
-          title: "Boot failed",
-          icon: "warning",
-          message:
-            "ArcOS can't connect to the remote server. Please ensure<br>the server is online, or try again at a later date.",
-          button: {
-            caption: "Retry",
-            action: () => location.reload(),
-          },
-          source: "Boot",
-          details: `Can't connect to server ${serverHost}: none of the modes match`,
-        },
-      ]);
+      bootClass = "fadeout";
+
+      return BootFail(serverHost);
     }
 
-    setTimeout(fadeOut, 2000);
-    setTimeout(redirect, 2750);
+    redirect();
 
     return connected;
-  }
-
-  function fadeOut() {
-    Log({
-      level: LogLevel.info,
-      source: "Boot.svelte",
-      msg: "Fade-out",
-    });
-
-    bootClass = "fadeout";
-  }
-
-  function fadeIn() {
-    Log({
-      level: LogLevel.info,
-      source: "Boot.svelte",
-      msg: "Fade-in",
-    });
-
-    bootClass = "fadein";
   }
 
   async function redirect() {
@@ -122,9 +77,10 @@
       msg: "Redirecting",
     });
 
-    removeEventListener("keydown", altDownCb);
-
-    applyState(altDown ? "arcterm" : targetState);
+    await sleep(2000);
+    bootClass = "fadeout";
+    await sleep(750);
+    applyState(loadingArcTerm ? "arcterm" : targetState);
   }
 </script>
 
@@ -134,9 +90,9 @@
       .length} servers - current: <ApiReveal />
   </div>
   <div class="center">
-    <img alt="Logo" class="logo" class:color={progressBar} src={Logo()} />
+    <img alt="Logo" class="logo" src={Logo()} />
     <div class="slider userdefined">
-      {#if progressBar}
+      {#if progress}
         <div class="line dark" />
         <div class="subline dark inc" />
         <div class="subline dark dec" />
