@@ -21,7 +21,7 @@
 </script>
 
 {#if data.acc.enabled}
-  <button class="user" on:click={go}>
+  <button class="user" on:click={go} class:drop={name == "space"}>
     <ProfilePicture src={pfp} height={76} />
     <p class="username">{name}</p>
   </button>

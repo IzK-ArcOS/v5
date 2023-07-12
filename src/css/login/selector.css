@@ -32,6 +32,15 @@ div.login div.center-absolute div.user-selector button.user {
   padding: 10px 0px;
   transition: background-color 0.15s, opacity 0.3s;
   font-size: 14px;
+  vertical-align: middle;
+}
+
+div.login div.center-absolute div.user-selector button.user.drop {
+  height: fit-content;
+}
+
+div.login div.center-absolute div.user-selector button.user.drop p {
+  line-height: 0;
 }
 
 div.login div.center-absolute div.user-selector button.user:hover {
