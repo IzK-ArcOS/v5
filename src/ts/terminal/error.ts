@@ -1,16 +1,16 @@
 import { closeWindow } from "../applogic/events";
 import { createOverlayableError } from "../errorlogic/overlay";
 import icon from "../../assets/apps/arcterm.svg";
-import { D } from "../language/main";
 
 export function initError(id: string) {
   createOverlayableError(
     {
-      title: D("at.initError.title"),
-      message: D("at.initError.message"),
+      title: "Can't initialize terminal",
+      message:
+        "The terminal instance is missing a valid target element. Please restart and try again.",
       buttons: [
         {
-          caption: D("at.initError.close"),
+          caption: "Close",
           action() {
             closeWindow(id);
           },

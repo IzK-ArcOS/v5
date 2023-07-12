@@ -1,7 +1,6 @@
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 import { ArcOSVersion } from "../env/main";
-import { D } from "../language/main";
 import { ArcTermConfig } from "./config";
 import type { Color } from "./interface";
 import type { ArcTerm } from "./main";
@@ -10,7 +9,7 @@ export class ArcTermEnv {
   config: ArcTermConfig;
   prompt = "[&u]: [~/&p] $ ";
   promptColor: Color = "green";
-  greeting = D("at.env.greeting");
+  greeting = `ArcTerm & ArcOS v${ArcOSVersion}\n\nLicensed under GPLv3. Created by the ArcOS team.`;
   logo: boolean = true;
 
   constructor(term: ArcTerm) {

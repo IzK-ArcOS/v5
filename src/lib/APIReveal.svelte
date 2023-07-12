@@ -1,12 +1,11 @@
 <script lang="ts">
   import { getServer } from "../ts/api/server";
-  import L from "./Language/L.svelte";
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <span class="reveal">
   <span class="api">{getServer() || location.hostname}</span>
-  <span class="place"><L id="apiReveal" /></span>
+  <span class="place">Hover to show ArcAPI</span>
 </span>
 
 <style scoped>

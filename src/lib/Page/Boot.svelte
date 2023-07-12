@@ -12,8 +12,6 @@
   import { ArcOSVersion } from "../../ts/env/main";
   import { applyState } from "../../ts/state/main";
   import ApiReveal from "../APIReveal.svelte";
-  import { D } from "../../ts/language/main";
-  import L from "../Language/L.svelte";
 
   let status = "";
   let bootClass = "";
@@ -27,7 +25,7 @@
   let progressBar = false;
 
   onMount(async () => {
-    status = D("boot.keyPressWait");
+    status = "Press any key to start";
 
     t1 = setTimeout(fadeIn, 500);
 
@@ -40,7 +38,7 @@
     t2 = setTimeout(fadeOut, 4000);
     t3 = setTimeout(redirect, 4750);
 
-    if (!(await checkServer())) status = D("boot.preparing");
+    if (!(await checkServer())) status = "Preparing ArcOS";
 
     document.addEventListener("keydown", altDownCb);
   }
@@ -49,7 +47,7 @@
     if (!e.altKey || e.key.toLowerCase() != "a") return;
 
     altDown = true;
-    status = D("boot.arcterm");
+    status = "Loading ArcTerm";
   }
 
   async function checkServer() {
@@ -62,7 +60,7 @@
       return;
     }
 
-    if (authCode) status = D("boot.connectSecure");
+    if (authCode) status = "Connecting Securely";
 
     clearTimeout(t1);
     clearTimeout(t2);
@@ -77,15 +75,16 @@
       return BugReportData.set([
         true,
         {
-          title: D("boot.failed.title"),
+          title: "Boot failed",
           icon: "warning",
-          message: D("boot.failed.message"),
+          message:
+            "ArcOS can't connect to the remote server. Please ensure<br>the server is online, or try again at a later date.",
           button: {
-            caption: D("boot.failed.retry"),
+            caption: "Retry",
             action: () => location.reload(),
           },
-          source: D("boot"),
-          details: D("boot.failed.details"),
+          source: "Boot",
+          details: `Can't connect to server ${serverHost}: none of the modes match`,
         },
       ]);
     }
@@ -131,15 +130,8 @@
 
 <div class="{bootClass} boot fullscreen">
   <div class="arcterm-load visible">
-    <L
-      id="boot.detailStr"
-      inliners={[
-        ArcOSVersion,
-        $ServerAuthCode ? D("server.private") : D("server.public"),
-        getAllServers().length,
-      ]}
-    />
-    <ApiReveal />
+    v{ArcOSVersion} - {$ServerAuthCode ? "Private" : "Public"} - {getAllServers()
+      .length} servers - current: <ApiReveal />
   </div>
   <div class="center">
     <img alt="Logo" class="logo" class:color={progressBar} src={Logo()} />

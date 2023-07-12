@@ -8,7 +8,6 @@ import { UserName } from "../../userlogic/interfaces";
 import type { ArcTerm } from "../main";
 import { addServer, getServer } from "../../api/server";
 import { setAuthcode } from "../../api/authcode";
-import { D } from "../../language/main";
 
 export async function authPrompt(term: ArcTerm, usr = "") {
   const udata = get(UserName);
@@ -31,20 +30,8 @@ export async function authPrompt(term: ArcTerm, usr = "") {
   term.std.clear();
   term.std.writeLine(`ArcTerm ${ArcOSVersion} - ${api}\n\n`);
 
-  const username = await term.std.read(
-    D("at.mode.auth.username", api),
-    "",
-    100,
-    false,
-    usr
-  );
-
-  const password = await term.std.read(
-    D("at.mode.auth.password"),
-    "",
-    100,
-    true
-  );
+  const username = await term.std.read(`${api} login: `, "", 100, false, usr);
+  const password = await term.std.read("Password: ", "", 100, true);
 
   const token = generateCredToken({ username: username, password });
 
@@ -61,21 +48,12 @@ export async function authPrompt(term: ArcTerm, usr = "") {
 
 async function serverConnect(term: ArcTerm) {
   term.std.clear();
-  term.std.writeLine(D("at.mode.auth.serverConnect.title", ArcOSVersion));
+  term.std.writeLine(`ArcTerm ${ArcOSVersion} - Connect to server\n\n`);
 
-  const server = await term.std.read(
-    D("at.mode.auth.serverConnect.serverInput"),
-    "",
-    50
-  );
-  const authCode = await term.std.read(
-    D("at.mode.auth.serverConnect.codeInput"),
-    "",
-    64,
-    true
-  );
+  const server = await term.std.read("Server: ", "", 50);
+  const authCode = await term.std.read("Code (optional): ", "", 64, true);
 
-  term.std.writeLine(D("at.mode.auth.serverConnect.connecting", server));
+  term.std.writeLine(`Connecting to ${server}...`);
 
   if (!(await testConnection(server, authCode)))
     return await serverConnect(term);
