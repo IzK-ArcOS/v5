@@ -72,6 +72,7 @@
   });
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <window
   class:window={!app.info.custom}
   class:focused={app.id == $focusedWindowId}
@@ -83,7 +84,7 @@
   class:exttransition
   class:fullscreen={app.state.windowState.fll || app.info.custom}
   class:glass={app.glass}
-  class:lefttb={$UserData.sh.window.lefttb}
+  class:lefttb={$UserData && $UserData.sh.window.lefttb}
   class:custom={app.info.custom}
   class:child={!!app.parentId}
   class:snapped={app.snapped}

@@ -23,69 +23,73 @@ export function dragWindow(
     });
 
   ["mousedown", "touchstart"].forEach((k) =>
-    window.addEventListener(k, (e: MouseEvent) => {
-      let x, y;
-      if (app.info.custom) return;
+    window.addEventListener(
+      k,
+      (e: MouseEvent) => {
+        let x, y;
+        if (app.info.custom) return;
 
-      focusedWindowId.set(app.id);
+        focusedWindowId.set(app.id);
 
-      if (e.composedPath().includes(titlebar)) {
-        let xA: number, yA: number, xB: number, yB: number;
+        if (e.composedPath().includes(titlebar)) {
+          let xA: number, yA: number, xB: number, yB: number;
 
-        e.preventDefault();
+          /* e.preventDefault(); */
 
-        document.onmousemove = (e: MouseEvent) => {
-          app.snapped = false;
+          document.onmousemove = (e: MouseEvent) => {
+            app.snapped = false;
 
-          WindowStore.set(get(WindowStore));
+            WindowStore.set(get(WindowStore));
 
-          process(e.clientX, e.clientY);
-        };
+            process(e.clientX, e.clientY);
+          };
 
-        document.ontouchmove = (e: TouchEvent) => {
-          app.snapped = false;
+          document.ontouchmove = (e: TouchEvent) => {
+            app.snapped = false;
 
-          WindowStore.set(get(WindowStore));
+            WindowStore.set(get(WindowStore));
 
-          if (!e.touches.length || k == "mousedown") return;
+            if (!e.touches.length || k == "mousedown") return;
 
-          process(e.touches[0].clientX, e.touches[0].clientY);
-        };
+            process(e.touches[0].clientX, e.touches[0].clientY);
+          };
 
-        function process(x: number, y: number) {
-          xA = xB - x;
-          yA = yB - y;
+          function process(x: number, y: number) {
+            xA = xB - x;
+            yA = yB - y;
 
-          xB = x;
-          yB = y;
+            xB = x;
+            yB = y;
 
-          let top = window.offsetTop - yA;
-          const left = window.offsetLeft - xA;
+            let top = window.offsetTop - yA;
+            const left = window.offsetLeft - xA;
 
-          if (top < 0) top = 0;
+            if (top < 0) top = 0;
 
-          window.style.top = top + "px";
-          window.style.left = left + "px";
+            window.style.top = top + "px";
+            window.style.left = left + "px";
 
-          app.pos.x = left;
-          app.pos.y = top;
+            app.pos.x = left;
+            app.pos.y = top;
 
-          checkZones(xB, yB, app.id);
+            checkZones(xB, yB, app.id);
 
-          [x, y] = [xB, yB];
+            [x, y] = [xB, yB];
+          }
+
+          document.onmouseup = document.ontouchend = () => {
+            checkZones(x, y, app.id);
+            snapWindow(app.id);
+            leftZoneTriggered.set(false);
+            rightZoneTriggered.set(false);
+            document.onmouseup = null;
+            document.onmousemove = null;
+            document.ontouchend = null;
+            document.ontouchmove = null;
+          };
         }
-
-        document.onmouseup = document.ontouchend = () => {
-          checkZones(x, y, app.id);
-          snapWindow(app.id);
-          leftZoneTriggered.set(false);
-          rightZoneTriggered.set(false);
-          document.onmouseup = null;
-          document.onmousemove = null;
-          document.ontouchend = null;
-          document.ontouchmove = null;
-        };
-      }
-    })
+      },
+      { passive: true }
+    )
   );
 }

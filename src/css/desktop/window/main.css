@@ -179,5 +179,5 @@ div.desktop:not(.is-launcher):not(.tbdocked):not([class*="tb-vertical"])
 }
 
 .window.exttransition {
-  transition: all 0.2s;
+  transition: all 0.2s, left 0s, top 0s;
 }

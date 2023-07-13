@@ -47,11 +47,12 @@
   }
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
   class="titlebar"
   bind:this={titlebar}
   on:dblclick={max}
-  class:centered={$UserData.sh.window.centertb}
+  class:centered={$UserData && $UserData.sh.window.centertb}
 >
   <div class="centeredtitle">{app.info.name}{app.info.titleSuffix || ""}</div>
   <p class="title">
@@ -61,7 +62,7 @@
     </span>
   </p>
   <div class="controls">
-    {#if $UserData.sh.window.buttons}
+    {#if $UserData && $UserData.sh.window.buttons}
       <svelte:component
         this={titlebarButtons[$UserData.sh.window.buttons].content}
         {cls}

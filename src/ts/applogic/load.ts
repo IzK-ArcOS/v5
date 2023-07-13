@@ -22,9 +22,9 @@ export function loadWindow(id: string, app: App) {
   const data = { ...app, id };
   const children = getChildren(app, id);
   const userdata = get(UserData);
-  const disabledList = userdata.disabledApps;
+  const disabledList = userdata ? userdata.disabledApps : [];
 
-  if (!userdata.disabledApps) {
+  if (userdata && !userdata.disabledApps) {
     userdata.disabledApps = [];
     UserData.set(userdata);
   }

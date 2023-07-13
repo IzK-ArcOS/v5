@@ -9,7 +9,7 @@
   <svelte:component
     this={app.content}
     {app}
-    appdata={$UserData.appdata[app.id] || {}}
+    appdata={$UserData ? $UserData.appdata[app.id] || {} : {}}
   />
   <slot />
 </div>
