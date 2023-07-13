@@ -16,4 +16,5 @@ export const UDD: Command = {
     await writeFile(filename, b);
   },
   description: "Dump the userdata to a file",
+  hidden: true,
 };

@@ -29,7 +29,7 @@ function all(term: ArcTerm) {
     const a = cmd[i].keyword.toUpperCase().padEnd(15, " ");
     const b = cmd[i].description;
 
-    term.std.writeColor(`[${a}]${b}`, "orange");
+    term.std.writeColor(`[${a}]${b}`, cmd[i].hidden ? "purple" : "orange");
   }
 }
 

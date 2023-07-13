@@ -9,6 +9,7 @@ import { initError } from "./error";
 import { ArcTermInput } from "./input";
 import type { CommandStore } from "./interface";
 import { ArcTermStd } from "./std";
+import { gooseBumpsCommands } from "./store";
 import { ArcTermUtil } from "./util";
 import { ArcTermVariables } from "./var";
 
@@ -79,9 +80,17 @@ export class ArcTerm {
 
       await sleep(100);
 
+      if (this.env.gooseBumps)
+        this.commands = { a: [...this.commands, ...gooseBumpsCommands] }.a;
+
       this.input.unlock();
       this.util.intro();
       this.util.flushAccent();
+
+      if (this.env.gooseBumps)
+        this.std.Warning(
+          "GooseBumps detected! Experimental or otherwise hidden features have\nbeen enabled. Use them with caution: they can potentially damage your ArcOS account.\n\n"
+        );
     }, 1000);
   }
 

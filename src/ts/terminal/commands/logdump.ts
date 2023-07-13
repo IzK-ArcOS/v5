@@ -45,4 +45,5 @@ export const LogDump: Command = {
     fbClass.refresh();
   },
   description: "Dump the log to a file",
+  hidden: true,
 };

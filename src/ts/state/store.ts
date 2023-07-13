@@ -4,6 +4,7 @@ import Boot from "../../lib/Page/Boot.svelte";
 import Desktop from "../../lib/Page/Desktop.svelte";
 import FirstTimeSetup from "../../lib/Page/FirstTimeSetup.svelte";
 import Login from "../../lib/Page/Login.svelte";
+import ServerSelect from "../../lib/Page/ServerSelect.svelte";
 import TurnedOff from "../../lib/Page/TurnedOff.svelte";
 
 import { applyLoginState, loginUsername } from "../login/main";
@@ -17,6 +18,15 @@ export const States = new Map<string, State>([
       content: Boot,
       attribs: {},
       key: "boot",
+    },
+  ],
+  [
+    "serverselect",
+    {
+      name: "Server Select",
+      content: ServerSelect,
+      attribs: {},
+      key: "serverselect",
     },
   ],
   [
@@ -110,10 +120,8 @@ export const States = new Map<string, State>([
       content: TurnedOff,
       attribs: {},
       key: "turnedoff",
-      async onload() {
+      onload() {
         window.close();
-        // ! Closing App Window Code Goes Here !
-        /* console.log("Closing App Window Goes Here"); */
       },
     },
   ],

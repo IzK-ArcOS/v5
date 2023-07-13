@@ -5,6 +5,7 @@ export interface Command {
   description: string;
   exec: (cmd: string, argv: string[], term: ArcTerm) => void;
   syntax?: string;
+  hidden?: boolean;
 }
 
 export type CommandStore = Command[];

@@ -11,6 +11,7 @@ export class ArcTermEnv {
   promptColor: Color = "green";
   greeting = `ArcTerm & ArcOS v${ArcOSVersion}\n\nLicensed under GPLv3. Created by the ArcOS team.`;
   logo: boolean = true;
+  gooseBumps: boolean = false;
 
   constructor(term: ArcTerm) {
     Log({

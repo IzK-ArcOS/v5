@@ -1,0 +1,32 @@
+div.serverselect div.selector {
+  background-color: var(--win-bg);
+  width: 400px;
+  border-radius: var(--win-border-rad);
+  border: var(--win-border);
+  padding: 15px;
+}
+
+div.serverselect div.selector button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  border: none;
+  margin: none;
+  padding: 5px;
+  color: var(--fg);
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+div.serverselect div.selector button:hover {
+  background-color: var(--button-bg);
+}
+
+div.serverselect div.selector button p {
+  margin: 0;
+}
+
+div.serverselect div.selector button span.material-icons-round {
+  margin-left: auto;
+}

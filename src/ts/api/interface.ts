@@ -78,3 +78,9 @@ export interface FSQuota {
   free: number;
   used: number;
 }
+
+export interface ServerSelectOption {
+  private: boolean;
+  hostname: string;
+  authCode: string;
+}

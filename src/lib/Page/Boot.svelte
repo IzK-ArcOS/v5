@@ -13,10 +13,6 @@
   import sleep from "../../ts/sleep";
   import { applyState } from "../../ts/state/main";
   import ApiReveal from "../APIReveal.svelte";
-  import Window from "./Desktop/WindowStore/Window.svelte";
-  import { WindowStore, getWindow } from "../../ts/applogic/store";
-  import { DefaultApps } from "../../ts/applogic/imports/store";
-  import { loadWindow } from "../../ts/applogic/load";
 
   let status = "";
   let bootClass = "";
@@ -26,11 +22,9 @@
 
   onMount(async () => {
     status = "Press any key to start";
-    /* 
-    document.addEventListener("keydown", startBooting, { once: true });
-    document.addEventListener("keydown", arcTermShortcut, { once: true }); */
 
-    loadWindow("DonutApp", DefaultApps.DonutApp);
+    document.addEventListener("keydown", startBooting, { once: true });
+    document.addEventListener("keydown", arcTermShortcut);
 
     await sleep(500);
 
@@ -103,8 +97,3 @@
     <p class="status">{@html status}</p>
   </div>
 </div>
-{#each $WindowStore as window}
-  {#if bootClass == "fadein"}
-    <Window app={window} visible />
-  {/if}
-{/each}

@@ -4,18 +4,24 @@ import { ATConf } from "./commands/atconf";
 import { Cd } from "./commands/cd";
 import { Clear } from "./commands/clear";
 import { Colors } from "./commands/colors";
+import { Config } from "./commands/config";
+import { Desktop } from "./commands/desktop";
 import { Dir } from "./commands/dir";
 import { Echo } from "./commands/echo";
-import { Vars } from "./commands/vars";
+import { Exec } from "./commands/exec";
 import { Exit } from "./commands/exit";
 import { Help } from "./commands/help";
 import { History } from "./commands/history";
+import { InDesktop } from "./commands/indesktop";
 import { Kill } from "./commands/kill";
 import { LogDump } from "./commands/logdump";
+import { Logout } from "./commands/logout";
 import { Mkdir } from "./commands/mkdir";
 import { oa } from "./commands/oa";
 import { Open } from "./commands/open";
+import { Read } from "./commands/read";
 import { Reload } from "./commands/reload";
+import { Reset } from "./commands/reset";
 import { Restart } from "./commands/restart";
 import { Rf } from "./commands/rf";
 import { Ri } from "./commands/ri";
@@ -23,20 +29,14 @@ import { Rm } from "./commands/rm";
 import { Run } from "./commands/run";
 import { Set } from "./commands/set";
 import { Shutdown } from "./commands/shutdown";
+import { SoundBusCommand } from "./commands/soundbus";
 import { StateCommand } from "./commands/state";
-import { InDesktop } from "./commands/indesktop";
 import { UDD } from "./commands/udd";
 import { Users } from "./commands/users";
+import { Vars } from "./commands/vars";
 import { Ver } from "./commands/ver";
-import type { Command, CommandStore } from "./interface";
-import { Config } from "./commands/config";
-import { Read } from "./commands/read";
-import { Reset } from "./commands/reset";
-import { Logout } from "./commands/logout";
-import { Exec } from "./commands/exec";
 import { Verbose } from "./commands/verbose";
-import { Desktop } from "./commands/desktop";
-import { SoundBusCommand } from "./commands/soundbus";
+import type { Command, CommandStore } from "./interface";
 
 export const defaultCommand: Command = {
   keyword: "default",
@@ -50,23 +50,19 @@ export const arcCommands: CommandStore = [
   ArcFetch,
   Cd,
   Clear,
-  Colors,
   Dir,
   Echo,
   Vars,
   Exit,
   Help,
   History,
-  LogDump,
   Logout,
   Mkdir,
   Rm,
   Reload,
   Restart,
-  Shutdown /* 
-  StateCommand, */,
+  Shutdown,
   InDesktop,
-  UDD,
   Ver,
   Reset,
   Rf,
@@ -79,6 +75,22 @@ export const arcCommands: CommandStore = [
   Exec,
   Verbose,
   Desktop,
+];
+
+/**
+ * For security purposes, this Array will be obscured & undocumented.
+ *
+ * The ArcOS Team can reference internal Object Documentation UUID #b9a48ed8-5171-4ecb-ba5f-8601fd8b4243 for
+ * more information about this chunk of the ArcTerm implementation. Any questions asked by externals cannot and will
+ * not be answered.
+ *
+ * The Team can use Reference f1543394846c when asking the Board about this code.
+ */
+export const gooseBumpsCommands: CommandStore = [
+  StateCommand,
+  Colors,
+  UDD,
+  LogDump,
 ];
 
 export const desktopSpecific: CommandStore = [

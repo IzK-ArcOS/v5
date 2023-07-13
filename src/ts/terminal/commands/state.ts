@@ -24,4 +24,5 @@ export const StateCommand: Command = {
   },
   syntax: "<[stateId]>",
   description: "for debugging -- forcefully change the state",
+  hidden: true,
 };

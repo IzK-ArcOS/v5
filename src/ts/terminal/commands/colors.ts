@@ -24,4 +24,5 @@ export const Colors: Command = {
   },
   description: "Print out all ArcTerm colors",
   syntax: "([sample?])",
+  hidden: true,
 };

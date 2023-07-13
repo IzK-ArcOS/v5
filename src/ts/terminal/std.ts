@@ -50,6 +50,18 @@ export class ArcTermStd {
     this.writeColor(`[Error]: ${context}`, "red");
   }
 
+  public Warning(context: string) {
+    if (!this.verbose) return;
+
+    this.writeColor(`[Warning]: ${context}`, "orange");
+  }
+
+  public Info(context: string) {
+    if (!this.verbose) return;
+
+    this.writeColor(`[Info]: ${context}`, "blue");
+  }
+
   public write(str: string, target = this.target) {
     const el = this.writeLine(str, true, target);
 

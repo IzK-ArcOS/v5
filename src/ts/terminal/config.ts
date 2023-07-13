@@ -21,7 +21,13 @@ export class ArcTermConfig {
   }
 
   readonly configPath = "./arcterm.conf";
-  private readonly configKeys = ["prompt", "greeting", "logo", "promptColor"];
+  private readonly configKeys = [
+    "prompt",
+    "greeting",
+    "logo",
+    "promptColor",
+    "gooseBumps",
+  ];
 
   public getConfig() {
     const obj = {};
@@ -70,7 +76,7 @@ export class ArcTermConfig {
   public async writeConfig() {
     const data = {};
 
-    for (let i = 0; i < this.configKeys.length; i++) {
+    for (let i = 0; i < this.configKeys.length - 1; i++) {
       const k = this.configKeys[i];
 
       data[k] = this.env[k];
