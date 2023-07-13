@@ -5,20 +5,18 @@
   import { ServerAuthCode } from "../../ts/api/main";
   import { getAllServers, getServer } from "../../ts/api/server";
   import { testConnection } from "../../ts/api/test";
+  import { BootFail } from "../../ts/boot/fail";
   import { Logo } from "../../ts/branding";
-  import { BugReportData } from "../../ts/bugrep";
   import { Log } from "../../ts/console";
   import { LogLevel } from "../../ts/console/interface";
   import { ArcOSVersion } from "../../ts/env/main";
+  import sleep from "../../ts/sleep";
   import { applyState } from "../../ts/state/main";
   import ApiReveal from "../APIReveal.svelte";
-  import { BootFail } from "../../ts/boot/fail";
-  import sleep from "../../ts/sleep";
 
   let status = "";
   let bootClass = "";
   let targetState = "login";
-
   let loadingArcTerm = false;
   let progress = false;
 
@@ -64,8 +62,6 @@
 
       return BootFail(serverHost);
     }
-
-    redirect();
 
     return connected;
   }
