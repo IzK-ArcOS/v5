@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import cursor from "../assets/cursor.png";
+  import cursor from "../assets/cursors/cursor.png";
 
   export let size = 32;
 
