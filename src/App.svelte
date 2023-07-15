@@ -1,21 +1,11 @@
-<style>
-	* {
-		cursor: none;
-	}
-	a[itemprop="url"] {
-	  pointer-events: none;
-	  cursor: none;
-	}
-</style>
-
 <script lang="ts">
   import { onMount } from "svelte";
   import "./css/main.css";
   import BugReport from "./lib/BugReport.svelte";
+  import Cursor from "./lib/Cursor.svelte";
   import { logoffToken } from "./ts/api/cred";
   import { getMode, Logo } from "./ts/branding";
   import { applyState, CurrentState } from "./ts/state/main";
-import Cursor from './Cursor.svelte';
 
   let run = false;
   let logo = "";
@@ -32,8 +22,6 @@ import Cursor from './Cursor.svelte';
   });
 </script>
 
-// <Cursor color="green" mixBlendMode="exclusion" size="28" />
-
 <svelte:head>
   <link rel="icon" href={logo} />
 </svelte:head>
@@ -45,4 +33,5 @@ import Cursor from './Cursor.svelte';
     {/if}
     <BugReport />
   </div>
+  <Cursor size={28} />
 {/if}

@@ -69,3 +69,7 @@ div.app.floating {
   height: calc(100% - 35px);
   overflow: hidden;
 }
+
+* {
+  cursor: none !important;
+}
