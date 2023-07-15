@@ -11,6 +11,7 @@
     --disabled-inner: var(--button-hover-bg);
     -webkit-appearance: none;
     -moz-appearance: none;
+    appearance: none;
     height: 21px;
     outline: none;
     display: inline-block;
