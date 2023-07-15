@@ -9,7 +9,7 @@
   import { Logo } from "../../ts/branding";
   import { Log } from "../../ts/console";
   import { LogLevel } from "../../ts/console/interface";
-  import { ArcOSVersion } from "../../ts/env/main";
+  import { ArcOSVersion, Busy } from "../../ts/env/main";
   import sleep from "../../ts/sleep";
   import { applyState } from "../../ts/state/main";
   import ApiReveal from "../APIReveal.svelte";
@@ -34,6 +34,7 @@
   async function startBooting() {
     status = "&nbsp;";
     progress = true;
+    Busy.set(true);
 
     if (!(await checkServer())) status = "Preparing ArcOS";
 
@@ -77,6 +78,7 @@
     bootClass = "fadeout";
     await sleep(750);
     applyState(loadingArcTerm ? "arcterm" : targetState);
+    Busy.set(false);
   }
 </script>
 

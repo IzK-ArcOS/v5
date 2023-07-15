@@ -8,6 +8,7 @@
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getUsers } from "../../../../ts/userlogic/main";
   import Spinner from "../../../Spinner.svelte";
+  import { Busy } from "../../../../ts/env/main";
 
   let username = "";
   let password = "";
@@ -17,12 +18,14 @@
 
   onMount(async () => {
     loading = true;
+    Busy.set(true);
 
     const users = await getUsers();
 
     if (!Object.entries(users).length) applyFTSState("finish");
 
     loading = false;
+    Busy.set(false);
   });
 
   function changeServer() {
@@ -34,6 +37,7 @@
 
     if (!username || !password || working) return false;
 
+    Busy.set(true);
     working = true;
 
     const req = await apiCall($ConnectedServer, "user/create", {}, null, {
@@ -43,6 +47,7 @@
 
     if (!req.valid) {
       error = true;
+      Busy.set(false);
       working = false;
 
       setTimeout(() => {
@@ -56,7 +61,10 @@
       generateCredToken({ username, password })
     );
 
-    if (!userdata) return (loading = false);
+    if (!userdata) {
+      Busy.set(false);
+      return (loading = false);
+    }
 
     UserData.set(userdata);
     UserName.set(username);

@@ -4,6 +4,7 @@
   import type { ServerSelectOption } from "../../../ts/api/interface";
   import { getAllServers } from "../../../ts/api/server";
   import Option from "./Selector/Option.svelte";
+  import AddButton from "./Selector/AddButton.svelte";
 
   let selected = "";
   let servers: ServerSelectOption[] = [];
@@ -30,4 +31,5 @@
   {#each servers as server}
     <Option {server} bind:selected />
   {/each}
+  <AddButton />
 </div>

@@ -3,6 +3,7 @@
   import { isPopulatable } from "../../../ts/applogic/checks";
   import { closeWindow } from "../../../ts/applogic/events";
   import { WindowStore, maxZIndex } from "../../../ts/applogic/store";
+  import { Busy } from "../../../ts/env/main";
   import type { SearchItem } from "../../../ts/search/interface";
   import { Search, showArcFind } from "../../../ts/search/main";
   import sleep from "../../../ts/sleep";
@@ -26,6 +27,7 @@
     if (!query) return (initial = false);
     initial = true;
     loading = true;
+    Busy.set(true);
 
     const items = [];
 
@@ -38,6 +40,7 @@
     index = -1;
     results = items.slice(0, 6);
     loading = false;
+    Busy.set(false);
   }
 
   function submit(e: Event) {

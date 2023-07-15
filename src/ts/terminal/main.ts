@@ -87,10 +87,7 @@ export class ArcTerm {
       this.util.intro();
       this.util.flushAccent();
 
-      if (this.env.gooseBumps)
-        this.std.Warning(
-          "GooseBumps detected! Experimental or otherwise hidden features have\nbeen enabled. Use them with caution: they can potentially damage your ArcOS account.\n\n"
-        );
+      if (this.env.gooseBumps) this.std.Warning("GooseBumps 👀\n\n");
     }, 1000);
   }
 

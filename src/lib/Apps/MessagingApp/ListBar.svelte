@@ -7,6 +7,7 @@
     messageUpdateTrigger,
   } from "../../../ts/messaging/updates";
   import MessageItem from "./ListBar/MessageItem.svelte";
+  import { Busy } from "../../../ts/env/main";
 
   let items: PartialMessage[] = [];
   let loading = false;
@@ -19,6 +20,7 @@
 
   async function refresh() {
     loading = true;
+    Busy.set(true);
 
     if (!$messagingPage) return;
 
@@ -27,6 +29,7 @@
     if (!isSame(items, messages)) set(sort(messages));
 
     loading = false;
+    Busy.set(false);
   }
 
   function sort(content: PartialMessage[]): PartialMessage[] {

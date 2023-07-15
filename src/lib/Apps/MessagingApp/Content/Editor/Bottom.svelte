@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Busy } from "../../../../../ts/env/main";
   import {
     creatingMessage,
     replyMessageId,
@@ -18,6 +19,7 @@
   let loading = false;
 
   async function send() {
+    Busy.set(true);
     loading = true;
     if ($replyMessageId) await replyToMessage($replyMessageId, target, content);
     else {
@@ -31,6 +33,7 @@
     creatingMessage.set(false);
     messageUpdateTrigger();
     loading = false;
+    Busy.set(false);
   }
 
   function editor() {

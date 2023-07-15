@@ -6,6 +6,7 @@
   import { applyFTSState } from "../../../../ts/fts/main";
   import { getUsers } from "../../../../ts/userlogic/main";
   import Spinner from "../../../Spinner.svelte";
+  import { Busy } from "../../../../ts/env/main";
 
   let username = "";
   let password = "";
@@ -15,22 +16,26 @@
 
   onMount(async () => {
     loading = true;
+    Busy.set(true);
 
     const users = await getUsers();
 
     if (!Object.entries(users).length) applyFTSState("finish");
 
     loading = false;
+    Busy.set(false);
   });
 
   async function login() {
     working = true;
+    Busy.set(true);
     const token = generateCredToken({ username, password });
     const req = await loginUsingCreds(token);
 
     if (!req) {
       error = true;
       working = false;
+      Busy.set(false);
 
       setTimeout(() => {
         error = false;
@@ -42,6 +47,7 @@
     localStorage.setItem("arcos-remembered-token", token);
     applyFTSState("finish");
     working = false;
+    Busy.set(false);
   }
 </script>
 

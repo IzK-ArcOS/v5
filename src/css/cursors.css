@@ -13,6 +13,11 @@ select:hover * {
   cursor: url("../assets/cursors/hand.cur"), auto;
 }
 
+input,
+textarea {
+  cursor: url("../assets/cursors/beam.cur"), auto !important;
+}
+
 :disabled,
 :disabled * {
   cursor: url("../assets/cursors/forbidden.cur"), auto !important;

@@ -3,14 +3,19 @@
   import { getLatestRelease } from "../../updates/main";
   import SvelteMarkdown from "svelte-markdown";
   import Spinner from "../Spinner.svelte";
+  import { Busy } from "../../ts/env/main";
 
   let data: GitHubRelease;
   let loading = false;
 
   onMount(async () => {
+    Busy.set(true);
     loading = true;
+
     data = await getLatestRelease();
+
     loading = false;
+    Busy.set(false);
   });
 </script>
 

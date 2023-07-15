@@ -5,6 +5,7 @@
   import sleep from "../../../../../ts/sleep";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
   import Wallpaper from "./FilesystemWallpapers/Wallpaper.svelte";
+  import { Busy } from "../../../../../ts/env/main";
 
   let wallpapers: { path: string; url: string }[] = [];
   let loading = false;
@@ -13,6 +14,8 @@
   UserData.subscribe(update);
 
   async function update() {
+    loading = true;
+    Busy.set(true);
     const temp = [];
 
     if ((await getFiles()).length == count) return;
@@ -45,12 +48,11 @@
     await sleep(5);
 
     if (temp.length != wallpapers.length) {
-      loading = true;
-
       wallpapers = temp;
 
       setTimeout(() => {
         loading = false;
+        Busy.set(false);
       });
     }
   }

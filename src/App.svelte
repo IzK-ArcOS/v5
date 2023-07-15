@@ -6,6 +6,7 @@
   import { getMode, Logo } from "./ts/branding";
   import { applyState, CurrentState } from "./ts/state/main";
   import { committingUserData } from "./ts/userlogic/main";
+  import { Busy } from "./ts/env/main";
 
   let run = false;
   let logo = "";
@@ -27,7 +28,7 @@
 </svelte:head>
 
 {#if run}
-  <div class="app fullscreen" class:cursor-busy={$committingUserData}>
+  <div class="app fullscreen" class:cursor-busy={$committingUserData || $Busy}>
     {#if $CurrentState}
       <svelte:component this={$CurrentState.content} />
     {/if}

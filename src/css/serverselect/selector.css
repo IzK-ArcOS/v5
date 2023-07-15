@@ -1,9 +1,12 @@
 div.serverselect div.selector {
-  background-color: var(--win-bg);
+  background-color: var(--glass-alt-bg);
   width: 400px;
+  min-height: 200px;
   border-radius: var(--win-border-rad);
   border: var(--win-border);
-  padding: 15px;
+  padding: 10px;
+  margin-top: 20px;
+  backdrop-filter: blur(var(--glass-blur));
 }
 
 div.serverselect div.selector button {
@@ -13,14 +16,22 @@ div.serverselect div.selector button {
   width: 100%;
   border: none;
   margin: none;
-  padding: 5px;
+  padding: 10px;
   color: var(--fg);
   background-color: transparent;
   border-radius: 5px;
 }
 
+div.serverselect div.selector button.selected {
+  background-color: var(--button-glass-bg);
+}
+
+div.serverselect div.selector button + button {
+  margin-top: 10px;
+}
+
 div.serverselect div.selector button:hover {
-  background-color: var(--button-bg);
+  background-color: var(--button-glass-bg);
 }
 
 div.serverselect div.selector button p {
