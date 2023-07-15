@@ -1,12 +1,11 @@
 div.serverselect div.selector {
-  background-color: var(--glass-alt-bg);
+  background-color: var(--win-bg);
   width: 400px;
-  min-height: 200px;
-  border-radius: var(--win-border-rad);
-  border: var(--win-border);
-  padding: 10px;
-  margin-top: 20px;
-  backdrop-filter: blur(var(--glass-blur));
+  min-height: 400px;
+  max-height: 400px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 div.serverselect div.selector button {
@@ -26,7 +25,7 @@ div.serverselect div.selector button.selected {
   background-color: var(--button-glass-bg);
 }
 
-div.serverselect div.selector button + button {
+div.serverselect div.selector div.options button + button {
   margin-top: 10px;
 }
 
@@ -40,4 +39,11 @@ div.serverselect div.selector button p {
 
 div.serverselect div.selector button span.material-icons-round {
   margin-left: auto;
+}
+
+div.serverselect div.selector div.options {
+  min-height: calc(100% - 70px);
+  max-height: calc(100% - 70px);
+  overflow-y: auto;
+  padding: 20px;
 }

@@ -42,6 +42,8 @@
   }
 
   function arcTermShortcut(e: KeyboardEvent) {
+    if (e.key.toLowerCase() == "f8" || targetState == "serverselect")
+      return (targetState = "serverselect");
     if (!e.altKey || e.key.toLowerCase() != "a") return;
 
     loadingArcTerm = true;
@@ -61,7 +63,7 @@
     if (!connected) {
       bootClass = "fadeout";
 
-      return BootFail(serverHost);
+      return targetState == "serverselect" ? false : BootFail(serverHost);
     }
 
     return connected;
@@ -84,8 +86,12 @@
 
 <div class="{bootClass} boot fullscreen">
   <div class="arcterm-load visible">
-    v{ArcOSVersion} - {$ServerAuthCode ? "Private" : "Public"} - {getAllServers()
-      .length} servers - current: <ApiReveal />
+    v{ArcOSVersion} - <ApiReveal />
+  </div>
+  <div class="ssnotice visible">
+    {targetState == "serverselect"
+      ? "Please wait..."
+      : "Press F8 to select server"}
   </div>
   <div class="center">
     <img alt="Logo" class="logo" src={Logo()} />

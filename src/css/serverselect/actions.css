@@ -1,0 +1,45 @@
+div.serverselect div.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+  align-items: center;
+  padding: 20px;
+  border-top: var(--win-border);
+}
+
+div.serverselect div.actions button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7.5px 10px;
+  border-radius: 5px;
+  background-color: var(--button-glass-bg);
+  color: var(--fg);
+  border: none;
+  min-width: fit-content;
+  flex-grow: 1;
+  height: 30px;
+}
+
+div.serverselect div.actions button.clr-blue {
+  background-color: var(--clr-blue-bg) !important;
+  color: var(--clr-blue-fg) !important;
+}
+
+div.serverselect div.actions button.clr-blue:hover {
+  opacity: 0.7;
+}
+
+div.serverselect div.actions button span.material-icons-round {
+  margin: 0;
+  font-size: 16px;
+  margin-left: auto;
+}
+
+div.serverselect div.actions button:hover {
+  background-color: var(--button-glass-hover-bg);
+}
+div.serverselect div.actions button:active {
+  background-color: var(--button-glass-active-bg);
+}

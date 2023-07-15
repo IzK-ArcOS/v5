@@ -23,7 +23,8 @@ div.boot div.center div.slider {
   margin-top: 20px;
 }
 
-div.boot div.arcterm-load {
+div.boot div.arcterm-load,
+div.boot div.ssnotice {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -32,6 +33,12 @@ div.boot div.arcterm-load {
   opacity: 0.25;
   font-family: "Source Code Pro", monospace;
 }
+div.boot div.ssnotice {
+  left: unset;
+  right: 0;
+  opacity: 0.5;
+}
+
 div.boot div.arcterm-load:not(.visible) {
   display: none;
 }

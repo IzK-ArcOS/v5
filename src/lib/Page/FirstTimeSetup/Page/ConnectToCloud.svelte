@@ -23,7 +23,7 @@
       addServer(server.trim());
       setAuthcode(server.trim(), authCode.trim());
 
-      applyFTSState("authmode");
+      applyFTSState("finish");
     } else {
       ArcSoundBus.playSound("arcos.dialog.error");
       connectionError = true;

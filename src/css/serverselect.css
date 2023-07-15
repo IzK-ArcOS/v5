@@ -1,5 +1,5 @@
 @import url("./serverselect/selector.css");
-
+@import url("./serverselect/actions.css");
 div.serverselect {
   width: 100%;
   height: 100%;
@@ -7,8 +7,45 @@ div.serverselect {
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../assets/bg/img16.jpg");
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+div.serverselect div.ss-inner {
+  display: flex;
+  border-radius: 15px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5);
+  padding: 0;
+  color: #ccc;
+  background-color: var(--glass-bg);
+  overflow: hidden;
+  border: var(--win-border);
+}
+
+div.serverselect div.ss-inner div.left {
+  border-right: var(--win-border);
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+div.serverselect.show {
+  opacity: 1;
+}
+
+div.serverselect h1 {
+  margin: 0;
+  color: var(--fg);
+  font-size: 22px;
+  font-weight: 100;
 }
 
 div.serverselect img.logo {
-  height: 150px;
+  height: 100px;
+  margin-bottom: 10px;
 }

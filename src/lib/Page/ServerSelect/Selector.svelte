@@ -4,10 +4,10 @@
   import type { ServerSelectOption } from "../../../ts/api/interface";
   import { getAllServers } from "../../../ts/api/server";
   import Option from "./Selector/Option.svelte";
-  import AddButton from "./Selector/AddButton.svelte";
+  import Actions from "./Actions.svelte";
 
-  let selected = "";
-  let servers: ServerSelectOption[] = [];
+  export let selected = "";
+  export let servers: ServerSelectOption[] = [];
 
   function update() {
     servers = [];
@@ -28,8 +28,10 @@
 </script>
 
 <div class="selector">
-  {#each servers as server}
-    <Option {server} bind:selected />
-  {/each}
-  <AddButton />
+  <div class="options">
+    {#each servers as server}
+      <Option {server} bind:selected />
+    {/each}
+  </div>
+  <Actions {selected} {servers} />
 </div>

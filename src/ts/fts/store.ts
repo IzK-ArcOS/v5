@@ -43,7 +43,7 @@ export const FTSStates = new Map<string, State>([
       image: connect,
     },
   ],
-
+  /* 
   [
     "authmode",
     {
@@ -73,7 +73,7 @@ export const FTSStates = new Map<string, State>([
       key: "auth-new",
       image: account,
     },
-  ],
+  ], */
   [
     "finish",
     {
