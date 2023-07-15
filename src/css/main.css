@@ -40,7 +40,7 @@ div#app *:not(.window)::before {
 
 div#app button,
 div#app a {
-  cursor: pointer;
+  cursor: none;
 }
 
 .material-icons-round {
@@ -68,4 +68,8 @@ div.app.floating {
   width: calc(100% - 340px);
   height: calc(100% - 35px);
   overflow: hidden;
+}
+
+* {
+  cursor: none !important;
 }
