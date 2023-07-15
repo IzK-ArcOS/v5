@@ -31,7 +31,7 @@ I want to thank all of these authors for providing their photos, images and othe
 | Wallpaper `img17`   | [@Blockyheadman](https://github.com/matteoscaringi)      | Fairfield Bay, US                         |
 | ArcOS Sounds        | @dragonlazer/@calligrafix                                | Original                                  |
 
-Images 1, 2, 3, 4, 5, 6, 7 and 10 are made by me, the rest are used with permission and are licensed individually.
+All images not listed above are created by or licensed to the ArcOS Team.
 
 ## Screenshots
 
