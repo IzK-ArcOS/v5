@@ -24,20 +24,22 @@ export async function changePassword(
     { username, password: old }
   );
 
+  const isValid = req.statusCode == 200;
+
   const remembed = localStorage.getItem("arcos-remembered-token");
 
-  if (!remembed || !req.valid) return req.valid;
+  if (!remembed || !isValid) return isValid;
 
   const rememberedUsername = atob(remembed).split(":")[0];
 
-  if (rememberedUsername != username) return req.valid;
+  if (rememberedUsername != username) return isValid;
 
   localStorage.setItem(
     "arcos-remembered-token",
     btoa(`${username}:${newPswd}`)
   );
 
-  return req.valid;
+  return isValid;
 }
 
 export async function changeUsername(old: string, newName: string) {
