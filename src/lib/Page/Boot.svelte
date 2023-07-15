@@ -17,7 +17,6 @@
   let status = "";
   let bootClass = "";
   let targetState = "login";
-  let loadingArcTerm = false;
   let progress = false;
 
   onMount(async () => {
@@ -36,17 +35,21 @@
     progress = true;
     Busy.set(true);
 
-    if (!(await checkServer())) status = "Preparing ArcOS";
+    if (targetState == "serverselect") return await redirect();
+
+    if (!(await checkServer()) && !getAllServers()) status = "Preparing ArcOS";
 
     await redirect();
   }
 
   function arcTermShortcut(e: KeyboardEvent) {
-    if (e.key.toLowerCase() == "f8" || targetState == "serverselect")
+    const key = e.key.toLowerCase();
+    if (key == "f8" || targetState == "serverselect")
       return (targetState = "serverselect");
-    if (!e.altKey || e.key.toLowerCase() != "a") return;
 
-    loadingArcTerm = true;
+    if (!e.altKey || key != "a") return;
+
+    targetState = "arcterm";
     status = "Loading ArcTerm";
   }
 
@@ -79,7 +82,7 @@
     await sleep(2000);
     bootClass = "fadeout";
     await sleep(750);
-    applyState(loadingArcTerm ? "arcterm" : targetState);
+    applyState(targetState);
     Busy.set(false);
   }
 </script>
