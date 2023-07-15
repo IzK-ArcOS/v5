@@ -4,7 +4,6 @@
 
 ::-webkit-scrollbar {
   width: 8px;
-  cursor: none;
   height: 8px;
 }
 
@@ -12,7 +11,6 @@
 
 ::-webkit-scrollbar-track {
   background-color: transparent;
-  cursor: none;
   border: transparent 3px solid;
 }
 
@@ -21,7 +19,6 @@
 ::-webkit-scrollbar-thumb {
   background-color: var(--button-glass-bg);
   transition: background-color 0.25s;
-  cursor: none;
   opacity: 0.5;
   border: 2px solid transparent;
   background-clip: content-box;
@@ -32,5 +29,4 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--button-glass-hover-bg);
-  cursor: none;
 }

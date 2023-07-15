@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"); /* Source Code Pro, Inter */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Round"); /* Material Icons Round */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"); /* Material Icons Outlined */
+@import url("./cursors.css");
 
 .center-absolute {
   position: absolute;
@@ -38,11 +39,6 @@ div#app *:not(.window)::before {
   transition: all 0.3s, color 0.1s;
 }
 
-div#app button,
-div#app a {
-  cursor: none;
-}
-
 .material-icons-round {
   vertical-align: middle;
   margin: 0 5px;
@@ -68,8 +64,4 @@ div.app.floating {
   width: calc(100% - 340px);
   height: calc(100% - 35px);
   overflow: hidden;
-}
-
-* {
-  cursor: none !important;
 }

@@ -1,0 +1,24 @@
+* {
+  cursor: url("../assets/cursors/cursor.png"), auto;
+}
+
+a:hover,
+a:hover *,
+button:hover,
+button:hover *,
+input:hover,
+input:hover *,
+select:hover,
+select:hover * {
+  cursor: url("../assets/cursors/hand.cur"), auto;
+}
+
+:disabled,
+:disabled * {
+  cursor: url("../assets/cursors/forbidden.cur"), auto !important;
+}
+
+div.app.cursor-busy,
+div.app.cursor-busy * {
+  cursor: url("../assets/cursors/busy.png"), auto !important;
+}

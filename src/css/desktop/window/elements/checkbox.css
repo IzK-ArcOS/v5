@@ -18,7 +18,6 @@
     position: relative;
     margin: 0;
     padding: 0 !important;
-    cursor: none;
     border: 1px solid var(--bc, var(--border));
     background: var(--b, var(--background)) !important;
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
@@ -44,7 +43,7 @@
   input[type="checkbox"]:disabled,
   input[type="radio"]:disabled {
     --b: var(--disabled);
-    cursor: not-allowed;
+    cursor: url("../../../../assets/cursors/forbidden.cur");
     opacity: 0.9;
   }
   input[type="checkbox"]:disabled:checked,
@@ -54,7 +53,7 @@
   }
   input[type="checkbox"]:disabled + label,
   input[type="radio"]:disabled + label {
-    cursor: not-allowed;
+    cursor: url("../../../../assets/cursors/forbidden.cur");
   }
   input[type="checkbox"]:hover:not(:checked):not(:disabled),
   input[type="radio"]:hover:not(:checked):not(:disabled) {
@@ -82,7 +81,6 @@
     line-height: 21px;
     display: inline-block;
     vertical-align: top;
-    cursor: none;
     margin-left: 4px;
   }
   input[type="checkbox"]:not(.switch) {
