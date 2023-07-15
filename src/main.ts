@@ -4,6 +4,7 @@ import { Log } from "./ts/console";
 import { LogLevel } from "./ts/console/interface";
 import { preventAnchorRedirects } from "./ts/ui/anchor";
 
+
 migrateToMulti();
 preventAnchorRedirects();
 

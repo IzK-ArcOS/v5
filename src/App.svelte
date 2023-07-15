@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import "./css/main.css";
   import BugReport from "./lib/BugReport.svelte";
+  import Cursor from "./lib/Cursor.svelte";
   import { logoffToken } from "./ts/api/cred";
   import { getMode, Logo } from "./ts/branding";
   import { applyState, CurrentState } from "./ts/state/main";
@@ -32,4 +33,5 @@
     {/if}
     <BugReport />
   </div>
+  <Cursor size={28} />
 {/if}

@@ -18,7 +18,7 @@
     position: relative;
     margin: 0;
     padding: 0 !important;
-    cursor: pointer;
+    cursor: none;
     border: 1px solid var(--bc, var(--border));
     background: var(--b, var(--background)) !important;
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
@@ -82,7 +82,7 @@
     line-height: 21px;
     display: inline-block;
     vertical-align: top;
-    cursor: pointer;
+    cursor: none;
     margin-left: 4px;
   }
   input[type="checkbox"]:not(.switch) {
