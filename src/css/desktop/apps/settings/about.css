@@ -1,3 +1,8 @@
+div.about-page {
+  padding: 0 20px;
+  padding-bottom: 20px;
+}
+
 div.about-page div.product {
   display: flex;
   width: 100%;
@@ -31,8 +36,9 @@ div.about-page h3.header {
 }
 
 div.about-page div.section {
-  margin: 0 30px !important;
+  margin: 0 auto !important;
   margin-bottom: 5px !important;
+  max-width: 450px;
 }
 
 div.about-page div.section div.row {
