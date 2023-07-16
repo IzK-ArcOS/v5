@@ -21,12 +21,9 @@
     >.
   </Section>
   <Section header="Credits" collapsible collapsed>
-    Thanks to the following people:
-    <ul>
-      <li>Papirus Development Team for their icon set</li>
-      <li>SWHFotografie for wallpapers img08 and img13</li>
-      <li>Kees van Voorthuizen for wallpaper img14</li>
-    </ul>
+    Thanks to all the people who helped expand ArcOS to what it is today.
+    Curious what makes up ArcOS? Go ahead and visit our Frontend GitHub page, we
+    list our contributors there.
   </Section>
   <Section header="About" collapsible collapsed>
     ArcOS started of as a weekend project, but these days it is a huge project

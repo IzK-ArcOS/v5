@@ -9,15 +9,33 @@ import {
   type ReportOptions,
   type ReportRecord,
 } from "./interface";
+import { getAppPreference, setAppPreference } from "../applogic/pref";
+import { makeNotification } from "../notiflogic/main";
+import bugRepIcon from "../../assets/apps/error.svg";
 
 const pb = new PocketBase("https://pb.arcapi.nl/");
 
 export async function sendReport(
   options: ReportOptions = defaultReportOptions
 ) {
-  return await pb
-    .collection("bugrep")
-    .create<ReportRecord>(createReport(options));
+  const report = createReport(options);
+  const id = (await pb.collection("bugrep").create<ReportRecord>(report)).id;
+
+  if (report.author) {
+    const reports =
+      (getAppPreference("Reporting", "reports") as string[]) || [];
+
+    reports.push(id);
+
+    setAppPreference("Reporting", "reports", reports);
+
+    makeNotification({
+      title: "Bug Reported",
+      message: `Bug Report ${id} has been sent to ArcOS. You can view the sent data at any time in Settings.`,
+      buttons: [{ caption: "Show", action() {} }],
+      image: bugRepIcon,
+    });
+  }
 }
 
 export function createReport(options: ReportOptions = defaultReportOptions) {

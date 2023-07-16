@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import { get, writable } from "svelte/store";
 import { LogLevelData, type LogItem, LogLevel } from "./console/interface";
+import { sendReport } from "./reporting/main";
 
 export const LogStore = writable<LogItem[]>([]);
 
@@ -14,6 +15,8 @@ export function Log(data: LogItem) {
   currentLog.push(data);
 
   LogStore.set(currentLog);
+
+  if (data.level == LogLevel.critical) sendReport();
 
   console.log(
     `ArcOS: ${timestamp} [${levelCaption}] ${data.source}: ${data.msg}`
