@@ -24,7 +24,9 @@ export function setAppPreference(
 
   const udata = get(UserData);
 
-  if (!udata.appdata || !udata.appdata[id]) return false;
+  if (!udata.appdata) return false;
+
+  if (!udata.appdata[id]) udata.appdata[id] = {};
 
   udata.appdata[id][key] = value;
 

@@ -6,6 +6,7 @@ import { ArcOSVersion } from "../env/main";
 import { UserData, UserName } from "../userlogic/interfaces";
 import {
   defaultReportOptions,
+  LocalReportData,
   type ReportOptions,
   type ReportRecord,
 } from "./interface";
@@ -23,9 +24,9 @@ export async function sendReport(
 
   if (report.author) {
     const reports =
-      (getAppPreference("Reporting", "reports") as string[]) || [];
+      (getAppPreference("Reporting", "reports") as LocalReportData[]) || [];
 
-    reports.push(id);
+    reports.push({ id, timestamp: new Date().getTime() });
 
     setAppPreference("Reporting", "reports", reports);
 
@@ -36,6 +37,8 @@ export async function sendReport(
       image: bugRepIcon,
     });
   }
+
+  return id;
 }
 
 export function createReport(options: ReportOptions = defaultReportOptions) {

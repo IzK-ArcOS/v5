@@ -1,6 +1,7 @@
 import { AppList } from "./commands/applist";
 import { ArcFetch } from "./commands/arcfetch";
 import { ATConf } from "./commands/atconf";
+import { BugRep } from "./commands/bugrep";
 import { Cd } from "./commands/cd";
 import { Clear } from "./commands/clear";
 import { Colors } from "./commands/colors";
@@ -91,6 +92,7 @@ export const gooseBumpsCommands: CommandStore = [
   Colors,
   UDD,
   LogDump,
+  BugRep,
 ];
 
 export const desktopSpecific: CommandStore = [

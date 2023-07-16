@@ -31,6 +31,7 @@ export const Ri: Command = {
     term.std.Error("Missing parameters.");
   },
   description: "Display image from ArcFS or URL",
+  syntax: "(--[file]) <[path]> (--[url]) <[url]> (--[height]) <[height]>",
 };
 
 async function displayFile(term: ArcTerm, fn: string, height: number) {

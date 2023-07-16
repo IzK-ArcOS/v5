@@ -17,6 +17,11 @@ export interface ReportOptions {
   body: string;
 }
 
+export interface LocalReportData {
+  id: string;
+  timestamp: number;
+}
+
 export const defaultReportOptions: ReportOptions = {
   includeApi: true,
   includeUserData: false,
