@@ -12,7 +12,7 @@ export function BootFail(host: string) {
         caption: "Retry",
         action: () => location.reload(),
       },
-      "Boot",
+      source: "Boot",
       details: `Can't connect to server ${host}: none of the modes match`,
     },
   ]);

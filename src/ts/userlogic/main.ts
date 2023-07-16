@@ -10,7 +10,7 @@ import { LogLevel } from "../console/interface";
 export const committingUserData = writable<boolean>(false);
 
 export async function getUsers() {
-  Log(`Getting users`, "userlogic/main.ts: getUsers", LogLevel.info);
+  Log("userlogic/main.ts: getUsers", `Getting users`, LogLevel.info);
 
   const server = get(ConnectedServer);
 
@@ -30,7 +30,7 @@ export async function getUsers() {
 }
 
 export async function deleteUser() {
-  Log(`Delete users`, "userlogic/main.ts: deleteUsers", LogLevel.info);
+  Log("userlogic/main.ts: deleteUsers", `Delete users`, LogLevel.info);
 
   const server = get(ConnectedServer);
   const token = get(UserToken);
@@ -44,8 +44,8 @@ export async function deleteUser() {
 
 export async function getUserdata(name: string) {
   Log(
-    `Getting userdata for "${name}"`,
     "userlogic/main.ts: getUserdata",
+    `Getting userdata for "${name}"`,
     LogLevel.info
   );
 
@@ -57,7 +57,7 @@ export async function getUserdata(name: string) {
 }
 
 export async function setUserdata(data: UserData): Promise<boolean> {
-  Log(`Setting userdata`, "userlogic/main.ts: setUserdata", LogLevel.info);
+  Log("userlogic/main.ts: setUserdata", `Setting userdata`, LogLevel.info);
 
   const server = get(ConnectedServer);
 
@@ -74,8 +74,8 @@ export async function setUserdata(data: UserData): Promise<boolean> {
 
   if (req.valid) {
     Log(
-      `Userdata committed to API`,
       "userlogic/main.ts: setUserdata",
+      `Userdata committed to API`,
       LogLevel.info
     );
   }
