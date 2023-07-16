@@ -16,10 +16,10 @@ export const StateCommand: Command = {
         "purple"
       );
     }
-
+    /* 
     if (!States.get(state))
       return term.std.Error(`${state}: State doesn't exist.`);
-
+ */
     applyState(state);
   },
   syntax: "<[stateId]>",
