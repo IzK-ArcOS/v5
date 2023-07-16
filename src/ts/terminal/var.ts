@@ -10,11 +10,11 @@ export class ArcTermVariables {
   private store: VariableStore = {};
 
   constructor(t: ArcTerm) {
-    Log({
-      source: `ArcTerm ${t.referenceId}`,
-      msg: "Creating new ArcTermVariables",
-      level: LogLevel.info,
-    });
+    Log(
+      `ArcTerm ${t.referenceId}`,
+      "Creating new ArcTermVariables",
+      LogLevel.info
+    );
 
     this.term = t;
     this.store = getArcTermStore(this.term);

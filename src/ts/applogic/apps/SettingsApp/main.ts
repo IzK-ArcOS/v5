@@ -9,11 +9,11 @@ export const currentSettingsPage = writable<SettingsPage>(null);
 export const currentCollapsibleT = writable<string>(null);
 
 export function setSettingsPage(page: SettingsPage) {
-  Log({
-    source: "apps/SettingsApp",
-    level: LogLevel.info,
-    msg: `Opening settings page '${page.name}'`,
-  });
+  Log(
+    "apps/SettingsApp",
+    `Opening settings page '${page.name}'`,
+    LogLevel.info
+  );
   currentCollapsibleT.set(null);
   currentSettingsPage.set(page);
 

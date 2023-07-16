@@ -10,11 +10,11 @@ export class ArcTermConfig {
   env: ArcTermEnv;
 
   constructor(e: ArcTermEnv, t: ArcTerm) {
-    Log({
-      source: `ArcTerm ${t.referenceId}`,
-      msg: `Creating new ArcTermConfig`,
-      level: LogLevel.info,
-    });
+    Log(
+      `ArcTerm ${t.referenceId}`,
+      `Creating new ArcTermConfig`,
+      LogLevel.info
+    );
 
     this.env = e;
     this.loadConfigFile();

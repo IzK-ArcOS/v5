@@ -53,11 +53,11 @@ class CL {
 
   // Calculate the calculator value and set it to itself
   public evaluate(): string | false {
-    Log({
-      source: `${Store.Source} evaluate`,
-      msg: `Evaluating sum ("${get(CalculatorValue)}")`,
-      level: LogLevel.info,
-    });
+    Log(
+      `${Store.Source} evaluate`,
+      `Evaluating sum ("${get(CalculatorValue)}")`,
+      LogLevel.info
+    );
 
     if (!CalculatorClass.isValid(get(CalculatorValue))) return false;
 
@@ -70,11 +70,11 @@ class CL {
 
   // Tests the current value plus the new input to evaluate if it's valid.
   private isValid(input: string) {
-    Log({
-      source: `${Store.Source} isValid`,
-      msg: `Verifying input "${input}"...`,
-      level: LogLevel.info,
-    });
+    Log(
+      `${Store.Source} isValid`,
+      `Verifying input "${input}"...`,
+      LogLevel.info
+    );
 
     // %% represents keys that have a function other than adding to the value
     if (input.startsWith("%%")) return false;
@@ -82,11 +82,11 @@ class CL {
     for (let i = 0; i < input.length; i++) {
       if (Store.AllowedKeys.includes(input[i])) continue;
 
-      Log({
-        source: `${Store.Source} isValid`,
-        msg: `Input "${input}" not valid.`,
-        level: LogLevel.warn,
-      });
+      Log(
+        `${Store.Source} isValid`,
+        `Input "${input}" not valid.`,
+        LogLevel.warn
+      );
 
       return false;
     }
@@ -111,11 +111,7 @@ class CL {
   // Processes incoming key inputs from either the window
   // or the AppShortcuts (Calculator Events)
   processKey(key: string) {
-    Log({
-      source: `${Store.Source} processKey`,
-      msg: `Processing key "${key}"`,
-      level: LogLevel.info,
-    });
+    Log(`${Store.Source} processKey`, `Processing key "${key}"`, LogLevel.info);
 
     if (!this.isValid(key)) return false;
 
@@ -133,11 +129,11 @@ class CL {
        */
       eval(newValue);
     } catch {
-      Log({
-        source: `${Store.Source} Calculator/main.ts: processKey`,
-        msg: `Test sum "${newValue}" is not valid. Aborting.`,
-        level: LogLevel.error,
-      });
+      Log(
+        `${Store.Source} Calculator/main.ts: processKey`,
+        `Test sum "${newValue}" is not valid. Aborting.`,
+        LogLevel.error
+      );
 
       return false; // The eval errored, so the new sum is invalid.
     }

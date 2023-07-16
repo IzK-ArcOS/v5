@@ -6,11 +6,11 @@ import def from "../../assets/apps/unknown.svg";
 import { Log } from "../console";
 
 export function hotSwapAppIcon(icon: string, appId: string) {
-  Log({
-    msg: `Changing app icon for ${appId} to ${icon}`,
-    source: "icon.ts: hotSwapAppIcon",
-    level: LogLevel.info,
-  });
+  Log(
+    "icon.ts: hotSwapAppIcon",
+    `Changing app icon for ${appId} to ${icon}`,
+    LogLevel.info
+  );
 
   const ws = get(WindowStore);
 
@@ -30,11 +30,7 @@ export function getOriginalIcon(appId: string) {
 }
 
 export function resetAppIcon(appId: string) {
-  Log({
-    msg: `Restting icon of ${appId}`,
-    source: "icon.ts: resetAppIcon",
-    level: LogLevel.info,
-  });
+  Log("icon.ts: resetAppIcon", `Restting icon of ${appId}`, LogLevel.info);
 
   if (!Originals[appId]) return;
 

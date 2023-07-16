@@ -15,11 +15,11 @@ export const loginUsername = writable<string>();
 
 export function applyLoginState(stateKey: string) {
   if (LoginStates.has(stateKey)) {
-    Log({
-      level: LogLevel.info,
-      source: "login/main.ts: applyLoginState",
-      msg: `Applying state ${stateKey}`,
-    });
+    Log(
+      "login/main.ts: applyLoginState",
+      `Applying state ${stateKey}`,
+      LogLevel.info
+    );
 
     const state = LoginStates.get(stateKey);
 

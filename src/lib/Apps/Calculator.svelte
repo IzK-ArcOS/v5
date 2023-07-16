@@ -13,11 +13,11 @@
 
   onMount(() => {
     CalculatorValue.subscribe((v) => {
-      Log({
-        source: "Calculator: CalculatorValue.subscribe",
-        msg: `Value of CalculatorValue<string> changed to "${$CalculatorValue}"`,
-        level: LogLevel.info,
-      });
+      Log(
+        "Calculator: CalculatorValue.subscribe",
+        `Value of CalculatorValue<string> changed to "${$CalculatorValue}"`,
+        LogLevel.info
+      );
 
       value = v || "0";
     });

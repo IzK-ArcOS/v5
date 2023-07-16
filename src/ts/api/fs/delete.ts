@@ -5,11 +5,11 @@ import { Log } from "../../console";
 import { UserToken } from "../../userlogic/interfaces";
 
 export async function deleteItem(path: string) {
-  Log({
-    source: "fs/file.ts: deleteItem",
-    msg: `Deleting item "${path}" from ArcFS`,
-    level: LogLevel.info,
-  });
+  Log(
+    "fs/file.ts: deleteItem",
+    `Deleting item "${path}" from ArcFS`,
+    LogLevel.info
+  );
 
   const server = get(ConnectedServer);
 

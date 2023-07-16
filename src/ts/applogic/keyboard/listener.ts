@@ -8,21 +8,21 @@ import { LogLevel } from "../../console/interface";
 const banned = ["tab", "pagedown", "pageup"];
 
 export function startKeyListener() {
-  Log({
-    source: "keyboard/listener.ts: startKeyListener",
-    msg: "Starting key listener",
-    level: LogLevel.info,
-  });
+  Log(
+    "keyboard/listener.ts: startKeyListener",
+    "Starting key listener",
+    LogLevel.info
+  );
 
   document.addEventListener("keydown", processEvent);
 }
 
 export function stopKeyListener() {
-  Log({
-    source: "keyboard/listener.ts: stopKeyListener",
-    msg: "Stopping key listener",
-    level: LogLevel.warn,
-  });
+  Log(
+    "keyboard/listener.ts: stopKeyListener",
+    "Stopping key listener",
+    LogLevel.warn
+  );
 
   document.removeEventListener("keydown", processEvent);
 }

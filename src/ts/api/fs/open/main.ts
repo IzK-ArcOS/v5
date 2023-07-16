@@ -5,19 +5,18 @@ import { enableApp } from "../../../applogic/enabling";
 import { openWindow } from "../../../applogic/events";
 import { focusedWindowId, WindowStore } from "../../../applogic/store";
 import { Log } from "../../../console";
+import { LogLevel } from "../../../console/interface";
 import { errorMessage } from "../../../errorlogic/main";
 import type { ArcFile, PartialArcFile, UserFileLoader } from "../../interface";
-import { readFile } from "../file";
-import { FileLoaders } from "./loader";
-import { LogLevel } from "../../../console/interface";
 import { partialFileToComplete } from "../convert";
+import { FileLoaders } from "./loader";
 
 export function findAppToOpen(mime: string): string[] {
-  Log({
-    source: `fs/open.ts: findAppToOpen`,
-    msg: `Compiling a list of file handlers that can open mimtype "${mime}"...`,
-    level: LogLevel.info,
-  });
+  Log(
+    `fs/open.ts: findAppToOpen`,
+    `Compiling a list of file handlers that can open mimtype "${mime}"...`,
+    LogLevel.info
+  );
 
   const ids: string[] = [];
 
@@ -52,11 +51,11 @@ export function findLoaderToOpen(filename: string): UserFileLoader[] {
 }
 
 export function getAllFileHandlers(): string[] {
-  Log({
-    source: `fs/open.ts: getAllFileHandlers`,
-    msg: `Compiling a list of file handler IDs...`,
-    level: LogLevel.info,
-  });
+  Log(
+    `fs/open.ts: getAllFileHandlers`,
+    `Compiling a list of file handler IDs...`,
+    LogLevel.info
+  );
 
   const ids: string[] = [];
 
@@ -90,11 +89,11 @@ export function openWithDialog(file: ArcFile) {
     );
   }
 
-  Log({
-    source: `fs/open.ts: openWithDialog`,
-    msg: `Opening ArcOS.OpenWith for "${file.name}"`,
-    level: LogLevel.info,
-  });
+  Log(
+    `fs/open.ts: openWithDialog`,
+    `Opening ArcOS.OpenWith for "${file.name}"`,
+    LogLevel.info
+  );
 
   OpenWithFile.set(file);
 
@@ -106,11 +105,11 @@ export function openWith(
   data: ArcFile,
   openany?: boolean
 ): boolean {
-  Log({
-    source: `fs/open.ts: openWith`,
-    msg: `Opening ${data.name} with ArcOS.${appId}`,
-    level: LogLevel.info,
-  });
+  Log(
+    `fs/open.ts: openWith`,
+    `Opening ${data.name} with ArcOS.${appId}`,
+    LogLevel.info
+  );
 
   const ws = get(WindowStore);
 
@@ -139,11 +138,11 @@ export function openWith(
 export async function openUserFile(
   file: PartialArcFile
 ): Promise<ArcFile | true> {
-  Log({
-    source: `fs/open.ts: openUserFile`,
-    msg: `Converting "${file.filename}": UserFile -> ArcFile: to make openable`,
-    level: LogLevel.info,
-  });
+  Log(
+    `fs/open.ts: openUserFile`,
+    `Converting "${file.filename}": UserFile -> ArcFile: to make openable`,
+    LogLevel.info
+  );
 
   let data = await partialFileToComplete(file);
 

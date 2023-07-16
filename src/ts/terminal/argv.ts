@@ -2,11 +2,11 @@ import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 
 export function getSwitches(argv: string[]) {
-  Log({
-    source: "ArcTerm",
-    msg: `getSwitches: parsing argv with ${argv.length} items...`,
-    level: LogLevel.info,
-  });
+  Log(
+    "ArcTerm",
+    `getSwitches: parsing argv with ${argv.length} items...`,
+    LogLevel.info
+  );
 
   let switches: { [key: string]: string } = {};
   let currentArg = "";
@@ -33,11 +33,7 @@ export function getSwitches(argv: string[]) {
 }
 
 export function switchExists(argv: string[], key: string): boolean {
-  Log({
-    source: "ArcTerm",
-    msg: `switchExists: ${key}`,
-    level: LogLevel.info,
-  });
+  Log("ArcTerm", `switchExists: ${key}`, LogLevel.info);
 
   const switches = getSwitches(argv);
 

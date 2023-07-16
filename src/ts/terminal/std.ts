@@ -14,11 +14,11 @@ export class ArcTermStd {
   verbose = true;
 
   constructor(parent: ArcTerm) {
-    Log({
-      source: `ArcTerm ${parent.referenceId}`,
-      msg: `Creating new ArcTermStd`,
-      level: LogLevel.info,
-    });
+    Log(
+      `ArcTerm ${parent.referenceId}`,
+      `Creating new ArcTermStd`,
+      LogLevel.info
+    );
 
     this.target = parent.target;
     this.app = parent.app;

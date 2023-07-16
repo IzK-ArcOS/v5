@@ -15,11 +15,11 @@ const getters: [string, (id: string) => Wallpaper | Promise<Wallpaper>][] = [
 ];
 
 export async function getWallpaper(id: string): Promise<Wallpaper> {
-  Log({
-    msg: `Getting wallpaper ${id.startsWith("img") ? id : "<custom>"}`,
-    source: "userlogic/wallpapers.ts: getWallpaper",
-    level: LogLevel.info,
-  });
+  Log(
+    "userlogic/wallpapers.ts: getWallpaper",
+    `Getting wallpaper ${id.startsWith("img") ? id : "<custom>"}`,
+    LogLevel.info
+  );
 
   if (!id) return Wallpapers["img04"];
 
@@ -33,20 +33,20 @@ export async function getWallpaper(id: string): Promise<Wallpaper> {
 }
 
 export async function wallpaperFromFS(path: string): Promise<Wallpaper> {
-  Log({
-    source: "wallpapers.ts: wallpaperFromFS",
-    msg: `Reading wallpaper from path "${path}"...`,
-    level: LogLevel.info,
-  });
+  Log(
+    "wallpapers.ts: wallpaperFromFS",
+    `Reading wallpaper from path "${path}"...`,
+    LogLevel.info
+  );
 
   const file = await readFile(path);
 
   if (!file) {
-    Log({
-      source: "wallpapers.ts: wallpaperFromFS",
-      msg: `Unable to get wallpaper "${path}"`,
-      level: LogLevel.error,
-    });
+    Log(
+      "wallpapers.ts: wallpaperFromFS",
+      `Unable to get wallpaper "${path}"`,
+      LogLevel.error
+    );
 
     return Wallpapers["img04"];
   }

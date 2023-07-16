@@ -4,6 +4,7 @@ import { fbClass } from "../../applogic/apps/FileBrowser/main";
 import { LogStore } from "../../console";
 import sleep from "../../sleep";
 import type { Command } from "../interface";
+import { compileStringLog } from "../../console/collector";
 
 export const LogDump: Command = {
   keyword: "logdump",
@@ -16,24 +17,7 @@ export const LogDump: Command = {
 
     let str = "-- [START OF LOG] --\n";
 
-    const len = log.length;
-
-    const x = term.std.writeColor(`Item [0] of [${len}] processed.`, "blue");
-
-    for (let i = 0; i < log.length; i++) {
-      const curr = i + 1;
-      const perc = Math.floor((100 / len) * (i + 1));
-
-      term.std.updateColor(
-        x,
-        `Item [${curr}] of [${len}] ([${perc}%]) processed.`,
-        "blue"
-      );
-
-      str += `[${log[i].timestamp} | ${log[i].source}] ${log[i].msg}\n`;
-
-      await sleep(5);
-    }
+    str += compileStringLog().join("\n");
 
     const b = new Blob([str], { type: "text/plain" });
 

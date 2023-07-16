@@ -12,11 +12,11 @@ import { SystemApps } from "./imports/store";
 
 export function loadWindow(id: string, app: App) {
   if (isLoaded(id))
-    return Log({
-      level: LogLevel.error,
-      msg: `Window ${id} already exists in WindowStore.`,
-      source: "AppLogic: loadWindow",
-    });
+    return Log(
+      "AppLogic: loadWindow",
+      `Window ${id} already exists in WindowStore.`,
+      LogLevel.error
+    );
 
   const ws = get(WindowStore);
   const data = { ...app, id };
@@ -55,11 +55,7 @@ export function loadWindow(id: string, app: App) {
     if (app.pos.centered) centerWindow(id);
   }, 300);
 
-  Log({
-    level: LogLevel.info,
-    msg: `Loaded ${id} into WindowStore.`,
-    source: "AppLogic: loadWindow",
-  });
+  Log("AppLogic: loadWindow", `Loaded ${id} into WindowStore.`, LogLevel.info);
 }
 
 export function getChildren(app: App, id: string) {
@@ -84,11 +80,11 @@ export function unloadWindow(id: string) {
 
   for (let i = 0; i < ws.length; i++) {
     if (ws[i].id == id) {
-      Log({
-        level: LogLevel.info,
-        msg: `Unloading ${id} from WindowStore.`,
-        source: "AppLogic: unloadWindow",
-      });
+      Log(
+        "AppLogic: unloadWindow",
+        `Unloading ${id} from WindowStore.`,
+        LogLevel.info
+      );
       ws.splice(i, 1);
     }
   }

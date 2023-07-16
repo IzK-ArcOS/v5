@@ -8,11 +8,11 @@ export class AppRuntime {
 
   constructor(appData: App, events: AppEvents = {}) {
     if (!appData.id) {
-      Log({
-        source: `applogic/runtime/main.ts`,
-        msg: `Can't create AppRuntime without valid app ID`,
-        level: LogLevel.error,
-      });
+      Log(
+        `applogic/runtime/main.ts`,
+        `Can't create AppRuntime without valid app ID`,
+        LogLevel.error
+      );
 
       return;
     }

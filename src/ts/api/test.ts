@@ -19,20 +19,20 @@ export async function testConnection(server: string, authCode: string = "") {
     const port = TEST_MODES[i][1];
     const url = `${proto}://${server}:${port}/connect?ac=${authCode}`;
 
-    Log({
-      msg: `Testing ${server} on port ${port} and protocol ${proto}...`,
-      source: "api/test.ts: testConnection",
-      level: LogLevel.info,
-    });
+    Log(
+      "api/test.ts: testConnection",
+      `Testing ${server} on port ${port} and protocol ${proto}...`,
+      LogLevel.info
+    );
 
     try {
       const req = await (await ttlFetch(url, {})).json();
 
-      Log({
-        msg: `Got a response from URL ${url}`,
-        source: "api/test.ts: testConnection",
-        level: LogLevel.warn,
-      });
+      Log(
+        "api/test.ts: testConnection",
+        `Got a response from URL ${url}`,
+        LogLevel.warn
+      );
 
       const rev = req.revision || 0;
 
@@ -43,21 +43,21 @@ export async function testConnection(server: string, authCode: string = "") {
 
       return req && !!req.valid;
     } catch {
-      Log({
-        msg: `Did not get a valid response from ${url}`,
-        source: "api/test.ts: testConnection",
-        level: LogLevel.error,
-      });
+      Log(
+        "api/test.ts: testConnection",
+        `Did not get a valid response from ${url}`,
+        LogLevel.error
+      );
 
       continue;
     }
   }
 
-  Log({
-    msg: `Can't connect to server ${server}: none of the modes match`,
-    source: "api/test.ts: testConnection",
-    level: LogLevel.critical,
-  });
+  Log(
+    "api/test.ts: testConnection",
+    `Can't connect to server ${server}: none of the modes match`,
+    LogLevel.critical
+  );
 
   return false;
 }

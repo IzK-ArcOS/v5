@@ -2,11 +2,11 @@ import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 
 export function setAuthcode(server: string, code: string): void {
-  Log({
-    source: "api/authcode.ts: setAuthcode",
-    msg: `Adding authcode to ${server}`,
-    level: LogLevel.info,
-  });
+  Log(
+    "api/authcode.ts: setAuthcode",
+    `Adding authcode to ${server}`,
+    LogLevel.info
+  );
 
   let authCodes = localStorage.getItem("arcos-authcodes");
   if (!authCodes) authCodes = "{}";
@@ -19,11 +19,11 @@ export function setAuthcode(server: string, code: string): void {
 }
 
 export function getAuthcode(server: string) {
-  Log({
-    source: "api/authcode.ts:getAuthcode",
-    msg: `Getting authcode for ${server}`,
-    level: LogLevel.info,
-  });
+  Log(
+    "api/authcode.ts:getAuthcode",
+    `Getting authcode for ${server}`,
+    LogLevel.info
+  );
 
   let authCodes = localStorage.getItem("arcos-authcodes");
   if (!authCodes) authCodes = "{}";

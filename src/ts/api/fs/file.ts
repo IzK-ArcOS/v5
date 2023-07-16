@@ -15,11 +15,11 @@ import { getServer } from "../server";
 export const abortFileReader = writable<boolean>(false);
 
 export async function readFile(path: string): Promise<ArrayBuffer | false> {
-  Log({
-    source: "fs/file.ts: readFile",
-    msg: `Requesting file contents of "${path}" from ArcAPI`,
-    level: LogLevel.info,
-  });
+  Log(
+    "fs/file.ts: readFile",
+    `Requesting file contents of "${path}" from ArcAPI`,
+    LogLevel.info
+  );
 
   const server = get(ConnectedServer);
   const authCode = getAuthcode(getServer());
@@ -45,11 +45,11 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
   abortFileReader.subscribe((v) => {
     if (!v) return;
 
-    Log({
-      source: "fs/file.ts: readFile",
-      msg: `Aborting readFile for "${path}" as requested by the user...`,
-      level: LogLevel.error,
-    });
+    Log(
+      "fs/file.ts: readFile",
+      `Aborting readFile for "${path}" as requested by the user...`,
+      LogLevel.error
+    );
 
     controller.abort();
 

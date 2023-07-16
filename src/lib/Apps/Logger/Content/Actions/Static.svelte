@@ -31,11 +31,7 @@
   }
 
   function refresh() {
-    Log({
-      source: "Logger: refresh",
-      msg: "Refreshing current view",
-      level: LogLevel.warn,
-    });
+    Log("Logger: refresh", "Refreshing current view", LogLevel.warn);
     setView(currentSource);
 
     if (!currentFilter) return;

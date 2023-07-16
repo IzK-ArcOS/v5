@@ -18,22 +18,14 @@ export function commitUserdata(v: UserData) {
   committingUserData.set(true);
 
   if (get(UserName)) {
-    Log({
-      level: LogLevel.info,
-      msg: "Change Detected, committing",
-      source,
-    });
+    Log(source, "Change Detected, committing", LogLevel.info);
 
     const changed = setUserdata(v);
 
     unsetStatus();
 
     if (!changed) {
-      Log({
-        level: LogLevel.error,
-        msg: "Commit failed, setter returned false",
-        source,
-      });
+      Log(source, "Commit failed, setter returned false", LogLevel.error);
 
       if (!get(BugReportData)) commitFailed();
     }
@@ -43,11 +35,7 @@ export function commitUserdata(v: UserData) {
 
   unsetStatus();
 
-  Log({
-    level: LogLevel.warn,
-    msg: "Not committing, no username",
-    source,
-  });
+  Log(source, "Not committing, no username", LogLevel.warn);
 }
 
 function unsetStatus() {

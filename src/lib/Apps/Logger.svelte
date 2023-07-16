@@ -19,21 +19,17 @@
   export let appdata: ScopedAppData;
 
   function setView(source: string) {
-    Log({
-      source: "apps/Logger: setView",
-      msg: `Setting source to "${source}"`,
-      level: LogLevel.info,
-    });
+    Log("apps/Logger: setView", `Setting source to "${source}"`, LogLevel.info);
     for (let i = 0; i < logs.length; i++) {
       if (logs[i][0] == source) logItems = logs[i][1];
     }
 
     if (!logItems.length) {
-      Log({
-        source: "apps/Logger: setView",
-        msg: `Source "${source}" contains no items or could not be found.`,
-        level: LogLevel.info,
-      });
+      Log(
+        "apps/Logger: setView",
+        `Source "${source}" contains no items or could not be found.`,
+        LogLevel.info
+      );
     }
 
     currentSource = source;

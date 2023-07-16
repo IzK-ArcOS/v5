@@ -9,11 +9,11 @@ import { getServer } from "../../api/server";
 import { LogLevel } from "../../console/interface";
 
 export function getArcTermStore(term: ArcTerm): VariableStore {
-  Log({
-    source: `ArcTerm ${term.referenceId}`,
-    msg: "Creating new ArcTermVariableStore",
-    level: LogLevel.info,
-  });
+  Log(
+    `ArcTerm ${term.referenceId}`,
+    "Creating new ArcTermVariableStore",
+    LogLevel.info
+  );
   return {
     prompt: {
       get: () => term.env.prompt,

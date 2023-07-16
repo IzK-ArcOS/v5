@@ -31,11 +31,7 @@ export function getOpenedStore() {
 }
 
 export function updateStores() {
-  Log({
-    msg: `Flushing all stores`,
-    source: "store.ts: updateStores",
-    level: LogLevel.info,
-  });
+  Log("store.ts: updateStores", `Flushing all stores`, LogLevel.info);
 
   const ws = get(WindowStore);
   const oa = getOpenedStore();

@@ -10,11 +10,7 @@ export const CurrentFTSState = writable<State>();
 
 export function applyFTSState(stateKey: string) {
   if (FTSStates.has(stateKey)) {
-    Log({
-      level: LogLevel.info,
-      source: "applyFTSState",
-      msg: `Applying state ${stateKey}`,
-    });
+    Log("applyFTSState", `Applying state ${stateKey}`, LogLevel.info);
 
     const state = FTSStates.get(stateKey);
 

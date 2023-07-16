@@ -9,11 +9,11 @@ export class SoundBus {
 
   constructor(store: SoundStore) {
     if (!store) {
-      Log({
-        source: "SoundBus",
-        msg: `Can't create SoundBus without valid store.`,
-        level: LogLevel.error,
-      });
+      Log(
+        "SoundBus",
+        `Can't create SoundBus without valid store.`,
+        LogLevel.error
+      );
       return;
     }
 
@@ -23,11 +23,7 @@ export class SoundBus {
   public playSound(id: string) {
     if (!this.store[id] || this._bus[id]) return false;
 
-    Log({
-      source: "SoundBus.playSound",
-      msg: `Playing sound ${id} from store`,
-      level: LogLevel.info,
-    });
+    Log("SoundBus.playSound", `Playing sound ${id} from store`, LogLevel.info);
 
     const element = document.createElement("audio");
 
@@ -42,11 +38,11 @@ export class SoundBus {
         element.muted = false;
       }, 10);
     } catch (e) {
-      Log({
-        source: "SoundBus.playSound",
-        msg: `Can't play ${id}: User didn't interact with the page first`,
-        level: LogLevel.error,
-      });
+      Log(
+        "SoundBus.playSound",
+        `Can't play ${id}: User didn't interact with the page first`,
+        LogLevel.error
+      );
 
       return false;
     }
@@ -59,11 +55,7 @@ export class SoundBus {
   }
 
   public stopSound(id: string) {
-    Log({
-      source: "SoundBus.stopSound",
-      msg: `Stopping ${id}`,
-      level: LogLevel.info,
-    });
+    Log("SoundBus.stopSound", `Stopping ${id}`, LogLevel.info);
 
     if (!this._bus[id]) return false;
 

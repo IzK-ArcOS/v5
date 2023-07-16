@@ -54,11 +54,11 @@ export class ArcTerm {
     this.util = new ArcTermUtil(this);
     this.referenceId = this.util.getReference();
 
-    Log({
-      source: `ArcTerm ${this.referenceId}`,
-      msg: `Initializing new ArcTerm`,
-      level: LogLevel.info,
-    });
+    Log(
+      `ArcTerm ${this.referenceId}`,
+      `Initializing new ArcTerm`,
+      LogLevel.info
+    );
 
     if (!this.target) return initError(this.app.id);
 

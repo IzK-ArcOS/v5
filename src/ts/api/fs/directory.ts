@@ -6,11 +6,11 @@ import { apiCall, ConnectedServer } from "../main";
 import { LogLevel } from "../../console/interface";
 
 export async function getDirectory(path: string = "./"): DirectoryGet {
-  Log({
-    source: "fs/directory.ts: getDirectory",
-    msg: `Requesting directory contents of "${path}" from ArcAPI`,
-    level: LogLevel.info,
-  });
+  Log(
+    "fs/directory.ts: getDirectory",
+    `Requesting directory contents of "${path}" from ArcAPI`,
+    LogLevel.info
+  );
 
   const server = get(ConnectedServer);
 

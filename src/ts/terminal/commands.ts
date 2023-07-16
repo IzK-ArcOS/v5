@@ -8,11 +8,11 @@ export class ArcTermCommandHandler {
   history: string[] = [];
 
   constructor(term: ArcTerm) {
-    Log({
-      source: `ArcTerm ${term.referenceId}`,
-      msg: `Creating new ArcTermCommandHandler`,
-      level: LogLevel.info,
-    });
+    Log(
+      `ArcTerm ${term.referenceId}`,
+      `Creating new ArcTermCommandHandler`,
+      LogLevel.info
+    );
 
     this.term = term;
   }

@@ -8,11 +8,11 @@ export function createOverlayableError(
   error: OverlayableError,
   targetId: string
 ): boolean {
-  Log({
-    source: "errorlogic/overlay.ts",
-    msg: `Creating error "${error.title}" for parent ${targetId}`,
-    level: LogLevel.info,
-  });
+  Log(
+    "errorlogic/overlay.ts",
+    `Creating error "${error.title}" for parent ${targetId}`,
+    LogLevel.info
+  );
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {

@@ -46,11 +46,11 @@ FileBrowserOpenCancelled.subscribe((v) => {
 
 class FileBrowserClass {
   public async refresh(clearFirst = true) {
-    Log({
-      source: "FileBrowser: refresh",
-      msg: "Refreshing current directory contents",
-      level: LogLevel.info,
-    });
+    Log(
+      "FileBrowser: refresh",
+      "Refreshing current directory contents",
+      LogLevel.info
+    );
 
     FileBrowserRefreshing.set(true);
 
@@ -69,11 +69,7 @@ class FileBrowserClass {
   }
 
   public async goToDirectory(path: string) {
-    Log({
-      source: "FileBrowser: goToDirectory",
-      msg: `Navigating to "${path}"`,
-      level: LogLevel.info,
-    });
+    Log("FileBrowser: goToDirectory", `Navigating to "${path}"`, LogLevel.info);
 
     FileBrowserSelectedFilename.set(null);
 

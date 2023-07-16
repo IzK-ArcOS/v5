@@ -4,11 +4,11 @@ import { LogLevel } from "../console/interface";
 import { WindowStore } from "./store";
 
 export function setTitleSuffix(content: string, appId: string) {
-  Log({
-    msg: `Setting title suffix of ${appId}`,
-    source: "title.ts: setTitleSuffix",
-    level: LogLevel.info,
-  });
+  Log(
+    "title.ts: setTitleSuffix",
+    `Setting title suffix of ${appId}`,
+    LogLevel.info
+  );
 
   const ws = get(WindowStore);
 
@@ -24,11 +24,11 @@ export function setTitleSuffix(content: string, appId: string) {
 }
 
 export function resetTitleSuffix(appId: string) {
-  Log({
-    msg: `Resetting title suffix of ${appId}`,
-    source: "title.ts: resetTitleSuffix",
-    level: LogLevel.info,
-  });
+  Log(
+    "title.ts: resetTitleSuffix",
+    `Resetting title suffix of ${appId}`,
+    LogLevel.info
+  );
 
   if (!Originals[appId]) return;
 

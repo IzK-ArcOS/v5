@@ -15,11 +15,7 @@ export class ArcTermInput {
   current: HTMLInputElement;
 
   constructor(T: ArcTerm) {
-    Log({
-      source: `ArcTerm ${T.referenceId}`,
-      msg: `Creating new ArcTermInput`,
-      level: LogLevel.info,
-    });
+    Log(`ArcTerm ${T.referenceId}`, `Creating new ArcTermInput`, LogLevel.info);
 
     this.target = T.target;
     this.env = T.env;

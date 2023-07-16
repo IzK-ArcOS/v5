@@ -17,11 +17,7 @@ import {
 import { LogLevel } from "../console/interface";
 
 export function openWindow(id: string, openChild = false) {
-  Log({
-    msg: `Opening ${id}`,
-    source: "events.ts: openWindow",
-    level: LogLevel.info,
-  });
+  Log("events.ts: openWindow", `Opening ${id}`, LogLevel.info);
 
   const window = getWindow(id);
 
@@ -43,11 +39,11 @@ export function openWindow(id: string, openChild = false) {
 
   if (window.parentId && !isOpened(window.parentId)) {
     if (!openChild) {
-      Log({
-        source: "events.ts: openWindow",
-        msg: `The parent "${window.parentId}" of child window "${window.id}" must be opened before the child can be opened.`,
-        level: LogLevel.error,
-      });
+      Log(
+        "events.ts: openWindow",
+        `The parent "${window.parentId}" of child window "${window.id}" must be opened before the child can be opened.`,
+        LogLevel.error
+      );
       return false;
     }
 
@@ -115,11 +111,7 @@ export function closeChildWindow(parent: App, childId: string) {
 }
 
 export function closeWindow(id: string) {
-  Log({
-    msg: `Closing ${id}`,
-    source: "events.ts: closeWindow",
-    level: LogLevel.info,
-  });
+  Log("events.ts: closeWindow", `Closing ${id}`, LogLevel.info);
 
   if (!isOpened(id)) {
     return false;
@@ -170,11 +162,11 @@ export function closeWindow(id: string) {
 }
 
 export function maximizeWindow(app: App) {
-  Log({
-    msg: `Switching maximized state of ${app.id}`,
-    source: "events.ts: maximizeWindow",
-    level: LogLevel.info,
-  });
+  Log(
+    "events.ts: maximizeWindow",
+    `Switching maximized state of ${app.id}`,
+    LogLevel.info
+  );
 
   if (app.core) return;
 
@@ -188,11 +180,11 @@ export function maximizeWindow(app: App) {
 }
 
 export function minimizeWindow(app: App) {
-  Log({
-    msg: `Switching minimized state of ${app.id}`,
-    source: "events.ts: minimizeWindow",
-    level: LogLevel.info,
-  });
+  Log(
+    "events.ts: minimizeWindow",
+    `Switching minimized state of ${app.id}`,
+    LogLevel.info
+  );
 
   if (app.core) return;
 
@@ -212,11 +204,11 @@ export function minimizeWindow(app: App) {
 }
 
 export function unminimizeWindow(app: App) {
-  Log({
-    msg: `Disabling minimized state of ${app.id}`,
-    source: "events.ts: unminimizeWindow",
-    level: LogLevel.info,
-  });
+  Log(
+    "events.ts: unminimizeWindow",
+    `Disabling minimized state of ${app.id}`,
+    LogLevel.info
+  );
 
   if (app.core) return;
 
@@ -232,11 +224,11 @@ export function unminimizeWindow(app: App) {
 }
 
 export function fullscreenWindow(app: App) {
-  Log({
-    msg: `Switching fullscreen state of ${app.id}`,
-    source: "events.ts: fullscreenWindow",
-    level: LogLevel.info,
-  });
+  Log(
+    "events.ts: fullscreenWindow",
+    `Switching fullscreen state of ${app.id}`,
+    LogLevel.info
+  );
 
   if (app.core) return;
 
@@ -254,11 +246,11 @@ export function fullscreenWindow(app: App) {
 }
 
 export function headlessToggle(app: App) {
-  Log({
-    msg: `Switching headless state of ${app.id}`,
-    source: "events.ts: headlessToggle",
-    level: LogLevel.info,
-  });
+  Log(
+    "events.ts: headlessToggle",
+    `Switching headless state of ${app.id}`,
+    LogLevel.info
+  );
 
   if (app.core) return;
 
@@ -269,11 +261,11 @@ export function headlessToggle(app: App) {
   updateStores();
 }
 export function fullscreenToggle(id: string) {
-  Log({
-    msg: `Switching fullscreen state of ${id}`,
-    source: "events.ts: fullscreenToggle",
-    level: LogLevel.info,
-  });
+  Log(
+    "events.ts: fullscreenToggle",
+    `Switching fullscreen state of ${id}`,
+    LogLevel.info
+  );
 
   const ws = get(WindowStore);
 

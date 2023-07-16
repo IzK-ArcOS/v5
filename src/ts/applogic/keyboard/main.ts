@@ -6,11 +6,11 @@ import type { AppKeyCombinations } from "./interface";
 export const appShortcuts: [string, AppKeyCombinations][] = [];
 
 export function registerAppShortcuts(id: string, app: App) {
-  Log({
-    source: "keyboard: registerAppShortcuts",
-    msg: `Registering app shortcuts for ${id}`,
-    level: LogLevel.info,
-  });
+  Log(
+    "keyboard: registerAppShortcuts",
+    `Registering app shortcuts for ${id}`,
+    LogLevel.info
+  );
   if (!app.events || !app.events.keyboardShortcuts) return false;
 
   if (isRegistered(id)) return false;

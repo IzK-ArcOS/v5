@@ -10,11 +10,11 @@ export const CurrentState = writable<State>(States[0]);
 
 export function applyState(stateKey: string) {
   if (States.has(stateKey)) {
-    Log({
-      level: LogLevel.info,
-      source: "state/main.ts: applyState",
-      msg: `Applying state ${stateKey}`,
-    });
+    Log(
+      "state/main.ts: applyState",
+      `Applying state ${stateKey}`,
+      LogLevel.info
+    );
 
     const state = States.get(stateKey);
 

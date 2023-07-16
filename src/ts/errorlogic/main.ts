@@ -13,11 +13,11 @@ import {
 import { LogLevel } from "../console/interface";
 
 export function getErrorElement(id: string): HTMLDivElement {
-  Log({
-    msg: `Getting error element of ${id}`,
-    source: "errorlogic/main.ts: getErrorElement",
-    level: LogLevel.info,
-  });
+  Log(
+    "errorlogic/main.ts: getErrorElement",
+    `Getting error element of ${id}`,
+    LogLevel.info
+  );
 
   const el = document.querySelector(`window#${id}`);
 
@@ -31,11 +31,11 @@ export function errorMessage(
   parentId?: string,
   ...buttons: ErrorButton[]
 ) {
-  Log({
-    msg: `Generating "${title}"`,
-    source: "errorlogic/main.ts: errorMessage",
-    level: LogLevel.info,
-  });
+  Log(
+    "errorlogic/main.ts: errorMessage",
+    `Generating "${title}"`,
+    LogLevel.info
+  );
 
   const error: ErrorMessage = {
     title,
@@ -57,11 +57,7 @@ export function errorMessage(
 }
 
 export function closeError(id: number) {
-  Log({
-    msg: `Closing error ${id}`,
-    source: "errorlogic/main.ts: closeError",
-    level: LogLevel.info,
-  });
+  Log("errorlogic/main.ts: closeError", `Closing error ${id}`, LogLevel.info);
 
   const ews = get(ErrorWindowStore);
 
@@ -81,11 +77,7 @@ export function closeError(id: number) {
 }
 
 export function openError(id: number) {
-  Log({
-    msg: `Opening error ${id}`,
-    source: "errorlogic/main.ts: openError",
-    level: LogLevel.info,
-  });
+  Log("errorlogic/main.ts: openError", `Opening error ${id}`, LogLevel.info);
 
   const ews = get(ErrorWindowStore);
 
@@ -97,11 +89,12 @@ export function openError(id: number) {
 }
 
 export function createErrorAppData(data: ErrorMessage) {
-  Log({
-    msg: `Generating error appData for ${data.title}`,
-    source: "errorlogic/main.ts: createErrorAppData",
-    level: LogLevel.info,
-  });
+  Log(
+    "errorlogic/main.ts: createErrorAppData",
+    `Generating error appData for ${data.title}`,
+
+    LogLevel.info
+  );
 
   const error: App = {
     info: {
@@ -141,11 +134,11 @@ export function createErrorAppData(data: ErrorMessage) {
     const el = document.querySelector(`window#${error.id}`) as HTMLDivElement;
 
     if (!el)
-      return Log({
-        level: LogLevel.error,
-        msg: `Can't bring window ${error.id} to front, no associated element could be found.`,
-        source: "ErrorLogic: createErrorAppData",
-      });
+      return Log(
+        "ErrorLogic: createErrorAppData",
+        `Can't bring window ${error.id} to front, no associated element could be found.`,
+        LogLevel.error
+      );
 
     maxZIndex.set(get(maxZIndex) + 1);
 

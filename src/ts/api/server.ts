@@ -2,29 +2,29 @@ import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 
 export function getServer(): string {
-  Log({
-    source: "api/server.ts: getServer",
-    msg: "Getting current server (arcos-current-server)",
-    level: LogLevel.info,
-  });
+  Log(
+    "api/server.ts: getServer",
+    "Getting current server (arcos-current-server)",
+    LogLevel.info
+  );
 
   const server = localStorage.getItem("arcos-current-server");
 
   if (!server) {
-    Log({
-      source: "api/server.ts: getServer",
-      msg: "arcos-current-server does not exist, falling back to remembered servers",
-      level: LogLevel.warn,
-    });
+    Log(
+      "api/server.ts: getServer",
+      "arcos-current-server does not exist, falling back to remembered servers",
+      LogLevel.warn
+    );
 
     const all = getAllServers();
 
     if (!all.length) {
-      Log({
-        source: "api/server.ts: getServer",
-        msg: "Fallback failed: no servers to select from",
-        level: LogLevel.error,
-      });
+      Log(
+        "api/server.ts: getServer",
+        "Fallback failed: no servers to select from",
+        LogLevel.error
+      );
 
       return null;
     }
@@ -42,11 +42,11 @@ export function instanceHasServers(): boolean {
 }
 
 export function getAllServers(): string[] {
-  Log({
-    source: "api/server.ts: getAllServers",
-    msg: "Retrieving all servers from arcos-servers",
-    level: LogLevel.info,
-  });
+  Log(
+    "api/server.ts: getAllServers",
+    "Retrieving all servers from arcos-servers",
+    LogLevel.info
+  );
 
   if (!localStorage.getItem("arcos-servers")) return [];
 
@@ -54,11 +54,11 @@ export function getAllServers(): string[] {
 }
 
 export function addServer(server: string, makeDefault = true): void {
-  Log({
-    source: "api/server.ts: addServer",
-    msg: `Adding server ${server} to arcos-servers`,
-    level: LogLevel.info,
-  });
+  Log(
+    "api/server.ts: addServer",
+    `Adding server ${server} to arcos-servers`,
+    LogLevel.info
+  );
 
   const all = getAllServers();
 
@@ -70,11 +70,11 @@ export function addServer(server: string, makeDefault = true): void {
 }
 
 export function removeServer(server: string): boolean {
-  Log({
-    source: "api/server.ts: removeServer",
-    msg: `Removing ${server} from arcos-servers`,
-    level: LogLevel.info,
-  });
+  Log(
+    "api/server.ts: removeServer",
+    `Removing ${server} from arcos-servers`,
+    LogLevel.info
+  );
 
   const all = getAllServers();
 
@@ -88,11 +88,11 @@ export function removeServer(server: string): boolean {
 }
 
 export function migrateToMulti() {
-  Log({
-    source: "api/server.ts: migrateToMulti",
-    msg: "Migrating single-API localStorage state to multi-API",
-    level: LogLevel.info,
-  });
+  Log(
+    "api/server.ts: migrateToMulti",
+    "Migrating single-API localStorage state to multi-API",
+    LogLevel.info
+  );
 
   const server = localStorage.getItem("arcos-server");
 

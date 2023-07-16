@@ -23,9 +23,9 @@ export function InvalidStateBugrep(stateSource: string, stateKey: string) {
     },
   ]);
 
-  Log({
-    level: LogLevel.warn,
-    source: `applyState for ${stateSource}`,
-    msg: `Can't apply a non-existent state '${stateKey}'.`,
-  });
+  Log(
+    `applyState for ${stateSource}`,
+    `Can't apply a non-existent state '${stateKey}'.`,
+    LogLevel.warn
+  );
 }
