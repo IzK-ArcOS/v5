@@ -15,12 +15,7 @@ export function dragWindow(
   window: HTMLDivElement,
   titlebar: HTMLDivElement
 ) {
-  if (!app || !window || !titlebar)
-    return Log(
-      `Can't drag ${app.id}: one or more required elements are missing!`,
-      "drag.ts: dragWindow",
-      LogLevel.error
-    );
+  if (!app || !window || !titlebar) return;
 
   ["mousedown", "touchstart"].forEach((k) =>
     window.addEventListener(

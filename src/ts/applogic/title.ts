@@ -4,12 +4,6 @@ import { LogLevel } from "../console/interface";
 import { WindowStore } from "./store";
 
 export function setTitleSuffix(content: string, appId: string) {
-  Log(
-    "title.ts: setTitleSuffix",
-    `Setting title suffix of ${appId}`,
-    LogLevel.info
-  );
-
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {

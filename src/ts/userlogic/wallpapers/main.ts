@@ -15,12 +15,6 @@ const getters: [string, (id: string) => Wallpaper | Promise<Wallpaper>][] = [
 ];
 
 export async function getWallpaper(id: string): Promise<Wallpaper> {
-  Log(
-    "userlogic/wallpapers.ts: getWallpaper",
-    `Getting wallpaper ${id.startsWith("img") ? id : "<custom>"}`,
-    LogLevel.info
-  );
-
   if (!id) return Wallpapers["img04"];
 
   if (id.startsWith("http")) return { author: "The Web", name: id, url: id };

@@ -11,7 +11,12 @@ window div.body {
 
 window:not(.custom):not(.headless):not(.glass) div.body {
   background-color: var(--win-bg);
-  border-top: var(--win-border);
+
+  border-top: var(--button-bg) 1px solid;
+}
+
+window:not(.custom):not(.headless):not(.glass):not(.focused) div.body {
+  border-top: transparent 1px solid;
 }
 
 window.headless div.titlebar {

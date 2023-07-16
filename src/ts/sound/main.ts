@@ -21,7 +21,7 @@ export class SoundBus {
   }
 
   public playSound(id: string) {
-    if (!this.store[id] || this._bus[id]) return false;
+    if (!this.store[id]) return false;
 
     Log("SoundBus.playSound", `Playing sound ${id} from store`);
 
@@ -47,7 +47,9 @@ export class SoundBus {
       return false;
     }
 
-    this._bus[id] = element;
+    if (!this._bus[id]) this._bus[id] = [];
+
+    this._bus[id].push(element);
 
     element.onended = () => delete this._bus[id];
 
@@ -59,9 +61,13 @@ export class SoundBus {
 
     if (!this._bus[id]) return false;
 
-    this._bus[id].src = null;
-    this._bus[id].currentTime = -1;
-    this._bus[id].pause();
+    const bus = this._bus[id];
+
+    for (let i = 0; i < bus.length; i++) {
+      bus[i].src = null;
+      bus[i].currentTime = -1;
+      bus[i].pause();
+    }
 
     return true;
   }

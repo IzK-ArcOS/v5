@@ -6,12 +6,6 @@ import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 
 export function generateCredToken(cred: Cred) {
-  Log(
-    "ts/api/cred.ts: generateCredToken",
-    "Generating Credentials from token",
-    LogLevel.info
-  );
-
   if (!cred) return "";
   return btoa(`${cred.username}:${cred.password}`);
 }

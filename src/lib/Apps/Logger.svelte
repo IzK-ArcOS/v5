@@ -1,6 +1,7 @@
 <script lang="ts">
   import "../../css/desktop/apps/logger.css";
   import type { App } from "../../ts/applogic/interface";
+  import { setTitleSuffix } from "../../ts/applogic/title";
   import { Log, LogStore } from "../../ts/console";
   import {
     collectLogsBySource,
@@ -38,7 +39,7 @@
   LogStore.subscribe(() => {
     logs = Object.entries(collectLogsBySource());
 
-    app.info.titleSuffix = ` - ${$LogStore.length} items`;
+    setTitleSuffix(` - ${$LogStore.length} items`, app.id);
   });
 </script>
 

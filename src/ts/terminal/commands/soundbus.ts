@@ -30,7 +30,7 @@ function play(cmd: string, argv: string[], term: ArcTerm) {
 
   if (!valid)
     term.std.Error(
-      `Can't play sound [${sound}]: the sound could not be found or it is already playing.`
+      `Can't play sound [${sound}]: the sound could not be found.`
     );
   else term.std.writeColor(`Playing sound [${sound}]`, "blue");
 }

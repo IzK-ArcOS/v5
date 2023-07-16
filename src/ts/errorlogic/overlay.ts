@@ -3,6 +3,7 @@ import type { OverlayableError } from "../applogic/interface";
 import { WindowStore } from "../applogic/store";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
+import { ArcSoundBus } from "../sound/main";
 
 export function createOverlayableError(
   error: OverlayableError,
@@ -28,6 +29,8 @@ export function createOverlayableError(
     });
 
     WindowStore.set(ws);
+
+    ArcSoundBus.playSound("arcos.dialog.info");
 
     return true;
   }
