@@ -23,9 +23,13 @@ export function findAppToOpen(mime: string): string[] {
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
-    if (!ws[i].fileMimes) continue;
+    const window = ws[i];
 
-    if (ws[i].fileMimes.includes(mime)) ids.push(ws[i].id);
+    if (!window.fileMimes) continue;
+
+    const mimes = window.fileMimes.join("||").toLowerCase();
+
+    if (mimes.includes(mime)) ids.push(ws[i].id);
   }
 
   return ids;

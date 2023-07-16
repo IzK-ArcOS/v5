@@ -43,7 +43,7 @@ export function createReport(options: ReportOptions = defaultReportOptions) {
     author: get(UserName),
     body: options.body,
     version: ArcOSVersion,
-    log: options.includeLog ? compileStringLog().join("\n") : "",
+    log: compileStringLog().join("\n"),
     userdata: options.includeUserData ? get(UserData) : null,
     api: options.includeApi ? getServer() : null,
   };
