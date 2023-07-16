@@ -25,6 +25,7 @@
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
   import { ArcSoundBus } from "../../ts/sound/main";
+  import { sendReport } from "../../ts/reporting/main";
 
   let show = false;
   let classes = "";
