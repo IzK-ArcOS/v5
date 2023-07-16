@@ -69,7 +69,7 @@ class FileBrowserClass {
   }
 
   public async goToDirectory(path: string) {
-    Log("FileBrowser: goToDirectory", `Navigating to "${path}"`, LogLevel.info);
+    Log("FileBrowser: goToDirectory", `Navigating to "${path}"`);
 
     FileBrowserSelectedFilename.set(null);
 

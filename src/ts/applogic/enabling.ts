@@ -8,7 +8,7 @@ import { SystemApps } from "./imports/store";
 import { LogLevel } from "../console/interface";
 
 export function disableApp(id: string) {
-  Log("enabling.ts: disableApp", `Disabling app ${id}`, LogLevel.info);
+  Log("enabling.ts: disableApp", `Disabling app ${id}`);
 
   if (SystemApps.includes(id)) {
     return errorMessage(
@@ -39,7 +39,7 @@ export function disableApp(id: string) {
 }
 
 export function enableApp(id: string) {
-  Log("enabling.ts: enableApp", `Enabling app ${id}`, LogLevel.info);
+  Log("enabling.ts: enableApp", `Enabling app ${id}`);
 
   const udata = get(UserData);
 

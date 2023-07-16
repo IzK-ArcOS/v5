@@ -111,7 +111,7 @@ class CL {
   // Processes incoming key inputs from either the window
   // or the AppShortcuts (Calculator Events)
   processKey(key: string) {
-    Log(`${Store.Source} processKey`, `Processing key "${key}"`, LogLevel.info);
+    Log(`${Store.Source} processKey`, `Processing key "${key}"`);
 
     if (!this.isValid(key)) return false;
 

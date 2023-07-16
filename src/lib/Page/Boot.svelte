@@ -73,7 +73,7 @@
   }
 
   async function redirect() {
-    Log("Boot.svelte", "Redirecting", LogLevel.info);
+    Log("Boot.svelte", "Redirecting");
 
     await sleep(2000);
     bootClass = "fadeout";

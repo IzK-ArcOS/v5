@@ -55,7 +55,7 @@ export function loadWindow(id: string, app: App) {
     if (app.pos.centered) centerWindow(id);
   }, 300);
 
-  Log("AppLogic: loadWindow", `Loaded ${id} into WindowStore.`, LogLevel.info);
+  Log("AppLogic: loadWindow", `Loaded ${id} into WindowStore.`);
 }
 
 export function getChildren(app: App, id: string) {

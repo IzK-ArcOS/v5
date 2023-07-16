@@ -10,7 +10,7 @@ import { LogLevel } from "../console/interface";
 export const committingUserData = writable<boolean>(false);
 
 export async function getUsers() {
-  Log("userlogic/main.ts: getUsers", `Getting users`, LogLevel.info);
+  Log("userlogic/main.ts: getUsers", `Getting users`);
 
   const server = get(ConnectedServer);
 
@@ -30,7 +30,7 @@ export async function getUsers() {
 }
 
 export async function deleteUser() {
-  Log("userlogic/main.ts: deleteUsers", `Delete users`, LogLevel.info);
+  Log("userlogic/main.ts: deleteUsers", `Delete users`);
 
   const server = get(ConnectedServer);
   const token = get(UserToken);
@@ -57,7 +57,7 @@ export async function getUserdata(name: string) {
 }
 
 export async function setUserdata(data: UserData): Promise<boolean> {
-  Log("userlogic/main.ts: setUserdata", `Setting userdata`, LogLevel.info);
+  Log("userlogic/main.ts: setUserdata", `Setting userdata`);
 
   const server = get(ConnectedServer);
 

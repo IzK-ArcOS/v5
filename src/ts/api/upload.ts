@@ -3,14 +3,21 @@ import {
   fbClass,
   FileBrowserUploadFile,
 } from "../applogic/apps/FileBrowser/main";
-import { writeFile } from "./fs/file";
-import type { ArcFile } from "./interface";
 import { fileToArcFile } from "./fs/convert";
+import { writeFile } from "./fs/file";
+import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 
 export async function directSingleUpload(
   path: string,
   accept?: string
 ): Promise<string> {
+  Log(
+    "ts/api/upload.ts: directSingleUpload",
+    `${path}: (${accept || "no accept"})`,
+    LogLevel.info
+  );
+
   if (path.endsWith("/")) path.slice(0, -1);
   const uploader = document.createElement("input");
 
@@ -41,6 +48,12 @@ export async function directSingleUpload(
 }
 
 async function fileUpload(file: File, dir: string): Promise<string> {
+  Log(
+    "ts/api/upload.ts: fileUpload",
+    `Uploading ${file.name} to ${dir}`,
+    LogLevel.info
+  );
+
   const content = new Blob([new Uint8Array(await file.arrayBuffer())]);
   const path = `${dir}/${file.name}`.split("//").join("/");
 

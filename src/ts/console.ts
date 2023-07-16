@@ -5,7 +5,7 @@ import { sendReport } from "./reporting/main";
 
 export const LogStore = writable<LogItem[]>([]);
 
-export function Log(source: string, msg: string, level: LogLevel) {
+export function Log(source: string, msg: string, level = LogLevel.info) {
   const data: LogItem = { source, msg, level };
 
   data.timestamp = new Date().getTime();

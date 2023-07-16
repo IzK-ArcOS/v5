@@ -14,7 +14,7 @@ export class ArcTermUtil {
   constructor(t: ArcTerm) {
     this.setReference();
 
-    Log(`ArcTerm ${this.reference}`, `Creating new ArcTermUtil`, LogLevel.info);
+    Log(`ArcTerm ${this.reference}`, `Creating new ArcTermUtil`);
 
     this.term = t;
   }

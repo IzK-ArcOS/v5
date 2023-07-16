@@ -33,7 +33,7 @@ export function getSwitches(argv: string[]) {
 }
 
 export function switchExists(argv: string[], key: string): boolean {
-  Log("ArcTerm", `switchExists: ${key}`, LogLevel.info);
+  Log("ArcTerm", `switchExists: ${key}`);
 
   const switches = getSwitches(argv);
 

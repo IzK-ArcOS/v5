@@ -2,6 +2,8 @@ import { get } from "svelte/store";
 import { UserName, UserToken } from "../../userlogic/interfaces";
 import type { FSQuota } from "../interface";
 import { apiCall, ConnectedServer } from "../main";
+import { Log } from "../../console";
+import { LogLevel } from "../../console/interface";
 
 export const defaultQuota: FSQuota = {
   used: 0,
@@ -13,6 +15,12 @@ export const defaultQuota: FSQuota = {
 export async function getFSQuota(): Promise<FSQuota> {
   const username = get(UserName);
   const server = get(ConnectedServer);
+
+  Log(
+    `fs/quota.ts: getFSQuota`,
+    `Getting FSQuota for ${username}`,
+    LogLevel.info
+  );
 
   if (!server || !username) return defaultQuota;
 

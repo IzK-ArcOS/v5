@@ -3,10 +3,18 @@ import { apiCall, ConnectedServer } from "../api/main";
 import { loginUsername } from "../login/main";
 import { UserData, UserName, UserToken } from "../userlogic/interfaces";
 import { generateCredToken } from "./cred";
+import { LogLevel } from "../console/interface";
+import { Log } from "../console";
 
 export async function loginUsingCreds(
   token: string
 ): Promise<UserData | false> {
+  Log(
+    "ts/api/getter.ts: loginUsingCreds",
+    `Authenticating using <token>`,
+    LogLevel.info
+  );
+
   let [name, password] = atob(token).split(":");
 
   const server = get(ConnectedServer);
@@ -31,6 +39,12 @@ export async function loginUsingCreds(
 }
 
 export async function rememberedLogin() {
+  Log(
+    "ts/api/getter.ts: rememberedLogin",
+    `Attempting login using arcos-remembered-token`,
+    LogLevel.warn
+  );
+
   const token = localStorage.getItem("arcos-remembered-token");
 
   if (!token) return false;

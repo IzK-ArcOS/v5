@@ -30,7 +30,7 @@ export function getOriginalIcon(appId: string) {
 }
 
 export function resetAppIcon(appId: string) {
-  Log("icon.ts: resetAppIcon", `Restting icon of ${appId}`, LogLevel.info);
+  Log("icon.ts: resetAppIcon", `Restting icon of ${appId}`);
 
   if (!Originals[appId]) return;
 

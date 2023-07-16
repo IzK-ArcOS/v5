@@ -1,9 +1,12 @@
 import { get } from "svelte/store";
+import { Log } from "../console";
 import { getWindowElement } from "../window/main";
 import type { App, XY } from "./interface";
 import { WindowStore } from "./store";
 
 export function centerWindow(id: string) {
+  Log(`applogic/center.ts: centerWindow`, `Centering ${id}`);
+
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {
@@ -16,6 +19,8 @@ export function centerWindow(id: string) {
 }
 
 export function calculatePos(app: App): XY & { centered: true } {
+  Log(`applogic/center.ts: calculatePos`, `Calculating position for ${app.id}`);
+
   const el = getWindowElement(app);
 
   const windowWidth = el.offsetWidth;

@@ -17,7 +17,7 @@ import {
 import { LogLevel } from "../console/interface";
 
 export function openWindow(id: string, openChild = false) {
-  Log("events.ts: openWindow", `Opening ${id}`, LogLevel.info);
+  Log("events.ts: openWindow", `Opening ${id}`);
 
   const window = getWindow(id);
 
@@ -111,7 +111,7 @@ export function closeChildWindow(parent: App, childId: string) {
 }
 
 export function closeWindow(id: string) {
-  Log("events.ts: closeWindow", `Closing ${id}`, LogLevel.info);
+  Log("events.ts: closeWindow", `Closing ${id}`);
 
   if (!isOpened(id)) {
     return false;

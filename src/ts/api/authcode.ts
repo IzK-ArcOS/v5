@@ -20,7 +20,7 @@ export function setAuthcode(server: string, code: string): void {
 
 export function getAuthcode(server: string) {
   Log(
-    "api/authcode.ts:getAuthcode",
+    "api/authcode.ts: getAuthcode",
     `Getting authcode for ${server}`,
     LogLevel.info
   );

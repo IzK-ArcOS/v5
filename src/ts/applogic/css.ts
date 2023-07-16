@@ -1,6 +1,9 @@
+import { Log } from "../console";
 import type { App, OverlayableApp } from "./interface";
 
 export function generateCSS(app: App, usePos: boolean) {
+  Log("applogic/css.ts: generateCSS", app.id);
+
   let cssString = "";
 
   cssString += `min-width: ${app.minSize.w}px;`;
@@ -18,6 +21,8 @@ export function generateCSS(app: App, usePos: boolean) {
 }
 
 export function generateOverlayCSS(app: OverlayableApp) {
+  Log("applogic/css.ts: generateOverlayCSS", app.id);
+
   let cssString = "";
 
   cssString += `min-width: ${app.size.w}px;`;

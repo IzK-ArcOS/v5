@@ -57,7 +57,7 @@ export function errorMessage(
 }
 
 export function closeError(id: number) {
-  Log("errorlogic/main.ts: closeError", `Closing error ${id}`, LogLevel.info);
+  Log("errorlogic/main.ts: closeError", `Closing error ${id}`);
 
   const ews = get(ErrorWindowStore);
 
@@ -77,7 +77,7 @@ export function closeError(id: number) {
 }
 
 export function openError(id: number) {
-  Log("errorlogic/main.ts: openError", `Opening error ${id}`, LogLevel.info);
+  Log("errorlogic/main.ts: openError", `Opening error ${id}`);
 
   const ews = get(ErrorWindowStore);
 

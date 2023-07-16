@@ -19,7 +19,7 @@
   export let appdata: ScopedAppData;
 
   function setView(source: string) {
-    Log("apps/Logger: setView", `Setting source to "${source}"`, LogLevel.info);
+    Log("apps/Logger: setView", `Setting source to "${source}"`);
     for (let i = 0; i < logs.length; i++) {
       if (logs[i][0] == source) logItems = logs[i][1];
     }

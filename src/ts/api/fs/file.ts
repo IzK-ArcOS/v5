@@ -69,6 +69,8 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
 }
 
 export async function writeFile(path: string, data: Blob): Promise<boolean> {
+  Log("fs/directory.ts: writeFile", `Creating ${path}`);
+
   const server = get(ConnectedServer);
   const authCode = getAuthcode(getServer());
 

@@ -7,6 +7,12 @@ import { LogLevel } from "./console/interface";
 export const BugReportData = writable<[boolean, BugReport]>();
 
 export function InvalidStateBugrep(stateSource: string, stateKey: string) {
+  Log(
+    "ts/bugrep.ts: InvalidStateBugrep",
+    `${stateSource}: ${stateKey}`,
+    LogLevel.info
+  );
+
   BugReportData.set([
     true,
     {
@@ -22,10 +28,4 @@ export function InvalidStateBugrep(stateSource: string, stateKey: string) {
       details: `applyState for ${stateSource}: Can't apply a non-existent state '${stateKey}'.`,
     },
   ]);
-
-  Log(
-    `applyState for ${stateSource}`,
-    `Can't apply a non-existent state '${stateKey}'.`,
-    LogLevel.warn
-  );
 }

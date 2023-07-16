@@ -29,6 +29,7 @@ export async function getDirectory(path: string = "./"): DirectoryGet {
 }
 
 export async function createDirectory(path: string): Promise<boolean> {
+  Log("fs/directory.ts: createDirectory", `Creating ${path}`);
   const server = get(ConnectedServer);
 
   if (!server) return false;

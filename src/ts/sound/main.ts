@@ -23,7 +23,7 @@ export class SoundBus {
   public playSound(id: string) {
     if (!this.store[id] || this._bus[id]) return false;
 
-    Log("SoundBus.playSound", `Playing sound ${id} from store`, LogLevel.info);
+    Log("SoundBus.playSound", `Playing sound ${id} from store`);
 
     const element = document.createElement("audio");
 
@@ -55,7 +55,7 @@ export class SoundBus {
   }
 
   public stopSound(id: string) {
-    Log("SoundBus.stopSound", `Stopping ${id}`, LogLevel.info);
+    Log("SoundBus.stopSound", `Stopping ${id}`);
 
     if (!this._bus[id]) return false;
 

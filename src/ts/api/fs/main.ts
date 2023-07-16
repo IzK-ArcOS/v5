@@ -1,7 +1,15 @@
 import { get } from "svelte/store";
 import { WindowStore } from "../../applogic/store";
+import { Log } from "../../console";
+import { LogLevel } from "../../console/interface";
 
 export function getParentDirectory(p: string) {
+  Log(
+    "fs/main.ts: getParentDirectory",
+    `Getting parent of ${p}`,
+    LogLevel.info
+  );
+
   const split = p.split("/");
 
   if (p == "./") return p;
@@ -16,6 +24,8 @@ export function getParentDirectory(p: string) {
 }
 
 export function closeFile(id: string) {
+  Log("fs/main.ts: closeFile", `Closing file of ${id}`);
+
   const ws = get(WindowStore);
 
   for (let i = 0; i < ws.length; i++) {

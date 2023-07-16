@@ -18,7 +18,7 @@ export function commitUserdata(v: UserData) {
   committingUserData.set(true);
 
   if (get(UserName)) {
-    Log(source, "Change Detected, committing", LogLevel.info);
+    Log(source, "Change Detected, committing");
 
     const changed = setUserdata(v);
 
