@@ -25,7 +25,7 @@ export const TextEditor: App = {
   },
   content: TextView,
   glass: true,
-  fileMimes: ["text/plain; charset=utf-8"],
+  fileMimes: ["text/plain"],
   overlays: {
     saveNewFile: {
       info: {

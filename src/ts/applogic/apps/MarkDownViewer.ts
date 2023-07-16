@@ -1,10 +1,7 @@
-import type { App } from "../interface";
 import icon from "../../../assets/apps/markdownviewer.svg";
 import MarkDownViewerSvelte from "../../../lib/Apps/MarkDownViewer.svelte";
-import { resetTitleSuffix, setTitleSuffix } from "../title";
-import { get } from "svelte/store";
-import { getWindow, WindowStore } from "../store";
-import { closeFile } from "../../api/fs/main";
+import type { App } from "../interface";
+import { setTitleSuffix } from "../title";
 
 export const MarkDownViewer: App = {
   info: {
@@ -28,7 +25,7 @@ export const MarkDownViewer: App = {
   },
   content: MarkDownViewerSvelte,
   glass: false,
-  fileMimes: ["text/plain; charset=utf-8", "text/markdown; charset=utf-8"],
+  fileMimes: ["text/plain", "text/markdown"],
   events: {
     openFile(app: App) {
       if (!app.openedFile) return;
