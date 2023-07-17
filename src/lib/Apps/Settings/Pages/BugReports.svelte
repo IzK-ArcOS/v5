@@ -14,7 +14,6 @@
 </script>
 
 <div class="page-bugreports">
-  <h1>Bug Reports</h1>
   {#each reports as report}
     <Report {report} />
   {/each}

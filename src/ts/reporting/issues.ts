@@ -1,11 +1,20 @@
 import type { GitHubIssue } from "./interfaces/github";
 
+let ISSUE_CACHE: GitHubIssue[] = [];
+
 export async function getReportIssue(id: string): Promise<GitHubIssue> {
-  const issues = (await (
-    await fetch(
-      "https://api.github.com/repos/IzK-ArcOS/ArcOS-Frontend/issues?per_page=100"
-    )
-  ).json()) as GitHubIssue[];
+  let issues: GitHubIssue[] = [];
+
+  if (ISSUE_CACHE.length) issues = [...ISSUE_CACHE];
+  else {
+    issues = (await (
+      await fetch(
+        "https://api.github.com/repos/IzK-ArcOS/ArcOS-Frontend/issues?per_page=100"
+      )
+    ).json()) as GitHubIssue[];
+
+    ISSUE_CACHE = [...issues];
+  }
 
   if (!issues.length) return null;
 

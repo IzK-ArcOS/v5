@@ -8,17 +8,21 @@
   export let report: LocalReportData;
 
   let status = "Sent";
+  let deleted = false;
 
   onMount(async () => {
     const issue = await getReportIssue(report.id);
 
     if (issue) status = `Issue #${issue.number}`;
 
-    if (isDeleted) status = "Deleted!";
+    if (isDeleted) {
+      deleted = true;
+      status = "Deleted!";
+    }
   });
 </script>
 
-<button class="report">
+<button class="report" class:deleted>
   <img src={icon} alt="" class="icon" />
   <p class="time">
     {dayjs(report.timestamp).format("D MMM YYYY, HH:mm:ss")}
