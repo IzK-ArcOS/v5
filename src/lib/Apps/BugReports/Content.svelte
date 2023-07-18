@@ -9,7 +9,9 @@
   let data: Report;
 
   onMount(() => {
-    runtime.Selected.subscribe(async (v) => v && (data = await getReport(v)));
+    runtime.Selected.subscribe(
+      async (v) => v && (data = await runtime.getReport(v))
+    );
   });
 </script>
 

@@ -4,7 +4,7 @@
   import type { LocalReportData } from "../../../../../ts/reporting/interface";
   import { onMount } from "svelte";
   import { getReportIssue } from "../../../../../ts/reporting/issues";
-  import { isDeleted } from "../../../../../ts/reporting/main";
+  import { reportExists } from "../../../../../ts/reporting/main";
   export let report: LocalReportData;
 
   let status = "Sent";
@@ -15,7 +15,7 @@
 
     if (issue) status = `Issue #${issue.number}`;
 
-    if (isDeleted) {
+    if (reportExists) {
       deleted = true;
       status = "Deleted!";
     }

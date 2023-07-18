@@ -1,5 +1,6 @@
 window#BugReports div.content {
-  width: calc(100% - 200px);
-  border-top: var(--win-border);
+  width: calc(100% - 250px);
   border-left: var(--win-border);
+  background-color: var(--win-bg);
+  padding: 15px;
 }

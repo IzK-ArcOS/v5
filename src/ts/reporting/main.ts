@@ -53,11 +53,15 @@ export function createReport(options: ReportOptions = defaultReportOptions) {
 }
 
 export async function getReport(id: string) {
-  return await pb
-    .collection("bugrep")
-    .getOne<ReportRecord>(id, { $autoCancel: false });
+  try {
+    return await pb
+      .collection("bugrep")
+      .getOne<ReportRecord>(id, { $autoCancel: false });
+  } catch {
+    return null;
+  }
 }
 
-export async function isDeleted(id: string) {
+export async function reportExists(id: string) {
   return !!(await getReport(id));
 }

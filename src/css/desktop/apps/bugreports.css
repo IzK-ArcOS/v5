@@ -1,7 +1,11 @@
 @import url("./bugreports/sidebar.css");
 @import url("./bugreports/content.css");
 
-window#BugReports div.body {
+window#BugReports > div.body {
   padding: 0;
   display: flex;
+}
+
+window#BugReports > div.titlebar {
+  border-bottom: var(--win-border) !important;
 }
