@@ -2,6 +2,7 @@ import { AppInfo } from "../apps/AppInfo";
 import { AppManager } from "../apps/AppManager";
 import { AppPoker } from "../apps/AppPoke";
 import { ArcTerm } from "../apps/ArcTerm";
+import { BugReports } from "../apps/BugReports";
 import { CalculatorApp } from "../apps/Calculator";
 import { DonutApp } from "../apps/Donut";
 import { ErrorCreator } from "../apps/ErrorCreator";
@@ -46,6 +47,7 @@ export const DefaultApps: { [key: string]: App } = {
   ArcTerm,
   HelpCenter,
   LightsOff,
+  BugReports,
 };
 
 export const SystemApps: string[] = [

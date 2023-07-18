@@ -1,0 +1,5 @@
+window#BugReports div.content {
+  width: calc(100% - 200px);
+  border-top: var(--win-border);
+  border-left: var(--win-border);
+}

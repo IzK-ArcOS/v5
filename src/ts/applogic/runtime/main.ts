@@ -1,12 +1,11 @@
 import { Log } from "../../console";
 import { LogLevel } from "../../console/interface";
-import type { App, AppEvents } from "../interface";
-import { registerAppShortcuts } from "../keyboard/main";
+import type { App } from "../interface";
 
 export class AppRuntime {
   app: App;
 
-  constructor(appData: App, events: AppEvents = {}) {
+  constructor(appData: App) {
     if (!appData.id) {
       Log(
         `applogic/runtime/main.ts`,
@@ -18,10 +17,13 @@ export class AppRuntime {
     }
 
     this.app = appData;
-    this.app.events = events;
+  }
 
-    if (!this.app.events.keyboardShortcuts) return;
-
-    registerAppShortcuts(this.app.id, this.app);
+  public Log(
+    message: string,
+    fn: string = "<anonymous>",
+    level = LogLevel.info
+  ) {
+    Log(`${this.app.id}Runtime: ${fn}`, message, level);
   }
 }

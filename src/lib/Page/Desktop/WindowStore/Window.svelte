@@ -68,7 +68,7 @@
   });
 
   onMount(() => {
-    if (app.runtime) runtime = new app.runtime(app, app.events);
+    if (app.runtime) runtime = new app.runtime(app);
   });
 </script>
 
@@ -96,9 +96,11 @@
   on:mousedown={handleMouse}
 >
   <Titlebar {app} bind:exttransition bind:titlebar {isBoot} />
-  <Content {app}>
-    <slot />
-  </Content>
+  {#if !app.runtime ? true : runtime}
+    <Content {app} {runtime}>
+      <slot />
+    </Content>
+  {/if}
   {#if app && app.overlays}
     {#each Object.entries(app.overlays) as overlay}
       <OverlayableWindow {app} overlay={overlay[1]} id={overlay[0]} />
