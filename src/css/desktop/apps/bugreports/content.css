@@ -1,3 +1,5 @@
+@import url("./content/notfound.css");
+
 window#BugReports div.content {
   width: calc(100% - 250px);
   border-left: var(--win-border);

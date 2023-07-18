@@ -1,15 +1,10 @@
-import account from "../../assets/fts/account.svg";
 import connect from "../../assets/fts/connect.svg";
 import finish from "../../assets/fts/finish.svg";
 import license from "../../assets/fts/license.svg";
-import mode from "../../assets/fts/mode.svg";
 import wave from "../../assets/fts/wave.svg";
-import AuthMode from "../../lib/Page/FirstTimeSetup/Page/AuthMode.svelte";
 import ConnectToCloud from "../../lib/Page/FirstTimeSetup/Page/ConnectToCloud.svelte";
-import ExistingAuth from "../../lib/Page/FirstTimeSetup/Page/ExistingAuth.svelte";
 import Finish from "../../lib/Page/FirstTimeSetup/Page/Finish.svelte";
 import License from "../../lib/Page/FirstTimeSetup/Page/License.svelte";
-import NewAuth from "../../lib/Page/FirstTimeSetup/Page/NewAuth.svelte";
 import Welcome from "../../lib/Page/FirstTimeSetup/Page/Welcome.svelte";
 import type { State } from "../state/interfaces";
 export const FTSStates = new Map<string, State>([

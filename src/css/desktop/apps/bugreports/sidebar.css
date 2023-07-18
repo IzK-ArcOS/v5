@@ -1,4 +1,29 @@
 window#BugReports div.sidebar {
   height: 100%;
   width: 250px;
+  padding: 5px;
+}
+
+window#BugReports div.sidebar button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  box-sizing: border-box;
+  margin: 0;
+  margin-bottom: 0px;
+  padding: 8px;
+}
+
+window#BugReports div.sidebar button:not(.selected) {
+  background-color: transparent;
+}
+
+window#BugReports div.sidebar button img {
+  height: 18px;
+}
+
+window#BugReports div.sidebar button.deleted span {
+  color: var(--clr-red-fg);
 }

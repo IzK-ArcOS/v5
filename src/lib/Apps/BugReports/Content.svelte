@@ -3,6 +3,7 @@
   import type { BugReportsRuntime } from "../../../ts/applogic/apps/BugReports/runtime";
   import type { Report } from "../../../ts/reporting/interface";
   import { getReport } from "../../../ts/reporting/main";
+  import NotFound from "./Content/NotFound.svelte";
 
   export let runtime: BugReportsRuntime;
 
@@ -20,5 +21,7 @@
     {data.author} - {data.api}
     <hr />
     {data.body}
+  {:else}
+    <NotFound />
   {/if}
 </div>

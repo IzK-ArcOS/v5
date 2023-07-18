@@ -1,0 +1,33 @@
+window#BugReports div.body > div.content div.not-found-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+window#BugReports
+  div.body
+  > div.content
+  div.not-found-wrapper
+  div.not-found
+  img {
+  height: 48px;
+}
+window#BugReports div.body > div.content div.not-found-wrapper div.not-found p {
+  max-width: 210px;
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+
+window#BugReports
+  div.body
+  > div.content
+  div.not-found-wrapper
+  div.not-found
+  p.header {
+  margin: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}

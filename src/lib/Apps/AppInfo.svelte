@@ -1,18 +1,15 @@
 <script lang="ts">
   import "../../css/desktop/apps/AppInfo.css";
   import { AppInfoId as id } from "../../ts/applogic/apps/AppInfo";
-  import { AppPokerData } from "../../ts/applogic/apps/AppManager/Manager";
-  import { isDisabled } from "../../ts/applogic/checks";
   import { disableApp, enableApp } from "../../ts/applogic/enabling";
   import { openWindow } from "../../ts/applogic/events";
   import { getAppIcon } from "../../ts/applogic/icon";
   import { SystemApps } from "../../ts/applogic/imports/store";
   import type { App } from "../../ts/applogic/interface";
-  import { getWindow, WindowStore } from "../../ts/applogic/store";
+  import { WindowStore, getWindow } from "../../ts/applogic/store";
 
   let data: App;
   let isEnabled = true;
-  let disablePoke = false;
   let d = "(unset)";
 
   function updateState() {
@@ -37,14 +34,6 @@
     if (!data) return;
 
     isEnabled = !getWindow($id).disabled;
-
-    disablePoke = isDisabled("AppPoker");
-  }
-
-  function poke() {
-    if (data.core) return;
-
-    AppPokerData.set(data);
   }
 </script>
 
@@ -121,12 +110,6 @@
           disabled={data.opened || data.disabled || data.core}
         >
           Open
-        </button>
-        <button
-          on:click={poke}
-          disabled={data.disabled || disablePoke || data.core}
-        >
-          Poke
         </button>
       </div>
     </div>

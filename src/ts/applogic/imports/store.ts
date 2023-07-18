@@ -1,6 +1,5 @@
 import { AppInfo } from "../apps/AppInfo";
 import { AppManager } from "../apps/AppManager";
-import { AppPoker } from "../apps/AppPoke";
 import { ArcTerm } from "../apps/ArcTerm";
 import { BugReports } from "../apps/BugReports";
 import { CalculatorApp } from "../apps/Calculator";
@@ -30,23 +29,22 @@ export const DefaultApps: { [key: string]: App } = {
   CalculatorApp,
   MessagingApp,
   SettingsApp: SettingsApp,
-  AppMan: AppManager /* 
-  TestApp: TestApp, */,
+  AppMan: AppManager,
   LoggerApp,
+  ArcTerm,
+  DonutApp,
+  LightsOff,
+  ArcShell,
+
   /** Hidden applications */
-  AppPoker: AppPoker,
   Exit: Exit,
   AppInfo,
   ImageViewer,
   OpenWithApp,
   MarkDownViewer,
   MediaPlayerApp,
-  ArcShell,
   DesktopWallpaper,
-  DonutApp,
-  ArcTerm,
   HelpCenter,
-  LightsOff,
   BugReports,
 };
 

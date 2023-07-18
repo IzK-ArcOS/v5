@@ -1,10 +1,8 @@
 import { get } from "svelte/store";
-import { Log } from "../console";
 import type { App } from "./interface";
 import { checkZones, snapWindow } from "./snapzones/main";
 import { leftZoneTriggered, rightZoneTriggered } from "./snapzones/store";
-import { focusedWindowId, WindowStore } from "./store";
-import { LogLevel } from "../console/interface";
+import { WindowStore, focusedWindowId } from "./store";
 
 /**
  * @WARNING This file needs a mass refactor, do not report issues related to the code execution within this file.

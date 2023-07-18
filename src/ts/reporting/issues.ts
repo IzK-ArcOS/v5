@@ -9,7 +9,7 @@ export async function getReportIssue(id: string): Promise<GitHubIssue> {
   else {
     issues = (await (
       await fetch(
-        "https://api.github.com/repos/IzK-ArcOS/ArcOS-Frontend/issues?per_page=100"
+        "https://api.github.com/repos/IzK-ArcOS/ArcOS-Reports/issues?per_page=100"
       )
     ).json()) as GitHubIssue[];
 

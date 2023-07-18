@@ -1,9 +1,9 @@
 import { get } from "svelte/store";
-import { apiCall, ConnectedServer } from "./main";
 import defaultImage from "../../assets/pfp/null.png";
-import { getProfilePicture } from "../userlogic/pfp";
 import { getUsers } from "../userlogic/main";
+import { getProfilePicture } from "../userlogic/pfp";
 import type { Params } from "./interface";
+import { ConnectedServer } from "./main";
 
 const pfpCache: Params = {};
 

@@ -13,6 +13,7 @@ import {
 import { getAppPreference, setAppPreference } from "../applogic/pref";
 import { makeNotification } from "../notiflogic/main";
 import bugRepIcon from "../../assets/apps/error.svg";
+import { removeApiSensitive } from "./obfuscate";
 
 const pb = new PocketBase("https://pb.arcapi.nl/");
 
@@ -46,7 +47,7 @@ export function createReport(options: ReportOptions = defaultReportOptions) {
     author: get(UserName),
     body: options.body,
     version: ArcOSVersion,
-    log: compileStringLog().join("\n"),
+    log: removeApiSensitive(compileStringLog().join("\n")),
     userdata: options.includeUserData ? get(UserData) : null,
     api: options.includeApi ? getServer() : null,
   };

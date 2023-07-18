@@ -26,6 +26,7 @@
   import WindowStore from "./Desktop/WindowStore.svelte";
   import { ArcSoundBus } from "../../ts/sound/main";
   import { sendReport } from "../../ts/reporting/main";
+  import sleep from "../../ts/sleep";
 
   let show = false;
   let classes = "";
@@ -43,6 +44,8 @@
     }
 
     $previouslyLoaded = true;
+
+    await sleep(0);
 
     assignDesktopListeners();
     importDefault();
