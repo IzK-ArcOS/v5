@@ -7,6 +7,7 @@ export interface Report {
   log: string;
   userdata?: object;
   api?: string;
+  issueid: string;
 }
 
 export type ReportRecord = Report & Record;

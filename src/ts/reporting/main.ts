@@ -7,6 +7,7 @@ import { UserData, UserName } from "../userlogic/interfaces";
 import {
   defaultReportOptions,
   LocalReportData,
+  Report,
   type ReportOptions,
   type ReportRecord,
 } from "./interface";
@@ -42,7 +43,11 @@ export async function sendReport(
   return id;
 }
 
-export function createReport(options: ReportOptions = defaultReportOptions) {
+export function createReport(
+  options: ReportOptions = defaultReportOptions
+): Report {
+  const rnd = () => Math.floor(Math.random() * 1e6);
+
   return {
     author: get(UserName),
     body: options.body,
@@ -50,6 +55,7 @@ export function createReport(options: ReportOptions = defaultReportOptions) {
     log: removeApiSensitive(compileStringLog().join("\n")),
     userdata: options.includeUserData ? get(UserData) : null,
     api: options.includeApi ? getServer() : null,
+    issueid: `${rnd()}-${rnd()}-${rnd()}-${rnd()}`,
   };
 }
 
