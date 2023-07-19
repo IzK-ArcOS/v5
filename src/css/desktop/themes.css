@@ -5,17 +5,18 @@
 @import url("./theme/amoled.css");
 @import url("./theme/hc.css");
 @import url("./theme/scifi.css");
+@import url("./theme/amber.css");
 
 :root {
   --font: "Inter", sans-serif;
   --glass-blur: 10px;
-  --fg: #ccc;
-  --win-bg: #353535;
+  --fg: #fff;
+  --win-bg: #000;
   --win-border-rad: 7.5px;
-  --win-border: rgb(107, 107, 107) 1px solid;
-  --win-border-light: #5554 1px solid;
-  --glass-bg: #353535c7;
-  --glass-alt-bg: #414141a2;
+  --win-border: rgb(255, 255, 255) 1px solid;
+  --win-border-light: #fff 1px solid;
+  --glass-bg: #000a;
+  --glass-alt-bg: #000a;
   --glass-ultralight: #0004;
   --glass-ultradark: #0008;
   --darkened-overlay: #0002;

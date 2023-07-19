@@ -1,0 +1,43 @@
+/*F0A21D*/
+:root .theme-amber {
+  --fg: #f0a21d;
+  --win-bg: #241700;
+  --win-border-rad: 10px;
+  --win-border: #f0a21d 1px solid;
+  --win-border-light: #f0a21d 1px solid;
+  --glass-bg: #241700aa;
+  --glass-alt-bg: #523400aa;
+  --glass-ultralight: #241700aa;
+  --glass-ultradark: #241700aa;
+  --darkened-overlay: #0002;
+  --darkened-overlay-alt: #0004;
+  --startmenu-applist-item-bg: transparent;
+  --startmenu-applist-item-bg-hover: #ffffff05;
+  --startmenu-applist-item-bg-active: #0001;
+  --button-border-rad: 4px;
+  --button-bg: #362200;
+  --button-hover-bg: #5a3900;
+  --button-active-bg: #1b1100;
+  --button-glass-bg: #fff1;
+  --button-glass-hover-bg: #fff3;
+  --button-glass-active-bg: #0003;
+  --clr-red-bg: #452929;
+  --clr-red-fg: #ff7e7e;
+  --clr-green-bg: #283e28;
+  --clr-green-fg: #a8ffa6;
+  --clr-yellow-bg: #49432e;
+  --clr-yellow-fg: #ffe073;
+  --clr-orange-bg: #543d1b;
+  --clr-orange-fg: #ffad32;
+  --clr-blue-bg: #273a48;
+  --clr-blue-fg: #96d3ff;
+  --clr-aqua-fg: #79ffd0;
+  --clr-aqua-bg: #214538;
+}
+
+:root .theme-amber.noglass {
+  --glass-bg: #241700;
+  --glass-alt-bg: #241700;
+  --glass-ultralight: #241700;
+  --glass-ultradark: #241700;
+}

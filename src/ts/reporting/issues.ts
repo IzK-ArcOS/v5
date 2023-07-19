@@ -24,7 +24,7 @@ export async function getReportIssue(id: string): Promise<GitHubIssue> {
   if (!issues.length) return null;
 
   for (let i = 0; i < issues.length; i++) {
-    if (issues[i].title.includes(`br$${report.issueid}`)) return issues[i];
+    if (issues[i].body.includes(`br$${report.issueid}`)) return issues[i];
   }
 
   return null;

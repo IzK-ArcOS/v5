@@ -1,4 +1,3 @@
-import bugRepIcon from "../../../../assets/apps/error.svg";
 import accountIcon from "../../../../assets/apps/settings/account.svg";
 import appsIcon from "../../../../assets/apps/settings/apps.svg";
 import desktopIcon from "../../../../assets/apps/settings/desktop.svg";
@@ -8,7 +7,6 @@ import windowsIcon from "../../../../assets/apps/settings/windows.svg";
 import About from "../../../../lib/Apps/Settings/Pages/About.svelte";
 import Account from "../../../../lib/Apps/Settings/Pages/Account.svelte";
 import Apps from "../../../../lib/Apps/Settings/Pages/Apps.svelte";
-import BugReports from "../../../../lib/Apps/Settings/Pages/BugReports.svelte";
 import Desktop from "../../../../lib/Apps/Settings/Pages/Desktop.svelte";
 import Personalization from "../../../../lib/Apps/Settings/Pages/Personalization.svelte";
 import Shell from "../../../../lib/Apps/Settings/Pages/Shell.svelte";
@@ -51,12 +49,6 @@ export const SettingsPages: SettingsPage[] = [
     icon: appsIcon,
     content: Apps,
     sep: true,
-  },
-
-  {
-    name: "Bug Reports",
-    icon: bugRepIcon,
-    content: BugReports,
   },
   {
     name: "About",

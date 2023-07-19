@@ -22,6 +22,7 @@
     <option value="dark">Darkmode</option>
     <option value="light">Lightmode</option>
     <option value="amoled">Amoled</option>
+    <option value="amber">Amber Monochrome</option>
     <option value="scifi">Science Fiction</option>
     <option value="hc">High contrast</option>
   </select>
