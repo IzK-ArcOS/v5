@@ -25,7 +25,7 @@ export const ArcFetch: Command = {
 async function getItems(a: ArcTerm) {
   const info = getDeviceInfo();
 
-  const deskop = false;
+  const desktop = false;
 
   return Object.entries({
     Server: `${getServer()} @ rev ${minArcAPI}`,
@@ -34,7 +34,7 @@ async function getItems(a: ArcTerm) {
     GPU: `${info.gpu.vendor} ${info.gpu.model}`,
     Memory: `~ ${formatBytes(info.mem.kb)}`,
     Mode:
-      (deskop ? `Desktop` : `Browser`) + ` (state ${get(CurrentState).key})`,
+      (desktop ? `Desktop` : `Browser`) + ` (state ${get(CurrentState).key})`,
     Reference: a.referenceId,
   });
 }
