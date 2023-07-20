@@ -33,7 +33,7 @@
   {#if data}
     <Header report={data} />
     <UserData report={data} />
-    <SystemLog report={data} />
+    <SystemLog />
     <Issue report={data} {id} />
     <More report={data} />
   {:else}
