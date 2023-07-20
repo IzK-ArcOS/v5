@@ -2,13 +2,11 @@
   import { onMount } from "svelte";
   import "../../css/boot.css";
   import { getAuthcode } from "../../ts/api/authcode";
-  import { ServerAuthCode } from "../../ts/api/main";
   import { getAllServers, getServer } from "../../ts/api/server";
   import { testConnection } from "../../ts/api/test";
   import { BootFail } from "../../ts/boot/fail";
   import { Logo } from "../../ts/branding";
   import { Log } from "../../ts/console";
-  import { LogLevel } from "../../ts/console/interface";
   import { ArcOSVersion, Busy } from "../../ts/env/main";
   import sleep from "../../ts/sleep";
   import { applyState } from "../../ts/state/main";
@@ -18,10 +16,12 @@
   let bootClass = "";
   let targetState = "login";
   let progress = false;
+  let running = false;
 
   onMount(async () => {
-    status = "Press any key to start";
+    status = "Press a key or click to start";
 
+    document.addEventListener("click", startBooting, { once: true });
     document.addEventListener("keydown", startBooting, { once: true });
     document.addEventListener("keydown", arcTermShortcut);
 
@@ -31,6 +31,8 @@
   });
 
   async function startBooting() {
+    if (running) return;
+    running = true;
     status = "&nbsp;";
     progress = true;
     Busy.set(true);
@@ -87,7 +89,9 @@
   <div class="arcterm-load visible">
     v{ArcOSVersion} - <ApiReveal />
   </div>
-  <div class="ssnotice visible">
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <div class="ssnotice visible" on:click={() => (targetState = "serverselect")}>
     {targetState == "serverselect"
       ? "Please wait..."
       : "Press F8 to select server"}
