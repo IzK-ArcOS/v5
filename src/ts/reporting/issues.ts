@@ -18,6 +18,8 @@ export async function getReportIssue(id: string): Promise<GitHubIssue> {
       )
     ).json()) as GitHubIssue[];
 
+    if (!issues.length) return null;
+
     ISSUE_CACHE = [...issues];
   }
 

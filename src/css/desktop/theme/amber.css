@@ -1,14 +1,14 @@
 /*F0A21D*/
 :root .theme-amber {
   --fg: #f0a21d;
-  --win-bg: #241700;
+  --win-bg: #140d00;
   --win-border-rad: 10px;
   --win-border: #f0a21d 1px solid;
   --win-border-light: #f0a21d 1px solid;
-  --glass-bg: #241700aa;
+  --glass-bg: #140d00;
   --glass-alt-bg: #523400aa;
-  --glass-ultralight: #241700aa;
-  --glass-ultradark: #241700aa;
+  --glass-ultralight: #140d00;
+  --glass-ultradark: #140d00;
   --darkened-overlay: #0002;
   --darkened-overlay-alt: #0004;
   --startmenu-applist-item-bg: transparent;

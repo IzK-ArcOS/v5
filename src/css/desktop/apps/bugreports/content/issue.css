@@ -11,3 +11,14 @@ window#BugReports div.content div.issue-detail p.context {
 window#BugReports div.content div.issue-detail p.ref {
   margin-bottom: 20px;
 }
+
+window#BugReports div.content div.issue-detail div.loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+window#BugReports div.content div.issue-detail div.loading img {
+  height: 20px !important;
+}

@@ -7,14 +7,16 @@
   export let data: UserData;
 </script>
 
-<div class="userdata-explorer">
-  {#each Object.entries(data) as node}
-    <div class="toplevel-item">
-      {#if typeof node[1] == "object"}
-        <Branch key={node[0]} value={node[1]} top />
-      {:else}
-        <Node key={node[0]} value={node[1]} />
-      {/if}
-    </div>
-  {/each}
-</div>
+{#if data}
+  <div class="userdata-explorer">
+    {#each Object.entries(data) as node}
+      <div class="toplevel-item">
+        {#if typeof node[1] == "object"}
+          <Branch key={node[0]} value={node[1]} top />
+        {:else}
+          <Node key={node[0]} value={node[1]} />
+        {/if}
+      </div>
+    {/each}
+  </div>
+{/if}
