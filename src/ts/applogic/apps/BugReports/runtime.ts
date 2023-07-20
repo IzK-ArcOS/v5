@@ -22,7 +22,9 @@ export class BugReportsRuntime extends AppRuntime {
 
   public getReports() {
     this.Log("Getting reports", "getReports");
-    return getAppPreference("Reporting", "reports") as LocalReportData[];
+    return (
+      (getAppPreference("Reporting", "reports") as LocalReportData[]) || []
+    );
   }
 
   public deleteReport(id: string) {
@@ -38,7 +40,7 @@ export class BugReportsRuntime extends AppRuntime {
   public refreshStore() {
     this.Log(`Refreshing store`, "refreshStore");
 
-    this.Store.set(this.getReports());
+    this.Store.set(this.getReports() || []);
   }
 
   public async getReport(id: string) {
