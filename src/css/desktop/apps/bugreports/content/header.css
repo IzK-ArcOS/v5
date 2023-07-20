@@ -1,0 +1,20 @@
+window#BugReports div.content div.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+window#BugReports div.content div.header img {
+  width: 32px;
+  height: 32px;
+}
+
+window#BugReports div.content div.header h1 {
+  margin: 0;
+  font-size: 16px;
+}
+
+window#BugReports div.content div.header p {
+  margin: 0;
+  opacity: 0.5;
+}

@@ -78,7 +78,8 @@ window.window input.fullwidth {
 
 window.window a {
   color: var(--accent);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   filter: var(--elevated-accent-filter);
 }
 

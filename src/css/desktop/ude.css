@@ -1,0 +1,84 @@
+div.userdata-explorer {
+  --row-height: 15px;
+  --indent: 20px;
+}
+
+div.userdata-explorer {
+  min-width: 100% !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  height: 100% !important;
+  overflow-y: scroll;
+}
+
+div.userdata-explorer div.body {
+  padding: 15px;
+  overflow: scroll;
+}
+
+div.userdata-explorer div.body div.overlay-head {
+  padding-left: 0;
+  border-bottom: var(--button-bg) 1px solid;
+  padding-bottom: 10px;
+}
+
+div.userdata-explorer div.indent {
+  margin-left: var(--indent);
+}
+
+div.userdata-explorer div.nodeinstance {
+  display: flex;
+  margin: 5px 0;
+}
+
+div.userdata-explorer div.nodeinstance div.key {
+  margin-right: 1em;
+  color: var(--clr-yellow-fg);
+}
+div.userdata-explorer div.nodeinstance div.key::after {
+  content: ":";
+  color: var(--fg);
+  opacity: 0.5;
+}
+
+div.userdata-explorer div.nodeinstance * {
+  font-family: "Source Code Pro", monospace;
+}
+
+div.userdata-explorer div.nodeinstance img {
+  height: var(--row-height);
+  margin-right: 5px;
+}
+
+div.userdata-explorer div.nodeinstance > * {
+  vertical-align: middle;
+  line-height: var(--row-height);
+}
+
+.desktop[class*="light"] div.userdata-explorer div.nodeinstance * {
+  filter: brightness(0.8);
+}
+
+div.userdata-explorer div.nodeinstance div.value[data-value*="true"],
+div.userdata-explorer div.nodeinstance div.value[data-value*="false"] {
+  color: var(--clr-aqua-fg);
+}
+
+div.userdata-explorer div.nodeinstance div.value[data-type*="string"]::before,
+div.userdata-explorer div.nodeinstance div.value[data-type*="string"]::after {
+  content: '"';
+}
+
+div.userdata-explorer div.nodeinstance div.value[data-type*="string"] {
+  color: var(--clr-orange-fg);
+}
+
+div.userdata-explorer div.nodeinstance div.value[data-type*="number"] {
+  color: var(--clr-blue-fg);
+}
+
+div.userdata-explorer div.nodeinstance div.value {
+  word-break: break-all;
+}

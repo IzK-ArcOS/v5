@@ -1,6 +1,6 @@
 import type { ReportOptions } from "../../reporting/interface";
 import { sendReport } from "../../reporting/main";
-import { getSwitches, switchExists } from "../argv";
+import { switchExists } from "../argv";
 import type { Command } from "../interface";
 
 export const BugRep: Command = {
@@ -9,8 +9,6 @@ export const BugRep: Command = {
     const Regx = argv.join(" ").match(/"(.*?)"/);
     const includeUserData = !switchExists(argv, "no-ud");
     const includeApi = !switchExists(argv, "no-api");
-
-    console.log(includeUserData, includeApi, argv, getSwitches(argv));
 
     if (Regx && Regx.length > 1) {
       const text = term.vars.replace(Regx[1]);
@@ -23,7 +21,7 @@ export const BugRep: Command = {
       const opt: ReportOptions = {
         includeApi,
         includeUserData,
-        body: text,
+        title: text,
       };
 
       term.std.writeLine(JSON.stringify(opt, null, 2) + "\n");

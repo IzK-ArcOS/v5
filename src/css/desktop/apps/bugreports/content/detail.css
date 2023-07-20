@@ -1,0 +1,20 @@
+window#BugReports div.content div.detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+window#BugReports div.content div.detail h1 {
+  margin: 0;
+  font-size: 13px;
+}
+
+window#BugReports div.content div.detail p {
+  margin: 0;
+  opacity: 0.5;
+}
+
+window#BugReports div.content div.detail button {
+  height: 26px;
+  margin-left: auto;
+}

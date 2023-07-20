@@ -1,16 +1,17 @@
 import { writable } from "svelte/store";
-import type { LocalReportData } from "../../../reporting/interface";
+import errorIcon from "../../../../assets/apps/bugreports.svg";
+import { LogLevel } from "../../../console/interface";
+import { createOverlayableError } from "../../../errorlogic/overlay";
+import type { LocalReportData, Report } from "../../../reporting/interface";
+import { getReport, reportExists } from "../../../reporting/main";
+import sleep from "../../../sleep";
 import type { App } from "../../interface";
 import { getAppPreference, setAppPreference } from "../../pref";
 import { AppRuntime } from "../../runtime/main";
-import { LogLevel } from "../../../console/interface";
-import { getReportIssue } from "../../../reporting/issues";
-import { getReport, reportExists } from "../../../reporting/main";
-import { createOverlayableError } from "../../../errorlogic/overlay";
-import errorIcon from "../../../../assets/apps/bugreports.svg";
 export class BugReportsRuntime extends AppRuntime {
   public Selected = writable<string>();
   public Store = writable<LocalReportData[]>([]);
+  public OpenedReport = writable<Report>(null);
 
   constructor(appData: App) {
     super(appData);
@@ -18,6 +19,10 @@ export class BugReportsRuntime extends AppRuntime {
     this.Log("Hi I'm here!");
 
     this.refreshStore();
+
+    this.Selected.subscribe(async (v) => {
+      this.OpenedReport.set(await getReport(v));
+    });
   }
 
   public getReports() {
@@ -37,8 +42,12 @@ export class BugReportsRuntime extends AppRuntime {
     this.refreshStore();
   }
 
-  public refreshStore() {
+  public async refreshStore() {
     this.Log(`Refreshing store`, "refreshStore");
+
+    this.Store.set([]);
+
+    await sleep(0);
 
     this.Store.set(this.getReports() || []);
   }
@@ -49,8 +58,6 @@ export class BugReportsRuntime extends AppRuntime {
     this.Log(`Getting report ${id}`, `getReport`);
 
     const deleted = !(await reportExists(id));
-
-    console.log(deleted);
 
     if (deleted) {
       createOverlayableError(

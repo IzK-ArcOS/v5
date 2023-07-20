@@ -11,6 +11,7 @@ window.window:not(.overlay) div.overlay-wrapper {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
+  z-index: 150;
 }
 
 window.window:not(.overlay) div.overlay-wrapper * {

@@ -56,6 +56,8 @@
 
     startMessageCheckInterval();
     checkForUpdates();
+
+    window["asdf"].asdasd;
   });
 
   function resetDesktopState() {

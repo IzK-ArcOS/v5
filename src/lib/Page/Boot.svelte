@@ -45,7 +45,10 @@
   }
 
   function arcTermShortcut(e: KeyboardEvent) {
+    if (!e.key) return;
+
     const key = e.key.toLowerCase();
+
     if (key == "f8" || targetState == "serverselect")
       return (targetState = "serverselect");
 

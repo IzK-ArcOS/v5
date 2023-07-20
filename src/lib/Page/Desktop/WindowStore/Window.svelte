@@ -101,9 +101,9 @@
       <slot />
     </Content>
   {/if}
-  {#if app && app.overlays}
+  {#if app && app.overlays && (!app.runtime ? true : runtime)}
     {#each Object.entries(app.overlays) as overlay}
-      <OverlayableWindow {app} overlay={overlay[1]} id={overlay[0]} />
+      <OverlayableWindow {runtime} {app} overlay={overlay[1]} id={overlay[0]} />
     {/each}
   {/if}
 

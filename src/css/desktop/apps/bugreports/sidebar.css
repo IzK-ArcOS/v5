@@ -1,7 +1,7 @@
 window#BugReports div.sidebar {
   height: 100%;
   width: 250px;
-  padding: 5px;
+  padding: 0;
 }
 
 window#BugReports div.sidebar button {
@@ -26,4 +26,26 @@ window#BugReports div.sidebar button img {
 
 window#BugReports div.sidebar button.deleted span {
   color: var(--clr-red-fg);
+}
+
+window#BugReports div.sidebar div.list {
+  height: calc(100% - 40px);
+  padding: 5px;
+  overflow-y: auto;
+}
+
+window#BugReports div.sidebar div.bottom {
+  border-top: var(--win-border);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+window#BugReports div.sidebar div.bottom button.material-icons-round {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  text-align: center;
+  display: block;
+  font-size: 18px;
 }

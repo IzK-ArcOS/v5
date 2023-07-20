@@ -48,15 +48,20 @@ export function createReport(
 ): Report {
   const rnd = () => Math.floor(Math.random() * 1e6);
 
-  return {
+  const x = {
     author: get(UserName),
-    body: options.body,
+    title: options.title,
+    body: options.body || "No body",
     version: ArcOSVersion,
     log: removeApiSensitive(compileStringLog().join("\n")),
     userdata: options.includeUserData ? get(UserData) : null,
     api: options.includeApi ? getServer() : null,
     issueid: `${rnd()}-${rnd()}-${rnd()}-${rnd()}`,
+    resolved: false,
+    closed: false,
   };
+
+  return x;
 }
 
 export async function getReport(id: string) {

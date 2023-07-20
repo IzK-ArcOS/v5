@@ -1,4 +1,8 @@
 @import url("./content/notfound.css");
+@import url("./content/header.css");
+@import url("./content/detail.css");
+@import url("./content/issue.css");
+@import url("./content/moreinfo.css");
 
 window#BugReports div.content {
   width: calc(100% - 250px);

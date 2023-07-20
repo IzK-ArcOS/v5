@@ -1,0 +1,28 @@
+window#BugReports div.content div.more-info h1 {
+  font-size: 16px;
+  margin: 0;
+}
+
+window#BugReports div.content div.more-info p.subtitle {
+  margin: 0;
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+window#BugReports div.content div.more-info div.info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+window#BugReports div.content div.more-info div.info p {
+  margin: 0;
+}
+
+window#BugReports div.content div.more-info div.info p.name {
+  font-weight: bold;
+}
+
+window#BugReports div.content div.more-info div.info p.value {
+  margin-left: auto;
+}

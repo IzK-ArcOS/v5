@@ -4,6 +4,7 @@
 window#BugReports > div.body {
   padding: 0;
   display: flex;
+  overflow: hidden;
 }
 
 window#BugReports > div.titlebar {

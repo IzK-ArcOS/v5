@@ -2,6 +2,7 @@ import App from "./App.svelte";
 import { migrateToMulti } from "./ts/api/server";
 import { Log } from "./ts/console";
 import { LogLevel } from "./ts/console/interface";
+import { errorMessage } from "./ts/errorlogic/main";
 import { preventAnchorRedirects } from "./ts/ui/anchor";
 
 migrateToMulti();

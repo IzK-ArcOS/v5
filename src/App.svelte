@@ -8,6 +8,7 @@
   import { committingUserData } from "./ts/userlogic/main";
   import { Busy } from "./ts/env/main";
   import { getDesktopMode } from "./ts/desktop/app";
+  import { Log } from "./ts/console";
 
   let run = false;
   let logo = "";
@@ -24,6 +25,8 @@
     run = true;
   });
 </script>
+
+<svelte:window on:error={(...e) => Log("<svelte:window>", e.join(" - "))} />
 
 <svelte:head>
   <link rel="icon" href={logo} />

@@ -5,5 +5,9 @@ export function removeApiSensitive(str: string): string {
   const api = getServer();
   const ac = getAuthcode(api);
 
-  return str.replaceAll(api, "<api>").replaceAll(ac, "<ac>");
+  str = str.replaceAll(api, "<api>");
+
+  if (ac && ac.length) str = str.replaceAll(ac, "<ac>");
+
+  return str;
 }
