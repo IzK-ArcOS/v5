@@ -10,13 +10,13 @@
 :root {
   --font: "Inter", sans-serif;
   --glass-blur: 10px;
-  --fg: #fff;
-  --win-bg: #000;
+  --fg: #ccc;
+  --win-bg: #353535;
   --win-border-rad: 7.5px;
-  --win-border: rgb(255, 255, 255) 1px solid;
-  --win-border-light: #fff 1px solid;
-  --glass-bg: #000a;
-  --glass-alt-bg: #000a;
+  --win-border: rgb(107, 107, 107) 1px solid;
+  --win-border-light: #5554 1px solid;
+  --glass-bg: #202020a9;
+  --glass-alt-bg: #414141a2;
   --glass-ultralight: #0004;
   --glass-ultradark: #0008;
   --darkened-overlay: #0002;
@@ -30,7 +30,7 @@
   --button-active-bg: #2a2a2a;
   --button-glass-bg: #fff1;
   --button-glass-hover-bg: #fff3;
-  --button-glass-active-bg: #0005;
+  --button-glass-active-bg: #0003;
   --clr-red-bg: #452929;
   --clr-red-fg: #ff7e7e;
   --clr-green-bg: #283e28;
