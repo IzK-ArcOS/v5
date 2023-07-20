@@ -7,12 +7,14 @@
   import { applyState, CurrentState } from "./ts/state/main";
   import { committingUserData } from "./ts/userlogic/main";
   import { Busy } from "./ts/env/main";
+  import { getDesktopMode } from "./ts/desktop/app";
 
   let run = false;
   let logo = "";
 
   onMount(async () => {
     await getMode();
+    await getDesktopMode();
 
     applyState("boot");
 

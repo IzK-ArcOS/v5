@@ -7,6 +7,7 @@ import { Color, colors, Command } from "../interface";
 import type { ArcTerm } from "../main";
 import { minArcAPI } from "../../env/main";
 import { getServer } from "../../api/server";
+import { isDesktop } from "../../desktop/app";
 
 export const ArcFetch: Command = {
   keyword: "arcfetch",
@@ -25,7 +26,7 @@ export const ArcFetch: Command = {
 async function getItems(a: ArcTerm) {
   const info = getDeviceInfo();
 
-  const desktop = false;
+  const desktop = isDesktop();
 
   return Object.entries({
     Server: `${getServer()} @ rev ${minArcAPI}`,
