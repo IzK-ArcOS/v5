@@ -22,8 +22,8 @@
   </Section>
   <Section header="Credits" collapsible collapsed>
     Thanks to all the people who helped expand ArcOS to what it is today.
-    Curious what makes up ArcOS? Go ahead and visit our Frontend GitHub page, we
-    list our contributors there.
+    Curious who make ArcOS possible? Go ahead and visit our Frontend GitHub
+    page, we list our contributors there.
   </Section>
   <Section header="About" collapsible collapsed>
     ArcOS started of as a weekend project, but these days it is a huge project
