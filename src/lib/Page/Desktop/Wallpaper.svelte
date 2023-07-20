@@ -6,8 +6,16 @@
 
   let url = "";
 
+  let previous = "";
+
   UserData.subscribe(async () => {
-    const u = (await getWallpaper($UserData.sh.desktop.wallpaper)).url;
+    const wallpaper = $UserData.sh.desktop.wallpaper;
+
+    if (previous == wallpaper) return;
+
+    previous = wallpaper;
+
+    const u = (await getWallpaper(wallpaper)).url;
 
     if (u != url) url = u;
   });
