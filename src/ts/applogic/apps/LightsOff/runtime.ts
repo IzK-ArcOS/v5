@@ -113,14 +113,8 @@ export class LightsOffRuntime extends AppRuntime {
   }
 
   saveData() {
-    this.Log("Saving data to UserData", "saveData");
-
     if (get(this.LEVEL) == 0 && !this.containsLights())
-      return this.Log(
-        "Not saving default state!",
-        "containsLights",
-        LogLevel.warn
-      );
+      return this.Log("Not saving default state!", "saveData", LogLevel.warn);
 
     const ud = get(UserData);
 

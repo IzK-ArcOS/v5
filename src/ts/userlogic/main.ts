@@ -57,8 +57,6 @@ export async function getUserdata(name: string) {
 }
 
 export async function setUserdata(data: UserData): Promise<boolean> {
-  Log("userlogic/main.ts: setUserdata", `Setting userdata`);
-
   const server = get(ConnectedServer);
 
   if (!server) return false;

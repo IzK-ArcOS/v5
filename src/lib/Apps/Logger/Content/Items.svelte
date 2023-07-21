@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getAppIcon } from "../../../../ts/applogic/icon";
   import type { App } from "../../../../ts/applogic/interface";
-  import type { LogItem } from "../../../../ts/console";
+  import type { LogItem } from "../../../../ts/console/interface";
   import type { ScopedAppData } from "../../../../ts/userlogic/interfaces";
   import LogItemSvelte from "../LogItem.svelte";
 
