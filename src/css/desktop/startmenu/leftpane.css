@@ -1,0 +1,57 @@
+@import url("./groups.css");
+
+div.startmenu div.left {
+  position: absolute;
+  width: 300px;
+  top: 0px;
+  left: 0px;
+  height: calc(100% - 75px);
+  border-radius: var(--win-border-rad);
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: 15px;
+  padding-right: 7px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+div.startmenu div.left button.item {
+  width: 100%;
+  padding: 8px;
+  border-radius: var(--win-border-rad);
+  margin-bottom: 5px;
+  text-align: left;
+  box-sizing: border-box;
+  background-color: var(--startmenu-applist-item-bg);
+  color: var(--fg);
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 0;
+}
+
+div.startmenu div.left button.item * {
+  vertical-align: middle;
+}
+
+div.startmenu div.left button.item img.icon {
+  height: 24px;
+}
+
+div.startmenu div.left button.item {
+  padding: 5px 2.5px;
+}
+
+div.startmenu div.left button.item:hover {
+  background-color: var(--startmenu-applist-item-bg-hover);
+}
+
+div.startmenu div.left button.item:active {
+  background-color: var(--startmenu-applist-item-bg-active);
+}
+
+div.startmenu div.left button.item:disabled {
+  opacity: 0.5;
+  filter: grayscale(100%);
+}

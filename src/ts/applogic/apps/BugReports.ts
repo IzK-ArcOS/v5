@@ -14,6 +14,7 @@ export const BugReports: App = {
     author: "ArcOS Team",
     icon: logo,
     hidden: true,
+    appGroup: "support",
   },
   size: { w: 750, h: 500 },
   pos: { x: 30, y: 40 },

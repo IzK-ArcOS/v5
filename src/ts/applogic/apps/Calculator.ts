@@ -11,6 +11,7 @@ export const CalculatorApp: App = {
     version: "2.0.0",
     author: "Izaak Kuipers",
     icon: logo,
+    appGroup: "utilities",
   },
   size: { w: 340, h: NaN },
   pos: { x: 60, y: 60 },

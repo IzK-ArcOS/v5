@@ -16,6 +16,7 @@ export const ArcShell: App = {
     author: "ArcOS Team",
     icon: Logo(),
     custom: true,
+    appGroup: "coreApps",
   },
   size: { w: NaN, h: NaN },
   pos: { x: 0, y: 0 },

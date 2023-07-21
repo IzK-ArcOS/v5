@@ -12,6 +12,7 @@ export const TextEditor: App = {
     author: "Izaak Kuipers",
     hidden: false,
     icon: logo,
+    appGroup: "utilities",
   },
   size: { w: 700, h: 550 },
   pos: { x: 30, y: 40, centered: true },

@@ -13,6 +13,7 @@ export const DonutApp: App = {
     version: ArcOSVersion,
     author: "Andy Sloane (ArcOS port by IzK)",
     icon: logo,
+    appGroup: "entertainment",
   },
   size: { w: 850, h: 520 },
   pos: { x: 30, y: 40 },

@@ -14,6 +14,7 @@ export const LightsOff: App = {
     author: "Tim Horton, ported to ArcOS by IzKuipers",
     hidden: false,
     icon: logo,
+    appGroup: "entertainment",
   },
   size: { w: NaN, h: NaN },
   pos: { x: 80, y: 80 },

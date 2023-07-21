@@ -22,6 +22,7 @@ export const DesktopWallpaper: App = {
     author: "ArcOS Team",
     icon: logo,
     custom: true,
+    appGroup: "coreApps",
   },
   size: { w: NaN, h: NaN },
   pos: { x: 0, y: 0 },

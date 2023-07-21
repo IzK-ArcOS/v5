@@ -1,0 +1,70 @@
+div.startmenu div.bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  height: 75px;
+  box-sizing: border-box;
+  background-color: var(--darkened-overlay);
+  border-bottom-left-radius: var(--win-border-rad);
+  border-bottom-right-radius: var(--win-border-rad);
+  padding: 25px;
+  display: flex;
+}
+
+div.startmenu div.bottom * {
+  vertical-align: middle;
+}
+
+div.startmenu div.bottom h1.username {
+  margin: 0;
+  font-size: 19px;
+  line-height: 30px;
+  margin-top: -2px;
+}
+
+div.startmenu div.bottom img.pfp {
+  height: 30px;
+  vertical-align: middle;
+  border-radius: 15px;
+  margin-right: 15px;
+}
+
+div.startmenu div.bottom div.options {
+  margin-left: auto;
+}
+
+div.startmenu div.bottom div.options button.material-icons-round {
+  background-color: transparent;
+  color: var(--fg);
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 30px;
+}
+
+div.startmenu div.bottom div.options button.material-icons-round:hover {
+  opacity: 0.7;
+}
+
+div.startmenu div.bottom div.options button.material-icons-round:active {
+  opacity: 0.4;
+}
+
+div.startmenu > div.bottom div.options {
+  line-height: 20px;
+  display: flex;
+}
+
+div.startmenu > div.bottom div.options button.material-icons-round {
+  font-size: 18px;
+  line-height: 18px;
+  margin-left: 10px;
+}
+
+div.startmenu > div.bottom div.options div.sep {
+  width: 1px;
+  height: 18px;
+  border: var(--button-glass-bg) 1px solid;
+  margin-left: 10px;
+}

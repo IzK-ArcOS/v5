@@ -12,6 +12,7 @@ export const HelpCenter: App = {
     author: "ArcOS Team",
     icon: logo,
     hidden: true,
+    appGroup: "support",
   },
   size: { w: 800, h: 600 },
   pos: { x: 30, y: 40 },

@@ -12,6 +12,7 @@ export const AppManager: App = {
     version: "1.5.0",
     author: "Izaak Kuipers",
     icon: logo,
+    appGroup: "systemTools",
   },
   size: { w: 600, h: 500 },
   pos: { x: 30, y: 40 },

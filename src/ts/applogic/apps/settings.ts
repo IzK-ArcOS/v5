@@ -124,6 +124,7 @@ export const SettingsApp: App = {
     version: "4.0.0",
     author: "ArcOS Team",
     icon: logo,
+    appGroup: "systemTools",
   },
   size: { w: 730, h: 500 },
   pos: { x: 30, y: 40 },

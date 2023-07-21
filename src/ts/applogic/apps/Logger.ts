@@ -10,6 +10,7 @@ export const LoggerApp: App = {
     version: "1.0.0",
     author: "ArcOS Team",
     icon: logo,
+    appGroup: "systemTools",
   },
   size: { w: 900, h: 600 },
   pos: { x: 30, y: 40 },

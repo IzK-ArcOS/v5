@@ -12,6 +12,7 @@ export const FileBrowserApp: App = {
     version: "2.5.1",
     author: "ArcOS Team",
     icon: logo,
+    appGroup: "utilities",
   },
   size: { w: 700, h: 450 },
   pos: { x: 30, y: 40 },
