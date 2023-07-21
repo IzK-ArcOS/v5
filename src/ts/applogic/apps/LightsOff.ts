@@ -1,9 +1,7 @@
-import { get } from "svelte/store";
 import logo from "../../../assets/apps/lightsoff.svg";
 import LightsOffSvelte from "../../../lib/Apps/LightsOff.svelte";
 import type { App } from "../interface";
-import { LOGrid } from "./LightsOff/grid";
-import { LO_LEVEL, loadLevel } from "./LightsOff/grid/levels";
+import { LightsOffRuntime } from "./LightsOff/runtime";
 
 export const LightsOff: App = {
   info: {
@@ -28,17 +26,6 @@ export const LightsOff: App = {
   },
   content: LightsOffSvelte,
   glass: true,
-  events: {
-    keyboardShortcuts: [
-      {
-        key: "o",
-        alt: true,
-        shift: true,
-        ctrl: true,
-        action: () => {
-          loadLevel(get(LO_LEVEL) + 1);
-        },
-      },
-    ],
-  },
+  events: {},
+  runtime: LightsOffRuntime,
 };

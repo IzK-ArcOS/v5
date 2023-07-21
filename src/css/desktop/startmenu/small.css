@@ -32,5 +32,5 @@ div.startmenu.small > div.bottom h1.username .pfp {
 
 div.startmenu.small div.left button.item img.icon,
 div.startmenu.small div.left button.expander img {
-  height: 20px;
+  height: 20px !important;
 }

@@ -1,12 +1,13 @@
 <script lang="ts">
-  import { SwitchLightsState } from "../../../ts/applogic/apps/LightsOff/toggle";
+  import type { LightsOffRuntime } from "../../../ts/applogic/apps/LightsOff/runtime";
 
   export let light: boolean = false;
   export let x: number;
   export let y: number;
+  export let runtime: LightsOffRuntime;
 
   function toggle() {
-    SwitchLightsState(x, y);
+    runtime.ToggleLight(x, y);
   }
 </script>
 

@@ -1,24 +1,32 @@
 <script lang="ts">
-  import { LOClicks } from "../../../ts/applogic/apps/LightsOff/game";
-  import { LO_LEVEL } from "../../../ts/applogic/apps/LightsOff/grid/levels";
+  import { onMount } from "svelte";
+  import type { LightsOffRuntime } from "../../../ts/applogic/apps/LightsOff/runtime";
   import type { App } from "../../../ts/applogic/interface";
   import { UserData } from "../../../ts/userlogic/interfaces";
 
   export let app: App;
-  export let load: () => void;
+  export let runtime: LightsOffRuntime;
+
+  let level = 0;
+  let clicks = 0;
+
+  onMount(() => {
+    runtime.LEVEL.subscribe((v) => (level = v));
+    runtime.Clicks.subscribe((v) => (clicks = v));
+  });
 
   function reset() {
     $UserData.appdata[app.id] = null;
 
-    load();
+    runtime.loadData();
   }
 </script>
 
 <div class="statistics">
   <button class="reset-game" on:click={reset}>Reset</button>
   <div class="right">
-    <div class="stat">Level {$LO_LEVEL}</div>
-    <div class="stat">{$LOClicks} Click{$LOClicks == 1 ? "" : "s"}</div>
+    <div class="stat">Level {level + 1}</div>
+    <div class="stat">{clicks} Click{clicks == 1 ? "" : "s"}</div>
   </div>
 </div>
 

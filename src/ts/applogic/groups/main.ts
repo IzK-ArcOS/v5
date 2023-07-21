@@ -38,8 +38,5 @@ export function getAppGroups(): {
 
   rest = rest.filter((a) => !grouped.includes(a));
 
-  console.log(grouped);
-  console.log(rest);
-
   return { groups: result, rest };
 }
