@@ -1,11 +1,10 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import { getDirectory } from "../../../../../ts/api/fs/directory";
   import { readFile } from "../../../../../ts/api/fs/file";
+  import { Busy } from "../../../../../ts/env/main";
   import sleep from "../../../../../ts/sleep";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
   import Wallpaper from "./FilesystemWallpapers/Wallpaper.svelte";
-  import { Busy } from "../../../../../ts/env/main";
 
   let wallpapers: { path: string; url: string }[] = [];
   let loading = false;
