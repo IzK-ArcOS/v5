@@ -37,7 +37,7 @@
     {#each Object.entries(Wallpapers) as wallpaper}
       <ImageSelector {wallpaper} />
     {/each}
-    <FilesystemWallpapers />
+    <!-- <FilesystemWallpapers /> -->
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div
       class="wallpaper nobg customwp material-icons-round"

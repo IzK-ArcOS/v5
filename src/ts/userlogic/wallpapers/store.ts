@@ -1,5 +1,5 @@
 import img0 from "../../../assets/bg/img0.png";
-import img01 from "../../../assets/bg/img01.png";
+import img01 from "../../../assets/bg/img01.jpeg";
 import img02 from "../../../assets/bg/img02.png";
 import img03 from "../../../assets/bg/img03.png";
 import img04 from "../../../assets/bg/img04.png";
@@ -15,23 +15,15 @@ import img15 from "../../../assets/bg/img15.jpg";
 import img16 from "../../../assets/bg/img16.jpg";
 import img17 from "../../../assets/bg/img17.jpg";
 import img18 from "../../../assets/bg/img18.jpg";
+import img19 from "../../../assets/bg/img19.png";
 import type { Wallpaper } from "./interface";
 
 export const Wallpapers: { [key: string]: Wallpaper } = {
-  img0: { url: img0, author: "Izaak Kuipers", name: "Blank" },
   img04: { url: img04, author: "Izaak Kuipers", name: "ArcOS Dark" },
   img05: { url: img05, author: "Izaak Kuipers", name: "ArcOS Light" },
-  img01: {
-    url: img01,
-    author: "Izaak Kuipers",
-    name: "Stealth Gradient - Blue",
-  },
-  img02: {
-    url: img02,
-    author: "Izaak Kuipers",
-    name: "Stealth Gradient - Purple",
-  },
   img03: { url: img03, author: "Izaak Kuipers", name: "Stealth Gradient" },
+  img11: { url: img11, author: "Unknown", name: "Legacy Login" },
+  img12: { url: img12, author: "Izaak Kuipers", name: "Gradiented Waves" },
   img08: {
     url: img08,
     author: "SWHFotografie",
@@ -39,19 +31,6 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     source: "Wandelbos, The Netherlands",
   },
   img13: { url: img13, author: "SWHFotografie", name: "Agga" },
-  img14: { url: img14, author: "Kees van Voorthuizen", name: "Scheveningen" },
-  img15: {
-    url: img15,
-    author: "Matteo Scaringi",
-    name: "Corfu",
-    source: "Corfu, Greece",
-  },
-  img17: {
-    url: img17,
-    author: "Blocky (Cy)",
-    name: "Sunset Sky",
-    source: "Fairfield Bay, US",
-  },
   img18: {
     url: img18,
     author: "SWHFotografie",
@@ -59,15 +38,47 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     source: "Wilheminakanaal, Tilburg, The Netherlands",
   },
 
-  img06: { url: img06, author: "Izaak Kuipers", name: "ArcOS Beta Dark" },
-  img07: { url: img07, author: "Izaak Kuipers", name: "ArcOS Beta Light" },
-  /* img09: { url: img09, author: "Unknown", name: "Login Background" }, */
+  img15: {
+    url: img15,
+    author: "Matteo Scaringi",
+    name: "Corfu",
+    source: "Corfu, Greece",
+  },
+  img19: {
+    url: img19,
+    author: "Matteo Scaringi",
+    name: "Long Exposure",
+    source: "Slijpe, West-Flanders, Belgium",
+  },
+  img14: { url: img14, author: "Kees van Voorthuizen", name: "Scheveningen" },
+  img01: {
+    url: img01,
+    author: "Kees van Voorthuizen",
+    name: "Mykonos Seaside",
+    source: "Mykonos, Greece",
+  },
+  img02: {
+    url: img02,
+    author: "Kees van Voorthuizen",
+    name: "Sunset in Mykonos",
+    source: "Mykonos, Greece",
+  },
+
+  img17: {
+    url: img17,
+    author: "Blocky (Cy)",
+    name: "Sunset Sky",
+    source: "Fairfield Bay, US",
+  },
   img16: {
     url: img16,
     author: "Matteo Scaringi, Izaak Kuipers",
     name: "Login Background - Blurred",
     source: "Corfu, Greece",
   },
-  img11: { url: img11, author: "Unknown", name: "Legacy Login" },
-  img12: { url: img12, author: "Izaak Kuipers", name: "Gradiented Waves" },
+  img06: { url: img06, author: "Izaak Kuipers", name: "ArcOS Beta Dark" },
+  img07: { url: img07, author: "Izaak Kuipers", name: "ArcOS Beta Light" },
+  /* img09: { url: img09, author: "Unknown", name: "Login Background" }, */
+
+  img0: { url: img0, author: "Izaak Kuipers", name: "Blank" },
 };

@@ -23,4 +23,5 @@
   title={wallpaper.path}
   class:selected={$UserData.sh.desktop.wallpaper == wallString(wallpaper.path)}
   on:click={apply}
+  data-caller="wallpaper-custom"
 />
