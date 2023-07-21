@@ -12,11 +12,21 @@
     <p class="value">{report.version}</p>
   </div>
   <div class="info">
-    <p class="name">Resolved</p>
-    <p class="value">{report.resolved ? "Yes" : "No"}</p>
+    <p class="name">Mode</p>
+    <p class="value">
+      {report.mode_file || "<unknown>"}
+    </p>
   </div>
   <div class="info">
-    <p class="name">Closed</p>
-    <p class="value">{report.closed ? "Yes" : "No"}</p>
+    <p class="name">Desktop app</p>
+    <p class="value">
+      {report.desktop ? "Yes" : "No"}
+    </p>
+  </div>
+  <div class="info">
+    <p class="name">User Agent</p>
+    <p class="value">
+      {report.useragent || "Not provided"}
+    </p>
   </div>
 </div>

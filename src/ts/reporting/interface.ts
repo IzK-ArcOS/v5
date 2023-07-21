@@ -12,6 +12,9 @@ export interface Report {
   issueid: string;
   resolved: boolean;
   closed: boolean;
+  mode_file?: string;
+  desktop: boolean;
+  useragent?: string;
 }
 
 export type ReportRecord = Report & Record;

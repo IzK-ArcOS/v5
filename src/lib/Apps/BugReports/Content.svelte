@@ -17,9 +17,9 @@
 
   onMount(() => {
     runtime.Selected.subscribe(async (v) => {
-      if (!v) return;
-
       data = null;
+
+      if (!v) return;
 
       await sleep(0);
 

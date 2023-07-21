@@ -48,6 +48,6 @@
       <b>{report.issueid}</b>)
     </p>
   {:else}
-    <p class="context">No GitHub issue has referenced your report yet.</p>
+    <p class="context none">No GitHub issue has referenced your report yet.</p>
   {/if}
 </div>

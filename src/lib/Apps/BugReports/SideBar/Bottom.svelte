@@ -12,4 +12,7 @@
   <button class="refresh material-icons-round" on:click={refresh}
     >autorenew</button
   >
+  <button class="new material-icons-round" on:click={refresh}
+  >add</button
+>
 </div>

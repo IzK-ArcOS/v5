@@ -29,3 +29,11 @@ div.arcfind-wrapper div.apps button.item img {
   margin: 0 auto;
   margin-bottom: 10px;
 }
+
+div.arcfind-wrapper div.apps button.item:disabled {
+  opacity: 0.2;
+}
+
+div.arcfind-wrapper div.apps button.item:disabled img {
+  filter: grayscale(100%);
+}

@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 import errorIcon from "../../../../assets/apps/bugreports.svg";
 import { LogLevel } from "../../../console/interface";
 import { createOverlayableError } from "../../../errorlogic/overlay";
@@ -40,6 +40,13 @@ export class BugReportsRuntime extends AppRuntime {
     setAppPreference("Reporting", "reports", result);
 
     this.refreshStore();
+
+    const selected = get(this.Selected);
+
+    if (selected == id) {
+      this.Selected.set(null);
+      this.OpenedReport.set(null);
+    }
   }
 
   public async refreshStore() {

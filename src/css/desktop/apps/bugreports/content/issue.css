@@ -8,6 +8,10 @@ window#BugReports div.content div.issue-detail p.context {
   margin: 10px 0;
 }
 
+window#BugReports div.content div.issue-detail p.context.none {
+  margin-bottom: 20px;
+}
+
 window#BugReports div.content div.issue-detail p.ref {
   margin-bottom: 20px;
 }

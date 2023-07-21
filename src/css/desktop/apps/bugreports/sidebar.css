@@ -28,6 +28,14 @@ window#BugReports div.sidebar button.deleted span {
   color: var(--clr-red-fg);
 }
 
+window#BugReports div.sidebar button button.delete {
+  width: 18px;
+  height: 18px;
+  margin-left: auto;
+  font-size: 18px;
+  padding: 0;
+}
+
 window#BugReports div.sidebar div.list {
   height: calc(100% - 40px);
   padding: 5px;
@@ -39,6 +47,7 @@ window#BugReports div.sidebar div.bottom {
   display: flex;
   align-items: center;
   padding: 10px;
+  gap: 5px;
 }
 
 window#BugReports div.sidebar div.bottom button.material-icons-round {

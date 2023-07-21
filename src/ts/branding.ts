@@ -7,7 +7,7 @@ import { Log } from "./console";
 import { LogLevel } from "./console/interface";
 
 const MODES = { release, development, unstable, admin, siege };
-let ARCOS_MODE = "release";
+export let ARCOS_MODE = "release";
 
 export async function getMode() {
   Log(

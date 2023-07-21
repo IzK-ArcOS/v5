@@ -15,6 +15,9 @@ import { getAppPreference, setAppPreference } from "../applogic/pref";
 import { makeNotification } from "../notiflogic/main";
 import bugRepIcon from "../../assets/apps/error.svg";
 import { removeApiSensitive } from "./obfuscate";
+import { isDesktop } from "../desktop/app";
+import { ARCOS_MODE } from "../branding";
+import { openWindow } from "../applogic/events";
 
 const pb = new PocketBase("https://pb.arcapi.nl/");
 
@@ -24,23 +27,32 @@ export async function sendReport(
   const report = createReport(options);
   const id = (await pb.collection("bugrep").create<ReportRecord>(report)).id;
 
-  if (report.author) {
-    const reports =
-      (getAppPreference("Reporting", "reports") as LocalReportData[]) || [];
-
-    reports.push({ id, timestamp: new Date().getTime() });
-
-    setAppPreference("Reporting", "reports", reports);
-
-    makeNotification({
-      title: "Bug Reported",
-      message: `Bug Report ${id} has been sent to ArcOS. You can view the sent data at any time in Settings.`,
-      buttons: [{ caption: "Show", action() {} }],
-      image: bugRepIcon,
-    });
-  }
+  if (report.author) saveToUser(id);
 
   return id;
+}
+
+export function saveToUser(id: string) {
+  const reports =
+    (getAppPreference("Reporting", "reports") as LocalReportData[]) || [];
+
+  reports.push({ id, timestamp: new Date().getTime() });
+
+  setAppPreference("Reporting", "reports", reports);
+
+  makeNotification({
+    title: "Bug Reported",
+    message: `Bug Report ${id} has been sent to ArcOS. You can view the sent data at any time in Settings.`,
+    buttons: [
+      {
+        caption: "Open Bug Reports",
+        action() {
+          openWindow("BugReports");
+        },
+      },
+    ],
+    image: bugRepIcon,
+  });
 }
 
 export function createReport(
@@ -59,6 +71,9 @@ export function createReport(
     issueid: `${rnd()}-${rnd()}-${rnd()}-${rnd()}`,
     resolved: false,
     closed: false,
+    desktop: isDesktop(),
+    mode_file: ARCOS_MODE,
+    useragent: navigator.userAgent,
   };
 
   return x;
