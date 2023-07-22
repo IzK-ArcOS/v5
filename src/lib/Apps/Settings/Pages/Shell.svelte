@@ -105,6 +105,17 @@
 </OptionSection>
 <hr />
 <OptionSection
+  title="No Custom Cursors"
+  context="Disable the ArcOS custom cursors"
+>
+  <input
+    type="checkbox"
+    class="switch"
+    bind:checked={$UserData.sh.desktop.noCustomCursor}
+  />
+</OptionSection>
+
+<OptionSection
   title="Compact context menu"
   context="Make the context menu more compact"
 >

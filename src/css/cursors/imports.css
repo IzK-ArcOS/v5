@@ -1,0 +1,7 @@
+:root .cursor-custom {
+  --cur-normal: url("../../assets/cursors/cursor.png"), auto;
+  --cur-hand: url("../../assets/cursors/hand.cur"), auto;
+  --cur-busy: url("../../assets/cursors/busy.png"), auto;
+  --cur-beam: url("../../assets/cursors/beam.cur"), auto;
+  --cur-forbidden: url("../../assets/cursors/forbidden.cur"), auto;
+}

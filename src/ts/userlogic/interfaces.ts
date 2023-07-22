@@ -28,6 +28,7 @@ export interface UserData {
       pinnedApps: string[];
       pinnedFolders: string[];
       pinnedFiles: string[];
+      noCustomCursor: boolean;
     };
 
     start: {

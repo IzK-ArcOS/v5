@@ -1,5 +1,7 @@
+@import url("./cursors/imports.css");
+
 * {
-  cursor: url("../assets/cursors/cursor.png"), auto;
+  cursor: var(--cur-normal);
 }
 
 a:hover,
@@ -10,20 +12,20 @@ input:hover,
 input:hover *,
 select:hover,
 select:hover * {
-  cursor: url("../assets/cursors/hand.cur"), auto;
+  cursor: var(--cur-hand);
 }
 
-input,
+input:not([type*="checkbox"]),
 textarea {
-  cursor: url("../assets/cursors/beam.cur"), auto !important;
+  cursor: var(--cur-beam) !important;
 }
 
 :disabled,
 :disabled * {
-  cursor: url("../assets/cursors/forbidden.cur"), auto !important;
+  cursor: var(--forbidden) !important;
 }
 
 div.app.cursor-busy,
 div.app.cursor-busy * {
-  cursor: url("../assets/cursors/busy.png"), auto !important;
+  cursor: var(--busy) !important;
 }

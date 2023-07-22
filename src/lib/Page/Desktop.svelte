@@ -71,8 +71,10 @@
 
 {#if $UserData && $UserName}
   <div
-    class="desktop theme-{$UserData.sh.desktop.theme} tb-{$UserData.sh.taskbar
-      .pos} fullscreen {classes}"
+    class="desktop fullscreen {classes}
+    theme-{$UserData.sh.desktop.theme}
+    tb-{$UserData.sh.taskbar.pos}
+    cursor-{$UserData.sh.desktop.noCustomCursor ? '' : 'custom'}"
     class:show
     style="--accent: #{$UserData.sh.desktop.accent || '70D6FF'} !important"
   >
