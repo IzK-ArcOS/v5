@@ -31,9 +31,9 @@
   --clr-orange-fg: #fa0;
   --clr-blue-bg: #003;
   --clr-blue-fg: #00f;
-  --clr-aqua-fg: #033;
-  --clr-aqua-bg: #0ff;
-  --accent: #0bb;
+  --clr-aqua-bg: #033;
+  --clr-aqua-fg: #0ff;
+  --accent: #0ff !important;
   --accent-dark: #aff;
   --accent-light: #0aa;
 }
@@ -50,21 +50,31 @@
   color: #0ff !important;
 }
 
-.desktop.theme-hc window div.body button:not(.material-icons-round) {
-  border: transparent 1px solid !important;
+.desktop.theme-hc window div.body button:not(.material-icons-round),
+.desktop.theme-hc div.actioncenter div.quicksettings button {
+  border: #3f3 1px solid !important;
 }
 
-.desktop.theme-hc window div.body button.selected:not(.material-icons-round) {
+.desktop.theme-hc window div.body button.selected:not(.material-icons-round),
+.desktop.theme-hc window#SettingsApp div.wallpaper,
+.desktop.theme-hc window#SettingsApp button.themerenderer,
+.desktop.theme-hc window#SettingsApp div.about-page div.section {
   border: #ff0 1px solid !important;
 }
 
+.desktop.theme-hc window#DesktopWallpaper div.wallpaper {
+  background-image: none !important;
+  background-color: #021;
+}
+
+.desktop.theme-hc window,
 .desktop.theme-hc window div.body input,
 .desktop.theme-hc window div.body select {
   border: #0ff 1px solid !important;
 }
 
 .desktop.theme-hc window div.titlebar {
-  background-color: #003;
+  background-color: #006;
 }
 
 .desktop.theme-hc h1,
@@ -76,7 +86,7 @@
   font-weight: 900 !important;
 }
 
-.desktop.theme-hc div.taskbar,
+.desktop.theme-hc div.newtb,
 .desktop.theme-hc div.actioncenter,
 .desktop.theme-hc div.startmenu,
 .desktop.theme-hc div.startmenu > * {
@@ -93,4 +103,21 @@
 
 .desktop.theme-hc window#FileManager div.topbar {
   background-color: #003 !important;
+}
+
+.desktop.theme-hc div.startmenu div.left button.expander {
+  border: #0f0 1px solid !important;
+}
+
+.desktop.theme-hc div.startmenu div.left button:disabled {
+  color: #f0f !important;
+  opacity: 1 !important;
+  filter: unset;
+}
+
+.desktop.theme-hc div.arcfind-wrapper div.apps button {
+  border: #ff0 1px solid;
+}
+.desktop.theme-hc window:not(.custom):not(.headless):not(.glass) div.body {
+  border-top: #0ff 1px solid !important;
 }
