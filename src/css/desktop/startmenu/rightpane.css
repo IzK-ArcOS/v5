@@ -8,6 +8,7 @@ div.startmenu div.right {
   padding: 10px;
   background-color: var(--darkened-overlay);
   border-top-right-radius: var(--win-border-rad);
+  border-left: var(--win-border-light);
 }
 
 div.startmenu div.right button.link {

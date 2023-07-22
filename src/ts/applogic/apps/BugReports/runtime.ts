@@ -16,8 +16,6 @@ export class BugReportsRuntime extends AppRuntime {
   constructor(appData: App) {
     super(appData);
 
-    this.Log("Hi I'm here!");
-
     this.refreshStore();
 
     this.Selected.subscribe(async (v) => {
@@ -30,33 +28,6 @@ export class BugReportsRuntime extends AppRuntime {
     return (
       (getAppPreference("Reporting", "reports") as LocalReportData[]) || []
     );
-  }
-
-  public deleteReport(id: string) {
-    this.Log(`Deleting local report ${id}...`, "deleteReport", LogLevel.warn);
-    const reports = this.getReports();
-    const result = reports.filter((report) => report.id != id);
-
-    setAppPreference("Reporting", "reports", result);
-
-    this.refreshStore();
-
-    const selected = get(this.Selected);
-
-    if (selected == id) {
-      this.Selected.set(null);
-      this.OpenedReport.set(null);
-    }
-  }
-
-  public async refreshStore() {
-    this.Log(`Refreshing store`, "refreshStore");
-
-    this.Store.set([]);
-
-    await sleep(0);
-
-    this.Store.set(this.getReports() || []);
   }
 
   public async getReport(id: string) {
@@ -89,5 +60,32 @@ export class BugReportsRuntime extends AppRuntime {
     }
 
     return await getReport(id);
+  }
+
+  public deleteReport(id: string) {
+    this.Log(`Deleting local report ${id}...`, "deleteReport", LogLevel.warn);
+    const reports = this.getReports();
+    const result = reports.filter((report) => report.id != id);
+
+    setAppPreference("Reporting", "reports", result);
+
+    this.refreshStore();
+
+    const selected = get(this.Selected);
+
+    if (selected == id) {
+      this.Selected.set(null);
+      this.OpenedReport.set(null);
+    }
+  }
+
+  public async refreshStore() {
+    this.Log(`Refreshing store`, "refreshStore");
+
+    this.Store.set([]);
+
+    await sleep(0);
+
+    this.Store.set(this.getReports() || []);
   }
 }

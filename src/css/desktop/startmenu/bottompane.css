@@ -10,6 +10,7 @@ div.startmenu div.bottom {
   border-bottom-right-radius: var(--win-border-rad);
   padding: 25px;
   display: flex;
+  border-top: var(--win-border-light);
 }
 
 div.startmenu div.bottom * {

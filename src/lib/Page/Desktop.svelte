@@ -71,7 +71,8 @@
 
 {#if $UserData && $UserName}
   <div
-    class="desktop fullscreen {classes}
+    class="
+    desktop fullscreen {classes}
     theme-{$UserData.sh.desktop.theme}
     tb-{$UserData.sh.taskbar.pos}
     cursor-{$UserData.sh.desktop.noCustomCursor ? '' : 'custom'}"
