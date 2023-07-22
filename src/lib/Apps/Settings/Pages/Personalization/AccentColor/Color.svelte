@@ -9,7 +9,7 @@
 </script>
 
 <button
-  class="color ol"
+  class="color ol reset"
   style="background: #{color};"
   class:selected={color == $UserData.sh.desktop.accent}
   on:click={change}
@@ -22,7 +22,7 @@
   button.color {
     width: 25px;
     height: 25px;
-    border-radius: 50% !important;
+    border-radius: 50%;
     padding: 0px !important;
     margin: 0 5px !important;
     outline: transparent solid 5px;
@@ -30,6 +30,7 @@
     vertical-align: middle;
     transform: unset;
     margin-bottom: 10px !important;
+    border: none;
   }
 
   button.color.selected {
