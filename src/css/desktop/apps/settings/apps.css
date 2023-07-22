@@ -1,12 +1,19 @@
+window#SettingsApp div.page-apps {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% + 30px);
+  margin: -15px;
+}
+
 window#SettingsApp div.apps {
-  margin-top: 15px;
-  height: calc(100% - 50px) !important;
-  overflow-y: auto;
+  max-height: calc(100% - 50px) !important;
+  overflow-y: scroll;
   overflow-x: hidden;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
   grid-template-rows: repeat(auto-fit, 60px);
-  max-width: 700px;
+  flex-grow: 1;
+  padding: 15px;
 }
 
 window#SettingsApp div.apps button.appbutton.disabled {
@@ -48,4 +55,15 @@ window#SettingsApp div.apps button.appbutton div.info p {
 }
 window#SettingsApp div.apps button.appbutton div.info p.description {
   opacity: 0.5;
+}
+window#SettingsApp div.apps-hidden-toggle {
+  display: flex;
+  border-top: var(--win-border);
+  align-items: center;
+  height: 50px;
+  padding: 0 15px;
+}
+
+window#SettingsApp div.apps-hidden-toggle input {
+  margin-left: auto;
 }

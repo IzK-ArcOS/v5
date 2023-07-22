@@ -1,9 +1,13 @@
 import { get } from "svelte/store";
-import logo from "../../../assets/apps/settings/desktop.svg";
-import fileManager from "../../../assets/apps/filemanager.svg";
 import appMan from "../../../assets/apps/appmanager.svg";
+import fileManager from "../../../assets/apps/filemanager.svg";
 import appSettings from "../../../assets/apps/settings/apps.svg";
+import {
+  default as desktopIcon,
+  default as logo,
+} from "../../../assets/apps/settings/desktop.svg";
 import appearance from "../../../assets/apps/settings/personalization.svg";
+import themesIcon from "../../../assets/apps/settings/themes.svg";
 import Wallpaper from "../../../lib/Page/Desktop/Wallpaper.svelte";
 import { SEP_ITEM } from "../../contextmenu/main";
 import { restart, shutdown } from "../../desktop/power";
@@ -86,9 +90,23 @@ export const DesktopWallpaper: App = {
       },
       SEP_ITEM,
       {
-        caption: "Personalize",
+        caption: "Themes",
         action: () => {
-          openByKey("Appearance");
+          openByKey("Themes");
+        },
+        image: themesIcon,
+      },
+      {
+        caption: "Wallpaper",
+        action: () => {
+          openByKey("Wallpaper");
+        },
+        image: desktopIcon,
+      },
+      {
+        caption: "Visuals",
+        action: () => {
+          openByKey("Visuals");
         },
         image: appearance,
       },

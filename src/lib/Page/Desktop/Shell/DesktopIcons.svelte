@@ -14,7 +14,7 @@
       !$UserData.sh.taskbar.docked}
   >
     {#each $WindowStore as app}
-      {#if isPopulatable(app)}
+      {#if isPopulatable(app) || $UserData.sh.showHiddenApps}
         <DesktopIcon {app} />
       {/if}
     {/each}

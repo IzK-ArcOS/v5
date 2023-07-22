@@ -60,7 +60,7 @@
     bind:checked={$UserData.sh.start.small}
   />
 </OptionSection>
-<OptionSection
+<!-- <OptionSection
   title="Show hidden apps"
   context="Display hidden apps in the start menu"
 >
@@ -71,9 +71,8 @@
     bind:checked={$UserData.sh.showHiddenApps}
     on:click={() => ($WindowStore = $WindowStore)}
   />
-</OptionSection>
-<hr />
-<OptionSection
+</OptionSection> -->
+<!-- <OptionSection
   title="Hide quick settings"
   context="Hide quick settings in the action center"
 >
@@ -83,7 +82,7 @@
     class="switch"
     bind:checked={$UserData.sh.noQuickSettings}
   />
-</OptionSection>
+</OptionSection> -->
 <OptionSection title="Dock shell" context="Dock the taskbar and action center">
   <input
     type="checkbox"
@@ -103,18 +102,6 @@
     bind:checked={$UserData.sh.taskbar.colored}
   />
 </OptionSection>
-<hr />
-<OptionSection
-  title="No Custom Cursors"
-  context="Disable the ArcOS custom cursors"
->
-  <input
-    type="checkbox"
-    class="switch"
-    bind:checked={$UserData.sh.desktop.noCustomCursor}
-  />
-</OptionSection>
-
 <OptionSection
   title="Compact context menu"
   context="Make the context menu more compact"

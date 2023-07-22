@@ -31,7 +31,6 @@
 </script>
 
 <div class="desktop-page">
-  <h1>Wallpaper</h1>
   <Current />
   <div class="wallpapers">
     {#each Object.entries(Wallpapers) as wallpaper}
@@ -39,6 +38,7 @@
     {/each}
     <!-- <FilesystemWallpapers /> -->
     <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div
       class="wallpaper nobg customwp material-icons-round"
       title="Upload wallpaper"
@@ -47,6 +47,7 @@
       upload
     </div>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div
       class="wallpaper nobg customwp material-icons-round"
       title="Wallpaper from URL"

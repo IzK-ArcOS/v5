@@ -1,31 +1,37 @@
 <script lang="ts">
   import "../../../../css/desktop/apps/settings/apps.css";
+  import { isPopulatable } from "../../../../ts/applogic/checks";
   import { WindowStore } from "../../../../ts/applogic/store";
+  import { UserData } from "../../../../ts/userlogic/interfaces";
   import AppButton from "./Apps/AppButton.svelte";
-  import HiddenAppButton from "./Apps/HiddenAppButton.svelte";
 
-  let hidden = [];
-  let visible = [];
+  let apps = [];
 
-  let showHidden = false;
+  WindowStore.subscribe(
+    (v) => (apps = [...v].sort((a, b) => (a.id > b.id ? 0 : -1)))
+  );
 
-  WindowStore.subscribe((v) => {
-    hidden = [];
-    visible = [];
-
-    for (let i = 0; i < v.length; i++) {
-      if (v[i].info.hidden) hidden.push(v[i]);
-      else visible.push(v[i]);
-    }
-  });
+  function update() {
+    $WindowStore = $WindowStore;
+  }
 </script>
 
-<h1>Applications</h1>
-<div class="apps">
-  {#each visible as app}
-    <AppButton {app} />
-  {/each}
-  {#each hidden as app}
-    <HiddenAppButton {app} />
-  {/each}
+<div class="page-apps">
+  <div class="apps">
+    {#each apps as app}
+      {#if isPopulatable(app) || $UserData.sh.showHiddenApps}
+        <AppButton {app} />
+      {/if}
+    {/each}
+  </div>
+
+  <div class="apps-hidden-toggle">
+    <p class="label">Show hidden apps</p>
+    <input
+      type="checkbox"
+      class="switch"
+      bind:checked={$UserData.sh.showHiddenApps}
+      on:click={update}
+    />
+  </div>
 </div>

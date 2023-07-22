@@ -11,13 +11,16 @@ div.taskbar-h.centered div.buttons {
 }
 
 div.taskbar-h div.buttons button {
-  min-width: 43px;
+  /* min-width: 43px; */
   height: 43px;
   border: none;
   background-color: transparent;
-  padding: 6px; /* 
+  padding: 10px; /* 
   margin-right: 10px; */
   color: var(--fg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 div.taskbar-h div.buttons button.activated {
@@ -26,7 +29,6 @@ div.taskbar-h div.buttons button.activated {
 
 div.taskbar-h:not(.top) div.buttons button {
   border-bottom: transparent 2px solid;
-  padding-bottom: 4px;
 }
 
 div.taskbar-h:not(.top) div.buttons button.activated {
@@ -35,7 +37,6 @@ div.taskbar-h:not(.top) div.buttons button.activated {
 
 div.taskbar-h.top div.buttons button {
   border-top: transparent 2px solid;
-  padding-top: 4px;
 }
 
 div.taskbar-h.top div.buttons button.activated {

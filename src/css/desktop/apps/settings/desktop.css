@@ -53,7 +53,8 @@ window#SettingsApp div.desktop-page div.wallpaper.customwp:hover {
 window#SettingsApp div.desktop-page div.current {
   height: 150px;
   display: block;
-  margin: 15px 0px;
+  margin: 0px;
+  margin-bottom: 15px;
   border-radius: 10px;
   background-position: center;
   background-size: cover;

@@ -9,6 +9,13 @@ window#SettingsApp > div.titlebar p.title,
 window#SettingsApp > div.titlebar div.centeredtitle {
   display: none;
 }
+
+window#SettingsApp div.titlebar {
+  background-color: var(--win-bg) !important;
+
+  width: fit-content !important;
+}
+
 window#SettingsApp.lefttb div.titlebar div.controls {
   left: unset !important;
   margin-left: auto !important;

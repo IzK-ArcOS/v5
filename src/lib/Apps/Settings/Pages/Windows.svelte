@@ -37,17 +37,3 @@
     >Change...</button
   >
 </OptionSection>
-<hr />
-<OptionSection title="Animations" context="Display animations in ArcOS">
-  <input type="checkbox" class="switch" bind:checked={$UserData.sh.anim} />
-</OptionSection>
-<OptionSection title="No glass" context="Disable glass effects in ArcOS">
-  <input type="checkbox" class="switch" bind:checked={$UserData.sh.noGlass} />
-</OptionSection>
-<OptionSection title="Sharp corners" context="Disable rounding in all of ArcOS">
-  <input
-    type="checkbox"
-    class="switch"
-    bind:checked={$UserData.sh.desktop.sharp}
-  />
-</OptionSection>
