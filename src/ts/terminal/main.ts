@@ -100,4 +100,14 @@ export class ArcTerm {
     this.input.lock();
     this.input = null;
   }
+
+  public reload() {
+    this.dispose(); // Dispose the current instance, locking ArcTerm
+
+    // Re-initialize ArcTerm with the exact same initial parameters
+    // after the next frame has advanced
+    setTimeout(async () => {
+      await this.initialize();
+    });
+  }
 }

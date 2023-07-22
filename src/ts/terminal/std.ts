@@ -26,6 +26,12 @@ export class ArcTermStd {
     this.env = parent.env;
   }
 
+  public write(str: string, target = this.target) {
+    const el = this.writeLine(str, true, target);
+
+    return el;
+  }
+
   public writeLine(str: string, inline = false, target = this.target) {
     const el = document.createElement("div");
 
@@ -42,46 +48,6 @@ export class ArcTermStd {
 
   public writeSeperator(length: number) {
     this.writeLine(``.padEnd(length, "-"));
-  }
-
-  public Error(context: string) {
-    if (!this.verbose) return;
-
-    this.writeColor(`[Error]: ${context}`, "red");
-  }
-
-  public Warning(context: string) {
-    if (!this.verbose) return;
-
-    this.writeColor(`[Warning]: ${context}`, "orange");
-  }
-
-  public Info(context: string) {
-    if (!this.verbose) return;
-
-    this.writeColor(`[Info]: ${context}`, "blue");
-  }
-
-  public write(str: string, target = this.target) {
-    const el = this.writeLine(str, true, target);
-
-    return el;
-  }
-
-  public update(el: HTMLDivElement, str: string) {
-    if (!el) return false;
-
-    el.innerText = "";
-
-    this.write(str, this.target);
-  }
-
-  public updateColor(el: HTMLDivElement, str: string, color: Color) {
-    if (!el) return false;
-
-    el.innerText = "";
-
-    this.writeColor(str, color, "white", false, el);
   }
 
   public writeColor(
@@ -125,8 +91,38 @@ export class ArcTermStd {
     this.target.append(el);
   }
 
-  public clear() {
-    this.target.innerText = "";
+  public update(el: HTMLDivElement, str: string) {
+    if (!el) return false;
+
+    el.innerText = "";
+
+    this.write(str, this.target);
+  }
+
+  public updateColor(el: HTMLDivElement, str: string, color: Color) {
+    if (!el) return false;
+
+    el.innerText = "";
+
+    this.writeColor(str, color, "white", false, el);
+  }
+
+  public Error(context: string) {
+    if (!this.verbose) return;
+
+    this.writeColor(`[Error]: ${context}`, "red");
+  }
+
+  public Warning(context: string) {
+    if (!this.verbose) return;
+
+    this.writeColor(`[Warning]: ${context}`, "orange");
+  }
+
+  public Info(context: string) {
+    if (!this.verbose) return;
+
+    this.writeColor(`[Info]: ${context}`, "blue");
   }
 
   public async read(
@@ -172,5 +168,9 @@ export class ArcTermStd {
         resolve(input.value);
       });
     });
+  }
+
+  public clear() {
+    this.target.innerText = "";
   }
 }
