@@ -34,7 +34,7 @@ I want to thank all of these authors for providing their photos, images and othe
 | Wallpaper `img13` | SWHFotografie                                        | the Hague, the Netherlands                                                       |
 | Wallpaper `img14` | [@keesvv](https://github.com/keesvv)                 | Scheveningen, the Netherlands                                                    |
 | Wallpaper `img15` | [@matteoscaringi](https://github.com/matteoscaringi) | Corfu, Greece                                                                    |
-| Wallpaper `img17` | [@Blockyheadman](https://github.com/matteoscaringi)  | Fairfield Bay, US                                                                |
+| Wallpaper `img17` | [@Blockyheadman](https://github.com/blockyheadman)  | Fairfield Bay, US                                                                |
 | ArcOS Sounds      | @dragonlazer/@calligrafix                            | Original                                                                         |
 | Cursors           | [@PosyMusic](https://www.youtube.com/@PosyMusic)     | [Home > Other > Posy's improved cursors](http://www.michieldb.nl/other/cursors/) |
 
