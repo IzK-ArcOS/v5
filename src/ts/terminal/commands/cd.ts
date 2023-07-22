@@ -17,9 +17,10 @@ export const Cd: Command = {
       return;
     }
 
-    if (dir.includes("//")) return term.std.Error("Malformed path");
-
     if (dir == "/") return (term.path = "./");
+
+    if (dir.includes("/") || dir.includes(".."))
+      return term.std.Error("Malformed path");
 
     if (dir == ".") return;
 
