@@ -1,34 +1,29 @@
 import { getDirectory } from "../../api/fs/directory";
-import { getParentDirectory } from "../../api/fs/main";
+import type { UserDirectory } from "../../api/interface";
 import type { Command } from "../interface";
+import type { ArcTerm } from "../main";
 
 export const Cd: Command = {
   keyword: "cd",
   async exec(cmd, argv, term) {
-    const dir = argv.join(" ");
-    const newDir = (term.path != "./" ? `${term.path}/${dir}` : dir).replaceAll(
-      "//",
-      "/"
-    );
+    const path = `${term.path == "./" ? "." : term.path}/${argv.join(" ")}`;
 
-    if (dir == "..") {
-      term.path = getParentDirectory(term.path as string);
+    const req = await getDirectory(path);
 
-      return;
+    if (req == false) {
+      return err(term, path);
     }
 
-    if (dir == "/") return (term.path = "./");
+    const dir = req as UserDirectory;
 
-    if (dir.includes("/") || dir.includes(".."))
-      return term.std.Error("Malformed path");
+    if (dir.scopedPath.includes("..")) return err(term, path);
 
-    if (dir == ".") return;
-
-    if (!(await getDirectory(newDir)))
-      return term.std.Error(`Can't change to "${dir}": Path not found`);
-
-    term.path = newDir;
+    term.path = dir.scopedPath.length == 1 ? "./" : dir.scopedPath;
   },
   description: "Change directory",
   syntax: "[<path>]",
 };
+
+function err(t: ArcTerm, p: string) {
+  return t.std.Error(`Can't change to "${p}": Path not found`);
+}
