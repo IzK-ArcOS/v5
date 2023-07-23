@@ -29,9 +29,9 @@
   });
 
   function processError(e: any) {
+    if (import.meta.env.MODE == "development") return;
+
     const error = e as ErrorEvent;
-    console.log(e);
-    //if (import.meta.env.MODE == "development") return;
 
     sendReport({
       includeUserData: true,

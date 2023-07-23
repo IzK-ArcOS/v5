@@ -7,7 +7,7 @@
  *
  * Original filename: src/ts/applogic/apps/Calculator/main.ts
  */
-
+import math from "math.js";
 import { get, writable } from "svelte/store";
 import { Log } from "../../../console";
 import type { AppKeyCombinations } from "../../keyboard/interface";
@@ -29,8 +29,12 @@ class CL {
   public keys: CalculatorKeys = [];
   public Functions: { [key: string]: [string, () => void, string] } = {
     "%%C": ["C", () => CalculatorValue.set(""), "clear"],
-    "%%E": ["=", this.evaluate, "process"],
+    "%%E": ["=", () => this.evaluate(), "process"],
   };
+
+  private eval(expr: string) {
+    return Function(`'use strict'; return (${expr})`)();
+  }
 
   // Compile keypad keys by merging allowed keys and their overrides for the Calculator UI
   private compileKeys(
@@ -61,7 +65,7 @@ class CL {
 
     if (!CalculatorClass.isValid(get(CalculatorValue))) return false;
 
-    const value = eval(get(CalculatorValue));
+    const value = this.eval(get(CalculatorValue));
 
     CalculatorValue.set(value);
 
@@ -119,27 +123,23 @@ class CL {
     // causing it to return invalid.
     const newValue = `${get(CalculatorValue)}${key}0`;
 
-    try {
-      /**
-       * An eval will error if the given expression is invalid, we can use
-       * this to see if the new value is valid.
-       *
-       * Note: This will return valid things for expressions such as "//////"
-       * because that's valid Javascript. This still has to be fixed.
-       */
-      eval(newValue);
-    } catch {
+    if (!this.validate(newValue)) {
       Log(
         `${Store.Source} Calculator/main.ts: processKey`,
         `Test sum "${newValue}" is not valid. Aborting.`,
         LogLevel.error
       );
 
-      return false; // The eval errored, so the new sum is invalid.
+      return false;
     }
 
-    // The eval didn't error, so the new value is correct.
     CalculatorValue.set(get(CalculatorValue) + key);
+  }
+
+  public validate(expr: string) {
+    const re = /(?:(?:^|[-+_*%\/])(?:\s*-?\d+(\.\d+)?(?:[eE][+-]?\d+)?\s*))+$/;
+
+    return re.test(expr);
   }
 }
 
