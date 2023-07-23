@@ -1,6 +1,6 @@
 <script lang="ts">
-  import mime from "mime-types";
   import upload from "../../../../assets/apps/filemanager/upload.svg";
+  import { fileToArcFile } from "../../../../ts/api/fs/convert";
   import { writeFile } from "../../../../ts/api/fs/file";
   import {
     fbClass,
@@ -10,11 +10,6 @@
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import { makeNotification } from "../../../../ts/notiflogic/main";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
-  import type { ArcFile } from "../../../../ts/api/interface";
-  import {
-    fileToArcFile,
-    partialFileToComplete,
-  } from "../../../../ts/api/fs/convert";
 
   let uploader: HTMLInputElement;
 
