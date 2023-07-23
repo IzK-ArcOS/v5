@@ -19,12 +19,12 @@
     includeUserData: false,
   };
 
-  let sending = false;
+  let locked = false;
 
   let Options: ReportOptions = { ...defaultOptions };
 
   async function create() {
-    sending = true;
+    locked = true;
 
     const id = await sendReport(Options);
 
@@ -44,15 +44,25 @@
 
   function hide() {
     Options = { ...defaultOptions };
+    locked = false;
     hideOverlay("createReport", "BugReports");
   }
 
   function info() {
+    locked = true;
     createOverlayableError(
       {
-        title: "What data we collect",
+        title: "Please keep in mind",
         component: DataPrivacy,
-        buttons: [{ caption: "Okay", action() {} }],
+        buttons: [
+          {
+            caption: "I agree",
+            action() {
+              locked = false;
+            },
+          },
+          { caption: "Decline", action: hide },
+        ],
       },
       "BugReports"
     );
@@ -83,7 +93,7 @@
     <p class="caption">Include preferences</p>
     <input
       type="checkbox"
-      disabled={sending}
+      disabled={locked}
       bind:checked={Options.includeUserData}
     />
   </div>
@@ -91,7 +101,7 @@
     <p class="caption">Include ArcAPI</p>
     <input
       type="checkbox"
-      disabled={sending}
+      disabled={locked}
       bind:checked={Options.includeApi}
     />
   </div>
@@ -99,8 +109,8 @@
 <div class="bottom">
   <div class="left">ArcOS {ArcOSVersion}-{ARCOS_MODE} - {DESKTOP_MODE}</div>
   <button on:click={info}>Data Privacy</button>
-  <button disabled={sending} on:click={hide}>Cancel</button>
-  <button disabled={!Options.title || sending} on:click={create}
+  <button disabled={locked} on:click={hide}>Cancel</button>
+  <button disabled={!Options.title || locked} on:click={create}
     >Send Report</button
   >
 </div>

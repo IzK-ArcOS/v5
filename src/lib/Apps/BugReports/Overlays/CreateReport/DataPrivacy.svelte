@@ -11,7 +11,6 @@
   <li>and the development metadata.</li>
 </ul>
 <p>
-  If you choose to allow it we can also collect your <i>ArcAPI hostname</i> and
-  your
-  <i>preferences</i>.
+  If you choose to allow it we can also collect your <i>ArcAPI hostname</i> and your
+  preferences.
 </p>

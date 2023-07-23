@@ -20,15 +20,19 @@ window.overlay.overlayable-error div.error-overlay div.errimg img {
 
 window.overlay.overlayable-error div.error-overlay-buttons {
   display: flex;
-  margin-top: 15px;
+  margin-top: 10px;
+  align-items: center;
 }
 
 window.overlay.overlayable-error div.error-overlay-buttons div.inner {
   margin: 0 auto;
+  display: flex;
+  gap: 10px;
 }
 
 window.overlay.overlayable-error div.error-overlay-buttons div.inner button {
   min-width: 70px;
+  margin: 0;
 }
 window.overlay.overlayable-error div.component p {
   margin: 10px 0;
