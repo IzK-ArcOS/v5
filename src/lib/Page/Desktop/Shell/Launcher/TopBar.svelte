@@ -4,8 +4,9 @@
     maxZIndex,
   } from "../../../../../ts/applogic/store";
   import { NotificationStore } from "../../../../../ts/notiflogic/main";
-  import { UserData } from "../../../../../ts/userlogic/interfaces";
+  import { UserData, UserName } from "../../../../../ts/userlogic/interfaces";
   import Tray from "../../Taskbar/Tray.svelte";
+  import Clock from "./TopBar/Clock.svelte";
 </script>
 
 <div
@@ -15,7 +16,8 @@
   class:visible={!$isFullscreenWindow}
   style="z-index: {$maxZIndex + 22}"
 >
+  <Clock />
   <Tray hasClock={false}>
-    {Object.entries($NotificationStore).length} Notifications
+    {$UserName}
   </Tray>
 </div>

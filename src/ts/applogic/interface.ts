@@ -31,10 +31,11 @@ export interface App {
 }
 export interface OverlayableError {
   title: string;
-  message: string;
+  message?: string;
   buttons: ErrorButton[];
   image?: string;
   id?: string;
+  component?: any;
 }
 
 export interface OverlayableApp {

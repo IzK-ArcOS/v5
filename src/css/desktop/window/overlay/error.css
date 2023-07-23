@@ -1,6 +1,6 @@
 window.overlay.overlayable-error {
   max-width: 450px;
-  max-height: 350px;
+  /* max-height: 350px; */
   min-height: 120px;
 }
 
@@ -29,4 +29,7 @@ window.overlay.overlayable-error div.error-overlay-buttons div.inner {
 
 window.overlay.overlayable-error div.error-overlay-buttons div.inner button {
   min-width: 70px;
+}
+window.overlay.overlayable-error div.component p {
+  margin: 10px 0;
 }

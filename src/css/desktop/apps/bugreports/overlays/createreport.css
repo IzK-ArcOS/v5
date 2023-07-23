@@ -1,0 +1,89 @@
+window#BugReports window.overlay#createReport div.body.overlay {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+window#BugReports window#createReport div.body.overlay div.overlay-head {
+  padding: 15px;
+  border-bottom: var(--win-border);
+  margin-bottom: 0;
+}
+
+window#BugReports window#createReport div.body.overlay div.form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+window#BugReports window#createReport div.body.overlay div.form input {
+  height: 40px;
+  border: none;
+  padding: 0 10px;
+  border-radius: 0;
+}
+
+window#BugReports window#createReport div.body.overlay div.form textarea {
+  flex-grow: 1;
+  background-color: var(--win-bg);
+  border: none;
+  resize: none;
+  padding: 10px;
+  color: var(--fg);
+}
+
+window#BugReports window#createReport div.body.overlay div.choices {
+  display: flex;
+  padding: 10px 15px;
+  gap: 15px;
+}
+
+window#BugReports window#createReport div.body.overlay div.choices div.choice {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+window#BugReports
+  window#createReport
+  div.body.overlay
+  div.choices
+  div.choice
+  p {
+  margin: 0;
+}
+
+window#BugReports
+  window#createReport
+  div.body.overlay
+  div.choices
+  div.choice
+  + div.choice {
+  border-left: var(--button-bg) 1px solid;
+  padding-left: 15px;
+}
+
+window#BugReports window#createReport div.body.overlay div.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 10px;
+  gap: 10px;
+}
+
+window#BugReports window#createReport div.body.overlay div.bottom div.left {
+  margin-right: auto;
+  padding-left: 5px;
+  opacity: 0.5;
+}
+
+window#BugReports window#createReport div.body.overlay div.bottom button {
+  margin: 0;
+}
+
+window#BugReports window#createReport div.body.overlay div.overlay-head,
+window#BugReports window#createReport div.body.overlay div.form input,
+window#BugReports window#createReport div.body.overlay div.form,
+window#BugReports window#createReport div.body.overlay div.choices {
+  border-bottom: var(--win-border);
+}

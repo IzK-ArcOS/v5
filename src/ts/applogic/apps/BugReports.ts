@@ -1,5 +1,6 @@
 import logo from "../../../assets/apps/bugreports.svg";
 import BugReportsSvelte from "../../../lib/Apps/BugReports.svelte";
+import CreateReport from "../../../lib/Apps/BugReports/Overlays/CreateReport.svelte";
 import SystemLog from "../../../lib/Apps/BugReports/Overlays/SystemLog.svelte";
 import UserData from "../../../lib/Apps/BugReports/Overlays/UserData.svelte";
 import type { App } from "../interface";
@@ -48,6 +49,16 @@ export const BugReports: App = {
       },
       content: SystemLog,
       size: { w: 700, h: 450 },
+      show: false,
+    },
+    createReport: {
+      info: {
+        name: "Create Report",
+        version: "1.0.0",
+        author: "ArcOS Team",
+      },
+      content: CreateReport,
+      size: { w: 550, h: 400 },
       show: false,
     },
   },

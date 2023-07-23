@@ -1,4 +1,4 @@
-let DESKTOP_MODE: "desktop" | "browser";
+export let DESKTOP_MODE: "desktop" | "browser";
 
 export async function getDesktopMode() {
   try {

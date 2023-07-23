@@ -16,7 +16,7 @@
   onMount(() => {
     setInterval(() => {
       time = dayjs().format("HH:mm");
-    });
+    }, 500);
   });
 </script>
 

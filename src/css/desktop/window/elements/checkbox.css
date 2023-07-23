@@ -142,7 +142,7 @@
     background-color: var(--active);
   }
 }
-
+/* 
 ul {
   margin: 12px;
   padding: 0;
@@ -155,7 +155,11 @@ ul li {
   margin: 16px 0;
   position: relative;
 }
+ */
 
+ul li {
+  margin: 3px 0;
+}
 html {
   box-sizing: border-box;
 }

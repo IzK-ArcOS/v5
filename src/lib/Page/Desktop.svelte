@@ -27,6 +27,7 @@
   import { ArcSoundBus } from "../../ts/sound/main";
   import { sendReport } from "../../ts/reporting/main";
   import sleep from "../../ts/sleep";
+  import { checkReleaseCandidate } from "../../ts/branding/rc";
 
   let show = false;
   let classes = "";
@@ -56,8 +57,7 @@
 
     startMessageCheckInterval();
     checkForUpdates();
-
-    window["asdf"].asdasd;
+    checkReleaseCandidate();
   });
 
   function resetDesktopState() {

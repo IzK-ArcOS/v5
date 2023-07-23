@@ -45,7 +45,15 @@
         {/if}
         <div class="error-content">
           <h3 class="error-title">{error.title}</h3>
-          <p class="error-message">{error.message}</p>
+          <p class="error-message">
+            {#if error.component}
+              <div class="component">
+                <svelte:component this={error.component} {error} />
+              </div>
+            {:else}
+              {@html error.message || "$error.message"}
+            {/if}
+          </p>
         </div>
       </div>
       <div class="error-overlay-buttons">
