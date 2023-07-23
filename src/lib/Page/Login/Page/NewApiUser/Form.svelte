@@ -12,9 +12,14 @@
   export let loading: boolean;
   export let username: string;
   export let password: string;
+  let confirm: string;
+
+  export let errored = false;
 
   async function createAccount(e?: Event) {
     if (e) e.preventDefault();
+
+    if (password != confirm) return false;
 
     if (!username || !password || loading) return false;
 
@@ -35,6 +40,8 @@
     if (!userdata) {
       Busy.set(false);
 
+      errored = true;
+
       return (loading = false);
     }
 
@@ -48,7 +55,7 @@
 </script>
 
 <ProfilePicture src={pfp} height={151} />
-<h1>{"New user"}</h1>
+<h1>New user</h1>
 <form on:submit={createAccount}>
   <input
     type="text"
@@ -58,19 +65,26 @@
     bind:value={username}
   />
 </form>
+<input
+  type="password"
+  placeholder="Password"
+  class="block"
+  disabled={loading || !username}
+  bind:value={password}
+/>
 <div class="input-wrapper">
   <form on:submit={createAccount}>
     <input
       type="password"
-      placeholder="Password"
+      placeholder="Confirm Password"
       class="block"
       disabled={loading || !username}
-      bind:value={password}
+      bind:value={confirm}
     />
   </form>
   <button
     on:click={createAccount}
-    disabled={loading || !username || !password}
+    disabled={loading || !username || !password || password != confirm}
     class="createbutton material-icons-round"
   >
     arrow_forward_ios

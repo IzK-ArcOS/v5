@@ -7,6 +7,19 @@ div.userlogin {
   transition: opacity 0.3s, visibility 0.3s, margin-top 0.3s;
 }
 
+div.userlogin.newuser:not(.errored):not(.loading) {
+  height: 425px;
+}
+
+div.userlogin.errored {
+  max-width: 400px;
+  height: fit-content !important;
+}
+
+div.userlogin.errored p {
+  text-align: left;
+}
+
 div.userlogin.show {
   margin-top: 0px;
   visibility: visible;
@@ -109,6 +122,12 @@ div.userlogin.newuser button.createbutton {
   margin: 0;
   margin-left: 10px;
   background-color: #fff3;
+}
+
+div.userlogin div.cloudlogin p.error {
+  height: 38px;
+  margin: 0;
+  line-height: 38px;
 }
 
 div.userlogin.newuser div.input-wrapper {

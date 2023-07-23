@@ -16,7 +16,7 @@
   export let authenticating: boolean;
 
   let password: string;
-  let wrongpswd = false;
+  export let wrongpswd = false;
   export let pfp = "";
 
   onMount(async () => {

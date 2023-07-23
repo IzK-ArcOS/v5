@@ -8,6 +8,7 @@
   let password = "";
   let loading = false;
   let show = false;
+  let errored = false;
 
   onMount(() => {
     setTimeout(() => {
@@ -16,9 +17,17 @@
   });
 </script>
 
-<div class="userlogin newuser" class:show>
+<div class="userlogin newuser" class:errored class:show class:loading>
   {#if !loading}
-    <Form bind:loading bind:username bind:password />
+    {#if errored}
+      <h1>Oh no</h1>
+      <p>
+        Sorry! Couldn't create your account... It may already exist. Please try
+        again or contact your server administrator.
+      </p>
+    {:else}
+      <Form bind:loading bind:username bind:password bind:errored />
+    {/if}
   {:else}
     <Loading caption="Welcome" />
   {/if}

@@ -7,8 +7,10 @@
   let stay = true;
   export let authenticating = false;
   let pfp: string;
+  let wrongpswd = false;
 
   async function cancel() {
+    if (wrongpswd) return (wrongpswd = false);
     loginUsername.set(undefined);
 
     applyLoginState("selector");
@@ -21,13 +23,19 @@
 {/if}
 
 <div class="cloudlogin">
-  <div class="field" class:hidden={authenticating}>
-    <Input bind:authenticating bind:pfp />
-  </div>
+  {#if !wrongpswd}
+    <div class="field" class:hidden={authenticating}>
+      <Input bind:authenticating bind:pfp bind:wrongpswd />
+    </div>
+  {:else}
+    <p class="error">The password is incorrect. Try again.</p>
+  {/if}
 
   {#if !authenticating}<!-- 
     <Stay bind:stay /> -->
-    <button class="switchuser" on:click={cancel}>Cancel</button>
+    <button class="switchuser" on:click={cancel}>
+      {wrongpswd ? "Okay" : "Cancel"}
+    </button>
   {:else}
     <Loading caption="Welcome" />
   {/if}
