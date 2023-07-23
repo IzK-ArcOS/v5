@@ -9,6 +9,7 @@
   import { Busy } from "./ts/env/main";
   import { getDesktopMode } from "./ts/desktop/app";
   import { Log } from "./ts/console";
+  import { sendReport } from "./ts/reporting/main";
 
   let run = false;
   let logo = "";
@@ -23,10 +24,25 @@
 
     logo = Logo();
     run = true;
+
+    console.log(JSON.stringify(import.meta.env));
   });
+
+  function processError(e: any) {
+    const error = e as ErrorEvent;
+    console.log(e);
+    //if (import.meta.env.MODE == "development") return;
+
+    sendReport({
+      includeUserData: true,
+      includeApi: true,
+      title: "Svelte:Window auto-generated error",
+      body: `File: ${error.filename} (${error.lineno}:${error.colno})\n\n${error.message}\n${error.error?.stack}`,
+    });
+  }
 </script>
 
-<svelte:window on:error={(...e) => Log("<svelte:window>", e.join(" - "))} />
+<svelte:window on:error={(e) => processError(e)} />
 
 <svelte:head>
   <link rel="icon" href={logo} />

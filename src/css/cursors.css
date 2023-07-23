@@ -22,10 +22,10 @@ textarea {
 
 :disabled,
 :disabled * {
-  cursor: var(--forbidden) !important;
+  cursor: var(--cur-forbidden) !important;
 }
 
 div.app.cursor-busy,
 div.app.cursor-busy * {
-  cursor: var(--busy) !important;
+  cursor: var(--cur-busy) !important;
 }

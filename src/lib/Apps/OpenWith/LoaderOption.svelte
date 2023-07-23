@@ -16,11 +16,11 @@
 
   function openThis() {
     loader.loader(file);
-
+    /* 
     setTimeout(() => {
       OpenWithFile.set(null);
     }, 1000);
-
+ */
     closeWindow("OpenWithApp");
 
     loaderOptions = [];

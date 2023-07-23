@@ -78,38 +78,40 @@
   }
 </script>
 
-<div class="content">
-  <p class="title">Select an item to open {filename}</p>
-  <div class="options">
-    <p class="category">Apps</p>
-    {#each options as option}
-      <Option
-        file={$OpenWithFile}
-        app={option}
-        bind:loaderOptions
-        bind:options
-        bind:selected
-      />
-    {/each}
-    {#if !options.length}
-      <p class="noitems">No apps found</p>
-    {/if}
-    <p class="category">Handlers</p>
-    {#each loaderOptions as loader}
-      <LoaderOption
-        {loader}
-        file={$OpenWithFile}
-        bind:loaderOptions
-        bind:options
-        bind:selected
-      />
-    {/each}
-    {#if !loaderOptions.length}
-      <p class="noitems">No handlers found</p>
-    {/if}
+{#if $OpenWithFile}
+  <div class="content">
+    <p class="title">Select an item to open {filename}</p>
+    <div class="options">
+      <p class="category">Apps</p>
+      {#each options as option}
+        <Option
+          file={$OpenWithFile}
+          app={option}
+          bind:loaderOptions
+          bind:options
+          bind:selected
+        />
+      {/each}
+      {#if !options.length}
+        <p class="noitems">No apps found</p>
+      {/if}
+      <p class="category">Handlers</p>
+      {#each loaderOptions as loader}
+        <LoaderOption
+          {loader}
+          file={$OpenWithFile}
+          bind:loaderOptions
+          bind:options
+          bind:selected
+        />
+      {/each}
+      {#if !loaderOptions.length}
+        <p class="noitems">No handlers found</p>
+      {/if}
+    </div>
+    <div class="actions">
+      <button disabled={!selected} on:click={openThis}>Open</button>
+      <button on:click={closeThis}>Cancel</button>
+    </div>
   </div>
-  <div class="actions">
-    <button disabled={!selected} on:click={openThis}>Open</button>
-    <button on:click={closeThis}>Cancel</button>
-  </div>
-</div>
+{/if}

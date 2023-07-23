@@ -8,7 +8,7 @@
   import { ArcSoundBus } from "../../../../ts/sound/main";
   import Nav from "../Nav.svelte";
 
-  let server = "";
+  let server = "community.arcapi.nl";
   let connecting = false;
   let connectionError = false;
   let authCode = "";

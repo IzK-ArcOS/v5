@@ -15,6 +15,9 @@ export interface Report {
   mode_file?: string;
   desktop: boolean;
   useragent?: string;
+  location: object;
+  metaenv: object;
+  frontend: string;
 }
 
 export type ReportRecord = Report & Record;

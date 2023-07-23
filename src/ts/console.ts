@@ -18,7 +18,13 @@ export function Log(source: string, msg: string, level = LogLevel.info) {
 
   LogStore.set(currentLog);
 
-  if (data.level == LogLevel.critical) sendReport();
+  if (data.level == LogLevel.critical)
+    sendReport({
+      includeUserData: false,
+      includeApi: true,
+      title: `Critical state`,
+      body: `A log item with state CRITICAL was sent:\n${source}: ${msg}\n\nTS: ${timestamp}`,
+    });
 
   console.log(
     `ArcOS: ${timestamp} [${levelCaption}] ${data.source}: ${data.msg}`

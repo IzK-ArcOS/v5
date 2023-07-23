@@ -74,6 +74,9 @@ export function createReport(
     desktop: isDesktop(),
     mode_file: ARCOS_MODE,
     useragent: navigator.userAgent,
+    frontend: location.host,
+    location: location,
+    metaenv: import.meta.env,
   };
 
   return x;
