@@ -4,7 +4,7 @@ export async function getDesktopMode() {
   try {
     const req = await (await fetch("./desktop")).text();
 
-    DESKTOP_MODE = req == "desktop" ? "desktop" : "browser";
+    DESKTOP_MODE = req.includes("desktop") ? "desktop" : "browser";
   } catch {
     DESKTOP_MODE = "browser";
   }
