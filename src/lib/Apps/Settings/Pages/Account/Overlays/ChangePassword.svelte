@@ -94,7 +94,8 @@
         <button on:click={cancel}>Cancel</button>
         <button
           on:click={apply}
-          disabled={newPswd != confirm || !newPswd || !confirm}>Change</button
+          disabled={newPswd != confirm || !newPswd || !confirm}
+          type="button">Change</button
         >
       </div>
     </div>

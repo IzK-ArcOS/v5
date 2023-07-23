@@ -78,7 +78,9 @@
     <div class="apply">
       <div>
         <button on:click={cancel}>Cancel</button>
-        <button on:click={change} disabled={!newName}> Change </button>
+        <button on:click={change} disabled={!newName} type="button">
+          Change
+        </button>
       </div>
     </div>
   </div>

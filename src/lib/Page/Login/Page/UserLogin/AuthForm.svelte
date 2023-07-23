@@ -33,7 +33,7 @@
 
   {#if !authenticating}<!-- 
     <Stay bind:stay /> -->
-    <button class="switchuser" on:click={cancel}>
+    <button class="switchuser" on:click={cancel} type="button">
       {wrongpswd ? "Okay" : "Cancel"}
     </button>
   {:else}

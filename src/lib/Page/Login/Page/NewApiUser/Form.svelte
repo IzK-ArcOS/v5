@@ -86,6 +86,7 @@
     on:click={createAccount}
     disabled={loading || !username || !password || password != confirm}
     class="createbutton material-icons-round"
+    type="button"
   >
     arrow_forward_ios
   </button>
