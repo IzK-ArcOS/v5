@@ -13,11 +13,12 @@ import {
 } from "./interface";
 import { getAppPreference, setAppPreference } from "../applogic/pref";
 import { makeNotification } from "../notiflogic/main";
-import bugRepIcon from "../../assets/apps/error.svg";
+import bugRepIcon from "../../assets/apps/bugreports.svg";
 import { removeApiSensitive } from "./obfuscate";
 import { isDesktop } from "../desktop/app";
 import { ARCOS_MODE } from "../branding";
 import { openWindow } from "../applogic/events";
+import { createTrayIcon, disposeTrayIcon } from "../desktop/tray/main";
 
 const pb = new PocketBase("https://pb.arcapi.nl/");
 
@@ -40,17 +41,14 @@ export function saveToUser(id: string) {
 
   setAppPreference("Reporting", "reports", reports);
 
-  makeNotification({
-    title: "Bug Reported",
-    message: `Bug Report ${id} has been sent to ArcOS. You can view the sent data at any time in Settings.`,
-    buttons: [
-      {
-        caption: "Open Bug Reports",
-        action() {
-          openWindow("BugReports");
-        },
-      },
-    ],
+  const trayId = `Bug Report ${id} sent to ArcOS`;
+
+  createTrayIcon({
+    onOpen() {
+      openWindow("BugReports");
+      disposeTrayIcon(trayId);
+    },
+    identifier: trayId,
     image: bugRepIcon,
   });
 }

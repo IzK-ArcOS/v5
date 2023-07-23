@@ -4,4 +4,5 @@ export interface TrayIcon {
   // Override for the image to display a material-icon instead.
   icon?: string;
   identifier: string;
+  title?: string;
 }
