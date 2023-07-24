@@ -5,13 +5,14 @@
   import { getDeviceInfo } from "../../../../../ts/device/main";
   import { formatBytes } from "../../../../../ts/api/fs/sizes";
   import { createOverlayableError } from "../../../../../ts/errorlogic/overlay";
+  import { isDesktop } from "../../../../../ts/desktop/app";
 
   let deviceInfo: DeviceInfo;
-  let isDesktop = false;
+  let desktopApp = false;
 
   onMount(async () => {
     deviceInfo = await getDeviceInfo();
-    /* isTauri = await inTauri(); */
+    desktopApp = isDesktop();
   });
 
   function ramInfo() {
@@ -48,7 +49,7 @@
     </div>
     <div class="row">
       <div class="key">ArcOS Mode</div>
-      <div class="value">{isDesktop ? "Desktop app" : "Browser"}</div>
+      <div class="value">{desktopApp ? "Desktop app" : "Browser"}</div>
     </div>
   </Section>
 {/if}
