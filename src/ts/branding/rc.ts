@@ -1,12 +1,12 @@
 import { get } from "svelte/store";
 import { CurrentState } from "../state/main";
 import { makeNotification } from "../notiflogic/main";
-import { Logo } from "../branding";
+import { ARCOS_MODE, Logo } from "../branding";
 import { ArcOSVersion } from "../env/main";
 import sleep from "../sleep";
 
 export async function checkReleaseCandidate() {
-  if (get(CurrentState).key != "desktop") return;
+  if (get(CurrentState).key != "desktop" || ARCOS_MODE != "rc") return;
 
   await sleep(1000);
 
