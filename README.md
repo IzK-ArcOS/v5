@@ -10,7 +10,7 @@ Welcome to the frontend for ArcOS! This repository is a rewrite of the original 
 
 > **Note**: The ArcOS Documentation is currently being worked on by the DWC internal team and might have missing and/or incomplete information. Please be patient.
 
-> **NEW!** We have begun rolling out the [ArcOS Desktop App](https://github.com/IzK-ArcOS/ArcOS-Frontend/releases)! (Currently under major rewrite)
+> **NEW!** We have begun rolling out the [ArcOS Desktop App](https://github.com/IzK-ArcOS/ArcOS-Frontend/releases)!
 
 ## Getting Started
 
