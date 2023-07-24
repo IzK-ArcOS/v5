@@ -65,7 +65,7 @@ export class ArcTerm {
     this.target.innerText = `Starting ArcTerm v${ArcOSVersion}...`;
 
     this.target.removeAttribute("style");
-    this.path = "./";
+    this.path = ".";
     this.commandHandler = new ArcTermCommandHandler(this);
     this.env = new ArcTermEnv(this);
     this.vars = new ArcTermVariables(this);

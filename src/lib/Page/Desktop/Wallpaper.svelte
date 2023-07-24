@@ -24,7 +24,7 @@
 <div
   class="wallpaper fullscreen"
   style="background-image: url({url});"
-  data-caller="shell-wallpaper"
+  data-contextmenu="shell-wallpaper"
 >
   <DesktopIcons />
 </div>

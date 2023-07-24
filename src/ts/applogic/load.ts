@@ -9,6 +9,7 @@ import type { App } from "./interface";
 import { registerAppShortcuts } from "./keyboard/main";
 import { WindowStore, updateStores } from "./store";
 import { SystemApps } from "./imports/store";
+import { titleBarContextMenu } from "../contextmenu/titlebar";
 
 export function loadWindow(id: string, app: App) {
   if (isLoaded(id))
@@ -23,6 +24,11 @@ export function loadWindow(id: string, app: App) {
   const children = getChildren(app, id);
   const userdata = get(UserData);
   const disabledList = userdata ? userdata.disabledApps : [];
+
+  data.contextMenu = {
+    ...data.contextMenu,
+    "window-titlebar": titleBarContextMenu,
+  };
 
   if (userdata && !userdata.disabledApps) {
     userdata.disabledApps = [];

@@ -53,6 +53,8 @@
   bind:this={titlebar}
   on:dblclick={max}
   class:centered={$UserData && $UserData.sh.window.centertb}
+  data-contextmenu="window-titlebar"
+  data-appid={app.id}
 >
   <div class="centeredtitle">{app.info.name}{app.info.titleSuffix || ""}</div>
   <p class="title">

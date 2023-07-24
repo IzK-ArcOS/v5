@@ -9,7 +9,10 @@
   import { Busy } from "./ts/env/main";
   import { getDesktopMode } from "./ts/desktop/app";
   import { Log } from "./ts/console";
-  import { sendReport } from "./ts/reporting/main";
+  import { createReport, sendReport } from "./ts/reporting/main";
+  import { LogLevel } from "./ts/console/interface";
+  import { createReadStream } from "fs";
+  import { handleWindowError } from "./ts/reporting/window";
 
   let run = false;
   let logo = "";
@@ -26,23 +29,14 @@
     run = true;
 
     console.log(JSON.stringify(import.meta.env));
+
+    window.onunhandledrejection = (e: PromiseRejectionEvent) => {
+      handleWindowError(e);
+    };
   });
-
-  function processError(e: any) {
-    if (import.meta.env.MODE == "development") return;
-
-    const error = e as ErrorEvent;
-
-    sendReport({
-      includeUserData: true,
-      includeApi: true,
-      title: "Svelte:Window auto-generated error",
-      body: `File: ${error.filename} (${error.lineno}:${error.colno})\n\n${error.message}\n${error.error?.stack}`,
-    });
-  }
 </script>
 
-<svelte:window on:error={(e) => processError(e)} />
+<svelte:window on:error={(e) => handleWindowError(e)} />
 
 <svelte:head>
   <link rel="icon" href={logo} />

@@ -6,7 +6,7 @@ import type { ArcTerm } from "../main";
 export const Cd: Command = {
   keyword: "cd",
   async exec(cmd, argv, term) {
-    const path = `${term.path == "./" ? "." : term.path}/${argv.join(" ")}`;
+    const path = `${term.path}/${argv.join(" ")}`;
 
     const req = await getDirectory(path);
 
@@ -18,7 +18,7 @@ export const Cd: Command = {
 
     if (dir.scopedPath.includes("..")) return err(term, path);
 
-    term.path = dir.scopedPath.length == 1 ? "./" : dir.scopedPath;
+    term.path = dir.scopedPath;
   },
   description: "Change directory",
   syntax: "[<path>]",

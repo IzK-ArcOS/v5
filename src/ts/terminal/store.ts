@@ -9,6 +9,7 @@ import { Config } from "./commands/config";
 import { Desktop } from "./commands/desktop";
 import { Dir } from "./commands/dir";
 import { Echo } from "./commands/echo";
+import { Err } from "./commands/err";
 import { Exec } from "./commands/exec";
 import { Exit } from "./commands/exit";
 import { Help } from "./commands/help";
@@ -22,6 +23,7 @@ import { oa } from "./commands/oa";
 import { Open } from "./commands/open";
 import { Read } from "./commands/read";
 import { Reload } from "./commands/reload";
+import { RepInfo } from "./commands/repinfo";
 import { Reset } from "./commands/reset";
 import { Restart } from "./commands/restart";
 import { Rf } from "./commands/rf";
@@ -93,6 +95,8 @@ export const gooseBumpsCommands: CommandStore = [
   UDD,
   LogDump,
   BugRep,
+  RepInfo,
+  Err,
 ];
 
 export const desktopSpecific: CommandStore = [

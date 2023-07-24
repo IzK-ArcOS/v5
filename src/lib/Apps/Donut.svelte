@@ -13,7 +13,7 @@
   }, 1000 / fps);
 </script>
 
-<div data-caller="donut-target">
+<div data-contextmenu="donut-target">
   <pre>{value}</pre>
 
   <table>

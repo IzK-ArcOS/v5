@@ -3,9 +3,12 @@ import { CurrentState } from "../state/main";
 import { makeNotification } from "../notiflogic/main";
 import { Logo } from "../branding";
 import { ArcOSVersion } from "../env/main";
+import sleep from "../sleep";
 
-export function checkReleaseCandidate() {
+export async function checkReleaseCandidate() {
   if (get(CurrentState).key != "desktop") return;
+
+  await sleep(1000);
 
   makeNotification({
     title: "Release Candidate",

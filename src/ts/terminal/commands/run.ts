@@ -33,7 +33,7 @@ export const Run: Command = {
 async function o(f: PartialArcFile) {
   const scope = f.scopedPath;
 
-  if (scope.startsWith("./")) f.scopedPath = scope.replace("./", "");
+  /* if (scope.startsWith("./")) f.scopedPath = scope.replace("./", ""); */
 
   const file = await openUserFile(f);
 

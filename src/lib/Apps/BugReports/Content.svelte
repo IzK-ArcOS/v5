@@ -31,7 +31,7 @@
 
 <div class="content">
   {#if data}
-    <Header report={data} />
+    <Header report={data} {id} />
     <UserData report={data} />
     <SystemLog />
     <Issue report={data} {id} />

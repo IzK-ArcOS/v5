@@ -18,3 +18,10 @@ window#BugReports div.content div.header p {
   margin: 0;
   opacity: 0.5;
 }
+
+window#BugReports div.content div.header button.material-icons-round {
+  margin-left: auto;
+  padding: 0;
+  font-size: 20px;
+  background-color: transparent;
+}

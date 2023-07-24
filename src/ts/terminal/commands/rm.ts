@@ -6,7 +6,7 @@ export const Rm: Command = {
   async exec(cmd, argv, term) {
     const p = term.path;
     const dir = argv.join(" ");
-    const name = (p != "./" ? `${p}/${dir}` : dir).replaceAll("//", "/");
+    const name = `${p}/${dir}`.replaceAll("//", "/");
 
     if (!dir.trim().length) return term.std.Error("Missing filename");
 

@@ -5,7 +5,7 @@
   import { getWindow, maxZIndex } from "../../../ts/applogic/store";
   import {
     composePosition,
-    getCallerScope,
+    getContexMenuScope,
     getContextEntry,
   } from "../../../ts/contextmenu/main";
   import { getWindowElementByEvent } from "../../../ts/window/main";
@@ -43,18 +43,18 @@
 
     const windowData = getWindow(windowElement.id);
 
-    const el = getCallerScope(e);
+    const el = getContexMenuScope(e);
 
     if (!el) return;
 
-    const caller = el?.dataset.caller;
+    const contextmenu = el?.dataset.contextmenu;
 
     setTimeout(() => {
-      items = getContextEntry(windowElement.id, caller) || [];
+      items = getContextEntry(windowElement.id, contextmenu) || [];
 
       if (!items.length) return;
 
-      scope = caller;
+      scope = contextmenu;
       window = windowData;
       scopeMap = el.dataset;
 

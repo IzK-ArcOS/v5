@@ -49,7 +49,7 @@ export class ArcTermInput {
   private getPrompt() {
     const username = get(UserName);
     const server = getServer();
-    const path = (this.term.path || "./").replace("./", "");
+    const path = (this.term.path || ".").replace(".", "");
     const prompt = this.env.prompt
       .replace("&u", username)
       .replace("&s", server)

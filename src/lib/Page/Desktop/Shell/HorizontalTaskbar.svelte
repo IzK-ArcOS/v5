@@ -11,7 +11,7 @@
   class:centered={$UserData.sh.taskbar.centered}
   class:colored={$UserData.sh.taskbar.colored}
   class:visible={$UserData.sh.taskbar.pos == "" && !$isFullscreenWindow}
-  data-caller="shell-taskbar"
+  data-contextmenu="shell-taskbar"
 >
   <slot />
   <TaskbarContent />

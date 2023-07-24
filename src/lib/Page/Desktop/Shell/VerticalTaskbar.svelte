@@ -12,7 +12,7 @@
   class:colored={$UserData.sh.taskbar.colored}
   class:visible={$UserData.sh.taskbar.pos != "" && !$isFullscreenWindow}
   class:right={$UserData.sh.taskbar.pos == "vertical-right"}
-  data-caller="shell-taskbar"
+  data-contextmenu="shell-taskbar"
 >
   <slot />
   <TaskbarContent />

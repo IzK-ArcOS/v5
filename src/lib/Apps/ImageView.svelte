@@ -22,7 +22,7 @@
   <img
     src={url}
     alt={app.openedFile.name}
-    data-caller="output"
+    data-contextmenu="output"
     data-path={app.openedFile.path}
   />
 {/if}

@@ -41,7 +41,8 @@ export function saveToUser(id: string) {
 
   setAppPreference("Reporting", "reports", reports);
 
-  const trayId = `Bug Report ${id} sent to ArcOS`;
+  const trayId = `br$${id}`;
+  const title = `Bug Report ${id} sent to ArcOS`;
 
   createTrayIcon({
     onOpen() {
@@ -50,6 +51,7 @@ export function saveToUser(id: string) {
     },
     identifier: trayId,
     image: bugRepIcon,
+    title,
   });
 }
 

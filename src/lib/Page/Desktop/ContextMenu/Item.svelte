@@ -23,7 +23,7 @@
   async function update() {
     if (!data.isActive) return (active = false);
 
-    active = await data.isActive();
+    active = await data.isActive(window, scopeMap, scope);
   }
 </script>
 

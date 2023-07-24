@@ -3,7 +3,7 @@ import { getWindow } from "../applogic/store";
 
 export const SEP_ITEM = { sep: true };
 
-const validCallerTags = [
+const validContexMenuTags = [
   "button",
   "div",
   "span",
@@ -41,7 +41,7 @@ export function composePosition(
   return [x, y];
 }
 
-export function getCallerScope(e: MouseEvent): HTMLDivElement {
+export function getContexMenuScope(e: MouseEvent): HTMLDivElement {
   const p = e.composedPath() as HTMLDivElement[];
 
   for (let i = 0; i < p.length; i++) {
@@ -49,9 +49,9 @@ export function getCallerScope(e: MouseEvent): HTMLDivElement {
 
     if (!tag) continue;
 
-    const caller = p[i].dataset.caller;
+    const contextmenu = p[i].dataset.contextmenu;
 
-    if (validCallerTags.includes(tag.toLowerCase()) && caller) {
+    if (validContexMenuTags.includes(tag.toLowerCase()) && contextmenu) {
       return p[i];
     }
   }

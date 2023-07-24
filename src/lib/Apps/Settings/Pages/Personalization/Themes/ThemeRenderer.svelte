@@ -25,7 +25,7 @@
   title="{theme[1].name} by {theme[1].author}"
   style="background-image: url({url}); --accent: #{theme[1].accent}"
   data-id={theme[0]}
-  data-caller="themerenderer-{user ? 'user' : 'system'}"
+  data-contextmenu="themerenderer-{user ? 'user' : 'system'}"
   data-name={theme[1].name}
   data-json={JSON.stringify(theme[1])}
 >

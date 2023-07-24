@@ -28,7 +28,7 @@
     <p class="username">
       {$UserName}
     </p>
-    <p class="host" data-caller="accountpage-hostname">
+    <p class="host" data-contextmenu="accountpage-hostname">
       <ApiReveal />
     </p>
   </div>

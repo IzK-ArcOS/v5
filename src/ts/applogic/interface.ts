@@ -91,7 +91,11 @@ export interface ContextMenuItem {
   caption?: string;
   icon?: string;
   image?: string;
-  isActive?: () => boolean | Promise<boolean>;
+  isActive?: (
+    window: App,
+    data: DOMStringMap,
+    scope: string
+  ) => boolean | Promise<boolean>;
   action?(window: App, data: DOMStringMap, scope: string): void;
 }
 

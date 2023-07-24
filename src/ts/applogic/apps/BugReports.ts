@@ -1,5 +1,6 @@
 import logo from "../../../assets/apps/bugreports.svg";
 import BugReportsSvelte from "../../../lib/Apps/BugReports.svelte";
+import BodyView from "../../../lib/Apps/BugReports/Overlays/BodyView.svelte";
 import CreateReport from "../../../lib/Apps/BugReports/Overlays/CreateReport.svelte";
 import SystemLog from "../../../lib/Apps/BugReports/Overlays/SystemLog.svelte";
 import UserData from "../../../lib/Apps/BugReports/Overlays/UserData.svelte";
@@ -57,6 +58,16 @@ export const BugReports: App = {
         author: "ArcOS Team",
       },
       content: CreateReport,
+      size: { w: 550, h: 400 },
+      show: false,
+    },
+    bodyView: {
+      info: {
+        name: "View Body",
+        version: "1.0.0",
+        author: "ArcOS Team",
+      },
+      content: BodyView,
       size: { w: 550, h: 400 },
       show: false,
     },

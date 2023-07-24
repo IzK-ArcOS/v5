@@ -6,7 +6,7 @@ export const Mkdir: Command = {
   async exec(cmd, argv, term) {
     const p = term.path;
     const dir = argv.join(" ");
-    const name = (p != "./" ? `${p}/${dir}` : dir).replaceAll("//", "/");
+    const name = `${p}/${dir}`.replaceAll("//", "/");
 
     const v = await createDirectory(name);
 
