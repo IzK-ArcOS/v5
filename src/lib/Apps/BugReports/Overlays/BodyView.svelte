@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { BugReportsRuntime } from "../../../../ts/applogic/apps/BugReports/runtime";
   import type { App } from "../../../../ts/applogic/interface";
-  import type { Report } from "../../../../ts/reporting/interface";
   import CloseButton from "../../../Page/Desktop/WindowStore/OverlayableWindow/CloseButton.svelte";
 
   export let runtime: BugReportsRuntime;
@@ -9,7 +8,6 @@
   export let id: string;
 
   let value = "";
-  let data: Report;
 
   runtime.OpenedReport.subscribe((v) => {
     if (!v) return;

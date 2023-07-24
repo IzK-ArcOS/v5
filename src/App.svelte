@@ -4,15 +4,11 @@
   import BugReport from "./lib/BugReport.svelte";
   import { logoffToken } from "./ts/api/cred";
   import { getMode, Logo } from "./ts/branding";
+  import { getDesktopMode } from "./ts/desktop/app";
+  import { Busy } from "./ts/env/main";
+  import { handleWindowError } from "./ts/reporting/window";
   import { applyState, CurrentState } from "./ts/state/main";
   import { committingUserData } from "./ts/userlogic/main";
-  import { Busy } from "./ts/env/main";
-  import { getDesktopMode } from "./ts/desktop/app";
-  import { Log } from "./ts/console";
-  import { createReport, sendReport } from "./ts/reporting/main";
-  import { LogLevel } from "./ts/console/interface";
-  import { createReadStream } from "fs";
-  import { handleWindowError } from "./ts/reporting/window";
 
   let run = false;
   let logo = "";
@@ -27,8 +23,6 @@
 
     logo = Logo();
     run = true;
-
-    console.log(JSON.stringify(import.meta.env));
 
     window.onunhandledrejection = (e: PromiseRejectionEvent) => {
       handleWindowError(e);

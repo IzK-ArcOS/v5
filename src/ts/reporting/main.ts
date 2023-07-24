@@ -1,24 +1,23 @@
 import PocketBase from "pocketbase";
 import { get } from "svelte/store";
+import bugRepIcon from "../../assets/apps/bugreports.svg";
 import { getServer } from "../api/server";
+import { openWindow } from "../applogic/events";
+import { getAppPreference, setAppPreference } from "../applogic/pref";
+import { ARCOS_MODE } from "../branding";
 import { compileStringLog } from "../console/collector";
+import { isDesktop } from "../desktop/app";
+import { createTrayIcon, disposeTrayIcon } from "../desktop/tray/main";
 import { ArcOSVersion } from "../env/main";
 import { UserData, UserName } from "../userlogic/interfaces";
 import {
-  defaultReportOptions,
   LocalReportData,
   Report,
+  defaultReportOptions,
   type ReportOptions,
   type ReportRecord,
 } from "./interface";
-import { getAppPreference, setAppPreference } from "../applogic/pref";
-import { makeNotification } from "../notiflogic/main";
-import bugRepIcon from "../../assets/apps/bugreports.svg";
 import { removeApiSensitive } from "./obfuscate";
-import { isDesktop } from "../desktop/app";
-import { ARCOS_MODE } from "../branding";
-import { openWindow } from "../applogic/events";
-import { createTrayIcon, disposeTrayIcon } from "../desktop/tray/main";
 
 const pb = new PocketBase("https://pb.arcapi.nl/");
 

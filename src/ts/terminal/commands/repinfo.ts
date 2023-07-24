@@ -42,8 +42,6 @@ export const RepInfo: Command = {
       const key = entry[0].padEnd(23, " ");
       const value = entry[1];
 
-      console.log(value, typeof value);
-
       if (value && typeof value === "object") {
         term.std.writeColor(`[${key}]:`, "yellow");
 

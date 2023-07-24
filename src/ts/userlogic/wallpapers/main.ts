@@ -1,10 +1,10 @@
 import { get } from "svelte/store";
 import { readFile } from "../../api/fs/file";
 import { Log } from "../../console";
+import { LogLevel } from "../../console/interface";
 import { UserName } from "../interfaces";
 import type { Wallpaper } from "./interface";
 import { Wallpapers } from "./store";
-import { LogLevel } from "../../console/interface";
 
 const getters: [string, (id: string) => Wallpaper | Promise<Wallpaper>][] = [
   [

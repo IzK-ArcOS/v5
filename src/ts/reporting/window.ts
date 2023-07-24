@@ -2,6 +2,8 @@ import { writable } from "svelte/store";
 import { applyState } from "../state/main";
 import type { ReportOptions, Report } from "./interface";
 import { createReport, sendReport } from "./main";
+import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 
 export const CrashReport = writable<Report>();
 
@@ -30,7 +32,12 @@ export function handleWindowError(
     applyState("crash");
   }, 1500);
 
-  if (import.meta.env.DEV) return console.log(report);
+  if (import.meta.env.DEV)
+    return Log(
+      "reporting/window.ts: handleWindowError",
+      "Not sending a report in dev env, we ain't spammin' da servers!",
+      LogLevel.warn
+    );
 
   sendReport(options);
 }
