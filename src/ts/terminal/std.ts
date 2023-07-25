@@ -46,7 +46,7 @@ export class ArcTermStd {
     return el;
   }
 
-  public writeSeperator(length: number) {
+  public writeSeparator(length: number) {
     this.writeLine(``.padEnd(length, "-"));
   }
 

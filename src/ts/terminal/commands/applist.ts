@@ -37,5 +37,5 @@ function header(term: ArcTerm) {
   const head = `${hName}${hId}${hVer}`;
 
   term.std.writeColor(`[${head}]`, "yellow");
-  term.std.writeSeperator(head.length);
+  term.std.writeSeparator(head.length);
 }

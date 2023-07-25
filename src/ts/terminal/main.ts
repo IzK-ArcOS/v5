@@ -14,9 +14,9 @@ import { ArcTermUtil } from "./util";
 import { ArcTermVariables } from "./var";
 
 /**
- * @WARNING   This part of ArcOS is seperated from the Svelte framework in
+ * @WARNING   This part of ArcOS is separated from the Svelte framework in
  *            order to make it easier to write and manage. Frequent checks
- *            are performed throught ArcTerm classes in order to keep it clean
+ *            are performed through ArcTerm classes in order to keep it clean
  *            and stop it from breaking unexpectedly.
  *
  * - IzKuipers, march 17 2023
