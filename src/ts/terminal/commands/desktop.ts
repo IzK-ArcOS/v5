@@ -1,8 +1,8 @@
 import { get } from "svelte/store";
 import { previouslyLoaded } from "../../desktop/main";
 import { applyState } from "../../state/main";
-import type { Command } from "../interface";
 import { getSwitches } from "../argv";
+import type { Command } from "../interface";
 
 export const Desktop: Command = {
   keyword: "desktop",

@@ -1,13 +1,13 @@
 import { get } from "svelte/store";
 import { formatBytes } from "../../api/fs/sizes";
+import { getServer } from "../../api/server";
+import { isDesktop } from "../../desktop/app";
 import { getDeviceInfo } from "../../device/main";
+import { minArcAPI } from "../../env/main";
 import { CurrentState } from "../../state/main";
 import { UserName } from "../../userlogic/interfaces";
 import { Color, colors, Command } from "../interface";
 import type { ArcTerm } from "../main";
-import { minArcAPI } from "../../env/main";
-import { getServer } from "../../api/server";
-import { isDesktop } from "../../desktop/app";
 
 export const ArcFetch: Command = {
   keyword: "arcfetch",

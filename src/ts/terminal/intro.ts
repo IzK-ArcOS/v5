@@ -1,4 +1,3 @@
-import { ArcOSVersion } from "../env/main";
 import type { ArcTerm } from "./main";
 
 export function ArcTermIntro(term: ArcTerm) {
