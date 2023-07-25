@@ -3,10 +3,14 @@ import type { ArcTerm } from "./main";
 export interface Command {
   keyword: string;
   description: string;
-  exec: (cmd: string, argv: string[], term: ArcTerm) => void;
+  exec: CommandMethod;
+  help?: HelpMethod;
   syntax?: string;
   hidden?: boolean;
 }
+
+export type CommandMethod = (cmd: string, argv: string[], term: ArcTerm) => any;
+export type HelpMethod = (term: ArcTerm) => any;
 
 export type CommandStore = Command[];
 

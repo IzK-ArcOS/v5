@@ -39,9 +39,17 @@ function specific(command: string, term: ArcTerm) {
   if (!c || c.keyword == defaultCommand.keyword)
     return term.std.Error(`${command}: command not found.`);
 
-  term.std.writeColor(`[${c.keyword.toUpperCase()}]: ${c.description}`, "blue");
+  if (!c.help) {
+    term.std.writeColor(
+      `[${c.keyword.toUpperCase()}]: ${c.description}`,
+      "blue"
+    );
 
-  term.std.writeLine("\n");
+    term.std.writeLine("\n");
+  }
 
   term.std.writeColor(`Usage: [${c.keyword}] ${c.syntax || ""}`, "blue");
+  term.std.writeLine("\n");
+
+  if (c.help) return c.help(term);
 }
