@@ -35,37 +35,41 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
   const controller = new AbortController();
   const params = generateParamStr({ ac: authCode, path: btoa(path) });
 
-  let req = await fetch(`${server}/fs/file/get${params}`, {
-    ...init,
-    signal: controller.signal,
-  });
-
-  abortFileReader.set(false);
-
-  abortFileReader.subscribe((v) => {
-    if (!v) return;
-
-    Log(
-      "fs/file.ts: readFile",
-      `Aborting readFile for "${path}" as requested by the user...`,
-      LogLevel.error
-    );
-
-    controller.abort();
-
-    FileBrowserOpenCancelled.set(true);
+  try {
+    let req = await fetch(`${server}/fs/file/get${params}`, {
+      ...init,
+      signal: controller.signal,
+    });
 
     abortFileReader.set(false);
-  });
 
-  if (req.status != 200) return false;
+    abortFileReader.subscribe((v) => {
+      if (!v) return;
 
-  const x = await req.blob();
+      Log(
+        "fs/file.ts: readFile",
+        `Aborting readFile for "${path}" as requested by the user...`,
+        LogLevel.error
+      );
 
-  // Free up used memory
-  req = null;
+      controller.abort();
 
-  return await x.arrayBuffer();
+      FileBrowserOpenCancelled.set(true);
+
+      abortFileReader.set(false);
+    });
+
+    if (req.status != 200) return false;
+
+    const x = await req.blob();
+
+    // Free up used memory
+    req = null;
+
+    return await x.arrayBuffer();
+  } catch {
+    return false;
+  }
 }
 
 export async function writeFile(path: string, data: Blob): Promise<boolean> {

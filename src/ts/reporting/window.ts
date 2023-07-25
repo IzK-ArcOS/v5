@@ -31,7 +31,9 @@ export function handleWindowError(
     includeUserData: false,
     includeApi: true,
     title: "Svelte:Window auto-generated error",
-    body: `File: ${filename} ${position}\n\n${message}\n${stack}`,
+    body: `File: ${filename} ${position}\n\n${message}\n\n${
+      stack || "  at ArcOS (no stack)"
+    }`,
   };
   const report = createReport(options);
 
