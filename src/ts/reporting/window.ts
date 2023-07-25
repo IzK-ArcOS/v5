@@ -39,6 +39,8 @@ export function handleWindowError(
 
   CrashReport.set(report);
 
+  Log(`Error: ${filename}`, message, LogLevel.error);
+
   setTimeout(() => {
     applyState("crash");
   }, 1500);

@@ -30,6 +30,7 @@ import { Rf } from "./commands/rf";
 import { Ri } from "./commands/ri";
 import { Rm } from "./commands/rm";
 import { Run } from "./commands/run";
+import { Servers } from "./commands/servers";
 import { Set } from "./commands/set";
 import { Shutdown } from "./commands/shutdown";
 import { SoundBusCommand } from "./commands/soundbus";
@@ -78,6 +79,7 @@ export const arcCommands: CommandStore = [
   Exec,
   Verbose,
   Desktop,
+  Servers,
 ];
 
 /**
