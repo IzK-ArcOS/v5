@@ -28,7 +28,7 @@ export function handleWindowError(
   const stack = error.error?.stack || rejection.reason.stack;
 
   const options: ReportOptions = {
-    includeUserData: true,
+    includeUserData: false,
     includeApi: true,
     title: "Svelte:Window auto-generated error",
     body: `File: ${filename} ${position}\n\n${message}\n${stack}`,
