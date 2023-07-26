@@ -5,6 +5,7 @@
   import type { App } from "../../ts/applogic/interface";
   import { registerShortcuts } from "../../ts/applogic/keyboard/main";
   import { WindowStore } from "../../ts/applogic/store";
+  import { isOpened } from "../../ts/applogic/checks";
 
   let audioObject: HTMLAudioElement;
 
@@ -26,6 +27,8 @@
     url = URL.createObjectURL(
       new Blob([app.openedFile.data], { type: app.openedFile.mime })
     );
+
+    if (!isOpened(app.id)) return;
 
     setTimeout(() => {
       audioObject.play();
@@ -58,11 +61,28 @@
   }
 
   onMount(() => {
+    if (!app.events) app.events = {};
+    app.events.openFile = () => {
+      if (!isOpened(app.id)) return;
+
+      filename = app.openedFile.name;
+
+      url = URL.createObjectURL(
+        new Blob([app.openedFile.data], { type: app.openedFile.mime })
+      );
+
+      setTimeout(() => {
+        audioObject.play();
+      });
+    };
+
     registerShortcuts([
       {
         key: "space",
         action: () => {
-          audioObject?.pause();
+          if (!audioObject) return;
+
+          audioObject.pause();
         },
       },
     ]);
