@@ -6,8 +6,12 @@ import { UserName } from "../userlogic/interfaces";
 import type { ArcTerm } from "./main";
 import { authPrompt } from "./mode/auth";
 import { getServer } from "../api/server";
+import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 
 export async function arcTermModeIntro(a: ArcTerm) {
+  Log(`ArcTerm ${a.referenceId}`, "Viewing ArcTermMode intro", LogLevel.info);
+
   if (!(await authPrompt(a))) return;
 
   const server = getServer();

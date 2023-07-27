@@ -25,6 +25,11 @@ export class ArcTermInput {
   }
 
   public commandLoop() {
+    Log(
+      `ArcTerm ${this.term.referenceId}`,
+      `input.commandLoop: Starting command loop`
+    );
+
     setInterval(() => {
       if (this.lockInput) return;
 
@@ -39,14 +44,24 @@ export class ArcTermInput {
   }
 
   public lock() {
+    Log(`ArcTerm ${this.term.referenceId}`, `input.lock: Locking input`);
+
+    console.trace("lock");
+
     this.lockInput = true;
   }
 
   public unlock() {
+    Log(`ArcTerm ${this.term.referenceId}`, `input.unlock: Unlocking input`);
+
+    console.trace("unlock");
+
     this.lockInput = false;
   }
 
   private getPrompt() {
+    Log(`ArcTerm ${this.term.referenceId}`, `input.getPrompt`);
+
     const username = get(UserName);
     const server = getServer();
     const path = (this.term.path || ".").replace(".", "");
@@ -59,6 +74,8 @@ export class ArcTermInput {
   }
 
   public createPrompt() {
+    Log(`ArcTerm ${this.term.referenceId}`, `input.createPrompt`);
+
     if (this.current) this.current.disabled = true;
 
     if (!this.term.std) return;
@@ -111,6 +128,8 @@ export class ArcTermInput {
   }
 
   private restorePreviousCommand() {
+    Log(`ArcTerm ${this.term.referenceId}`, `input.restorePreviousCommand`);
+
     const hist = this.term.commandHandler.history;
     const latest = hist[hist.length - 1];
 
@@ -120,6 +139,11 @@ export class ArcTermInput {
   }
 
   public async processCommands(split: string[]) {
+    Log(
+      `ArcTerm ${this.term.referenceId}`,
+      `input.processCommands: ${split.length} parts`
+    );
+
     for (let i = 0; i < split.length; i++) {
       const str = this.term.vars.replace(split[i].trim());
       const args = str.split(" ");

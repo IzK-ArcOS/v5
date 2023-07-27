@@ -92,6 +92,8 @@ export class ArcTerm {
   }
 
   public dispose() {
+    Log(`ArcTerm ${this.referenceId}`, "Disposing", LogLevel.info);
+
     if (!this.target) return;
 
     this.std.clear();
@@ -102,6 +104,8 @@ export class ArcTerm {
   }
 
   public reload() {
+    Log(`ArcTerm ${this.referenceId}`, "Reloading", LogLevel.info);
+
     this.dispose(); // Dispose the current instance, locking ArcTerm
 
     // Re-initialize ArcTerm with the exact same initial parameters

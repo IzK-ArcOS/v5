@@ -47,6 +47,12 @@ export class ArcTermStd {
   }
 
   public writeSeparator(length: number) {
+    Log(
+      `ArcTerm ${this.term.referenceId}`,
+      `std.writeSeparator: drawing with length of ${length}`,
+      LogLevel.info
+    );
+
     this.writeLine(``.padEnd(length, "-"));
   }
 
@@ -94,12 +100,24 @@ export class ArcTermStd {
   public update(el: HTMLDivElement, str: string) {
     if (!el) return false;
 
+    Log(
+      `ArcTerm ${this.term.referenceId}`,
+      `std.update: ${el.innerText.length} -> ${str.length}`,
+      LogLevel.info
+    );
+
     el.innerText = "";
 
     this.write(str, this.target);
   }
 
   public updateColor(el: HTMLDivElement, str: string, color: Color) {
+    Log(
+      `ArcTerm ${this.term.referenceId}`,
+      `std.updateColor: ${el.innerText.length} -> ${str.length}`,
+      LogLevel.info
+    );
+
     if (!el) return false;
 
     el.innerText = "";
@@ -108,18 +126,36 @@ export class ArcTermStd {
   }
 
   public Error(context: string) {
+    Log(
+      `ArcTerm ${this.term.referenceId}`,
+      `std.Error: ${context.replaceAll("\n", "\\n")}`,
+      LogLevel.error
+    );
+
     if (!this.verbose) return;
 
     this.writeColor(`[Error]: ${context}`, "red");
   }
 
   public Warning(context: string) {
+    Log(
+      `ArcTerm ${this.term.referenceId}`,
+      `std.Warning: ${context.replaceAll("\n", "\\n")}`,
+      LogLevel.warn
+    );
+
     if (!this.verbose) return;
 
     this.writeColor(`[Warning]: ${context}`, "orange");
   }
 
   public Info(context: string) {
+    Log(
+      `std.ArcTerm ${this.term.referenceId}`,
+      `Info: ${context.replaceAll("\n", "\\n")}`,
+      LogLevel.info
+    );
+
     if (!this.verbose) return;
 
     this.writeColor(`[Info]: ${context}`, "blue");
@@ -133,6 +169,12 @@ export class ArcTermStd {
     value = ""
   ): Promise<string> {
     if (!this.target) return "";
+
+    Log(
+      `ArcTerm ${this.term.referenceId}`,
+      `std.read: ${prefix}${suffix}`,
+      LogLevel.info
+    );
 
     const current = this.term.input.current;
     const commit = writable<boolean>(false);
@@ -171,6 +213,12 @@ export class ArcTermStd {
   }
 
   public clear() {
+    Log(
+      `ArcTerm ${this.term.referenceId}`,
+      `std.clear: Clearing terminal`,
+      LogLevel.info
+    );
+
     this.target.innerText = "";
   }
 }

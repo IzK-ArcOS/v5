@@ -8,6 +8,7 @@ import { LogLevel } from "../console/interface";
 
 export class ArcTermConfig {
   env: ArcTermEnv;
+  term: ArcTerm;
 
   constructor(e: ArcTermEnv, t: ArcTerm) {
     Log(
@@ -17,6 +18,7 @@ export class ArcTermConfig {
     );
 
     this.env = e;
+    this.term = t;
     this.loadConfigFile();
   }
 
@@ -30,6 +32,8 @@ export class ArcTermConfig {
   ];
 
   public getConfig() {
+    Log(`ArcTerm ${this.term.referenceId}`, `config.getConfig`);
+
     const obj = {};
 
     for (let i = 0; i < this.configKeys.length; i++) {
@@ -42,6 +46,8 @@ export class ArcTermConfig {
   }
 
   public loadConfig(json: object) {
+    Log(`ArcTerm ${this.term.referenceId}`, `config.loadConfig: loading JSON`);
+
     for (let i = 0; i < this.configKeys.length; i++) {
       const k = this.configKeys[i];
 
@@ -53,6 +59,11 @@ export class ArcTermConfig {
   }
 
   public async loadConfigFile() {
+    Log(
+      `ArcTerm ${this.term.referenceId}`,
+      `config.loadConfigFile: Getting ${this.configPath}`
+    );
+
     if (!get(UserData)) return;
 
     const file = await readFile(this.configPath);
@@ -74,6 +85,11 @@ export class ArcTermConfig {
   }
 
   public async writeConfig() {
+    Log(
+      `ArcTerm ${this.term.referenceId}`,
+      `config.writeConfig: Writing ${this.configPath}`
+    );
+
     const data = {};
 
     for (let i = 0; i < this.configKeys.length - 1; i++) {

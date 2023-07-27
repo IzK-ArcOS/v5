@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { ARCOS_MODE } from "../../../../../ts/branding";
 </script>
 

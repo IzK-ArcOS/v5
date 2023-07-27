@@ -18,6 +18,8 @@ export class ArcTermCommandHandler {
   }
 
   public async evaluate(cmd: string, args?: string[]) {
+    Log(`ArcTerm ${this.term.referenceId}`, `cmd.evaluate: ${cmd}`);
+
     this.history.push(`${cmd} ${args.join(" ")}`.trim());
 
     const command = this.getCommand(cmd);
@@ -33,6 +35,8 @@ export class ArcTermCommandHandler {
   }
 
   public getCommand(command: string) {
+    Log(`ArcTerm ${this.term.referenceId}`, `cmd.getCommand: ${command}`);
+
     const c = command.toLowerCase();
 
     for (let i = 0; i < this.term.commands.length; i++) {
