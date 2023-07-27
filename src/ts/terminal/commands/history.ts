@@ -14,6 +14,9 @@ export const History: Command = {
       term.std.writeColor(`[${index}]: ${hist[i]}`, "yellow");
     }
   },
+  help(term){
+    term.std.writeColor("Example: [history] <clear>", "blue");
+  },
   description: "Show the command history",
   syntax: "([clear?])",
 };

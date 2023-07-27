@@ -18,6 +18,9 @@ export const AppList: Command = {
       output(term, store[i]);
     }
   },
+  help(term) {
+    term.std.writeColor("Example: [applist] --open", "blue");
+  },
   description: "List all- or opened ArcOS apps.",
   syntax: "([opened?])",
 };

@@ -26,6 +26,10 @@ export const Run: Command = {
 
     term.std.Error(`The file doesn't exist on ArcFS.`);
   },
+  help(term) {
+    term.std.writeColor("[NOTE]: Capitalization matters.", "yellow");
+    term.std.writeColor("Example: [run] arcterm.conf", "blue");
+  },
   description: "Run a file from your ArcFS account.",
   syntax: `"<[filename]>"`,
 };

@@ -12,6 +12,9 @@ export const Mkdir: Command = {
 
     term.std.writeLine(`Directory '${dir}' created.`);
   },
+  help(term) {
+    term.std.writeColor("Example: [mkdir] Private Photos", "blue");
+  },
   description: "Create a directory",
   syntax: `"<[name]>"`,
 };

@@ -16,6 +16,10 @@ export const Rm: Command = {
       term.std.Error(`Unable to delete "${dir}"`);
     }
   },
+  help(term) {
+    term.std.writeColor("[NOTE]: Capitalization matters.", "yellow");
+    term.std.writeColor("Example: [soundbus] play ...", "blue");
+  },
   description: "Delete a file or folder",
   syntax: `"<[name]>"`,
 };

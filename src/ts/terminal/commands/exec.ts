@@ -32,6 +32,10 @@ export const Exec: Command = {
       }
     }
   },
+  help(term) {
+    term.std.writeColor("[NOTE]: Capitalization matters.", "yellow");
+    term.std.writeColor("Example: [exec] mwomp.txt", "blue");
+  },
   description: "Execute ArcTerm commands from a file",
   syntax: "<[filename]>",
 };

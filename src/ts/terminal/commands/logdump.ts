@@ -2,7 +2,7 @@ import { get } from "svelte/store";
 import { writeFile } from "../../api/fs/file";
 import { fbClass } from "../../applogic/apps/FileBrowser/main";
 import { LogStore } from "../../console";
-import sleep from "../../sleep";
+//import sleep from "../../sleep"; // Unused import
 import type { Command } from "../interface";
 import { compileStringLog } from "../../console/collector";
 

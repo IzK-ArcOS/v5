@@ -21,10 +21,9 @@ export const Cd: Command = {
     term.path = dir.scopedPath;
   },
   help(term) {
-    term.std.writeLine(
-      "Change the directory to the specified relative path.\n\n"
-    );
-    term.std.writeColor("Example: [cd] ../Documents", "yellow");
+    term.std.writeColor("[NOTE]: Capitalization matters.", "yellow");
+    //term.std.writeLine("Change the directory to the specified relative path.\n\n");
+    term.std.writeColor("Example: [cd] ../Documents", "blue");
   },
   description: "Change directory",
   syntax: "[<path>]",

@@ -16,6 +16,10 @@ export const Read: Command = {
 
     if (!setter) term.std.Error("Unable to set variable: it is read-only!");
   },
+  help(term) {
+    term.std.writeColor("[WARN]: This command can become unstable.", "red");
+    term.std.writeColor("Example: [read] --var color", "blue");
+  },
   description: "Read user input to a variable",
   syntax: "--[var]=[variable] --[mask]? --[prompt]?=[...]",
 };

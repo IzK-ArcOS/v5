@@ -16,6 +16,9 @@ export const Help: Command = {
 
     all(term);
   },
+  help(term){
+    term.std.writeColor("Example: [help] help", "blue");
+  },
   description: "Display a list of built-in commands",
   syntax: "([command?])",
 };

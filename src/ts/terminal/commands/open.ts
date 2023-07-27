@@ -15,6 +15,10 @@ export const Open: Command = {
 
     term.std.writeLine(`Opened ${window.info.name}`);
   },
+  help(term) {
+    term.std.writeColor("[NOTE]: Capitalization matters.", "yellow");
+    term.std.writeColor("Example: [open] ArcTerm", "blue");
+  },
   description: "Open a window",
   syntax: `"<[appId]>"`,
 };

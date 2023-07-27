@@ -17,6 +17,10 @@ export const Kill: Command = {
 
     term.std.writeLine(`Closed ${window.info.name}`);
   },
+  help(term) {
+    term.std.writeColor("[NOTE]: Capitalization matters.", "yellow");
+    term.std.writeColor("Example: [kill] SettingsApp", "blue");
+  },
   description: "Terminate a program",
   syntax: `"<[appId]>"`,
 };

@@ -24,6 +24,9 @@ export const Set: Command = {
     if (!setter)
       term.std.Error("Can't update variable: the variable is readonly.");
   },
+  help(term) {
+    term.std.writeColor("Example: [set] color \"green\"", "blue");
+  },
   description: "Set a variable",
   syntax: `<[key]> "<[value]>"`,
 };

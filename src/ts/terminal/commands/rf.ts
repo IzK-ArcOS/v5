@@ -32,6 +32,9 @@ export const Rf: Command = {
 
     term.std.Error(`The file doesn't exist on ArcFS.`);
   },
+  help(term) {
+    term.std.writeColor("Example: [rf] mwomp.txt", "blue");
+  },
   description: "Read a file from ArcFS",
   syntax: "<[filename]>",
 };
