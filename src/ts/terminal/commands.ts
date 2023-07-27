@@ -29,8 +29,8 @@ export class ArcTermCommandHandler {
     await command.exec(cmd, args, this.term);
 
     if (!this.term.std || !this.term.input) return;
-
     if (this.term.std.verbose) this.term.std.writeLine("\n");
+    
     this.term.input.unlock();
   }
 

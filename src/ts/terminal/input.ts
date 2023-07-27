@@ -44,17 +44,13 @@ export class ArcTermInput {
   }
 
   public lock() {
-    Log(`ArcTerm ${this.term.referenceId}`, `input.lock: Locking input`);
-
-    console.trace("lock");
+    Log(`ArcTerm ${this.term.referenceId}`, `input.lock`);
 
     this.lockInput = true;
   }
 
   public unlock() {
-    Log(`ArcTerm ${this.term.referenceId}`, `input.unlock: Unlocking input`);
-
-    console.trace("unlock");
+    Log(`ArcTerm ${this.term.referenceId}`, `input.unlock`);
 
     this.lockInput = false;
   }
