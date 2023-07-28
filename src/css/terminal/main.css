@@ -7,10 +7,9 @@ div.terminal-renderer {
   color: var(--fg);
   font-size: 14px;
 }
-
 div.terminal-renderer,
 div.terminal-renderer * {
-  cursor: url("../../assets/cursors/beam.cur"), auto !important;
+  cursor: var(--cur-beam) !important;
 }
 
 div.terminal-renderer * {

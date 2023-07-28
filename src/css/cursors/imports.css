@@ -5,3 +5,11 @@
   --cur-beam: url("../../assets/cursors/beam.cur"), auto;
   --cur-forbidden: url("../../assets/cursors/forbidden.cur"), auto;
 }
+
+:root .desktop:not(.cursor-custom) {
+  --cur-normal: normal;
+  --cur-hand: hand;
+  --cur-busy: progress;
+  --cur-beam: text;
+  --cur-forbidden: not-allowed;
+}
