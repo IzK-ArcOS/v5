@@ -15,7 +15,7 @@ export const Kill: Command = {
 
     closeWindow(appId);
 
-    term.std.writeLine(`Closed ${window.info.name}`);
+    if (term && term.std) term.std.writeLine(`Closed ${window.info.name}`);
   },
   help(term) {
     term.std.writeColor("[NOTE]: Capitalization matters.", "yellow");

@@ -5,7 +5,7 @@ import { createReport, sendReport } from "./main";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 
-const CRASH_BLACKLIST = ["NotAllowedError", "NotSupportedError"];
+const CRASH_BLACKLIST = ["NotAllowedError", "NotSupportedError", "AbortError"];
 
 export const CrashReport = writable<Report>();
 
