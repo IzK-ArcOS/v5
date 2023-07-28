@@ -8,7 +8,7 @@
 @import url("./theme/amber.css");
 
 :root {
-  --font: "Inter", sans-serif;
+  --font: "Nunito Sans", sans-serif;
   --glass-blur: 10px;
   --fg: #ccc;
   --win-bg: #353535;
