@@ -21,6 +21,15 @@ div.terminal-renderer * {
   font-size: 14px;
 }
 
+div.terminal-renderer div.userinput {
+  display: flex;
+}
+
+div.terminal-renderer div.userinput input {
+  width: unset;
+  min-width: unset;
+}
+
 div.terminal-renderer input {
   color: var(--fg);
 }
