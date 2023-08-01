@@ -1,0 +1,52 @@
+div.fts div.center-absolute div.left {
+  width: 35%;
+  border-right: var(--win-border);
+  left: 0px;
+  padding: 15px;
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  display: flex;
+  flex-direction: column;
+}
+
+div.fts div.center-absolute div.left div.state {
+  padding: 10px 15px;
+  opacity: 0.5;
+}
+
+div.fts div.center-absolute div.left div.state.activated {
+  opacity: 1;
+  font-weight: bold;
+}
+
+div.fts div.center-absolute div.left div.state.activated img {
+  filter: unset;
+}
+
+div.fts div.center-absolute div.left div.state * {
+  margin: 0;
+  vertical-align: middle;
+}
+
+div.fts div.center-absolute div.left div.state img {
+  height: 24px;
+  margin-right: 10px;
+  filter: grayscale(100%);
+}
+
+div.fts div.center-absolute div.left button.arcterm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  background-color: var(--button-glass-bg);
+  color: var(--fg);
+}
+
+div.fts div.center-absolute div.left button.arcterm img {
+  height: 20px;
+}

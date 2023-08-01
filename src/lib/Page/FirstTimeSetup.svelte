@@ -1,11 +1,11 @@
 <script lang="ts">
-  import "../../css/fts.css";
   import { onMount } from "svelte";
-  import Right from "./FirstTimeSetup/Right.svelte";
-  import { applyFTSState, CurrentFTSState } from "../../ts/fts/main";
-  import { FTSStates } from "../../ts/fts/store";
+  import "../../css/fts.css";
+  import { applyFTSState } from "../../ts/fts/main";
   import sleep from "../../ts/sleep";
   import { ArcSoundBus } from "../../ts/sound/main";
+  import Left from "./FirstTimeSetup/Left.svelte";
+  import Right from "./FirstTimeSetup/Right.svelte";
 
   let show = false;
 
@@ -20,17 +20,7 @@
 
 <div class="fts fullscreen" class:show>
   <div class="center-absolute">
-    <div class="left">
-      {#each [...FTSStates] as [key, value]}
-        <div
-          class="state"
-          class:activated={$CurrentFTSState && $CurrentFTSState.key == key}
-        >
-          <img src={value.image} alt={value.name} />
-          {value.name}
-        </div>
-      {/each}
-    </div>
+    <Left/>
     <Right />
   </div>
 </div>
