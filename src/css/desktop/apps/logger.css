@@ -26,13 +26,13 @@ window#LoggerApp:not(.focused) div.titlebar * {
   opacity: 0.5;
 }
 
-div.desktop.bigtitlebars window#LoggerApp div.sidebar {
+/*div.desktop.bigtitlebars window#LoggerApp div.sidebar {
   padding-top: 45px;
 }
 
 div.desktop.bigtitlebars window#LoggerApp div.content {
   padding-top: 40px;
-}
+}*/
 
 window#LoggerApp div.sidebar button {
   display: block;
@@ -80,7 +80,7 @@ window#LoggerApp div.content {
 window#LoggerApp div.content div.items {
   box-sizing: border-box;
   padding: 5px;
-  height: calc(100% - 40px);
+  height: calc(100% - 50px);
   overflow-y: scroll;
   background-color: var(--win-bg);
 }

@@ -11,7 +11,7 @@ export const LogDump: Command = {
   async exec(cmd, argv, term) {
     const filename = `LogDump-${Math.floor(Math.random() * 1e9)}.txt`;
 
-    term.std.writeColor(`Writing log to [./${filename}]...\n`, "purple");
+    term.std.writeColor(`Writing log to [${filename}]...\n`, "purple");
 
     const log = get(LogStore);
 
@@ -21,7 +21,7 @@ export const LogDump: Command = {
 
     const b = new Blob([str], { type: "text/plain" });
 
-    await writeFile(`./${filename}`, b);
+    await writeFile(`${term.path}/${filename}`, b);
 
     term.vars.set("ldout", filename);
 

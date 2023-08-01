@@ -7,7 +7,6 @@ import { DonutApp } from "../apps/Donut";
 import { ErrorCreator } from "../apps/ErrorCreator";
 import { Exit } from "../apps/Exit";
 import { FileBrowserApp } from "../apps/FileBrowser";
-import { HelpCenter } from "../apps/HelpCenter";
 import { ImageViewer } from "../apps/ImageViewer";
 import { LightsOff } from "../apps/LightsOff";
 import { LoggerApp } from "../apps/Logger";
@@ -28,7 +27,7 @@ export const DefaultApps: { [key: string]: App } = {
   TextEditor,
   CalculatorApp,
   MessagingApp,
-  SettingsApp: SettingsApp,
+  SettingsApp,
   AppMan: AppManager,
   LoggerApp,
   ArcTerm,
@@ -37,14 +36,13 @@ export const DefaultApps: { [key: string]: App } = {
   ArcShell,
 
   /** Hidden applications */
-  Exit: Exit,
+  Exit,
   AppInfo,
   ImageViewer,
   OpenWithApp,
   MarkDownViewer,
   MediaPlayerApp,
   DesktopWallpaper,
-  HelpCenter,
   BugReports,
 };
 
