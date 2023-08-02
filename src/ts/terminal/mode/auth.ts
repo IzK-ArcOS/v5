@@ -8,6 +8,7 @@ import { UserName } from "../../userlogic/interfaces";
 import type { ArcTerm } from "../main";
 import { addServer, getServer } from "../../api/server";
 import { setAuthcode } from "../../api/authcode";
+import { ARCOS_MODE } from "../../branding";
 
 export async function authPrompt(term: ArcTerm, usr = "") {
   const udata = get(UserName);
@@ -28,7 +29,7 @@ export async function authPrompt(term: ArcTerm, usr = "") {
   }
 
   term.std.clear();
-  term.std.writeLine(`ArcTerm ${ArcOSVersion} - ${api}\n\n`);
+  term.std.writeLine(`ArcTerm ${ArcOSVersion} ${ARCOS_MODE} ${api} atm1\n\n`);
 
   const username = await term.std.read(`${api} login: `, "", 100, false, usr);
   const password = await term.std.read("Password: ", "", 100, true);
