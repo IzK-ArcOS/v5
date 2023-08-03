@@ -9,6 +9,8 @@ export const Config: Command = {
       const str = e[i][1].toString();
       const key = e[i][0].padEnd(20, " ");
 
+      if (e[i][0] === "gooseBumps") continue;
+
       term.std.writeColor(`# [${key}]: `, "blue", "white", true);
       term.std.write(`${str}`);
       term.std.writeLine("");

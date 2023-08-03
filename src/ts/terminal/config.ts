@@ -92,10 +92,14 @@ export class ArcTermConfig {
 
     const data = {};
 
-    for (let i = 0; i < this.configKeys.length - 1; i++) {
+    for (let i = 0; i < this.configKeys.length; i++) {
       const k = this.configKeys[i];
 
-      data[k] = this.env[k];
+      if (
+        k != "gooseBumps" ||
+        (typeof this.env[k] === "boolean" && this.env[k] == true)
+      )
+        data[k] = this.env[k];
     }
 
     const blob = new Blob([JSON.stringify(data, null, 2)], {
