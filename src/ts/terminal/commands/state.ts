@@ -16,11 +16,8 @@ export const StateCommand: Command = {
         "purple"
       );
     }
-    /* 
-    if (!States.get(state))
-      return term.std.Error(`${state}: State doesn't exist.`);
- */
-    applyState(state);
+
+    applyState(state, false);
   },
   syntax: "<[stateId]>",
   description: "for debugging -- forcefully change the state",

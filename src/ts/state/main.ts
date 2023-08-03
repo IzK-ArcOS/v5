@@ -8,7 +8,7 @@ import { LogLevel } from "../console/interface";
 
 export const CurrentState = writable<State>(States[0]);
 
-export function applyState(stateKey: string) {
+export function applyState(stateKey: string, discontinue = true) {
   if (States.has(stateKey)) {
     Log(
       "state/main.ts: applyState",
@@ -26,7 +26,7 @@ export function applyState(stateKey: string) {
 
     document.title = t;
 
-    if (stateKey != "desktop") logoffToken();
+    if (stateKey != "desktop" && discontinue) logoffToken();
 
     return;
   }

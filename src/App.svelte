@@ -6,7 +6,7 @@
   import { getMode, Logo } from "./ts/branding";
   import { getDesktopMode } from "./ts/desktop/app";
   import { Busy } from "./ts/env/main";
-  import { handleWindowError } from "./ts/reporting/window";
+  import { handleWindowError } from "./ts/reporting/crash";
   import { applyState, CurrentState } from "./ts/state/main";
   import { committingUserData } from "./ts/userlogic/main";
 

@@ -46,8 +46,32 @@ window#BugReports div.sidebar div.bottom {
   border-top: var(--win-border);
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 0 10px;
+  gap: 10px;
+  height: 40px;
+}
+
+window#BugReports div.sidebar div.bottom button {
+  padding: 0;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+window#BugReports div.sidebar div.bottom button:not(.material-icons-round) {
+  padding: 5px;
+  background-color: var(--button-glass-bg);
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
   gap: 5px;
+}
+
+window#BugReports div.sidebar div.bottom button span.material-icons-round {
+  margin: 0;
+  font-size: 20px;
 }
 
 window#BugReports div.sidebar div.bottom button.material-icons-round {

@@ -5,13 +5,19 @@
   import Logo from "../../assets/fts/connect.svg";
   import sleep from "../../ts/sleep";
   import Selector from "./ServerSelect/Selector.svelte";
-  import { getServer } from "../../ts/api/server";
+  import { getAllServers, getServer } from "../../ts/api/server";
+  import { applyState } from "../../ts/state/main";
 
   let selected = "";
   let servers: ServerSelectOption[] = [];
   let show = false;
 
   onMount(async () => {
+    if (!getAllServers().length) {
+      applyState("fts");
+      return;
+    }
+
     selected = getServer();
 
     await sleep(500);

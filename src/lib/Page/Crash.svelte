@@ -2,7 +2,7 @@
   import { LogStore } from "../../ts/console";
   import { compileStringLog } from "../../ts/console/collector";
   import { removeApiSensitive } from "../../ts/reporting/obfuscate";
-  import { CrashReport } from "../../ts/reporting/window";
+  import { CrashReport } from "../../ts/reporting/crash";
 
   const prefix = `---! [ ArcOS crashed ] !---\n\nBelow you'll find the log, which may contain information about the crash.\nA bug report has been sent to the Reports server informing it of the crash.\n\n`;
 

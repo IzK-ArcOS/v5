@@ -5,7 +5,12 @@ import { createReport, sendReport } from "./main";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 
-const CRASH_BLACKLIST = ["NotAllowedError", "NotSupportedError", "AbortError"];
+const CRASH_BLACKLIST = [
+  "NotAllowedError",
+  "NotSupportedError",
+  "AbortError",
+  "AxiosError",
+];
 
 export const CrashReport = writable<Report>();
 
@@ -17,7 +22,7 @@ export function handleWindowError(
 
   if (rejection && CRASH_BLACKLIST.includes(rejection.reason.name))
     return Log(
-      "reporting/window.ts: handleWindowError",
+      "reporting/crash.ts: handleWindowError",
       `Not making a report for ${rejection.reason.name}`,
       LogLevel.warn
     );
@@ -47,7 +52,7 @@ export function handleWindowError(
 
   if (import.meta.env.DEV)
     return Log(
-      "reporting/window.ts: handleWindowError",
+      "reporting/crash.ts: handleWindowError",
       "Not sending a report in dev env, we ain't spammin' da servers!",
       LogLevel.warn
     );
