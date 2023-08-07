@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { ServerSelectOption } from "../../../ts/api/interface";
+  import { setServer } from "../../../ts/api/server";
   import { applyState } from "../../../ts/state/main";
 
   export let servers: ServerSelectOption[] = [];
@@ -14,7 +15,7 @@
   }
 
   function apply() {
-    localStorage.setItem("arcos-current-server", selected);
+    setServer(selected);
 
     restart();
   }

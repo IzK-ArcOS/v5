@@ -29,9 +29,11 @@ export function getServer(): string {
       return null;
     }
 
-    localStorage.setItem("arcos-current-server", all[all.length - 1]);
+    const server = all[all.length - 1];
 
-    return all[all.length - 1];
+    setServer(server);
+
+    return server;
   }
 
   return localStorage.getItem("arcos-current-server");
@@ -66,7 +68,7 @@ export function addServer(server: string, makeDefault = true): void {
 
   localStorage.setItem("arcos-servers", JSON.stringify(all));
 
-  if (makeDefault) localStorage.setItem("arcos-current-server", server);
+  if (makeDefault) setServer(server);
 }
 
 export function removeServer(server: string): boolean {
@@ -101,4 +103,9 @@ export function migrateToMulti() {
   addServer(server);
 
   localStorage.removeItem("arcos-server");
+}
+
+export function setServer(server: string) {
+  localStorage.setItem("arcos-current-server", server);
+  localStorage.removeItem("arcos-current-token");
 }

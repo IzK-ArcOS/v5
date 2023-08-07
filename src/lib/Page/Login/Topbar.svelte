@@ -6,7 +6,7 @@
     CurrentLoginState,
     loginUsername,
   } from "../../../ts/login/main";
-  import { getAllServers, getServer } from "../../../ts/api/server";
+  import { getAllServers, getServer, setServer } from "../../../ts/api/server";
   import { applyState } from "../../../ts/state/main";
 
   let time: string = "";
@@ -35,7 +35,7 @@
     setTimeout(() => {
       if (selectedServer == "$new") return applyState("fts");
 
-      localStorage.setItem("arcos-current-server", selectedServer);
+      setServer(selectedServer);
 
       restart();
     });
