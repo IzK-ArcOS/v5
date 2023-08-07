@@ -3,6 +3,7 @@ import { writable } from "svelte/store";
 import { getSearchItems } from "./store";
 
 export const showArcFind = writable<boolean>(false);
+export const arcFindValue = writable<string>("");
 
 export async function Search(query: string) {
   const items = await getSearchItems();

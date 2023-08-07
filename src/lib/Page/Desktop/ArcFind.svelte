@@ -1,11 +1,10 @@
 <script lang="ts">
   import "../../../css/desktop/arcfind.css";
   import { isPopulatable } from "../../../ts/applogic/checks";
-  import { closeWindow } from "../../../ts/applogic/events";
   import { WindowStore, maxZIndex } from "../../../ts/applogic/store";
   import { Busy } from "../../../ts/env/main";
   import type { SearchItem } from "../../../ts/search/interface";
-  import { Search, showArcFind } from "../../../ts/search/main";
+  import { Search, arcFindValue, showArcFind } from "../../../ts/search/main";
   import sleep from "../../../ts/sleep";
   import Loading from "./ArcFind/Loading.svelte";
   import NoResults from "./ArcFind/NoResults.svelte";
@@ -14,7 +13,6 @@
 
   export let inlined = false;
 
-  let query = "";
   let index = 0;
   let loading = false;
   let initial = false;
@@ -24,14 +22,14 @@
   let results: SearchItem[] = [];
 
   async function search() {
-    if (!query) return (initial = false);
+    if (!$arcFindValue) return (initial = false);
     initial = true;
     loading = true;
     Busy.set(true);
 
     const items = [];
 
-    const fuseResults = await Search(query);
+    const fuseResults = await Search($arcFindValue);
 
     for (let i = 0; i < fuseResults.length; i++) {
       items.push(fuseResults[i].item);
@@ -48,7 +46,7 @@
 
     if (!results.length) return;
 
-    query = "";
+    $arcFindValue = "";
 
     if (index != -1) {
       results[index].action(results[index]);
@@ -67,7 +65,7 @@
 
   function reset() {
     results = [];
-    query = "";
+    $arcFindValue = "";
     index = -1;
     initial = false;
   }
@@ -127,7 +125,7 @@
         <input
           type="text"
           placeholder="Search ArcOS"
-          bind:value={query}
+          bind:value={$arcFindValue}
           on:input={search}
           on:keydown={mutateIndex}
           bind:this={searchBox}
@@ -150,7 +148,7 @@
     </div>
   {/if}
 
-  <div class="apps" class:hide={!!query}>
+  <div class="apps" class:hide={!!$arcFindValue}>
     {#each $WindowStore as app}
       {#if isPopulatable(app)}
         <AppListItem {app} onopen={() => ($showArcFind = false)} />
