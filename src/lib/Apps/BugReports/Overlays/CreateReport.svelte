@@ -2,7 +2,7 @@
   import "../../../../css/desktop/apps/bugreports/overlays/createreport.css";
   import type { BugReportsRuntime } from "../../../../ts/applogic/apps/BugReports/runtime";
   import { ARCOS_MODE } from "../../../../ts/branding";
-  import { DESKTOP_MODE, isDesktop } from "../../../../ts/desktop/app";
+  import { DESKTOP_MODE } from "../../../../ts/desktop/app";
   import { ArcOSVersion } from "../../../../ts/env/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import type { ReportOptions } from "../../../../ts/reporting/interface";

@@ -1,12 +1,9 @@
 <script lang="ts">
-  import type {
-    AppGroup,
-    CompiledAppGroup,
-  } from "../../../../../ts/applogic/groups/interface";
   import folderIcon from "../../../../../assets/apps/filemanager/folder.svg";
+  import { isPopulatable } from "../../../../../ts/applogic/checks";
+  import type { CompiledAppGroup } from "../../../../../ts/applogic/groups/interface";
   import { getWindow } from "../../../../../ts/applogic/store";
   import AppListItem from "../AppListItem.svelte";
-  import { isPopulatable } from "../../../../../ts/applogic/checks";
 
   export let group: CompiledAppGroup;
 

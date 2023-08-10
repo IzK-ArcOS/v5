@@ -2,10 +2,10 @@
   import { onMount } from "svelte";
   import "../../css/desktop/apps/mediaplayer.css";
   import { getMimeIcon } from "../../ts/api/fs/icon/main";
+  import { isOpened } from "../../ts/applogic/checks";
   import type { App } from "../../ts/applogic/interface";
   import { registerShortcuts } from "../../ts/applogic/keyboard/main";
   import { WindowStore } from "../../ts/applogic/store";
-  import { isOpened } from "../../ts/applogic/checks";
 
   let audioObject: HTMLAudioElement;
 

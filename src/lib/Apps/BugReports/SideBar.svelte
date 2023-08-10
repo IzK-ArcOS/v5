@@ -2,8 +2,8 @@
   import { onMount } from "svelte";
   import type { BugReportsRuntime } from "../../../ts/applogic/apps/BugReports/runtime";
   import type { LocalReportData } from "../../../ts/reporting/interface";
-  import Report from "./SideBar/Report.svelte";
   import Bottom from "./SideBar/Bottom.svelte";
+  import Report from "./SideBar/Report.svelte";
 
   export let runtime: BugReportsRuntime;
 
