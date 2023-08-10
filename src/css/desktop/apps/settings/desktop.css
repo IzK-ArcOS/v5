@@ -99,10 +99,10 @@ window#SettingsApp
   opacity: 0.3;
   margin: -1px;
 }
-/* 
+
 window#SettingsApp div.desktop-page div.current div.fake-taskbar.colored {
   border: var(--glass-ultradark) 1px solid;
-} */
+}
 
 window#SettingsApp
   div.desktop-page
@@ -118,7 +118,8 @@ window#SettingsApp div.desktop-page div.current div.fake-window {
   width: 80px;
   height: 60px;
   border-radius: 3px;
-  background-color: var(--win-bg);
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
   border: var(--win-border);
   padding: 3px;
   box-sizing: border-box;
