@@ -31,8 +31,7 @@ export async function authPrompt(term: ArcTerm, usr = "") {
   term.std.clear();
   term.std.writeLine(`ArcTerm ${ArcOSVersion} ${ARCOS_MODE} ${api} atm1\n\n`);
 
-  const username = await term.std.read(`${api} login: `, "", 100, false, usr);
-  const password = await term.std.read("Password: ", "", 100, true);
+  const { username, password } = await authPromptFields(term, api, usr);
 
   const token = generateCredToken({ username: username, password });
 
@@ -40,11 +39,28 @@ export async function authPrompt(term: ArcTerm, usr = "") {
 
   await rememberedLogin();
 
-  if (!get(UserName)) return await authPrompt(term, username);
+  if (!get(UserName)) {
+    term.std.writeLine("\nLogin incorrect");
+
+    return await authPromptFields(term, api, usr);
+  }
 
   await term.env.config.loadConfigFile();
 
   return true;
+}
+
+async function authPromptFields(term: ArcTerm, api: string, usr: string) {
+  const username = await term.std.read(`${api} login: `, "", 100, false, usr);
+
+  if (!username) {
+    term.std.writeLine("\nLogin incorrect");
+    return await authPromptFields(term, api, usr);
+  }
+
+  const password = await term.std.read("Password: ", "", 100, true);
+
+  return { username, password };
 }
 
 async function serverConnect(term: ArcTerm) {

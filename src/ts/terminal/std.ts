@@ -194,6 +194,8 @@ export class ArcTermStd {
     this.term.input.current = input;
 
     input.addEventListener("keydown", (e) => {
+      if (!e.key) return;
+
       const key = e.key.toLowerCase();
 
       if (key != "enter") return;

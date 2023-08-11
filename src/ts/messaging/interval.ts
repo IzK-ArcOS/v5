@@ -6,6 +6,7 @@ import { makeNotification } from "../notiflogic/main";
 import { UserName } from "../userlogic/interfaces";
 import { getUnreadMessages } from "./get";
 import { messageUpdateTrigger } from "./updates";
+import { CurrentState } from "../state/main";
 
 let interval;
 
@@ -18,7 +19,8 @@ export function startMessageCheckInterval() {
 }
 
 async function tick() {
-  if (!get(UserName)) return stopMessageCheckInterval();
+  if (!get(UserName) || get(CurrentState).name != "Desktop")
+    return stopMessageCheckInterval();
 
   messageUpdateTrigger();
 
