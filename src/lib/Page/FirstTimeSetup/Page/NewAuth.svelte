@@ -9,6 +9,7 @@
   import { getUsers } from "../../../../ts/userlogic/main";
   import Spinner from "../../../Spinner.svelte";
   import { Busy } from "../../../../ts/env/main";
+  import { createUser } from "../../../../ts/userlogic/mutate";
 
   let username = "";
   let password = "";
@@ -40,12 +41,9 @@
     Busy.set(true);
     working = true;
 
-    const req = await apiCall($ConnectedServer, "user/create", {}, null, {
-      username,
-      password,
-    });
+    const data = await createUser(username, password);
 
-    if (!req.valid) {
+    if (!data) {
       error = true;
       Busy.set(false);
       working = false;
@@ -57,16 +55,7 @@
       return;
     }
 
-    const userdata = await loginUsingCreds(
-      generateCredToken({ username, password })
-    );
-
-    if (!userdata) {
-      Busy.set(false);
-      return (loading = false);
-    }
-
-    UserData.set(userdata);
+    UserData.set(data);
     UserName.set(username);
 
     applyFTSState("finish");

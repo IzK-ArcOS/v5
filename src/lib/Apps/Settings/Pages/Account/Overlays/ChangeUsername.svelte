@@ -1,6 +1,7 @@
 <script lang="ts">
+  import usericon from "../../../../../../assets/apps/settings/account.svg";
+  import "../../../../../../css/desktop/apps/settings/account/changeUname.css";
   import { changeUsername } from "../../../../../../ts/api/cred";
-  import { resetAppIcon } from "../../../../../../ts/applogic/icon";
   import type { App } from "../../../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
   import {
@@ -10,8 +11,6 @@
   import { getProfilePicture } from "../../../../../../ts/userlogic/pfp";
   import { hideOverlay } from "../../../../../../ts/window/overlay";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
-  import usericon from "../../../../../../assets/apps/settings/account.svg";
-  import "../../../../../../css/desktop/apps/settings/account/changeUname.css";
 
   let img = "";
 
@@ -23,6 +22,22 @@
   UserData.subscribe((v) => {
     img = getProfilePicture(v.acc.profilePicture);
   });
+
+  function confirmChange() {
+    createOverlayableError(
+      {
+        title: "Please be aware",
+        message:
+          "Changing your username will only update the credentials on this ArcOS instance on this device. You'll have to log in again on all other devices. Proceed?",
+        buttons: [
+          { caption: "Change it", action: change },
+          { caption: "Cancel", action() {} },
+        ],
+        image: usericon,
+      },
+      "SettingsApp"
+    );
+  }
 
   async function change() {
     const valid = await changeUsername($UserName, newName);
@@ -78,7 +93,7 @@
     <div class="apply">
       <div>
         <button on:click={cancel}>Cancel</button>
-        <button on:click={change} disabled={!newName} type="button">
+        <button on:click={confirmChange} disabled={!newName} type="button">
           Change
         </button>
       </div>

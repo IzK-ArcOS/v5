@@ -20,7 +20,11 @@ export function handleWindowError(
   const error = e as unknown as ErrorEvent;
   const rejection = e as PromiseRejectionEvent;
 
-  if (rejection && CRASH_BLACKLIST.includes(rejection.reason.name))
+  if (
+    rejection &&
+    rejection.reason &&
+    CRASH_BLACKLIST.includes(rejection.reason.name)
+  )
     return Log(
       "reporting/crash.ts: handleWindowError",
       `Not making a report for ${rejection.reason.name}`,

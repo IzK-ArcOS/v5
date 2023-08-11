@@ -8,6 +8,7 @@
   import { applyState } from "../../../../../ts/state/main";
   import { loginUsername } from "../../../../../ts/login/main";
   import { Busy } from "../../../../../ts/env/main";
+  import { createUser } from "../../../../../ts/userlogic/mutate";
 
   export let loading: boolean;
   export let username: string;
@@ -28,21 +29,12 @@
     Busy.set(false);
     loading = true;
 
-    await apiCall($ConnectedServer, "user/create", {}, null, {
-      username,
-      password,
-    });
-
-    const userdata = await loginUsingCreds(
-      generateCredToken({ username, password })
-    );
+    const userdata = await createUser(username, password);
 
     if (!userdata) {
-      Busy.set(false);
-
       errored = true;
 
-      return (loading = false);
+      return false;
     }
 
     UserData.set(userdata);

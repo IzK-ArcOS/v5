@@ -67,6 +67,9 @@ export function registerDesktopShortcuts() {
 
   document.addEventListener("keydown", (e) => {
     const valid = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+    if (!e.key) return;
+
     const key = e.key.toLowerCase();
 
     console.log(key, valid.includes(key), key.length);
