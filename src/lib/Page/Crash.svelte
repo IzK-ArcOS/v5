@@ -12,8 +12,11 @@
     const Log = `\n--- LOG ---\n\n${compileStringLog().join("\n")}`;
     const crashRep = $CrashReport;
     const reportStr = crashRep ? `${crashRep.title}\n\n${crashRep.body}\n` : "";
+    const extra = import.meta.env.DEV
+      ? "WARNING: ArcOS in Vite Development will not send Bug Reports to prevent spamming of servers.\n\n"
+      : "";
 
-    log = `${prefix}${reportStr}${Log}`;
+    log = `${prefix}${extra}${reportStr}${Log}`;
   });
 </script>
 

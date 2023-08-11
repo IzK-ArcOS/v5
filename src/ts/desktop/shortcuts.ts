@@ -69,9 +69,11 @@ export function registerDesktopShortcuts() {
     const valid = "abcdefghijklmnopqrstuvwxyz0123456789";
     const key = e.key.toLowerCase();
 
+    console.log(key, valid.includes(key), key.length);
+
     if (!valid.includes(key) || key.length > 1) return;
 
-    if (get(CurrentState).name != "desktop" || !get(startOpened)) return;
+    if (get(CurrentState).name != "Desktop" || !get(startOpened)) return;
 
     startOpened.set(false);
     showArcFind.set(true);

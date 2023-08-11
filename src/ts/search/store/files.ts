@@ -25,7 +25,7 @@ export async function compileSearchableFiles() {
 
   const result: SearchItem[] = [];
   const req = await apiCall(server, "fs/tree", {}, get(UserToken));
-  const files = req.data as PartialArcFile[];
+  const files = req.data ? (req.data as PartialArcFile[]) : [];
 
   for (let i = 0; i < files.length; i++) {
     result.push({
