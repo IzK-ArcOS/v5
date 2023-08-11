@@ -1,11 +1,8 @@
 import { get } from "svelte/store";
-import { getServer } from "../api/server";
 import { focusedWindowId } from "../applogic/store";
 import { Log } from "../console";
-import { UserName } from "../userlogic/interfaces";
 import type { ArcTermEnv } from "./env";
 import type { ArcTerm } from "./main";
-import { LogLevel } from "../console/interface";
 
 export class ArcTermInput {
   private lockInput = false;
@@ -58,15 +55,7 @@ export class ArcTermInput {
   private getPrompt() {
     Log(`ArcTerm ${this.term.referenceId}`, `input.getPrompt`);
 
-    const username = get(UserName);
-    const server = getServer();
-    const path = (this.term.path || ".").replace(".", "");
-    const prompt = this.env.prompt
-      .replace("&u", username)
-      .replace("&s", server)
-      .replace("&p", path);
-
-    return prompt;
+    return this.term.vars.replace(this.env.prompt);
   }
 
   public createPrompt() {

@@ -7,7 +7,7 @@ import type { ArcTerm } from "./main";
 
 export class ArcTermEnv {
   config: ArcTermConfig;
-  prompt = "[&u]: [~/&p] $ ";
+  prompt = "[$username]: [~/$pwd] $ ";
   promptColor: Color = "green";
   greeting = `ArcTerm & ArcOS v${ArcOSVersion}\n\nLicensed under GPLv3. Created by the ArcOS team.`;
   logo: boolean = true;

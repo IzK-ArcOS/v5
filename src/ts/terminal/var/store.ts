@@ -41,7 +41,7 @@ export function getArcTermStore(term: ArcTerm): VariableStore {
       canDelete: false,
     },
     pwd: {
-      get: () => term.path,
+      get: () => (term.path || "./").replace("./", ""),
       set: async (v) => {
         const dir = await getDirectory(v);
 

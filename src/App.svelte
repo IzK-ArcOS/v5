@@ -9,6 +9,7 @@
   import { handleWindowError } from "./ts/reporting/crash";
   import { applyState, CurrentState } from "./ts/state/main";
   import { committingUserData } from "./ts/userlogic/main";
+  import { getBuild } from "./ts/branding/build";
 
   let run = false;
   let logo = "";
@@ -16,6 +17,7 @@
   onMount(async () => {
     await getMode();
     await getDesktopMode();
+    await getBuild();
 
     applyState("boot");
 
