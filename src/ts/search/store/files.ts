@@ -15,6 +15,7 @@ import { WindowStore } from "../../applogic/store";
 import { FileBrowserCurrentDir } from "../../applogic/apps/FileBrowser/main";
 
 let FILE_CACHE: SearchItem[] = [];
+let FILES_FAILED = false;
 
 export async function compileSearchableFiles() {
   if (FILE_CACHE.length && FILE_CACHE[0]) return FILE_CACHE;
@@ -24,8 +25,12 @@ export async function compileSearchableFiles() {
   if (!server) return [];
 
   const result: SearchItem[] = [];
-  const req = await apiCall(server, "fs/tree", {}, get(UserToken));
+  const req = FILES_FAILED
+    ? { data: [] }
+    : await apiCall(server, "fs/tree", {}, get(UserToken));
   const files = req.data ? (req.data as PartialArcFile[]) : [];
+
+  if (!files.length) FILES_FAILED = true;
 
   for (let i = 0; i < files.length; i++) {
     result.push({
