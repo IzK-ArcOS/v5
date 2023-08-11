@@ -7,32 +7,32 @@ div.fts div.center-absolute div.right {
   padding: 20px;
 }
 
-div.page div.header * {
+div.fts div.page div.header * {
   margin: 0;
   font-weight: 100;
 }
 
-div.page div.header.centered {
+div.fts div.page div.header.centered {
   text-align: center;
   margin: 10px 0;
   margin-bottom: 30px;
 }
 
-div.page div.header.centered img {
+div.fts div.page div.header.centered img {
   height: 100px;
   margin: 10px 0;
 }
 
-div.page div.header h1 {
+div.fts div.page div.header h1 {
   font-size: 23px;
   font-weight: bold;
 }
 
-div.page div.header.centered p.subtitle {
+div.fts div.page div.header.centered p.subtitle {
   margin-top: 10px;
 }
 
-div.page div.header p.subtitle {
+div.fts div.page div.header p.subtitle {
   opacity: 0.4;
   margin: 0;
   margin-bottom: 5px;
@@ -105,36 +105,41 @@ div.fts div.center-absolute div.right div.nav div div.progress div.inner {
   transition: width 0.5s;
 }
 
-button.flat {
+div.fts button.flat {
   background-color: transparent !important;
   color: var(--clr-blue-fg) !important;
 }
 
-button.flat.centered {
+div.fts button.flat.centered {
   margin: 15px auto;
   display: block;
 }
 
-button.fullwidth {
+div.fts button.fullwidth {
   display: block;
   width: 100%;
   text-align: left;
   margin-bottom: 5px;
 }
 
-button.fullwidth.option {
+div.fts button.fullwidth.option {
   padding: 20px !important;
   position: relative;
 }
 
-.fullwidth.centered {
+div.fts .centered {
+  display: block;
+  margin: 0 auto;
+}
+
+div.fts .fullwidth.centered {
   max-width: 65%;
   margin: 5px auto;
 }
 
-button.fullwidth.option::after {
+div.fts button.fullwidth.option::after {
   position: absolute;
-  top: 20px;
+  top: 22px;
   right: 20px;
   font-family: "Material Icons Round";
   content: "arrow_forward_ios";
@@ -170,6 +175,10 @@ div.fts select.fullwidth {
   margin-bottom: 5px;
 }
 
-.justified {
+div.fts .justified {
   text-align: justify;
+}
+
+div.fts .centertext {
+  text-align: center;
 }
