@@ -20,6 +20,8 @@ export class ArcTermCommandHandler {
   public async evaluate(cmd: string, args?: string[]) {
     Log(`ArcTerm ${this.term.referenceId}`, `cmd.evaluate: ${cmd}`);
 
+    if (cmd.startsWith("#")) return;
+
     this.history.push(`${cmd} ${args.join(" ")}`.trim());
 
     const command = this.getCommand(cmd);
@@ -30,7 +32,7 @@ export class ArcTermCommandHandler {
 
     if (!this.term.std || !this.term.input) return;
     if (this.term.std.verbose) this.term.std.writeLine("\n");
-    
+
     this.term.input.unlock();
   }
 
