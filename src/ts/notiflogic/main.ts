@@ -51,4 +51,6 @@ export function deleteNotification(id: string) {
   delete ns[id];
 
   NotificationStore.set(ns);
+
+  if (get(CurrentNotification) == "id") closeNotification();
 }
