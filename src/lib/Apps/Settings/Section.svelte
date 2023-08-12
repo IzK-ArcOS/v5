@@ -20,8 +20,9 @@
 </script>
 
 <div class="section" class:collapsible class:collapsed class:opt>
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
   {#if collapsible}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div class="header" on:click={collapse}>{header}</div>
   {:else}
     <h3 class="header">{header}</h3>

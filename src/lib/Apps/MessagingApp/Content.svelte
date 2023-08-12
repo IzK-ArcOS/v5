@@ -1,5 +1,4 @@
 <script lang="ts">
-  import SvelteMarkdown from "svelte-markdown";
   import icon from "../../../assets/apps/messaging.svg";
   import { createOverlayableError } from "../../../ts/errorlogic/overlay";
   import type { Message } from "../../../ts/messaging/interface";

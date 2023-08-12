@@ -8,6 +8,7 @@
   } from "../../../ts/messaging/updates";
   import MessageItem from "./ListBar/MessageItem.svelte";
   import { Busy } from "../../../ts/env/main";
+  import sleep from "../../../ts/sleep";
 
   let items: PartialMessage[] = [];
   let loading = false;
@@ -15,6 +16,8 @@
   onMount(() => {
     messageUpdateTrigger();
   });
+
+  messagingPage.subscribe(refresh);
 
   messageSubscribe(refresh);
 
@@ -26,7 +29,11 @@
 
     const messages = await $messagingPage.msgGetter();
 
-    if (!isSame(items, messages)) set(sort(messages));
+    if (!isSame(items, messages)) {
+      set([]);
+      await sleep(100);
+      set(sort(messages));
+    }
 
     loading = false;
     Busy.set(false);

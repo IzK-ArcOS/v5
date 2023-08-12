@@ -4,18 +4,18 @@ window#MessagingApp div.body div.sidebar {
 }
 
 window#MessagingApp div.body div.sidebar button {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   padding: 0;
   margin: 0;
   margin-bottom: 8px;
   background-color: transparent;
-  font-size: 16px;
+  font-size: 18px;
   color: var(--accent);
 }
 
 window#MessagingApp div.body div.sidebar hr {
-  width: 20px;
+  width: 30px;
   margin: 0;
   margin-bottom: 8px;
   border: var(--button-glass-bg) 1px solid;
@@ -35,7 +35,8 @@ window#MessagingApp div.body div.sidebar button:not(.active) {
 }
 
 window#MessagingApp div.body div.sidebar button.active {
-  filter: var(--elevated-accent-filter);
+  /* filter: var(--elevated-accent-filter); */
+  background-color: var(--button-glass-bg);
 }
 
 window#MessagingApp div.body div.sidebar div.pfprenderer {

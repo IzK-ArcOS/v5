@@ -26,8 +26,9 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="target-wrapper">
-  <div class="target-selector" on:click={toggle}>
+<div class="target-wrapper" on:blur={() => (selecting = false)}>
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <div class="target-selector" on:click={toggle} class:selecting>
     <div class="current">
       <ProfilePicture src={pfp || defaultProfile} height={32} />
       <div>
@@ -40,7 +41,11 @@
       </div>
     </div>
   </div>
-  <div class="target-options" class:visible={selecting}>
+  <div
+    class="target-options"
+    class:visible={selecting}
+    on:blur={() => (selecting = false)}
+  >
     {#each users as entry}
       <User bind:target bind:selecting {entry} bind:pfp />
     {/each}

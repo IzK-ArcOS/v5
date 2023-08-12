@@ -11,7 +11,7 @@ window#MessagingApp > div.body > div {
 
 window#MessagingApp > div.body > div.sidebar {
   min-width: 40px !important;
-  width: 40px !important;
+  width: 50px !important;
   border-right: var(--win-border);
 }
 
@@ -27,4 +27,5 @@ window#MessagingApp > div.body > div.content {
   background-color: var(--win-bg);
   word-break: break-all;
   overflow: hidden;
+  padding: 0;
 }

@@ -1,11 +1,11 @@
 window#MessagingApp div.body > div.content {
   display: flex;
   flex-direction: column;
-  max-width: calc(100% - 240px) !important;
+  max-width: calc(100% - 290px) !important;
 }
 window#MessagingApp div.body > div.content div.message-header {
   display: flex;
-  padding: 5px;
+  padding: 15px;
   padding-bottom: 15px;
   margin-bottom: 15px;
   border-bottom: var(--button-bg) 1px solid;
@@ -90,9 +90,20 @@ window#MessagingApp div.body > div.content div.target-wrapper {
 
 window#MessagingApp div.body > div.content div.target-selector {
   display: flex;
-  margin: 5px;
+  margin: 10px;
   padding: 5px;
   border-radius: 5px;
+}
+
+window#MessagingApp div.body > div.content div.target-selector.selecting {
+  background-color: var(--button-bg);
+}
+
+window#MessagingApp
+  div.body
+  > div.content
+  div.target-selector.selecting::after {
+  transform: rotate(180deg);
 }
 
 window#MessagingApp div.body > div.content div.target-selector:hover {
@@ -101,6 +112,7 @@ window#MessagingApp div.body > div.content div.target-selector:hover {
 
 window#MessagingApp div.body > div.content div.target-selector div.current {
   display: flex;
+  align-items: center;
 }
 
 window#MessagingApp
@@ -131,25 +143,23 @@ window#MessagingApp div.body > div.content div.target-selector::after {
   content: "expand_more";
   font-family: "Material Icons Round", sans-serif;
   font-size: 20px;
-  right: 10px;
-  line-height: 32px;
-  position: absolute;
+  margin: 6px 8px;
+  margin-left: auto;
+  height: 20px;
+  width: 20px;
 }
 window#MessagingApp div.body > div.content div.target-options {
   position: absolute;
-  background-color: var(--glass-bg);
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  backdrop-filter: blur(var(--glass-blur));
-  border: var(--button-bg) 1px solid;
-  width: 100%;
+  background-color: var(--button-active-bg);
+  border: var(--win-border);
+  width: calc(100% - 30px);
   margin: 0;
   box-sizing: border-box;
   padding: 5px;
   border-radius: 5px;
-  right: 0px;
-  top: 0px;
-  margin-top: -5px;
-  max-height: 182px;
+  left: 15px;
+  top: 55px;
+  max-height: 250px;
   overflow-y: scroll;
   transition: opacity 0.3s, visibility 0.3s, pointer-events 0s;
   display: none;
@@ -195,7 +205,7 @@ window#MessagingApp div.body > div.content textarea {
   font-family: "Source Code Pro", monospace;
 }
 window#MessagingApp div.body > div.content div.markdownrenderer {
-  padding: 10px 0;
+  padding: 10px;
   padding-top: 0;
 }
 
@@ -203,10 +213,9 @@ window#MessagingApp div.body > div.content div.editor-send,
 window#MessagingApp div.body > div.content div.reply-wrapper {
   border-top: var(--button-bg) 1px solid;
   padding: 10px;
-  padding-bottom: 0;
   display: flex;
   line-height: 26px;
-  margin: 0 -10px;
+  margin: 0;
 }
 
 window#MessagingApp div.body > div.content div.reply-wrapper p {
