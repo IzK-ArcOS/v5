@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { getDirectory, sortDirectories } from "../../api/fs/directory";
 import { sortFiles } from "../../api/fs/file";
 import { formatBytes } from "../../api/fs/sizes";
@@ -8,36 +9,29 @@ export const Dir: Command = {
   keyword: "dir",
   async exec(cmd, argv, term) {
     const path = term.path as string;
-    const contents = (await getDirectory(path)) as UserDirectory;
-    const dirs = sortDirectories(contents.directories);
-    const files = sortFiles(contents.files);
+    const dir = (await getDirectory(path)) as UserDirectory;
+    const subdirs = sortDirectories(dir.directories);
+    const files = sortFiles(dir.files);
 
-    let totalSize = 0;
+    for (let i = 0; i < subdirs.length; i++) {
+      const subdir = subdirs[i];
 
-    term.std.writeColor(`\nDirectory contents of [${path}]\n`, "blue");
-
-    for (let i = 0; i < dirs.length; i++) {
-      const name = dirs[i].name;
-      const size = `     <DIR>`;
-
-      term.std.writeColor(`[${size}] ${name}`, "gray", "white");
+      term.std.writeColor(
+        `-- --- ----, --:-- <directory> [${subdir.name}]/`,
+        "blue"
+      );
     }
 
     for (let i = 0; i < files.length; i++) {
-      const name = files[i].filename;
-      const size = `${files[i].size}`.padStart(10, " ");
+      const file = files[i];
 
-      totalSize += files[i].size;
+      const date = dayjs(file.dateModified || 0)
+        .format("DD MMM YYYY, HH:mm")
+        .padEnd(19, " ");
+      const size = formatBytes(file.size || 0).padEnd(12, " ");
 
-      term.std.writeColor(`[${size}] ${name}`, "gray", "white");
+      term.std.writeColor(`${date}${size}[${file.filename}]`, "blue");
     }
-
-    term.std.writeLine("");
-
-    const totalf = formatBytes(totalSize).padStart(10, " ");
-    const bytes = `(${totalSize} bytes)`;
-
-    term.std.writeLine(`${totalf} ${bytes}`);
   },
   description: "List the contents of the current directory",
   syntax: `<[path]>`,
