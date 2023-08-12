@@ -14,6 +14,8 @@
   import TileView from "./FileBrowser/TileView.svelte";
   import TopBar from "./FileBrowser/TopBar.svelte";
   import Bottom from "./FileBrowser/Bottom.svelte";
+  import { sortDirectories } from "../../ts/api/fs/directory";
+  import { sortFiles } from "../../ts/api/fs/file";
 
   let files: PartialArcFile[] = [];
   let dirs: PartialUserDir[] = [];
@@ -36,8 +38,8 @@
   });
 
   FileBrowserDirContents.subscribe((v) => {
-    dirs = v.directories;
-    files = v.files;
+    dirs = sortDirectories(v.directories);
+    files = sortFiles(v.files);
   });
 </script>
 

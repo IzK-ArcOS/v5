@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import type { Writable } from "svelte/store";
-  import { readFile } from "../../../../ts/api/fs/file";
+  import { partialFileToComplete } from "../../../../ts/api/fs/convert";
   import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
   import type { PartialArcFile } from "../../../../ts/api/interface";
   import type { OverlayableApp } from "../../../../ts/applogic/interface";
@@ -20,12 +20,7 @@
   async function process() {
     $processing = true;
 
-    const data = {
-      name: file.filename,
-      path: file.scopedPath,
-      data: (await readFile(file.scopedPath)) as ArrayBuffer,
-      mime: file.mime,
-    };
+    const data = await partialFileToComplete(file);
 
     setTargetFile(overlay.id, data);
 

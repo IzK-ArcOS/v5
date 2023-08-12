@@ -1,8 +1,9 @@
+import { getDirectory } from "../api/fs/directory";
+import { readFile } from "../api/fs/file";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
+import { Default } from "./commands/default";
 import type { ArcTerm } from "./main";
-import { defaultCommand } from "./store";
-
 export class ArcTermCommandHandler {
   term: ArcTerm;
   history: string[] = [];
@@ -47,6 +48,33 @@ export class ArcTermCommandHandler {
       if (k == c) return this.term.commands[i];
     }
 
-    return defaultCommand;
+    return Default;
+  }
+
+  public async detectCommand(directory: string, cmd: string) {
+    const dir = await getDirectory(directory);
+
+    if (!dir) return null;
+
+    const files = dir.files;
+
+    for (let i = 0; i < files.length; i++) {
+      const name = files[i].filename;
+      const path = files[i].scopedPath;
+
+      if (name.startsWith(cmd) && (await this.isScriptFile(path))) return path;
+    }
+  }
+
+  public async isScriptFile(path: string): Promise<boolean> {
+    const file = await readFile(path);
+
+    if (!file) return false;
+
+    const enc = new TextDecoder("utf-8");
+    const d = enc.decode(new Uint8Array(file));
+    const split = d.split("\n");
+
+    return split[0].startsWith("#!arcterm");
   }
 }

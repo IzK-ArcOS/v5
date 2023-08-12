@@ -1,7 +1,7 @@
 import { switchExists } from "../argv";
 import type { Command } from "../interface";
 import type { ArcTerm } from "../main";
-import { defaultCommand } from "../store";
+import { Default } from "./default";
 
 export const Help: Command = {
   keyword: "help",
@@ -16,7 +16,7 @@ export const Help: Command = {
 
     all(term);
   },
-  help(term){
+  help(term) {
     term.std.writeColor("Example: [help] help", "blue");
   },
   description: "Display a list of built-in commands",
@@ -39,7 +39,7 @@ function all(term: ArcTerm) {
 function specific(command: string, term: ArcTerm) {
   const c = term.commandHandler.getCommand(command);
 
-  if (!c || c.keyword == defaultCommand.keyword)
+  if (!c || c.keyword == Default.keyword)
     return term.std.Error(`${command}: command not found.`);
 
   if (!c.help) {

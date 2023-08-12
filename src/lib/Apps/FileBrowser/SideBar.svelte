@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getDirectory } from "../../../ts/api/fs/directory";
+  import { getDirectory, sortDirectories } from "../../../ts/api/fs/directory";
   import type {
     PartialUserDir,
     UserDirectory,
@@ -11,7 +11,9 @@
   let folders: PartialUserDir[] = [];
 
   FileBrowserDirContents.subscribe(async (v) => {
-    folders = ((await getDirectory("./")) as UserDirectory).directories;
+    folders = sortDirectories(
+      ((await getDirectory("./")) as UserDirectory).directories
+    );
   });
 </script>
 

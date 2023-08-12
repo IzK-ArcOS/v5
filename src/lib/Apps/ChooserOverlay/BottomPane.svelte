@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Writable } from "svelte/store";
-  import { readFile } from "../../../ts/api/fs/file";
+  import { partialFileToComplete } from "../../../ts/api/fs/convert";
   import type { UserDirectory } from "../../../ts/api/interface";
   import type { OverlayableApp } from "../../../ts/applogic/interface";
   import { getWindow } from "../../../ts/applogic/store";
@@ -23,12 +23,7 @@
         file = $currentDir.files[i];
     }
 
-    const data = {
-      name: file.filename,
-      path: file.scopedPath,
-      data: (await readFile(file.scopedPath)) as ArrayBuffer,
-      mime: file.mime,
-    };
+    const data = await partialFileToComplete(file);
 
     hideOverlay(overlay.id, getChooserTarget(overlay.id) as string);
 

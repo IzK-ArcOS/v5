@@ -1,4 +1,5 @@
-import { getDirectory } from "../../api/fs/directory";
+import { getDirectory, sortDirectories } from "../../api/fs/directory";
+import { sortFiles } from "../../api/fs/file";
 import { formatBytes } from "../../api/fs/sizes";
 import type { UserDirectory } from "../../api/interface";
 import type { Command } from "../interface";
@@ -8,8 +9,8 @@ export const Dir: Command = {
   async exec(cmd, argv, term) {
     const path = term.path as string;
     const contents = (await getDirectory(path)) as UserDirectory;
-    const dirs = contents.directories;
-    const files = contents.files;
+    const dirs = sortDirectories(contents.directories);
+    const files = sortFiles(contents.files);
 
     let totalSize = 0;
 

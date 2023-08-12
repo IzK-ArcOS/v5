@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import icon from "../../../../assets/apps/filemanager/file.svg";
-  import { readFile } from "../../../../ts/api/fs/file";
+  import { partialFileToComplete } from "../../../../ts/api/fs/convert";
   import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
   import {
     openUserFile,
@@ -10,14 +10,13 @@
   import { formatBytes } from "../../../../ts/api/fs/sizes";
   import type { ArcFile, PartialArcFile } from "../../../../ts/api/interface";
   import {
-    FileBrowserCuttingFilename as cutting,
     FileBrowserDirContents,
     FileBrowserOpeningFile,
     FileBrowserSelectedFilename,
+    FileBrowserCuttingFilename as cutting,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
-  import { partialFileToComplete } from "../../../../ts/api/fs/convert";
 
   export let file: PartialArcFile;
 

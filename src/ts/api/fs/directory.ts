@@ -1,7 +1,11 @@
 import { get } from "svelte/store";
 import { Log } from "../../console";
 import { UserToken } from "../../userlogic/interfaces";
-import type { DirectoryGet, DirReadResponse } from "../interface";
+import type {
+  DirectoryGet,
+  DirReadResponse,
+  PartialUserDir,
+} from "../interface";
 import { apiCall, ConnectedServer } from "../main";
 import { LogLevel } from "../../console/interface";
 
@@ -26,6 +30,12 @@ export async function getDirectory(path: string = "./"): DirectoryGet {
   if (!req || !req.valid) return false;
 
   return req.data;
+}
+
+export function sortDirectories(dir: PartialUserDir[]) {
+  return dir.sort((a, b) =>
+    a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+  );
 }
 
 export async function createDirectory(path: string): Promise<boolean> {

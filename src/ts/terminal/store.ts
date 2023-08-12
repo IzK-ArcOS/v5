@@ -40,15 +40,7 @@ import { Users } from "./commands/users";
 import { Vars } from "./commands/vars";
 import { Ver } from "./commands/ver";
 import { Verbose } from "./commands/verbose";
-import type { Command, CommandStore } from "./interface";
-
-export const defaultCommand: Command = {
-  keyword: "default",
-  exec: (cmd, _, term) => {
-    if (cmd) term.std.Error(`${cmd}: command not found.`);
-  },
-  description: "Default command",
-};
+import type { CommandStore } from "./interface";
 
 export const arcCommands: CommandStore = [
   ArcFetch,
