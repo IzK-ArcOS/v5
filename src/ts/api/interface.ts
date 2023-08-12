@@ -27,6 +27,8 @@ export interface PartialArcFile {
   mime: string;
   filename: string;
   scopedPath: string;
+  dateCreated: number;
+  dateModified: number;
 }
 
 export interface ArcFile {
