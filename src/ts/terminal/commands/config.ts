@@ -6,7 +6,7 @@ export const Config: Command = {
     const e = Object.entries(term.env.config.getConfig());
 
     for (let i = 0; i < e.length; i++) {
-      const str = e[i][1].toString();
+      const str = e[i][1].toString().replaceAll("\n", "\\n");
       const key = e[i][0].padEnd(20, " ");
 
       if (e[i][0] === "gooseBumps") continue;

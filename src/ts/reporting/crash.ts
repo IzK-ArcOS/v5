@@ -17,6 +17,7 @@ export const CrashReport = writable<Report>();
 export function handleWindowError(
   e: (Event & { currentTarget: EventTarget & Element }) | PromiseRejectionEvent
 ) {
+  Log("ArcOS", `------(#! [ SYSTEM IS CRASHING ] !#)------`, LogLevel.error);
   const error = e as unknown as ErrorEvent;
   const rejection = e as PromiseRejectionEvent;
 
