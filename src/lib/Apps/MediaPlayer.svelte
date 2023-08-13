@@ -6,6 +6,7 @@
   import type { App } from "../../ts/applogic/interface";
   import { registerShortcuts } from "../../ts/applogic/keyboard/main";
   import { WindowStore } from "../../ts/applogic/store";
+  import { arrayToBlob } from "../../ts/api/fs/file/conversion";
 
   let audioObject: HTMLAudioElement;
 
@@ -25,7 +26,7 @@
     filename = app.openedFile.name;
 
     url = URL.createObjectURL(
-      new Blob([app.openedFile.data], { type: app.openedFile.mime })
+      arrayToBlob(app.openedFile.data, app.openedFile.mime)
     );
 
     if (!isOpened(app.id)) return;
@@ -68,7 +69,7 @@
       filename = app.openedFile.name;
 
       url = URL.createObjectURL(
-        new Blob([app.openedFile.data], { type: app.openedFile.mime })
+        arrayToBlob(app.openedFile.data, app.openedFile.mime)
       );
 
       setTimeout(() => {

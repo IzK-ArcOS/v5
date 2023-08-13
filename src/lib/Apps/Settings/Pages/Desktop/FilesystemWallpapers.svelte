@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getDirectory } from "../../../../../ts/api/fs/directory";
   import { readFile } from "../../../../../ts/api/fs/file";
+  import { arrayToBlob } from "../../../../../ts/api/fs/file/conversion";
   import { Busy } from "../../../../../ts/env/main";
   import sleep from "../../../../../ts/sleep";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
@@ -57,7 +58,7 @@
   }
 
   async function createUrl(file: ArrayBuffer) {
-    const blob = new Blob([new Uint8Array(file)], { type: "image/*" });
+    const blob = arrayToBlob(file, "image/*");
 
     return URL.createObjectURL(blob);
   }

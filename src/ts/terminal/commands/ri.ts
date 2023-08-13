@@ -1,5 +1,6 @@
 import { getDirectory } from "../../api/fs/directory";
 import { readFile } from "../../api/fs/file";
+import { arrayToBlob } from "../../api/fs/file/conversion";
 import type { UserDirectory } from "../../api/interface";
 import { getSwitches } from "../argv";
 import type { Command } from "../interface";
@@ -31,7 +32,10 @@ export const Ri: Command = {
     term.std.Error("Missing parameters.");
   },
   help(term) {
-    term.std.writeColor("Example: [ri] --url https://tinyurl.com/arcoslogo", "blue");
+    term.std.writeColor(
+      "Example: [ri] --url https://tinyurl.com/arcoslogo",
+      "blue"
+    );
   },
   description: "Display image from ArcFS or URL",
   syntax: "(--[file]) <[path]> (--[url]) <[url]> (--[height]) <[height]>",
@@ -50,7 +54,7 @@ async function displayFile(term: ArcTerm, fn: string, height: number) {
 
       if (!contents) return term.std.Error("Could not read the file.");
 
-      const blob = new Blob([new Uint8Array(contents)], { type: file.mime });
+      const blob = arrayToBlob(contents, file.mime);
 
       const url = URL.createObjectURL(blob);
 

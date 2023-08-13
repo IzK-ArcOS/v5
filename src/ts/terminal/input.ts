@@ -124,7 +124,7 @@ export class ArcTermInput {
     this.current.value = latest;
   }
 
-  public async processCommands(split: string[]) {
+  public async processCommands(split: string[], file = "") {
     Log(
       `ArcTerm ${this.term.referenceId}`,
       `input.processCommands: ${split.length} parts`
@@ -135,9 +135,23 @@ export class ArcTermInput {
       const args = str.split(" ");
       const cmd = args[0];
 
+      if (cmd.startsWith("#")) continue;
+
       args.shift();
 
-      await this.term.commandHandler.evaluate(cmd, args);
+      const success = await this.term.commandHandler.evaluate(
+        cmd,
+        args,
+        !!file
+      );
+
+      if (!success && file) {
+        this.term.std.Error(
+          `${cmd}: command not found (${file}, line ${i + 1})`
+        );
+
+        return;
+      }
 
       this.lock();
     }

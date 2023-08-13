@@ -5,6 +5,7 @@ import { LogLevel } from "../../console/interface";
 import { UserName } from "../interfaces";
 import type { Wallpaper } from "./interface";
 import { Wallpapers } from "./store";
+import { arrayToBlob } from "../../api/fs/file/conversion";
 
 const getters: [string, (id: string) => Wallpaper | Promise<Wallpaper>][] = [
   [
@@ -45,9 +46,7 @@ export async function wallpaperFromFS(path: string): Promise<Wallpaper> {
     return Wallpapers["img04"];
   }
 
-  const url = URL.createObjectURL(
-    new Blob([new Uint8Array(file)], { type: "image/jpeg" })
-  );
+  const url = URL.createObjectURL(arrayToBlob(file, "image/jpeg"));
 
   return { url, author: get(UserName), name: url, source: "" };
 }

@@ -6,6 +6,7 @@ import { errorMessage } from "../../../errorlogic/main";
 import type { UserTheme } from "../../../userlogic/themes/interface";
 import { loadTheme, verifyTheme } from "../../../userlogic/themes/main";
 import type { UserFileLoader } from "../../interface";
+import { arrayToBlob, arrayToText } from "../file/conversion";
 import { openWith } from "./main";
 
 export const FileLoaders: { [key: string]: UserFileLoader } = {
@@ -14,9 +15,7 @@ export const FileLoaders: { [key: string]: UserFileLoader } = {
     description: "Open a PDF file in a new browser tab",
     icon: pdfOpenerIcon,
     loader: (file) => {
-      const f = new Blob([new Uint8Array(file.data)], {
-        type: "application/pdf",
-      });
+      const f = arrayToBlob(file.data, "application/pdf");
 
       window.open(URL.createObjectURL(f), "_blank");
     },
@@ -26,7 +25,7 @@ export const FileLoaders: { [key: string]: UserFileLoader } = {
     name: "Load theme file",
     description: "Apply theme file to ArcOS",
     loader: (file) => {
-      const str = String.fromCharCode.apply(null, new Uint8Array(file.data));
+      const str = arrayToText(file.data);
 
       let json;
 
@@ -63,9 +62,7 @@ export const FileLoaders: { [key: string]: UserFileLoader } = {
     name: "Download",
     description: "Open file in a new tab to download it",
     loader: (file) => {
-      const f = new Blob([new Uint8Array(file.data)], {
-        type: file.mime.split(";")[0],
-      });
+      const f = arrayToBlob(file.data, file.mime.split(";")[0]);
 
       window.open(URL.createObjectURL(f), "_blank");
     },

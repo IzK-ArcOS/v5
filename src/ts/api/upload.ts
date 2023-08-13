@@ -7,6 +7,7 @@ import { fileToArcFile } from "./fs/convert";
 import { writeFile } from "./fs/file";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
+import { arrayToBlob } from "./fs/file/conversion";
 
 export async function directSingleUpload(
   path: string,
@@ -54,7 +55,7 @@ async function fileUpload(file: File, dir: string): Promise<string> {
     LogLevel.info
   );
 
-  const content = new Blob([new Uint8Array(await file.arrayBuffer())]);
+  const content = arrayToBlob(await file.arrayBuffer());
   const path = `${dir}/${file.name}`.split("//").join("/");
 
   const data = await fileToArcFile(file, path);

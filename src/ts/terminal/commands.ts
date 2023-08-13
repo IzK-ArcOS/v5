@@ -1,5 +1,6 @@
 import { getDirectory } from "../api/fs/directory";
 import { readFile } from "../api/fs/file";
+import { arrayToText } from "../api/fs/file/conversion";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 import { Default } from "./commands/default";
@@ -18,7 +19,7 @@ export class ArcTermCommandHandler {
     this.term = term;
   }
 
-  public async evaluate(cmd: string, args?: string[]) {
+  public async evaluate(cmd: string, args?: string[], isScript = false) {
     Log(`ArcTerm ${this.term.referenceId}`, `cmd.evaluate: ${cmd}`);
 
     if (cmd.startsWith("#")) return;
@@ -27,14 +28,18 @@ export class ArcTermCommandHandler {
 
     const command = this.getCommand(cmd);
 
+    if (isScript && command.keyword == "default") return false;
+
     if (this.term.input) this.term.input.current.disabled = true;
 
     await command.exec(cmd, args, this.term);
 
-    if (!this.term.std || !this.term.input) return;
-    if (this.term.std.verbose) this.term.std.writeLine("\n");
+    if (!this.term.std || !this.term.input) return true;
+    if (this.term.std.verbose && !isScript) this.term.std.writeLine("\n");
 
     this.term.input.unlock();
+
+    return command.keyword != "default";
   }
 
   public getCommand(command: string) {
@@ -71,8 +76,7 @@ export class ArcTermCommandHandler {
 
     if (!file) return false;
 
-    const enc = new TextDecoder("utf-8");
-    const d = enc.decode(new Uint8Array(file));
+    const d = arrayToText(file);
     const split = d.split("\n");
 
     return split[0].startsWith("#!arcterm");

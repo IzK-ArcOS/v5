@@ -2,6 +2,7 @@
   import upload from "../../../../assets/apps/filemanager/upload.svg";
   import { fileToArcFile } from "../../../../ts/api/fs/convert";
   import { writeFile } from "../../../../ts/api/fs/file";
+  import { arrayToBlob } from "../../../../ts/api/fs/file/conversion";
   import {
     fbClass,
     FileBrowserCurrentDir,
@@ -49,7 +50,7 @@
   }
 
   async function fileUpload(file: File) {
-    const content = new Blob([new Uint8Array(await file.arrayBuffer())]);
+    const content = arrayToBlob(await file.arrayBuffer());
     const path = `${$FileBrowserCurrentDir}/${file.name}`.split("//").join("/");
 
     const data = await fileToArcFile(file, path);

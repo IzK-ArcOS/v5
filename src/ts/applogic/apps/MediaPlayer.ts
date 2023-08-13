@@ -27,7 +27,13 @@ export const MediaPlayerApp: App = {
   },
   content: MediaPlayer,
   glass: true,
-  fileMimes: ["audio/x-flac", "audio/wave", "audio/mpeg"],
+  fileMimes: [
+    "audio/x-flac",
+    "audio/wave",
+    "audio/mpeg",
+    "audio/x-wav",
+    "audio/",
+  ],
   events: {
     open: (app: App) => {
       if (!app.openedFile) {

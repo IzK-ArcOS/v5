@@ -1,5 +1,6 @@
 import { getDirectory } from "../../api/fs/directory";
 import { readFile } from "../../api/fs/file";
+import { arrayToText } from "../../api/fs/file/conversion";
 import type { UserDirectory } from "../../api/interface";
 import type { Command } from "../interface";
 
@@ -21,12 +22,11 @@ export const Exec: Command = {
         if (!file.mime.includes("text/"))
           return term.std.Error("Not attempting to read non-text file.");
 
-        const enc = new TextDecoder("utf-8");
-        const d = enc.decode(new Uint8Array(contents));
+        const d = arrayToText(contents);
 
         const parts = d.split("\n");
 
-        term.input.processCommands(parts);
+        term.input.processCommands(parts, file.scopedPath);
 
         return;
       }

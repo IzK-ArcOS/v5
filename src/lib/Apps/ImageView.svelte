@@ -1,5 +1,6 @@
 <script lang="ts">
   import "../../css/desktop/apps/imageviewer.css";
+  import { arrayToBlob } from "../../ts/api/fs/file/conversion";
   import type { App } from "../../ts/applogic/interface";
   import { WindowStore } from "../../ts/applogic/store";
 
@@ -10,9 +11,7 @@
   WindowStore.subscribe(() => {
     if (!app.openedFile) return (url = "");
 
-    const blob = new Blob([new Uint8Array(app.openedFile.data)], {
-      type: app.openedFile.mime,
-    });
+    const blob = arrayToBlob(app.openedFile.data, app.openedFile.mime);
 
     url = URL.createObjectURL(blob);
   });
