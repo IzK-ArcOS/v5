@@ -2,9 +2,11 @@ import connect from "../../assets/fts/connect.svg";
 import finish from "../../assets/fts/finish.svg";
 import license from "../../assets/fts/license.svg";
 import wave from "../../assets/fts/wave.svg";
+import updates from "../../assets/update.svg";
 import ConnectToCloud from "../../lib/Page/FirstTimeSetup/Page/ConnectToCloud.svelte";
 import Finish from "../../lib/Page/FirstTimeSetup/Page/Finish.svelte";
 import License from "../../lib/Page/FirstTimeSetup/Page/License.svelte";
+import Updates from "../../lib/Page/FirstTimeSetup/Page/Updates.svelte";
 import Welcome from "../../lib/Page/FirstTimeSetup/Page/Welcome.svelte";
 import type { State } from "../state/interfaces";
 export const FTSStates = new Map<string, State>([
@@ -16,6 +18,16 @@ export const FTSStates = new Map<string, State>([
       attribs: {},
       key: "welcome",
       image: wave,
+    },
+  ],
+  [
+    "updates",
+    {
+      name: "Check for Updates",
+      content: Updates,
+      attribs: {},
+      key: "updates",
+      image: updates,
     },
   ],
   [

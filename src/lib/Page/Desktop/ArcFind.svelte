@@ -78,7 +78,7 @@
   showArcFind.subscribe(async (v) => {
     reset();
 
-    if (!v) return;
+    if (!v || !searchBox) return;
 
     await sleep(500);
     searchBox.focus();

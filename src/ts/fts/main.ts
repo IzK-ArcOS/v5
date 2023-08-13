@@ -16,8 +16,6 @@ export function applyFTSState(stateKey: string) {
 
     CurrentFTSState.set(state);
 
-    ArcSoundBus.playSound("arcos.click");
-
     return;
   }
 

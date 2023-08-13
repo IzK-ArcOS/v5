@@ -5,6 +5,7 @@ div.fts div.center-absolute div.right {
   height: 100%;
   width: 65%;
   padding: 20px;
+  transition: none !important;
 }
 
 div.fts div.page div.header * {

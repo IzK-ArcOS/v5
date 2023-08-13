@@ -1,11 +1,12 @@
-div.fts div.page.welcome img.logo {
+div.fts div.page img.logo,
+div.fts div.page img.spinner-svg {
   height: 120px;
   margin: 0 auto;
   display: block;
   margin-top: -30px;
 }
 
-div.fts div.page.welcome h1.center-header {
+div.fts div.page h1.center-header {
   text-align: center;
   font-size: 23px;
   margin-top: 5px;

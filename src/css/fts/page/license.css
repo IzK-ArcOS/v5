@@ -1,0 +1,72 @@
+div.fts div.right.license {
+  padding: 0 !important;
+}
+
+div.fts div.page.license {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+div.fts div.page.license div.header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  padding-right: 15px;
+  border-bottom: var(--win-border);
+  height: 70px;
+}
+
+div.fts div.page.license div.header img {
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+}
+
+div.fts div.page.license div.header h1,
+div.fts div.page.license div.header p {
+  margin: 0;
+}
+
+div.fts div.page.license div.header p {
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+div.fts div.page.license textarea {
+  width: 100%;
+  min-height: calc(100% - 70px - 56px);
+  font-size: 10.7px;
+  font-family: "Source Code Pro", monospace;
+  padding: 10px;
+  white-space: pre;
+  color: var(--fg);
+  background-color: transparent;
+  border: none;
+  resize: none;
+}
+
+div.fts div.page.license div.bottom {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  height: 56px;
+  border-top: var(--win-border);
+}
+
+div.fts div.page.license div.bottom div.version {
+  font-family: "Source Code Pro", monospace;
+  font-size: 13px;
+  opacity: 0.5;
+  margin-left: 5px;
+}
+
+div.fts div.page.license div.bottom div.actions {
+  display: flex;
+  margin-left: auto;
+  gap: 15px;
+}
+
+div.fts div.page.license div.bottom div.actions button {
+  padding: 5px 15px;
+}
