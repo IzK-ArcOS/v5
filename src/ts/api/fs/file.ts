@@ -98,6 +98,8 @@ export async function writeFile(path: string, data: Blob): Promise<boolean> {
 }
 
 export function sortFiles(dir: PartialArcFile[]) {
+  if (!dir) return [];
+
   return dir.sort((a, b) =>
     a.filename.toLowerCase() > b.filename.toLowerCase() ? 1 : -1
   );

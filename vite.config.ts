@@ -6,4 +6,7 @@ import { plugin as markdown } from "vite-plugin-markdown";
 export default defineConfig({
   plugins: [svelte(), markdown()],
   base: "",
+  build: {
+    minify: false,
+  },
 });

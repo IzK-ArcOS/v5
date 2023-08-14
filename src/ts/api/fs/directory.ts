@@ -33,6 +33,8 @@ export async function getDirectory(path: string = "./"): DirectoryGet {
 }
 
 export function sortDirectories(dir: PartialUserDir[]) {
+  if (!dir) return [];
+
   return dir.sort((a, b) =>
     a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
   );
