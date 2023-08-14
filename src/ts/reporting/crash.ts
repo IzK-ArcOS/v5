@@ -10,9 +10,18 @@ const CRASH_BLACKLIST = [
   "NotSupportedError",
   "AbortError",
   "AxiosError",
+  "ClientResponseError",
 ];
 
 export const CrashReport = writable<Report>();
+
+export function isBlackListed(test: string) {
+  for (let i = 0; i < CRASH_BLACKLIST.length; i++) {
+    if (CRASH_BLACKLIST[i].includes(test)) return true;
+  }
+
+  return false;
+}
 
 export function handleWindowError(
   e: (Event & { currentTarget: EventTarget & Element }) | PromiseRejectionEvent
@@ -21,11 +30,7 @@ export function handleWindowError(
   const error = e as unknown as ErrorEvent;
   const rejection = e as PromiseRejectionEvent;
 
-  if (
-    rejection &&
-    rejection.reason &&
-    CRASH_BLACKLIST.includes(rejection.reason.name)
-  )
+  if (rejection && rejection.reason && isBlackListed(rejection.reason.name))
     return Log(
       "reporting/crash.ts: handleWindowError",
       `Not making a report for ${rejection.reason.name}`,
