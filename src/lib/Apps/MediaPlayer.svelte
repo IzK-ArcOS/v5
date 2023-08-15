@@ -1,18 +1,24 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "../../css/desktop/apps/mediaplayer.css";
-  import { getMimeIcon } from "../../ts/api/fs/icon/main";
+  import { arrayToBlob } from "../../ts/api/fs/file/conversion";
+  import type { ArcFile } from "../../ts/api/interface";
   import { isOpened } from "../../ts/applogic/checks";
   import type { App } from "../../ts/applogic/interface";
   import { registerShortcuts } from "../../ts/applogic/keyboard/main";
   import { WindowStore } from "../../ts/applogic/store";
-  import { arrayToBlob } from "../../ts/api/fs/file/conversion";
-
-  let audioObject: HTMLAudioElement;
+  import Audio from "./MediaPlayer/Audio.svelte";
+  import File from "./MediaPlayer/File.svelte";
+  import PlayPause from "./MediaPlayer/PlayPause.svelte";
+  import Scrub from "./MediaPlayer/Scrub.svelte";
+  import Stop from "./MediaPlayer/Stop.svelte";
+  import Time from "./MediaPlayer/Time.svelte";
 
   export let app: App;
-  let barWidth = 0;
 
+  let audioObject: HTMLAudioElement;
+  let file: ArcFile;
+  let barWidth = 0;
   let duration = 0;
   let current = 0;
   let url = "";
@@ -23,11 +29,10 @@
     if (!app.openedFile || !audioObject || filename == app.openedFile.name)
       return;
 
-    filename = app.openedFile.name;
+    file = app.openedFile;
+    filename = file.name;
 
-    url = URL.createObjectURL(
-      arrayToBlob(app.openedFile.data, app.openedFile.mime)
-    );
+    url = URL.createObjectURL(arrayToBlob(file.data, file.mime));
 
     if (!isOpened(app.id)) return;
 
@@ -36,41 +41,34 @@
     });
   });
 
-  function rewind() {
-    audioObject.currentTime -= 10;
-  }
-
-  function forward() {
-    audioObject.currentTime += 10;
-  }
-
   function updateWidth() {
     barWidth = (audioObject.currentTime / audioObject.duration) * 100;
 
     paused = audioObject.paused;
   }
 
-  function formatTime(seconds: number) {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = Math.floor(seconds % 60);
-    return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
-  }
-
   function stop() {
+    if (!audioObject) return;
+
     audioObject.currentTime = 0;
     audioObject.pause();
   }
 
   onMount(() => {
     if (!app.events) app.events = {};
+
+    app.events.close = () => {
+      stop();
+    };
+
     app.events.openFile = () => {
       if (!isOpened(app.id)) return;
 
-      filename = app.openedFile.name;
+      if (!file) file = app.openedFile;
 
-      url = URL.createObjectURL(
-        arrayToBlob(app.openedFile.data, app.openedFile.mime)
-      );
+      filename = file.name;
+
+      url = URL.createObjectURL(arrayToBlob(file.data, file.mime));
 
       setTimeout(() => {
         audioObject.play();
@@ -90,52 +88,25 @@
   });
 </script>
 
-{#if app.openedFile}
-  <audio
-    src={url}
-    controls
-    bind:this={audioObject}
-    bind:duration
-    bind:currentTime={current}
-    on:timeupdate={updateWidth}
-    autoplay
-  />
+{#if file}
+  <Audio {url} bind:audioObject bind:duration bind:current {updateWidth} />
   {#if audioObject}
     <div class="media-player">
       <div class="controls">
-        <div class="group">
-          <button
-            class="material-icons-round"
-            on:click={() => audioObject.play()}
-            disabled={!paused && barWidth < 100}>play_arrow</button
-          >
-          <button
-            class="material-icons-round"
-            on:click={() => audioObject.pause()}
-            disabled={paused}>pause</button
-          >
-        </div>
-        <div class="group">
-          <button class="material-icons-round" on:click={rewind}
-            >fast_rewind</button
-          >
-          <button class="material-icons-round" on:click={forward}
-            >fast_forward</button
-          >
-        </div>
-        <button class="material-icons-round" on:click={stop}>stop</button>
-
-        <div class="right">{formatTime(current)} / {formatTime(duration)}</div>
+        <PlayPause {audioObject} {paused} {barWidth} />
+        <Scrub {audioObject} />
+        <Stop {stop} />
+        <Time {duration} {current} />
       </div>
       <div class="bar">
         <div class="inner" style="width: {barWidth}%;" />
       </div>
-      <div class="filename" title={app.openedFile.path}>
-        <img
-          src={getMimeIcon(app.openedFile.name)}
-          alt={app.openedFile.name}
-        /><span>{app.openedFile.path}</span>
-      </div>
+      <File {file} />
     </div>
   {/if}
+{:else}
+  <div class="markdownrenderer">
+    <h3>Error playing file</h3>
+    <p>Media Player did not receive a file to play...</p>
+  </div>
 {/if}
