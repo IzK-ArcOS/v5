@@ -16,7 +16,7 @@
 </script>
 
 {#if value}
-  <textarea {value} />
+  <textarea {value} readonly/>
 {/if}
 <CloseButton {app} {id} />
 
