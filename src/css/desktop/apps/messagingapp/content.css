@@ -1,7 +1,7 @@
 window#MessagingApp div.body > div.content {
   display: flex;
   flex-direction: column;
-  max-width: calc(100% - 290px) !important;
+  max-width: calc(100% - 300px) !important;
 }
 window#MessagingApp div.body > div.content div.message-header {
   display: flex;

@@ -41,6 +41,8 @@ window#MessagingApp div.body div.sidebar button.active {
 
 window#MessagingApp div.body div.sidebar div.pfprenderer {
   margin-top: auto;
+  width: 30px;
+  height: 30px !important;
 }
 
 window#MessagingApp div.body div.sidebar div.actions button {
