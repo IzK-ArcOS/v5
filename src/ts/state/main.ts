@@ -5,6 +5,7 @@ import { Log } from "../console";
 import type { State } from "./interfaces";
 import { States } from "./store";
 import { LogLevel } from "../console/interface";
+import { UserCache } from "../userlogic/cache";
 
 export const CurrentState = writable<State>(States[0]);
 
@@ -21,6 +22,7 @@ export function applyState(stateKey: string, discontinue = true) {
     if (state.onload) state.onload();
 
     CurrentState.set(state);
+    UserCache.clear();
 
     const t = `ArcOS | ${state.name}`;
 

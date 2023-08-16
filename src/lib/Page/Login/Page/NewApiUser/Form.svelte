@@ -1,14 +1,11 @@
 <script lang="ts">
-  import ProfilePicture from "../../../../ProfilePicture.svelte";
   import pfp from "../../../../../assets/pfp/null.png";
-  import { apiCall, ConnectedServer } from "../../../../../ts/api/main";
-  import { loginUsingCreds } from "../../../../../ts/api/getter";
-  import { generateCredToken } from "../../../../../ts/api/cred";
-  import { UserData, UserName } from "../../../../../ts/userlogic/interfaces";
-  import { applyState } from "../../../../../ts/state/main";
-  import { loginUsername } from "../../../../../ts/login/main";
   import { Busy } from "../../../../../ts/env/main";
+  import { loginUsername } from "../../../../../ts/login/main";
+  import { applyState } from "../../../../../ts/state/main";
+  import { UserData, UserName } from "../../../../../ts/userlogic/interfaces";
   import { createUser } from "../../../../../ts/userlogic/mutate";
+  import ProfilePicture from "../../../../ProfilePicture.svelte";
 
   export let loading: boolean;
   export let username: string;

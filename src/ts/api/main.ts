@@ -16,6 +16,7 @@ export async function apiCall(
   body?: string,
   noBody?: boolean
 ): Promise<DefaultResponse | any> {
+  console.trace("ah yes");
   const credToken = generateCredToken(credAuth);
   const init: RequestInit = {
     headers: {
@@ -45,11 +46,10 @@ export async function apiCall(
 
   if (
     !req.ok &&
-    tokenAuth &&
-    !`200|304`.includes(`${req.status}`) &&
-    get(CurrentState).name == "Desktop"
+    (tokenAuth || credAuth) &&
+    !`200|304`.includes(`${req.status}`)
   ) {
-    return { statusCode };
+    return { statusCode, valid: false };
   }
 
   if (!noBody) {

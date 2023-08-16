@@ -28,6 +28,7 @@
   import { sendReport } from "../../ts/reporting/main";
   import sleep from "../../ts/sleep";
   import { checkReleaseCandidate } from "../../ts/branding/rc";
+  import { getUsers } from "../../ts/userlogic/main";
 
   let show = false;
   let classes = "";
@@ -45,6 +46,8 @@
     }
 
     $previouslyLoaded = true;
+
+    await getUsers();
 
     await sleep(0);
 

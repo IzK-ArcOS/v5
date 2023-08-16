@@ -1,3 +1,4 @@
+import { UserCache } from "../../userlogic/cache";
 import type { AllUsers } from "../../userlogic/interfaces";
 import { getUsers } from "../../userlogic/main";
 import type { Command } from "../interface";
@@ -5,6 +6,10 @@ import type { Command } from "../interface";
 export const Users: Command = {
   keyword: "users",
   async exec(cmd, argv, term) {
+    term.std.Warning("Clearing [UserCache]!");
+
+    UserCache.clear();
+
     const users = (await getUsers()) as AllUsers;
     const entries = Object.entries(users);
     const names = Object.keys(users);

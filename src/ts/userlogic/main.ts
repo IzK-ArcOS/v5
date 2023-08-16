@@ -6,15 +6,22 @@ import { CurrentState } from "../state/main";
 import { commitUserdata } from "./commit";
 import { AllUsers, UserData, UserToken } from "./interfaces";
 import { LogLevel } from "../console/interface";
+import { UserCache } from "./cache";
 
 export const committingUserData = writable<boolean>(false);
 
-export async function getUsers() {
+export async function getUsers(): Promise<AllUsers> {
   Log("userlogic/main.ts: getUsers", `Getting users`);
+
+  const cache = UserCache.get();
+
+  console.log(cache);
+
+  if (cache && Object.entries(cache).length) return cache;
 
   const server = get(ConnectedServer);
 
-  if (!server) return [];
+  if (!server) return {};
 
   const users = await apiCall(server, "users/get", {}, null, null);
 
@@ -25,6 +32,8 @@ export async function getUsers() {
   for (let i = 0; i < arr.length; i++) {
     obj[arr[i].username] = arr[i];
   }
+
+  UserCache.set(obj);
 
   return obj as AllUsers;
 }

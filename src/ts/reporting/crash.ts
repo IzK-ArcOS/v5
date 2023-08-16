@@ -26,7 +26,6 @@ export function isBlackListed(test: string) {
 export function handleWindowError(
   e: (Event & { currentTarget: EventTarget & Element }) | PromiseRejectionEvent
 ) {
-  Log("ArcOS", `------(#! [ SYSTEM IS CRASHING ] !#)------`, LogLevel.error);
   const error = e as unknown as ErrorEvent;
   const rejection = e as PromiseRejectionEvent;
 
@@ -36,6 +35,8 @@ export function handleWindowError(
       `Not making a report for ${rejection.reason.name}`,
       LogLevel.warn
     );
+
+  Log("ArcOS", `------(#! [ SYSTEM IS CRASHING ] !#)------`, LogLevel.error);
 
   const filename = error.filename || rejection.reason.name;
   const position = error.lineno ? `(${error.lineno}:${error.colno})` : "";

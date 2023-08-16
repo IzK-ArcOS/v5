@@ -13,11 +13,16 @@ export async function createUser(
   if (!server) return false;
 
   const req = await apiCall(server, "user/create", {}, null, {
-    username,
+    username: username.trim(),
     password,
   });
 
-  if (!req.valid) return false;
+  console.table(req);
+
+  if (!req.valid) {
+    console.log("Erroroap[sdfjklighjadscvdsagfhjkmdsgvadhjscgvdhjs");
+    return false;
+  }
 
   const token = generateCredToken({ username, password });
 
