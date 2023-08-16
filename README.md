@@ -16,7 +16,7 @@ Welcome to the frontend for ArcOS! This repository is a rewrite of the original 
 
 To use ArcOS, it is recommended to use the desktop application compiled with [ArcOS Electron Compiler](https://github.com/IzK-ArcOS/ArcOS-Electron-Compiler). All information is contained on ArcOS Electron Compiler GitHub repository (currently in beta). You can also use the current Tauri implementation found in the [releases tab](https://github.com/IzK-ArcOS/ArcOS-Frontend/releases/).
 
-It is also recommended to use the web frontend, found [here](https://izk-arcos.nl/web/).
+It is also recommended to use the web frontend, found [here](https://web.izk-arcos.nl/).
 
 If you want to compile the ArcOS frontend from the source, you may do so by following the steps of the [Getting Started](docs/Getting%20Started.md) page in the repository.
 
