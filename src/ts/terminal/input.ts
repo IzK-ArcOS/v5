@@ -3,6 +3,7 @@ import { focusedWindowId } from "../applogic/store";
 import { Log } from "../console";
 import type { ArcTermEnv } from "./env";
 import type { ArcTerm } from "./main";
+import sleep from "../sleep";
 
 export class ArcTermInput {
   private lockInput = false;
@@ -125,6 +126,8 @@ export class ArcTermInput {
   }
 
   public async processCommands(split: string[], file = "") {
+    await sleep(0);
+
     Log(
       `ArcTerm ${this.term.referenceId}`,
       `input.processCommands: ${split.length} parts`
@@ -135,7 +138,9 @@ export class ArcTermInput {
       const args = str.split(" ");
       const cmd = args[0];
 
-      if (cmd.startsWith("#")) continue;
+      if (cmd.trim() == "exit") return false;
+
+      if (cmd.startsWith("#") || !cmd) continue;
 
       args.shift();
 
@@ -145,17 +150,17 @@ export class ArcTermInput {
         !!file
       );
 
-      if (!success && file) {
-        this.term.std.Error(
-          `${cmd}: command not found (${file}, line ${i + 1})`
-        );
-
-        return;
+      if (!success) {
+        return false;
       }
 
       this.lock();
+
+      await sleep(0);
     }
 
     this.unlock();
+
+    return true;
   }
 }

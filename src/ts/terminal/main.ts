@@ -8,6 +8,8 @@ import { ArcTermEnv } from "./env";
 import { initError } from "./error";
 import { ArcTermInput } from "./input";
 import type { CommandStore } from "./interface";
+import { ArcTermScripts } from "./scripts";
+import { ArcTermSections } from "./sect";
 import { ArcTermStd } from "./std";
 import { gooseBumpsCommands } from "./store";
 import { ArcTermUtil } from "./util";
@@ -32,6 +34,8 @@ export class ArcTerm {
   vars: ArcTermVariables;
   input: ArcTermInput;
   path: string;
+  scripts: ArcTermScripts;
+  sect: ArcTermSections;
   commandHandler: ArcTermCommandHandler;
   referenceId: string;
   onload: (term: ArcTerm) => void;
@@ -69,6 +73,8 @@ export class ArcTerm {
     this.commandHandler = new ArcTermCommandHandler(this);
     this.env = new ArcTermEnv(this);
     this.vars = new ArcTermVariables(this);
+    this.scripts = new ArcTermScripts(this);
+    this.sect = new ArcTermSections(this);
 
     setTimeout(async () => {
       this.std = new ArcTermStd(this);

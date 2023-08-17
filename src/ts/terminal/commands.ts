@@ -1,6 +1,3 @@
-import { getDirectory } from "../api/fs/directory";
-import { readFile } from "../api/fs/file";
-import { arrayToText } from "../api/fs/file/conversion";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 import { Default } from "./commands/default";
@@ -28,11 +25,18 @@ export class ArcTermCommandHandler {
 
     const command = this.getCommand(cmd);
 
-    if (isScript && command.keyword == "default") return false;
+    if ((isScript && command.keyword == "default") || cmd == "exit")
+      return false;
 
     if (this.term.input) this.term.input.current.disabled = true;
 
-    await command.exec(cmd, args, this.term);
+    const result = await command.exec(cmd, args, this.term);
+
+    console.log(cmd, result);
+
+    if (result == false) {
+      return false;
+    }
 
     if (!this.term.std || !this.term.input) return true;
     if (this.term.std.verbose && !isScript) this.term.std.writeLine("\n");
@@ -54,31 +58,5 @@ export class ArcTermCommandHandler {
     }
 
     return Default;
-  }
-
-  public async detectCommand(directory: string, cmd: string) {
-    const dir = await getDirectory(directory);
-
-    if (!dir) return null;
-
-    const files = dir.files;
-
-    for (let i = 0; i < files.length; i++) {
-      const name = files[i].filename;
-      const path = files[i].scopedPath;
-
-      if (name.startsWith(cmd) && (await this.isScriptFile(path))) return path;
-    }
-  }
-
-  public async isScriptFile(path: string): Promise<boolean> {
-    const file = await readFile(path);
-
-    if (!file) return false;
-
-    const d = arrayToText(file);
-    const split = d.split("\n");
-
-    return split[0].startsWith("#!arcterm");
   }
 }
