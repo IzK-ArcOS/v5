@@ -155,11 +155,12 @@ export async function openUserFile(
 
   if (!(apps.length > 0) && !(loaders.length > 1)) return data;
 
-  if (apps.length > 0) return openWith(apps[0], data) || data;
   if (loaders.length == 2) {
     loaders[0].loader(data);
     return true;
   }
+
+  if (apps.length > 0) return openWith(apps[0], data) || data;
 
   return true;
 }

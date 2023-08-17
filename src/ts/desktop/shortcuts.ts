@@ -66,7 +66,7 @@ export function registerDesktopShortcuts() {
   ]);
 
   document.addEventListener("keydown", (e) => {
-    const valid = "abcdefghijklmnopqrstuvwxyz0123456789";
+    const valid = "abcdefghijklmnopqrstuvwxyz0123456789 ";
 
     if (!e.key) return;
 

@@ -1,4 +1,5 @@
 import { UserData } from "../userlogic/interfaces";
+import { experimentsClasses } from "./classes/experiments";
 import { desktopClassNames } from "./main";
 
 export function setDesktopClassNameListener() {
@@ -15,6 +16,8 @@ export function setDesktopClassNameListener() {
       if (udata.sh.desktop.sharp) classes += `sharp `;
       if (udata.sh.taskbar.isLauncher) classes += `is-launcher `;
       if (udata.sh.taskbar.docked) classes += `tb-docked `;
+
+      classes += experimentsClasses();
 
       desktopClassNames.set(classes);
     }

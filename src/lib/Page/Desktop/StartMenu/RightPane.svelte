@@ -23,4 +23,8 @@
   {#each dirs as dir}
     <DirLink {dir} />
   {/each}
+
+  {#if !dirs.length}
+    <p class="none">No folders!</p>
+  {/if}
 </div>

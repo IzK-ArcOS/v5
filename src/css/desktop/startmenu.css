@@ -3,6 +3,7 @@
 @import url("./startmenu/bottompane.css");
 @import url("./startmenu/colored.css");
 @import url("./startmenu/small.css");
+@import url("./startmenu/newsm17823.css");
 
 div[class*="tb-vertical"] div.startmenu {
   top: 10px;

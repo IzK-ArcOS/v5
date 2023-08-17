@@ -1,0 +1,19 @@
+window#ExperimentsApp div.body div.experiment {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  flex-direction: row;
+}
+
+window#ExperimentsApp div.body div.experiment * {
+  margin: 0;
+}
+
+window#ExperimentsApp div.body div.experiment div.info {
+  margin-right: auto;
+}
+
+window#ExperimentsApp div.body div.experiment p.description {
+  opacity: 0.5;
+}

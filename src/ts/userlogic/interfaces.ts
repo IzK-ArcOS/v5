@@ -62,6 +62,7 @@ export interface UserData {
 }
 
 export type AppData = {
+  experiments: { [key: string]: boolean };
   [key: string]: ScopedAppData;
 };
 

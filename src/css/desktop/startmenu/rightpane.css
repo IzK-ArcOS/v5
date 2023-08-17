@@ -44,3 +44,9 @@ div.startmenu div.right button.link div.caption {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+div.startmenu div.right p.none {
+  margin: 20px 10px;
+  text-align: center;
+  opacity: 0.5;
+}

@@ -2,6 +2,8 @@ import textEditorIcon from "../../../../assets/apps/apppoker.svg";
 import loadThemeIcon from "../../../../assets/handlers/loadtheme.svg";
 import openInNewIcon from "../../../../assets/handlers/openinnew.svg";
 import pdfOpenerIcon from "../../../../assets/handlers/pdfopener.svg";
+import experimentsIcon from "../../../../assets/update.svg";
+import { openWindow } from "../../../applogic/events";
 import { errorMessage } from "../../../errorlogic/main";
 import type { UserTheme } from "../../../userlogic/themes/interface";
 import { loadTheme, verifyTheme } from "../../../userlogic/themes/main";
@@ -20,6 +22,15 @@ export const FileLoaders: { [key: string]: UserFileLoader } = {
       window.open(URL.createObjectURL(f), "_blank");
     },
     extensions: [".pdf"],
+  },
+  experiments: {
+    name: "Experiments",
+    description: "Spooky spooky experiments",
+    extensions: [".experiments"],
+    icon: experimentsIcon,
+    loader: () => {
+      openWindow("ArcTerm");
+    },
   },
   loadTheme: {
     name: "Load theme file",
