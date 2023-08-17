@@ -29,7 +29,7 @@ export const FileLoaders: { [key: string]: UserFileLoader } = {
     extensions: [".experiments"],
     icon: experimentsIcon,
     loader: () => {
-      openWindow("ArcTerm");
+      openWindow("ExperimentsApp");
     },
   },
   loadTheme: {
