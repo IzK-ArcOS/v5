@@ -168,7 +168,7 @@ export class ArcTermStd {
     pswd = false,
     value = ""
   ): Promise<string> {
-    if (!this.target) return "";
+    if (!this.target) return "asdf";
 
     Log(
       `ArcTerm ${this.term.referenceId}`,

@@ -1,5 +1,5 @@
 export function arrayToText(buffer: ArrayBuffer) {
-  return String.fromCharCode.apply(null, new Uint8Array(buffer));
+  return new TextDecoder().decode(new Uint8Array(buffer));
 }
 
 export function textToBlob(text: string, type = "text/plain"): Blob {
