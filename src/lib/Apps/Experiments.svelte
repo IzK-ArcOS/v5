@@ -1,16 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "../../css/desktop/apps/experiments.css";
-  import {
-    Experiments,
-    getExperiments,
-  } from "../../ts/desktop/experiments/main";
+  import { Experiments } from "../../ts/desktop/experiments/main";
   import { UserData } from "../../ts/userlogic/interfaces";
 
   onMount(async () => {
     if (!$UserData.appdata.experiments) $UserData.appdata.experiments = {};
-
-    await getExperiments();
   });
 </script>
 
@@ -30,4 +25,6 @@
       </div>
     </div>
   {/each}
+{:else}
+  err
 {/if}

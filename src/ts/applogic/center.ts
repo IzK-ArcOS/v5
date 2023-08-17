@@ -18,10 +18,12 @@ export function centerWindow(id: string) {
   }
 }
 
-export function calculatePos(app: App): XY & { centered: true } {
+export function calculatePos(app: App): XY & { centered: boolean } {
   Log(`applogic/center.ts: calculatePos`, `Calculating position for ${app.id}`);
 
   const el = getWindowElement(app);
+
+  if (!el) return { x: 0, y: 0, centered: false };
 
   const windowWidth = el.offsetWidth;
   const windowHeight = el.offsetHeight;

@@ -29,6 +29,7 @@
   import sleep from "../../ts/sleep";
   import { checkReleaseCandidate } from "../../ts/branding/rc";
   import { getUsers } from "../../ts/userlogic/main";
+  import { getExperiments } from "../../ts/desktop/experiments/main";
 
   let show = false;
   let classes = "";
@@ -48,7 +49,7 @@
     $previouslyLoaded = true;
 
     await getUsers();
-
+    await getExperiments();
     await sleep(0);
 
     assignDesktopListeners();
