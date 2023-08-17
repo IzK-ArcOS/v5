@@ -72,8 +72,6 @@ export function registerDesktopShortcuts() {
 
     const key = e.key.toLowerCase();
 
-    console.log(key, valid.includes(key), key.length);
-
     if (!valid.includes(key) || key.length > 1) return;
 
     if (get(CurrentState).name != "Desktop" || !get(startOpened)) return;

@@ -17,10 +17,7 @@ export async function createUser(
     password,
   });
 
-  console.table(req);
-
   if (!req.valid) {
-    console.log("Erroroap[sdfjklighjadscvdsagfhjkmdsgvadhjscgvdhjs");
     return false;
   }
 

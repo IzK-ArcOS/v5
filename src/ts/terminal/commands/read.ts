@@ -10,8 +10,6 @@ export const Read: Command = {
     let max = switches["max"] as any;
     const mask = switchExists(argv, "mask");
 
-    console.log(`max: "${max}"`);
-
     try {
       if (!!max) max = parseInt(max);
     } catch {

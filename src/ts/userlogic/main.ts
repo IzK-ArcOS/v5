@@ -15,8 +15,6 @@ export async function getUsers(): Promise<AllUsers> {
 
   const cache = UserCache.get();
 
-  console.log(cache);
-
   if (cache && Object.entries(cache).length) return cache;
 
   const server = get(ConnectedServer);

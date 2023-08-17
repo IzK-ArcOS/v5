@@ -16,7 +16,6 @@ export async function apiCall(
   body?: string,
   noBody?: boolean
 ): Promise<DefaultResponse | any> {
-  console.trace("ah yes");
   const credToken = generateCredToken(credAuth);
   const init: RequestInit = {
     headers: {
