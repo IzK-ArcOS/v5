@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 import { logoffToken } from "../api/cred";
 import { InvalidStateBugrep } from "../bugrep";
 import { Log } from "../console";
@@ -6,6 +6,7 @@ import type { State } from "./interfaces";
 import { States } from "./store";
 import { LogLevel } from "../console/interface";
 import { UserCache } from "../userlogic/cache";
+import { UserToken } from "../userlogic/interfaces";
 
 export const CurrentState = writable<State>(States[0]);
 
@@ -28,7 +29,7 @@ export function applyState(stateKey: string, discontinue = true) {
 
     document.title = t;
 
-    if (stateKey != "desktop" && discontinue) logoffToken();
+    if (stateKey != "desktop" && discontinue && get(UserToken)) logoffToken();
 
     return;
   }
