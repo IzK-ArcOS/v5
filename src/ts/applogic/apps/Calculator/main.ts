@@ -33,7 +33,11 @@ class CL {
   };
 
   private eval(expr: string) {
-    return Function(`'use strict'; return (${expr})`)();
+    try {
+      return Function(`'use strict'; return (${expr})`)();
+    } catch {
+      return expr;
+    }
   }
 
   // Compile keypad keys by merging allowed keys and their overrides for the Calculator UI

@@ -28,7 +28,8 @@ export class ArcTermCommandHandler {
     if ((isScript && command.keyword == "default") || cmd == "exit")
       return false;
 
-    if (this.term.input) this.term.input.current.disabled = true;
+    if (this.term.input && this.term.input.current)
+      this.term.input.current.disabled = true;
 
     const result = await command.exec(cmd, args, this.term);
 

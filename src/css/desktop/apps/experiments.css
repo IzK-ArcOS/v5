@@ -4,6 +4,7 @@ window#ExperimentsApp div.body div.experiment {
   justify-content: start;
   width: 100%;
   flex-direction: row;
+  margin-bottom: 10px;
 }
 
 window#ExperimentsApp div.body div.experiment * {
