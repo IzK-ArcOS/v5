@@ -9,11 +9,14 @@ import { Config } from "./commands/config";
 import { Desktop } from "./commands/desktop";
 import { Dir } from "./commands/dir";
 import { Echo } from "./commands/echo";
+import { End } from "./commands/end";
 import { Err } from "./commands/err";
 import { Exec } from "./commands/exec";
 import { Exit } from "./commands/exit";
+import { Goto } from "./commands/goto";
 import { Help } from "./commands/help";
 import { History } from "./commands/history";
+import { If } from "./commands/if";
 import { InDesktop } from "./commands/indesktop";
 import { Kill } from "./commands/kill";
 import { LogDump } from "./commands/logdump";
@@ -74,6 +77,9 @@ export const arcCommands: CommandStore = [
   Verbose,
   Desktop,
   Servers,
+  If,
+  Goto,
+  End,
 ];
 
 /**

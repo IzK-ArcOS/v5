@@ -25,7 +25,9 @@ export async function sendReport(
   options: ReportOptions = defaultReportOptions
 ) {
   const report = createReport(options);
-  const id = (await pb.collection("bugrep").create<ReportRecord>(report)).id;
+  const id = (
+    await pb.collection("bugrep").create<ReportRecord>(report, { br: "true" })
+  ).id;
 
   if (report.author) saveToUser(id);
 
@@ -85,7 +87,7 @@ export async function getReport(id: string) {
   try {
     return await pb
       .collection("bugrep")
-      .getOne<ReportRecord>(id, { $autoCancel: false });
+      .getOne<ReportRecord>(id, { $autoCancel: false, br: "true" });
   } catch {
     return null;
   }

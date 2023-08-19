@@ -148,5 +148,7 @@ export async function logoffToken() {
 
   if (!token || !server) return;
 
+  UserToken.set(null);
+
   return await apiCall(server, "logoff", {}, token);
 }

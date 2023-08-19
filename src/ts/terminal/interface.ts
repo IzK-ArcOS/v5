@@ -9,7 +9,11 @@ export interface Command {
   hidden?: boolean;
 }
 
-export type CommandMethod = (cmd: string, argv: string[], term: ArcTerm) => any;
+export type CommandMethod = (
+  cmd: string,
+  argv: string[],
+  term: ArcTerm
+) => false | Promise<false> | any;
 export type HelpMethod = (term: ArcTerm) => any;
 
 export type CommandStore = Command[];
@@ -43,3 +47,5 @@ export interface StaticVariable {
 }
 
 export type StaticVariableStore = { [key: string]: StaticVariable };
+
+export type Sections = { [key: string]: string[] };

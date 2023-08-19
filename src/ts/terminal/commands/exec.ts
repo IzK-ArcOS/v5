@@ -1,6 +1,4 @@
 import { getDirectory } from "../../api/fs/directory";
-import { readFile } from "../../api/fs/file";
-import { arrayToText } from "../../api/fs/file/conversion";
 import type { UserDirectory } from "../../api/interface";
 import type { Command } from "../interface";
 
@@ -14,22 +12,9 @@ export const Exec: Command = {
     for (let i = 0; i < dir.files.length; i++) {
       const file = dir.files[i];
 
-      if (file.filename == fn) {
-        const contents = await readFile(file.scopedPath);
+      if (file.filename != fn) continue;
 
-        if (!contents) return term.std.Error("Could not read the file.");
-
-        if (!file.mime.includes("text/"))
-          return term.std.Error("Not attempting to read non-text file.");
-
-        const d = arrayToText(contents);
-
-        const parts = d.split("\n");
-
-        term.input.processCommands(parts, file.scopedPath);
-
-        return;
-      }
+      await term.scripts.runScriptFile(file.scopedPath);
     }
   },
   help(term) {
