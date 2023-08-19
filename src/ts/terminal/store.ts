@@ -18,6 +18,7 @@ import { InDesktop } from "./commands/indesktop";
 import { Kill } from "./commands/kill";
 import { LogDump } from "./commands/logdump";
 import { Logout } from "./commands/logout";
+import { Ls } from "./commands/ls";
 import { Mkdir } from "./commands/mkdir";
 import { oa } from "./commands/oa";
 import { Open } from "./commands/open";
@@ -53,6 +54,7 @@ export const arcCommands: CommandStore = [
   Help,
   History,
   Logout,
+  Ls,
   Mkdir,
   Rm,
   Reload,
