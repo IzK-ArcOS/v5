@@ -9,8 +9,6 @@ export const If: Command = {
     const str = argv.join(" ");
     const r = regex.exec(str);
 
-    console.log(str, r);
-
     if (!r || !r.groups) {
       term.std.Error("Invalid statement!");
       return false;

@@ -7,7 +7,11 @@ import { LogLevel } from "../console/interface";
 
 export function generateCredToken(cred: Cred) {
   if (!cred) return "";
-  return btoa(`${cred.username}:${cred.password}`);
+  try {
+    return btoa(`${cred.username}:${cred.password}`);
+  } catch {
+    return "";
+  }
 }
 
 export async function changePassword(

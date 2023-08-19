@@ -33,8 +33,6 @@ export class ArcTermConfig {
   ];
 
   public getConfig() {
-    Log(`ArcTerm ${this.term.referenceId}`, `config.getConfig`);
-
     const obj = {};
 
     for (let i = 0; i < this.configKeys.length; i++) {
@@ -47,8 +45,6 @@ export class ArcTermConfig {
   }
 
   public loadConfig(json: object) {
-    Log(`ArcTerm ${this.term.referenceId}`, `config.loadConfig: loading JSON`);
-
     for (let i = 0; i < this.configKeys.length; i++) {
       const k = this.configKeys[i];
 

@@ -42,20 +42,14 @@ export class ArcTermInput {
   }
 
   public lock() {
-    Log(`ArcTerm ${this.term.referenceId}`, `input.lock`);
-
     this.lockInput = true;
   }
 
   public unlock() {
-    Log(`ArcTerm ${this.term.referenceId}`, `input.unlock`);
-
     this.lockInput = false;
   }
 
   private getPrompt() {
-    Log(`ArcTerm ${this.term.referenceId}`, `input.getPrompt`);
-
     return this.term.vars.replace(this.env.prompt);
   }
 
@@ -127,11 +121,6 @@ export class ArcTermInput {
 
   public async processCommands(split: string[], file = "") {
     await sleep(0);
-
-    Log(
-      `ArcTerm ${this.term.referenceId}`,
-      `input.processCommands: ${split.length} parts`
-    );
 
     for (let i = 0; i < split.length; i++) {
       const str = this.term.vars.replace(split[i].trim());

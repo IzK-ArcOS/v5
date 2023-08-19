@@ -21,11 +21,6 @@ export class ArcTermVariables {
   }
 
   async getAll(): Promise<StaticVariableStore> {
-    Log(
-      `ArcTerm ${this.term.referenceId}`,
-      `var.getAll: getting all variables`
-    );
-
     const result: StaticVariableStore = {};
     const entries = Object.entries(this.store);
 
@@ -90,11 +85,6 @@ export class ArcTermVariables {
   }
 
   replace(str: string) {
-    Log(
-      `ArcTerm ${this.term.referenceId}`,
-      `var.replace: injecting variables into ${str.length} characters`
-    );
-
     const variables = this.parseInlineNames(str);
 
     if (!variables.length) return str;
@@ -111,11 +101,6 @@ export class ArcTermVariables {
   }
 
   private parseInlineNames(str: string): string[] {
-    Log(
-      `ArcTerm ${this.term.referenceId}`,
-      `var.parseInlineNames: getting variable names from ${str.length} characters`
-    );
-
     const regex = /\$([a-zA-Z_][a-zA-Z0-9_]*)/g;
     const matches: string[] = [];
 

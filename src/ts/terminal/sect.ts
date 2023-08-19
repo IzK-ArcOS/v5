@@ -25,7 +25,6 @@ export class ArcTermSections {
     let match: RegExpExecArray;
 
     while ((match = regex.exec(input)) !== null) {
-      console.log(match);
       const group = match.groups as Match;
 
       if (!group) continue;
@@ -43,8 +42,6 @@ export class ArcTermSections {
 
       this._sections[group.name] = commands;
     }
-
-    console.log(text);
 
     return text;
   }

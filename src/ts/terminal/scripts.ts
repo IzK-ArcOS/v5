@@ -35,11 +35,6 @@ export class ArcTermScripts {
   }
 
   public async isScriptFile(path: string): Promise<boolean> {
-    Log(
-      `ArcTerm ${this.term.referenceId}`,
-      `scripts.isScriptFile: checking ${path}`
-    );
-
     const file = await readFile(path);
 
     if (!file) return false;

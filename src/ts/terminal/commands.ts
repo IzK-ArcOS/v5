@@ -33,8 +33,6 @@ export class ArcTermCommandHandler {
 
     const result = await command.exec(cmd, args, this.term);
 
-    console.log(cmd, result);
-
     if (result == false) {
       return false;
     }
@@ -48,8 +46,6 @@ export class ArcTermCommandHandler {
   }
 
   public getCommand(command: string) {
-    Log(`ArcTerm ${this.term.referenceId}`, `cmd.getCommand: ${command}`);
-
     const c = command.toLowerCase();
 
     for (let i = 0; i < this.term.commands.length; i++) {

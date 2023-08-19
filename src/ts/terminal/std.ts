@@ -47,12 +47,6 @@ export class ArcTermStd {
   }
 
   public writeSeparator(length: number) {
-    Log(
-      `ArcTerm ${this.term.referenceId}`,
-      `std.writeSeparator: drawing with length of ${length}`,
-      LogLevel.info
-    );
-
     this.writeLine(``.padEnd(length, "-"));
   }
 
@@ -100,24 +94,12 @@ export class ArcTermStd {
   public update(el: HTMLDivElement, str: string) {
     if (!el) return false;
 
-    Log(
-      `ArcTerm ${this.term.referenceId}`,
-      `std.update: ${el.innerText.length} -> ${str.length}`,
-      LogLevel.info
-    );
-
     el.innerText = "";
 
     this.write(str, this.target);
   }
 
   public updateColor(el: HTMLDivElement, str: string, color: Color) {
-    Log(
-      `ArcTerm ${this.term.referenceId}`,
-      `std.updateColor: ${el.innerText.length} -> ${str.length}`,
-      LogLevel.info
-    );
-
     if (!el) return false;
 
     el.innerText = "";
@@ -215,12 +197,6 @@ export class ArcTermStd {
   }
 
   public clear() {
-    Log(
-      `ArcTerm ${this.term.referenceId}`,
-      `std.clear: Clearing terminal`,
-      LogLevel.info
-    );
-
     this.target.innerText = "";
   }
 }

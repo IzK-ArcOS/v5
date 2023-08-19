@@ -6,11 +6,15 @@ export const Goto: Command = {
     const sectName = argv[0];
     const sect = term.sect.get(sectName);
 
-    if (!sect) term.std.Error(`Can't find section ${sectName}`);
+    if (!sect) {
+      term.std.Error(`Can't find section ${sectName}`);
 
-    const result = await term.input.processCommands(sect || []);
+      return false;
+    }
 
-    if (!result) return false;
+    await term.input.processCommands(sect || [], `<Sect ${sect}>`);
+
+    return false;
   },
   description: "Goto a section",
 };
