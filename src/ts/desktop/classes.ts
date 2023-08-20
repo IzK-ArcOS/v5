@@ -3,7 +3,7 @@ import { experimentsClasses } from "./classes/experiments";
 import { desktopClassNames } from "./main";
 
 export function setDesktopClassNameListener() {
-  UserData.subscribe((v) => {
+  UserData.subscribe(async (v) => {
     if (v) {
       const udata = v;
 
@@ -17,7 +17,7 @@ export function setDesktopClassNameListener() {
       if (udata.sh.taskbar.isLauncher) classes += `is-launcher `;
       if (udata.sh.taskbar.docked) classes += `tb-docked `;
 
-      classes += experimentsClasses();
+      classes += await experimentsClasses();
 
       desktopClassNames.set(classes);
     }

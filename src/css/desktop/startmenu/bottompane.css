@@ -8,7 +8,8 @@ div.startmenu div.bottom {
   background-color: var(--darkened-overlay);
   border-bottom-left-radius: var(--win-border-rad);
   border-bottom-right-radius: var(--win-border-rad);
-  padding: 25px;
+  padding: 0px;
+  align-items: center;
   display: flex;
   border-top: var(--win-border-light);
 }
@@ -21,6 +22,9 @@ div.startmenu div.bottom h1.username {
   margin: 0;
   font-size: 19px;
   line-height: 30px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
 }
 
 div.startmenu div.bottom img.pfp {
