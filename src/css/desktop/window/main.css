@@ -21,7 +21,7 @@
 }
 
 .window,
-.window * {
+.window *:not(iframe) {
   pointer-events: none !important;
 }
 
@@ -127,7 +127,7 @@ div.desktop.is-launcher .window.max:not(.fullscreen) {
 }
 
 .window.visible,
-.window.visible * {
+.window.visible *:not(iframe) {
   pointer-events: initial !important;
 }
 

@@ -3,6 +3,7 @@ import type { App } from "./interface";
 import { checkZones, snapWindow } from "./snapzones/main";
 import { leftZoneTriggered, rightZoneTriggered } from "./snapzones/store";
 import { WindowStore, focusedWindowId } from "./store";
+import { Log } from "../console";
 
 /**
  * @WARNING This file needs a mass refactor, do not report issues related to the code execution within this file.
@@ -25,6 +26,17 @@ export function dragWindow(
         focusedWindowId.set(app.id);
 
         if (e.composedPath().includes(titlebar)) {
+          try {
+            window.querySelectorAll("iframe").forEach((i) => {
+              i.style.pointerEvents = "none";
+            });
+          } catch {
+            Log(
+              "applogic/drag.ts: dragWindow",
+              "Could not disable iframes in window!"
+            );
+          }
+
           let xA: number, yA: number, xB: number, yB: number;
 
           /* e.preventDefault(); */
@@ -79,6 +91,16 @@ export function dragWindow(
             document.onmousemove = null;
             document.ontouchend = null;
             document.ontouchmove = null;
+            try {
+              window.querySelectorAll("iframe").forEach((i) => {
+                i.style.pointerEvents = "";
+              });
+            } catch {
+              Log(
+                "applogic/drag.ts: dragWindow",
+                "Could not enable iframes in window!"
+              );
+            }
           };
         }
       },
