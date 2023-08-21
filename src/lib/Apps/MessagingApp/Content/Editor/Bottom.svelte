@@ -65,7 +65,10 @@
   {/if}
   <div class="right">
     <Cancel bind:loading />
-    <button on:click={send} disabled={!content || !target || loading || !title}>
+    <button
+      on:click={send}
+      disabled={!content || loading || !title || !target.length}
+    >
       {loading ? "Loading..." : $replyMessageId ? "Reply" : "Send"}
     </button>
   </div>
