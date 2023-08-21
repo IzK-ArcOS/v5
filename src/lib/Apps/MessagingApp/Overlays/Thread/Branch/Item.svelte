@@ -10,6 +10,7 @@
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
   import OtherItems from "../../../../Settings/Pages/Account/StorageBar/OtherItems.svelte";
   import Branch from "../Branch.svelte";
+  import { filterPartial } from "../../../../../../ts/messaging/partial";
 
   export let item: PartiallyExtendedMessage;
 
@@ -33,7 +34,9 @@
     <div class="context">
       <p class="name">{item.sender}</p>
       <p class="partial">
-        {item.partialBody}{item.partialBody.length > 29 ? "..." : ""}
+        {filterPartial(item.partialBody)}{item.partialBody.length > 29
+          ? "..."
+          : ""}
       </p>
     </div>
     <div class="id">{item.id}</div>
