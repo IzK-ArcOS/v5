@@ -13,7 +13,11 @@ export const TEST_MODES: [boolean, number][] = [
   [true, 3333],
 ];
 
-export async function testConnection(server: string, authCode: string = "") {
+export async function testConnection(
+  server: string,
+  authCode: string = "",
+  set = true
+) {
   for (let i = 0; i < TEST_MODES.length; i++) {
     const proto = `http${TEST_MODES[i][0] ? "s" : ""}`;
     const port = TEST_MODES[i][1];
@@ -38,8 +42,10 @@ export async function testConnection(server: string, authCode: string = "") {
 
       if (rev < minArcAPI) return false;
 
-      ConnectedServer.set(`${proto}://${server}:${port}`);
-      ServerAuthCode.set(authCode);
+      if (set) {
+        ConnectedServer.set(`${proto}://${server}:${port}`);
+        ServerAuthCode.set(authCode);
+      }
 
       return req && !!req.valid;
     } catch {

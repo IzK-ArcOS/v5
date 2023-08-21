@@ -1,5 +1,9 @@
+import { get } from "svelte/store";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
+import ttlFetch from "../ttlFetch";
+import { ConnectedServer } from "./main";
+import { testConnection } from "./test";
 
 export function setAuthcode(server: string, code: string): void {
   Log(
@@ -31,4 +35,21 @@ export function getAuthcode(server: string) {
   authCodes = JSON.parse(authCodes);
 
   return authCodes[server];
+}
+
+export async function detectAuthcode(
+  server: string
+): Promise<"exists" | "noexist" | "error"> {
+  const cs = get(ConnectedServer);
+  const test = await testConnection(server);
+
+  if (!test) return "error";
+
+  const host = get(ConnectedServer);
+
+  ConnectedServer.set(cs);
+
+  const req = await ttlFetch(`${host}/connect`, {}, 3000);
+
+  return req.status == 401 ? "exists" : "noexist";
 }
