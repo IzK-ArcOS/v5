@@ -6,6 +6,7 @@ window#MessagingApp div.body div.listbar {
 
 window#MessagingApp div.body div.listbar div.header {
   height: 40px;
+  min-height: 40px;
   border-bottom: var(--win-border);
   line-height: 30px;
   padding: 0 15px;
@@ -47,6 +48,7 @@ window#MessagingApp div.body div.listbar button.message {
   box-sizing: border-box;
   background-color: transparent;
   overflow: hidden;
+  align-items: center;
 }
 
 window#MessagingApp div.body div.listbar button.message:hover,
@@ -59,8 +61,8 @@ window#MessagingApp div.body div.listbar button.message:active {
 }
 
 window#MessagingApp div.body div.listbar button.message div.pfprenderer {
-  min-width: 30px;
-  height: 30px !important;
+  min-width: 25px;
+  height: 25px !important;
   margin-right: 10px;
 }
 

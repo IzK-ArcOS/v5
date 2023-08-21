@@ -5,11 +5,12 @@
   import type { UserData } from "../../../../ts/userlogic/interfaces";
   import { getUsers } from "../../../../ts/userlogic/main";
   import Bottom from "./Editor/Bottom.svelte";
-  import TargetSelector from "./Editor/TargetSelector.svelte";
+  import NewHeader from "./Editor/NewHeader.svelte";
 
   let users: [string, UserData][] = [];
-  let target = "";
+  let target = [];
   let content = "";
+  let title = "";
   let viewing = false;
 
   onMount(async () => {
@@ -23,12 +24,12 @@
 
     if (!message) return;
 
-    target = message.sender;
+    target = [message.sender];
   });
 </script>
 
 <div class="editor">
-  <TargetSelector bind:target {users} />
+  <NewHeader bind:target {users} bind:title />
 </div>
 
 {#if !viewing}
@@ -39,4 +40,4 @@
   </div>
 {/if}
 
-<Bottom {target} {content} bind:viewing />
+<Bottom {target} {content} bind:viewing {title} />

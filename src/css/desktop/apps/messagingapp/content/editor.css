@@ -1,0 +1,102 @@
+window#MessagingApp div.editor div.header {
+  height: 76px;
+  display: flex;
+  flex-direction: column;
+}
+
+window#MessagingApp div.editor div.header div.opt {
+  width: 100%;
+  display: flex;
+  height: 38px;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  border-bottom: var(--button-bg) 1px solid;
+}
+window#MessagingApp div.editor div.header div.opt > div {
+  flex-grow: 1;
+  overflow-x: auto;
+}
+
+window#MessagingApp div.editor div.header div.opt > div::-webkit-scrollbar {
+  display: none;
+}
+
+window#MessagingApp div.editor div.header div.opt > div > input {
+  width: 100%;
+  background-color: transparent;
+  color: var(--fg);
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+window#MessagingApp div.editor div.header div.opt p.caption {
+  min-width: 62px;
+  margin: 0;
+  opacity: 0.5;
+}
+
+window#MessagingApp div.editor div.header div.opt > div div.receiver-pill {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  background-color: var(--button-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 2px;
+  gap: 5px;
+}
+
+window#MessagingApp
+  div.editor
+  div.header
+  div.opt
+  > div
+  div.receiver-pill
+  div.pfprenderer {
+  min-width: 18px;
+  min-height: 18px;
+}
+
+window#MessagingApp div.editor div.header div.opt > div div.receiver-pill p {
+  margin: 0;
+  margin-right: 5px;
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+window#MessagingApp
+  div.editor
+  div.header
+  div.opt
+  > div
+  div.receiver-pill
+  button.remove {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  font-size: 12px;
+  background-color: transparent;
+  margin: 0;
+  margin-right: 4px;
+}
+
+window#MessagingApp div.editor div.header div.opt.receivers div.current {
+  display: flex;
+  gap: 5px;
+}
+
+window#MessagingApp div.editor div.header div.opt.receivers > div {
+  display: flex;
+  gap: 10px;
+}
+
+window#MessagingApp div.editor div.header div.opt.receivers select {
+  flex-grow: 1;
+  padding: 0;
+  margin: 0;
+  border: none;
+}

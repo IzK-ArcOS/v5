@@ -19,6 +19,21 @@ export async function sendMessage(receiver: string, body: string) {
   return req.data.id;
 }
 
+export async function sendMultipleMessages(
+  receivers: string[],
+  body: string
+): Promise<boolean> {
+  for (let i = 0; i < receivers.length; i++) {
+    try {
+      if (!(await sendMessage(receivers[i], body))) return false;
+    } catch {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 export async function replyToMessage(
   id: string,
   receiver: string,

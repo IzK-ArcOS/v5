@@ -3,31 +3,31 @@
   import {
     creatingMessage,
     replyMessageId,
-    selectedMessageId,
   } from "../../../../../ts/messaging/main";
   import {
     replyToMessage,
-    sendMessage,
+    sendMultipleMessages,
   } from "../../../../../ts/messaging/send";
   import { messageUpdateTrigger } from "../../../../../ts/messaging/updates";
   import Cancel from "./Bottom/Cancel.svelte";
 
   export let content: string;
-  export let target: string;
+  export let target: string[];
   export let viewing: boolean;
+  export let title: string;
 
   let loading = false;
 
   async function send() {
     Busy.set(true);
     loading = true;
-    if ($replyMessageId) await replyToMessage($replyMessageId, target, content);
-    else {
-      const id = await sendMessage(target, content);
 
-      setTimeout(() => {
-        selectedMessageId.set(id);
-      }, 50);
+    const fullBody = `### ${title}\n${content}`;
+
+    if ($replyMessageId)
+      await replyToMessage($replyMessageId, target[0], fullBody);
+    else {
+      await sendMultipleMessages(target, fullBody);
     }
 
     creatingMessage.set(false);
@@ -65,7 +65,7 @@
   {/if}
   <div class="right">
     <Cancel bind:loading />
-    <button on:click={send} disabled={!content || !target || loading}>
+    <button on:click={send} disabled={!content || !target || loading || !title}>
       {loading ? "Loading..." : $replyMessageId ? "Reply" : "Send"}
     </button>
   </div>

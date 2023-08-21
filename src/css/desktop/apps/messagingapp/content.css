@@ -1,3 +1,5 @@
+@import url("./content/editor.css");
+
 window#MessagingApp div.body > div.content {
   display: flex;
   flex-direction: column;
@@ -7,7 +9,6 @@ window#MessagingApp div.body > div.content div.message-header {
   display: flex;
   padding: 15px;
   padding-bottom: 15px;
-  margin-bottom: 15px;
   border-bottom: var(--button-bg) 1px solid;
 }
 
@@ -206,7 +207,6 @@ window#MessagingApp div.body > div.content textarea {
 }
 window#MessagingApp div.body > div.content div.markdownrenderer {
   padding: 10px;
-  padding-top: 0;
 }
 
 window#MessagingApp div.body > div.content div.editor-send,
