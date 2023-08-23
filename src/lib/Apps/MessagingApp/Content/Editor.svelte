@@ -5,7 +5,7 @@
   import type { UserData } from "../../../../ts/userlogic/interfaces";
   import { getUsers } from "../../../../ts/userlogic/main";
   import Bottom from "./Editor/Bottom.svelte";
-  import NewHeader from "./Editor/NewHeader.svelte";
+  import Header from "./Editor/Header.svelte";
 
   let users: [string, UserData][] = [];
   let target = [];
@@ -29,7 +29,7 @@
 </script>
 
 <div class="editor">
-  <NewHeader bind:target {users} bind:title />
+  <Header bind:target {users} bind:title />
 </div>
 
 {#if !viewing}

@@ -3,7 +3,7 @@
   import "./css/main.css";
   import BugReport from "./lib/BugReport.svelte";
   import { logoffToken } from "./ts/api/cred";
-  import { getMode, Logo } from "./ts/branding";
+  import { ARCOS_MODE, getMode, Logo } from "./ts/branding";
   import { getDesktopMode } from "./ts/desktop/app";
   import { Busy } from "./ts/env/main";
   import { handleWindowError } from "./ts/reporting/crash";
@@ -39,7 +39,11 @@
 </svelte:head>
 
 {#if run}
-  <div class="app fullscreen" class:cursor-busy={$committingUserData || $Busy}>
+  <div
+    class="app fullscreen"
+    class:cursor-busy={$committingUserData || $Busy}
+    class:rotate={ARCOS_MODE == "siege"}
+  >
     {#if $CurrentState}
       <svelte:component this={$CurrentState.content} />
     {/if}

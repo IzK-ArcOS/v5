@@ -92,3 +92,20 @@ div.terminal-renderer .clr-purple {
 div.terminal-renderer .clr-gray {
   color: var(--clr-gray-fg);
 }
+
+div.app.fullscreen.rotate {
+  animation: rotation 600s infinite linear;
+  position: fixed;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+div.app {
+  overflow: hidden;
+}
