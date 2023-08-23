@@ -10,7 +10,7 @@ export const Default: Command = {
     const scriptPath = await term.scripts.detectScript(term.path, cmd);
 
     if (!scriptPath && term && term.std) {
-      return term.std.Error(`${cmd}: "${cmd}" command not found`);
+      return term.std.Error(`${cmd}: command not found`);
     }
 
     await term.scripts.runScriptFile(scriptPath);

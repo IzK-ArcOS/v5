@@ -38,7 +38,7 @@ export async function loginOnMount() {
   const server = get(ConnectedServer);
 
   setTimeout(() => {
-    if (!state) applyLoginState(remembered ? "autologin" : "selector");
+    if (!state) applyLoginState(remembered ? "autologin" : "todesktop");
 
     if (!Object.keys(users).length && !remembered) {
       if (!server) {
@@ -59,7 +59,7 @@ export async function loginOnMount() {
     const username = atob(remembered).split(":")[0];
 
     if (!userdata) {
-      applyLoginState("selector");
+      applyLoginState("todesktop");
 
       localStorage.removeItem("arcos-remembered-token");
 

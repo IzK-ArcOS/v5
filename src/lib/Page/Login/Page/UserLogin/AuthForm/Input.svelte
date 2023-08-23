@@ -20,8 +20,6 @@
   export let pfp = "";
 
   onMount(async () => {
-    if (!$loginUsername) applyLoginState("selector");
-
     pfp = await getUserPfp($loginUsername);
   });
 

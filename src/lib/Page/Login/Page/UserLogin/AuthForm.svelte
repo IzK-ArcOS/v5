@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { getUserPfp } from "../../../../../ts/api/pfp";
   import { applyLoginState, loginUsername } from "../../../../../ts/login/main";
   import ProfilePicture from "../../../../ProfilePicture.svelte";
   import Loading from "../Content/Loading.svelte";
@@ -15,11 +16,21 @@
 
     applyLoginState("selector");
   }
+
+  loginUsername.subscribe(async (v) => (pfp = await getUserPfp(v)));
 </script>
 
 {#if !authenticating}
   <ProfilePicture src={pfp} height={151} />
-  <h1>{$loginUsername}</h1>
+  <h1>{$loginUsername || "Login"}</h1>
+  {#if !wrongpswd}
+    <input
+      type="text"
+      class="block username"
+      bind:value={$loginUsername}
+      placeholder="Username"
+    />
+  {/if}
 {/if}
 
 <div class="cloudlogin">
@@ -34,7 +45,7 @@
   {#if !authenticating}<!-- 
     <Stay bind:stay /> -->
     <button class="switchuser" on:click={cancel} type="button">
-      {wrongpswd ? "Okay" : "Cancel"}
+      {wrongpswd ? "Okay" : "Show Picker"}
     </button>
   {:else}
     <Loading caption="Welcome" />

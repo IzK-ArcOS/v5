@@ -34,6 +34,9 @@ div.userlogin img[alt*="pfp"] {
 
 div.userlogin h1 {
   font-size: 24px;
+  margin: 10px 0;
+  height: 40px;
+  line-height: 40px;
 }
 
 div.userlogin input:not([type*="checkbox"]) {
@@ -50,9 +53,17 @@ div.userlogin button.block {
   width: 100%;
   display: block;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
-div.userlogin div.cloudlogin button.material-icons-round {
+div.userlogin input.username {
+  width: 219px;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+
+div.userlogin div.cloudlogin button.material-icons-round,
+div.userlogin.newuser div.input-wrapper button.material-icons-round {
   margin: 0;
   margin-left: 0px;
   padding: 0;
@@ -70,7 +81,8 @@ div.userlogin div.cloudlogin button.material-icons-round {
   background-color: transparent;
 }
 
-div.userlogin div.cloudlogin button.material-icons-round:disabled {
+div.userlogin div.cloudlogin button.material-icons-round:disabled,
+div.userlogin.newuser div.input-wrapper button.material-icons-round:disabled {
   color: #ccc4;
 }
 
@@ -125,13 +137,29 @@ div.userlogin.newuser button.createbutton {
 }
 
 div.userlogin div.cloudlogin p.error {
-  height: 38px;
+  height: 40px;
   margin: 0;
-  line-height: 38px;
+  line-height: 40px;
 }
 
 div.userlogin.newuser div.input-wrapper {
   display: flex;
+  align-items: center;
+  border: var(--button-glass-bg) 1px solid;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #ffffff08;
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+div.userlogin.newuser div.input-wrapper input {
+  border-radius: 0;
+  background-color: transparent !important;
+  border: none;
+}
+
+div.userlogin.newuser div.input-wrapper.hidden {
+  display: none !important;
 }
 
 body {

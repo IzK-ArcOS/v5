@@ -11,8 +11,6 @@ import { UserCache } from "./cache";
 export const committingUserData = writable<boolean>(false);
 
 export async function getUsers(): Promise<AllUsers> {
-  Log("userlogic/main.ts: getUsers", `Getting users`);
-
   const cache = UserCache.get();
 
   if (cache && Object.entries(cache).length) return cache;

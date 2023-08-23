@@ -66,7 +66,6 @@
     <input
       type="password"
       placeholder="Confirm Password"
-      class="block"
       disabled={loading || !username}
       bind:value={confirm}
     />
