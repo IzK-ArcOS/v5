@@ -12,6 +12,8 @@ import { deleteMessage } from "../mutate";
 import { messageUpdateTrigger } from "../updates";
 import type { MessageItemAction, MsgAppActions } from "./interface";
 import icon from "../../../assets/apps/error.svg";
+import { get } from "svelte/store";
+import { UserName } from "../../userlogic/interfaces";
 
 export const messageSidebarActions: MsgAppActions = [
   {
@@ -59,6 +61,20 @@ export const messageItemActions: MessageItemAction[] = [
     icon: "delete",
     name: "Delete message for everyone",
     async action(message: Message) {
+      if (message.sender != get(UserName)) {
+        createOverlayableError(
+          {
+            title: "Well that's not good",
+            message: `Unfortunately you have to be the owner of a message in order to delete it. Please ask <b>${message.sender}</b> to delete the message for you.`,
+
+            image: icon,
+            buttons: [{ caption: "Okay", action() {} }],
+          },
+          "MessagingApp"
+        );
+
+        return;
+      }
       createOverlayableError(
         {
           title: "Delete message?",
