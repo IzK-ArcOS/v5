@@ -1,6 +1,8 @@
+import { get } from "svelte/store";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 import { minArcAPI } from "../env/main";
+import { CurrentState } from "../state/main";
 import ttlFetch from "../ttlFetch";
 import { ConnectedServer, ServerAuthCode } from "./main";
 
@@ -62,7 +64,7 @@ export async function testConnection(
   Log(
     "api/test.ts: testConnection",
     `Can't connect to server ${server}: none of the modes match`,
-    LogLevel.critical
+    get(CurrentState).key != "fts" ? LogLevel.critical : LogLevel.error
   );
 
   return false;
