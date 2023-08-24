@@ -50,16 +50,23 @@
     <button
       class="material-icons-round"
       class:selected={viewing}
-      on:click={viewer}>remove_red_eye</button
+      on:click={viewer}
     >
+      remove_red_eye
+    </button>
     <button
       class="material-icons-round"
       class:selected={!viewing}
-      on:click={editor}>edit</button
+      on:click={editor}
     >
+      edit
+    </button>
   </div>
-  {#if content.length > 1950}
-    <div class="counter" class:critical={content.length > 1980}>
+  {#if content.length + 5 + title.length > 1950}
+    <div
+      class="counter"
+      class:critical={content.length + 5 + title.length > 1980}
+    >
       {2000 - content.length}
     </div>
   {/if}

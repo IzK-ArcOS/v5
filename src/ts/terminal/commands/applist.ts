@@ -4,6 +4,7 @@ import { getOpenedStore, WindowStore } from "../../applogic/store";
 import { switchExists } from "../argv";
 import type { Command } from "../interface";
 import type { ArcTerm } from "../main";
+import { isPopulatable } from "../../applogic/checks";
 
 export const AppList: Command = {
   keyword: "applist",
@@ -12,10 +13,12 @@ export const AppList: Command = {
       ? getOpenedStore()
       : get(WindowStore);
 
+    const showHidden = switchExists(argv, "all");
+
     header(term);
 
     for (let i = 0; i < store.length; i++) {
-      output(term, store[i]);
+      if (isPopulatable(store[i]) || showHidden) output(term, store[i]);
     }
   },
   help(term) {

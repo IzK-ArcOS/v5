@@ -13,7 +13,8 @@ window#MessagingApp div.editor div.header div.opt {
   gap: 10px;
   border-bottom: var(--button-bg) 1px solid;
 }
-window#MessagingApp div.editor div.header div.opt > div {
+window#MessagingApp div.editor div.header div.opt > div,
+window#MessagingApp div.editor div.header div.opt > form {
   flex-grow: 1;
   overflow-x: auto;
 }
@@ -22,7 +23,8 @@ window#MessagingApp div.editor div.header div.opt > div::-webkit-scrollbar {
   display: none;
 }
 
-window#MessagingApp div.editor div.header div.opt > div > input {
+window#MessagingApp div.editor div.header div.opt > div > input,
+window#MessagingApp div.editor div.header div.opt > form > input {
   width: 100%;
   background-color: transparent;
   color: var(--fg);

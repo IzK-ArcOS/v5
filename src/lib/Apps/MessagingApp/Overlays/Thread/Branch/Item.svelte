@@ -6,11 +6,11 @@
     selectedMessageId,
     threadMessageId,
   } from "../../../../../../ts/messaging/main";
+  import { filterPartial } from "../../../../../../ts/messaging/partial";
+  import sleep from "../../../../../../ts/sleep";
   import { hideOverlay } from "../../../../../../ts/window/overlay";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
-  import OtherItems from "../../../../Settings/Pages/Account/StorageBar/OtherItems.svelte";
   import Branch from "../Branch.svelte";
-  import { filterPartial } from "../../../../../../ts/messaging/partial";
 
   export let item: PartiallyExtendedMessage;
 
@@ -20,10 +20,13 @@
     pfp = await getUserPfp(item.sender);
   });
 
-  function openThis() {
+  async function openThis() {
     $selectedMessageId = item.id;
 
     hideOverlay("thread", "MessagingApp");
+
+    await sleep(1000);
+
     threadMessageId.set(null);
   }
 </script>

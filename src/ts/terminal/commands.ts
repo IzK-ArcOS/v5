@@ -21,7 +21,8 @@ export class ArcTermCommandHandler {
 
     if (cmd.startsWith("#")) return;
 
-    this.history.push(`${cmd} ${args.join(" ")}`.trim());
+    // Don't bother appending script lines to the history
+    if (!isScript) this.history.push(`${cmd} ${args.join(" ")}`.trim());
 
     const command = this.getCommand(cmd);
 

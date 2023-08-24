@@ -33,7 +33,11 @@
 </div>
 
 {#if !viewing}
-  <textarea placeholder="New message" bind:value={content} maxlength="2000" />
+  <textarea
+    placeholder="New message"
+    bind:value={content}
+    maxlength={2000 - 4 - title.length}
+  />
 {:else}
   <div class="markdownrenderer">
     <SvelteMarkdown source={content} />

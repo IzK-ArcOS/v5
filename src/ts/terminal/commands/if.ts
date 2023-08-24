@@ -20,7 +20,7 @@ export const If: Command = {
     split.shift();
 
     async function doIt() {
-      return await term.commandHandler.evaluate(command, split, false);
+      return await term.commandHandler.evaluate(command, split, true);
     }
 
     if (result.mode == "!=" && result.e1 !== result.e2) {

@@ -10,6 +10,7 @@
   import { applyState, CurrentState } from "./ts/state/main";
   import { committingUserData } from "./ts/userlogic/main";
   import { getBuild } from "./ts/branding/build";
+  import { makeNotification } from "./ts/notiflogic/main";
 
   let run = false;
   let logo = "";
@@ -28,6 +29,19 @@
 
     window.onunhandledrejection = (e: PromiseRejectionEvent) => {
       handleWindowError(e);
+    };
+
+    window.onbeforeunload = () => {
+      makeNotification({
+        icon: "warning",
+        title: "Hold up!",
+        message:
+          "It's advised to leave ArcOS using the power options in the start menu. Closing it forcefully can result in a loss of unsaved data, you've been warned.",
+        buttons: [],
+        timeout: 10000,
+      });
+
+      return false;
     };
   });
 </script>

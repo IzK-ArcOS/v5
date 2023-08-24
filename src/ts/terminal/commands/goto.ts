@@ -12,7 +12,7 @@ export const Goto: Command = {
       return false;
     }
 
-    await term.input.processCommands(sect || [], `<Sect ${sect}>`);
+    await term.input.processCommands(sect || [], `<Sect ${sectName}>`);
 
     return false;
   },
