@@ -1,13 +1,11 @@
-import { get, writable } from "svelte/store";
+import { writable } from "svelte/store";
 import { writeFile } from "../../../api/fs/file";
-import { closeFile } from "../../../api/fs/main";
-import { openWith } from "../../../api/fs/open/main";
+import type { ArcFile } from "../../../api/interface";
 import { showOpenFileDialog } from "../../../chooser/main";
 import { createOverlayableError } from "../../../errorlogic/overlay";
-import { closeWindow, openWindow } from "../../events";
+import { closeWindow } from "../../events";
 import type { App } from "../../interface";
 import { registerShortcuts } from "../../keyboard/main";
-import type { ArcFile } from "../../../api/interface";
 
 export const TextEditorContent = writable<string>(null);
 
@@ -31,16 +29,6 @@ export async function setShortcuts(app: App, save: () => void) {
         },
       },
       {
-        key: "m",
-        alt: true,
-        action: () => {
-          if (!app.openedFile || !app.openedFile.name.endsWith(".md")) return;
-
-          openWindow("MarkDownViewer");
-          closeFile("MarkDownViewer");
-        },
-      },
-      {
         key: "s",
         alt: true,
         action: save,
@@ -48,12 +36,6 @@ export async function setShortcuts(app: App, save: () => void) {
     ],
     "TextEditor"
   );
-
-  app.events.close = () => {
-    if (get(TextEditorContent)) {
-      closeWindow("MarkDownViewer");
-    }
-  };
 }
 
 export async function doLoadError(title: string, message: string) {

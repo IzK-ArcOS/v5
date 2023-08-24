@@ -1,7 +1,5 @@
 <script lang="ts">
-  import { openWindow } from "../../../ts/applogic/events";
   import type { App } from "../../../ts/applogic/interface";
-  import md from "../../../assets/apps/markdownviewer.svg";
 
   import { showOpenFileDialog } from "../../../ts/chooser/main";
   export let app: App;
@@ -16,16 +14,8 @@
   <button
     class="material-icons-round save"
     on:click={saveFile}
-    disabled={!app.openedFile}>save</button
+    disabled={!app.openedFile}
   >
-  <div class="right">
-    <button
-      title="Open Markdown Viewer"
-      on:click={() => openWindow("MarkDownViewer")}
-      disabled={!app.openedFile || !app.openedFile.name.endsWith(".md")}
-      class="markdown-open"
-    >
-      <img src={md} alt="Markdown Viewer" />
-    </button>
-  </div>
+    save
+  </button>
 </div>

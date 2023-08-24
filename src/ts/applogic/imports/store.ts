@@ -41,7 +41,7 @@ export const DefaultApps: { [key: string]: App } = {
   AppInfo,
   ImageViewer,
   OpenWithApp,
-  /* MarkDownViewer, */
+  MarkDownViewer,
   MediaPlayerApp,
   DesktopWallpaper,
   BugReports,

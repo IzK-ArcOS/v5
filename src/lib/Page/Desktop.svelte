@@ -30,6 +30,8 @@
   import { checkReleaseCandidate } from "../../ts/branding/rc";
   import { getUsers } from "../../ts/userlogic/main";
   import { getExperiments } from "../../ts/desktop/experiments/main";
+  import { getAllServers } from "../../ts/api/server";
+  import { detectAuthcode } from "../../ts/api/authcode";
 
   let show = false;
   let classes = "";

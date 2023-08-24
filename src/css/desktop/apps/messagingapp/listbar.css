@@ -5,16 +5,21 @@ window#MessagingApp div.body div.listbar {
 }
 
 window#MessagingApp div.body div.listbar div.header {
-  height: 40px;
-  min-height: 40px;
-  border-bottom: var(--win-border);
+  height: 38px;
+  min-height: 38px;
+  border-bottom: var(--win-border-light);
   line-height: 30px;
-  padding: 0 15px;
-  padding-right: 10px;
+  padding: 0 10px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
 }
+
+window#MessagingApp div.body div.listbar div.header span.material-icons-round {
+  font-size: 18px;
+  margin: 0;
+}
+
 window#MessagingApp
   div.body
   div.listbar
@@ -24,12 +29,15 @@ window#MessagingApp
   padding: 0;
   margin: 0;
   margin-left: auto;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 window#MessagingApp div.body div.listbar div.header p.title {
   margin: 0;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 window#MessagingApp div.body div.listbar div.list {
@@ -41,10 +49,11 @@ window#MessagingApp div.body div.listbar div.list {
 
 window#MessagingApp div.body div.listbar button.message {
   display: flex;
-  padding: 5px;
+  padding: 3px 5px;
   text-align: left;
   width: 100%;
   margin: 0;
+  margin-bottom: 5px;
   box-sizing: border-box;
   background-color: transparent;
   overflow: hidden;

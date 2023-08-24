@@ -8,13 +8,12 @@
     TextEditorContent,
   } from "../../ts/applogic/apps/TextEditor/main";
   import type { App } from "../../ts/applogic/interface";
-  import { WindowStore } from "../../ts/applogic/store";
   import { tryParse } from "../../ts/json";
+  import { showOverlay } from "../../ts/window/overlay";
   import Actions from "./TextView/Actions.svelte";
   import Bottom from "./TextView/Bottom.svelte";
   import Saving from "./TextView/Saving.svelte";
   import TextArea from "./TextView/TextArea.svelte";
-  import { showOverlay } from "../../ts/window/overlay";
 
   export let app: App;
 
@@ -22,7 +21,6 @@
   let saving = false;
   let changing = false;
   let fileContents = "";
-  let currentFile = "";
 
   onMount(() => {
     app.events = {};
@@ -36,7 +34,6 @@
       const text = new TextDecoder().decode(app.openedFile.data);
 
       fileContents = text;
-      currentFile = app.openedFile.path;
 
       TextEditorContent.set(fileContents);
 

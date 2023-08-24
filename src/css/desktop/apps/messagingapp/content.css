@@ -100,10 +100,12 @@ window#MessagingApp div.body > div.content div.markdownrenderer {
 window#MessagingApp div.body > div.content div.editor-send,
 window#MessagingApp div.body > div.content div.reply-wrapper {
   border-top: var(--button-bg) 1px solid;
-  padding: 10px;
+  padding: 5px;
   display: flex;
   line-height: 26px;
-  margin: 0;
+  margin: 10px;
+  border: var(--button-bg) 1px solid;
+  border-radius: 10px;
 }
 
 window#MessagingApp div.body > div.content div.reply-wrapper p {
@@ -112,8 +114,8 @@ window#MessagingApp div.body > div.content div.reply-wrapper p {
 
 window#MessagingApp div.body > div.content div.editor-send div.view-group {
   overflow: hidden;
-  height: 26px;
-  width: 52px;
+  height: 28px;
+  width: 58px;
   border-radius: 5px;
   display: flex;
 }
@@ -127,8 +129,8 @@ window#MessagingApp
   padding: 0;
   margin: 0;
   border-radius: 0;
-  width: 26px;
-  height: 26px;
+  width: 29px;
+  height: 29px;
 }
 
 window#MessagingApp

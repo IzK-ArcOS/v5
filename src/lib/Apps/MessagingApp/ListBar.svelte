@@ -74,7 +74,10 @@
 <div class="listbar">
   {#if $messagingPage}
     <div class="header">
-      <p class="title">{$messagingPage.name}</p>
+      <p class="title">
+        <span class="material-icons-round">{$messagingPage.icon}</span>
+        <span>{$messagingPage.name}</span>
+      </p>
       <button
         class="material-icons-round refresh"
         disabled={loading}
