@@ -1,10 +1,12 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 import type { App } from "../applogic/interface";
 import { Log } from "../console";
 import type { ArcTermEnv } from "./env";
 import type { Color } from "./interface";
 import type { ArcTerm } from "./main";
 import { LogLevel } from "../console/interface";
+import sleep from "../sleep";
+import { focusedWindowId } from "../applogic/store";
 
 export class ArcTermStd {
   target: HTMLDivElement;
@@ -99,12 +101,17 @@ export class ArcTermStd {
     this.write(str, this.target);
   }
 
-  public updateColor(el: HTMLDivElement, str: string, color: Color) {
+  public updateColor(
+    el: HTMLDivElement,
+    str: string,
+    pri: Color,
+    sec: Color = "white"
+  ) {
     if (!el) return false;
 
     el.innerText = "";
 
-    this.writeColor(str, color, "white", false, el);
+    this.writeColor(str, pri, sec, false, el);
   }
 
   public Error(context: string) {
@@ -198,5 +205,69 @@ export class ArcTermStd {
 
   public clear() {
     this.target.innerText = "";
+  }
+
+  public async select(options: string[]): Promise<number> {
+    if (!this.target || !options.length) return 0;
+
+    console.log(options);
+
+    await sleep(10);
+
+    let index = 0;
+
+    const send = writable(false);
+    const elements = [];
+
+    const getLine = (i, str) => {
+      const curr = i == index;
+
+      return `${curr ? "> [" : "  "}${i + 1}. ${str}${curr ? "]" : ""}`;
+    };
+
+    const draw = () => {
+      for (let i = 0; i < elements.length; i++) {
+        this.updateColor(elements[i], getLine(i, options[i]), "blue", "gray");
+      }
+    };
+
+    const keyDown = (e: KeyboardEvent) => {
+      if (this.term.app && get(focusedWindowId) !== this.term.app.id) return;
+
+      console.log(e);
+      if (!e.key) console.log("ainah");
+
+      const key = e.key.toLowerCase();
+
+      switch (key) {
+        case "arrowup":
+          index--;
+          if (index < 0) index = 0;
+          draw();
+          break;
+        case "arrowdown":
+          index++;
+          if (index > options.length - 1) index = options.length - 1;
+          draw();
+          break;
+        case "enter":
+          console.log("resolving!");
+          document.removeEventListener("keydown", keyDown);
+          send.set(true);
+      }
+    };
+
+    for (let i = 0; i < options.length; i++) {
+      elements.push(this.writeColor(getLine(i, options[i]), "blue", "gray"));
+    }
+
+    console.log(keyDown);
+
+    document.addEventListener("keydown", keyDown);
+    this.target.focus();
+
+    return new Promise<number>((resolve) => {
+      send.subscribe((v) => v && resolve(index));
+    });
   }
 }

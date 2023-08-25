@@ -10,6 +10,8 @@ export const Ls: Command = {
     const path = term.path as string;
     const dir = (await getDirectory(path)) as UserDirectory;
 
+    term.std.writeLine(`${await term.std.select(["This", "That", "HI!"])}`);
+
     if (argv[0]) return specific(argv[0], path, term);
     all(dir, term);
   },

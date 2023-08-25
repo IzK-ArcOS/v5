@@ -6,7 +6,7 @@ import type { ArcTerm } from "./main";
 import sleep from "../sleep";
 
 export class ArcTermInput {
-  private lockInput = false;
+  lockInput = false;
   target: HTMLDivElement;
   env: ArcTermEnv;
   term: ArcTerm;
