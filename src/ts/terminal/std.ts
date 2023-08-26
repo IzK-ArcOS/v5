@@ -7,6 +7,7 @@ import type { ArcTerm } from "./main";
 import { LogLevel } from "../console/interface";
 import sleep from "../sleep";
 import { focusedWindowId } from "../applogic/store";
+import { ArcTermStdSelect } from "./std/select";
 
 export class ArcTermStd {
   target: HTMLDivElement;
@@ -208,66 +209,8 @@ export class ArcTermStd {
   }
 
   public async select(options: string[]): Promise<number> {
-    if (!this.target || !options.length) return 0;
+    const select = new ArcTermStdSelect(this);
 
-    console.log(options);
-
-    await sleep(10);
-
-    let index = 0;
-
-    const send = writable(false);
-    const elements = [];
-
-    const getLine = (i, str) => {
-      const curr = i == index;
-
-      return `${curr ? "> [" : "  "}${i + 1}. ${str}${curr ? "]" : ""}`;
-    };
-
-    const draw = () => {
-      for (let i = 0; i < elements.length; i++) {
-        this.updateColor(elements[i], getLine(i, options[i]), "blue", "gray");
-      }
-    };
-
-    const keyDown = (e: KeyboardEvent) => {
-      if (this.term.app && get(focusedWindowId) !== this.term.app.id) return;
-
-      console.log(e);
-      if (!e.key) console.log("ainah");
-
-      const key = e.key.toLowerCase();
-
-      switch (key) {
-        case "arrowup":
-          index--;
-          if (index < 0) index = 0;
-          draw();
-          break;
-        case "arrowdown":
-          index++;
-          if (index > options.length - 1) index = options.length - 1;
-          draw();
-          break;
-        case "enter":
-          console.log("resolving!");
-          document.removeEventListener("keydown", keyDown);
-          send.set(true);
-      }
-    };
-
-    for (let i = 0; i < options.length; i++) {
-      elements.push(this.writeColor(getLine(i, options[i]), "blue", "gray"));
-    }
-
-    console.log(keyDown);
-
-    document.addEventListener("keydown", keyDown);
-    this.target.focus();
-
-    return new Promise<number>((resolve) => {
-      send.subscribe((v) => v && resolve(index));
-    });
+    return await select.create(options);
   }
 }

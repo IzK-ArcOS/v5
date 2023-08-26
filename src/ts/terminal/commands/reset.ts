@@ -7,9 +7,10 @@ export const Reset: Command = {
     term.std.writeLine(
       "Are you sure you want to reset ArcOS? This will not affect any ArcAPI data.\n\n"
     );
-    const confirm = (await term.std.read("Y/N [", "]", 1)).toLowerCase();
+    const confirmed =
+      (await term.std.select(["Yes, reset it", "No, abort"])) == 0;
 
-    if (confirm != "y") return term.std.Error("Reset aborted.");
+    if (!confirmed) return term.std.Error("Reset aborted.");
 
     localStorage.clear();
     location.reload();

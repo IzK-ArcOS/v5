@@ -11,6 +11,7 @@
   import { committingUserData } from "./ts/userlogic/main";
   import { getBuild } from "./ts/branding/build";
   import { makeNotification } from "./ts/notiflogic/main";
+  import { get } from "svelte/store";
 
   let run = false;
   let logo = "";
@@ -32,16 +33,9 @@
     };
 
     window.onbeforeunload = () => {
-      makeNotification({
-        icon: "warning",
-        title: "Hold up!",
-        message:
-          "It's advised to leave ArcOS using the power options in the start menu. Closing it forcefully can result in a loss of unsaved data, you've been warned.",
-        buttons: [],
-        timeout: 10000,
-      });
+      const state = get(CurrentState).key;
 
-      return false;
+      if (state == "desktop" || state == "arcterm") return false;
     };
   });
 </script>
