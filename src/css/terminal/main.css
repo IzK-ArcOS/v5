@@ -25,6 +25,11 @@ div.terminal-renderer div.userinput {
   display: flex;
 }
 
+div.terminal-renderer div.userinput,
+div.terminal-renderer div.userinput * {
+  white-space: pre !important;
+}
+
 div.terminal-renderer div.userinput input {
   width: unset;
   min-width: unset;
