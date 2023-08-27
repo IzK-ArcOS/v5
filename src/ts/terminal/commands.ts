@@ -62,5 +62,7 @@ export class ArcTermCommandHandler {
 
       if (k == c) return commands[i];
     }
+
+    return Default;
   }
 }

@@ -62,7 +62,7 @@ async function gooses(term: ArcTerm) {
     "Change State": "state",
     "Print Colors": "colors",
     "Dump UserData": "udd",
-    "Dump Logs": "udd",
+    "Dump Logs": "logdump",
     "Submit Test Bug Report": "bugrep",
     "View base report info": "repinfo",
     "Crash ArcOS": "err",
