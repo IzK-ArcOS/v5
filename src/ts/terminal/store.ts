@@ -13,6 +13,7 @@ import { End } from "./commands/end";
 import { Err } from "./commands/err";
 import { Exec } from "./commands/exec";
 import { Exit } from "./commands/exit";
+import { Goose } from "./commands/goose";
 import { Goto } from "./commands/goto";
 import { Help } from "./commands/help";
 import { History } from "./commands/history";
@@ -80,6 +81,7 @@ export const arcCommands: CommandStore = [
   If,
   Goto,
   End,
+  Goose,
 ];
 
 /**

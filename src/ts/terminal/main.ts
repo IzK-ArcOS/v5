@@ -86,9 +86,6 @@ export class ArcTerm {
 
       await sleep(100);
 
-      if (this.env.gooseBumps)
-        this.commands = { a: [...this.commands, ...gooseBumpsCommands] }.a;
-
       this.input.unlock();
       this.util.intro();
       this.util.flushAccent();

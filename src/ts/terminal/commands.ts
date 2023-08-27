@@ -1,7 +1,9 @@
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 import { Default } from "./commands/default";
+import type { Command } from "./interface";
 import type { ArcTerm } from "./main";
+import { gooseBumpsCommands } from "./store";
 export class ArcTermCommandHandler {
   term: ArcTerm;
   history: string[] = [];
@@ -16,7 +18,12 @@ export class ArcTermCommandHandler {
     this.term = term;
   }
 
-  public async evaluate(cmd: string, args?: string[], isScript = false) {
+  public async evaluate(
+    cmd: string,
+    args?: string[],
+    isScript = false,
+    provider?: Command[]
+  ) {
     Log(`ArcTerm ${this.term.referenceId}`, `cmd.evaluate: ${cmd}`);
 
     if (cmd.startsWith("#")) return;
@@ -24,10 +31,9 @@ export class ArcTermCommandHandler {
     // Don't bother appending script lines to the history
     if (!isScript) this.history.push(`${cmd} ${args.join(" ")}`.trim());
 
-    const command = this.getCommand(cmd);
+    const command = this.getCommand(cmd, provider);
 
-    if ((isScript && command.keyword == "default") || cmd == "exit")
-      return false;
+    if (isScript && command.keyword == "default") return false;
 
     if (this.term.input && this.term.input.current)
       this.term.input.current.disabled = true;
@@ -46,15 +52,15 @@ export class ArcTermCommandHandler {
     return command.keyword != "default";
   }
 
-  public getCommand(command: string) {
+  public getCommand(command: string, provider?: Command[]) {
     const c = command.toLowerCase();
 
-    for (let i = 0; i < this.term.commands.length; i++) {
-      const k = this.term.commands[i].keyword.toLowerCase();
+    const commands = provider ? provider : this.term.commands;
 
-      if (k == c) return this.term.commands[i];
+    for (let i = 0; i < commands.length; i++) {
+      const k = commands[i].keyword.toLowerCase();
+
+      if (k == c) return commands[i];
     }
-
-    return Default;
   }
 }

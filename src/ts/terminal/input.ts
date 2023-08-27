@@ -127,7 +127,7 @@ export class ArcTermInput {
       const args = str.split(" ");
       const cmd = args[0];
 
-      if (cmd.trim() == "exit") return false;
+      if (cmd.trim() == "exit" && file) return false;
 
       if (cmd.startsWith("#") || !cmd) continue;
 
