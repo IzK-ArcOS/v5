@@ -147,9 +147,9 @@ window#SettingsApp
 }
 
 window#SettingsApp div.desktop-page div.wallpapers {
-  max-width: 100%;
+  max-width: 480px;
   overflow-x: scroll;
   white-space: normal;
   display: grid;
-  grid-template-columns: repeat(5, 80px);
+  grid-template-columns: repeat(auto-fit, 80px);
 }

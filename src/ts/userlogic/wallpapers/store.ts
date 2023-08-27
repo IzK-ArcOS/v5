@@ -16,9 +16,11 @@ import img16 from "../../../assets/bg/img16.jpg";
 import img17 from "../../../assets/bg/img17.jpg";
 import img18 from "../../../assets/bg/img18.jpg";
 import img19 from "../../../assets/bg/img19.png";
+import img20 from "../../../assets/bg/img20.jpg";
 import type { Wallpaper } from "./interface";
 
 export const Wallpapers: { [key: string]: Wallpaper } = {
+  /**ArcOS Team */
   img04: { url: img04, author: "Izaak Kuipers", name: "ArcOS Dark" },
   img05: { url: img05, author: "Izaak Kuipers", name: "ArcOS Light" },
   img03: { url: img03, author: "Izaak Kuipers", name: "Stealth Gradient" },
@@ -30,6 +32,7 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     name: "Wandelbos",
     source: "Wandelbos, The Netherlands",
   },
+  /**SWHFotografie */
   img13: { url: img13, author: "SWHFotografie", name: "Agga" },
   img18: {
     url: img18,
@@ -37,7 +40,12 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     name: "Wilhelmina Sunset",
     source: "Wilheminakanaal, Tilburg, The Netherlands",
   },
-
+  img20: {
+    url: img20,
+    author: "SWHFotografie",
+    name: "Stars and Milkyway",
+  },
+  /**Matteo Scaringi */
   img15: {
     url: img15,
     author: "Matteo Scaringi",
@@ -50,6 +58,7 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     name: "Long Exposure",
     source: "Slijpe, West-Flanders, Belgium",
   },
+  /**Kees van Voorthuizen */
   img14: { url: img14, author: "Kees van Voorthuizen", name: "Scheveningen" },
   img01: {
     url: img01,
@@ -64,12 +73,14 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     source: "Mykonos, Greece",
   },
 
+  /**Blocky (Cy) */
   img17: {
     url: img17,
     author: "Blocky (Cy)",
     name: "Sunset Sky",
     source: "Fairfield Bay, US",
   },
+  /**ArcOS Team */
   img16: {
     url: img16,
     author: "Matteo Scaringi, Izaak Kuipers",

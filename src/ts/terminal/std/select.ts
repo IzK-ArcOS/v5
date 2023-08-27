@@ -4,6 +4,7 @@ import { Log } from "../../console";
 import { LogLevel } from "../../console/interface";
 import type { ArcTermStd } from "../std";
 import sleep from "../../sleep";
+import type { Color } from "../interface";
 
 export class ArcTermStdSelect {
   private std: ArcTermStd;
@@ -11,14 +12,16 @@ export class ArcTermStdSelect {
   private _options = [];
   private _index = 0;
   private _elements: HTMLDivElement[] = [];
+  private _color: Color;
 
-  constructor(std: ArcTermStd) {
+  constructor(std: ArcTermStd, color?: Color) {
     Log(
       `ArcTerm ${std.term.referenceId}`,
       `Creating new ArcTermStdSelect`,
       LogLevel.info
     );
 
+    this._color = color || "blue";
     this.std = std;
   }
 
@@ -39,7 +42,7 @@ export class ArcTermStdSelect {
       this.std.updateColor(
         element,
         this.getStr(i, this._options[i]),
-        "blue",
+        this._color,
         "gray"
       );
     }
@@ -88,9 +91,10 @@ export class ArcTermStdSelect {
     this._options = options;
 
     for (let i = 0; i < options.length; i++) {
-      this._elements.push(
-        this.std.writeColor(this.getStr(i, this._options[i]), "blue", "gray")
-      );
+      const str = this.getStr(i, this._options[i]);
+      const element = this.std.writeColor(str, this._color, "gray");
+
+      this._elements.push(element);
     }
 
     document.addEventListener("keydown", (e) => this.keyDown(e));

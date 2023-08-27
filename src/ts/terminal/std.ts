@@ -208,8 +208,8 @@ export class ArcTermStd {
     this.target.innerText = "";
   }
 
-  public async select(options: string[]): Promise<number> {
-    const select = new ArcTermStdSelect(this);
+  public async select(options: string[], color?: Color): Promise<number> {
+    const select = new ArcTermStdSelect(this, color);
 
     return await select.create(options);
   }
