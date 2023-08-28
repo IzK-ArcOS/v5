@@ -8,6 +8,8 @@ export const Users: Command = {
   async exec(cmd, argv, term) {
     term.std.Warning("Clearing [UserCache]!");
 
+    term.std.writeLine("\n");
+
     UserCache.clear();
 
     const users = (await getUsers()) as AllUsers;
