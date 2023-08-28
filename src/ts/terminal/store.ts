@@ -41,6 +41,7 @@ import { Shutdown } from "./commands/shutdown";
 import { SoundBusCommand } from "./commands/soundbus";
 import { StateCommand } from "./commands/state";
 import { UDD } from "./commands/udd";
+import { UserAdd } from "./commands/useradd";
 import { Users } from "./commands/users";
 import { Vars } from "./commands/vars";
 import { Ver } from "./commands/ver";
@@ -82,6 +83,7 @@ export const arcCommands: CommandStore = [
   Goto,
   End,
   Goose,
+  UserAdd,
 ];
 
 /**
