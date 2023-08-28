@@ -32,5 +32,5 @@ function getMaxLength(users: string[]) {
     if (users[i].length > length) length = users[i].length;
   }
 
-  return length + 5;
+  return length + 2;
 }
