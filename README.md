@@ -8,8 +8,6 @@
 
 Welcome to the frontend for ArcOS! This repository is a rewrite of the original ArcOS project which can be found [here](https://github.com/IzK-ArcOS/ArcOS-Environment) (archived). This project is written in Svelte and Typescript, making it extremely performant and easy to maintain. More information about this project contained [here](https://github.com/IzK-ArcOS?view_as=public).
 
-> **Note**: The ArcOS Documentation is currently being worked on by the DWC internal team and might have missing and/or incomplete information. Please be patient.
-
 > **NEW!** We have begun rolling out the [ArcOS Desktop App](https://github.com/IzK-ArcOS/ArcOS-Frontend/releases)!
 
 ## Getting Started
@@ -34,7 +32,7 @@ I want to thank all of these authors for providing their photos, images and othe
 | Wallpaper `img13` | SWHFotografie                                        | the Hague, the Netherlands                                                       |
 | Wallpaper `img14` | [@keesvv](https://github.com/keesvv)                 | Scheveningen, the Netherlands                                                    |
 | Wallpaper `img15` | [@matteoscaringi](https://github.com/matteoscaringi) | Corfu, Greece                                                                    |
-| Wallpaper `img17` | [@Blockyheadman](https://github.com/blockyheadman)  | Fairfield Bay, US                                                                |
+| Wallpaper `img17` | [@Blockyheadman](https://github.com/blockyheadman)   | Fairfield Bay, US                                                                |
 | ArcOS Sounds      | @dragonlazer/@calligrafix                            | Original                                                                         |
 | Cursors           | [@PosyMusic](https://www.youtube.com/@PosyMusic)     | [Home > Other > Posy's improved cursors](http://www.michieldb.nl/other/cursors/) |
 
