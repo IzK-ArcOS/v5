@@ -5,7 +5,7 @@ import { startOpened } from "../desktop/main";
 import { destroyOverlayableError } from "../errorlogic/overlay";
 import { getWindowElement } from "../window/main";
 import { hideOverlay } from "../window/overlay";
-import { isLoaded, isOpened } from "./checks";
+import { isDisabled, isLoaded, isOpened } from "./checks";
 import type { App } from "./interface";
 import {
   WindowStore,
@@ -18,6 +18,8 @@ import { LogLevel } from "../console/interface";
 
 export function openWindow(id: string, openChild = false) {
   Log("events.ts: openWindow", `Opening ${id}`);
+
+  if (isDisabled(id)) return;
 
   const window = getWindow(id);
 

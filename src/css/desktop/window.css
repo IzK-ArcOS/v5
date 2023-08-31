@@ -1,4 +1,5 @@
 @import url("./window/main.css");
+@import url("./window/colored.css");
 @import url("./window/body.css");
 @import url("./window/titlebar.css");
 @import url("./window/elements.css");

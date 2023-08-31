@@ -87,6 +87,7 @@
   class:lefttb={$UserData && $UserData.sh.window.lefttb}
   class:custom={app.info.custom}
   class:child={!!app.parentId}
+  class:colored={$UserData && $UserData.sh.taskbar.colored}
   class:snapped={app.snapped}
   class:snapping={app.id == $draggingId &&
     ($leftZoneTriggered || $rightZoneTriggered)}
@@ -95,6 +96,8 @@
   bind:this={window}
   on:mousedown={handleMouse}
 >
+  <div class="accent" />
+
   <Titlebar {app} bind:exttransition bind:titlebar {isBoot} />
   {#if !app.runtime ? true : runtime}
     <Content {app} {runtime}>

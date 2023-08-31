@@ -1,0 +1,20 @@
+div.exp-cglo-31823 window.window:not(.fullscreen) div.accent {
+  content: " ";
+
+  border-radius: inherit;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  opacity: 0.2;
+  margin: -1px;
+  pointer-events: none;
+}
+
+div.exp-cglo-31823
+  window.window:not(.fullscreen).colored.focused.visible
+  div.accent {
+  background-color: var(--accent);
+}

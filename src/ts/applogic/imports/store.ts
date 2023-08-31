@@ -15,6 +15,7 @@ import { MediaPlayerApp } from "../apps/MediaPlayer";
 import { MessagingApp } from "../apps/MessagingApp";
 import { OpenWithApp } from "../apps/OpenWith";
 import { TextEditor } from "../apps/TextEditor";
+import { UpdateNotice } from "../apps/UpdateNotice";
 import { ExperimentsApp } from "../apps/experiments";
 import { SettingsApp } from "../apps/settings";
 import { ArcShell } from "../apps/shell";
@@ -46,6 +47,7 @@ export const DefaultApps: { [key: string]: App } = {
   DesktopWallpaper,
   BugReports,
   ExperimentsApp,
+  UpdateNotice,
 };
 
 export const SystemApps: string[] = [

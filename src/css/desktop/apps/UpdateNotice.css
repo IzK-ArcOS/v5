@@ -1,0 +1,91 @@
+window#UpdateNotice div.body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+window#UpdateNotice div.body div.updatenotice {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: center;
+  width: 350px;
+  height: 450px;
+  background-color: var(--win-bg);
+  border: var(--win-border);
+  border-radius: 15px;
+  padding: 50px 0;
+}
+
+window#UpdateNotice div.body div.updatenotice img {
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+window#UpdateNotice div.body div.updatenotice div.header h1 {
+  margin: 0;
+  margin-bottom: 2px;
+  font-size: 20px;
+}
+
+window#UpdateNotice div.body div.updatenotice div.header div.sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  gap: 6px;
+}
+
+window#UpdateNotice div.body div.updatenotice div.header div.sub div.dot {
+  width: 2px;
+  height: 2px;
+  background-color: var(--fg);
+  border-radius: 1px;
+}
+
+window#UpdateNotice div.body div.updatenotice div.header div.sub * {
+  margin: 0;
+}
+
+window#UpdateNotice
+  div.body
+  div.updatenotice
+  div.header
+  div.sub
+  button.changelog {
+  padding: 0;
+  background-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 1px;
+}
+
+window#UpdateNotice div.body div.updatenotice p.context {
+  margin: 0;
+}
+
+window#UpdateNotice div.body div.updatenotice div.bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+window#UpdateNotice div.body div.updatenotice div.bottom button {
+  margin: 0;
+}
+
+window#UpdateNotice div.body div.updatenotice div.bottom button.download {
+  padding: 10px 35px;
+  border-radius: 5px;
+  background-color: var(--button-bg);
+}
+
+window#UpdateNotice div.body div.updatenotice div.bottom button.cancel {
+  padding: 0;
+  background-color: transparent;
+  color: var(--clr-blue-fg);
+}

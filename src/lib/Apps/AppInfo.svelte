@@ -84,7 +84,7 @@
     </div>
     <div class="property">
       <div>Core Application:</div>
-      <div class="value">{data.core}</div>
+      <div class="value">{data.core || "false"}</div>
     </div>
     <div class="property">
       <div>Window controls:</div>
