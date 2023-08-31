@@ -24,7 +24,6 @@ import { LogDump } from "./commands/logdump";
 import { Logout } from "./commands/logout";
 import { Ls } from "./commands/ls";
 import { Mkdir } from "./commands/mkdir";
-import { MsgCtl } from "./commands/msgctl";
 import { oa } from "./commands/oa";
 import { Open } from "./commands/open";
 import { Read } from "./commands/read";
@@ -85,7 +84,6 @@ export const arcCommands: CommandStore = [
   End,
   Goose,
   UserAdd,
-  MsgCtl,
 ];
 
 /**
