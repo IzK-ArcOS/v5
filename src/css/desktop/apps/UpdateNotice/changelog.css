@@ -1,0 +1,66 @@
+window#UpdateNotice window.overlay#changeLog div.body {
+  overflow-y: hidden;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+window#UpdateNotice window.overlay#changeLog div.body div.header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  padding-right: 15px;
+  border-bottom: var(--win-border);
+  height: 70px;
+}
+
+window#UpdateNotice window.overlay#changeLog div.body div.header img {
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+}
+
+window#UpdateNotice window.overlay#changeLog div.body div.header h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+window#UpdateNotice window.overlay#changeLog div.body div.header p.version {
+  opacity: 0.5;
+  margin: 0;
+}
+window#UpdateNotice window.overlay#changeLog div.body div.bottom {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  height: 56px;
+  border-top: var(--win-border);
+}
+
+window#UpdateNotice window.overlay#changeLog div.body div.bottom div.current {
+  font-family: "Source Code Pro", monospace;
+  font-size: 13px;
+  opacity: 0.5;
+  margin-left: 5px;
+}
+
+window#UpdateNotice window.overlay#changeLog div.body div.bottom div.actions {
+  display: flex;
+  margin-left: auto;
+  gap: 15px;
+}
+
+window#UpdateNotice
+  window.overlay#changeLog
+  div.body
+  div.bottom
+  div.actions
+  button {
+  padding: 5px 15px;
+}
+
+window#UpdateNotice window.overlay#changeLog div.body div.markdownrenderer {
+  height: calc(100% - 70px - 56px);
+  overflow-y: scroll;
+  padding: 10px;
+}

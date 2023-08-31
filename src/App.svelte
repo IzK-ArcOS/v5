@@ -4,14 +4,16 @@
   import BugReport from "./lib/BugReport.svelte";
   import { logoffToken } from "./ts/api/cred";
   import { ARCOS_MODE, getMode, Logo } from "./ts/branding";
-  import { getDesktopMode } from "./ts/desktop/app";
-  import { Busy } from "./ts/env/main";
+  import { DESKTOP_MODE, getDesktopMode } from "./ts/desktop/app";
+  import { ArcOSVersion, Busy } from "./ts/env/main";
   import { handleWindowError } from "./ts/reporting/crash";
   import { applyState, CurrentState } from "./ts/state/main";
   import { committingUserData } from "./ts/userlogic/main";
-  import { getBuild } from "./ts/branding/build";
+  import { ARCOS_BUILD, getBuild } from "./ts/branding/build";
   import { makeNotification } from "./ts/notiflogic/main";
   import { get } from "svelte/store";
+  import { Log } from "./ts/console";
+  import { LogLevel } from "./ts/console/interface";
 
   let run = false;
   let logo = "";
@@ -20,6 +22,12 @@
     await getMode();
     await getDesktopMode();
     await getBuild();
+
+    Log(
+      "ArcOS",
+      `ARCOS_VERSION = ${ArcOSVersion} | ARCOS_MODE = ${ARCOS_MODE} | ARCOS_BUILD = ${ARCOS_BUILD} | DESKTOP_MODE = ${DESKTOP_MODE} `,
+      LogLevel.warn
+    );
 
     applyState("boot");
 

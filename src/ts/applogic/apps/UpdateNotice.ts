@@ -1,5 +1,6 @@
 import updateIcon from "../../../assets/update.svg";
 import UpdateNoticeSvelte from "../../../lib/Page/Desktop/UpdateNotice.svelte";
+import ChangeLog from "../../../lib/Page/Desktop/UpdateNotice/overlays/ChangeLog.svelte";
 import { ArcOSVersion } from "../../env/main";
 import type { App } from "../interface";
 
@@ -26,4 +27,16 @@ export const UpdateNotice: App = {
   content: UpdateNoticeSvelte,
   glass: false,
   events: {},
+  overlays: {
+    changeLog: {
+      info: {
+        name: "Changelog",
+        author: "ArcOS Team",
+        version: ArcOSVersion,
+      },
+      size: { w: 600, h: 400 },
+      show: false,
+      content: ChangeLog,
+    },
+  },
 };

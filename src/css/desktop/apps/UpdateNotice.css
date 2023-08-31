@@ -1,4 +1,10 @@
-window#UpdateNotice div.body {
+@import url("./UpdateNotice/changelog.css");
+
+window#UpdateNotice {
+  background-color: var(--glass-ultradark) !important;
+}
+
+window#UpdateNotice > div.body {
   width: 100%;
   height: 100%;
   display: flex;

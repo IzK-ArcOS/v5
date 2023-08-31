@@ -1,7 +1,12 @@
+import { openWindow } from "../ts/applogic/events";
+import { DESKTOP_MODE } from "../ts/desktop/app";
 import { ArcOSVersion } from "../ts/env/main";
-import { makeNotification } from "../ts/notiflogic/main";
+
+let GITHUB_CACHE: GitHubRelease = null;
 
 export async function getLatestRelease(): Promise<GitHubRelease> {
+  if (GITHUB_CACHE) return GITHUB_CACHE;
+
   try {
     const req = (await (
       await fetch(
@@ -9,6 +14,8 @@ export async function getLatestRelease(): Promise<GitHubRelease> {
         { cache: "no-store" }
       )
     ).json()) as GitHubRelease;
+
+    GITHUB_CACHE = req;
 
     return req;
   } catch {
@@ -46,6 +53,7 @@ export function parseVersion(verStr: string): Version {
 }
 
 export function filterTagName(tn: string) {
+  if (!tn) return ArcOSVersion;
   return tn.split("-")[0];
 }
 
@@ -58,25 +66,11 @@ export function versionBigger(a: Version, b: Version) {
 }
 
 export async function checkForUpdates() {
-  /* if (!(await inTauri())) return; */
+  if (DESKTOP_MODE !== "desktop") return;
 
   const release = await getLatestVersion();
 
   if (versionBigger(release, parseVersion(ArcOSVersion))) {
-    const version = `v${release.join(".")}`;
-    const RELEASE_URL =
-      "https://github.com/IzK-ArcOS/ArcOS-Frontend/releases/latest";
-
-    makeNotification({
-      icon: "sync",
-      title: "Updates available!",
-      message: `ArcOS Desktop ${version} is available for download. Install it to get the latest features.`,
-      buttons: [
-        {
-          caption: "Open",
-          action: () => window.open(RELEASE_URL, "_blank"),
-        },
-      ],
-    });
+    openWindow("UpdateNotice");
   }
 }
