@@ -78,6 +78,7 @@ class CL {
 
   // Tests the current value plus the new input to evaluate if it's valid.
   private isValid(input: string) {
+    if (!input) return;
     Log(
       `${Store.Source} isValid`,
       `Verifying input "${input}"...`,
