@@ -10,7 +10,7 @@
 
   onMount(async () => {
     try {
-      const req = await (await fetch("/LICENSE")).text();
+      const req = await (await fetch("./LICENSE")).text();
 
       license = req;
     } catch {
