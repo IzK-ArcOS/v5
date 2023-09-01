@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import "../../../../css/login/userlogin.css";
   import flush from "../../../../ts/login/flush";
-  import { applyLoginState } from "../../../../ts/login/main";
   import { UserName } from "../../../../ts/userlogic/interfaces";
   import Loading from "./Content/Loading.svelte";
 
@@ -10,9 +9,9 @@
     setTimeout(() => {
       flush();
 
-      applyLoginState("selector");
+      location.reload();
     }, 2000);
   });
 </script>
 
-<Loading caption="Goodbye" username={$UserName} />
+<Loading caption="Goodbye!" username={$UserName} />

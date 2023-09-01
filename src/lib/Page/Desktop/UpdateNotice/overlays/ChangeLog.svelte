@@ -14,7 +14,6 @@
 
   let changelog = "";
   let version = [];
-  let release: GitHubRelease;
 
   onMount(async () => {
     const release = await getLatestRelease();

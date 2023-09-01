@@ -1,5 +1,5 @@
 import type { Writable } from "svelte/store";
-import { restarting, showDesktop, shuttingDown } from "./main";
+import { loggingOff, restarting, showDesktop, shuttingDown } from "./main";
 import { applyState } from "../state/main";
 import { ArcSoundBus } from "../sound/main";
 
@@ -22,4 +22,5 @@ export function setPowerListeners() {
 
   q(shuttingDown, "shutdown");
   q(restarting, "restart");
+  q(loggingOff, "logoff")
 }

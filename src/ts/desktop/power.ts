@@ -12,7 +12,7 @@ import { WindowStore } from "../applogic/store";
 import { ErrorMessages, ErrorWindowStore } from "../errorlogic/app";
 import { selectedMessageId } from "../messaging/main";
 import { NotificationStore } from "../notiflogic/main";
-import { restarting, shuttingDown } from "./main";
+import { loggingOff, restarting, shuttingDown } from "./main";
 import { closeAllProgressively } from "../applogic/close";
 
 export function logoff() {
@@ -45,5 +45,5 @@ export function restart(eraseToken = false) {
     logoffToken();
   }
 
-  restarting.set(true);
+  loggingOff.set(true);
 }

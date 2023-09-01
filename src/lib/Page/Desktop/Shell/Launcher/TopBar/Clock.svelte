@@ -6,7 +6,7 @@
 
   onMount(() => {
     setInterval(() => {
-      time = dayjs().format("MMM M, HH:mm");
+      time = dayjs().format("MMM D, HH:mm");
     }, 500);
   });
 </script>

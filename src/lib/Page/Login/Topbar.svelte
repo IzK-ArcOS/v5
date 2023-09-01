@@ -15,7 +15,7 @@
   let servers = [];
 
   onMount(() => {
-    setInterval(() => (time = dayjs().format("HH:mm")), 500);
+    setInterval(() => (time = dayjs().format("MMM D, HH:mm")), 500);
     setTimeout(() => (show = true), 750);
 
     servers = getAllServers();

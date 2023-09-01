@@ -8,6 +8,7 @@ export const startOpened = writable<boolean>(false);
 export const shuttingDown = writable<boolean>(false);
 export const restarting = writable<boolean>(false);
 export const showDesktop = writable<boolean>(false);
+export const loggingOff = writable<boolean>(false);
 export const desktopClassNames = writable<string>("");
 
 export function assignDesktopListeners() {
