@@ -74,4 +74,5 @@ div.serverselect div.selector div.right button.delete {
   border: none;
   background-color: transparent;
   color: var(--clr-red-fg);
+  margin-right: 5px;
 }

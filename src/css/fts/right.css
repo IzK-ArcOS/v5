@@ -40,13 +40,13 @@ div.fts div.page div.header p.subtitle {
 }
 
 div.fts div.center-absolute div.right * {
-  color: #ccc;
+  color: var(--fg);
 }
 
 div.fts div.center-absolute div.right button {
   padding: 10px 20px;
   border: none;
-  background-color: #fff1;
+  background-color: var(--button-glass-bg);
   border-radius: 5px;
   transition: background-color 0.3s, opacity 0.3s;
 }
@@ -92,7 +92,7 @@ div.fts div.center-absolute div.right div.nav div div.progress {
   padding: 0;
   margin: 15px 0;
   width: 100%;
-  background-color: #fff1;
+  background-color: var(--button-glass-bg);
   border-radius: 5px;
   position: relative;
 }
@@ -157,7 +157,7 @@ div.fts button:active {
 div.fts input,
 div.fts select {
   border: none;
-  background-color: #fff1;
+  background-color: var(--button-glass-bg);
   padding: 10px 15px;
   border-radius: 5px;
   transition: border 0.3s;

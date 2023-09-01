@@ -26,7 +26,7 @@ div.fts > div.center-absolute {
   border-radius: 15px;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5);
   padding: 40px;
-  color: #ccc;
+  color: var(--fg);
   background-color: var(--glass-bg);
   overflow: hidden;
   border: var(--win-border);

@@ -25,7 +25,7 @@
   });
 </script>
 
-<div class="serverselect" class:show>
+<div class="serverselect theme-amoled" class:show>
   <div class="ss-inner">
     <div class="left">
       <img src={Logo} alt="" class="logo" />
