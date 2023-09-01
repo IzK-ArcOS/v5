@@ -43,7 +43,11 @@
     window.onbeforeunload = () => {
       const state = get(CurrentState).key;
 
-      if (state == "desktop" || state == "arcterm") return false;
+      if (
+        DESKTOP_MODE !== "desktop" &&
+        (state == "desktop" || state == "arcterm")
+      )
+        return false;
     };
   });
 </script>
