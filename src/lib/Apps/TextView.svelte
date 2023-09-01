@@ -31,20 +31,24 @@
       if (changing) return;
       if (!app.openedFile) return (fileContents = "");
 
-      const text = new TextDecoder().decode(app.openedFile.data);
+      try {
+        const text = new TextDecoder().decode(app.openedFile.data);
 
-      fileContents = text;
+        fileContents = text;
 
-      TextEditorContent.set(fileContents);
+        TextEditorContent.set(fileContents);
 
-      const json = tryParse(fileContents);
+        const json = tryParse(fileContents);
 
-      if (!json) return;
+        if (!json) return;
 
-      if (json.error && json.valid == false) {
-        errored = true;
+        if (json.error && json.valid == false) {
+          errored = true;
 
-        doLoadError(json.error.title, json.error.message);
+          doLoadError(json.error.title, json.error.message);
+        }
+      } catch {
+        doLoadError("Load Failed", "The file contents could not be decoded.");
       }
     };
 
