@@ -17,7 +17,7 @@ export const CrashReport = writable<Report>();
 
 export function isBlackListed(test: string) {
   for (let i = 0; i < CRASH_BLACKLIST.length; i++) {
-    if (CRASH_BLACKLIST[i].includes(test)) return true;
+    if (test.includes(CRASH_BLACKLIST[i])) return true;
   }
 
   return false;
