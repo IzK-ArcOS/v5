@@ -34,7 +34,7 @@
   </div>
   <img src={icon} alt="License" class="license" />
 </div>
-<textarea class="license" bind:value={license} />
+<textarea class="license" bind:value={license} readonly />
 <div class="bottom">
   <div class="version">{ArcOSVersion}-{ARCOS_MODE}</div>
   <div class="actions">
