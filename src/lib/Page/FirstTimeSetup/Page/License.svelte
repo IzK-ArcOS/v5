@@ -5,6 +5,8 @@
   import { ARCOS_MODE } from "../../../../ts/branding";
   import { ArcOSVersion } from "../../../../ts/env/main";
   import { applyFTSState } from "../../../../ts/fts/main";
+  import { Log } from "../../../../ts/console";
+  import { LogLevel } from "../../../../ts/console/interface";
 
   let license = "";
 
@@ -14,7 +16,13 @@
 
       license = req;
     } catch {
-      console.error("LICENSE IS MISSING!!!");
+      Log(
+        "FTS: License.svelte",
+        "Could not get the LICENSE file.",
+        LogLevel.warn
+      );
+
+      license = "Could not GET ./LICENSE";
     }
   });
 
