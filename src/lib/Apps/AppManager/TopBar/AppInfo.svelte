@@ -10,7 +10,11 @@
   }
 </script>
 
-<button class="action" disabled={!$appManSelected} on:click={info}>
+<button
+  class="action"
+  disabled={!$appManSelected || $appManSelected.startsWith("error_")}
+  on:click={info}
+>
   <span class="material-icons-round">settings</span>
   <p class="caption">App info</p>
 </button>

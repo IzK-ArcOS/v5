@@ -32,6 +32,7 @@
   import { getExperiments } from "../../ts/desktop/experiments/main";
   import { getAllServers } from "../../ts/api/server";
   import { detectAuthcode } from "../../ts/api/authcode";
+  import { checkDesktopFile } from "../../ts/desktop/app";
 
   let show = false;
   let classes = "";
@@ -64,6 +65,7 @@
     startMessageCheckInterval();
     checkForUpdates();
     checkReleaseCandidate();
+    checkDesktopFile();
   });
 
   function resetDesktopState() {

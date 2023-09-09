@@ -126,6 +126,11 @@ div.desktop.is-launcher .window.max:not(.fullscreen) {
   margin-top: 00px;
 }
 
+.window:not(.visible),
+.window:not(.visible) * {
+  pointer-events: none !important;
+}
+
 .window.visible,
 .window.visible *:not(iframe) {
   pointer-events: initial !important;

@@ -13,22 +13,27 @@ export async function getExperiments() {
     "desktop/experiments/main.ts: getExperiments",
     "Getting experiments from CDN"
   );
-  const req = await fetch(EXPERIMENTS_URL);
-  if (!req.ok) return false;
-
   try {
-    const json = JSON.parse(await req.text()) as ExperimentsType;
+    const req = await fetch(EXPERIMENTS_URL);
 
-    Experiments.set(json);
-    Log("desktop/experiments/main.ts: getExperiments", "Experiments updated");
+    if (!req.ok) return false;
 
-    return json;
+    try {
+      const json = JSON.parse(await req.text()) as ExperimentsType;
+
+      Experiments.set(json);
+      Log("desktop/experiments/main.ts: getExperiments", "Experiments updated");
+
+      return json;
+    } catch {
+      Log(
+        "desktop/experiments/main.ts: getExperiments",
+        "Could not get experiments",
+        LogLevel.error
+      );
+      return false;
+    }
   } catch {
-    Log(
-      "desktop/experiments/main.ts: getExperiments",
-      "Could not get experiments",
-      LogLevel.error
-    );
     return false;
   }
 }
