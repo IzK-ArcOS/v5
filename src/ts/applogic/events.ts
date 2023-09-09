@@ -69,7 +69,7 @@ export function openWindow(id: string, openChild = false) {
 
     el.style.zIndex = `${get(maxZIndex)}`;
 
-    attentionId.set(id);
+    focusedWindowId.set(id);
   }, 10);
 
   startOpened.set(false);
@@ -77,7 +77,7 @@ export function openWindow(id: string, openChild = false) {
 
   updateStores();
 
-  attentionId.set(id);
+  focusedWindowId.set(id);
 
   if (window.events && window.events.open) window.events.open(window);
 
