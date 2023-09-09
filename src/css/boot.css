@@ -104,6 +104,6 @@ div.subline.dark.dec {
 p.status {
   margin-top: 23px;
   text-align: center;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: var(--font), sans-serif;
   color: #eee;
 }

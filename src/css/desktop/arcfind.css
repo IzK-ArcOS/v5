@@ -40,7 +40,7 @@ div.arcfind-wrapper div.arcfind form input {
   padding: 20px;
   box-sizing: border-box;
   color: var(--fg);
-  font-family: "Nunito Sans", sans-serif;
+  font-family: var(--font), sans-serif;
 }
 
 div.arcfind-wrapper div.arcfind form input::placeholder {

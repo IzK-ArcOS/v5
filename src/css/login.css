@@ -24,7 +24,7 @@ div.login.show {
 
 div.login *:not(.material-icons-round) {
   color: #ccc;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: var(--font), sans-serif;
 }
 
 div.login div.darken {
