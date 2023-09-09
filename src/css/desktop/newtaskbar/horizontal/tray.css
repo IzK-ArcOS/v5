@@ -1,5 +1,10 @@
 div.taskbar-h div.tray {
   margin-left: auto;
+  height: calc(100% + 1px);
+  margin-top: -1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 div.taskbar-h div.tray img {
@@ -9,13 +14,13 @@ div.taskbar-h div.tray img {
 
 div.taskbar-h div.tray button.icon {
   width: fit-content;
-  height: 43px;
   background-color: transparent;
   padding: 0;
   border: none;
   color: var(--fg);
   vertical-align: middle;
   line-height: 0px;
+  height: 100%;
 }
 
 div.taskbar-h div.tray button.icon:hover {
@@ -42,13 +47,8 @@ div.taskbar-h div.tray span.material-icons {
 }
 
 div.taskbar-h div.tray div.clock {
-  line-height: inherit;
-  height: inherit;
-  display: inline-block;
-  height: 100%;
   text-align: center;
   font-size: 12px;
-  line-height: 44px;
   margin-left: 10px;
 }
 
@@ -61,8 +61,8 @@ div.taskbar-h div.tray button.ac-open {
   padding: 0 12px;
   font-size: 18px;
   width: 43px;
-  height: 43px;
   filter: var(--elevated-accent-filter);
+  border-radius: var(--win-border-rad);
 }
 
 div.taskbar-h div.tray button.ac-open:hover {

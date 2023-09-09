@@ -1,11 +1,9 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 import Shell from "../../../lib/Page/Desktop/Shell.svelte";
-import { SEP_ITEM } from "../../contextmenu/main";
-import { ArcOSVersion } from "../../env/main";
-import { openWindow } from "../events";
-import type { App } from "../interface";
-import { openByKey } from "./SettingsApp/store";
 import { Logo } from "../../branding";
+import { ArcOSVersion } from "../../env/main";
+import { UserData } from "../../userlogic/interfaces";
+import type { App } from "../interface";
 
 export const ArcShell: App = {
   info: {
@@ -32,23 +30,28 @@ export const ArcShell: App = {
   glass: false,
   events: {},
   contextMenu: {
-    "shell-taskbar": [
+    clockcontext: [
       {
-        caption: "Application Manager",
+        caption: "Show Seconds",
         action: () => {
-          openWindow("AppMan");
+          const ud = get(UserData);
+
+          ud.sh.taskbar.clockSecs = !ud.sh.taskbar.clockSecs;
+
+          UserData.set(ud);
         },
+        isActive: () => get(UserData).sh.taskbar.clockSecs,
       },
-      SEP_ITEM,
       {
-        icon: "settings",
-        caption: "Shell settings",
+        caption: "Show Date",
         action: () => {
-          openWindow("SettingsApp");
-          setTimeout(() => {
-            openByKey("Shell");
-          });
+          const ud = get(UserData);
+
+          ud.sh.taskbar.clockDate = !ud.sh.taskbar.clockDate;
+
+          UserData.set(ud);
         },
+        isActive: () => get(UserData).sh.taskbar.clockDate,
       },
     ],
   },

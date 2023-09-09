@@ -10,6 +10,8 @@ export interface UserData {
       docked: boolean; //done
       colored: boolean;
       isLauncher: boolean;
+      clockSecs: boolean;
+      clockDate: boolean;
     };
 
     window: {
