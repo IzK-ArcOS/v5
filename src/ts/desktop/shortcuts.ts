@@ -12,6 +12,7 @@ import { ActionCenterOpened } from "./actioncenter/main";
 import { CurrentNotification } from "../notiflogic/main";
 import { arcFindValue, showArcFind } from "../search/main";
 import { CurrentState } from "../state/main";
+import { closeError } from "../errorlogic/main";
 
 export function registerDesktopShortcuts() {
   registerShortcuts([
@@ -19,6 +20,9 @@ export function registerDesktopShortcuts() {
       key: "q",
       alt: true,
       action() {
+        const id = get(focusedWindowId);
+        if (id && id.startsWith("error_"))
+          return closeError(parseInt(id.replace("error_", "")));
         if (!getOpenedStore().length) {
           openWindow("Exit");
         } else {
