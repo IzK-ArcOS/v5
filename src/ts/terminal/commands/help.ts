@@ -12,9 +12,9 @@ export const Help: Command = {
         "aqua"
       );
 
-    if (argv[0]) return specific(argv[0], term);
+    if (argv[0] && !argv[0].startsWith("--")) return specific(argv[0], term);
 
-    all(term);
+    all(term, !switchExists(argv, "list"));
   },
   help(term) {
     term.std.writeColor("Example: [help] help", "blue");
@@ -23,10 +23,15 @@ export const Help: Command = {
   syntax: "([command?])",
 };
 
-function all(term: ArcTerm) {
+function all(term: ArcTerm, short: boolean) {
   const cmd = term.commands.sort((a, b) => {
     return b.keyword < a.keyword ? 1 : -1;
   });
+  if (short)
+    return term.std.writeColor(
+      `[${cmd.map((c) => c.keyword).join("  ")}]`,
+      "aqua"
+    );
 
   for (let i = 0; i < cmd.length; i++) {
     const a = cmd[i].keyword.toUpperCase().padEnd(15, " ");

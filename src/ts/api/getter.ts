@@ -47,7 +47,10 @@ export async function rememberedLogin() {
 
   const token = localStorage.getItem("arcos-remembered-token");
 
-  if (!token) return false;
+  if (!token) {
+    localStorage.removeItem("arcos-remembered-token");
+    return false;
+  }
 
   const [username, password] = atob(token).split(":");
 
@@ -55,7 +58,14 @@ export async function rememberedLogin() {
     generateCredToken({ username, password })
   );
 
-  if (!userdata) return false;
+  console.log(username, password, userdata);
+
+  if (!userdata) {
+    localStorage.removeItem("arcos-remembered-token");
+    UserName.set(null);
+    UserData.set(null);
+    return false;
+  }
 
   UserData.set(userdata);
   UserName.set(username);

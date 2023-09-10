@@ -8,6 +8,8 @@
     updateStores,
     WindowStore,
   } from "../../../../ts/applogic/store";
+  import { ActionCenterOpened } from "../../../../ts/desktop/actioncenter/main";
+  import { attentionId, startOpened } from "../../../../ts/desktop/main";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import { getWindowElement } from "../../../../ts/window/main";
 
@@ -20,11 +22,18 @@
     showLabel = v.sh.taskbar.labels;
   });
 
+  focusedWindowId.subscribe((v) => {
+    if ($attentionId == v && app.id == $attentionId) $attentionId = null;
+  });
+
   WindowStore.subscribe(() => {
     minimized = isMinimized(app.id);
   });
 
   function e() {
+    $startOpened = false;
+    $ActionCenterOpened = false;
+
     if ($focusedWindowId == app.id)
       app.state.windowState.min = !app.state.windowState.min;
     else app.state.windowState.min = false;
@@ -44,6 +53,7 @@
   class="appbutton"
   class:minimized
   on:click={e}
+  class:attention={$attentionId == app.id}
   class:activated={app.id == $focusedWindowId}
 >
   <img

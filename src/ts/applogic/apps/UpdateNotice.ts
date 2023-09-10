@@ -13,6 +13,7 @@ export const UpdateNotice: App = {
     author: "ArcOS Team",
     icon: updateIcon,
     appGroup: "coreApps",
+    hidden: true,
   },
   size: { w: NaN, h: NaN },
   pos: { x: 0, y: 0 },

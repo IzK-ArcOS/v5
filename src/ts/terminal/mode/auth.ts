@@ -42,7 +42,9 @@ export async function authPrompt(term: ArcTerm, usr = "") {
   if (!get(UserName)) {
     term.std.writeLine("\nLogin incorrect");
 
-    return await authPromptFields(term, api, usr);
+    localStorage.removeItem("arcos-remembered-token");
+
+    return await authPrompt(term, usr);
   }
 
   await term.env.config.loadConfigFile();

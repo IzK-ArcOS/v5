@@ -14,7 +14,8 @@
   class:docked={$UserData.sh.taskbar.docked}
   class:colored={$UserData.sh.taskbar.colored}
   class:visible={!$isFullscreenWindow}
-  style="z-index: {$maxZIndex + 22}"
+  data-contextmenu="clockcontext"
+  style="z-index: {$maxZIndex + 5}"
 >
   <Clock />
   <Tray hasClock={false}>

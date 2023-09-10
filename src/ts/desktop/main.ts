@@ -5,6 +5,7 @@ import { registerDesktopShortcuts } from "./shortcuts";
 
 export const previouslyLoaded = writable<boolean>(false);
 export const startOpened = writable<boolean>(false);
+export const attentionId = writable<string>("");
 export const shuttingDown = writable<boolean>(false);
 export const restarting = writable<boolean>(false);
 export const showDesktop = writable<boolean>(false);

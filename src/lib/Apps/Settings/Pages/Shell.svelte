@@ -2,6 +2,7 @@
   import { WindowStore } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import OptionSection from "../OptionSection.svelte";
+  import TaskBarPosition from "./Shell/TaskBarPosition.svelte";
 </script>
 
 <h1>Shell</h1>
@@ -44,11 +45,13 @@
     title="Taskbar position"
     context="Where do you want the taskbar?"
   >
+    <TaskBarPosition
+    /><!-- 
     <select bind:value={$UserData.sh.taskbar.pos}>
       <option value="vertical">Left</option>
       <option value="">Bottom</option>
       <option value="vertical-right">Right</option>
-    </select>
+    </select> -->
   </OptionSection>
 {/if}
 <hr />

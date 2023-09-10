@@ -7,7 +7,11 @@
   }
 </script>
 
-<button class="action" disabled={!$appManSelected} on:click={disable}>
+<button
+  class="action"
+  disabled={!$appManSelected || $appManSelected.startsWith("error_")}
+  on:click={disable}
+>
   <span class="material-icons-round">block</span>
   <p class="caption">Disable</p>
 </button>

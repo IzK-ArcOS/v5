@@ -35,6 +35,23 @@ export function findAppToOpen(mime: string): string[] {
   return ids;
 }
 
+export function findAppToOpenByExt(filename: string) {
+  const ids: string[] = [];
+  const ws = get(WindowStore);
+
+  for (let i = 0; i < ws.length; i++) {
+    const window = ws[i];
+
+    if (!window.fileExts) continue;
+
+    for (let j = 0; j < window.fileExts.length; j++) {
+      if (filename.endsWith(window.fileExts[j])) ids.push(window.id);
+    }
+  }
+
+  return ids;
+}
+
 export function findLoaderToOpen(filename: string): UserFileLoader[] {
   let result = [];
   const loaders = Object.entries(FileLoaders);
@@ -150,7 +167,11 @@ export async function openUserFile(
 
   let data = await partialFileToComplete(file);
 
-  const apps = findAppToOpen(file.mime);
+  const apps = [
+    ...findAppToOpenByExt(file.filename),
+    ...findAppToOpen(file.mime),
+  ];
+
   const loaders = findLoaderToOpen(file.filename);
 
   if (!(apps.length > 0) && !(loaders.length > 1)) return data;

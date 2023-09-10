@@ -1,7 +1,7 @@
 import { get } from "svelte/store";
 import { Log } from "../console";
 import { ActionCenterOpened } from "../desktop/actioncenter/main";
-import { startOpened } from "../desktop/main";
+import { attentionId, startOpened } from "../desktop/main";
 import { destroyOverlayableError } from "../errorlogic/overlay";
 import { getWindowElement } from "../window/main";
 import { hideOverlay } from "../window/overlay";
@@ -280,4 +280,14 @@ export function fullscreenToggle(id: string) {
   }
 
   WindowStore.set(ws);
+}
+
+export function requestUserAttention(id: string) {
+  Log(
+    "events.ts: requestUserAttention",
+    `Requesting user attention for App ${id}`
+  );
+  if (!getWindow(id) || !isLoaded(id) || isDisabled(id)) return;
+
+  attentionId.set(id);
 }

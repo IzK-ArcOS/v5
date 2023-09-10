@@ -9,6 +9,8 @@ div.taskbar-h:not(.top) {
 div.taskbar-h {
   width: calc(100% - 20px);
   height: 45px;
+  align-items: center;
+  padding-left: 5px;
 }
 
 div.taskbar-h:not(.visible) {

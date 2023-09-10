@@ -1,20 +1,27 @@
 div.taskbar-v div.tray {
   margin-top: auto;
+  width: calc(100% + 2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
 }
 
 div.taskbar-v div.tray img {
-  height: 16px;
-  margin: 0px 5px;
+  width: 16px;
+  margin: 5px 0;
 }
 
 div.taskbar-v div.tray button.icon {
-  width: 43px;
-  height: 36px;
+  width: fit-content;
   background-color: transparent;
   padding: 0;
   border: none;
   color: var(--fg);
-  vertical-align: top;
+  vertical-align: middle;
+  line-height: 0px;
+  width: 100%;
 }
 
 div.taskbar-v div.tray button.icon:hover {
@@ -37,16 +44,13 @@ div.taskbar-v div.tray button.icon.committer.inactive {
 
 div.taskbar-v div.tray span.material-icons {
   font-size: 16px;
-  margin: 0px 5px;
+  margin: 5px 0;
 }
 
 div.taskbar-v div.tray div.clock {
-  line-height: inherit;
-  height: inherit;
-  display: inline-block;
-  width: 100%;
   text-align: center;
   font-size: 12px;
+  margin-top: 10px;
 }
 
 div.taskbar-v div.tray button.ac-open {
@@ -57,7 +61,9 @@ div.taskbar-v div.tray button.ac-open {
   margin: 0;
   padding: 0 12px;
   font-size: 18px;
-  height: 44px;
+  height: 43px;
+  filter: var(--elevated-accent-filter);
+  border-radius: var(--win-border-rad);
 }
 
 div.taskbar-v div.tray button.ac-open:hover {
@@ -71,5 +77,4 @@ div.taskbar-v div.tray button.ac-open:active {
 div.taskbar-v div.tray button.ac-open.opened {
   background-color: var(--startmenu-applist-item-bg-active);
   color: var(--accent);
-  filter: var(--elevated-accent-filter);
 }

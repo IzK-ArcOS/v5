@@ -37,7 +37,7 @@
   }
 </script>
 
-{#if data}
+a{#if data}
   <div class="name">
     <div>
       <img src={getAppIcon(data)} alt={data.info.name} />

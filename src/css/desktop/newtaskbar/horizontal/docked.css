@@ -1,7 +1,7 @@
 div.taskbar-h.docked {
   left: 0px;
   width: 100%;
-  border: transparent 1px solid;
+  border: transparent 0px solid;
   border-radius: 0;
 }
 

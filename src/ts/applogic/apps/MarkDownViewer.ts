@@ -25,7 +25,8 @@ export const MarkDownViewer: App = {
   },
   content: MarkDownViewerSvelte,
   glass: false,
-  fileMimes: ["text/plain", "text/markdown"],
+  fileMimes: ["text/plain", "text/markdown", "text/html"],
+  fileExts: [".md"],
   events: {
     openFile(app: App) {
       if (!app.openedFile) return;

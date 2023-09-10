@@ -13,7 +13,7 @@ div.fts {
 }
 
 div.fts *:not(.material-icons-round) {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: var(--font), sans-serif;
 }
 
 div.fts.show {

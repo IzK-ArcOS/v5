@@ -7,6 +7,9 @@ div.taskbar-v {
   width: 45px;
   height: calc(100% - 20px);
   flex-direction: column;
+  padding-top: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 div.taskbar-v:not(.visible) {
@@ -17,4 +20,11 @@ div.taskbar-v:not(.visible) {
 div.taskbar-v.right {
   left: unset;
   right: 10px;
+}
+
+div.taskbar-v button.start {
+  width: 100% !important;
+  margin-right: 0 !important;
+  margin-bottom: 5px !important;
+  width: 35px !important;
 }

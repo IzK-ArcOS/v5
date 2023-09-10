@@ -11,6 +11,8 @@
   import sleep from "../../ts/sleep";
   import { applyState } from "../../ts/state/main";
   import ApiReveal from "../APIReveal.svelte";
+  import desktop from "../../ts/helpcenter/store/personalization/desktop";
+  import { isDesktop } from "../../ts/desktop/app";
 
   let status = "";
   let bootClass = "";
@@ -19,6 +21,14 @@
   let running = false;
 
   onMount(async () => {
+    if (isDesktop()) {
+      await sleep(500);
+
+      bootClass = "fadein";
+
+      return startBooting();
+    }
+
     status = "Press a key or click to start";
 
     document.addEventListener("click", startBooting, { once: true });

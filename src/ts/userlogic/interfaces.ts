@@ -6,10 +6,12 @@ export interface UserData {
     taskbar: {
       centered: boolean; //done
       labels: boolean; //done
-      pos: "vertical" | "" | "vertical-right";
+      pos: "vertical" | "" | "vertical-right" | string;
       docked: boolean; //done
       colored: boolean;
       isLauncher: boolean;
+      clockSecs: boolean;
+      clockDate: boolean;
     };
 
     window: {

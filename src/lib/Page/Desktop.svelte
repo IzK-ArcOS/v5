@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "../../css/desktop.css";
-  import { checkForUpdates } from "../../updates/main";
   import { importDefault } from "../../ts/applogic/imports/main";
   import { startKeyListener } from "../../ts/applogic/keyboard/listener";
   import {
@@ -9,6 +8,9 @@
     updateStores,
     WindowStore as WStore,
   } from "../../ts/applogic/store";
+  import { checkReleaseCandidate } from "../../ts/branding/rc";
+  import { checkDesktopFile } from "../../ts/desktop/app";
+  import { getExperiments } from "../../ts/desktop/experiments/main";
   import {
     assignDesktopListeners,
     desktopClassNames,
@@ -19,19 +21,15 @@
   import { restart } from "../../ts/desktop/power";
   import { ErrorMessages } from "../../ts/errorlogic/app";
   import { startMessageCheckInterval } from "../../ts/messaging/interval";
+  import sleep from "../../ts/sleep";
+  import { ArcSoundBus } from "../../ts/sound/main";
   import { UserData, UserName } from "../../ts/userlogic/interfaces";
+  import { getUsers } from "../../ts/userlogic/main";
+  import { checkForUpdates } from "../../updates/main";
   import ArcFind from "./Desktop/ArcFind.svelte";
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
-  import { ArcSoundBus } from "../../ts/sound/main";
-  import { sendReport } from "../../ts/reporting/main";
-  import sleep from "../../ts/sleep";
-  import { checkReleaseCandidate } from "../../ts/branding/rc";
-  import { getUsers } from "../../ts/userlogic/main";
-  import { getExperiments } from "../../ts/desktop/experiments/main";
-  import { getAllServers } from "../../ts/api/server";
-  import { detectAuthcode } from "../../ts/api/authcode";
 
   let show = false;
   let classes = "";
@@ -64,6 +62,7 @@
     startMessageCheckInterval();
     checkForUpdates();
     checkReleaseCandidate();
+    checkDesktopFile();
   });
 
   function resetDesktopState() {

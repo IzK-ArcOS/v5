@@ -1,13 +1,14 @@
 <script lang="ts">
   import dayjs from "dayjs";
   import { onMount } from "svelte";
+  import upload from "../../../../assets/upload.svg";
   import {
     ActionCenterOpened,
     toggleActionCenter,
   } from "../../../../ts/desktop/actioncenter/main";
   import { trayIcons } from "../../../../ts/desktop/tray/main";
+  import { UserData } from "../../../../ts/userlogic/interfaces";
   import { committingUserData } from "../../../../ts/userlogic/main";
-  import upload from "../../../../assets/upload.svg";
 
   export let hasClock = true;
 
@@ -15,7 +16,11 @@
 
   onMount(() => {
     setInterval(() => {
-      time = dayjs().format("HH:mm");
+      const tb = $UserData.sh.taskbar;
+      const secs = tb.clockSecs && !tb.pos ? ":ss" : "";
+      const date = tb.clockDate && !tb.pos ? "MMM D, " : "";
+
+      time = dayjs().format(`${date}HH:mm${secs}`);
     }, 500);
   });
 </script>
@@ -38,7 +43,7 @@
     <img src={upload} alt="Committing" />
   </button>
   {#if hasClock}
-    <div class="clock">{time}</div>
+    <div class="clock" data-contextmenu="clockcontext">{time}</div>
   {/if}
   <button
     class="material-icons-round ac-open"

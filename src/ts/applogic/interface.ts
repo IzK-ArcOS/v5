@@ -22,6 +22,7 @@ export interface App {
   errorOverlays?: OverlayableError[];
   children?: { [key: string]: App };
   fileMimes?: string[];
+  fileExts?: string[];
   openedFile?: ArcFile;
   contextMenu?: AppContextMenu;
   disabledWarning?: { title: string; message: string };
