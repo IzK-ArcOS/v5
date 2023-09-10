@@ -11,6 +11,7 @@ export const ArcTerm: App = {
     version: "2.0.0",
     author: "ArcOS Team",
     icon: logo,
+    preloaded: true,
   },
   size: { w: 640, h: 480 },
   pos: { x: 60, y: 60 },

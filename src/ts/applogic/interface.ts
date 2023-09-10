@@ -59,6 +59,7 @@ export interface GeneralAppInfo {
   icon: string;
   custom?: boolean;
   appGroup?: string;
+  preloaded?: boolean;
 }
 
 export interface OverlayableAppInfo {
