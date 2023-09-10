@@ -10,7 +10,7 @@ import { addServer, getServer } from "../../api/server";
 import { setAuthcode } from "../../api/authcode";
 import { ARCOS_MODE } from "../../branding";
 
-export async function authPrompt(term: ArcTerm, usr = "") {
+export async function authPrompt(term: ArcTerm, usr = "", keep = false) {
   const udata = get(UserName);
 
   if (udata) return true;
@@ -28,8 +28,10 @@ export async function authPrompt(term: ArcTerm, usr = "") {
     return true;
   }
 
-  term.std.clear();
-  term.std.writeLine(`ArcTerm ${ArcOSVersion} ${ARCOS_MODE} ${api} atm1\n\n`);
+  if (!keep) {
+    term.std.clear();
+    term.std.writeLine(`ArcTerm ${ArcOSVersion} ${ARCOS_MODE} ${api} atm1\n\n`);
+  }
 
   const { username, password } = await authPromptFields(term, api, usr);
 
@@ -44,7 +46,7 @@ export async function authPrompt(term: ArcTerm, usr = "") {
 
     localStorage.removeItem("arcos-remembered-token");
 
-    return await authPrompt(term, usr);
+    return await authPrompt(term, usr, true);
   }
 
   await term.env.config.loadConfigFile();
