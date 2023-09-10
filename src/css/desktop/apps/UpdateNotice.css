@@ -1,7 +1,8 @@
 @import url("./UpdateNotice/changelog.css");
 
 window#UpdateNotice {
-  background-color: var(--glass-ultradark) !important;
+  background-color: #0007 !important;
+  backdrop-filter: none;
 }
 
 window#UpdateNotice > div.body {
