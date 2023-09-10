@@ -73,6 +73,7 @@ export const FileLoaders: { [key: string]: UserFileLoader } = {
     name: "Download",
     description: "Open file in a new tab to download it",
     loader: (file) => {
+      if (!file) return;
       const f = arrayToBlob(file.data, file.mime.split(";")[0]);
 
       window.open(URL.createObjectURL(f), "_blank");
