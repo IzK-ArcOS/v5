@@ -151,7 +151,7 @@ export function openWith(
     setTimeout(() => {
       if (window.events && window.events.openFile)
         window.events.openFile(window);
-    }, 400);
+    }, 10);
 
     return true;
   }

@@ -2,6 +2,7 @@ import logo from "../../../assets/apps/filemanager.svg";
 import FileBrowser from "../../../lib/Apps/FileBrowser.svelte";
 import type { App } from "../interface";
 import { FileManagerContextMenu } from "./FileBrowser/context";
+import { fbClass } from "./FileBrowser/main";
 import { fbOverlays } from "./FileBrowser/overlays";
 
 export const FileBrowserApp: App = {
@@ -28,4 +29,9 @@ export const FileBrowserApp: App = {
   glass: true,
   overlays: fbOverlays,
   contextMenu: FileManagerContextMenu,
+  events: {
+    open() {
+      fbClass.goToDirectory("./");
+    },
+  },
 };
