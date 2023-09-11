@@ -79,7 +79,9 @@ export function openWindow(id: string, openChild = false) {
 
   focusedWindowId.set(id);
 
-  if (window.events && window.events.open) window.events.open(window);
+  setTimeout(() => {
+    if (window.events && window.events.open) window.events.open(window);
+  }, 400);
 
   return true;
 }

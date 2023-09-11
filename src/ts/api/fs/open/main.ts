@@ -148,7 +148,10 @@ export function openWith(
     openWindow(appId);
     focusedWindowId.set(appId);
 
-    if (window.events && window.events.openFile) window.events.openFile(window);
+    setTimeout(() => {
+      if (window.events && window.events.openFile)
+        window.events.openFile(window);
+    }, 400);
 
     return true;
   }
