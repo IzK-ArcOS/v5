@@ -14,10 +14,10 @@ export const LightsOff: App = {
     icon: logo,
     appGroup: "entertainment",
   },
-  size: { w: 442, h: 525 },
+  size: { w: 442, h: NaN },
   pos: { x: 80, y: 80 },
   minSize: { w: 442, h: 525 },
-  maxSize: { w: 442, h: 525 },
+  maxSize: { w: 442, h: 535 },
   controls: { min: true, max: false, cls: true },
   state: {
     headless: false,
