@@ -1,7 +1,7 @@
 <script lang="ts">
   import passwordIcon from "../../../../../../assets/apps/settings/password.svg";
   import "../../../../../../css/desktop/apps/settings/account/changePswd.css";
-  import { changePassword } from "../../../../../../ts/api/cred";
+  import { changePassword } from "../../../../../../ts/api/cred/mutate";
   import type { App } from "../../../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
   import {

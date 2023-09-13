@@ -1,7 +1,7 @@
 <script lang="ts">
   import usericon from "../../../../../../assets/apps/settings/account.svg";
   import "../../../../../../css/desktop/apps/settings/account/changeUname.css";
-  import { changeUsername } from "../../../../../../ts/api/cred";
+  import { changeUsername } from "../../../../../../ts/api/cred/mutate";
   import type { App } from "../../../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
   import {

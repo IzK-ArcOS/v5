@@ -30,6 +30,8 @@
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
+  import { detectAuthcode } from "../../ts/api/authcode";
+  import { getServer } from "../../ts/api/server";
 
   let show = false;
   let classes = "";
@@ -63,6 +65,8 @@
     checkForUpdates();
     checkReleaseCandidate();
     checkDesktopFile();
+
+    console.log(await detectAuthcode(getServer()));
   });
 
   function resetDesktopState() {

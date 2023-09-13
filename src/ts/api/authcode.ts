@@ -39,7 +39,7 @@ export function getAuthcode(server: string) {
 
 export async function detectAuthcode(
   server: string
-): Promise<"exists" | "noexist" | "error"> {
+): Promise<"protected" | "public" | "error"> {
   const cs = get(ConnectedServer);
   const test = await testConnection(server);
 
@@ -49,7 +49,9 @@ export async function detectAuthcode(
 
   ConnectedServer.set(cs);
 
-  const req = await ttlFetch(`${host}/connect`, {}, 3000);
+  const req = await (await ttlFetch(`${host}/connect`, {}, 3000)).json();
 
-  return req.status == 401 ? "exists" : "noexist";
+  if (!req) return "error";
+
+  return req.protected ? "protected" : "public";
 }
