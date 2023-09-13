@@ -21,17 +21,14 @@
 <style>
   .grid {
     display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(4, 80px);
-    grid-template-rows: repeat(4, 80px);
+    grid-gap: 9px;
+    grid-template-columns: repeat(4, 76px);
+    grid-template-rows: repeat(4, 76px);
     grid-auto-flow: row;
     width: fit-content;
   }
   .wrapper {
     position: relative;
-    padding: 15px;
-    background-color: var(--button-glass-bg);
-    border-radius: var(--win-border-rad);
   }
 
   .tiles {
@@ -41,7 +38,7 @@
   }
 
   .box {
-    background-color: var(--button-glass-active-bg);
-    border-radius: 5px;
+    background-color: var(--button-glass-bg);
+    border-radius: var(--button-border-rad);
   }
 </style>

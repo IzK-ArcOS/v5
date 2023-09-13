@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { cubicOut } from "svelte/easing";
-  import { spring, tweened } from "svelte/motion";
+  import { tweened } from "svelte/motion";
   import type { TileContent } from "../../../ts/applogic/apps/TwentyFourtyEight/interface";
 
   export let tile: TileContent;
@@ -25,9 +25,8 @@
   let mergedValue: number = 0;
 
   // Based on composite rule of three
-  $: top = $topTweened * 270 + 15;
-  $: left = $leftTweened * 270 + 15;
-  $: wasMerged = tile.merged && mergedValue !== tile.value;
+  $: top = $topTweened * 255;
+  $: left = $leftTweened * 255;
 
   onMount(() => {
     topTweened.set(tile.position?.top / 3);
@@ -62,10 +61,10 @@
 <style>
   .tile {
     text-align: center;
-    line-height: 80px;
+    line-height: 76px;
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 76px;
+    height: 76px;
     border-radius: 5px;
     transition: none !important;
     /* background-color: var(--accent); */

@@ -1,0 +1,25 @@
+window#TwentyFourtyEight div.body {
+  overflow: hidden;
+}
+
+window#TwentyFourtyEight div.header {
+  border-bottom: var(--button-glass-bg) 1px solid;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+window#TwentyFourtyEight div.header div.right {
+  background-color: var(--button-glass-bg);
+  height: 30px;
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+  border: var(--button-glass-bg) 1px solid;
+  padding: 0 10px;
+  border-radius: 7.5px;
+  line-height: 28px;
+}

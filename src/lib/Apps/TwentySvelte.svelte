@@ -1,4 +1,5 @@
 <script lang="ts">
+  import "../../css/desktop/apps/2048.css";
   import { onMount } from "svelte";
   import { writable, type Writable } from "svelte/store";
   import type { GameState } from "../../ts/applogic/apps/TwentyFourtyEight/interface";

@@ -14,10 +14,10 @@ export const TwentyFourtyEight: App = {
     icon: logo,
     appGroup: "entertainment",
   },
-  size: { w: 402, h: 482 },
+  size: { w: 354, h: 436 },
   pos: { x: 30, y: 40 },
-  minSize: { w: 402, h: 482 },
-  maxSize: { w: 482, h: 492 },
+  minSize: { w: 354, h: 436 },
+  maxSize: { w: 354, h: 446 },
   controls: { min: true, max: false, cls: true },
   state: {
     headless: false,

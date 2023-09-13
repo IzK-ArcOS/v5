@@ -6,7 +6,7 @@
 </script>
 
 <div class="header">
-  <button class="reset" on:click={newGame}>New Game</button>
+  <button class="reset-game" on:click={newGame}>New Game</button>
   <div class="right">
     Score: {state.score}
   </div>
