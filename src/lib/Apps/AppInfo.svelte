@@ -2,11 +2,14 @@
   import "../../css/desktop/apps/AppInfo.css";
   import { AppInfoId as id } from "../../ts/applogic/apps/AppInfo";
   import { disableApp, enableApp } from "../../ts/applogic/enabling";
-  import { openWindow } from "../../ts/applogic/events";
+  import { closeWindow, openWindow } from "../../ts/applogic/events";
   import { getAppIcon } from "../../ts/applogic/icon";
   import { SystemApps } from "../../ts/applogic/imports/store";
   import type { App } from "../../ts/applogic/interface";
+  import { setAppPreference } from "../../ts/applogic/pref";
   import { WindowStore, getWindow } from "../../ts/applogic/store";
+  import { createOverlayableError } from "../../ts/errorlogic/overlay";
+  import { UserData } from "../../ts/userlogic/interfaces";
 
   let data: App;
   let isEnabled = true;
@@ -34,6 +37,27 @@
     if (!data) return;
 
     isEnabled = !getWindow($id).disabled;
+  }
+
+  function resetData() {
+    createOverlayableError(
+      {
+        title: "Warning!",
+        message:
+          "Resetting the application data may result in a loss of personal information related to the app. Are you sure?",
+        buttons: [
+          {
+            caption: "Yes",
+            action() {
+              closeWindow($id);
+              delete $UserData.appdata[$id];
+            },
+          },
+          { caption: "Cancel", action() {} },
+        ],
+      },
+      "AppInfo"
+    );
   }
 </script>
 
@@ -111,6 +135,7 @@
         >
           Open
         </button>
+        <button on:click={resetData} disabled={data.core}> Reset Data </button>
       </div>
     </div>
   </div>

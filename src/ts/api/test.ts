@@ -23,7 +23,7 @@ export async function testConnection(
   for (let i = 0; i < TEST_MODES.length; i++) {
     const proto = `http${TEST_MODES[i][0] ? "s" : ""}`;
     const port = TEST_MODES[i][1];
-    const url = `${proto}://${server}:${port}/connect?ac=${authCode}`;
+    const url = `${proto}://${server}:${port}/users/get?ac=${authCode}`;
 
     Log(
       "api/test.ts: testConnection",
@@ -39,10 +39,10 @@ export async function testConnection(
         `Got a response from URL ${url}`,
         LogLevel.warn
       );
-
+      /* 
       const rev = req.revision || 0;
 
-      if (rev < minArcAPI) return false;
+      if (rev < minArcAPI) return false; */
 
       if (set) {
         ConnectedServer.set(`${proto}://${server}:${port}`);
@@ -69,3 +69,5 @@ export async function testConnection(
 
   return false;
 }
+
+ServerAuthCode.subscribe((v) => console.log(v));

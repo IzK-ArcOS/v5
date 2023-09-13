@@ -15,6 +15,7 @@ import { MediaPlayerApp } from "../apps/MediaPlayer";
 import { MessagingApp } from "../apps/MessagingApp";
 import { OpenWithApp } from "../apps/OpenWith";
 import { TextEditor } from "../apps/TextEditor";
+import { TwentyFourtyEight } from "../apps/TwentyFourtyEight";
 import { UpdateNotice } from "../apps/UpdateNotice";
 import { ExperimentsApp } from "../apps/experiments";
 import { SettingsApp } from "../apps/settings";
@@ -48,6 +49,7 @@ export const DefaultApps: { [key: string]: App } = {
   BugReports,
   ExperimentsApp,
   UpdateNotice,
+  TwentyFourtyEight,
 };
 
 export const SystemApps: string[] = [
