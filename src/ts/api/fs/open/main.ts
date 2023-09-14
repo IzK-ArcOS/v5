@@ -10,6 +10,7 @@ import { errorMessage } from "../../../errorlogic/main";
 import type { ArcFile, PartialArcFile, UserFileLoader } from "../../interface";
 import { partialFileToComplete } from "../convert";
 import { FileLoaders } from "./loader";
+import sleep from "../../../sleep";
 
 export function findAppToOpen(mime: string): string[] {
   Log(
@@ -89,7 +90,7 @@ export function getAllFileHandlers(): string[] {
   return ids;
 }
 
-export function openWithDialog(file: ArcFile) {
+export async function openWithDialog(file: ArcFile) {
   if (isDisabled("OpenWithApp")) {
     return errorMessage(
       "Can't open file",
@@ -99,10 +100,12 @@ export function openWithDialog(file: ArcFile) {
       { caption: "OK", action() {} },
       {
         caption: "Enable OpenWithApp",
-        action() {
+        async action() {
           enableApp("OpenWithApp");
 
           OpenWithFile.set(file);
+
+          await sleep(10);
 
           openWindow("OpenWithApp");
         },
@@ -117,6 +120,8 @@ export function openWithDialog(file: ArcFile) {
   );
 
   OpenWithFile.set(file);
+
+  await sleep(10);
 
   openWindow("OpenWithApp");
 }

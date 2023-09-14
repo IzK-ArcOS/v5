@@ -30,6 +30,7 @@
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
+  import SnapZones from "./Desktop/Wallpaper/SnapZones.svelte";
 
   let show = false;
   let classes = "";

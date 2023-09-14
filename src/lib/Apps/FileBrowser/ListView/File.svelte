@@ -79,7 +79,7 @@
 
     hideOverlay("openingFile", "FileManager");
 
-    $FileBrowserOpeningFile = file;
+    $FileBrowserOpeningFile = null;
   }
 
   onMount(() => {

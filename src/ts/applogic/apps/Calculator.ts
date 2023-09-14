@@ -15,8 +15,8 @@ export const CalculatorApp: App = {
   },
   size: { w: 340, h: NaN },
   pos: { x: 60, y: 60 },
-  minSize: { w: 340, h: NaN },
-  maxSize: { w: 340, h: NaN },
+  minSize: { w: 340, h: 412 },
+  maxSize: { w: 340, h: 422 },
   controls: { min: true, max: false, cls: true },
   state: {
     headless: false,

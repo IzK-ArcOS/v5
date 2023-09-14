@@ -10,11 +10,11 @@
   border-radius: var(--win-border-rad, 7.5px);
   border: var(--win-border, rgb(107, 107, 107) 1px solid);
   overflow: hidden;
-  transition: all 0.25s, width 0s, height 0s, top 0s, left 0s, z-index 0s,
-    pointer-events 0s;
+  transition: all 0.3s, width 0s, height 0s, z-index 0s, pointer-events 0s,
+    transform 0s;
   opacity: 0;
   visibility: hidden;
-  transform: scale(90%);
+  scale: 90%;
   font-size: 13px;
   box-shadow: 0px 5px 15px 5px #0003;
   margin-top: 50px;
@@ -39,6 +39,7 @@ window.window.snapped {
   min-height: unset !important;
   max-width: unset !important;
   max-height: unset !important;
+  transform: unset !important;
   border-radius: 0 !important;
   resize: none;
 }
@@ -55,6 +56,7 @@ window.custom {
   left: 0px !important;
   bottom: 0px !important;
   right: 0px !important;
+  transform: none !important;
   position: absolute;
 }
 
@@ -86,7 +88,8 @@ window.custom div.body {
   border-radius: 0 !important;
   border: transparent 0px solid;
   resize: none !important;
-  transition: all 0.2s;
+  transform: translate3d(0px, 0px, 0px) !important;
+  transition: all 0.3s !important;
 }
 
 div.desktop:not(.is-launcher):not([class*="tb-vertical"]) .window.max {
@@ -122,8 +125,8 @@ div.desktop.is-launcher .window.max:not(.fullscreen) {
 .window.visible {
   opacity: 1;
   visibility: visible;
-  transform: scale(1);
-  margin-top: 00px;
+  scale: 1;
+  margin-top: 0px;
 }
 
 .window:not(.visible),
