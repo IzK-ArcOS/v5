@@ -14,7 +14,7 @@ export const Exit: App = {
     hidden: true,
   },
   size: { w: 280, h: 50 },
-  pos: { x: 30, y: 40 },
+  pos: { x: 0, y: 0 },
   minSize: { w: 280, h: 50 },
   maxSize: { w: 280, h: 50 },
   controls: { min: false, max: false, cls: true },
