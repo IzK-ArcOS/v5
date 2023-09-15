@@ -49,8 +49,11 @@
           {
             caption: "Yes",
             action() {
-              closeWindow($id);
               delete $UserData.appdata[$id];
+
+              $UserData = $UserData;
+
+              closeWindow($id);
             },
           },
           { caption: "Cancel", action() {} },
@@ -135,7 +138,7 @@
         >
           Open
         </button>
-        <button on:click={resetData} disabled={data.core}> Reset Data </button>
+        <button on:click={resetData}> Reset Data </button>
       </div>
     </div>
   </div>

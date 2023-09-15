@@ -83,5 +83,5 @@ export function openByKey(key: string) {
 
   setTimeout(() => {
     currentSettingsPage.set(page);
-  });
+  }, 10);
 }
