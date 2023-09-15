@@ -1,21 +1,25 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import "../../../../css/desktop/desktopicons.css";
   import { isPopulatable } from "../../../../ts/applogic/checks";
   import type { App } from "../../../../ts/applogic/interface";
   import { WindowStore } from "../../../../ts/applogic/store";
-  import sleep from "../../../../ts/sleep";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import DesktopIcon from "./DesktopIcons/DesktopIcon.svelte";
 
   let store: App[] = [];
   let loading = false;
 
-  UserData.subscribe(async () => {
+  function update() {
     const len = store.length;
     const newStore = $WindowStore.filter((a) => isPopulatable(a));
 
     if (newStore.length !== len) store = newStore;
-  });
+  }
+
+  onMount(update);
+  WindowStore.subscribe(update);
+  UserData.subscribe(update);
 </script>
 
 {#if !loading}
