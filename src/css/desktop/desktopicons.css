@@ -6,6 +6,7 @@ div.desktopIcons {
   padding: 10px;
   height: calc(100% - 65px);
   overflow: hidden;
+  position: absolute;
 }
 
 div.desktopIcons.launcher {

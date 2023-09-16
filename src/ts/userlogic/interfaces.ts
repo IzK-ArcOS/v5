@@ -31,6 +31,7 @@ export interface UserData {
       pinnedFolders: string[];
       pinnedFiles: string[];
       noCustomCursor: boolean;
+      noIconGrid: boolean;
     };
 
     start: {

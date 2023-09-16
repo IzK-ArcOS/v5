@@ -42,9 +42,10 @@
   class="desktopIcon"
   on:dblclick={open}
   use:draggable={{
-    grid: [40, 42.5],
-    bounds: { bottom: 110, left: 0, right: 40, top: 0 },
-    handle: ".name",
+    grid: $UserData.sh.desktop.noIconGrid ? null : [40, 42.5],
+    bounds: $UserData.sh.desktop.noIconGrid
+      ? { bottom: 80, left: 10, right: 10, top: 10 }
+      : { bottom: 110, left: 0, right: 40, top: 0 },
     position,
   }}
   on:neodrag:end={endDrag}

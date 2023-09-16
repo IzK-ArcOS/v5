@@ -109,7 +109,7 @@
   <div class="accent" />
 
   <Titlebar {app} bind:exttransition bind:titlebar {isBoot} />
-  {#if (!app.runtime ? true : runtime) && (app.opened || app.core || app.info.preloaded)}
+  {#if ((!app.runtime ? true : runtime) && (app.opened || app.core || app.info.preloaded)) || (app && app.id.startsWith("error_"))}
     <Content {app} {runtime}>
       <slot />
     </Content>
