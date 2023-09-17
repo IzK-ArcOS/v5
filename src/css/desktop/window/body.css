@@ -41,6 +41,7 @@ window.fullscreen {
   min-width: unset !important;
   min-height: unset !important;
   resize: none !important;
+  transform: none !important;
 }
 
 window div.body div.center-flex {

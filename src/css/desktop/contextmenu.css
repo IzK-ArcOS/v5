@@ -86,6 +86,10 @@ div.desktop div.contextmenu button.contextmenu-item:hover {
   background-color: var(--button-glass-bg);
 }
 
+div.desktop div.contextmenu button.contextmenu-item div.icon {
+  width: 24px;
+}
+
 div.desktop div.contextmenu button.contextmenu-item div.icon * {
   vertical-align: middle;
   margin: 0;

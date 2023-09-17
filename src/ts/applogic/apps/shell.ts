@@ -5,6 +5,9 @@ import { ArcOSVersion } from "../../env/main";
 import { UserData } from "../../userlogic/interfaces";
 import type { App } from "../interface";
 import { SEP_ITEM } from "../../contextmenu/main";
+import { openWindow } from "../events";
+import { openByKey } from "./SettingsApp/store";
+import appMan from "../../../assets/apps/appmanager.svg";
 
 export const ArcShell: App = {
   info: {
@@ -42,6 +45,7 @@ export const ArcShell: App = {
           UserData.set(ud);
         },
         isActive: () => get(UserData).sh.taskbar.clockSecs,
+        icon: "av_timer",
       },
       {
         caption: "Show Date",
@@ -53,8 +57,8 @@ export const ArcShell: App = {
           UserData.set(ud);
         },
         isActive: () => get(UserData).sh.taskbar.clockDate,
+        icon: "calendar_month",
       },
-      SEP_ITEM,
       {
         caption: "12-hour clock",
         action: () => {
@@ -65,6 +69,45 @@ export const ArcShell: App = {
           UserData.set(ud);
         },
         isActive: () => get(UserData).sh.taskbar.clock12hr,
+      },
+      SEP_ITEM,
+      {
+        image: appMan,
+        caption: "Application Manager",
+        action: () => {
+          openWindow("AppMan");
+        },
+      },
+      SEP_ITEM,
+      {
+        icon: "settings",
+        caption: "Shell settings",
+        action: () => {
+          openWindow("SettingsApp");
+          setTimeout(() => {
+            openByKey("Shell");
+          });
+        },
+      },
+    ],
+    "shell-taskbar": [
+      {
+        image: appMan,
+        caption: "Application Manager",
+        action: () => {
+          openWindow("AppMan");
+        },
+      },
+      SEP_ITEM,
+      {
+        icon: "settings",
+        caption: "Shell settings",
+        action: () => {
+          openWindow("SettingsApp");
+          setTimeout(() => {
+            openByKey("Shell");
+          });
+        },
       },
     ],
   },

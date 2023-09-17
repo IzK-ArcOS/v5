@@ -50,6 +50,9 @@ div.taskbar-h div.tray div.clock {
   text-align: center;
   font-size: 12px;
   margin-left: 10px;
+  height: inherit;
+  display: flex;
+  align-items: center;
 }
 
 div.taskbar-h div.tray button.ac-open {
