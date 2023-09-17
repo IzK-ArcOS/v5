@@ -12,6 +12,7 @@ export interface UserData {
       isLauncher: boolean;
       clockSecs: boolean;
       clockDate: boolean;
+      clock12hr: boolean;
     };
 
     window: {
