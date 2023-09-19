@@ -17,6 +17,7 @@ import img17 from "../../../assets/bg/img17.jpg";
 import img18 from "../../../assets/bg/img18.jpg";
 import img19 from "../../../assets/bg/img19.png";
 import img20 from "../../../assets/bg/img20.jpg";
+import img21 from "../../../assets/bg/img21.jpg";
 import type { Wallpaper } from "./interface";
 
 export const Wallpapers: { [key: string]: Wallpaper } = {
@@ -31,6 +32,11 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     author: "SWHFotografie",
     name: "Wandelbos",
     source: "Wandelbos, The Netherlands",
+  },
+  img21: {
+    url: img21,
+    author: "Eversiege",
+    name: "Flippin' Trees",
   },
   /**SWHFotografie */
   img13: { url: img13, author: "SWHFotografie", name: "Agga" },
