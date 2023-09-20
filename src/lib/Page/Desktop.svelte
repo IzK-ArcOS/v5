@@ -31,6 +31,7 @@
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
   import SnapZones from "./Desktop/Wallpaper/SnapZones.svelte";
+  import { checkFirefox } from "../../ts/desktop/browser";
 
   let show = false;
   let classes = "";
@@ -64,6 +65,7 @@
     checkForUpdates();
     checkReleaseCandidate();
     checkDesktopFile();
+    checkFirefox();
   });
 
   function resetDesktopState() {
@@ -82,6 +84,7 @@
     theme-{$UserData.sh.desktop.theme}
     tb-{$UserData.sh.taskbar.pos}
     cursor-{$UserData.sh.desktop.noCustomCursor ? '' : 'custom'}"
+    class:noglass={navigator.userAgent.toLowerCase().includes("firefox")}
     class:show
     style="--accent: #{$UserData.sh.desktop.accent || '70D6FF'} !important"
   >

@@ -40,6 +40,8 @@
 
 <button
   class="desktopIcon"
+  data-contextmenu="desktopicon-app"
+  data-id={app.id}
   on:dblclick={open}
   use:draggable={{
     grid: $UserData.sh.desktop.noIconGrid ? null : [40, 42.5],
@@ -50,6 +52,10 @@
   }}
   on:neodrag:end={endDrag}
 >
-  <img src={getOriginalIcon(app.id) || app.info.icon} alt={app.info.name} />
+  <img
+    draggable={false}
+    src={getOriginalIcon(app.id) || app.info.icon}
+    alt={app.info.name}
+  />
   <p class="name">{app.info.name}</p>
 </button>

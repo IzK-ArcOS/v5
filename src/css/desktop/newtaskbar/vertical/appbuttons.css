@@ -49,8 +49,8 @@ div.taskbar-v.top div.buttons button {
   border-top: transparent 2px solid;
 }
 
-div.taskbar-v div.buttons button:has(span) {
-  width: fit-content;
+div.taskbar-v div.buttons button.labels {
+  height: fit-content;
 }
 
 div.taskbar-v div.buttons button.minimized {

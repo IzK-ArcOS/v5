@@ -11,7 +11,6 @@ import type { CommandStore } from "./interface";
 import { ArcTermScripts } from "./scripts";
 import { ArcTermSections } from "./sect";
 import { ArcTermStd } from "./std";
-import { gooseBumpsCommands } from "./store";
 import { ArcTermUtil } from "./util";
 import { ArcTermVariables } from "./var";
 

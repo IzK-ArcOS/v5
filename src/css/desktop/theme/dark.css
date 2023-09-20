@@ -35,8 +35,8 @@
 }
 
 :root .theme-dark.noglass {
-  --glass-bg: #353535;
-  --glass-alt-bg: #414141;
-  --glass-ultralight: #838383;
-  --glass-ultradark: #111;
+  --glass-bg: #353535 !important;
+  --glass-alt-bg: #414141 !important;
+  --glass-ultralight: #838383 !important;
+  --glass-ultradark: #111 !important;
 }

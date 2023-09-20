@@ -2,7 +2,7 @@ import { get } from "svelte/store";
 import type { AppContextMenu } from "../../interface";
 import { UserData } from "../../../userlogic/interfaces";
 import { alignDesktopIcons } from "../../../desktop/icons";
-import { openWindow } from "../../events";
+import { closeWindow, openWindow } from "../../events";
 import { SEP_ITEM } from "../../../contextmenu/main";
 import { openByKey } from "../SettingsApp/store";
 import { restart, shutdown } from "../../../desktop/power";
@@ -12,7 +12,12 @@ import appSettings from "../../../../assets/apps/settings/apps.svg";
 import desktopIcon from "../../../../assets/apps/settings/desktop.svg";
 import appearance from "../../../../assets/apps/settings/personalization.svg";
 import themesIcon from "../../../../assets/apps/settings/themes.svg";
+import appInfo from "../../../../assets/apps/testapp.svg";
+import kill from "../../../../assets/apps/exit.svg";
+import trash from "../../../../assets/apps/logger/clear.svg";
 import { errorMessage } from "../../../errorlogic/main";
+import { AppInfoId } from "../AppInfo";
+import { disableApp } from "../../enabling";
 
 export const WallpaperContext: AppContextMenu = {
   "shell-wallpaper": [
@@ -113,6 +118,39 @@ export const WallpaperContext: AppContextMenu = {
         openByKey("Visuals");
       },
       image: appearance,
+    },
+  ],
+  "desktopicon-app": [
+    {
+      caption: "Open",
+      action(window, data, scope) {
+        openWindow(data.id);
+      },
+    },
+    {
+      image: kill,
+      caption: "Kill",
+      action(window, data, scope) {
+        closeWindow(data.id);
+      },
+    },
+    SEP_ITEM,
+    {
+      image: trash,
+      caption: "Disable",
+      action(window, data, scope) {
+        disableApp(data.id);
+      },
+    },
+    SEP_ITEM,
+    {
+      image: appInfo,
+      caption: "App Info",
+      action(window, data, scope) {
+        AppInfoId.set(data.id);
+
+        openWindow("AppInfo");
+      },
     },
   ],
 };

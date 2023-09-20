@@ -9,6 +9,10 @@ div.desktopIcons {
   position: absolute;
 }
 
+div.desktopIcons * {
+  -webkit-user-drag: none;
+}
+
 div.desktopIcons.launcher {
   padding-top: 42px !important;
 }

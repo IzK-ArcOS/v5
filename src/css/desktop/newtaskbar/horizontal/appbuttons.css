@@ -48,8 +48,8 @@ div.taskbar-h.top div.buttons button {
   border-top: transparent 2px solid;
 }
 
-div.taskbar-h div.buttons button:has(span) {
-  width: fit-content;
+div.taskbar-h div.buttons button.labels {
+  width: fit-content !important;
 }
 
 div.taskbar-h div.buttons button.minimized {

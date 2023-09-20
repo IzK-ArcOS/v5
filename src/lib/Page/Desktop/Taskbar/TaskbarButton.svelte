@@ -55,6 +55,7 @@
   on:click={e}
   class:attention={$attentionId == app.id}
   class:activated={app.id == $focusedWindowId}
+  class:labels={showLabel}
 >
   <img
     src={getOriginalIcon(app.id) || getAppIcon(app)}
