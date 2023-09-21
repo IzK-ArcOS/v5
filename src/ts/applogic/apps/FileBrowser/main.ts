@@ -1,20 +1,20 @@
 import { get, writable } from "svelte/store";
 import warning from "../../../../assets/apps/error.svg";
+import trash from "../../../../assets/apps/logger/clear.svg";
+import { deleteItem } from "../../../api/fs/delete";
 import { getDirectory } from "../../../api/fs/directory";
 import {
-  defaultDirectory,
+  ArcFile,
+  PartialArcFile,
   PartialUserDir,
   UserDirectory,
-  PartialArcFile,
-  ArcFile,
+  defaultDirectory,
 } from "../../../api/interface";
 import { Log } from "../../../console";
-import { createOverlayableError } from "../../../errorlogic/overlay";
-import { hideOverlay, showOverlay } from "../../../window/overlay";
-import trash from "../../../../assets/apps/logger/clear.svg";
 import { LogLevel } from "../../../console/interface";
-import { deleteItem } from "../../../api/fs/delete";
+import { createOverlayableError } from "../../../errorlogic/overlay";
 import { ArcSoundBus } from "../../../sound/main";
+import { hideOverlay, showOverlay } from "../../../window/overlay";
 
 export let FileBrowserCurrentDir = writable<string>("./");
 export let FileBrowserDirContents = writable<UserDirectory>(defaultDirectory);
