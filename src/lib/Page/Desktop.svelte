@@ -58,14 +58,14 @@
     importDefault();
     resetDesktopState();
     startKeyListener();
-
-    setTimeout(() => (show = true), 250);
-
     startMessageCheckInterval();
-    checkForUpdates();
-    checkReleaseCandidate();
     checkDesktopFile();
     checkFirefox();
+
+    await checkForUpdates();
+    await checkReleaseCandidate();
+
+    setTimeout(() => (show = true), 250);
   });
 
   function resetDesktopState() {

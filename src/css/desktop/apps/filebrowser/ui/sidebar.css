@@ -2,7 +2,7 @@ window#FileManager > div.body div.sidebar div.dirs {
   height: calc(100% - 80px);
 }
 
-window#FileManager > div.body div.sidebar div.dirs button {
+window#FileManager > div.body div.sidebar button.folder {
   display: flex;
   width: 100%;
   text-align: left;
@@ -13,16 +13,16 @@ window#FileManager > div.body div.sidebar div.dirs button {
   background-color: transparent;
 }
 
-window#FileManager > div.body div.sidebar div.dirs button.selected {
+window#FileManager > div.body div.sidebar button.folder.selected {
   background-color: var(--button-glass-bg);
 }
 
-window#FileManager > div.body div.sidebar div.dirs button img {
+window#FileManager > div.body div.sidebar button.folder img {
   height: 20px;
   margin-right: 10px;
 }
 
-window#FileManager > div.body div.sidebar div.dirs button p {
+window#FileManager > div.body div.sidebar button.folder p {
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -71,4 +71,10 @@ window#FileManager
   div.stat
   div.right {
   margin-left: auto;
+}
+
+window#FileManager > div.body div.sidebar div.home {
+  border-bottom: var(--button-glass-bg) 1px solid;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }

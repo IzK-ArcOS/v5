@@ -5,6 +5,7 @@
   import { defaultDirectory } from "../../ts/api/interface";
   import {
     FileBrowserDirContents,
+    FileBrowserHome,
     fbClass,
   } from "../../ts/applogic/apps/FileBrowser/main";
   import type { App } from "../../ts/applogic/interface";
@@ -46,7 +47,9 @@
 <TopBar bind:appdata {app} />
 <SideBar />
 <div class="content">
-  {#if tiledMode}
+  {#if $FileBrowserHome}
+    home
+  {:else if tiledMode}
     <TileView {files} {dirs} />
   {:else}
     <ListView {files} {dirs} />

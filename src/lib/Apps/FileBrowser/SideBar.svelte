@@ -1,27 +1,11 @@
 <script lang="ts">
-  import { getDirectory, sortDirectories } from "../../../ts/api/fs/directory";
-  import type {
-    PartialUserDir,
-    UserDirectory,
-  } from "../../../ts/api/interface";
-  import { FileBrowserDirContents } from "../../../ts/applogic/apps/FileBrowser/main";
-  import Folder from "./SideBar/Folder.svelte";
+  import Folders from "./SideBar/Folders.svelte";
+  import Home from "./SideBar/Home.svelte";
   import QuotaRenderer from "./SideBar/QuotaRenderer.svelte";
-
-  let folders: PartialUserDir[] = [];
-
-  FileBrowserDirContents.subscribe(async (v) => {
-    folders = sortDirectories(
-      ((await getDirectory("./")) as UserDirectory).directories
-    );
-  });
 </script>
 
 <div class="sidebar">
-  <div class="dirs">
-    {#each folders as folder}
-      <Folder {folder} />
-    {/each}
-  </div>
+  <Home />
+  <Folders />
   <QuotaRenderer />
 </div>

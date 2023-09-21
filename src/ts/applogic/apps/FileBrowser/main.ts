@@ -27,6 +27,7 @@ export let FileBrowserRefreshing = writable<boolean>(false);
 export let FileBrowserUploadProgress = writable<number>(0);
 export let FileBrowserCuttingFilename = writable<PartialUserDir>(null);
 export let FileBrowserCopyingFilename = writable<PartialUserDir>(null);
+export let FileBrowserHome = writable<boolean>(false);
 
 FileBrowserOpenCancelled.subscribe((v) => {
   if (!v) return;
@@ -78,6 +79,8 @@ class FileBrowserClass {
     ArcSoundBus.playSound("arcos.click");
 
     await this.refresh();
+
+    FileBrowserHome.set(false);
   }
 
   public async deleteItem(name: string, path: string) {

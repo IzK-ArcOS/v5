@@ -1,11 +1,10 @@
 <script lang="ts">
+  import icon from "../../../../assets/apps/filemanager/folder.svg";
   import type { PartialUserDir } from "../../../../ts/api/interface";
   import {
     fbClass,
-    FileBrowserCurrentDir,
-    FileBrowserSelectedFilename,
+    FileBrowserCurrentDir
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
 
   export let folder: PartialUserDir;
 
