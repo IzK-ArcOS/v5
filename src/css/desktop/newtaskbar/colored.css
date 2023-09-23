@@ -1,6 +1,6 @@
 div.newtb.colored {
   border: transparent 0px solid !important;
-  border-top: transparent 1px solid !important;
+  /* border-top: transparent 1px solid !important; */
 }
 
 div.newtb::after {
@@ -8,9 +8,9 @@ div.newtb::after {
 
   border-radius: inherit;
   width: 100%;
-  height: calc(100% + 1px);
+  height: 100%;
   position: absolute;
-  top: -1px;
+  top: 0px;
   left: 0px;
   z-index: -1;
   opacity: 0.3;

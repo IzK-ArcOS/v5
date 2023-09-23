@@ -40,7 +40,7 @@ div#app *:not(.window):not(.ol) {
 div#app *:not(.window)::after,
 div#app *:not(.window),
 div#app *:not(.window)::before {
-  transition: all 0.3s, color 0.1s;
+  transition: all 0.3s, color 0.1s, top 0s, left 0s;
 }
 
 .material-icons-round {
@@ -68,4 +68,8 @@ div.app.floating {
   width: calc(100% - 340px);
   height: calc(100% - 35px);
   overflow: hidden;
+}
+
+.gray {
+  filter: grayscale(50%) !important;
 }

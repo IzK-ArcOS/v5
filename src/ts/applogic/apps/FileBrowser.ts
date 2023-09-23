@@ -1,5 +1,6 @@
 import logo from "../../../assets/apps/filemanager.svg";
 import FileBrowser from "../../../lib/Apps/FileBrowser.svelte";
+import sleep from "../../sleep";
 import type { App } from "../interface";
 import { FileManagerContextMenu } from "./FileBrowser/context";
 import { FileBrowserHome, fbClass } from "./FileBrowser/main";
@@ -30,9 +31,9 @@ export const FileBrowserApp: App = {
   overlays: fbOverlays,
   contextMenu: FileManagerContextMenu,
   events: {
-    open() {
-      fbClass.goToDirectory("./");
+    async open() {
       FileBrowserHome.set(true);
+      await fbClass.goToDirectory("./", false);
     },
   },
 };

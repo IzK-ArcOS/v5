@@ -62,6 +62,7 @@
   <div
     class="app fullscreen theme-dark"
     class:noglass={navigator.userAgent.toLowerCase().includes("firefox")}
+    class:noani={navigator.userAgent.toLowerCase().includes("firefox")}
     class:cursor-busy={$committingUserData || $Busy}
     class:rotate={ARCOS_MODE == "siege"}
   >

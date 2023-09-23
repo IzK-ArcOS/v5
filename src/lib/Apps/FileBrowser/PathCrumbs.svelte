@@ -2,6 +2,7 @@
   import {
     fbClass,
     FileBrowserCurrentDir,
+    FileBrowserHome,
   } from "../../../ts/applogic/apps/FileBrowser/main";
   import Crumb from "./PathCrumbs/Crumb.svelte";
 
@@ -28,9 +29,13 @@
 
 <button class="home material-icons-round" on:click={home}>home</button>
 <div class="addressbar">
-  {#each crumbs as crumb, i}
-    <Crumb {crumb} path={generatePath(crumb, i)} />
-  {/each}
+  {#if !$FileBrowserHome}
+    {#each crumbs as crumb, i}
+      <Crumb {crumb} path={generatePath(crumb, i)} />
+    {/each}
+  {:else}
+    <button class="crumb">Home</button>
+  {/if}
 </div>
 <button class="refresh material-icons-round" on:click={() => fbClass.refresh()}>
   refresh

@@ -14,7 +14,6 @@ div.desktop div.contextmenu {
   padding: 5px;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.2s, visibility 0.2s, top 0s, left 0s !important;
 }
 
 div.desktop div.contextmenu::after {

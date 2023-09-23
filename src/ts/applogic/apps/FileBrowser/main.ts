@@ -69,7 +69,7 @@ class FileBrowserClass {
     FileBrowserRefreshing.set(false);
   }
 
-  public async goToDirectory(path: string) {
+  public async goToDirectory(path: string, disableHome = true) {
     Log("FileBrowser: goToDirectory", `Navigating to "${path}"`);
 
     FileBrowserSelectedFilename.set(null);
@@ -80,7 +80,7 @@ class FileBrowserClass {
 
     await this.refresh();
 
-    FileBrowserHome.set(false);
+    if (disableHome) FileBrowserHome.set(false);
   }
 
   public async deleteItem(name: string, path: string) {
