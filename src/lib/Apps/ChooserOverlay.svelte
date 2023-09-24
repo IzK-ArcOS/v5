@@ -37,7 +37,7 @@
   }
 </script>
 
-{#if overlay}
+{#if overlay && $currentDir}
   <TopBar {currentPath} {refresh} {setDir} bind:tiled />
   <div class="content">
     <SideBar {currentDir} {setDir} {currentPath} />

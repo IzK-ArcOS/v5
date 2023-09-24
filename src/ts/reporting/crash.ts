@@ -5,6 +5,8 @@ import { createReport, sendReport } from "./main";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 
+let CRASHING = false;
+
 const CRASH_BLACKLIST = [
   "NotAllowedError",
   "NotSupportedError",
@@ -26,6 +28,13 @@ export function isBlackListed(test: string) {
 export function handleWindowError(
   e: (Event & { currentTarget: EventTarget & Element }) | PromiseRejectionEvent
 ) {
+  if (CRASHING)
+    return Log(
+      "reporting/crash.ts: handleWindowError",
+      "Crash prevented because another crash is already in progress!",
+      LogLevel.warn
+    );
+
   const error = e as unknown as ErrorEvent;
   const rejection = e as PromiseRejectionEvent;
 
@@ -35,6 +44,8 @@ export function handleWindowError(
       `Not making a report for ${rejection.reason.name}`,
       LogLevel.warn
     );
+
+  CRASHING = true;
 
   Log("ArcOS", `------(#! [ SYSTEM IS CRASHING ] !#)------`, LogLevel.error);
 
