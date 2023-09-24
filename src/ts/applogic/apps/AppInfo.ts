@@ -1,7 +1,9 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 import logo from "../../../assets/apps/testapp.svg";
 import AppInfoSvelte from "../../../lib/Apps/AppInfo.svelte";
 import type { App } from "../interface";
+import sleep from "../../sleep";
+import { closeWindow } from "../events";
 
 export const AppInfo: App = {
   info: {
@@ -28,6 +30,11 @@ export const AppInfo: App = {
   events: {
     close() {
       AppInfoId.set(null);
+    },
+    async open(app: App) {
+      await sleep(10);
+
+      if (!get(AppInfoId)) closeWindow(app.id);
     },
   },
 };

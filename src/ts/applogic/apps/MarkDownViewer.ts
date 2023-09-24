@@ -1,5 +1,7 @@
 import icon from "../../../assets/apps/markdownviewer.svg";
 import MarkDownViewerSvelte from "../../../lib/Apps/MarkDownViewer.svelte";
+import sleep from "../../sleep";
+import { closeWindow } from "../events";
 import type { App } from "../interface";
 import { setTitleSuffix } from "../title";
 
@@ -12,6 +14,7 @@ export const MarkDownViewer: App = {
     icon,
     builtin: true,
     hidden: true,
+    requiresFile: true,
   },
   size: { w: 700, h: 550 },
   pos: { x: 30, y: 40 },

@@ -32,10 +32,10 @@ export const OpenWithApp: App = {
     close() {
       OpenWithFile.set(null);
     },
-    async open() {
+    async open(app: App) {
       await sleep(10);
 
-      if (!get(OpenWithFile)) closeWindow("OpenWithApp");
+      if (!get(OpenWithFile)) closeWindow(app.id);
     },
   },
 };

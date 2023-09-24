@@ -5,7 +5,7 @@ import { attentionId, startOpened } from "../desktop/main";
 import { destroyOverlayableError } from "../errorlogic/overlay";
 import { getWindowElement } from "../window/main";
 import { hideOverlay } from "../window/overlay";
-import { isDisabled, isLoaded, isOpened } from "./checks";
+import { checkFileRequirement, isDisabled, isLoaded, isOpened } from "./checks";
 import type { App } from "./interface";
 import {
   WindowStore,
@@ -25,11 +25,11 @@ export function openWindow(id: string, openChild = false) {
 
   if (window && window.core) return;
 
+  const el = getWindowElement(window);
+
+  if (!el) return;
+
   if (!isLoaded(id) || isOpened(id)) {
-    const el = getWindowElement(window);
-
-    if (!el) return;
-
     maxZIndex.set(get(maxZIndex) + 1);
 
     el.style.zIndex = `${get(maxZIndex)}`;
@@ -61,10 +61,6 @@ export function openWindow(id: string, openChild = false) {
   WindowStore.set(ws);
 
   setTimeout(() => {
-    const el = getWindowElement(window);
-
-    if (!el) return;
-
     maxZIndex.set(get(maxZIndex) + 1);
 
     el.style.zIndex = `${get(maxZIndex)}`;
@@ -72,6 +68,8 @@ export function openWindow(id: string, openChild = false) {
     focusedWindowId.set(id);
 
     if (window.events && window.events.open) window.events.open(window);
+
+    checkFileRequirement(id);
   }, 10);
 
   startOpened.set(false);

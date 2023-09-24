@@ -89,15 +89,19 @@ export const QuickSettings: QuickSetting[] = [
     caption: "",
   },
   {
-    icon: "",
-    iconOff: "",
-    getter() {
-      return false;
+    icon: "rocket_launch",
+    iconOff: "rocket",
+    getter(udata) {
+      return udata.sh.taskbar.isLauncher;
     },
-    setter() {
-      return false;
+    setter(udata) {
+      udata.sh.taskbar.isLauncher = !udata.sh.taskbar.isLauncher;
+
+      UserData.set(udata);
+
+      return udata.sh.taskbar.isLauncher;
     },
-    caption: "",
+    caption: "Launcher",
   },
   {
     icon: "search",

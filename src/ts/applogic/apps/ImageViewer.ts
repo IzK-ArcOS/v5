@@ -5,6 +5,8 @@ import TextView from "../../../lib/Apps/TextView.svelte";
 import { UserData } from "../../userlogic/interfaces";
 import type { App } from "../interface";
 import { setTitleSuffix } from "../title";
+import sleep from "../../sleep";
+import { closeWindow } from "../events";
 
 export const ImageViewer: App = {
   info: {

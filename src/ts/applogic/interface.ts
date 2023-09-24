@@ -60,6 +60,7 @@ export interface GeneralAppInfo {
   custom?: boolean;
   appGroup?: string;
   preloaded?: boolean;
+  requiresFile?: boolean;
 }
 
 export interface OverlayableAppInfo {
