@@ -65,7 +65,7 @@
         message:
           "The server could not parse the file or it could not be written to the ArcFS",
         buttons: [],
-        image: upload,
+        image: UploadIcon,
       });
   }
 </script>

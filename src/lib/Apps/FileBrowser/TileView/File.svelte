@@ -53,7 +53,7 @@
               action: () => openAny(x),
             },
           ],
-          image: icon,
+          image: FileIcon,
         },
         "FileManager"
       );
