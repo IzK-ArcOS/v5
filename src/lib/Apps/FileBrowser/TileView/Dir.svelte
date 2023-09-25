@@ -1,11 +1,11 @@
 <script lang="ts">
   import type { PartialUserDir } from "../../../../ts/api/interface";
   import {
-    fbClass,
-    FileBrowserCuttingFilename as cutting,
     FileBrowserSelectedFilename,
+    FileBrowserCuttingFilename as cutting,
+    fbClass,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
+  import { FolderIcon } from "../../../../ts/icon/main";
 
   export let dir: PartialUserDir;
 
@@ -25,6 +25,6 @@
   class:selected={$FileBrowserSelectedFilename == dir.name}
   class:cutting={$cutting && $cutting.name == dir.name}
 >
-  <img src={icon} alt={dir.name} />
+  <img src={FolderIcon} alt={dir.name} />
   <p class="name">{dir.name}</p>
 </button>

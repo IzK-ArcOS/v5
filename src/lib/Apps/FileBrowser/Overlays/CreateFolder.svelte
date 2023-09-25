@@ -1,5 +1,5 @@
 <script lang="ts">
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
+  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
   import { createDirectory } from "../../../../ts/api/fs/directory";
   import {
     fbClass,
@@ -7,8 +7,8 @@
     FileBrowserDirContents,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { FolderIcon } from "../../../../ts/icon/main";
   import { hideOverlay } from "../../../../ts/window/overlay";
-  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
 
   let folderName = "";
 
@@ -46,7 +46,7 @@
 </script>
 
 <div class="fb-overlay-mutator-wrapper">
-  <div class="image"><img src={icon} alt="" /></div>
+  <div class="image"><img src={FolderIcon} alt="" /></div>
   <div>
     <p>Enter a name for the new folder:</p>
     <input type="text" bind:value={folderName} on:input={updateExists} />

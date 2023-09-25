@@ -1,7 +1,7 @@
-import logo from "../../../assets/apps/appmanager.svg";
 import AppManagerSvelte from "../../../lib/Apps/AppManager.svelte";
 import RunDialog from "../../../lib/Apps/AppManager/overlays/RunDialog.svelte";
 import { createTrayIcon, disposeTrayIcon } from "../../desktop/tray/main";
+import { AppManIcon } from "../../icon/apps";
 import type { App } from "../interface";
 
 export const AppManager: App = {
@@ -11,7 +11,7 @@ export const AppManager: App = {
     builtin: true,
     version: "1.5.0",
     author: "Izaak Kuipers",
-    icon: logo,
+    icon: AppManIcon,
     appGroup: "systemTools",
   },
   size: { w: 600, h: 500 },

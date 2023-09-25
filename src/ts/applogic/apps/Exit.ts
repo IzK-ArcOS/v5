@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
-import logo from "../../../assets/apps/exit.svg";
 import ExitSvelte from "../../../lib/Apps/Exit.svelte";
+import { ExitIcon } from "../../icon/apps";
 import type { App } from "../interface";
 
 export const Exit: App = {
@@ -10,7 +10,7 @@ export const Exit: App = {
     builtin: true,
     version: "2.0.0",
     author: "Izaak Kuipers",
-    icon: logo,
+    icon: ExitIcon,
     hidden: true,
   },
   size: { w: 280, h: 50 },

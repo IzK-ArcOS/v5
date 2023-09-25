@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import icon from "../../../../assets/apps/filemanager/file.svg";
   import { partialFileToComplete } from "../../../../ts/api/fs/convert";
   import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
   import {
@@ -16,11 +15,12 @@
     FileBrowserCuttingFilename as cutting,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
+  import { FileIcon } from "../../../../ts/icon/main";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   export let file: PartialArcFile;
 
-  let img = icon;
+  let img = FileIcon;
 
   function select() {
     $FileBrowserSelectedFilename = file.filename;
@@ -55,7 +55,7 @@
               action: () => openAny(x),
             },
           ],
-          image: icon,
+          image: FileIcon,
         },
         "FileManager"
       );

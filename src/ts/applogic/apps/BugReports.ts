@@ -1,9 +1,9 @@
-import logo from "../../../assets/apps/bugreports.svg";
 import BugReportsSvelte from "../../../lib/Apps/BugReports.svelte";
 import BodyView from "../../../lib/Apps/BugReports/Overlays/BodyView.svelte";
 import CreateReport from "../../../lib/Apps/BugReports/Overlays/CreateReport.svelte";
 import SystemLog from "../../../lib/Apps/BugReports/Overlays/SystemLog.svelte";
 import UserData from "../../../lib/Apps/BugReports/Overlays/UserData.svelte";
+import { BugRepIcon } from "../../icon/apps";
 import type { App } from "../interface";
 import { BugReportsRuntime } from "./BugReports/runtime";
 
@@ -14,7 +14,7 @@ export const BugReports: App = {
     builtin: true,
     version: "1.0.0",
     author: "ArcOS Team",
-    icon: logo,
+    icon: BugRepIcon,
     appGroup: "support",
   },
   size: { w: 750, h: 500 },

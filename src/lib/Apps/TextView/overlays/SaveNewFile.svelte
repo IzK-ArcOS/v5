@@ -1,12 +1,12 @@
 <script lang="ts">
   import { get } from "svelte/store";
-  import icon from "../../../../assets/apps/textview/save.svg";
   import { openUserFile } from "../../../../ts/api/fs/open/main";
   import {
     TextEditorContent,
     saveTextEditorFile,
   } from "../../../../ts/applogic/apps/TextEditor/main";
   import { hideOverlay } from "../../../../ts/window/overlay";
+  import { SaveIcon } from "../../../../ts/icon/main";
 
   let value = "";
 
@@ -28,6 +28,8 @@
       filename: split[split.length - 1],
       mime: "text/plain",
       scopedPath: value,
+      dateCreated: 0,
+      dateModified: 0,
     });
 
     closeThis();
@@ -35,7 +37,7 @@
 </script>
 
 <div class="wrapper">
-  <img src={icon} alt="Save File" />
+  <img src={SaveIcon} alt="Save File" />
   <div class="inner">
     <p class="caption">Enter a path to save this file to:</p>
     <input type="text" bind:value />

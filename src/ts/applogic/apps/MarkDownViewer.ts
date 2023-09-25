@@ -1,7 +1,5 @@
-import icon from "../../../assets/apps/markdownviewer.svg";
 import MarkDownViewerSvelte from "../../../lib/Apps/MarkDownViewer.svelte";
-import sleep from "../../sleep";
-import { closeWindow } from "../events";
+import { MarkDownViewerIcon } from "../../icon/apps";
 import type { App } from "../interface";
 import { setTitleSuffix } from "../title";
 
@@ -11,7 +9,7 @@ export const MarkDownViewer: App = {
     description: "View .MD files",
     author: "ArcOS Team",
     version: "1.0.0",
-    icon,
+    icon: MarkDownViewerIcon,
     builtin: true,
     hidden: true,
     requiresFile: true,

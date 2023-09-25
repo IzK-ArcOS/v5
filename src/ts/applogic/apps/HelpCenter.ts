@@ -1,6 +1,6 @@
-import logo from "../../../assets/apps/helpcenter.svg";
 import HelpCenterSvelte from "../../../lib/Apps/HelpCenter.svelte";
 import { createOverlayableError } from "../../errorlogic/overlay";
+import { HelpCenterIcon } from "../../icon/apps";
 import type { App } from "../interface";
 
 export const HelpCenter: App = {
@@ -10,7 +10,7 @@ export const HelpCenter: App = {
     builtin: true,
     version: "1.0.0",
     author: "ArcOS Team",
-    icon: logo,
+    icon: HelpCenterIcon,
     hidden: true,
     appGroup: "support",
   },

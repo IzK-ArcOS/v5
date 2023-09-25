@@ -1,8 +1,8 @@
-import theme from "../../../../assets/apps/settings/themes.svg";
 import { createDirectory } from "../../../api/fs/directory";
 import { writeFile } from "../../../api/fs/file";
 import { getServer } from "../../../api/server";
 import { createOverlayableError } from "../../../errorlogic/overlay";
+import { ThemesIcon } from "../../../icon/main";
 import { deleteCustomTheme } from "../../../userlogic/themes/main";
 import { showOverlay } from "../../../window/overlay";
 import { openWindow } from "../../events";
@@ -43,7 +43,7 @@ export const SettingsAppContext: AppContextMenu = {
           {
             title: "Delete theme?",
             message: "Are you sure you want to delete this theme?",
-            image: theme,
+            image: ThemesIcon,
             buttons: [
               {
                 caption: "Delete",

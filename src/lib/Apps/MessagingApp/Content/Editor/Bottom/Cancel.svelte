@@ -1,6 +1,6 @@
 <script lang="ts">
-  import icon from "../../../../../../assets/apps/error.svg";
   import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
+  import { ErrorIcon } from "../../../../../../ts/icon/apps";
   import { creatingMessage } from "../../../../../../ts/messaging/main";
   import { messageUpdateTrigger } from "../../../../../../ts/messaging/updates";
   export let loading: boolean;
@@ -12,7 +12,7 @@
         title: "Delete message?",
         message:
           "Are you sure you want to delete this draft? This cannot be undone.",
-        image: icon,
+        image: ErrorIcon,
         buttons: [
           {
             caption: "Delete",

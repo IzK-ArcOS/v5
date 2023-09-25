@@ -1,25 +1,24 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import icon from "../../../../assets/apps/filemanager/file.svg";
   import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
   import {
     openUserFile,
     openWithDialog,
   } from "../../../../ts/api/fs/open/main";
-  import { formatBytes } from "../../../../ts/api/fs/sizes";
   import type { ArcFile, PartialArcFile } from "../../../../ts/api/interface";
   import {
-    FileBrowserCuttingFilename as cutting,
     FileBrowserDirContents,
     FileBrowserOpeningFile,
     FileBrowserSelectedFilename,
+    FileBrowserCuttingFilename as cutting,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
+  import { FileIcon } from "../../../../ts/icon/main";
 
   export let file: PartialArcFile;
 
-  let img = icon;
+  let img = FileIcon;
 
   function select() {
     $FileBrowserSelectedFilename = file.filename;

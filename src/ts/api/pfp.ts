@@ -1,7 +1,6 @@
 import { get } from "svelte/store";
-import defaultImage from "../../assets/pfp/null.png";
 import { getUsers } from "../userlogic/main";
-import { getProfilePicture } from "../userlogic/pfp";
+import { ProfilePictures, getProfilePicture } from "../userlogic/pfp";
 import type { Params } from "./interface";
 import { ConnectedServer } from "./main";
 
@@ -10,7 +9,7 @@ const pfpCache: Params = {};
 export async function getUserPfp(username: string): Promise<string> {
   const server = get(ConnectedServer);
 
-  if (!server) return defaultImage;
+  if (!server) return ProfilePictures.def;
 
   if (pfpCache[username]) return getProfilePicture(pfpCache[username]);
 
@@ -18,7 +17,7 @@ export async function getUserPfp(username: string): Promise<string> {
 
   const user = users[username];
 
-  if (!user) return defaultImage;
+  if (!user) return ProfilePictures.def;
 
   pfpCache[username] = getProfilePicture(users[username].acc.profilePicture);
 

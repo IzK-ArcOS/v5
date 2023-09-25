@@ -4,7 +4,8 @@ YET TO BE FINISHED
 import logo from "../../../assets/apps/default.svg";
 import type { App } from "../interface";
 
-export const AppId: App = { // Change "AppId" to the application ID
+export const AppId: App = {
+  // Change "AppId" to the application ID
   info: {
     name: "Application Name",
     description: "This is a description",

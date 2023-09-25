@@ -6,10 +6,10 @@
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
-  import trash from "../../../../assets/apps/logger/clear.svg";
-  import warning from "../../../../assets/apps/error.svg";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
   import { deleteItem } from "../../../../ts/api/fs/delete";
+  import { ErrorIcon } from "../../../../ts/icon/apps";
+  import { TrashIcon } from "../../../../ts/icon/main";
 
   function deleteSelected() {
     createOverlayableError(
@@ -23,7 +23,7 @@
           },
           { caption: "Cancel", action() {} },
         ],
-        image: trash,
+        image: TrashIcon,
       },
       "FileManager"
     );
@@ -45,7 +45,7 @@
           message:
             "ArcAPI was not able to delete the item from the file system. A permission error may have occured. Please try again later.",
           buttons: [{ caption: "OK", action() {} }],
-          image: warning,
+          image: ErrorIcon,
         },
         "FileManager"
       );

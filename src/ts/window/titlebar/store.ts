@@ -1,9 +1,9 @@
 import Default from "../../../lib/Page/Desktop/WindowStore/Window/Controls/Default.svelte";
+import Og from "../../../lib/Page/Desktop/WindowStore/Window/Controls/OG.svelte";
 import Traffic from "../../../lib/Page/Desktop/WindowStore/Window/Controls/Traffic.svelte";
 import type { App } from "../../applogic/interface";
+import { DefaultIcon } from "../../icon/apps";
 import type { WindowControls } from "./interface";
-import dummyIcon from "../../../assets/apps/default.svg";
-import Og from "../../../lib/Page/Desktop/WindowStore/Window/Controls/OG.svelte";
 
 export const titlebarButtons: { [key: string]: WindowControls } = {
   default: {
@@ -30,7 +30,7 @@ export const DummyApp: App = {
     builtin: true,
     version: "1.0.0",
     author: "Robots",
-    icon: dummyIcon,
+    icon: DefaultIcon,
   },
   pos: { x: 0, y: 0 },
   minSize: { w: 0, h: 0 },

@@ -1,17 +1,16 @@
 <script lang="ts">
-  import icon from "../../../../assets/apps/filemanager/upload.svg";
   import "../../../../css/desktop/apps/filebrowser/overlays/uploadingfile.css";
-  import { getServer } from "../../../../ts/api/server";
   import {
     FileBrowserUploadFile,
     FileBrowserUploadProgress,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { UploadIcon } from "../../../../ts/icon/main";
   import ApiReveal from "../../../APIReveal.svelte";
 </script>
 
 {#if $FileBrowserUploadFile}
   <div class="uploadingfile-wrapper">
-    <div class="icon"><img src={icon} alt="" /></div>
+    <div class="icon"><img src={UploadIcon} alt="" /></div>
     <div class="caption">
       Uploading {$FileBrowserUploadFile.name}...
     </div>

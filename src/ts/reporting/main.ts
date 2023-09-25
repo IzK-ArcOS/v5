@@ -1,6 +1,5 @@
 import PocketBase from "pocketbase";
 import { get } from "svelte/store";
-import bugRepIcon from "../../assets/apps/bugreports.svg";
 import { getServer } from "../api/server";
 import { openWindow } from "../applogic/events";
 import { getAppPreference, setAppPreference } from "../applogic/pref";
@@ -9,6 +8,7 @@ import { compileStringLog } from "../console/collector";
 import { isDesktop } from "../desktop/app";
 import { createTrayIcon, disposeTrayIcon } from "../desktop/tray/main";
 import { ArcOSVersion } from "../env/main";
+import { BugRepIcon } from "../icon/apps";
 import { UserData, UserName } from "../userlogic/interfaces";
 import {
   LocalReportData,
@@ -51,7 +51,7 @@ export function saveToUser(id: string) {
       disposeTrayIcon(trayId);
     },
     identifier: trayId,
-    image: bugRepIcon,
+    image: BugRepIcon,
     title,
   });
 }

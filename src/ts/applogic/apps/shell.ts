@@ -7,7 +7,7 @@ import type { App } from "../interface";
 import { SEP_ITEM } from "../../contextmenu/main";
 import { openWindow } from "../events";
 import { openByKey } from "./SettingsApp/store";
-import appMan from "../../../assets/apps/appmanager.svg";
+import { AppManIcon } from "../../icon/apps";
 
 export const ArcShell: App = {
   info: {
@@ -72,7 +72,7 @@ export const ArcShell: App = {
       },
       SEP_ITEM,
       {
-        image: appMan,
+        image: AppManIcon,
         caption: "Application Manager",
         action: () => {
           openWindow("AppMan");
@@ -92,7 +92,7 @@ export const ArcShell: App = {
     ],
     "shell-taskbar": [
       {
-        image: appMan,
+        image: AppManIcon,
         caption: "Application Manager",
         action: () => {
           openWindow("AppMan");

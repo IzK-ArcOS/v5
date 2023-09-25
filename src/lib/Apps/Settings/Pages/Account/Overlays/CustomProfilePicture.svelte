@@ -1,8 +1,10 @@
 <script lang="ts">
-  import { applyCustomPfp } from "../../../../../../ts/userlogic/pfp";
+  import {
+    ProfilePictures,
+    applyCustomPfp,
+  } from "../../../../../../ts/userlogic/pfp";
   import { hideOverlay } from "../../../../../../ts/window/overlay";
   import "../../../../../../css/desktop/apps/settings/account/customPfp.css";
-  import def from "../../../../../../assets/pfp/null.png";
   import ProfilePicture from "../../../../../ProfilePicture.svelte";
   import { UserData } from "../../../../../../ts/userlogic/interfaces";
   let img = "";
@@ -44,7 +46,9 @@
 </script>
 
 <div class="custompfp-wrapper">
-  <div><ProfilePicture src={valid ? img : def} height={50} /></div>
+  <div>
+    <ProfilePicture src={valid ? img : ProfilePictures.def} height={50} />
+  </div>
   <div class="field">
     <p>Enter the URL to a custom profile picture:</p>
     <input

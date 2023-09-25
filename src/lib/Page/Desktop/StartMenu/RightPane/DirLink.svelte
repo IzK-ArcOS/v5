@@ -1,9 +1,9 @@
 <script lang="ts">
-  import folder from "../../../../../assets/apps/filemanager/folder.svg";
   import type { PartialUserDir } from "../../../../../ts/api/interface";
   import { fbClass } from "../../../../../ts/applogic/apps/FileBrowser/main";
   import { openWindow } from "../../../../../ts/applogic/events";
   import { startOpened } from "../../../../../ts/desktop/main";
+  import { FolderIcon } from "../../../../../ts/icon/main";
 
   export let dir: PartialUserDir;
 
@@ -18,6 +18,6 @@
 </script>
 
 <button class="link dir" on:click={open}>
-  <div class="image"><img src={folder} alt={dir.name} /></div>
+  <div class="image"><img src={FolderIcon} alt={dir.name} /></div>
   <div class="caption">{dir.name}</div>
 </button>

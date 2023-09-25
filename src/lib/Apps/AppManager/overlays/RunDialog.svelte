@@ -1,8 +1,8 @@
 <script lang="ts">
-  import icon from "../../../../assets/apps/settings/apps.svg";
   import { isDisabled, isOpened } from "../../../../ts/applogic/checks";
   import { openWindow } from "../../../../ts/applogic/events";
   import { WindowStore } from "../../../../ts/applogic/store";
+  import { AppsIcon } from "../../../../ts/icon/main";
   import { hideOverlay } from "../../../../ts/window/overlay";
 
   let value: string;
@@ -19,7 +19,7 @@
 </script>
 
 <div class="wrapper">
-  <img src={icon} alt="Run" />
+  <img src={AppsIcon} alt="Run" />
   <div class="inner">
     <p class="caption">
       Select the ID of the app you want to run from the following list:

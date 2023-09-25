@@ -1,5 +1,5 @@
 <script lang="ts">
-  import finish from "../../../../assets/fts/finish.svg";
+  import { FlagIcon } from "../../../../ts/icon/main";
   import sleep from "../../../../ts/sleep";
   import { ArcSoundBus } from "../../../../ts/sound/main";
 
@@ -11,7 +11,7 @@
 </script>
 
 <div class="header centered">
-  <img src={finish} alt="Mode" />
+  <img src={FlagIcon} alt="Mode" />
   <h1>Thank you!</h1>
   <p class="subtitle">We greatly appreciate it.</p>
 </div>

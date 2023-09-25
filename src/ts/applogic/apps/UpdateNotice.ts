@@ -1,7 +1,7 @@
-import updateIcon from "../../../assets/update.svg";
 import UpdateNoticeSvelte from "../../../lib/Page/Desktop/UpdateNotice.svelte";
 import ChangeLog from "../../../lib/Page/Desktop/UpdateNotice/overlays/ChangeLog.svelte";
 import { ArcOSVersion } from "../../env/main";
+import { UpdateIcon } from "../../icon/main";
 import type { App } from "../interface";
 
 export const UpdateNotice: App = {
@@ -11,7 +11,7 @@ export const UpdateNotice: App = {
     builtin: true,
     version: ArcOSVersion,
     author: "ArcOS Team",
-    icon: updateIcon,
+    icon: UpdateIcon,
     appGroup: "coreApps",
     hidden: true,
   },

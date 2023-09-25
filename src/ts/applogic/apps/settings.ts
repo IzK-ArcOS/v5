@@ -1,4 +1,3 @@
-import logo from "../../../assets/apps/settings.svg";
 import SettingsAppSvelte from "../../../lib/Apps/SettingsApp.svelte";
 import type { App } from "../interface";
 import { currentSettingsPage } from "./SettingsApp/main";
@@ -13,6 +12,7 @@ import ChangeTitleButtons from "../../../lib/Apps/Settings/Pages/Account/Overlay
 import CustomWallpaper from "../../../lib/Apps/Settings/Pages/Account/Overlays/CustomWallpaper.svelte";
 import SaveTheme from "../../../lib/Apps/Settings/Pages/Account/Overlays/SaveTheme.svelte";
 import { SettingsAppContext } from "./settings/context";
+import { SettingsIcon } from "../../icon/apps";
 
 const ProfilePictureOverlays = {
   pfpSel: {
@@ -123,7 +123,7 @@ export const SettingsApp: App = {
     builtin: true,
     version: "4.0.0",
     author: "ArcOS Team",
-    icon: logo,
+    icon: SettingsIcon,
     appGroup: "systemTools",
   },
   size: { w: 730, h: 500 },

@@ -1,9 +1,9 @@
 import { writable } from "svelte/store";
-import logo from "../../../assets/apps/donut.png";
 import Donut from "../../../lib/Apps/Donut.svelte";
 import { ArcOSVersion } from "../../env/main";
 import { openChildWindow } from "../events";
 import type { App } from "../interface";
+import { DonutIcon } from "../../icon/apps";
 
 export const DonutApp: App = {
   info: {
@@ -12,7 +12,7 @@ export const DonutApp: App = {
     builtin: true,
     version: ArcOSVersion,
     author: "Andy Sloane (ArcOS port by IzK)",
-    icon: logo,
+    icon: DonutIcon,
     appGroup: "entertainment",
   },
   size: { w: 850, h: 520 },

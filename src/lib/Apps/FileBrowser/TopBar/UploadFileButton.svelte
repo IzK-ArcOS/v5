@@ -1,5 +1,4 @@
 <script lang="ts">
-  import upload from "../../../../assets/apps/filemanager/upload.svg";
   import { fileToArcFile } from "../../../../ts/api/fs/convert";
   import { writeFile } from "../../../../ts/api/fs/file";
   import { arrayToBlob } from "../../../../ts/api/fs/file/conversion";
@@ -9,6 +8,7 @@
     FileBrowserUploadFile,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
+  import { UploadIcon } from "../../../../ts/icon/main";
   import { makeNotification } from "../../../../ts/notiflogic/main";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
@@ -24,7 +24,7 @@
           message:
             "You are only allowed to upload 80 files at a time to prevent overloading.",
           buttons: [{ caption: "Understood", action() {} }],
-          image: upload,
+          image: UploadIcon,
         },
         "FileManager"
       );

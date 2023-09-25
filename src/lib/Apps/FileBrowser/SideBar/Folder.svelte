@@ -1,10 +1,10 @@
 <script lang="ts">
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
   import type { PartialUserDir } from "../../../../ts/api/interface";
   import {
     fbClass,
-    FileBrowserCurrentDir
+    FileBrowserCurrentDir,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { FolderIcon } from "../../../../ts/icon/main";
 
   export let folder: PartialUserDir;
 
@@ -22,6 +22,6 @@
 </script>
 
 <button class="folder" class:selected on:click={switchTo}>
-  <img src={icon} alt={folder.name} />
+  <img src={FolderIcon} alt={folder.name} />
   <p class="name">{folder.name}</p>
 </button>

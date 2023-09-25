@@ -1,7 +1,7 @@
-import logo from "../../../assets/update.svg";
 import Experiments from "../../../lib/Apps/Experiments.svelte";
 import Warning from "../../../lib/Apps/Experiments/Warning.svelte";
 import { createOverlayableError } from "../../errorlogic/overlay";
+import { UpdateIcon } from "../../icon/main";
 import { closeWindow } from "../events";
 import type { App } from "../interface";
 
@@ -12,7 +12,7 @@ export const ExperimentsApp: App = {
     builtin: true,
     version: "1.0.0",
     author: "Izaak Kuipers",
-    icon: logo,
+    icon: UpdateIcon,
     hidden: true,
   },
   size: { w: 500, h: 600 },

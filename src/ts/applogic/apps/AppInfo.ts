@@ -1,9 +1,9 @@
 import { get, writable } from "svelte/store";
-import logo from "../../../assets/apps/testapp.svg";
 import AppInfoSvelte from "../../../lib/Apps/AppInfo.svelte";
 import type { App } from "../interface";
 import sleep from "../../sleep";
 import { closeWindow } from "../events";
+import { TestAppIcon } from "../../icon/apps";
 
 export const AppInfo: App = {
   info: {
@@ -13,7 +13,7 @@ export const AppInfo: App = {
     version: "1.0.0",
     author: "Izaak Kuipers",
     hidden: true,
-    icon: logo,
+    icon: TestAppIcon,
   },
   size: { w: 500, h: 450 },
   pos: { x: 30, y: 40 },

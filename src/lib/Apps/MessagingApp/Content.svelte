@@ -1,6 +1,6 @@
 <script lang="ts">
-  import icon from "../../../assets/apps/messaging.svg";
   import { createOverlayableError } from "../../../ts/errorlogic/overlay";
+  import { MessagingIcon } from "../../../ts/icon/apps";
   import type { Message } from "../../../ts/messaging/interface";
   import {
     creatingMessage,
@@ -24,7 +24,7 @@
           title: "Can't open message",
           message: `No message with ID ${v} could be found on ArcAPI.`,
           buttons: [{ caption: "OK", action() {} }],
-          image: icon,
+          image: MessagingIcon,
         },
         "MessagingApp"
       );

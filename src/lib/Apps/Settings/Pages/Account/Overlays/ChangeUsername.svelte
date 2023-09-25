@@ -1,9 +1,9 @@
 <script lang="ts">
-  import usericon from "../../../../../../assets/apps/settings/account.svg";
   import "../../../../../../css/desktop/apps/settings/account/changeUname.css";
   import { changeUsername } from "../../../../../../ts/api/cred/mutate";
   import type { App } from "../../../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
+  import { AccountIcon } from "../../../../../../ts/icon/main";
   import {
     UserData,
     UserName,
@@ -33,7 +33,7 @@
           { caption: "Change it", action: change },
           { caption: "Cancel", action() {} },
         ],
-        image: usericon,
+        image: AccountIcon,
       },
       "SettingsApp"
     );
@@ -49,7 +49,7 @@
           message:
             "An error occured while trying to rename your account. Please make sure the information is correct, and then try again.",
           buttons: [{ caption: "OK", action: reset }],
-          image: usericon,
+          image: AccountIcon,
         },
         "SettingsApp"
       );
@@ -59,7 +59,7 @@
         title: "Username changed.",
         message: "Your username has been updated successfully.",
         buttons: [{ caption: "OK", action: closeThis }],
-        image: usericon,
+        image: AccountIcon,
       },
       "SettingsApp"
     );

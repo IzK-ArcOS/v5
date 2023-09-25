@@ -1,10 +1,10 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import "../../../css/desktop/apps/UpdateNotice.css";
-  import updateIcon from "../../../assets/update.svg";
   import { disableApp } from "../../../ts/applogic/enabling";
   import type { App } from "../../../ts/applogic/interface";
+  import { UpdateIcon } from "../../../ts/icon/main";
   import { showOverlay } from "../../../ts/window/overlay";
-  import { onMount } from "svelte";
   import {
     filterTagName,
     getLatestRelease,
@@ -38,7 +38,7 @@
 </script>
 
 <div class="updatenotice">
-  <img src={updateIcon} alt="Update" />
+  <img src={UpdateIcon} alt="Update" />
   <div class="header">
     <h1>Update available!</h1>
     <div class="sub">

@@ -1,12 +1,9 @@
-import { get, writable } from "svelte/store";
-import logo from "../../../assets/apps/imageviewer.svg";
+import { get } from "svelte/store";
 import ImageView from "../../../lib/Apps/ImageView.svelte";
-import TextView from "../../../lib/Apps/TextView.svelte";
+import { ImageViewerIcon } from "../../icon/apps";
 import { UserData } from "../../userlogic/interfaces";
 import type { App } from "../interface";
 import { setTitleSuffix } from "../title";
-import sleep from "../../sleep";
-import { closeWindow } from "../events";
 
 export const ImageViewer: App = {
   info: {
@@ -16,7 +13,7 @@ export const ImageViewer: App = {
     version: "2.0.1",
     author: "Izaak Kuipers",
     hidden: true,
-    icon: logo,
+    icon: ImageViewerIcon,
     appGroup: "entertainment",
   },
   size: { w: 500, h: 400 },

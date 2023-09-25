@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import defaultProfile from "../../../../../../../assets/pfp/null.png";
   import { getUserPfp } from "../../../../../../../ts/api/pfp";
   import ProfilePicture from "../../../../../../ProfilePicture.svelte";
   import sleep from "../../../../../../../ts/sleep";
+  import { ProfilePictures } from "../../../../../../../ts/userlogic/pfp";
 
   export let receiver: string;
   export let receivers: string[];
@@ -28,7 +28,7 @@
 </script>
 
 <div class="receiver-pill">
-  <ProfilePicture src={pfp || defaultProfile} height={18} />
+  <ProfilePicture src={pfp || ProfilePictures.def} height={18} />
   <p class="name">{receiver}</p>
   <button class="material-icons-round remove" on:click={remove}>close</button>
 </div>

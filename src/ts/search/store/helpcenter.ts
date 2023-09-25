@@ -1,7 +1,7 @@
-import { currentArticle, helpCenterArticles } from "../../helpcenter/store";
-import type { SearchItem } from "../interface";
-import helpCenterIcon from "../../../assets/apps/helpcenter.svg";
 import { openWindow } from "../../applogic/events";
+import { currentArticle, helpCenterArticles } from "../../helpcenter/store";
+import { HelpCenterIcon } from "../../icon/apps";
+import type { SearchItem } from "../interface";
 
 export function compileSearchableHelpArticles(): SearchItem[] {
   const result: SearchItem[] = [];
@@ -9,7 +9,7 @@ export function compileSearchableHelpArticles(): SearchItem[] {
 
   for (let i = 0; i < entries.length; i++) {
     result.push({
-      image: helpCenterIcon,
+      image: HelpCenterIcon,
       description: "Help Center",
       caption: entries[i][1].title,
       action: () => {

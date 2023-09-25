@@ -1,12 +1,11 @@
 <script lang="ts">
   import { FileBrowserOpeningFile } from "../../../../ts/applogic/apps/FileBrowser/main";
-
   import "../../../../css/desktop/apps/filebrowser/overlays/openingfile.css";
-  import icon from "../../../../assets/apps/filemanager/memory.svg";
-  import Spinner from "../../../Spinner.svelte";
-  import { formatBytes } from "../../../../ts/api/fs/sizes";
-  import { hideOverlay } from "../../../../ts/window/overlay";
   import { abortFileReader } from "../../../../ts/api/fs/file";
+  import { formatBytes } from "../../../../ts/api/fs/sizes";
+  import { MemoryIcon } from "../../../../ts/icon/main";
+  import { hideOverlay } from "../../../../ts/window/overlay";
+  import Spinner from "../../../Spinner.svelte";
 
   function abort() {
     abortFileReader.set(true);
@@ -17,7 +16,7 @@
 
 {#if $FileBrowserOpeningFile}
   <div class="openingfile-wrapper">
-    <div class="icon"><img src={icon} alt="" /></div>
+    <div class="icon"><img src={MemoryIcon} alt="" /></div>
     <div class="caption">
       Downloading {$FileBrowserOpeningFile.filename} to RAM...
     </div>

@@ -1,6 +1,6 @@
 import { closeWindow } from "../applogic/events";
 import { createOverlayableError } from "../errorlogic/overlay";
-import icon from "../../assets/apps/arcterm.svg";
+import { ArcTermIcon } from "../icon/apps";
 
 export function initError(id: string) {
   createOverlayableError(
@@ -16,7 +16,7 @@ export function initError(id: string) {
           },
         },
       ],
-      image: icon,
+      image: ArcTermIcon,
     },
     id
   );

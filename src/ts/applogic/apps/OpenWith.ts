@@ -1,10 +1,10 @@
 import { get, writable } from "svelte/store";
-import logo from "../../../assets/apps/settings/apps.svg";
 import OpenWith from "../../../lib/Apps/OpenWith.svelte";
-import type { App } from "../interface";
 import type { ArcFile } from "../../api/interface";
+import { AppsIcon } from "../../icon/main";
 import sleep from "../../sleep";
 import { closeWindow } from "../events";
+import type { App } from "../interface";
 
 export const OpenWithApp: App = {
   info: {
@@ -14,7 +14,7 @@ export const OpenWithApp: App = {
     version: "1.0.1",
     author: "Izaak Kuipers",
     hidden: true,
-    icon: logo,
+    icon: AppsIcon,
   },
   size: { w: 450, h: 550 },
   pos: { x: 0, y: 0 },

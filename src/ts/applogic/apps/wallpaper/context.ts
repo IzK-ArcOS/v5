@@ -1,23 +1,27 @@
 import { get } from "svelte/store";
-import type { AppContextMenu } from "../../interface";
-import { UserData } from "../../../userlogic/interfaces";
-import { alignDesktopIcons } from "../../../desktop/icons";
-import { closeWindow, openWindow } from "../../events";
 import { SEP_ITEM } from "../../../contextmenu/main";
-import { openByKey } from "../SettingsApp/store";
+import { alignDesktopIcons } from "../../../desktop/icons";
 import { restart, shutdown } from "../../../desktop/power";
-import appMan from "../../../../assets/apps/appmanager.svg";
-import fileManager from "../../../../assets/apps/filemanager.svg";
-import appSettings from "../../../../assets/apps/settings/apps.svg";
-import desktopIcon from "../../../../assets/apps/settings/desktop.svg";
-import appearance from "../../../../assets/apps/settings/personalization.svg";
-import themesIcon from "../../../../assets/apps/settings/themes.svg";
-import appInfo from "../../../../assets/apps/testapp.svg";
-import kill from "../../../../assets/apps/exit.svg";
-import trash from "../../../../assets/apps/logger/clear.svg";
 import { errorMessage } from "../../../errorlogic/main";
-import { AppInfoId } from "../AppInfo";
+import {
+  AppManIcon,
+  ExitIcon,
+  FileManagerIcon,
+  TestAppIcon,
+} from "../../../icon/apps";
+import {
+  AppsIcon,
+  DesktopIcon,
+  PersonalizationIcon,
+  ThemesIcon,
+  TrashIcon,
+} from "../../../icon/main";
+import { UserData } from "../../../userlogic/interfaces";
 import { disableApp } from "../../enabling";
+import { closeWindow, openWindow } from "../../events";
+import type { AppContextMenu } from "../../interface";
+import { AppInfoId } from "../AppInfo";
+import { openByKey } from "../SettingsApp/store";
 
 export const WallpaperContext: AppContextMenu = {
   "shell-wallpaper": [
@@ -51,7 +55,7 @@ export const WallpaperContext: AppContextMenu = {
         errorMessage(
           "Reset icon alignment?",
           "This will arrange the desktop icons back to their default positions. Do you want to continue?",
-          desktopIcon,
+          DesktopIcon,
           null,
           {
             caption: "Yes",
@@ -70,21 +74,21 @@ export const WallpaperContext: AppContextMenu = {
       action: () => {
         openWindow("FileManager");
       },
-      image: fileManager,
+      image: FileManagerIcon,
     },
     {
       caption: "Application Manager",
       action: () => {
         openWindow("AppMan");
       },
-      image: appMan,
+      image: AppManIcon,
     },
     {
       caption: "App settings",
       action: () => {
         openByKey("Apps");
       },
-      image: appSettings,
+      image: AppsIcon,
     },
     SEP_ITEM,
     {
@@ -103,21 +107,21 @@ export const WallpaperContext: AppContextMenu = {
       action: () => {
         openByKey("Themes");
       },
-      image: themesIcon,
+      image: ThemesIcon,
     },
     {
       caption: "Wallpaper",
       action: () => {
         openByKey("Wallpaper");
       },
-      image: desktopIcon,
+      image: DesktopIcon,
     },
     {
       caption: "Visuals",
       action: () => {
         openByKey("Visuals");
       },
-      image: appearance,
+      image: PersonalizationIcon,
     },
   ],
   "desktopicon-app": [
@@ -128,7 +132,7 @@ export const WallpaperContext: AppContextMenu = {
       },
     },
     {
-      image: kill,
+      image: ExitIcon,
       caption: "Kill",
       action(window, data, scope) {
         closeWindow(data.id);
@@ -136,7 +140,7 @@ export const WallpaperContext: AppContextMenu = {
     },
     SEP_ITEM,
     {
-      image: trash,
+      image: TrashIcon,
       caption: "Disable",
       action(window, data, scope) {
         disableApp(data.id);
@@ -144,7 +148,7 @@ export const WallpaperContext: AppContextMenu = {
     },
     SEP_ITEM,
     {
-      image: appInfo,
+      image: TestAppIcon,
       caption: "App Info",
       action(window, data, scope) {
         AppInfoId.set(data.id);

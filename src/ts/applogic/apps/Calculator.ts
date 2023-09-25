@@ -1,5 +1,5 @@
-import logo from "../../../assets/apps/calculator.svg";
 import Calculator from "../../../lib/Apps/Calculator.svelte";
+import { CalculatorIcon } from "../../icon/apps";
 import type { App } from "../interface";
 import { CalculatorClass, CalculatorValue } from "./Calculator/main";
 
@@ -10,7 +10,7 @@ export const CalculatorApp: App = {
     builtin: true,
     version: "2.0.0",
     author: "Izaak Kuipers",
-    icon: logo,
+    icon: CalculatorIcon,
     appGroup: "utilities",
   },
   size: { w: 340, h: NaN },

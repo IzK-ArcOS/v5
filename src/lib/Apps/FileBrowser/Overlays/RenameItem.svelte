@@ -1,16 +1,15 @@
 <script lang="ts">
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
-  import { createDirectory } from "../../../../ts/api/fs/directory";
+  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
+  import { renameItem } from "../../../../ts/api/fs/rename";
   import {
     fbClass,
     FileBrowserCurrentDir,
     FileBrowserDirContents,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { FolderIcon } from "../../../../ts/icon/main";
   import { hideOverlay } from "../../../../ts/window/overlay";
-  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
-  import { renameItem } from "../../../../ts/api/fs/rename";
-  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
 
   let newName = "";
   let img = "";
@@ -73,7 +72,7 @@
 </script>
 
 <div class="fb-overlay-mutator-wrapper">
-  <div class="image"><img src={isDir ? icon : img} alt="" /></div>
+  <div class="image"><img src={isDir ? FolderIcon : img} alt="" /></div>
   <div>
     <p>Enter a new name for {$FileBrowserSelectedFilename}:</p>
     <input

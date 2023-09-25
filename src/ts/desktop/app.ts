@@ -1,6 +1,6 @@
-import { createTrayIcon } from "./tray/main";
-import trayIcon from "../../assets/apps/settings/windows.svg";
 import { errorMessage } from "../errorlogic/main";
+import { WindowSettingsIcon } from "../icon/main";
+import { createTrayIcon } from "./tray/main";
 
 export let DESKTOP_MODE: "desktop" | "browser";
 
@@ -18,7 +18,7 @@ export function checkDesktopFile() {
   if (!isDesktop())
     createTrayIcon({
       title: "You're in the web version",
-      image: trayIcon,
+      image: WindowSettingsIcon,
       identifier: "webversion-notice",
       onOpen(tray) {
         errorMessage(

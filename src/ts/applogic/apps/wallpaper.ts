@@ -1,6 +1,6 @@
-import { default as logo } from "../../../assets/apps/settings/desktop.svg";
 import Wallpaper from "../../../lib/Page/Desktop/Wallpaper.svelte";
 import { ArcOSVersion } from "../../env/main";
+import { DesktopIcon } from "../../icon/main";
 import type { App } from "../interface";
 import { WallpaperContext } from "./wallpaper/context";
 
@@ -11,7 +11,7 @@ export const DesktopWallpaper: App = {
     builtin: true,
     version: ArcOSVersion,
     author: "ArcOS Team",
-    icon: logo,
+    icon: DesktopIcon,
     custom: true,
     appGroup: "coreApps",
   },

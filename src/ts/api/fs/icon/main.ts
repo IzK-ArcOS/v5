@@ -1,4 +1,4 @@
-import file from "../../../../assets/mimetypes/application-default.svg";
+import { DefaultMimeIcon } from "../../../icon/mimetypes";
 import { extensionIcons } from "./store";
 
 export function getMimeIcon(filename: string) {
@@ -10,5 +10,5 @@ export function getMimeIcon(filename: string) {
     }
   }
 
-  return file;
+  return DefaultMimeIcon;
 }

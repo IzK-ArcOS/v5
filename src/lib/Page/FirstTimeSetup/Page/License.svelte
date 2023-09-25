@@ -1,12 +1,12 @@
 <script lang="ts">
-  import "../../../../css/fts/page/license.css";
   import { onMount } from "svelte";
-  import icon from "../../../../assets/fts/license.svg";
+  import "../../../../css/fts/page/license.css";
   import { ARCOS_MODE } from "../../../../ts/branding";
-  import { ArcOSVersion } from "../../../../ts/env/main";
-  import { applyFTSState } from "../../../../ts/fts/main";
   import { Log } from "../../../../ts/console";
   import { LogLevel } from "../../../../ts/console/interface";
+  import { ArcOSVersion } from "../../../../ts/env/main";
+  import { applyFTSState } from "../../../../ts/fts/main";
+  import { SecureIcon } from "../../../../ts/icon/main";
 
   let license = "";
 
@@ -40,7 +40,7 @@
     <h1>License Agreement</h1>
     <p>By using ArcOS, you agree to the GPLv3 License.</p>
   </div>
-  <img src={icon} alt="License" class="license" />
+  <img src={SecureIcon} alt="License" class="license" />
 </div>
 <textarea class="license" bind:value={license} readonly />
 <div class="bottom">

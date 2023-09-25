@@ -1,12 +1,12 @@
 import { get, writable, type Writable } from "svelte/store";
-import icon from "../../../../assets/apps/lightsoff.svg";
+import { LogLevel } from "../../../console/interface";
 import { createOverlayableError } from "../../../errorlogic/overlay";
+import { LightsOffIcon } from "../../../icon/apps";
+import { UserData } from "../../../userlogic/interfaces";
 import type { App } from "../../interface";
 import { AppRuntime } from "../../runtime/main";
 import type { LightsOffGrid } from "./interface";
 import { LightsOffLevels } from "./levels";
-import { UserData } from "../../../userlogic/interfaces";
-import { LogLevel } from "../../../console/interface";
 
 export class LightsOffRuntime extends AppRuntime {
   xModifiers = [-1, 0, +1];
@@ -57,7 +57,7 @@ export class LightsOffRuntime extends AppRuntime {
         message:
           "You've managed to complete all 8 levels of Lights Off. The game will be reset so you can play it again in the future.",
         buttons: [{ caption: "OK", action() {} }],
-        image: icon,
+        image: LightsOffIcon,
       },
       "LightsOff"
     );

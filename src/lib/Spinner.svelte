@@ -1,11 +1,11 @@
 <script lang="ts">
   import "../css/spinner.css";
-  import spinner from "../assets/spinner.svg";
+  import { SpinnerIcon } from "../ts/icon/main";
   export let height: number;
 </script>
 
 <img
-  src={spinner}
+  src={SpinnerIcon}
   alt="spinner"
   style="height: {height}px;"
   class="spinner-svg"

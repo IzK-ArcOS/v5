@@ -1,11 +1,11 @@
 <script lang="ts">
   import type { PartialUserDir } from "../../../../ts/api/interface";
   import {
-    fbClass,
-    FileBrowserCuttingFilename as cutting,
     FileBrowserSelectedFilename,
+    FileBrowserCuttingFilename as cutting,
+    fbClass,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
+  import { FolderIcon } from "../../../../ts/icon/main";
 
   export let dir: PartialUserDir;
 
@@ -29,7 +29,7 @@
   data-name={dir.name}
   data-contextmenu="listitem-dir"
 >
-  <div class="image"><img src={icon} alt={dir.name} /></div>
+  <div class="image"><img src={FolderIcon} alt={dir.name} /></div>
   <div class="name">{dir.name}</div>
   <div class="mime">Folder</div>
   <div class="size">-</div>

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import defaultIcon from "../../../../assets/mimetypes/text-plain.svg";
   import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
   import { writeFile } from "../../../../ts/api/fs/file";
   import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
@@ -9,6 +8,7 @@
     FileBrowserDirContents,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { PlainMimeIcon } from "../../../../ts/icon/mimetypes";
   import { hideOverlay } from "../../../../ts/window/overlay";
 
   let filename = "";
@@ -29,7 +29,7 @@
     }
 
     exists = false;
-    img = getMimeIcon(filename) || defaultIcon;
+    img = getMimeIcon(filename) || PlainMimeIcon;
   }
 
   async function create() {
@@ -49,7 +49,7 @@
 </script>
 
 <div class="fb-overlay-mutator-wrapper">
-  <div class="image"><img src={img || defaultIcon} alt="" /></div>
+  <div class="image"><img src={img || PlainMimeIcon} alt="" /></div>
   <div>
     <p>Enter a name for the new file:</p>
     <input type="text" bind:value={filename} on:input={updateExists} />

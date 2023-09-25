@@ -1,16 +1,16 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import SvelteMarkdown from "svelte-markdown";
+  import { ARCOS_MODE } from "../../../../../ts/branding";
+  import { ARCOS_BUILD } from "../../../../../ts/branding/build";
+  import { ArcOSVersion } from "../../../../../ts/env/main";
+  import { UploadIcon } from "../../../../../ts/icon/main";
+  import { hideOverlay } from "../../../../../ts/window/overlay";
   import {
     filterTagName,
     getLatestRelease,
     parseVersion,
   } from "../../../../../updates/main";
-  import icon from "../../../../../assets/upload.svg";
-  import { ArcOSVersion } from "../../../../../ts/env/main";
-  import { ARCOS_MODE } from "../../../../../ts/branding";
-  import { ARCOS_BUILD } from "../../../../../ts/branding/build";
-  import { hideOverlay } from "../../../../../ts/window/overlay";
 
   let changelog = "";
   let version = [];
@@ -37,7 +37,7 @@
       ArcOS v{version.join(".")}
     </p>
   </div>
-  <img src={icon} alt="" class="icon" />
+  <img src={UploadIcon} alt="" class="icon" />
 </div>
 <div class="markdownrenderer">
   <SvelteMarkdown source={changelog} />

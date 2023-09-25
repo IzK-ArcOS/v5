@@ -1,6 +1,4 @@
 import { get, writable } from "svelte/store";
-import warning from "../../../../assets/apps/error.svg";
-import trash from "../../../../assets/apps/logger/clear.svg";
 import { deleteItem } from "../../../api/fs/delete";
 import { getDirectory } from "../../../api/fs/directory";
 import {
@@ -13,6 +11,8 @@ import {
 import { Log } from "../../../console";
 import { LogLevel } from "../../../console/interface";
 import { createOverlayableError } from "../../../errorlogic/overlay";
+import { ErrorIcon } from "../../../icon/apps";
+import { TrashIcon } from "../../../icon/main";
 import { ArcSoundBus } from "../../../sound/main";
 import { hideOverlay, showOverlay } from "../../../window/overlay";
 
@@ -37,7 +37,7 @@ FileBrowserOpenCancelled.subscribe((v) => {
       title: "Open cancelled",
       message: "The opening procedure was cancelled by the user.",
       buttons: [{ caption: "OK", action() {} }],
-      image: warning,
+      image: ErrorIcon,
     },
     "FileManager"
   );
@@ -97,7 +97,7 @@ class FileBrowserClass {
           message:
             "ArcAPI was not able to delete the item from the file system. A permission error may have occured. Please try again later.",
           buttons: [{ caption: "OK", action() {} }],
-          image: trash,
+          image: TrashIcon,
         },
         "FileManager"
       );

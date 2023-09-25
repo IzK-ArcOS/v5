@@ -1,21 +1,18 @@
 <script lang="ts">
+  import dayjs from "dayjs";
   import { onMount } from "svelte";
   import type { BugReportsRuntime } from "../../../../ts/applogic/apps/BugReports/runtime";
+  import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
+  import { BugRepIcon, HelpCenterIcon } from "../../../../ts/icon/apps";
+  import { FileIcon } from "../../../../ts/icon/main";
   import type { LocalReportData } from "../../../../ts/reporting/interface";
-  import dayjs from "dayjs";
-  import deletedIcon from "../../../../assets/apps/logger/clear.svg";
-  import issueIcon from "../../../../assets/apps/helpcenter.svg";
-  import reportIcon from "../../../../assets/apps/filemanager/file.svg";
-  import errorIcon from "../../../../assets/apps/bugreports.svg";
   import { getReportIssue } from "../../../../ts/reporting/issues";
   import { reportExists } from "../../../../ts/reporting/main";
-  import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
-  import { get } from "svelte/store";
 
   const statuses = {
-    deleted: deletedIcon,
-    issue: issueIcon,
-    report: reportIcon,
+    deleted: BugRepIcon,
+    issue: HelpCenterIcon,
+    report: FileIcon,
   };
 
   let status: "deleted" | "issue" | "report" = "report";
@@ -50,7 +47,7 @@
             },
           },
         ],
-        image: errorIcon,
+        image: BugRepIcon,
       },
       "BugReports"
     );

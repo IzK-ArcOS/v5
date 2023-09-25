@@ -1,5 +1,5 @@
-import logo from "../../../assets/apps/2048.svg";
 import TwentySvelte from "../../../lib/Apps/TwentySvelte.svelte";
+import { TwentyIcon } from "../../icon/apps";
 import type { App } from "../interface";
 import { TwentyRuntime } from "./TwentyFourtyEight/runtime";
 
@@ -10,7 +10,7 @@ export const TwentyFourtyEight: App = {
     builtin: true,
     version: "1.0.0",
     author: "GuilhermeBohnstedt (ArcOS port by IzK)",
-    icon: logo,
+    icon: TwentyIcon,
     appGroup: "entertainment",
   },
   size: { w: 354, h: NaN },

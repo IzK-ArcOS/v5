@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { PartialUserDir } from "../../../../ts/api/interface";
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
   import type { Writable } from "svelte/store";
+  import type { PartialUserDir } from "../../../../ts/api/interface";
+  import { FolderIcon } from "../../../../ts/icon/main";
 
   export let folder: PartialUserDir;
   export let setDir: (path: string) => void;
@@ -19,6 +19,6 @@
 </script>
 
 <button class="link" on:click={doSet} class:selected>
-  <img src={icon} alt={folder.name} />
+  <img src={FolderIcon} alt={folder.name} />
   <p class="caption">{folder.name}</p>
 </button>

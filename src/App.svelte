@@ -14,6 +14,7 @@
   import { get } from "svelte/store";
   import { Log } from "./ts/console";
   import { LogLevel } from "./ts/console/interface";
+  import * as mainIcons from "./ts/icon/main";
 
   let run = false;
   let logo = "";
@@ -35,6 +36,8 @@
 
     logo = Logo();
     run = true;
+
+    console.log(Object.entries(mainIcons));
 
     window.onunhandledrejection = (e: PromiseRejectionEvent) => {
       handleWindowError(e);

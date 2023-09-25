@@ -1,10 +1,10 @@
 <script lang="ts">
-  import mode from "../../../../assets/fts/mode.svg";
   import { applyFTSState } from "../../../../ts/fts/main";
+  import { ModeIcon } from "../../../../ts/icon/main";
 </script>
 
 <div class="header centered">
-  <img src={mode} alt="Login" />
+  <img src={ModeIcon} alt="Login" />
   <h1>How do you want to log in?</h1>
   <p class="subtitle">Are you a stranger?</p>
 </div>

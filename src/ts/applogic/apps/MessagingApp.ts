@@ -1,6 +1,6 @@
-import logo from "../../../assets/apps/messaging.svg";
 import MessagingAppSvelte from "../../../lib/Apps/MessagingApp.svelte";
 import Thread from "../../../lib/Apps/MessagingApp/Overlays/Thread.svelte";
+import { MessagingIcon } from "../../icon/apps";
 import type { App, OverlayableApp } from "../interface";
 
 const overlays: { [key: string]: OverlayableApp } = {
@@ -23,7 +23,7 @@ export const MessagingApp: App = {
     builtin: true,
     version: "1.0.7",
     author: "ArcOS Team",
-    icon: logo,
+    icon: MessagingIcon,
     appGroup: "communication",
   },
   size: { w: 700, h: 450 },

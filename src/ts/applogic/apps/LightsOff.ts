@@ -1,5 +1,5 @@
-import logo from "../../../assets/apps/lightsoff.svg";
 import LightsOffSvelte from "../../../lib/Apps/LightsOff.svelte";
+import { LightsOffIcon } from "../../icon/apps";
 import type { App } from "../interface";
 import { LightsOffRuntime } from "./LightsOff/runtime";
 
@@ -11,7 +11,7 @@ export const LightsOff: App = {
     version: "1.0.0",
     author: "Tim Horton, ported to ArcOS by IzKuipers",
     hidden: false,
-    icon: logo,
+    icon: LightsOffIcon,
     appGroup: "entertainment",
   },
   size: { w: 442, h: NaN },

@@ -1,5 +1,5 @@
-import logo from "../../../assets/apps/testapp.svg";
 import TestAppSvelte from "../../../lib/Apps/TestApp.svelte";
+import { TestAppIcon } from "../../icon/apps";
 import type { App } from "../interface";
 import { UITester } from "./testApp2";
 
@@ -10,7 +10,7 @@ export const TestApp: App = {
     builtin: true,
     version: "0.0.0",
     author: "Izaak Kuipers",
-    icon: logo,
+    icon: TestAppIcon,
     hidden: true,
   },
   size: { w: 640, h: 480 },

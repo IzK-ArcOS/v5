@@ -1,7 +1,7 @@
 <script lang="ts">
-  import icon from "../../../../assets/fts/connect.svg";
   import type { ServerSelectOption } from "../../../../ts/api/interface";
   import { getAllServers, removeServer } from "../../../../ts/api/server";
+  import { ConnectIcon } from "../../../../ts/icon/main";
   import { applyState } from "../../../../ts/state/main";
 
   export let server: ServerSelectOption;
@@ -30,7 +30,7 @@
   on:click={select}
   class:selected={selected == server.hostname}
 >
-  <img src={icon} alt="" class="icon" />
+  <img src={ConnectIcon} alt="" class="icon" />
   <p class="caption">{server.hostname}</p>
   <div class="right">
     <button class="delete material-icons-round" on:click={remove}>delete</button
