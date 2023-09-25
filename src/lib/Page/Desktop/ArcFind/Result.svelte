@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ArcFindIcon } from "../../../../ts/icon/main";
+  import { ArcFindIcon } from "../../../../ts/icon/general";
   import type { SearchItem } from "../../../../ts/search/interface";
   import { showArcFind } from "../../../../ts/search/main";
 

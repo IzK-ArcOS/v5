@@ -4,7 +4,7 @@
     FileBrowserUploadFile,
     FileBrowserUploadProgress,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import { UploadIcon } from "../../../../ts/icon/main";
+  import { UploadIcon } from "../../../../ts/icon/general";
   import ApiReveal from "../../../APIReveal.svelte";
 </script>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import "../../../../../../css/desktop/apps/settings/account/customWallpaper.css";
-  import { DesktopIcon } from "../../../../../../ts/icon/main";
+  import { DesktopIcon } from "../../../../../../ts/icon/general";
   import { UserData } from "../../../../../../ts/userlogic/interfaces";
   import { hideOverlay } from "../../../../../../ts/window/overlay";
   let valid = false;

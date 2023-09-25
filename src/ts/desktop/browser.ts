@@ -1,4 +1,4 @@
-import { FireFoxIcon } from "../icon/main";
+import { FireFoxIcon } from "../icon/general";
 import { makeNotification } from "../notiflogic/main";
 
 export function checkFirefox() {

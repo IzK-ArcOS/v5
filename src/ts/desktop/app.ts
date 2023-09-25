@@ -1,5 +1,5 @@
 import { errorMessage } from "../errorlogic/main";
-import { WindowSettingsIcon } from "../icon/main";
+import { WindowSettingsIcon } from "../icon/general";
 import { createTrayIcon } from "./tray/main";
 
 export let DESKTOP_MODE: "desktop" | "browser";

@@ -6,7 +6,7 @@
   import { getUsers } from "../../../../ts/userlogic/main";
   import Spinner from "../../../Spinner.svelte";
   import { Busy } from "../../../../ts/env/main";
-  import { AccountIcon } from "../../../../ts/icon/main";
+  import { AccountIcon } from "../../../../ts/icon/general";
 
   let username = "";
   let password = "";

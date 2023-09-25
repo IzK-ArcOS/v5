@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { ServerSelectOption } from "../../../../ts/api/interface";
   import { getAllServers, removeServer } from "../../../../ts/api/server";
-  import { ConnectIcon } from "../../../../ts/icon/main";
+  import { ConnectIcon } from "../../../../ts/icon/general";
   import { applyState } from "../../../../ts/state/main";
 
   export let server: ServerSelectOption;

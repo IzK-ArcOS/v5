@@ -8,7 +8,7 @@
     FileBrowserDirContents,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import { FolderIcon } from "../../../../ts/icon/main";
+  import { FolderIcon } from "../../../../ts/icon/general";
   import { hideOverlay } from "../../../../ts/window/overlay";
 
   let newName = "";

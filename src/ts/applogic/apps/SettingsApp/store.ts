@@ -15,7 +15,7 @@ import {
   TaskBarIcon,
   ThemesIcon,
   WindowSettingsIcon,
-} from "../../../icon/main";
+} from "../../../icon/general";
 import { openWindow } from "../../events";
 import type { SettingsPage } from "./interface";
 import { currentSettingsPage } from "./main";

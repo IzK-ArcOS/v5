@@ -14,7 +14,7 @@
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
-  import { FileIcon } from "../../../../ts/icon/main";
+  import { FileIcon } from "../../../../ts/icon/general";
 
   export let file: PartialArcFile;
 

@@ -5,7 +5,7 @@
     FileBrowserCuttingFilename as cutting,
     fbClass,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import { FolderIcon } from "../../../../ts/icon/main";
+  import { FolderIcon } from "../../../../ts/icon/general";
 
   export let dir: PartialUserDir;
 

@@ -4,7 +4,7 @@
   import type { BugReportsRuntime } from "../../../../ts/applogic/apps/BugReports/runtime";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import { BugRepIcon, HelpCenterIcon } from "../../../../ts/icon/apps";
-  import { FileIcon } from "../../../../ts/icon/main";
+  import { FileIcon } from "../../../../ts/icon/general";
   import type { LocalReportData } from "../../../../ts/reporting/interface";
   import { getReportIssue } from "../../../../ts/reporting/issues";
   import { reportExists } from "../../../../ts/reporting/main";

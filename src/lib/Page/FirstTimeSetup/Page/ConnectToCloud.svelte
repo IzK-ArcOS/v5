@@ -4,7 +4,7 @@
   import { addServer } from "../../../../ts/api/server";
   import { testConnection } from "../../../../ts/api/test";
   import { applyFTSState } from "../../../../ts/fts/main";
-  import { ConnectIcon } from "../../../../ts/icon/main";
+  import { ConnectIcon } from "../../../../ts/icon/general";
   import { ArcSoundBus } from "../../../../ts/sound/main";
   import Custom from "./ConnectToCloud/Custom.svelte";
   import Toggle from "./ConnectToCloud/Toggle.svelte";

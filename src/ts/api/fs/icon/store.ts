@@ -1,5 +1,5 @@
 import { ArcTermIcon, MarkDownViewerIcon } from "../../../icon/apps";
-import { ThemesIcon } from "../../../icon/main";
+import { ThemesIcon } from "../../../icon/general";
 import {
   ArcAppMimeIcon,
   AudioMimeIcon,

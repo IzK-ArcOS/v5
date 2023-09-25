@@ -3,7 +3,7 @@
   import "../../../../css/desktop/apps/filebrowser/overlays/openingfile.css";
   import { abortFileReader } from "../../../../ts/api/fs/file";
   import { formatBytes } from "../../../../ts/api/fs/sizes";
-  import { MemoryIcon } from "../../../../ts/icon/main";
+  import { MemoryIcon } from "../../../../ts/icon/general";
   import { hideOverlay } from "../../../../ts/window/overlay";
   import Spinner from "../../../Spinner.svelte";
 

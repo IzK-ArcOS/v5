@@ -3,7 +3,7 @@
   import { changeUsername } from "../../../../../../ts/api/cred/mutate";
   import type { App } from "../../../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
-  import { AccountIcon } from "../../../../../../ts/icon/main";
+  import { AccountIcon } from "../../../../../../ts/icon/general";
   import {
     UserData,
     UserName,

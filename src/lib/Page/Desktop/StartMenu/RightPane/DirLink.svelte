@@ -3,7 +3,7 @@
   import { fbClass } from "../../../../../ts/applogic/apps/FileBrowser/main";
   import { openWindow } from "../../../../../ts/applogic/events";
   import { startOpened } from "../../../../../ts/desktop/main";
-  import { FolderIcon } from "../../../../../ts/icon/main";
+  import { FolderIcon } from "../../../../../ts/icon/general";
 
   export let dir: PartialUserDir;
 

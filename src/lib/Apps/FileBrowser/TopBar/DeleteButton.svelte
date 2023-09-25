@@ -9,7 +9,7 @@
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
   import { deleteItem } from "../../../../ts/api/fs/delete";
   import { ErrorIcon } from "../../../../ts/icon/apps";
-  import { TrashIcon } from "../../../../ts/icon/main";
+  import { TrashIcon } from "../../../../ts/icon/general";
 
   function deleteSelected() {
     createOverlayableError(

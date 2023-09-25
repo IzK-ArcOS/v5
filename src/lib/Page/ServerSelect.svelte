@@ -6,7 +6,7 @@
   import Selector from "./ServerSelect/Selector.svelte";
   import { getAllServers, getServer } from "../../ts/api/server";
   import { applyState } from "../../ts/state/main";
-  import { ConnectIcon } from "../../ts/icon/main";
+  import { ConnectIcon } from "../../ts/icon/general";
 
   let selected = "";
   let servers: ServerSelectOption[] = [];

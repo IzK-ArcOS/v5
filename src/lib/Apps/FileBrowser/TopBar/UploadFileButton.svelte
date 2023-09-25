@@ -8,7 +8,7 @@
     FileBrowserUploadFile,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
-  import { UploadIcon } from "../../../../ts/icon/main";
+  import { UploadIcon } from "../../../../ts/icon/general";
   import { makeNotification } from "../../../../ts/notiflogic/main";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 

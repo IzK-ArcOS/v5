@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { App } from "../../../ts/applogic/interface";
-  import { SaveIcon } from "../../../ts/icon/main";
+  import { SaveIcon } from "../../../ts/icon/general";
 
   import Spinner from "../../Spinner.svelte";
   export let saving: boolean;

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { FileBrowserHome } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import { HomeIcon } from "../../../../ts/icon/main";
+  import { HomeIcon } from "../../../../ts/icon/general";
 </script>
 
 <div class="home">

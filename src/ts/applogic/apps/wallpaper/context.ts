@@ -15,7 +15,7 @@ import {
   PersonalizationIcon,
   ThemesIcon,
   TrashIcon,
-} from "../../../icon/main";
+} from "../../../icon/general";
 import { UserData } from "../../../userlogic/interfaces";
 import { disableApp } from "../../enabling";
 import { closeWindow, openWindow } from "../../events";

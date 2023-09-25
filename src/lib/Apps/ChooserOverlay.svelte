@@ -14,7 +14,7 @@
   import Tiled from "./ChooserOverlay/Tiled.svelte";
   import SideBar from "./ChooserOverlay/SideBar.svelte";
   import TopRow from "./FileBrowser/ListView/TopRow.svelte";
-  import { FileIcon } from "../../ts/icon/main";
+  import { FileIcon } from "../../ts/icon/general";
 
   export let overlay: OverlayableApp;
 

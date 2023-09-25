@@ -15,7 +15,7 @@
     FileBrowserCuttingFilename as cutting,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
-  import { FileIcon } from "../../../../ts/icon/main";
+  import { FileIcon } from "../../../../ts/icon/general";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   export let file: PartialArcFile;

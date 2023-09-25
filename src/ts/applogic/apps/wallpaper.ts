@@ -1,6 +1,6 @@
 import Wallpaper from "../../../lib/Page/Desktop/Wallpaper.svelte";
 import { ArcOSVersion } from "../../env/main";
-import { DesktopIcon } from "../../icon/main";
+import { DesktopIcon } from "../../icon/general";
 import type { App } from "../interface";
 import { WallpaperContext } from "./wallpaper/context";
 

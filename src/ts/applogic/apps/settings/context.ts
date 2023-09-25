@@ -2,7 +2,7 @@ import { createDirectory } from "../../../api/fs/directory";
 import { writeFile } from "../../../api/fs/file";
 import { getServer } from "../../../api/server";
 import { createOverlayableError } from "../../../errorlogic/overlay";
-import { ThemesIcon } from "../../../icon/main";
+import { ThemesIcon } from "../../../icon/general";
 import { deleteCustomTheme } from "../../../userlogic/themes/main";
 import { showOverlay } from "../../../window/overlay";
 import { openWindow } from "../../events";

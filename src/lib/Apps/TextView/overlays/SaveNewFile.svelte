@@ -6,7 +6,7 @@
     saveTextEditorFile,
   } from "../../../../ts/applogic/apps/TextEditor/main";
   import { hideOverlay } from "../../../../ts/window/overlay";
-  import { SaveIcon } from "../../../../ts/icon/main";
+  import { SaveIcon } from "../../../../ts/icon/general";
 
   let value = "";
 

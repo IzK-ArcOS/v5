@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { UploadIcon } from "../../../../../ts/icon/main";
+  import { UploadIcon } from "../../../../../ts/icon/general";
   import { committingUserData } from "../../../../../ts/userlogic/main";
 </script>
 

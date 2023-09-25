@@ -1,27 +1,19 @@
-export { default as AccountIcon } from "../../assets/account.svg";
-export { default as AppsIcon } from "../../assets/apps.svg";
-export { default as ArcFindIcon } from "../../assets/arcfind.svg";
-export { default as ConnectIcon } from "../../assets/connect.svg";
-export { default as DesktopIcon } from "../../assets/desktop.svg";
-export { default as FileIcon } from "../../assets/file.svg";
-export { default as FireFoxIcon } from "../../assets/firefox.png";
-export { default as FlagIcon } from "../../assets/flag.svg";
-export { default as FolderIcon } from "../../assets/folder.svg";
-export { default as HomeIcon } from "../../assets/home.svg";
-export { default as LockIcon } from "../../assets/lock.svg";
-export { default as MemoryIcon } from "../../assets/memory.svg";
-export { default as ModeIcon } from "../../assets/mode.svg";
-export { default as PasswordIcon } from "../../assets/password.svg";
-export { default as PersonalizationIcon } from "../../assets/personalization.svg";
-export { default as SaveIcon } from "../../assets/save.svg";
-export { default as SecureIcon } from "../../assets/secure.svg";
-export { default as SpinnerIcon } from "../../assets/spinner.svg";
-export { default as StartMenuIcon } from "../../assets/startmenu.svg";
-export { default as SystemIcon } from "../../assets/systemIcon.svg";
-export { default as TaskBarIcon } from "../../assets/taskbar.svg";
-export { default as ThemesIcon } from "../../assets/themes.svg";
-export { default as TrashIcon } from "../../assets/trash.svg";
-export { default as UpdateIcon } from "../../assets/update.svg";
-export { default as UploadIcon } from "../../assets/upload.svg";
-export { default as WaveIcon } from "../../assets/wave.svg";
-export { default as WindowSettingsIcon } from "../../assets/windowsettings.svg";
+import * as generals from "./general";
+import * as apps from "./apps";
+import * as handlers from "../icon/handlers";
+import * as mimes from "../icon/mimetypes";
+
+export const ICON_GROUP_CAPTIONS = {
+  general: "General Icons",
+  apps: "Apps",
+  handlers: "File Handlers",
+  mimetypes: "Mimetypes",
+};
+
+export function getAllIcons() {
+  return { ...generals, ...apps, ...handlers, ...mimes };
+}
+
+export function getGroupedIcons() {
+  return { generals, apps, handlers, mimes };
+}

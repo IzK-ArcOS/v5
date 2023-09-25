@@ -1,7 +1,7 @@
 import UpdateNoticeSvelte from "../../../lib/Page/Desktop/UpdateNotice.svelte";
 import ChangeLog from "../../../lib/Page/Desktop/UpdateNotice/overlays/ChangeLog.svelte";
 import { ArcOSVersion } from "../../env/main";
-import { UpdateIcon } from "../../icon/main";
+import { UpdateIcon } from "../../icon/general";
 import type { App } from "../interface";
 
 export const UpdateNotice: App = {

@@ -6,7 +6,7 @@
   import { LogLevel } from "../../../../ts/console/interface";
   import { ArcOSVersion } from "../../../../ts/env/main";
   import { applyFTSState } from "../../../../ts/fts/main";
-  import { SecureIcon } from "../../../../ts/icon/main";
+  import { SecureIcon } from "../../../../ts/icon/general";
 
   let license = "";
 

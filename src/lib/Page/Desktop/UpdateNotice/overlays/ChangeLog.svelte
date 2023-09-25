@@ -4,7 +4,7 @@
   import { ARCOS_MODE } from "../../../../../ts/branding";
   import { ARCOS_BUILD } from "../../../../../ts/branding/build";
   import { ArcOSVersion } from "../../../../../ts/env/main";
-  import { UploadIcon } from "../../../../../ts/icon/main";
+  import { UploadIcon } from "../../../../../ts/icon/general";
   import { hideOverlay } from "../../../../../ts/window/overlay";
   import {
     filterTagName,

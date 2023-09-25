@@ -1,6 +1,6 @@
 <script lang="ts">
   import { applyFTSState } from "../../../../ts/fts/main";
-  import { ModeIcon } from "../../../../ts/icon/main";
+  import { ModeIcon } from "../../../../ts/icon/general";
 </script>
 
 <div class="header centered">

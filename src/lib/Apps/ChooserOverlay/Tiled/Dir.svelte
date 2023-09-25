@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { PartialUserDir } from "../../../../ts/api/interface";
-  import { FolderIcon } from "../../../../ts/icon/main";
+  import { FolderIcon } from "../../../../ts/icon/general";
 
   export let dir: PartialUserDir;
   export let setDir: (path: string) => void;

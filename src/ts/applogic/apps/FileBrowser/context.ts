@@ -10,7 +10,7 @@ import {
 } from "./main";
 import { get } from "svelte/store";
 import { SEP_ITEM } from "../../../contextmenu/main";
-import { TrashIcon } from "../../../icon/main";
+import { TrashIcon } from "../../../icon/general";
 
 export const FileManagerContextMenu: AppContextMenu = {
   "listitem-dir": [

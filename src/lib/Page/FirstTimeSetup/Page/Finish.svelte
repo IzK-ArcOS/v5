@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { FlagIcon } from "../../../../ts/icon/main";
+  import { FlagIcon } from "../../../../ts/icon/general";
   import sleep from "../../../../ts/sleep";
   import { ArcSoundBus } from "../../../../ts/sound/main";
 

@@ -1,7 +1,7 @@
 import { get, writable } from "svelte/store";
 import OpenWith from "../../../lib/Apps/OpenWith.svelte";
 import type { ArcFile } from "../../api/interface";
-import { AppsIcon } from "../../icon/main";
+import { AppsIcon } from "../../icon/general";
 import sleep from "../../sleep";
 import { closeWindow } from "../events";
 import type { App } from "../interface";

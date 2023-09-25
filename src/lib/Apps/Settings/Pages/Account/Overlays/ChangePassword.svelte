@@ -3,7 +3,7 @@
   import { changePassword } from "../../../../../../ts/api/cred/mutate";
   import type { App } from "../../../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
-  import { PasswordIcon } from "../../../../../../ts/icon/main";
+  import { PasswordIcon } from "../../../../../../ts/icon/general";
   import {
     UserData,
     UserName,

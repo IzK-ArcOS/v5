@@ -2,7 +2,7 @@
   import { isDisabled, isOpened } from "../../../../ts/applogic/checks";
   import { openWindow } from "../../../../ts/applogic/events";
   import { WindowStore } from "../../../../ts/applogic/store";
-  import { AppsIcon } from "../../../../ts/icon/main";
+  import { AppsIcon } from "../../../../ts/icon/general";
   import { hideOverlay } from "../../../../ts/window/overlay";
 
   let value: string;

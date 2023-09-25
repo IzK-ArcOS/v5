@@ -1,7 +1,7 @@
 import Experiments from "../../../lib/Apps/Experiments.svelte";
 import Warning from "../../../lib/Apps/Experiments/Warning.svelte";
 import { createOverlayableError } from "../../errorlogic/overlay";
-import { UpdateIcon } from "../../icon/main";
+import { UpdateIcon } from "../../icon/general";
 import { closeWindow } from "../events";
 import type { App } from "../interface";
 

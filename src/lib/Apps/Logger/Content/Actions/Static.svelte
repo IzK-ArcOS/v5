@@ -2,7 +2,7 @@
   import type { App } from "../../../../../ts/applogic/interface";
   import { Log, LogStore } from "../../../../../ts/console";
   import { LogItem, LogLevel } from "../../../../../ts/console/interface";
-  import { TrashIcon } from "../../../../../ts/icon/main";
+  import { TrashIcon } from "../../../../../ts/icon/general";
   import {
     ScopedAppData,
     UserData,

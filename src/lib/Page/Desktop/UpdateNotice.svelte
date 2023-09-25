@@ -3,7 +3,7 @@
   import "../../../css/desktop/apps/UpdateNotice.css";
   import { disableApp } from "../../../ts/applogic/enabling";
   import type { App } from "../../../ts/applogic/interface";
-  import { UpdateIcon } from "../../../ts/icon/main";
+  import { UpdateIcon } from "../../../ts/icon/general";
   import { showOverlay } from "../../../ts/window/overlay";
   import {
     filterTagName,

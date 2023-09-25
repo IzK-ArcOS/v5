@@ -1,20 +1,19 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { get } from "svelte/store";
   import "./css/main.css";
   import BugReport from "./lib/BugReport.svelte";
   import { logoffToken } from "./ts/api/cred";
   import { ARCOS_MODE, getMode, Logo } from "./ts/branding";
+  import { ARCOS_BUILD, getBuild } from "./ts/branding/build";
+  import { Log } from "./ts/console";
+  import { LogLevel } from "./ts/console/interface";
   import { DESKTOP_MODE, getDesktopMode } from "./ts/desktop/app";
   import { ArcOSVersion, Busy } from "./ts/env/main";
+  import { getAllIcons } from "./ts/icon/main";
   import { handleWindowError } from "./ts/reporting/crash";
   import { applyState, CurrentState } from "./ts/state/main";
   import { committingUserData } from "./ts/userlogic/main";
-  import { ARCOS_BUILD, getBuild } from "./ts/branding/build";
-  import { makeNotification } from "./ts/notiflogic/main";
-  import { get } from "svelte/store";
-  import { Log } from "./ts/console";
-  import { LogLevel } from "./ts/console/interface";
-  import * as mainIcons from "./ts/icon/main";
 
   let run = false;
   let logo = "";
@@ -37,7 +36,7 @@
     logo = Logo();
     run = true;
 
-    console.log(Object.entries(mainIcons));
+    console.log(getAllIcons());
 
     window.onunhandledrejection = (e: PromiseRejectionEvent) => {
       handleWindowError(e);

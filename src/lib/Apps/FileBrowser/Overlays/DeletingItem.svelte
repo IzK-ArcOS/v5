@@ -1,7 +1,7 @@
 <script lang="ts">
   import "../../../../css/desktop/apps/filebrowser/overlays/deletingfile.css";
   import { FileBrowserDeletingFilename } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import { TrashIcon } from "../../../../ts/icon/main";
+  import { TrashIcon } from "../../../../ts/icon/general";
   import Spinner from "../../../Spinner.svelte";
 </script>
 

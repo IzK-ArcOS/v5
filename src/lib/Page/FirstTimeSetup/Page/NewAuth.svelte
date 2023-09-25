@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { Busy } from "../../../../ts/env/main";
   import { applyFTSState } from "../../../../ts/fts/main";
-  import { AccountIcon } from "../../../../ts/icon/main";
+  import { AccountIcon } from "../../../../ts/icon/general";
   import { UserData, UserName } from "../../../../ts/userlogic/interfaces";
   import { getUsers } from "../../../../ts/userlogic/main";
   import { createUser } from "../../../../ts/userlogic/mutate";

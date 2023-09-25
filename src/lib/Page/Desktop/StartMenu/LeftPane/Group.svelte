@@ -2,7 +2,7 @@
   import { isPopulatable } from "../../../../../ts/applogic/checks";
   import type { CompiledAppGroup } from "../../../../../ts/applogic/groups/interface";
   import { getWindow } from "../../../../../ts/applogic/store";
-  import { FolderIcon } from "../../../../../ts/icon/main";
+  import { FolderIcon } from "../../../../../ts/icon/general";
   import AppListItem from "../AppListItem.svelte";
 
   export let group: CompiledAppGroup;

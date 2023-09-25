@@ -12,7 +12,7 @@ import { Log } from "../../../console";
 import { LogLevel } from "../../../console/interface";
 import { createOverlayableError } from "../../../errorlogic/overlay";
 import { ErrorIcon } from "../../../icon/apps";
-import { TrashIcon } from "../../../icon/main";
+import { TrashIcon } from "../../../icon/general";
 import { ArcSoundBus } from "../../../sound/main";
 import { hideOverlay, showOverlay } from "../../../window/overlay";
 

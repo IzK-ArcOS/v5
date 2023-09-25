@@ -9,7 +9,7 @@ import {
   SecureIcon,
   UpdateIcon,
   WaveIcon,
-} from "../icon/main";
+} from "../icon/general";
 import type { State } from "../state/interfaces";
 export const FTSStates = new Map<string, State>([
   [
