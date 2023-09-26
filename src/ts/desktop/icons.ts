@@ -1,9 +1,10 @@
 import { get } from "svelte/store";
 import { getAppPreference, setAppPreference } from "../applogic/pref";
-import { WindowStore } from "../applogic/store";
+import { WindowStore, getWindow } from "../applogic/store";
 import { Log } from "../console";
 import sleep from "../sleep";
 import { UserData } from "../userlogic/interfaces";
+import { isPopulatable } from "../applogic/checks";
 
 let LOCKED = false;
 

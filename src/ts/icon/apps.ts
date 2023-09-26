@@ -11,6 +11,7 @@ export { default as ErrorDialogIcon } from "../../assets/apps/errordialog.svg";
 export { default as ExitIcon } from "../../assets/apps/exit.svg";
 export { default as FileManagerIcon } from "../../assets/apps/filemanager.svg";
 export { default as HelpCenterIcon } from "../../assets/apps/helpcenter.svg";
+export { default as IconLibraryIcon } from "../../assets/apps/iconlibrary.svg";
 export { default as ImageViewerIcon } from "../../assets/apps/imageviewer.svg";
 export { default as LightsOffIcon } from "../../assets/apps/lightsoff.svg";
 export { default as LoggerIcon } from "../../assets/apps/logger.svg";

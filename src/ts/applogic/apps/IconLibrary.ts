@@ -1,5 +1,5 @@
 import IconLibrarySvelte from "../../../lib/Apps/IconLibrary.svelte";
-import { AppsIcon } from "../../icon/general";
+import { IconLibraryIcon } from "../../icon/apps";
 import type { App } from "../interface";
 
 export const IconLibrary: App = {
@@ -10,7 +10,7 @@ export const IconLibrary: App = {
     version: "0.0.1",
     author: "Izaak Kuipers",
     hidden: true,
-    icon: AppsIcon,
+    icon: IconLibraryIcon,
   },
   size: { w: 595, h: NaN },
   pos: { x: 30, y: 40 },
