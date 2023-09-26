@@ -13,19 +13,19 @@
         display: flex;
         justify-content: center;
       }
-      h1 {
+      #woah {
         color: #fff;
         text-align: center;
       }
-      p {
+      #jsenable {
         color: #ccc;
         text-align: center;
       }
-      h6 {
+      #why {
         color: #777;
         text-align: center;
       }
-      img {
+      #logo {
         width: 120px;
         height: 120px;
         display: block;
@@ -44,10 +44,10 @@
   <body>
     <div id="app">
       <noscript>
-        <img src="/public/systemIcon.svg" alt="ArcOS logo">
-        <h1>Woah there!</h1>
-        <p>To be able to use ArcOS, you need to enable javascript!</p>
-        <h6>Why is it disabled? :(</h6>
+        <img src="/public/systemIcon.svg" alt="ArcOS logo" id="logo">
+        <h1 id="woah">Woah there!</h1>
+        <p id="jsenable">To be able to use ArcOS, you need to enable javascript!</p>
+        <h6 id="why">Why is it disabled? :(</h6>
       </noscript>
     </div>
     <script type="module" src="/src/main.ts"></script>
