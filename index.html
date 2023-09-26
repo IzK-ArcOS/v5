@@ -8,10 +8,48 @@
       body {
         background-color: #000;
       }
+      #app {
+        width:100%;
+        display: flex;
+        justify-content: center;
+      }
+      h1 {
+        color: #fff;
+        text-align: center;
+      }
+      p {
+        color: #ccc;
+        text-align: center;
+      }
+      h6 {
+        color: #777;
+        text-align: center;
+      }
+      img {
+        width: 120px;
+        height: 120px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      noscript {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
     </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <noscript>
+        <img src="/public/systemIcon.svg" alt="ArcOS logo">
+        <h1>Woah there!</h1>
+        <p>To be able to use ArcOS, you need to enable javascript!</p>
+        <h6>Why is it disabled? :(</h6>
+      </noscript>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
