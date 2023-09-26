@@ -4,7 +4,10 @@
   import { isPopulatable } from "../../../../ts/applogic/checks";
   import type { App } from "../../../../ts/applogic/interface";
   import { WindowStore } from "../../../../ts/applogic/store";
-  import { alignDesktopIcons } from "../../../../ts/desktop/icons";
+  import {
+    alignDesktopIcons,
+    checkDesktopIconLength,
+  } from "../../../../ts/desktop/icons";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import DesktopIcon from "./DesktopIcons/DesktopIcon.svelte";
 
@@ -23,6 +26,8 @@
         loading = false;
       }, 100);
     }
+
+    await checkDesktopIconLength();
 
     const len = store.length;
     const newStore = $WindowStore.filter((a) => isPopulatable(a));

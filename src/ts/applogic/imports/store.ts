@@ -7,6 +7,7 @@ import { DonutApp } from "../apps/Donut";
 import { ErrorCreator } from "../apps/ErrorCreator";
 import { Exit } from "../apps/Exit";
 import { FileBrowserApp } from "../apps/FileBrowser";
+import { IconLibrary } from "../apps/IconLibrary";
 import { ImageViewer } from "../apps/ImageViewer";
 import { LightsOff } from "../apps/LightsOff";
 import { LoggerApp } from "../apps/Logger";
@@ -50,6 +51,7 @@ export const DefaultApps: { [key: string]: App } = {
   ExperimentsApp,
   UpdateNotice,
   TwentyFourtyEight,
+  IconLibrary,
 };
 
 export const SystemApps: string[] = [

@@ -1,8 +1,9 @@
 import { get } from "svelte/store";
-import { setAppPreference } from "../applogic/pref";
+import { getAppPreference, setAppPreference } from "../applogic/pref";
 import { WindowStore } from "../applogic/store";
 import { Log } from "../console";
 import sleep from "../sleep";
+import { UserData } from "../userlogic/interfaces";
 
 let LOCKED = false;
 
@@ -45,5 +46,19 @@ export async function alignDesktopIcons(overrideLock = false) {
       offsetX = 0;
       offsetY++;
     }
+  }
+}
+
+export async function checkDesktopIconLength() {
+  const udata = get(UserData);
+  const shell = udata.appdata["ArcShell"];
+
+  if (!shell) return;
+
+  const icons = Object.keys(shell).map((i) => i.startsWith("icon$")).length;
+  const apps = get(WindowStore).length;
+
+  if (icons != apps) {
+    console.warn("ainah");
   }
 }

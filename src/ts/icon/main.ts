@@ -4,10 +4,10 @@ import * as handlers from "../icon/handlers";
 import * as mimes from "../icon/mimetypes";
 
 export const ICON_GROUP_CAPTIONS = {
-  general: "General Icons",
+  generals: "General Icons",
   apps: "Apps",
   handlers: "File Handlers",
-  mimetypes: "Mimetypes",
+  mimes: "Mimetypes",
 };
 
 export function getAllIcons() {

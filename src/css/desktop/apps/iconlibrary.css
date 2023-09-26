@@ -1,0 +1,40 @@
+window#IconLibrary > div.body {
+  min-height: calc(100% - 40px);
+  max-height: calc(100% - 30px);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  overflow-x: none;
+  overflow-y: scroll;
+  font-size: 13px;
+  position: inherit;
+}
+
+window#IconLibrary > div.body div.group {
+  display: flex;
+  flex-direction: column;
+}
+
+window#IconLibrary > div.body div.group:first-child h2.header {
+  margin-top: 0;
+}
+
+window#IconLibrary > div.body div.group h2.header {
+  padding-bottom: 5px;
+  margin: 15px 0;
+  padding-left: 5px;
+  border-bottom: var(--button-glass-hover-bg) 1px solid;
+}
+
+window#IconLibrary > div.body div.group div.icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 48px);
+  grid-template-rows: repeat(auto-fit, 48px);
+  grid-gap: 5px;
+}
+window#IconLibrary > div.body div.group div.icons img {
+  height: 48px;
+  padding: 8px;
+  background-color: var(--button-glass-bg);
+  border-radius: 5px;
+}
