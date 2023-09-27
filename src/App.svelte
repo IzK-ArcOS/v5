@@ -10,7 +10,6 @@
   import { LogLevel } from "./ts/console/interface";
   import { DESKTOP_MODE, getDesktopMode } from "./ts/desktop/app";
   import { ArcOSVersion, Busy } from "./ts/env/main";
-  import { getAllIcons } from "./ts/icon/main";
   import { handleWindowError } from "./ts/reporting/crash";
   import { applyState, CurrentState } from "./ts/state/main";
   import { committingUserData } from "./ts/userlogic/main";
@@ -35,8 +34,6 @@
 
     logo = Logo();
     run = true;
-
-    console.log(getAllIcons());
 
     window.onunhandledrejection = (e: PromiseRejectionEvent) => {
       handleWindowError(e);

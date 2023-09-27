@@ -46,15 +46,13 @@ export function isPopulatable(app: App) {
 }
 
 export async function checkFileRequirement(appId: string) {
-  console.log("CHKFLREQ: " + appId);
   const app = getWindow(appId);
 
-  if (!app.info.requiresFile) return console.log("CHKFLREQ FAILURE: " + appId);
+  if (!app.info.requiresFile) return;
 
   await sleep(100);
 
-  if (app.openedFile)
-    return console.log("CHKFLREQ OPENEDFILE: ", app.openedFile);
+  if (app.openedFile) return;
 
   makeNotification({
     icon: "warning",

@@ -163,8 +163,6 @@ export class TwentyRuntime extends AppRuntime {
       },
     };
 
-    console.log(state);
-
     return state;
   };
 }

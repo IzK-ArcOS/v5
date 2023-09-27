@@ -1,10 +1,10 @@
 import { get } from "svelte/store";
 import { apiCall, ConnectedServer } from "../api/main";
+import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 import { loginUsername } from "../login/main";
 import { UserData, UserName, UserToken } from "../userlogic/interfaces";
 import { generateCredToken } from "./cred";
-import { LogLevel } from "../console/interface";
-import { Log } from "../console";
 
 export async function loginUsingCreds(
   token: string
@@ -57,8 +57,6 @@ export async function rememberedLogin() {
   const userdata = await loginUsingCreds(
     generateCredToken({ username, password })
   );
-
-  console.log(username, password, userdata);
 
   if (!userdata) {
     localStorage.removeItem("arcos-remembered-token");

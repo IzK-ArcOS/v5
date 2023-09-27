@@ -13,6 +13,9 @@ window#IconLibrary > div.body {
 window#IconLibrary > div.body div.group {
   display: flex;
   flex-direction: column;
+  height: fit-content;
+  max-width: 800px;
+  width: 100%;
 }
 
 window#IconLibrary > div.body div.group:first-child h2.header {
@@ -37,4 +40,9 @@ window#IconLibrary > div.body div.group div.icons img {
   padding: 8px;
   background-color: var(--button-glass-bg);
   border-radius: 5px;
+}
+
+window#IconLibrary > div.body div.group div.icons img:hover {
+  transform: scale(1.4);
+  background-color: transparent;
 }

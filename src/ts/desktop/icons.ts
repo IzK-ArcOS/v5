@@ -21,7 +21,6 @@ export async function alignDesktopIcons(overrideLock = false) {
 
   const apps = [...get(WindowStore)].sort((a) => (a.info.hidden ? 1 : -1));
 
-  console.log(apps);
   const GRIDX = 80;
   const GRIDY = 85;
   const MAXX = 4;
@@ -59,7 +58,5 @@ export async function checkDesktopIconLength() {
   const icons = Object.keys(shell).map((i) => i.startsWith("icon$")).length;
   const apps = get(WindowStore).length;
 
-  if (icons != apps) {
-    console.warn("ainah");
-  }
+  // TODO: Properly do this function
 }
