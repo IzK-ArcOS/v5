@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
-import { get, writable } from "svelte/store";
-import { LogLevelData, type LogItem, LogLevel } from "./console/interface";
+import { writable } from "svelte/store";
+import { LogLevel, LogLevelData, type LogItem } from "./console/interface";
 import { sendReport } from "./reporting/main";
 
 export const LogStore = writable<LogItem[]>([]);
@@ -10,13 +10,14 @@ export function Log(source: string, msg: string, level = LogLevel.info) {
 
   data.timestamp = new Date().getTime();
 
-  const currentLog = get(LogStore);
   const levelCaption = LogLevelData[LogLevel[data.level]].capt;
   const timestamp = dayjs(data.timestamp || 0).format("HH:mm:ss.mmm");
 
-  currentLog.push(data);
+  LogStore.update((currentLog) => {
+    currentLog.push(data);
 
-  LogStore.set(currentLog);
+    return currentLog;
+  });
 
   if (data.level == LogLevel.critical)
     sendReport({
