@@ -116,14 +116,14 @@ export class LightsOffRuntime extends AppRuntime {
     if (get(this.LEVEL) == 0 && !this.containsLights())
       return this.Log("Not saving default state!", "saveData", LogLevel.warn);
 
-    const ud = get(UserData);
+    UserData.update((udata) => {
+      udata.appdata[this.app.id] = {
+        clicks: get(this.Clicks),
+        level: get(this.LEVEL),
+        grid: get(this.Grid),
+      };
 
-    ud.appdata[this.app.id] = {
-      clicks: get(this.Clicks),
-      level: get(this.LEVEL),
-      grid: get(this.Grid),
-    };
-
-    UserData.set(ud);
+      return udata;
+    });
   }
 }

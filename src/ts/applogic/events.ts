@@ -1,5 +1,6 @@
 import { get } from "svelte/store";
 import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 import { ActionCenterOpened } from "../desktop/actioncenter/main";
 import { attentionId, startOpened } from "../desktop/main";
 import { destroyOverlayableError } from "../errorlogic/overlay";
@@ -14,7 +15,6 @@ import {
   maxZIndex,
   updateStores,
 } from "./store";
-import { LogLevel } from "../console/interface";
 
 export function openWindow(id: string, openChild = false) {
   Log("events.ts: openWindow", `Opening ${id}`);
@@ -52,13 +52,12 @@ export function openWindow(id: string, openChild = false) {
     openWindow(window.parentId);
   }
 
-  const ws = get(WindowStore);
-
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == id) ws[i].opened = true;
-  }
-
-  WindowStore.set(ws);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      if (ws[i].id == id) ws[i].opened = true;
+    }
+    return ws;
+  });
 
   setTimeout(() => {
     maxZIndex.set(get(maxZIndex) + 1);
@@ -117,18 +116,21 @@ export function closeWindow(id: string) {
     return false;
   }
 
-  const ws = get(WindowStore);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      if (ws[i] && ws[i].id == id) {
+        ws[i].opened = false;
+        ws[i].openedFile = null;
+        break;
+      }
+    }
+
+    return ws;
+  });
+
   const window = getWindow(id);
 
   if (window && window.core) return;
-
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i] && ws[i].id == id) {
-      ws[i].opened = false;
-      ws[i].openedFile = null;
-      break;
-    }
-  }
 
   if (window.children) {
     const entries = Object.entries(window.children);
@@ -153,8 +155,6 @@ export function closeWindow(id: string) {
   }
 
   window.snapped = false;
-
-  WindowStore.set(ws);
 
   if (window.events && window.events.close) window.events.close(window);
 
@@ -212,15 +212,15 @@ export function unminimizeWindow(app: App) {
 
   if (app.core) return;
 
-  const ws = get(WindowStore);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      if (ws[i].id == app.id) ws[i].state.windowState.min = false;
+    }
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == app.id) ws[i].state.windowState.min = false;
-  }
+    return ws;
+  });
 
   focusedWindowId.set(app.id);
-
-  WindowStore.set(ws);
 }
 
 export function fullscreenWindow(app: App) {
@@ -267,17 +267,17 @@ export function fullscreenToggle(id: string) {
     LogLevel.info
   );
 
-  const ws = get(WindowStore);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      if (ws[i].id != id) continue;
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id != id) continue;
+      if (ws[i].core) continue;
 
-    if (ws[i].core) continue;
+      ws[i].state.windowState.fll = !ws[i].state.windowState.fll;
+    }
 
-    ws[i].state.windowState.fll = !ws[i].state.windowState.fll;
-  }
-
-  WindowStore.set(ws);
+    return ws;
+  });
 }
 
 export function requestUserAttention(id: string) {

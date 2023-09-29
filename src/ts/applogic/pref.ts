@@ -1,6 +1,6 @@
 import { get } from "svelte/store";
-import { UserData } from "../userlogic/interfaces";
 import { Log } from "../console";
+import { UserData } from "../userlogic/interfaces";
 
 export function getAppPreference(
   id: string,
@@ -23,15 +23,15 @@ export function setAppPreference(
     `Setting ${key} in ${id} to type ${typeof value}...`
   );
 
-  const udata = get(UserData);
+  UserData.update((udata) => {
+    if (!udata.appdata) return udata;
 
-  if (!udata.appdata) return false;
+    if (!udata.appdata[id]) udata.appdata[id] = {};
 
-  if (!udata.appdata[id]) udata.appdata[id] = {};
+    udata.appdata[id][key] = value;
 
-  udata.appdata[id][key] = value;
-
-  UserData.set(udata);
+    return udata;
+  });
 
   return true;
 }

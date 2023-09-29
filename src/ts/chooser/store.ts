@@ -9,24 +9,24 @@ export function setTargetFile(id: string, file: ArcFile): boolean {
   const targets = get(chooseTargets);
   const targetId = targets[id];
 
-  const ws = get(WindowStore);
+  WindowStore.update((ws) => {
+    let index = null;
 
-  let index = null;
+    for (let i = 0; i < ws.length; i++) {
+      if (ws[i].id == targetId) index = i;
+    }
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == targetId) index = i;
-  }
+    if (index == null) return ws;
 
-  if (index == null) return false;
+    ws[index].openedFile = file;
 
-  ws[index].openedFile = file;
+    if (ws[index].events && ws[index].events.openFile)
+      ws[index].events.openFile(ws[index]);
 
-  if (ws[index].events && ws[index].events.openFile)
-    ws[index].events.openFile(ws[index]);
+    delete ws[index].overlays[id];
 
-  delete ws[index].overlays[id];
-
-  WindowStore.set(ws);
+    return ws;
+  });
 
   delete targets[id];
 

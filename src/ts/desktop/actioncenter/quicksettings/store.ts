@@ -11,7 +11,11 @@ export const QuickSettings: QuickSetting[] = [
       return udata.sh.anim;
     },
     setter(udata) {
-      udata.sh.anim = !udata.sh.anim;
+      UserData.update((udata) => {
+        udata.sh.anim = !udata.sh.anim;
+
+        return udata;
+      });
 
       UserData.set(udata);
 

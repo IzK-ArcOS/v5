@@ -1,13 +1,13 @@
 import { get, writable } from "svelte/store";
 import Shell from "../../../lib/Page/Desktop/Shell.svelte";
 import { Logo } from "../../branding";
-import { ArcOSVersion } from "../../env/main";
-import { UserData } from "../../userlogic/interfaces";
-import type { App } from "../interface";
 import { SEP_ITEM } from "../../contextmenu/main";
-import { openWindow } from "../events";
-import { openByKey } from "./SettingsApp/store";
+import { ArcOSVersion } from "../../env/main";
 import { AppManIcon } from "../../icon/apps";
+import { UserData } from "../../userlogic/interfaces";
+import { openWindow } from "../events";
+import type { App } from "../interface";
+import { openByKey } from "./SettingsApp/store";
 
 export const ArcShell: App = {
   info: {
@@ -38,11 +38,11 @@ export const ArcShell: App = {
       {
         caption: "Show Seconds",
         action: () => {
-          const ud = get(UserData);
+          UserData.update((udata) => {
+            udata.sh.taskbar.clockSecs = !udata.sh.taskbar.clockSecs;
 
-          ud.sh.taskbar.clockSecs = !ud.sh.taskbar.clockSecs;
-
-          UserData.set(ud);
+            return udata;
+          });
         },
         isActive: () => get(UserData).sh.taskbar.clockSecs,
         icon: "av_timer",
@@ -50,11 +50,11 @@ export const ArcShell: App = {
       {
         caption: "Show Date",
         action: () => {
-          const ud = get(UserData);
+          UserData.update((udata) => {
+            udata.sh.taskbar.clockDate = !udata.sh.taskbar.clockDate;
 
-          ud.sh.taskbar.clockDate = !ud.sh.taskbar.clockDate;
-
-          UserData.set(ud);
+            return udata;
+          });
         },
         isActive: () => get(UserData).sh.taskbar.clockDate,
         icon: "calendar_month",
@@ -62,11 +62,11 @@ export const ArcShell: App = {
       {
         caption: "12-hour clock",
         action: () => {
-          const ud = get(UserData);
+          UserData.update((udata) => {
+            udata.sh.taskbar.clock12hr = !udata.sh.taskbar.clock12hr;
 
-          ud.sh.taskbar.clock12hr = !ud.sh.taskbar.clock12hr;
-
-          UserData.set(ud);
+            return udata;
+          });
         },
         isActive: () => get(UserData).sh.taskbar.clock12hr,
       },

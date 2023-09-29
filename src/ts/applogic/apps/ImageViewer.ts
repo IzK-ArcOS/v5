@@ -1,4 +1,3 @@
-import { get } from "svelte/store";
 import ImageView from "../../../lib/Apps/ImageView.svelte";
 import { ImageViewerIcon } from "../../icon/apps";
 import { UserData } from "../../userlogic/interfaces";
@@ -51,11 +50,11 @@ export const ImageViewer: App = {
         caption: "Set as wallpaper",
         icon: "image",
         action(window, data, scope) {
-          const udata = get(UserData);
+          UserData.update((udata) => {
+            udata.sh.desktop.wallpaper = `@local:${btoa(data["path"])}`;
 
-          udata.sh.desktop.wallpaper = `@local:${btoa(data["path"])}`;
-
-          UserData.set(udata);
+            return udata;
+          });
         },
       },
     ],

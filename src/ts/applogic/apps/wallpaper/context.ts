@@ -28,11 +28,11 @@ export const WallpaperContext: AppContextMenu = {
     {
       caption: "Show desktop icons",
       action: () => {
-        const udata = get(UserData);
+        UserData.update((udata) => {
+          udata.sh.desktop.icons = !udata.sh.desktop.icons;
 
-        udata.sh.desktop.icons = !udata.sh.desktop.icons;
-
-        UserData.set(udata);
+          return udata;
+        });
       },
       icon: "apps",
       isActive: () => get(UserData).sh.desktop.icons,
@@ -40,11 +40,11 @@ export const WallpaperContext: AppContextMenu = {
     {
       caption: "Align icons to grid",
       action: () => {
-        const udata = get(UserData);
+        UserData.update((udata) => {
+          udata.sh.desktop.noIconGrid = !udata.sh.desktop.noIconGrid;
 
-        udata.sh.desktop.noIconGrid = !udata.sh.desktop.noIconGrid;
-
-        UserData.set(udata);
+          return udata;
+        });
       },
       icon: "grid_4x4",
       isActive: () => !get(UserData).sh.desktop.noIconGrid,

@@ -10,7 +10,7 @@ export interface UserTheme {
   wallpaper: string;
   taskbarCentered: boolean;
   taskbarLabels: boolean;
-  taskbarPosition: "vertical" | "" | "vertical-right";
+  taskbarPosition: "vertical" | "" | "vertical-right" | string;
   docked: boolean;
   accent: string;
   smallStart: boolean;

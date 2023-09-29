@@ -7,11 +7,11 @@
   const wallString = (path: string) => `@local:${btoa(path)}`;
 
   function apply() {
-    const udata = get(UserData);
+    UserData.update((udata) => {
+      udata.sh.desktop.wallpaper = wallString(wallpaper.path);
 
-    udata.sh.desktop.wallpaper = wallString(wallpaper.path);
-
-    UserData.set(udata);
+      return udata;
+    });
   }
 </script>
 

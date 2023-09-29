@@ -1,6 +1,5 @@
 import { get, writable, Writable } from "svelte/store";
 import { Log } from "../console";
-import { LogLevel } from "../console/interface";
 import type { App } from "./interface";
 
 export const OpenedStore: Writable<App[]> = writable<App[]>([]);
@@ -33,27 +32,27 @@ export function getOpenedStore() {
 export function updateStores() {
   Log("store.ts: updateStores", `Flushing all stores`);
 
-  const ws = get(WindowStore);
   const oa = getOpenedStore();
 
-  isFullscreenWindow.set(false);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < oa.length; i++) {
+      const windowData = getWindow(oa[i].id);
 
-  for (let i = 0; i < oa.length; i++) {
-    const windowData = getWindow(oa[i].id);
+      if (windowData) oa[i] = windowData;
 
-    if (windowData) oa[i] = windowData;
-
-    if (
-      oa[i] &&
-      oa[i] &&
-      oa[i].state.windowState.fll &&
-      !oa[i].state.windowState.min
-    ) {
-      isFullscreenWindow.set(true);
+      if (
+        oa[i] &&
+        oa[i] &&
+        oa[i].state.windowState.fll &&
+        !oa[i].state.windowState.min
+      ) {
+        isFullscreenWindow.set(true);
+      }
     }
-  }
+    return ws;
+  });
 
-  WindowStore.set(ws);
+  isFullscreenWindow.set(false);
 }
 
 WindowStore.subscribe(() => {
