@@ -22,17 +22,14 @@ export const SUD: Command = {
 
     console.log(currentValue, typeof currentValue);
 
-    /*    if (typeof currentValue !== "string")
-      return term.std.Error("Can only set String values");
- */
-    argv.shift();
+    argv.shift(); // Remove the hierarchy from the arguments
 
     let newValue = argv.join(" ").trim();
 
     try {
       newValue = JSON.parse(newValue);
     } catch {
-      newValue;
+      // silently error
     }
 
     setJsonHierarchy(udata, hierarchy, newValue);

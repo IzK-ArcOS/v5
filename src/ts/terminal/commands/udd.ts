@@ -7,13 +7,15 @@ export const UDD: Command = {
   keyword: "udd",
   async exec(cmd, argv, term) {
     const filename = `./UserDump-${Math.floor(Math.random() * 1e9)}.txt`;
-    term.std.writeColor(`Writing log to [${filename}]...\n`, "purple");
+    term.std.writeColor(`Writing UserData to [${filename}]...\n`, "purple");
 
     const b = new Blob([JSON.stringify(get(UserData), null, 2)], {
       type: "text/plain",
     });
 
     await writeFile(filename, b);
+
+    term.vars.set("uddout", filename);
   },
   description: "Dump the userdata to a file",
   hidden: true,
