@@ -6,6 +6,7 @@
   let active = false;
 
   export let setting: QuickSetting;
+
   function click() {
     setting.setter($UserData);
 

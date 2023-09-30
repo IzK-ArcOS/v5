@@ -10,6 +10,7 @@
   } from "../../ts/applogic/store";
   import { checkReleaseCandidate } from "../../ts/branding/rc";
   import { checkDesktopFile } from "../../ts/desktop/app";
+  import { checkFirefox } from "../../ts/desktop/browser";
   import { getExperiments } from "../../ts/desktop/experiments/main";
   import {
     assignDesktopListeners,
@@ -30,8 +31,6 @@
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
-  import SnapZones from "./Desktop/Wallpaper/SnapZones.svelte";
-  import { checkFirefox } from "../../ts/desktop/browser";
 
   let show = false;
   let classes = "";
@@ -84,7 +83,6 @@
     theme-{$UserData.sh.desktop.theme}
     tb-{$UserData.sh.taskbar.pos}
     cursor-{$UserData.sh.desktop.noCustomCursor ? '' : 'custom'}"
-    class:noglass={navigator.userAgent.toLowerCase().includes("firefox")}
     class:show
     style="--accent: #{$UserData.sh.desktop.accent || '70D6FF'} !important"
   >
