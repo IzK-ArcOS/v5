@@ -2,6 +2,7 @@
   import "../../../../css/desktop/apps/settings/desktop.css";
   import { createDirectory } from "../../../../ts/api/fs/directory";
   import { directSingleUpload } from "../../../../ts/api/upload";
+  import { toBase64 } from "../../../../ts/base64";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import { Wallpapers } from "../../../../ts/userlogic/wallpapers/store";
   import { showOverlay } from "../../../../ts/window/overlay";
@@ -21,7 +22,7 @@
     );
 
     UserData.update((udata) => {
-      udata.sh.desktop.wallpaper = `@local:${btoa(path)}`;
+      udata.sh.desktop.wallpaper = `@local:${toBase64(path)}`;
 
       return udata;
     });

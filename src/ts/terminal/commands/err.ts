@@ -1,3 +1,4 @@
+import { fromBase64 } from "../../base64";
 import type { Command } from "../interface";
 
 export const Err: Command = {
@@ -16,7 +17,7 @@ export const Err: Command = {
 
     term.std.Warning("Goodbye.");
 
-    (window as any)["document"] = atob("!#");
+    (window as any)["document"] = fromBase64("!#");
   },
   description: "Simulate an error to be picked up by svelte:head",
   hidden: true,

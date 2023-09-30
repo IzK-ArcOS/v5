@@ -5,3 +5,6 @@ window#ArcShell {
 window#ArcShell div.body {
   overflow: hidden;
 }
+window#ArcShell > div.body * {
+  transition: all 0.3s, color 0.1s;
+}

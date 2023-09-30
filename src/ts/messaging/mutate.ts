@@ -1,6 +1,7 @@
 import { get } from "svelte/store";
 import { apiCall, ConnectedServer } from "../api/main";
 import { UserToken } from "../userlogic/interfaces";
+import { toBase64 } from "../base64";
 
 export async function deleteMessage(id: string): Promise<boolean> {
   const server = get(ConnectedServer);
@@ -10,7 +11,7 @@ export async function deleteMessage(id: string): Promise<boolean> {
   const req = await apiCall(
     server,
     "messages/delete",
-    { id: btoa(id) },
+    { id: toBase64(id) },
     get(UserToken)
   );
 

@@ -4,11 +4,12 @@ import { LogLevel } from "../console/interface";
 import { UserToken } from "../userlogic/interfaces";
 import type { Cred } from "./interface";
 import { ConnectedServer, apiCall } from "./main";
+import { toBase64 } from "../base64";
 
 export function generateCredToken(cred: Cred) {
   if (!cred) return "";
   try {
-    return btoa(`${cred.username}:${cred.password}`);
+    return toBase64(`${cred.username}:${cred.password}`);
   } catch {
     return "";
   }

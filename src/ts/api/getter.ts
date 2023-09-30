@@ -5,6 +5,7 @@ import { LogLevel } from "../console/interface";
 import { loginUsername } from "../login/main";
 import { UserData, UserName, UserToken } from "../userlogic/interfaces";
 import { generateCredToken } from "./cred";
+import { fromBase64 } from "../base64";
 
 export async function loginUsingCreds(
   token: string
@@ -15,7 +16,7 @@ export async function loginUsingCreds(
     LogLevel.info
   );
 
-  let [name, password] = atob(token).split(":");
+  let [name, password] = fromBase64(token).split(":");
 
   const server = get(ConnectedServer);
 
@@ -52,7 +53,7 @@ export async function rememberedLogin() {
     return false;
   }
 
-  const [username, password] = atob(token).split(":");
+  const [username, password] = fromBase64(token).split(":");
 
   const userdata = await loginUsingCreds(
     generateCredToken({ username, password })

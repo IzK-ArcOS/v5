@@ -73,7 +73,7 @@ div.desktopIcons button:active {
 div.desktopIcons button p.name {
   margin: 0;
   height: fit-content;
-  max-height: 2.5em;
+  max-height: 2.6em;
   text-shadow: #000 0 0 5px;
   color: white;
   overflow: hidden;

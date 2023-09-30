@@ -3,6 +3,7 @@ import { Log } from "../../console";
 import { LogLevel } from "../../console/interface";
 import { UserName, UserToken } from "../../userlogic/interfaces";
 import { ConnectedServer, apiCall } from "../main";
+import { fromBase64, toBase64 } from "../../base64";
 
 export async function changeUsername(old: string, newName: string) {
   Log(
@@ -24,7 +25,7 @@ export async function changeUsername(old: string, newName: string) {
   const req = await apiCall(
     get(ConnectedServer),
     "user/rename",
-    { newname: btoa(newName) },
+    { newname: toBase64(newName) },
     get(UserToken)
   );
 
@@ -54,7 +55,7 @@ export async function changeUsername(old: string, newName: string) {
     return false;
   }
 
-  const rememberedUsername = atob(remembed).split(":")[0];
+  const rememberedUsername = fromBase64(remembed).split(":")[0];
 
   if (rememberedUsername != old) {
     Log(
@@ -68,7 +69,7 @@ export async function changeUsername(old: string, newName: string) {
 
   localStorage.setItem(
     "arcos-remembered-token",
-    btoa(`${newName}:${atob(remembed).split(":")[1]}`)
+    toBase64(`${newName}:${fromBase64(remembed).split(":")[1]}`)
   );
 
   return isValid;
@@ -91,7 +92,7 @@ export async function changePassword(
   const req = await apiCall(
     get(ConnectedServer),
     "user/changepswd",
-    { new: btoa(newPswd) },
+    { new: toBase64(newPswd) },
     null,
     { username, password: old }
   );
@@ -110,7 +111,7 @@ export async function changePassword(
     return isValid;
   }
 
-  const rememberedUsername = atob(remembed).split(":")[0];
+  const rememberedUsername = fromBase64(remembed).split(":")[0];
 
   if (rememberedUsername != username) {
     Log(
@@ -124,7 +125,7 @@ export async function changePassword(
 
   localStorage.setItem(
     "arcos-remembered-token",
-    btoa(`${username}:${newPswd}`)
+    toBase64(`${username}:${newPswd}`)
   );
 
   return isValid;

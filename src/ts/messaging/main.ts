@@ -2,6 +2,7 @@ import { get, writable } from "svelte/store";
 import { apiCall, ConnectedServer } from "../api/main";
 import { UserToken } from "../userlogic/interfaces";
 import type { Message, PartialMessage } from "./interface";
+import { toBase64 } from "../base64";
 
 export const selectedMessageId = writable<string>(null);
 export const replyMessageId = writable<string>(null);
@@ -29,7 +30,7 @@ export async function getMessage(id: string): Promise<Message | false> {
     server,
     "messages/get",
     {
-      id: btoa(id),
+      id: toBase64(id),
     },
     get(UserToken)
   );

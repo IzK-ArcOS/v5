@@ -1,6 +1,7 @@
 import { get } from "svelte/store";
 import { apiCall, ConnectedServer } from "../api/main";
 import { UserToken } from "../userlogic/interfaces";
+import { toBase64 } from "../base64";
 
 export async function sendMessage(receiver: string, body: string) {
   const server = get(ConnectedServer);
@@ -10,7 +11,7 @@ export async function sendMessage(receiver: string, body: string) {
   const req = await apiCall(
     server,
     "messages/send",
-    { target: btoa(receiver) },
+    { target: toBase64(receiver) },
     get(UserToken),
     null,
     body
@@ -46,7 +47,7 @@ export async function replyToMessage(
   const req = await apiCall(
     server,
     "messages/reply",
-    { target: btoa(receiver), id },
+    { target: toBase64(receiver), id },
     get(UserToken),
     null,
     body

@@ -9,6 +9,7 @@ import { UserData, UserName } from "../userlogic/interfaces";
 import { getUsers } from "../userlogic/main";
 import { LoginStates } from "./store";
 import { LogLevel } from "../console/interface";
+import { fromBase64 } from "../base64";
 
 export const CurrentLoginState = writable<State>();
 export const loginUsername = writable<string>();
@@ -56,7 +57,7 @@ export async function loginOnMount() {
     (state ? state.key != "shutdown" && state.key != "restart" : true)
   ) {
     const userdata = await loginUsingCreds(remembered);
-    const username = atob(remembered).split(":")[0];
+    const username = fromBase64(remembered).split(":")[0];
 
     if (!userdata) {
       applyLoginState("todesktop");

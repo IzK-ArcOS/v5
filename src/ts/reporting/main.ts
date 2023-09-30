@@ -84,6 +84,7 @@ export function createReport(
 }
 
 export async function getReport(id: string) {
+  if (!id) return null;
   try {
     return await pb
       .collection("bugrep")

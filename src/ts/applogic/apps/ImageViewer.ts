@@ -1,4 +1,5 @@
 import ImageView from "../../../lib/Apps/ImageView.svelte";
+import { toBase64 } from "../../base64";
 import { ImageViewerIcon } from "../../icon/apps";
 import { UserData } from "../../userlogic/interfaces";
 import type { App } from "../interface";
@@ -51,7 +52,7 @@ export const ImageViewer: App = {
         icon: "image",
         action(window, data, scope) {
           UserData.update((udata) => {
-            udata.sh.desktop.wallpaper = `@local:${btoa(data["path"])}`;
+            udata.sh.desktop.wallpaper = `@local:${toBase64(data["path"])}`;
 
             return udata;
           });

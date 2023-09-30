@@ -12,6 +12,7 @@ import { generateParamStr } from "../params";
 import { getAuthcode } from "../authcode";
 import { getServer } from "../server";
 import type { PartialArcFile } from "../interface";
+import { toBase64 } from "../../base64";
 
 export const abortFileReader = writable<boolean>(false);
 
@@ -34,7 +35,7 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
   };
 
   const controller = new AbortController();
-  const params = generateParamStr({ ac: authCode, path: btoa(path) });
+  const params = generateParamStr({ ac: authCode, path: toBase64(path) });
 
   try {
     let req = await fetch(`${server}/fs/file/get${params}`, {
@@ -81,7 +82,7 @@ export async function writeFile(path: string, data: Blob): Promise<boolean> {
 
   if (!server) return false;
 
-  const params = generateParamStr({ path: btoa(path), ac: authCode });
+  const params = generateParamStr({ path: toBase64(path), ac: authCode });
 
   const req = await axios.post(`${server}/fs/file/write${params}`, data, {
     headers: {
