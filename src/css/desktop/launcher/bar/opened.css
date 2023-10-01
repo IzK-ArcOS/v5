@@ -11,8 +11,7 @@ div.launcher-bar > div.opened-apps button.activated::after {
   width: 5px;
   height: 5px;
   border-radius: 10px;
-  background-color: var(--accent);
-  filter: var(--elevated-accent-filter);
+  background-color: var(--accent-light);
 }
 
 div.launcher-bar > div.opened-apps button.minimized {

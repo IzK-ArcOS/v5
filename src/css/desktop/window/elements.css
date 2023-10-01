@@ -77,10 +77,9 @@ window.window input.fullwidth {
 }
 
 window.window a {
-  color: var(--accent);
+  color: var(--accent-light);
   text-decoration: underline;
   text-underline-offset: 3px;
-  filter: var(--elevated-accent-filter);
 }
 
 window.window div.body code {

@@ -62,7 +62,6 @@ div.taskbar-v div.tray button.ac-open {
   padding: 0 12px;
   font-size: 18px;
   height: 43px;
-  filter: var(--elevated-accent-filter);
   border-radius: var(--win-border-rad);
 }
 
@@ -76,5 +75,5 @@ div.taskbar-v div.tray button.ac-open:active {
 
 div.taskbar-v div.tray button.ac-open.opened {
   background-color: var(--startmenu-applist-item-bg-active);
-  color: var(--accent);
+  color: var(--accent-light);
 }

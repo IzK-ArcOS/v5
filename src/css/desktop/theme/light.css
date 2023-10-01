@@ -40,7 +40,8 @@
   --glass-ultralight: #eeeeee;
   --glass-ultradark: #bbbbbb;
 }
-
+/* 
 .theme-light div.newtb::after {
   opacity: 0.7;
 }
+ */

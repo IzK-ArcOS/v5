@@ -31,9 +31,11 @@
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
+  import { lightenColor } from "../../ts/color";
 
   let show = false;
   let classes = "";
+  let accent = "";
 
   desktopClassNames.subscribe((v) => (classes = v));
   showDesktop.subscribe((v) => (show = v));
@@ -67,6 +69,12 @@
     setTimeout(() => (show = true), 250);
   });
 
+  UserData.subscribe((v) => {
+    if (!v) return;
+
+    accent = $UserData.sh.desktop.accent || "70D6FF";
+  });
+
   function resetDesktopState() {
     WStore.set([]);
     isFullscreenWindow.set(false);
@@ -76,7 +84,7 @@
   }
 </script>
 
-{#if $UserData && $UserName}
+{#if $UserData && $UserName && accent}
   <div
     class="
     desktop fullscreen {classes}
@@ -84,7 +92,9 @@
     tb-{$UserData.sh.taskbar.pos}
     cursor-{$UserData.sh.desktop.noCustomCursor ? '' : 'custom'}"
     class:show
-    style="--accent: #{$UserData.sh.desktop.accent || '70D6FF'} !important"
+    style="--accent: #{accent} !important; --accent-light: {lightenColor(
+      accent
+    )} !important;"
   >
     <WindowStore />
     <ErrorDialogStore />

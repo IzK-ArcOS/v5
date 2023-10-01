@@ -43,8 +43,7 @@ window#FileManager > div.body div.sidebar div.quota-renderer div.bar {
 window#FileManager > div.body div.sidebar div.quota-renderer div.bar div.inner {
   height: 5px;
   border-radius: 2.5px;
-  background-color: var(--accent);
-  filter: var(--elevated-accent-filter);
+  background-color: var(--accent-light);
 }
 
 window#FileManager > div.body div.sidebar div.quota-renderer div.stat {

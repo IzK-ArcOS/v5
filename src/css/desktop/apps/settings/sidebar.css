@@ -98,10 +98,9 @@ window#SettingsApp div.sidebar button.page::before {
 }
 
 window#SettingsApp div.sidebar button.page.selected::before {
-  background-color: var(--accent);
+  background-color: var(--accent-light);
   height: 16px;
   margin: 6px 0;
-  filter: var(--elevated-accent-filter);
 }
 
 window#SettingsApp div.sidebar button.page::after {
