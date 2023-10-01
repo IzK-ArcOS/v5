@@ -45,13 +45,7 @@
     title="Taskbar position"
     context="Where do you want the taskbar?"
   >
-    <TaskBarPosition
-    /><!-- 
-    <select bind:value={$UserData.sh.taskbar.pos}>
-      <option value="vertical">Left</option>
-      <option value="">Bottom</option>
-      <option value="vertical-right">Right</option>
-    </select> -->
+    <TaskBarPosition />
   </OptionSection>
   <hr />
   <OptionSection title="Small start menu" context="Make the start menu smaller">
@@ -66,29 +60,6 @@
   <hr />
 {/if}
 
-<!-- <OptionSection
-  title="Show hidden apps"
-  context="Display hidden apps in the start menu"
->
-  <input
-    type="checkbox"
-    id="a"
-    class="switch"
-    bind:checked={$UserData.sh.showHiddenApps}
-    on:click={() => ($WindowStore = $WindowStore)}
-  />
-</OptionSection> -->
-<!-- <OptionSection
-  title="Hide quick settings"
-  context="Hide quick settings in the action center"
->
-  <input
-    type="checkbox"
-    id="a"
-    class="switch"
-    bind:checked={$UserData.sh.noQuickSettings}
-  />
-</OptionSection> -->
 <OptionSection title="Dock shell" context="Dock the taskbar and action center">
   <input
     type="checkbox"
