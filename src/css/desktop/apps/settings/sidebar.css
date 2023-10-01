@@ -161,7 +161,7 @@ window#SettingsApp div.sidebar div.userprofile * {
 
 window#SettingsApp div.sidebar div.userprofile div.pfp {
   margin-right: 10px;
-  border: var(--accent) 2px solid;
+  border: var(--accent-light) 2px solid;
 }
 
 window#SettingsApp div.sidebar div.userprofile p {

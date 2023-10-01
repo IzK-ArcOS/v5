@@ -1,3 +1,4 @@
+import Accented from "../../../lib/Page/Desktop/WindowStore/Window/Controls/Accented.svelte";
 import Default from "../../../lib/Page/Desktop/WindowStore/Window/Controls/Default.svelte";
 import Og from "../../../lib/Page/Desktop/WindowStore/Window/Controls/OG.svelte";
 import Traffic from "../../../lib/Page/Desktop/WindowStore/Window/Controls/Traffic.svelte";
@@ -20,6 +21,11 @@ export const titlebarButtons: { [key: string]: WindowControls } = {
     caption: "O.G.",
     author: "WebOSv3 Team",
     content: Og,
+  },
+  accented: {
+    caption: "Accented",
+    author: "ArcOS Team",
+    content: Accented,
   },
 };
 
