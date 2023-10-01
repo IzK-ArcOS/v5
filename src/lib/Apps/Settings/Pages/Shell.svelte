@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { WindowStore } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
   import OptionSection from "../OptionSection.svelte";
   import TaskBarPosition from "./Shell/TaskBarPosition.svelte";
