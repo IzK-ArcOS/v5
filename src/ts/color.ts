@@ -1,7 +1,6 @@
-// @source https://stackoverflow.com/a/59387478
-
 import { Log } from "./console";
 
+// @source https://stackoverflow.com/a/59387478
 export function lightenColor(color: string, modifier: number = 0.35) {
   Log(
     "ts/color.ts: lightenColor",
