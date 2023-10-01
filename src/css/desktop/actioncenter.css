@@ -148,6 +148,8 @@ div.actioncenter h3.title {
   margin: 0;
   margin-bottom: 10px;
   display: flex;
+  height: 20px;
+  align-items: center;
 }
 
 div.actioncenter h3.title button.clear {
@@ -157,6 +159,7 @@ div.actioncenter h3.title button.clear {
   border: none;
   padding: 5px 10px;
   border-radius: var(--button-border-rad);
+  height: 28px;
 }
 
 div.actioncenter h3.title button.clear:hover {
