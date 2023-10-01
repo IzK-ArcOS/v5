@@ -3,6 +3,8 @@ import { UserData } from "../../userlogic/interfaces";
 import type { Command } from "../interface";
 import { getJsonHierarchy, setJsonHierarchy } from "../../hierarchy";
 
+const BANNED = ["acc.enabled", "acc.admin", "devmode", "valid", "statusCode"];
+
 export const SUD: Command = {
   keyword: "sud",
   exec(cmd, argv, term) {
@@ -12,6 +14,10 @@ export const SUD: Command = {
     const hierarchy = argv[0];
 
     if (!hierarchy) return term.std.Error("Missing hierarchy");
+
+    // Make it a little more safe
+    if (BANNED.join("|").includes(hierarchy))
+      return term.std.Error(`Not permitted to change data of [${hierarchy}]`);
 
     const udata = get(UserData);
 

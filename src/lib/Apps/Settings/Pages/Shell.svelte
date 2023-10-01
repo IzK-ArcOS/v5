@@ -53,16 +53,19 @@
       <option value="vertical-right">Right</option>
     </select> -->
   </OptionSection>
+  <hr />
+  <OptionSection title="Small start menu" context="Make the start menu smaller">
+    <input
+      type="checkbox"
+      id="a"
+      class="switch"
+      bind:checked={$UserData.sh.start.small}
+    />
+  </OptionSection>
+{:else}
+  <hr />
 {/if}
-<hr />
-<OptionSection title="Small start menu" context="Make the start menu smaller">
-  <input
-    type="checkbox"
-    id="a"
-    class="switch"
-    bind:checked={$UserData.sh.start.small}
-  />
-</OptionSection>
+
 <!-- <OptionSection
   title="Show hidden apps"
   context="Display hidden apps in the start menu"
