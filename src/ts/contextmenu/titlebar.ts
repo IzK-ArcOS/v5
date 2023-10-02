@@ -1,4 +1,10 @@
-import { maximizeWindow, minimizeWindow, openWindow } from "../applogic/events";
+import { AppInfoId } from "../applogic/apps/AppInfo";
+import {
+  closeWindow,
+  maximizeWindow,
+  minimizeWindow,
+  openWindow,
+} from "../applogic/events";
 import type { ContextMenuItem } from "../applogic/interface";
 import { AppManIcon } from "../icon/apps";
 import { SEP_ITEM } from "./main";
@@ -24,6 +30,18 @@ export const titleBarContextMenu: ContextMenuItem[] = [
       window.controls.min && minimizeWindow(window);
     },
     icon: "minimize",
+  },
+  SEP_ITEM,
+  {
+    caption: "App Info",
+    action(window) {
+      closeWindow("AppInfo");
+      setTimeout(() => {
+        AppInfoId.set(window.id);
+        openWindow("AppInfo");
+      }, 300);
+    },
+    icon: "info",
   },
   SEP_ITEM,
   {

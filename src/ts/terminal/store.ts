@@ -38,6 +38,7 @@ import { Run } from "./commands/run";
 import { Servers } from "./commands/servers";
 import { Set } from "./commands/set";
 import { Shutdown } from "./commands/shutdown";
+import { SleepCommand } from "./commands/sleep";
 import { SoundBusCommand } from "./commands/soundbus";
 import { StateCommand } from "./commands/state";
 import { SUD } from "./commands/sud";
@@ -86,6 +87,7 @@ export const arcCommands: CommandStore = [
   Goose,
   UserAdd,
   SUD,
+  SleepCommand,
 ];
 
 /**

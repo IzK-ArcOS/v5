@@ -83,7 +83,7 @@ div.newtb button.start:not(.open) svg.accented-logo path {
 }
 
 div.desktop.theme-light div.newtb {
-  /*background-color: #fffa;*/
+  background-color: var(--glass-ultradark);
   color: #222;
 }
 

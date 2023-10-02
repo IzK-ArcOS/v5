@@ -63,11 +63,11 @@ div.desktopIcons button {
 }
 
 div.desktopIcons button:hover {
-  background-color: var(--button-glass-hover-bg);
+  background-color: var(--accent-light-transparent);
 }
 
 div.desktopIcons button:active {
-  background-color: var(--button-glass-active-bg);
+  opacity: 0.5;
 }
 
 div.desktopIcons button p.name {

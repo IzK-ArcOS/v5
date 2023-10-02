@@ -11,6 +11,7 @@
   import OverlayableWindow from "./OverlayableWindow.svelte";
   import Content from "./Window/Content.svelte";
   import Titlebar from "./Window/Titlebar.svelte";
+  import { isDisabled } from "../../../../ts/applogic/checks";
 
   export let app: App = null;
   export let visible = false;
@@ -72,57 +73,64 @@
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<window
-  class:window={!app.info.custom}
-  class:focused={app.id == $focusedWindowId}
-  class:headless={app.state.headless || app.state.windowState.fll}
-  class:resizable={app.state.resizable}
-  class:min={app.state.windowState.min}
-  class:max={app.state.windowState.max || max}
-  class:visible={app.opened || visible}
-  class:exttransition
-  class:fullscreen={app.state.windowState.fll || app.info.custom}
-  class:glass={app.glass}
-  class:lefttb={$UserData && $UserData.sh.window.lefttb}
-  class:custom={app.info.custom}
-  class:child={!!app.parentId}
-  class:colored={$UserData && $UserData.sh.taskbar.colored}
-  style={cssString}
-  id={app.id}
-  on:mousedown={handleMouse}
-  use:draggable={{
-    disabled:
-      app.state.windowState.max ||
-      max ||
-      app.core ||
-      app.info.custom ||
-      app.state.windowState.min ||
-      !(app.opened || visible),
-    handle: ".titlebar",
-    bounds: { top: 0, left: 0, right: 0, bottom: -1000 },
-    defaultPosition: { x: app.pos.x, y: app.pos.y },
-  }}
-  on:neodrag:start={handleDragStart}
-  on:neodrag:end={handleDragEnd}
-  bind:this={window}
->
-  <div class="accent" />
+{#if app && !isDisabled(app.id)}
+  <window
+    class:window={!app.info.custom}
+    class:focused={app.id == $focusedWindowId}
+    class:headless={app.state.headless || app.state.windowState.fll}
+    class:resizable={app.state.resizable}
+    class:min={app.state.windowState.min}
+    class:max={app.state.windowState.max || max}
+    class:visible={app.opened || visible}
+    class:exttransition
+    class:fullscreen={app.state.windowState.fll || app.info.custom}
+    class:glass={app.glass}
+    class:lefttb={$UserData && $UserData.sh.window.lefttb}
+    class:custom={app.info.custom}
+    class:child={!!app.parentId}
+    class:colored={$UserData && $UserData.sh.taskbar.colored}
+    style={cssString}
+    id={app.id}
+    on:mousedown={handleMouse}
+    use:draggable={{
+      disabled:
+        app.state.windowState.max ||
+        max ||
+        app.core ||
+        app.info.custom ||
+        app.state.windowState.min ||
+        !(app.opened || visible),
+      handle: ".titlebar",
+      bounds: { top: 0, left: 0, right: 0, bottom: -1000 },
+      defaultPosition: { x: app.pos.x, y: app.pos.y },
+    }}
+    on:neodrag:start={handleDragStart}
+    on:neodrag:end={handleDragEnd}
+    bind:this={window}
+  >
+    <div class="accent" />
 
-  <Titlebar {app} bind:exttransition bind:titlebar {isBoot} />
-  {#if ((!app.runtime ? true : runtime) && (app.opened || app.core || app.info.preloaded)) || (app && app.id.startsWith("error_"))}
-    <Content {app} {runtime}>
-      <slot />
-    </Content>
-  {/if}
-  {#if app && app.overlays && (!app.runtime ? true : runtime)}
-    {#each Object.entries(app.overlays) as overlay}
-      <OverlayableWindow {runtime} {app} overlay={overlay[1]} id={overlay[0]} />
-    {/each}
-  {/if}
+    <Titlebar {app} bind:exttransition bind:titlebar {isBoot} />
+    {#if ((!app.runtime ? true : runtime) && (app.opened || app.core || app.info.preloaded)) || (app && app.id.startsWith("error_"))}
+      <Content {app} {runtime}>
+        <slot />
+      </Content>
+    {/if}
+    {#if app && app.overlays && (!app.runtime ? true : runtime)}
+      {#each Object.entries(app.overlays) as overlay}
+        <OverlayableWindow
+          {runtime}
+          {app}
+          overlay={overlay[1]}
+          id={overlay[0]}
+        />
+      {/each}
+    {/if}
 
-  {#if app && app.errorOverlays}
-    {#each app.errorOverlays as error}
-      <OverlayableErrorWindow {error} {app} />
-    {/each}
-  {/if}
-</window>
+    {#if app && app.errorOverlays}
+      {#each app.errorOverlays as error}
+        <OverlayableErrorWindow {error} {app} />
+      {/each}
+    {/if}
+  </window>
+{/if}

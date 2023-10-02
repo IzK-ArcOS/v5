@@ -31,11 +31,12 @@
   import ContextMenu from "./Desktop/ContextMenu.svelte";
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
-  import { lightenColor } from "../../ts/color";
+  import { darkenColor, invertColor, lightenColor } from "../../ts/color";
 
   let show = false;
   let classes = "";
   let accent = "";
+  let style = "";
 
   desktopClassNames.subscribe((v) => (classes = v));
   showDesktop.subscribe((v) => (show = v));
@@ -73,6 +74,14 @@
     if (!v) return;
 
     accent = $UserData.sh.desktop.accent || "70D6FF";
+
+    style = `
+    --accent: #${accent} !important;
+    --accent-light: ${lightenColor(accent)} !important;
+    --accent-lighter: ${lightenColor(accent, 0.45)} !important;
+    --accent-dark: ${darkenColor(accent, 50)} !important;
+    --accent-light-transparent: ${lightenColor(accent)}55 !important;
+    --accent-light-invert: ${invertColor(lightenColor(accent))} !important;`;
   });
 
   function resetDesktopState() {
@@ -92,9 +101,7 @@
     tb-{$UserData.sh.taskbar.pos}
     cursor-{$UserData.sh.desktop.noCustomCursor ? '' : 'custom'}"
     class:show
-    style="--accent: #{accent} !important; --accent-light: {lightenColor(
-      accent
-    )} !important;"
+    {style}
   >
     <WindowStore />
     <ErrorDialogStore />

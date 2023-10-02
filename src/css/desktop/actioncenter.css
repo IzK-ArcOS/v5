@@ -195,24 +195,29 @@ div.actioncenter div.quicksettings button.setting {
   height: 60px;
   margin: 0 3px;
 }
-
+/* 
 div.actioncenter div.quicksettings button.setting.active {
-  background-color: var(--button-glass-bg);
-  color: var(--accent-light);
+  background-color: var(--accent-lighter);
+  color: var(--win-bg);
 }
-
-div.theme-light div.actioncenter div.quicksettings button.setting.active {
-  filter: unset;
+ */
+div.actioncenter div.quicksettings button.setting.active {
+  background-color: var(--accent-light);
+  color: var(--accent-dark);
 }
-
+/* 
+div.actioncenter div.quicksettings button.setting.active span {
+  filter: var(--accent-darken);
+}
+ */
 div.actioncenter div.quicksettings button.setting.active p.caption {
-  color: var(--fg);
+  color: var(--win-bg);
 }
-
+/* 
 div.theme-light div.actioncenter div.quicksettings button.setting.active {
   background-color: var(--glass-alt-bg);
 }
-
+ */
 div.actioncenter div.quicksettings button.setting p.caption {
   font-size: 13px;
   margin: 0;
@@ -234,7 +239,7 @@ div.actioncenter div.quicksettings button.setting:active {
 
 div.actioncenter div.quicksettings button.setting:hover p.caption {
   opacity: 1;
-  max-height: 14px;
+  max-height: 16px;
   margin-top: 5px;
   transition: all 0.3s, opacity 0.5s 0.1s;
 }
