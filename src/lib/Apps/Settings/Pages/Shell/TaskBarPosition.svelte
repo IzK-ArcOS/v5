@@ -36,7 +36,8 @@
   }
 
   div.taskbarpos button.selected {
-    background-color: var(--button-glass-hover-bg);
+    background-color: var(--accent-light);
+    color: var(--accent-dark);
   }
 
   div.taskbarpos button.left {

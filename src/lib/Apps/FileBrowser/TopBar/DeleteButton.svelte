@@ -20,6 +20,7 @@
           {
             caption: "Delete",
             action: confirmDelete,
+            suggested: true,
           },
           { caption: "Cancel", action() {} },
         ],
@@ -44,7 +45,7 @@
           title: "Unable to delete item",
           message:
             "ArcAPI was not able to delete the item from the file system. A permission error may have occured. Please try again later.",
-          buttons: [{ caption: "OK", action() {} }],
+          buttons: [{ caption: "OK", action() {}, suggested: true }],
           image: ErrorIcon,
         },
         "FileManager"

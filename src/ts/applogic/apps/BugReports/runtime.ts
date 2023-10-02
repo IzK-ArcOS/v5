@@ -49,6 +49,7 @@ export class BugReportsRuntime extends AppRuntime {
               action: () => {
                 this.deleteReport(id);
               },
+              suggested: true,
             },
           ],
           image: BugRepIcon,

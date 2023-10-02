@@ -4,30 +4,38 @@ window.overlay.overlayable-error {
   min-height: 120px;
 }
 
-window.overlay.overlayable-error div.error-overlay {
-  display: flex;
+window.overlay.overlayable-error div.error-content {
+  padding: 0;
 }
 
-window.overlay.overlayable-error div.error-overlay div.errimg {
-  margin: 5px;
-  margin-right: 15px;
-  margin-left: 5px;
+window.overlay.overlayable-error > div.body {
+  padding: 0;
+}
+
+window.overlay.overlayable-error div.error-overlay {
+  display: flex;
+  margin: 10px;
+  gap: 10px;
 }
 
 window.overlay.overlayable-error div.error-overlay div.errimg img {
-  height: 32px;
+  height: 40px;
 }
 
 window.overlay.overlayable-error div.error-overlay-buttons {
   display: flex;
-  margin-top: 10px;
-  align-items: center;
+  margin-top: 20px;
+  justify-content: flex-end;
+  border-top: var(--win-border);
+  padding: 10px;
+  background-color: var(--button-glass-bg);
 }
 
 window.overlay.overlayable-error div.error-overlay-buttons div.inner {
-  margin: 0 auto;
+  margin: 0;
   display: flex;
   gap: 10px;
+  margin-left: auto;
 }
 
 window.overlay.overlayable-error div.error-overlay-buttons div.inner button {

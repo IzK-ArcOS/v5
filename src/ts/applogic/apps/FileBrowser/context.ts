@@ -73,6 +73,7 @@ export const FileManagerContextMenu: AppContextMenu = {
                 action: async () => {
                   fbClass.deleteItem(data["name"], data["path"]);
                 },
+                suggested: true,
               },
               { caption: "Cancel", action() {} },
             ],

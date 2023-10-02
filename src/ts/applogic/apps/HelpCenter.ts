@@ -33,7 +33,7 @@ export const HelpCenter: App = {
           title: "Caution!",
           message:
             "This application is still in development past the release of 5.0.6. It was hidden to prevent you from seeing this half finished help center. Do not take the content or UI serious.",
-          buttons: [{ caption: "OK", action() {} }],
+          buttons: [{ caption: "OK", action() {}, suggested: true }],
         },
         "HelpCenter"
       );

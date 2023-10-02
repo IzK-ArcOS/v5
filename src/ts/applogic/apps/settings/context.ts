@@ -50,6 +50,7 @@ export const SettingsAppContext: AppContextMenu = {
                 action() {
                   deleteCustomTheme(data["id"]);
                 },
+                suggested: true,
               },
               { caption: "Cancel", action() {} },
             ],

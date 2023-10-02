@@ -20,4 +20,5 @@ export interface ErrorMessage {
 export interface ErrorButton {
   caption: string;
   action: () => void;
+  suggested?: boolean;
 }

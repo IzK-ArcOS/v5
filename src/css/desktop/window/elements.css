@@ -11,6 +11,29 @@ window.window div.body button:not(.reset) {
   margin: 2px;
 }
 
+window.window div.body button:not(.reset).suggested {
+  /* background: linear-gradient(
+    to bottom,
+    var(--accent-lighter) 0%,
+    var(--accent-light) 100%
+  ); */
+  background-color: var(--accent-light);
+  color: var(--accent-darkest);
+  /* font-weight: bold; */
+  /* border: var(--accent-light) 1px solid; */
+  /* padding: 2px 20px; */
+  min-width: 80px;
+  box-shadow: 0 1px 2px 1px #0000001c;
+}
+
+window.window div.body button:not(.reset).suggested:hover {
+  background-color: var(--accent-lighter);
+}
+
+window.window div.body button:not(.reset).suggested:active {
+  background-color: var(--accent);
+}
+
 window.glass div.body button:not(.reset) {
   background-color: var(--button-glass-bg, #fff1);
 }

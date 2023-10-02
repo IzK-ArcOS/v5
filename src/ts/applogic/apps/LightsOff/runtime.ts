@@ -56,7 +56,7 @@ export class LightsOffRuntime extends AppRuntime {
         title: "You Win!",
         message:
           "You've managed to complete all 8 levels of Lights Off. The game will be reset so you can play it again in the future.",
-        buttons: [{ caption: "OK", action() {} }],
+        buttons: [{ caption: "Play again", action() {}, suggested: true }],
         image: LightsOffIcon,
       },
       "LightsOff"

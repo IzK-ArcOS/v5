@@ -78,8 +78,9 @@
     style = `
     --accent: #${accent} !important;
     --accent-light: ${lightenColor(accent)} !important;
-    --accent-lighter: ${lightenColor(accent, 0.45)} !important;
+    --accent-lighter: ${lightenColor(accent, 0.65)} !important;
     --accent-dark: ${darkenColor(accent, 50)} !important;
+    --accent-darkest: ${darkenColor(accent, 90)} !important;
     --accent-light-transparent: ${lightenColor(accent)}55 !important;
     --accent-light-invert: ${invertColor(lightenColor(accent))} !important;`;
   });

@@ -30,7 +30,7 @@
         message:
           "Changing your username will only update the credentials on this ArcOS instance on this device. You'll have to log in again on all other devices. Proceed?",
         buttons: [
-          { caption: "Change it", action: change },
+          { caption: "Change it", action: change, suggested: true },
           { caption: "Cancel", action() {} },
         ],
         image: AccountIcon,
@@ -48,7 +48,7 @@
           title: "Can't rename user",
           message:
             "An error occured while trying to rename your account. Please make sure the information is correct, and then try again.",
-          buttons: [{ caption: "OK", action: reset }],
+          buttons: [{ caption: "OK", action: reset, suggested: true }],
           image: AccountIcon,
         },
         "SettingsApp"
@@ -58,7 +58,7 @@
       {
         title: "Username changed.",
         message: "Your username has been updated successfully.",
-        buttons: [{ caption: "OK", action: closeThis }],
+        buttons: [{ caption: "OK", action: closeThis, suggested: true }],
         image: AccountIcon,
       },
       "SettingsApp"

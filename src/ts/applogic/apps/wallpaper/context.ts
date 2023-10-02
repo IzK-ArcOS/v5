@@ -58,12 +58,13 @@ export const WallpaperContext: AppContextMenu = {
           DesktopIcon,
           null,
           {
-            caption: "Yes",
+            caption: "Reset",
             action() {
               alignDesktopIcons(true);
             },
+            suggested: true,
           },
-          { caption: "No", action() {} }
+          { caption: "Cancel", action() {} }
         );
       },
       icon: "undo",

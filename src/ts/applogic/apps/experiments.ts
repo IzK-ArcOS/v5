@@ -40,6 +40,7 @@ export const ExperimentsApp: App = {
               action() {
                 closeWindow(app.id);
               },
+              suggested: true,
             },
           ],
         },

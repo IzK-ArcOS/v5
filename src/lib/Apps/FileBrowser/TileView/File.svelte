@@ -51,6 +51,7 @@
             {
               caption: "Open With...",
               action: () => openAny(x),
+              suggested: true,
             },
           ],
           image: FileIcon,

@@ -22,6 +22,7 @@
 
               loading = false;
             },
+            suggested: true,
           },
           {
             caption: "Cancel",

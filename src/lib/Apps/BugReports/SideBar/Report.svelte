@@ -45,6 +45,7 @@
             action: () => {
               runtime.deleteReport(report.id);
             },
+            suggested: true,
           },
         ],
         image: BugRepIcon,

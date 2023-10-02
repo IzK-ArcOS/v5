@@ -49,6 +49,7 @@
               action: () => {
                 openResult = null;
               },
+              suggested: true,
             },
             {
               caption: "Open With...",

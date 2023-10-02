@@ -14,6 +14,7 @@ export function initError(id: string) {
           action() {
             closeWindow(id);
           },
+          suggested: true,
         },
       ],
       image: ArcTermIcon,

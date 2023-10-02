@@ -14,7 +14,7 @@
         image: ErrorIcon,
         buttons: [
           { action: () => deleteUser(), caption: "Proceed" },
-          { action: () => {}, caption: "Back to safety" },
+          { action: () => {}, caption: "Back to safety", suggested: true },
         ],
       },
       "SettingsApp"

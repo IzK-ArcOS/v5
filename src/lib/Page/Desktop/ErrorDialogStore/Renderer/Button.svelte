@@ -19,6 +19,6 @@
   }
 </script>
 
-<button on:click={act}>
+<button on:click={act} class:suggested={button.suggested}>
   {button.caption}
 </button>

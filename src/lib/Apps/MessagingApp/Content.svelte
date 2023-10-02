@@ -23,7 +23,7 @@
         {
           title: "Can't open message",
           message: `No message with ID ${v} could be found on ArcAPI.`,
-          buttons: [{ caption: "OK", action() {} }],
+          buttons: [{ caption: "OK", action() {}, suggested: true }],
           image: MessagingIcon,
         },
         "MessagingApp"

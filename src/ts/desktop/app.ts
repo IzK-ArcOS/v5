@@ -34,6 +34,7 @@ export function checkDesktopFile() {
                 "_blank"
               );
             },
+            suggested: true,
           },
           {
             caption: "OK",

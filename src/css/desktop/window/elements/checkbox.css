@@ -2,7 +2,7 @@
   input[type="checkbox"],
   input[type="radio"] {
     --active: var(--accent);
-    --active-inner: #fff;
+    --active-inner: var(--accent-darkest);
     --focus: 0px var(--accent);
     --border: var(--button-bg);
     --border-hover: var(--accent);

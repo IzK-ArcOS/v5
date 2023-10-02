@@ -97,7 +97,7 @@ export async function openWithDialog(file: ArcFile) {
       `The OpenWithApp application is disabled, so you can't choose an app to open ${file.name}.`,
       null,
       null,
-      { caption: "OK", action() {} },
+      { caption: "Okay", action() {}, suggested: true },
       {
         caption: "Enable OpenWithApp",
         async action() {

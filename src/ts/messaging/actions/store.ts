@@ -68,7 +68,7 @@ export const messageItemActions: MessageItemAction[] = [
             message: `Unfortunately you have to be the owner of a message in order to delete it. Please ask <b>${message.sender}</b> to delete the message for you.`,
 
             image: ErrorIcon,
-            buttons: [{ caption: "Okay", action() {} }],
+            buttons: [{ caption: "Okay", action() {}, suggested: true }],
           },
           "MessagingApp"
         );
@@ -88,6 +88,7 @@ export const messageItemActions: MessageItemAction[] = [
                 messageUpdateTrigger();
                 selectedMessageId.set(null);
               },
+              suggested: true,
             },
             { caption: "Cancel", action: () => {} },
           ],

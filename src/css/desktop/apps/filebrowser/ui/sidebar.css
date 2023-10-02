@@ -1,5 +1,6 @@
 window#FileManager > div.body div.sidebar div.dirs {
   height: calc(100% - 80px);
+  overflow-y: auto;
 }
 
 window#FileManager > div.body div.sidebar button.folder {

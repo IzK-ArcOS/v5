@@ -49,6 +49,7 @@
 <div class="content">
   {#if $FileBrowserHome}
     home
+    <button class="suggested">hi</button>
   {:else if tiledMode}
     <TileView {files} {dirs} />
   {:else}

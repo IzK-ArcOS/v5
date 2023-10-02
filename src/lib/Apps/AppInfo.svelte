@@ -56,7 +56,7 @@
               closeWindow($id);
             },
           },
-          { caption: "Cancel", action() {} },
+          { caption: "Cancel", action() {}, suggested: true },
         ],
       },
       "AppInfo"

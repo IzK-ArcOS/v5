@@ -23,7 +23,7 @@
           title: "Too many files",
           message:
             "You are only allowed to upload 80 files at a time to prevent overloading.",
-          buttons: [{ caption: "Understood", action() {} }],
+          buttons: [{ caption: "Understood", action() {}, suggested: true }],
           image: UploadIcon,
         },
         "FileManager"
