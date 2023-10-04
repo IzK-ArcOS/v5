@@ -12,7 +12,7 @@ window div.body {
 window:not(.custom):not(.headless):not(.glass) div.body {
   background-color: var(--win-bg);
 
-  border-top: var(--button-bg) 1px solid;
+  border-top: var(--win-border);
 }
 
 window:not(.custom):not(.headless):not(.glass):not(.focused) div.body {

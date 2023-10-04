@@ -12,16 +12,8 @@ window.window div.body button:not(.reset) {
 }
 
 window.window div.body button:not(.reset).suggested {
-  /* background: linear-gradient(
-    to bottom,
-    var(--accent-lighter) 0%,
-    var(--accent-light) 100%
-  ); */
   background-color: var(--accent-light);
   color: var(--accent-darkest);
-  /* font-weight: bold; */
-  /* border: var(--accent-light) 1px solid; */
-  /* padding: 2px 20px; */
   min-width: 80px;
   box-shadow: 0 1px 2px 1px #0000001c;
 }
@@ -48,6 +40,10 @@ window.glass div.body button:not(.reset):active {
 
 window.window div.body button:not(.reset):hover {
   background-color: var(--button-hover-bg, #555555);
+}
+
+window div.body button:not(.reset):not(.material-icons-round):hover {
+  box-shadow: 0 1px 2px 1px #00000033 !important;
 }
 
 window.window div.body button:not(.reset):active {

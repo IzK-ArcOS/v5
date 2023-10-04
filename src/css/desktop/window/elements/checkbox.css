@@ -1,10 +1,9 @@
-@import url("./checkbox/switch.css");
-
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
   input[type="checkbox"],
   input[type="radio"] {
     --active: var(--accent);
     --active-inner: var(--accent-darkest);
+    --focus: 0px var(--accent);
     --border: var(--button-bg);
     --border-hover: var(--accent);
     --background: var(--button-active-bg);
@@ -20,11 +19,10 @@
     position: relative;
     margin: 0;
     padding: 0 !important;
-    border: 1px solid var(--bc, var(--border));
+    border: 1px solid var(--bc, var(--border)) !important;
     background: var(--b, var(--background)) !important;
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
   }
-
   input[type="checkbox"]:after,
   input[type="radio"]:after {
     content: "";
@@ -35,7 +33,6 @@
     transition: transform var(--d-t, 0.3s) var(--d-t-e, ease),
       opacity var(--d-o, 0.2s);
   }
-
   input[type="checkbox"]:checked,
   input[type="radio"]:checked {
     --b: var(--active);
@@ -44,45 +41,37 @@
     --d-t: 0.6s;
     --d-t-e: cubic-bezier(0.2, 0.85, 0.32px, 1.2);
   }
-
   input[type="checkbox"]:disabled,
   input[type="radio"]:disabled {
     --b: var(--disabled);
     cursor: url("../../../../assets/cursors/forbidden.cur");
     opacity: 0.9;
   }
-
   input[type="checkbox"]:disabled:checked,
   input[type="radio"]:disabled:checked {
     --b: var(--disabled-inner);
     --bc: var(--border);
   }
-
   input[type="checkbox"]:disabled + label,
   input[type="radio"]:disabled + label {
     cursor: url("../../../../assets/cursors/forbidden.cur");
   }
-
   input[type="checkbox"]:hover:not(:checked):not(:disabled),
   input[type="radio"]:hover:not(:checked):not(:disabled) {
     --bc: var(--border-hover);
   }
-
   input[type="checkbox"]:not(.switch),
   input[type="radio"]:not(.switch) {
     width: 21px;
   }
-
   input[type="checkbox"]:not(.switch):after,
   input[type="radio"]:not(.switch):after {
     opacity: var(--o, 0);
   }
-
   input[type="checkbox"]:not(.switch):checked,
   input[type="radio"]:not(.switch):checked {
     --o: 1;
   }
-
   input[type="checkbox"] + label,
   input[type="radio"] + label {
     font-size: 14px;
@@ -91,11 +80,9 @@
     vertical-align: top;
     margin-left: 4px;
   }
-
   input[type="checkbox"]:not(.switch) {
     border-radius: 7px;
   }
-
   input[type="checkbox"]:not(.switch):after {
     width: 5px;
     height: 9px;
@@ -106,15 +93,40 @@
     top: 4px;
     transform: rotate(var(--r, 20deg));
   }
-
   input[type="checkbox"]:not(.switch):checked {
     --r: 43deg;
   }
+  input[type="checkbox"].switch {
+    width: 38px;
+  }
+  div.desktop:not(.sharp) input[type="checkbox"].switch {
+    border-radius: 11px !important;
+  }
+  input[type="checkbox"].switch:after {
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: var(--ab, var(--border));
+    transform: translateX(var(--x, 0));
+  }
+  input[type="checkbox"].switch:checked {
+    --ab: var(--active-inner);
+    --x: 17px;
+    box-shadow: 0px 1px 4px 0px #0005;
+  }
 
+  input[type="checkbox"].switch:checked:after {
+    box-shadow: 0 1px 2px 1px #0005;
+  }
+
+  input[type="checkbox"].switch:disabled:not(:checked):after {
+    opacity: 0.6;
+  }
   input[type="radio"] {
     border-radius: 50%;
   }
-
   input[type="radio"]:after {
     width: 19px;
     height: 19px;
@@ -123,11 +135,9 @@
     opacity: 0;
     transform: scale(var(--s, 0.7));
   }
-
   input[type="radio"]:checked {
     --s: 0.5;
   }
-
   input[type="radio"]:hover,
   input[type="checkbox"]:hover:not(.transparent),
   input[type="checkbox"].switch:hover {
