@@ -1,4 +1,4 @@
-div.fts div.center-absolute div.right {
+div.fts div.fts-content div.right {
   right: 0px;
   top: 0px;
   background-color: var(--win-bg);
@@ -39,11 +39,11 @@ div.fts div.page div.header p.subtitle {
   margin-bottom: 5px;
 }
 
-div.fts div.center-absolute div.right * {
+div.fts div.fts-content div.right * {
   color: var(--fg);
 }
 
-div.fts div.center-absolute div.right button {
+div.fts div.fts-content div.right button {
   padding: 10px 20px;
   border: none;
   background-color: var(--button-glass-bg);
@@ -51,19 +51,19 @@ div.fts div.center-absolute div.right button {
   transition: background-color 0.3s, opacity 0.3s;
 }
 
-div.fts div.center-absolute div.right button:disabled {
+div.fts div.fts-content div.right button:disabled {
   opacity: 0.3;
 }
 
-div.fts div.center-absolute div.right button.nopad {
+div.fts div.fts-content div.right button.nopad {
   padding: 10px;
 }
 
-div.fts div.center-absolute div.right button.nopad span.material-icons-round {
+div.fts div.fts-content div.right button.nopad span.material-icons-round {
   margin: 0;
 }
 
-div.fts div.center-absolute div.right div.nav {
+div.fts div.fts-content div.right div.nav {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -72,21 +72,21 @@ div.fts div.center-absolute div.right div.nav {
   height: 80px;
 }
 
-div.fts div.center-absolute div.right div.nav > div {
+div.fts div.fts-content div.right div.nav > div {
   padding: 20px;
   box-sizing: border-box;
 }
 
-div.fts div.center-absolute div.right div.nav div.alnr {
+div.fts div.fts-content div.right div.nav div.alnr {
   margin-left: auto;
 }
 
-div.fts div.center-absolute div.right div.nav div.alc {
+div.fts div.fts-content div.right div.nav div.alc {
   text-align: center;
   vertical-align: middle;
 }
 
-div.fts div.center-absolute div.right div.nav div div.progress {
+div.fts div.fts-content div.right div.nav div div.progress {
   height: 10px;
   display: block;
   padding: 0;
@@ -97,7 +97,7 @@ div.fts div.center-absolute div.right div.nav div div.progress {
   position: relative;
 }
 
-div.fts div.center-absolute div.right div.nav div div.progress div.inner {
+div.fts div.fts-content div.right div.nav div div.progress div.inner {
   height: 100%;
   width: 10px;
   border-radius: inherit;

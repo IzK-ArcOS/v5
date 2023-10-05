@@ -10,6 +10,9 @@ div.fts {
   background-image: url("../assets/bg/img16.jpg");
   opacity: 0;
   transition: opacity 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 div.fts *:not(.material-icons-round) {
@@ -20,7 +23,7 @@ div.fts.show {
   opacity: 1;
 }
 
-div.fts > div.center-absolute {
+div.fts > div.fts-content {
   width: 800px;
   height: 500px;
   border-radius: 15px;
@@ -30,10 +33,11 @@ div.fts > div.center-absolute {
   background-color: var(--glass-bg);
   overflow: hidden;
   border: var(--win-border);
+  position: relative;
 }
 
-div.fts div.center-absolute div.left,
-div.fts div.center-absolute div.right {
+div.fts div.fts-content div.left,
+div.fts div.fts-content div.right {
   position: absolute;
   top: 0px;
   height: 100%;
