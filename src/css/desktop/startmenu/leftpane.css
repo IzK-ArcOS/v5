@@ -17,7 +17,6 @@ div.startmenu div.left {
 
 div.startmenu div.left button.item {
   width: 100%;
-  padding: 8px;
   border-radius: var(--win-border-rad);
   margin-bottom: 5px;
   text-align: left;
@@ -29,6 +28,7 @@ div.startmenu div.left button.item {
   align-items: center;
   gap: 10px;
   padding-right: 0;
+  box-shadow: none !important;
 }
 
 div.startmenu div.left button.item * {
@@ -40,11 +40,11 @@ div.startmenu div.left button.item img.icon {
 }
 
 div.startmenu div.left button.item {
-  padding: 5px 2.5px;
+  padding: 5px;
 }
 
 div.startmenu div.left button.item:hover {
-  background-color: var(--startmenu-applist-item-bg-hover);
+  background-color: var(--button-glass-bg);
 }
 
 div.startmenu div.left button.item:active {

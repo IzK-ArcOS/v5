@@ -10,6 +10,7 @@ div.startmenu div.left div.group.expand {
 
 div.startmenu div.left div.group button.item {
   margin-left: 15px;
+  width: calc(100% - 15px);
 }
 
 div.startmenu div.left div.group button.item img {
@@ -21,7 +22,7 @@ div.startmenu div.left div.group button.expander {
   height: 30px;
   display: flex;
   align-items: center;
-  padding: 5px 2.5px;
+  padding: 5px;
   border: none;
   gap: 10px;
   border-radius: var(--win-border-rad);
@@ -29,6 +30,7 @@ div.startmenu div.left div.group button.expander {
   color: var(--fg);
   margin-bottom: 5px;
   padding-right: 0;
+  box-shadow: none;
 }
 
 div.startmenu div.left div.group button.expander::after {
@@ -38,6 +40,9 @@ div.startmenu div.left div.group button.expander::after {
   margin-left: auto;
   font-family: "Material Icons Round";
   font-size: 20px;
+}
+div.startmenu div.left div.group button.expander:hover {
+  background-color: var(--button-glass-bg);
 }
 
 div.startmenu div.left div.group.expand button.expander::after {

@@ -23,5 +23,12 @@ window#FileManager div.body div.section {
   white-space: nowrap;
   height: 24px;
   padding: 5px 7.5px;
-  border-left: var(--button-bg) 1px solid;
+}
+
+window#FileManager div.body div.section + div.section {
+  border-left: var(--win-border);
+}
+
+window#FileManager div.body div.bottom div.right {
+  border-left: var(--win-border);
 }

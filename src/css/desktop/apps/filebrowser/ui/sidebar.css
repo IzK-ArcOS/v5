@@ -12,6 +12,7 @@ window#FileManager > div.body div.sidebar button.folder {
   line-height: 20px;
   box-sizing: border-box;
   background-color: transparent;
+  box-shadow: none;
 }
 
 window#FileManager > div.body div.sidebar button.folder.selected {

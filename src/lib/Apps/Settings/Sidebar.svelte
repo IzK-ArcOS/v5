@@ -29,6 +29,6 @@
     {#each SettingsPages as page}
       <Page {page} />
     {/each}
-  </div>
+    </div>
   <UserProfile />
 </div>

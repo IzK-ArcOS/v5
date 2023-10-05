@@ -11,6 +11,11 @@ window#FileManager div.listview button.item {
   background-color: transparent;
   text-align: left;
   max-width: 850px;
+  box-shadow: none;
+}
+
+window#FileManager div.listview button.item:hover {
+  background-color: var(--button-glass-bg);
 }
 
 window#FileManager div.listview button.item div.image {
@@ -65,7 +70,22 @@ window#FileManager div.listview button.item.selected div.options {
 }
 
 window#FileManager div.listview button.item.selected {
-  background-color: var(--button-hover-bg);
+  /* background-color: var(--button-glass-bg); */
+  position: relative;
+}
+
+window#FileManager div.listview button.item.selected::before {
+  content: " ";
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  opacity: 0.3;
+  pointer-events: none;
+  background-color: var(--accent);
 }
 
 window#FileManager div.listview button.item.cutting {

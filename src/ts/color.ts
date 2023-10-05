@@ -3,11 +3,6 @@ import { Log } from "./console";
 
 // @source https://stackoverflow.com/a/59387478
 export function lightenColor(color: string, modifier: number = 0.35) {
-  Log(
-    "ts/color.ts: lightenColor",
-    `Lightening ${color} using a modifier of ${modifier}`
-  );
-
   if (!color) color = "70D6FF";
 
   color = color.toString();
@@ -30,13 +25,7 @@ export function lightenColor(color: string, modifier: number = 0.35) {
   return result;
 }
 
-// @source https://stackoverflow.com/a/59387478
 export function darkenColor(color: string, modifier: number = 5) {
-  Log(
-    "ts/color.ts: darkenColor",
-    `Darkening ${color} using a modifier of ${modifier}`
-  );
-
   return colorsea(`#${color}`).darken(modifier, "relative").hex();
 }
 

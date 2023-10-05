@@ -19,6 +19,7 @@ window#FileManager > div.body div.content {
   overflow-y: hidden;
   padding: 10px;
   padding-right: 5px;
+  z-index: 0;
 }
 
 window#FileManager > div.body div.sidebar {

@@ -3,6 +3,7 @@
   import {
     fbClass,
     FileBrowserCurrentDir,
+    FileBrowserHome,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { FolderIcon } from "../../../../ts/icon/general";
 
@@ -21,7 +22,11 @@
   });
 </script>
 
-<button class="folder" class:selected on:click={switchTo}>
+<button
+  class="folder"
+  class:selected={selected && !$FileBrowserHome}
+  on:click={switchTo}
+>
   <img src={FolderIcon} alt={folder.name} />
   <p class="name">{folder.name}</p>
 </button>
