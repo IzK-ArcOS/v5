@@ -66,7 +66,9 @@
     <div class="apply">
       <div>
         <button on:click={cancel}>Cancel</button>
-        <button on:click={load} disabled={!url || !valid}>Apply</button>
+        <button on:click={load} disabled={!url || !valid} class="suggested">
+          Apply
+        </button>
       </div>
     </div>
   </div>

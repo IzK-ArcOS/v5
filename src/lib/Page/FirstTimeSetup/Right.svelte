@@ -28,7 +28,7 @@
       <svelte:component this={$CurrentFTSState.content} />
     </div>
   {:else}
-    <div class="center-absolute centertext">
+    <div class="loading centertext">
       <Spinner height={60} />
     </div>
   {/if}

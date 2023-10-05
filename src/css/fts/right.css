@@ -180,6 +180,13 @@ div.fts .justified {
   text-align: justify;
 }
 
-div.fts .centertext {
+div.fts div.right .centertext {
   text-align: center;
+}
+
+div.fts div.right div.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

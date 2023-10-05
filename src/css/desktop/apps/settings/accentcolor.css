@@ -1,0 +1,35 @@
+window#SettingsApp div.accentcolor-wrapper {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: repeat(12, 35px);
+}
+window#SettingsApp div.accentcolor-wrapper button.color {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 0px !important;
+  margin: 0 5px !important;
+  outline: transparent solid 5px;
+  outline-offset: 4px;
+  vertical-align: middle;
+  transform: unset;
+  margin-bottom: 10px !important;
+  border: none;
+  background-color: var(--button-glass-bg);
+  color: var(--fg);
+}
+
+window#SettingsApp div.accentcolor-wrapper button.color:hover {
+  box-shadow: 0 1px 2px 1px #00000033;
+}
+
+window#SettingsApp div.accentcolor-wrapper button.color:active {
+  scale: 0.9;
+  opacity: 0.5;
+}
+
+window#SettingsApp div.accentcolor-wrapper button.color.selected {
+  outline: var(--fg) solid 5px !important;
+
+  transform: scale(0.8);
+}

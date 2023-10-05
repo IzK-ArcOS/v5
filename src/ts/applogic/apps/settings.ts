@@ -13,6 +13,7 @@ import CustomWallpaper from "../../../lib/Apps/Settings/Pages/Account/Overlays/C
 import SaveTheme from "../../../lib/Apps/Settings/Pages/Account/Overlays/SaveTheme.svelte";
 import { SettingsAppContext } from "./settings/context";
 import { SettingsIcon } from "../../icon/apps";
+import CustomAccentColor from "../../../lib/Apps/Settings/Pages/Visuals/Overlays/CustomAccentColor.svelte";
 
 const ProfilePictureOverlays = {
   pfpSel: {
@@ -98,7 +99,7 @@ export const DesktopOverlays = {
       author: "ArcOS Team",
     },
     content: CustomWallpaper,
-    size: { w: 370, h: 118 },
+    size: { w: 370, h: 126 },
     show: false,
   },
 };
@@ -111,6 +112,19 @@ export const ThemeOverlays = {
       author: "ArcOS Team",
     },
     content: SaveTheme,
+    size: { w: 450, h: 170 },
+    show: false,
+  },
+};
+
+export const VisualsOverlays = {
+  customAccentColor: {
+    info: {
+      name: "Custom Accent Color",
+      version: "1.0.0",
+      author: "ArcOS Team",
+    },
+    content: CustomAccentColor,
     size: { w: 450, h: 170 },
     show: false,
   },
@@ -143,6 +157,7 @@ export const SettingsApp: App = {
     ...AccountPageOverlays,
     ...DesktopOverlays,
     ...ThemeOverlays,
+    ...VisualsOverlays,
   },
   events: {
     close() {

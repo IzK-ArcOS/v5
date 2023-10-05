@@ -42,7 +42,9 @@ window.window div.body button:not(.reset):hover {
   background-color: var(--button-hover-bg, #555555);
 }
 
-window div.body button:not(.reset):not(.material-icons-round):hover {
+window div.body button:not(.reset):not(.material-icons-round):hover,
+window div.body input:hover,
+window div.body select:hover {
   box-shadow: 0 1px 2px 1px #00000033 !important;
 }
 
