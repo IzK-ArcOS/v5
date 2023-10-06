@@ -1,0 +1,16 @@
+div[class*="tb-vertical"] div.actioncenter:not(.launcher) {
+  height: calc(100% - 20px);
+}
+
+div[class*="tb-vertical"] div.actioncenter.docked:not(.launcher) {
+  height: 100%;
+  border-right: unset;
+}
+
+div.tb-vertical-right div.actioncenter.opened.docked:not(.launcher) {
+  right: 45px;
+}
+
+div.tb-vertical-right div.actioncenter.opened:not(.launcher) {
+  right: 65px;
+}

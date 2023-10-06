@@ -42,10 +42,10 @@
     color: var(--fg);
     transition: opacity 0.2s;
     background-color: var(--button-glass-bg);
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    margin-left: 5px;
+    margin-left: 2px;
   }
 
   button:first-child {
@@ -64,9 +64,7 @@
   button.close {
     border-radius: 50%;
     background-color: var(--accent-light);
-    width: 22px;
-    height: 22px;
-    color: var(--fg);
+    color: var(--accent-darkest);
   }
 
   button.close:hover {

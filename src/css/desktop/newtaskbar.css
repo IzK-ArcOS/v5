@@ -13,6 +13,7 @@ div.taskbar-v {
   backdrop-filter: blur(var(--glass-blur));
   border: var(--glass-alt-bg) 1px solid;
   display: flex;
+  overflow: hidden;
 }
 
 div.newtb:not(.visible) {

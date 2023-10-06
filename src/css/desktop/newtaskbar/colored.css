@@ -1,12 +1,10 @@
 div.newtb.colored {
-  border: transparent 0px solid !important;
-  /* border-top: transparent 1px solid !important; */
+  border: var(--accent-dark) 1px solid;
 }
 
 div.newtb::after {
   content: " ";
 
-  border-radius: inherit;
   width: 100%;
   height: 100%;
   position: absolute;

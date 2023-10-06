@@ -1,0 +1,14 @@
+div.actioncenter div.notifications {
+  height: calc(100% - 260px);
+  overflow-y: scroll;
+}
+
+div.actioncenter div.notifications > :last-child {
+  border-bottom: none;
+  margin-bottom: 30px;
+}
+
+div.actioncenter p.none {
+  text-align: center;
+  opacity: 0.4;
+}

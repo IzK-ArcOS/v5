@@ -67,15 +67,19 @@ export const QuickSettings: QuickSetting[] = [
     caption: "Dark mode",
   },
   {
-    icon: "",
-    iconOff: "",
-    getter() {
-      return false;
+    icon: "invert_colors",
+    iconOff: "invert_colors_off",
+    getter(udata) {
+      return udata.sh.taskbar.colored;
     },
-    setter() {
-      return false;
+    setter(udata) {
+      udata.sh.taskbar.colored = !udata.sh.taskbar.colored;
+
+      UserData.set(udata);
+
+      return udata.sh.taskbar.colored;
     },
-    caption: "",
+    caption: "Colored Shell",
   },
   {
     icon: "",

@@ -2,14 +2,13 @@ div.exp-cglo-31823 window.window:not(.fullscreen) div.accent {
   content: " ";
 
   border-radius: inherit;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0px;
   left: 0px;
   z-index: -1;
   opacity: 0.2;
-  margin: -1px;
   pointer-events: none;
 }
 

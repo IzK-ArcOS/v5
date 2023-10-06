@@ -1,0 +1,19 @@
+div.actioncenter.docked:not(.launcher) {
+  height: calc(100% - 45px);
+  top: 0px;
+  right: -400px;
+  border-radius: 0px;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+div.actioncenter.docked.launcher {
+  top: 32px;
+  height: calc(100% - 32px);
+  border-radius: 0;
+}
+
+div.actioncenter.docked.opened {
+  right: 0px;
+}

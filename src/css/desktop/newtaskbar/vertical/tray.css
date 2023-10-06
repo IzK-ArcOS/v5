@@ -1,6 +1,6 @@
 div.taskbar-v div.tray {
   margin-top: auto;
-  width: calc(100% + 2px);
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

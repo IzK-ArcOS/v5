@@ -1,0 +1,24 @@
+div.actioncenter::after {
+  content: " ";
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  opacity: 0.3;
+  pointer-events: none;
+}
+/* 
+div.actioncenter.colored {
+  border: var(--glass-ultradark) 1px solid;
+} */
+
+div.actioncenter.colored::after {
+  background-color: var(--accent);
+}
+
+div.actioncenter.colored {
+  border: var(--accent-dark) 1px solid;
+}

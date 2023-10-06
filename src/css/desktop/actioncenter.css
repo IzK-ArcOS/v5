@@ -1,3 +1,11 @@
+@import url("./actioncenter/launcher.css");
+@import url("./actioncenter/colored.css");
+@import url("./actioncenter/vertical.css");
+@import url("./actioncenter/docked.css");
+@import url("./actioncenter/quicksettings.css");
+@import url("./actioncenter/header.css");
+@import url("./actioncenter/notifications.css");
+
 div.actioncenter {
   position: absolute;
   top: 10px;
@@ -5,7 +13,7 @@ div.actioncenter {
   height: calc(100% - 75px);
   width: 400px;
   background-color: var(--glass-ultradark);
-  /* border: var(--glass-alt-bg) 1px solid; */
+  border: var(--glass-alt-bg) 1px solid;
   box-sizing: border-box;
   border-radius: var(--win-border-rad);
   -webkit-backdrop-filter: blur(var(--glass-blur));
@@ -17,112 +25,6 @@ div.actioncenter {
   overflow: hidden;
 }
 
-div.actioncenter.launcher {
-  top: 42px;
-  height: calc(100% - 52px);
-}
-
-div.actioncenter::after {
-  content: " ";
-
-  border-radius: inherit;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: -1;
-  opacity: 0.3;
-  pointer-events: none;
-}
-/* 
-div.actioncenter.colored {
-  border: var(--glass-ultradark) 1px solid;
-} */
-
-div.actioncenter.colored::after {
-  background-color: var(--accent);
-}
-
-div[class*="tb-vertical"] div.actioncenter:not(.launcher) {
-  height: calc(100% - 20px);
-}
-
-div[class*="tb-vertical"] div.actioncenter.docked:not(.launcher) {
-  height: 100%;
-  border-right: unset;
-}
-
-div.actioncenter.docked:not(.launcher) {
-  height: calc(100% - 45px);
-  top: 0px;
-  right: -400px;
-  border-radius: 0px;
-}
-
-div.actioncenter.docked.launcher {
-  top: 32px;
-  height: calc(100% - 32px);
-  border-radius: 0;
-}
-
-div.actioncenter.noquick div.quicksettings {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.actioncenter.noquick div.notifications {
-  height: calc(100% - 50px);
-}
-
-div.actioncenter div.notifications {
-  height: calc(100% - 267px);
-  overflow-y: scroll;
-}
-
-div.actioncenter div.notifications > :last-child {
-  border-bottom: none;
-  margin-bottom: 30px;
-}
-
-div.actioncenter div.quicksettings {
-  height: 200px;
-}
-
-div.actioncenter div.quicksettings-toggle {
-  display: flex;
-}
-
-div.actioncenter div.quicksettings-toggle button.toggle {
-  margin-left: auto;
-  background-color: transparent;
-  color: var(--fg);
-  border: none;
-}
-
-div.actioncenter div.quicksettings-toggle button.toggle:hover {
-  opacity: 0.7;
-}
-
-div.actioncenter div.quicksettings-toggle button.toggle:active {
-  opacity: 0.4;
-  transform: scale(0.9);
-}
-
-div.actioncenter-shade {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background-color: #0000;
-  width: 100%;
-  height: 100%;
-  display: none;
-}
-
-div.actioncenter-shade.opened {
-  display: block;
-}
-
 div.actioncenter:not(.opened) * {
   pointer-events: none;
 }
@@ -130,103 +32,4 @@ div.actioncenter:not(.opened) * {
 div.actioncenter.opened {
   right: 10px;
   opacity: 1;
-}
-
-div.tb-vertical-right div.actioncenter.opened.docked:not(.launcher) {
-  right: 45px;
-}
-
-div.tb-vertical-right div.actioncenter.opened:not(.launcher) {
-  right: 65px;
-}
-
-div.actioncenter.docked.opened {
-  right: 0px;
-}
-
-div.actioncenter h3.title {
-  margin: 0;
-  margin-bottom: 10px;
-  display: flex;
-  height: 20px;
-  align-items: center;
-}
-
-div.actioncenter h3.title button.clear {
-  margin-left: auto;
-  background-color: var(--button-glass-bg);
-  color: var(--fg);
-  border: none;
-  padding: 5px 10px;
-  border-radius: var(--button-border-rad);
-  height: 28px;
-}
-
-div.actioncenter h3.title button.clear:hover {
-  background-color: var(--button-glass-hover-bg);
-}
-
-div.actioncenter h3.title button.clear:active {
-  background-color: var(--button-glass-active-bg);
-}
-
-div.actioncenter h3.title button.clear:disabled {
-  background-color: var(--button-glass-bg);
-  opacity: 0.4;
-}
-
-div.actioncenter p.none {
-  text-align: center;
-  opacity: 0.4;
-}
-
-div.actioncenter div.quicksettings {
-  display: grid;
-  grid-template-columns: repeat(3, 121px);
-  grid-template-rows: repeat(3, 66px);
-  margin-top: 15px;
-}
-
-div.actioncenter div.quicksettings button.setting {
-  background-color: var(--button-glass-active-bg);
-  border: none;
-  border-radius: 5px;
-  color: var(--fg);
-  height: 60px;
-  margin: 0 3px;
-}
-
-div.actioncenter div.quicksettings button.setting.active {
-  background-color: var(--accent-light);
-  color: var(--accent-dark);
-}
-
-div.actioncenter div.quicksettings button.setting.active p.caption {
-  color: var(--accent-dark);
-}
-
-div.actioncenter div.quicksettings button.setting p.caption {
-  font-size: 13px;
-  margin: 0;
-  margin-top: 5px;
-  overflow: hidden;
-  opacity: 0;
-  max-height: 0px;
-  margin-top: 0;
-  transition: all 0.3s, opacity 0.2s;
-}
-
-div.actioncenter div.quicksettings button.setting:hover {
-  padding-top: 0px;
-}
-
-div.actioncenter div.quicksettings button.setting:active {
-  transform: scale(0.95);
-}
-
-div.actioncenter div.quicksettings button.setting:hover p.caption {
-  opacity: 1;
-  max-height: 16px;
-  margin-top: 5px;
-  transition: all 0.3s, opacity 0.5s 0.1s;
 }

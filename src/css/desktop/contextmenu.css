@@ -14,20 +14,25 @@ div.desktop div.contextmenu {
   padding: 5px;
   visibility: hidden;
   opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s, top 0s, left 0s !important;
+  display: flex;
+  flex-direction: column;
+  transform: scaleY(0%);
 }
 
 div.desktop div.contextmenu::after {
   content: " ";
 
-  border-radius: inherit;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
+  /* border-radius: inherit; */
+  width: calc(100%);
+  height: calc(100%);
   position: absolute;
   top: 0px;
   left: 0px;
   z-index: -1;
   opacity: 0.3;
-  margin: -1px;
+  /* margin: -1px; */
   pointer-events: none;
 }
 
@@ -46,6 +51,7 @@ div.desktop div.contextmenu.show * {
 div.desktop div.contextmenu.show {
   opacity: 1;
   visibility: visible;
+  transform: scaleY(100%);
 }
 
 div.desktop div.contextmenu button.contextmenu-item {

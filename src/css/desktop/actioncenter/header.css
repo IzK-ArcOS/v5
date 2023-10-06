@@ -1,0 +1,30 @@
+div.actioncenter h3.title {
+  margin: 0;
+  margin-bottom: 10px;
+  display: flex;
+  height: 20px;
+  align-items: center;
+}
+
+div.actioncenter h3.title button.clear {
+  margin-left: auto;
+  background-color: var(--button-glass-bg);
+  color: var(--fg);
+  border: none;
+  padding: 5px 10px;
+  border-radius: var(--button-border-rad);
+  height: 28px;
+}
+
+div.actioncenter h3.title button.clear:hover {
+  background-color: var(--button-glass-hover-bg);
+}
+
+div.actioncenter h3.title button.clear:active {
+  background-color: var(--button-glass-active-bg);
+}
+
+div.actioncenter h3.title button.clear:disabled {
+  background-color: var(--button-glass-bg);
+  opacity: 0.4;
+}
