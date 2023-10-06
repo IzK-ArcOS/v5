@@ -13,6 +13,10 @@
     $UserData.sh.desktop.accent = hex;
     cancel();
   }
+
+  UserData.subscribe((v) => {
+    if (v.sh.desktop.accent !== hex) hex = v.sh.desktop.accent;
+  });
 </script>
 
 <div class="wrapper">
@@ -47,6 +51,7 @@
     align-items: start;
     gap: 10px;
     width: 100%;
+    height: 100%;
   }
 
   div.wrapper img {
@@ -55,6 +60,21 @@
 
   div.wrapper div.right {
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  div.wrapper div.right p {
+    margin: 0;
+  }
+
+  div.wrapper div.right div.buttons {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+    justify-content: end;
   }
 
   div.wrapper div.hex-wrapper {
