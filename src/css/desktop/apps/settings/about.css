@@ -68,3 +68,7 @@ div.about-page div.section div.row button.material-icons-round {
   margin-left: 5px;
   font-size: 18px;
 }
+
+window#SettingsApp div.inner.inner-about {
+  height: calc(100% - 40px);
+}

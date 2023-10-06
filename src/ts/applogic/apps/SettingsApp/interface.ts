@@ -5,4 +5,5 @@ export interface SettingsPage {
   sep?: boolean;
   disabled?: boolean;
   hidden?: boolean;
+  className?: string;
 }

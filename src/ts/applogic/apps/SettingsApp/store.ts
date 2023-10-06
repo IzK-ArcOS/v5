@@ -63,6 +63,7 @@ export const SettingsPages: SettingsPage[] = [
     name: "About",
     icon: Logo(),
     content: About,
+    className: "inner-about",
   },
 ];
 
