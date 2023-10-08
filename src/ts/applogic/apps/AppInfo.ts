@@ -14,6 +14,7 @@ export const AppInfo: App = {
     author: "Izaak Kuipers",
     hidden: true,
     icon: TestAppIcon,
+    appGroup: "coreApps",
   },
   size: { w: 500, h: 450 },
   pos: { x: 30, y: 40 },

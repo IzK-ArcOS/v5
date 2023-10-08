@@ -12,6 +12,7 @@ export const ArcTerm: App = {
     author: "ArcOS Team",
     icon: ArcTermIcon,
     preloaded: true,
+    appGroup: "systemTools",
   },
   size: { w: 640, h: 480 },
   pos: { x: 60, y: 60 },

@@ -15,6 +15,7 @@ export const OpenWithApp: App = {
     author: "Izaak Kuipers",
     hidden: true,
     icon: AppsIcon,
+    appGroup: "coreApps",
   },
   size: { w: 450, h: 550 },
   pos: { x: 0, y: 0 },

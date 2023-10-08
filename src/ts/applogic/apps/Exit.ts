@@ -12,6 +12,7 @@ export const Exit: App = {
     author: "Izaak Kuipers",
     icon: ExitIcon,
     hidden: true,
+    appGroup: "coreApps",
   },
   size: { w: 280, h: 50 },
   pos: { x: 0, y: 0 },

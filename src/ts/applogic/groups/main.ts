@@ -9,7 +9,7 @@ export function getAppGroups(): {
   rest: string[];
 } {
   const ws = get(WindowStore);
-  const result: CompiledAppGroupStore = {};
+  let result: CompiledAppGroupStore = {};
   const grouped = [];
   let rest = [];
 
@@ -37,6 +37,19 @@ export function getAppGroups(): {
   }
 
   rest = rest.filter((a) => !grouped.includes(a));
+
+  result = Object.fromEntries(
+    Object.entries(result).map((g) => {
+      g[1].apps = g[1].apps.sort((a, b) => {
+        const appA = getWindow(a);
+        const appB = getWindow(b);
+
+        return appA.info.name > appB.info.name ? 1 : -1;
+      });
+
+      return g;
+    })
+  ) as CompiledAppGroupStore;
 
   return { groups: result, rest };
 }

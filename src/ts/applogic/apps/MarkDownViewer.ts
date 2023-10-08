@@ -13,6 +13,7 @@ export const MarkDownViewer: App = {
     builtin: true,
     hidden: true,
     requiresFile: true,
+    appGroup: "utilities",
   },
   size: { w: 700, h: 550 },
   pos: { x: 30, y: 40 },

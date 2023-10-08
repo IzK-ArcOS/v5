@@ -11,6 +11,7 @@ export const IconLibrary: App = {
     author: "Izaak Kuipers",
     hidden: true,
     icon: IconLibraryIcon,
+    appGroup: "utilities",
   },
   size: { w: 595, h: NaN },
   pos: { x: 30, y: 40 },
