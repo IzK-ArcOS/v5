@@ -12,7 +12,7 @@
 
 {#if $UserData}
   <div
-    class="startmenu"
+    class="startmenu shell-colored"
     style="z-index: {$maxZIndex + 4};"
     class:open={$startOpened}
     class:small={$UserData.sh.start.small}

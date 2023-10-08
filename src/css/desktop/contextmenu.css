@@ -21,23 +21,8 @@ div.desktop div.contextmenu {
   transform: scaleY(0%);
 }
 
-div.desktop div.contextmenu::after {
-  content: " ";
-
-  /* border-radius: inherit; */
-  width: calc(100%);
-  height: calc(100%);
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: -1;
-  opacity: 0.3;
-  /* margin: -1px; */
-  pointer-events: none;
-}
-
-div.desktop div.contextmenu.colored::after {
-  background-color: var(--accent);
+div.desktop div.contextmenu.colored {
+  border: var(--accent-dark) 1px solid;
 }
 
 div.desktop div.contextmenu * {

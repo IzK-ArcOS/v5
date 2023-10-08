@@ -5,6 +5,11 @@ div.startmenu div.right {
   border: var(--win-border-light);
 }
 
+div.startmenu.colored div.right,
+div.startmenu.colored div.bottom {
+  border: var(--accent-dark) 1px solid;
+}
+
 div.startmenu.small div.left {
   width: calc(100% - 180px);
 }

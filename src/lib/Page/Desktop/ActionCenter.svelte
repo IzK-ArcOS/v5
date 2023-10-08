@@ -23,7 +23,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
-  class="actioncenter"
+  class="actioncenter shell-colored"
   class:docked={$UserData.sh.taskbar.docked}
   class:launcher={$UserData.sh.taskbar.isLauncher}
   class:opened

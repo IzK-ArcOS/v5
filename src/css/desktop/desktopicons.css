@@ -14,7 +14,7 @@ div.desktopIcons * {
 }
 
 div.desktopIcons.launcher {
-  padding-top: 42px !important;
+  margin-top: 35px !important;
 }
 
 div.desktop.tbdocked:not(.tb-vertical):not(.tb-vertical-right)

@@ -29,26 +29,8 @@ div.notification:not(.nobutt) {
   padding-bottom: 65px;
 }
 
-div.notification:not(.ac)::after {
-  content: " ";
-
-  border-radius: inherit;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: -1;
-  opacity: 0.3;
-  pointer-events: none;
-}
-
 div.notification:not(.ac).colored {
   border: var(--glass-ultradark) 1px solid;
-}
-
-div.notification:not(.ac).colored::after {
-  background-color: var(--accent);
 }
 
 div.notification.ac {

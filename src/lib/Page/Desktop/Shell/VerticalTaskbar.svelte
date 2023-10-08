@@ -5,7 +5,7 @@
 </script>
 
 <div
-  class="taskbar-v newtb"
+  class="taskbar-v newtb shell-colored"
   style="z-index: {$maxZIndex + 5};"
   class:docked={$UserData.sh.taskbar.docked}
   class:centered={$UserData.sh.taskbar.centered}

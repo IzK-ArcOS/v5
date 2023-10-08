@@ -22,5 +22,9 @@ div.launcher-bar > div.opened-apps {
   display: flex;
   gap: 10px;
   padding-left: 10px;
-  border-left: var(--win-border-light);
+  border-left: var(--button-glass-hover-bg) 1px solid;
+}
+
+div.launcher-bar.colored {
+  border: var(--accent-dark) 1px solid;
 }

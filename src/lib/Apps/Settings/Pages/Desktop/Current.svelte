@@ -10,7 +10,7 @@
 
 <div class="current" style="background-image: url({url});">
   <div
-    class="fake-taskbar"
+    class="fake-taskbar shell-colored"
     class:colored={$UserData.sh.taskbar.colored}
     class:docked={$UserData.sh.taskbar.docked}
   />

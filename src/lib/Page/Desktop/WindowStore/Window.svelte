@@ -75,6 +75,7 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 {#if app && !isDisabled(app.id)}
   <window
+    class="shell-colored"
     class:window={!app.info.custom}
     class:focused={app.id == $focusedWindowId}
     class:headless={app.state.headless || app.state.windowState.fll}

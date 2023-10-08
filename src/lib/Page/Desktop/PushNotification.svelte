@@ -52,7 +52,7 @@
 </script>
 
 <div
-  class="notification"
+  class="notification shell-colored"
   class:hidden={!data || hide}
   class:colored={$UserData.sh.taskbar.colored}
   class:nobutt={data && !data.buttons.length}

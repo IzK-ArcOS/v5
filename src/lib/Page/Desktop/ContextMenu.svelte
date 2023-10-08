@@ -71,7 +71,7 @@
 </script>
 
 <div
-  class="contextmenu"
+  class="contextmenu shell-colored"
   class:show
   class:compact={$UserData.sh.compactContext}
   class:colored={$UserData.sh.taskbar.colored}

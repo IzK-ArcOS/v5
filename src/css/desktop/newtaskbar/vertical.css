@@ -4,7 +4,7 @@
 
 div.taskbar-v {
   top: 10px;
-  width: 45px;
+  width: 46px;
   height: calc(100% - 20px);
   flex-direction: column;
   padding-top: 5px;

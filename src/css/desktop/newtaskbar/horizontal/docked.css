@@ -2,6 +2,7 @@ div.taskbar-h.docked {
   left: 0px;
   width: 100%;
   border-radius: 0;
+  height: 46px;
 }
 
 div.taskbar-h.docked:not(.top) {
