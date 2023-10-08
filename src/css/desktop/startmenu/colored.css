@@ -2,3 +2,7 @@ div.startmenu.colored {
   border: var(--accent-light-transparent) 1px solid;
   overflow: hidden;
 }
+div.desktop.theme-light div.startmenu.colored div.right,
+div.desktop.theme-light div.startmenu.colored div.bottom {
+  background-color: #fff1 !important;
+}

@@ -21,17 +21,16 @@ div.startmenu div.bottom * {
 div.startmenu div.bottom h1.username {
   margin: 0;
   font-size: 19px;
-  line-height: 30px;
+
   height: fit-content;
   display: flex;
   align-items: center;
 }
 
-div.startmenu div.bottom img.pfp {
-  height: 30px;
-  vertical-align: middle;
+div.startmenu:not(.small) div.bottom .pfp {
+  height: 30px !important;
   border-radius: 15px;
-  margin-right: 15px;
+  margin-right: 5px;
 }
 
 div.startmenu div.bottom div.options {

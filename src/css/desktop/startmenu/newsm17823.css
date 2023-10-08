@@ -48,7 +48,12 @@ div.startmenu div.bottom > * {
 
 div.startmenu:not(.small) div.bottom {
   height: 60px;
-  padding: 0 20px;
+  padding: 0 15px;
+  padding-right: 20px;
+}
+
+div.startmenu.small div.bottom {
+  padding: 15px;
 }
 
 div.startmenu div.bottom h1.username {

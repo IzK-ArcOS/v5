@@ -47,5 +47,5 @@ export const SUD: Command = {
       "blue"
     );
   },
-  description: "",
+  description: "Set UserData parameters",
 };

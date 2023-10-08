@@ -38,6 +38,7 @@ window#ArcTerm > div.body div.terminal-renderer * {
   word-break: break-all;
   white-space: break-spaces;
   max-width: 100%;
+  box-shadow: none !important;
 }
 
 window#ArcTerm.fullscreen {
