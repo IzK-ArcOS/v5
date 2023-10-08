@@ -31,6 +31,6 @@ window.focused div.titlebar {
   background-color: transparent;
 }
 
-window.glass:not(.focused) {
-  background: var(--win-bg);
+window.glass div.titlebar {
+  background: transparent !important;
 }

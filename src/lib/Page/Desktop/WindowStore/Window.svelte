@@ -89,7 +89,9 @@
     class:lefttb={$UserData && $UserData.sh.window.lefttb}
     class:custom={app.info.custom}
     class:child={!!app.parentId}
-    class:colored={$UserData && $UserData.sh.taskbar.colored}
+    class:colored={$UserData &&
+      $UserData.sh.taskbar.colored &&
+      $focusedWindowId == app.id}
     style={cssString}
     id={app.id}
     on:mousedown={handleMouse}

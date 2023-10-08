@@ -7,7 +7,7 @@ div.startmenu div.right {
 
 div.startmenu.colored div.right,
 div.startmenu.colored div.bottom {
-  border: var(--accent-dark) 1px solid;
+  border: var(--accent-light-transparent) 1px solid;
 }
 
 div.startmenu.small div.left {

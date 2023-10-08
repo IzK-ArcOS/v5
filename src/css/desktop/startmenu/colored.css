@@ -1,4 +1,4 @@
 div.startmenu.colored {
-  border: var(--accent-dark) 1px solid;
+  border: var(--accent-light-transparent) 1px solid;
   overflow: hidden;
 }

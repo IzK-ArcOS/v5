@@ -26,5 +26,5 @@ div.launcher-bar > div.opened-apps {
 }
 
 div.launcher-bar.colored {
-  border: var(--accent-dark) 1px solid;
+  border: var(--accent-light-transparent) 1px solid;
 }
