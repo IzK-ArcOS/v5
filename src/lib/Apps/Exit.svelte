@@ -1,7 +1,6 @@
 <script lang="ts">
   import "../../css/desktop/apps/exit.css";
   import { defaultDirectory } from "../../ts/api/interface";
-  import { ExitShowAT } from "../../ts/applogic/apps/Exit";
   import {
     FileBrowserCurrentDir,
     FileBrowserDeletingFilename,
@@ -24,20 +23,6 @@
 
     closeWindow(app.id);
   }
-
-  function arcterm() {
-    FileBrowserCurrentDir.set("./");
-    FileBrowserSelectedFilename.set(null);
-    FileBrowserDirContents.set(defaultDirectory);
-    FileBrowserDeletingFilename.set(null);
-    NotificationStore.set({});
-    ErrorWindowStore.set([]);
-    ErrorMessages.set([]);
-    WindowStore.set([]);
-    selectedMessageId.set(null);
-
-    applyState("arcterm");
-  }
 </script>
 
 <div class="center-flex">
@@ -55,12 +40,6 @@
       <span class="material-icons-round">refresh</span>
       <p class="caption">Restart</p>
     </button>
-    {#if $ExitShowAT}
-      <button class="option" on:click={arcterm}>
-        <span class="material-icons-round">terminal</span>
-        <p class="caption">ArcTerm</p>
-      </button>
-    {/if}
     <button class="cancel" on:click={cancel}>Cancel</button>
   </div>
 </div>

@@ -2,6 +2,10 @@ window#Exit {
   background-color: #000c;
 }
 
+window#Exit::after {
+  display: none;
+}
+
 window#Exit * {
   color: #ccc;
 }

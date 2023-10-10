@@ -26,21 +26,4 @@ export const Exit: App = {
   },
   content: ExitSvelte,
   glass: true,
-
-  events: {
-    keyboardShortcuts: [
-      {
-        shift: true,
-        key: "",
-        action() {
-          ExitShowAT.set(true);
-        },
-      },
-    ],
-    close(app) {
-      ExitShowAT.set(false);
-    },
-  },
 };
-
-export const ExitShowAT = writable<boolean>(false);
