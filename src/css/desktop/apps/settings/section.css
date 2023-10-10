@@ -27,6 +27,7 @@ window#SettingsApp div.section.opt {
   display: flex;
   height: 60px;
   max-width: 610px;
+  margin: 0 auto;
 }
 
 window#SettingsApp div.section.opt h3.header {

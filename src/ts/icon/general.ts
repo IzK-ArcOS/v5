@@ -8,7 +8,6 @@ export { default as FireFoxIcon } from "../../assets/firefox.png";
 export { default as FlagIcon } from "../../assets/flag.svg";
 export { default as FolderIcon } from "../../assets/folder.svg";
 export { default as HomeIcon } from "../../assets/home.svg";
-export { default as LockIcon } from "../../assets/lock.svg";
 export { default as MemoryIcon } from "../../assets/memory.svg";
 export { default as ModeIcon } from "../../assets/mode.svg";
 export { default as PasswordIcon } from "../../assets/password.svg";

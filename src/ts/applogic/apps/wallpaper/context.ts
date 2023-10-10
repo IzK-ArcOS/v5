@@ -3,12 +3,7 @@ import { SEP_ITEM } from "../../../contextmenu/main";
 import { alignDesktopIcons } from "../../../desktop/icons";
 import { restart, shutdown } from "../../../desktop/power";
 import { errorMessage } from "../../../errorlogic/main";
-import {
-  AppManIcon,
-  ExitIcon,
-  FileManagerIcon,
-  TestAppIcon,
-} from "../../../icon/apps";
+import { AppManIcon, FileManagerIcon, TestAppIcon } from "../../../icon/apps";
 import {
   AppsIcon,
   DesktopIcon,
@@ -16,6 +11,7 @@ import {
   ThemesIcon,
   TrashIcon,
 } from "../../../icon/general";
+import { RestartIcon, ShutdownIcon } from "../../../icon/power";
 import { UserData } from "../../../userlogic/interfaces";
 import { disableApp } from "../../enabling";
 import { closeWindow, openWindow } from "../../events";
@@ -107,12 +103,12 @@ export const WallpaperContext: AppContextMenu = {
     {
       caption: "Shut down",
       action: shutdown,
-      icon: "power_settings_new",
+      image: ShutdownIcon,
     },
     {
       caption: "Restart",
       action: () => restart(false),
-      icon: "refresh",
+      image: RestartIcon,
     },
     SEP_ITEM,
     {
@@ -146,7 +142,7 @@ export const WallpaperContext: AppContextMenu = {
       icon: "launch",
     },
     {
-      image: ExitIcon,
+      image: ShutdownIcon,
       caption: "Kill",
       action(window, data, scope) {
         closeWindow(data.id);

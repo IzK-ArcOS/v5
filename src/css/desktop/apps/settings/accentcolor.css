@@ -1,7 +1,8 @@
 window#SettingsApp div.accentcolor-wrapper {
-  margin: 10px 0;
+  margin: 10px auto;
   display: grid;
   grid-template-columns: repeat(12, 35px);
+  max-width: 610px;
 }
 window#SettingsApp div.accentcolor-wrapper button.color {
   width: 25px;

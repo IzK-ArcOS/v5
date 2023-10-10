@@ -7,6 +7,7 @@
 
 window#SettingsApp hr {
   border: var(--button-bg) 1px solid;
+  max-width: 610px;
 }
 window#SettingsApp h3.header {
   margin-bottom: 10px;
@@ -18,4 +19,8 @@ window#SettingsApp p.context {
 
 window#SettingsApp div.overlay-wrapper#pfpSel window.overlay div.body {
   overflow: hidden;
+}
+
+window#SettingsApp h1.page-title {
+  max-width: 610px;
 }

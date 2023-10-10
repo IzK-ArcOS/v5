@@ -1,0 +1,10 @@
+div.launcher-topbar div.current-app {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 10px;
+}
+
+div.launcher-topbar div.current-app img {
+  height: 18px;
+}

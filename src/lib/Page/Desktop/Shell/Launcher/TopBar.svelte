@@ -6,6 +6,8 @@
   import { UserData, UserName } from "../../../../../ts/userlogic/interfaces";
   import Tray from "../../Taskbar/Tray.svelte";
   import Clock from "./TopBar/Clock.svelte";
+  import CurrentApp from "./TopBar/CurrentApp.svelte";
+  import Power from "./TopBar/Power.svelte";
 </script>
 
 <div
@@ -16,8 +18,12 @@
   data-contextmenu="clockcontext"
   style="z-index: {$maxZIndex + 5}"
 >
+  <CurrentApp />
   <Clock />
   <Tray hasClock={false}>
-    {$UserName}
+    <Power />
+    <span>
+      {$UserName}
+    </span>
   </Tray>
 </div>

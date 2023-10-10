@@ -4,7 +4,7 @@
   import AccentColor from "./Personalization/AccentColor.svelte";
 </script>
 
-<h1>Appearance</h1>
+<h1 class="page-title">Appearance</h1>
 <OptionSection title="Style" context="Change the style of the UI">
   <select name="aa" id="bb" bind:value={$UserData.sh.desktop.theme}>
     <option value="dark">Darkmode</option>

@@ -8,7 +8,6 @@ export { default as DefaultIcon } from "../../assets/apps/default.svg";
 export { default as DonutIcon } from "../../assets/apps/donut.png";
 export { default as ErrorIcon } from "../../assets/apps/error.svg";
 export { default as ErrorDialogIcon } from "../../assets/apps/errordialog.svg";
-export { default as ExitIcon } from "../../assets/apps/exit.svg";
 export { default as FileManagerIcon } from "../../assets/apps/filemanager.svg";
 export { default as HelpCenterIcon } from "../../assets/apps/helpcenter.svg";
 export { default as IconLibraryIcon } from "../../assets/apps/iconlibrary.svg";

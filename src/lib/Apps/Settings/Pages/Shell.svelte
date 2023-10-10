@@ -4,7 +4,7 @@
   import TaskBarPosition from "./Shell/TaskBarPosition.svelte";
 </script>
 
-<h1>Shell</h1>
+<h1 class="page-title">Shell</h1>
 <OptionSection
   title="Launcher Mode"
   context="Use a GNOME-style launcher instead of the taskbar"

@@ -1,5 +1,5 @@
 import { restart, shutdown } from "../desktop/power";
-import { ExitIcon } from "../icon/apps";
+import { ShutdownIcon } from "../icon/power";
 import type { SearchItem } from "./interface";
 import { compileSearchableApps } from "./store/apps";
 import { compileSearchableFiles } from "./store/files";
@@ -16,13 +16,13 @@ const powerOptions: SearchItem[] = [
     caption: "Shutdown",
     description: "Leave the desktop and turn off ArcOS",
     action: shutdown,
-    image: ExitIcon,
+    image: ShutdownIcon,
   },
   {
     caption: "Restart",
     description: "Leave the desktop and reload ArcOS",
     action: () => restart(false),
-    image: ExitIcon,
+    image: ShutdownIcon,
   },
 ];
 

@@ -1,0 +1,12 @@
+div.launcher-topbar div.clock {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  text-align: center;
+  line-height: 32px;
+  font-weight: bold;
+  font-size: 14px;
+}

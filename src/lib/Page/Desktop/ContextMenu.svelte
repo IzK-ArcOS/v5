@@ -11,6 +11,7 @@
   import { getWindowElementByEvent } from "../../../ts/window/main";
   import Item from "./ContextMenu/Item.svelte";
   import { UserData } from "../../../ts/userlogic/interfaces";
+  import sleep from "../../../ts/sleep";
 
   let x = 0;
   let y = 0;
@@ -48,10 +49,14 @@
 
     const contextmenu = el?.dataset.contextmenu;
 
-    setTimeout(() => {
+    setTimeout(async () => {
       const newItems = getContextEntry(windowElement.id, contextmenu) || [];
 
       if (!newItems.length) return;
+
+      items = [];
+
+      await sleep(0); // wait for next frame
 
       items = newItems;
 

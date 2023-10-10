@@ -4,7 +4,7 @@
   import OptionSection from "../OptionSection.svelte";
 </script>
 
-<h1>Windows</h1>
+<h1 class="page-title">Windows</h1>
 <OptionSection title="Large titlebar" context="Make the titlebars larger">
   <input
     type="checkbox"
