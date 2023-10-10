@@ -6,7 +6,7 @@ div.launcher-topbar {
   border: none;
   border-radius: 0;
   height: 32px;
-  background-color: var(--glass-ultradark);
+  background-color: var(--startmenu-bg);
   display: flex;
   -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
@@ -76,7 +76,7 @@ div.launcher-topbar div.tray span.material-icons {
 }
 
 div.launcher-topbar div.tray button.ac-open {
-  color: var(--fg);
+  color: var(--fg) !important;
   background-color: transparent;
   border: none;
   height: inherit;

@@ -34,6 +34,8 @@ export function updateStores() {
 
   const oa = getOpenedStore();
 
+  isFullscreenWindow.set(false);
+
   WindowStore.update((ws) => {
     for (let i = 0; i < oa.length; i++) {
       const windowData = getWindow(oa[i].id);
@@ -41,7 +43,6 @@ export function updateStores() {
       if (windowData) oa[i] = windowData;
 
       if (
-        oa[i] &&
         oa[i] &&
         oa[i].state.windowState.fll &&
         !oa[i].state.windowState.min
@@ -51,8 +52,6 @@ export function updateStores() {
     }
     return ws;
   });
-
-  isFullscreenWindow.set(false);
 }
 
 WindowStore.subscribe(() => {

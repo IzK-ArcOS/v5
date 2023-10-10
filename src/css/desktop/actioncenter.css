@@ -12,7 +12,7 @@ div.actioncenter {
   right: 10px;
   height: calc(100% - 75px);
   width: 400px;
-  background-color: var(--glass-ultradark);
+  background-color: var(--startmenu-bg);
   border: var(--glass-alt-bg) 1px solid;
   box-sizing: border-box;
   border-radius: var(--win-border-rad);

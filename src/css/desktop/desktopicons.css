@@ -22,6 +22,12 @@ div.desktop.tbdocked:not(.tb-vertical):not(.tb-vertical-right)
   height: calc(100% - 45px);
 }
 
+div.desktop:not(.tbdocked).tb-top div.desktopIcons {
+  margin-top: 65px;
+}
+div.desktop.tbdocked.tb-top div.desktopIcons {
+  margin-top: 45px;
+}
 div.desktop.tb-vertical div.desktopIcons:not(.launcher) {
   margin-left: 65px;
   width: calc(100% - 65px);

@@ -37,7 +37,7 @@
       id="a"
       class="switch"
       bind:checked={$UserData.sh.taskbar.labels}
-      disabled={!!$UserData.sh.taskbar.pos}
+      disabled={$UserData.sh.taskbar.pos.includes("vertical")}
     />
   </OptionSection>
   <OptionSection

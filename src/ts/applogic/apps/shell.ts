@@ -8,6 +8,7 @@ import { UserData } from "../../userlogic/interfaces";
 import { openWindow } from "../events";
 import type { App } from "../interface";
 import { openByKey } from "./SettingsApp/store";
+import { AppsIcon } from "../../icon/general";
 
 export const ArcShell: App = {
   info: {
@@ -106,6 +107,20 @@ export const ArcShell: App = {
           openWindow("SettingsApp");
           setTimeout(() => {
             openByKey("Shell");
+          });
+        },
+      },
+    ],
+    "startmenu-applist": [
+      {
+        image: AppsIcon,
+        caption: "Group apps",
+        isActive: () => !get(UserData).sh.start.noGroups,
+        action() {
+          UserData.update((udata) => {
+            udata.sh.start.noGroups = !udata.sh.start.noGroups;
+
+            return udata;
           });
         },
       },

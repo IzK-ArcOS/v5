@@ -8,7 +8,7 @@ div.taskbar-v {
   border-radius: var(--win-border-rad);
   left: 10px;
   box-sizing: border-box;
-  background-color: var(--glass-ultradark);
+  background-color: var(--startmenu-bg);
   -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
   border: var(--glass-alt-bg) 1px solid;
@@ -81,11 +81,6 @@ div.newtb button.start img {
 
 div.newtb button.start:not(.open) svg.accented-logo path {
   --accent: #fff5;
-}
-
-div.desktop.theme-light div.newtb {
-  background-color: var(--glass-ultradark);
-  color: #222;
 }
 
 @keyframes blink {

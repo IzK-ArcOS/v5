@@ -18,6 +18,14 @@ div.taskbar-h:not(.visible) {
   visibility: hidden;
 }
 
-div.taskbar-h.top {
+div[class*="tb-top"] div.taskbar-h {
   top: 10px;
+}
+
+div[class*="tb-top"] div.taskbar-h.docked.colored {
+  border-bottom: var(--accent-light-transparent) 1px solid;
+}
+
+div[class*="tb-top"] div.taskbar-h.docked {
+  border-bottom: var(--glass-alt-bg) 1px solid;
 }

@@ -5,14 +5,14 @@ div.taskbar-h.docked {
   height: 46px;
 }
 
-div.taskbar-h.docked:not(.top) {
+div:not([class*="tb-top"]) div.taskbar-h.docked {
   bottom: 0px;
   border-left: none;
   border-right: none;
   border-bottom: none;
 }
 
-div.taskbar-h.docked.top {
+div[class*="tb-top"] div.taskbar-h.docked {
   top: 0px;
   border-left: none;
   border-right: none;

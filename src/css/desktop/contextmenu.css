@@ -50,6 +50,7 @@ div.desktop div.contextmenu button.contextmenu-item {
   padding: 5px;
   line-height: 18px;
   align-items: center;
+  transform: unset;
 }
 
 div.desktop div.contextmenu button.contextmenu-item::after {
@@ -85,6 +86,17 @@ div.desktop div.contextmenu button.contextmenu-item div.icon * {
   margin: 0;
   width: 18px;
   font-size: 18px;
+}
+
+div.desktop div.contextmenu.colored button.contextmenu-item:hover {
+  background-color: var(--accent-light-transparent);
+  box-shadow: 0 1px 2px 1px #0000001c;
+}
+
+div.desktop div.contextmenu.colored button.contextmenu-item:active {
+  background-color: var(--accent-dark);
+  color: var(--accent-light);
+  box-shadow: none;
 }
 
 div.desktop div.contextmenu button.contextmenu-item * {

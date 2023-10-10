@@ -33,7 +33,6 @@
 
   function handleEvent(e: MouseEvent) {
     show = false;
-    items = [];
 
     e.preventDefault();
 
@@ -50,9 +49,11 @@
     const contextmenu = el?.dataset.contextmenu;
 
     setTimeout(() => {
-      items = getContextEntry(windowElement.id, contextmenu) || [];
+      const newItems = getContextEntry(windowElement.id, contextmenu) || [];
 
-      if (!items.length) return;
+      if (!newItems.length) return;
+
+      items = newItems;
 
       scope = contextmenu;
       window = windowData;

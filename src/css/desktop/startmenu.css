@@ -4,41 +4,8 @@
 @import url("./startmenu/colored.css");
 @import url("./startmenu/small.css");
 @import url("./startmenu/newsm17823.css");
-
-div[class*="tb-vertical"] div.startmenu {
-  top: 10px;
-  left: 65px;
-}
-
-div[class*="tb-vertical-right"] div.startmenu {
-  left: unset !important;
-  right: 65px;
-}
-
-div[class*="tb-vertical"].tbdocked div.startmenu {
-  left: 55px;
-}
-
-div[class*="tb-vertical-right"].tbdocked div.startmenu {
-  right: 55px;
-}
-
-div.startframe {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s;
-  /* -webkit-backdrop-filter: blur(2px); */
-  /* background-color: #0006; */
-}
-
-div.startframe.present {
-  visibility: visible;
-  opacity: 1;
-}
-
-div.startmenu.present * {
-  pointer-events: initial;
-}
+@import url("./startmenu/position.css");
+@import url("./startmenu/frame.css");
 
 div.startmenu {
   position: absolute;
@@ -51,11 +18,12 @@ div.startmenu {
   border: var(--glass-alt-bg) 1px solid;
   box-sizing: border-box;
   transition: all 0.3s;
-  background-color: var(--glass-ultradark);
+  background-color: var(--startmenu-bg);
   -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
   left: 10px;
   bottom: calc(10px + 45px + 10px);
+  box-shadow: 0px 5px 15px 5px #0003;
 }
 
 div.startmenu * {
@@ -71,7 +39,9 @@ div.startmenu.open {
 div.startmenu.open * {
   pointer-events: initial;
 }
-
-div.desktop.tbdocked div.startmenu {
-  bottom: calc(45px + 10px);
+/* 
+div.desktop.theme-light div.startmenu {
+  background-color: var(--win-bg);
+  border: var(--win-border);
 }
+ */

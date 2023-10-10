@@ -1,0 +1,31 @@
+div[class*="tb-vertical"] div.startmenu {
+  top: 10px;
+  left: 65px;
+}
+
+div[class*="tb-vertical-right"] div.startmenu {
+  left: unset !important;
+  right: 65px;
+}
+
+div[class*="tb-vertical"].tbdocked div.startmenu {
+  left: 55px;
+}
+
+div[class*="tb-vertical-right"].tbdocked div.startmenu {
+  right: 55px;
+}
+
+div[class*="tb-top"].tbdocked div.startmenu {
+  top: 55px;
+  left: 10px;
+}
+
+div[class*="tb-top"] div.startmenu {
+  top: 65px;
+  left: 10px;
+}
+
+div.desktop.tbdocked div.startmenu {
+  bottom: calc(45px + 10px);
+}

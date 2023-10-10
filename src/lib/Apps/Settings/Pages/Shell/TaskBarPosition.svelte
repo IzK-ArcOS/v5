@@ -1,7 +1,12 @@
 <script lang="ts">
   import { UserData as U } from "../../../../../ts/userlogic/interfaces";
 
-  const options = { vertical: "left", "": "bottom", "vertical-right": "right" };
+  const options = {
+    vertical: "left",
+    "": "bottom",
+    "vertical-right": "right",
+    top: "top",
+  };
 </script>
 
 {#if $U}
@@ -45,5 +50,8 @@
   }
   div.taskbarpos button.right {
     transform: rotate(-90deg);
+  }
+  div.taskbarpos button.top {
+    transform: rotate(180deg);
   }
 </style>

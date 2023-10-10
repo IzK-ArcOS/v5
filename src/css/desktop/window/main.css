@@ -104,6 +104,16 @@ div.desktop:not(.is-launcher).tb-vertical .window.max {
   left: 65px !important;
 }
 
+div.desktop:not(.is-launcher):not(.tbdocked).tb-top .window.max {
+  top: 65px !important;
+  left: 0px !important;
+  height: calc(100% - 65px) !important;
+}
+div.desktop:not(.is-launcher).tbdocked.tb-top .window.max {
+  top: 45px !important;
+  left: 0px !important;
+  height: calc(100% - 45px) !important;
+}
 div.desktop:not(.is-launcher)[class*="tb-vertical"] .window.max {
   height: 100% !important;
   width: calc(100% - 65px) !important;

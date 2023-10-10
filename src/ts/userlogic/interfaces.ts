@@ -38,6 +38,7 @@ export interface UserData {
 
     start: {
       small: boolean; //done
+      noGroups: boolean;
     };
 
     anim: boolean; //done

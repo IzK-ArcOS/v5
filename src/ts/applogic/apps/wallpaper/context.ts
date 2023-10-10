@@ -143,6 +143,7 @@ export const WallpaperContext: AppContextMenu = {
       action(window, data, scope) {
         openWindow(data.id);
       },
+      icon: "launch",
     },
     {
       image: ExitIcon,
