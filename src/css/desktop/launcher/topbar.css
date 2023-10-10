@@ -2,6 +2,7 @@
 @import url("./topbar/docked.css");
 @import url("./topbar/clock.css");
 @import url("./topbar/currentapp.css");
+@import url("./topbar/colored.css");
 
 div.launcher-topbar {
   position: absolute;

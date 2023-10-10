@@ -1,4 +1,4 @@
-div.actioncenter.docked:not(.launcher) {
+div.actioncenter.docked {
   height: calc(100% - 45px);
   top: 0px;
   right: -400px;
