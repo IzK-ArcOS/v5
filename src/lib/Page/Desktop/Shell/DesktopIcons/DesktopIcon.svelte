@@ -49,6 +49,7 @@
       ? { bottom: 80, left: 10, right: 10, top: 10 }
       : { bottom: 110, left: 0, right: 40, top: 0 },
     position,
+    disabled: $UserData.sh.desktop.lockIcons,
   }}
   on:neodrag:end={endDrag}
 >

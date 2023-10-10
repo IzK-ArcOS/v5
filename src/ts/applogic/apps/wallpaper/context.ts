@@ -50,6 +50,18 @@ export const WallpaperContext: AppContextMenu = {
       isActive: () => !get(UserData).sh.desktop.noIconGrid,
     },
     {
+      caption: "Lock desktop icons",
+      action: () => {
+        UserData.update((udata) => {
+          udata.sh.desktop.lockIcons = !udata.sh.desktop.lockIcons;
+
+          return udata;
+        });
+      },
+      icon: "lock",
+      isActive: () => get(UserData).sh.desktop.lockIcons,
+    },
+    {
       caption: "Reset icon alignment",
       action: () => {
         errorMessage(
