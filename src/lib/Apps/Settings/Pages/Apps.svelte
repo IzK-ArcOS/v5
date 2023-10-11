@@ -25,7 +25,7 @@
     {/each}
   </div>
 
-  <div class="apps-hidden-toggle">
+  <div class="bottom">
     <p>{$WindowStore.length} applications</p>
     <span class="right">
       <p class="label">Show hidden apps</p>

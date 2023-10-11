@@ -56,7 +56,7 @@ window#SettingsApp div.apps button.appbutton div.info p {
 window#SettingsApp div.apps button.appbutton div.info p.description {
   opacity: 0.5;
 }
-window#SettingsApp div.apps-hidden-toggle {
+window#SettingsApp div.bottom {
   display: flex;
   border-top: var(--win-border);
   align-items: center;
