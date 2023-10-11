@@ -1,6 +1,7 @@
 import { openWindow } from "../../../applogic/events";
 import { showArcFind } from "../../../search/main";
 import { UserData } from "../../../userlogic/interfaces";
+import { ActionCenterOpened } from "../main";
 import type { QuickSetting } from "./interface";
 
 export const QuickSettings: QuickSetting[] = [
@@ -82,15 +83,17 @@ export const QuickSettings: QuickSetting[] = [
     caption: "Colored Shell",
   },
   {
-    icon: "",
-    iconOff: "",
+    icon: "settings",
+    iconOff: "settings",
     getter() {
       return false;
     },
     setter() {
+      openWindow("SettingsApp");
+      ActionCenterOpened.set(false);
       return false;
     },
-    caption: "",
+    caption: "Settings",
   },
   {
     icon: "rocket_launch",
