@@ -64,6 +64,9 @@ window#SettingsApp div.apps-hidden-toggle {
   padding: 0 15px;
 }
 
-window#SettingsApp div.apps-hidden-toggle input {
+window#SettingsApp span.right {
   margin-left: auto;
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }

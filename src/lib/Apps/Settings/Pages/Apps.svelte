@@ -8,7 +8,7 @@
   let apps = [];
 
   WindowStore.subscribe(
-    (v) => (apps = [...v].sort((a, b) => (a.id > b.id ? 0 : -1)))
+    (v) => (apps = [...v].sort((a, b) => (a.info.name > b.info.name ? 0 : -1)))
   );
 
   function update() {
@@ -26,12 +26,15 @@
   </div>
 
   <div class="apps-hidden-toggle">
-    <p class="label">Show hidden apps</p>
-    <input
-      type="checkbox"
-      class="switch"
-      bind:checked={$UserData.sh.showHiddenApps}
-      on:click={update}
-    />
+    <p>{$WindowStore.length} applications</p>
+    <span class="right">
+      <p class="label">Show hidden apps</p>
+      <input
+        type="checkbox"
+        class="switch"
+        bind:checked={$UserData.sh.showHiddenApps}
+        on:click={update}
+      />
+    </span>
   </div>
 </div>
