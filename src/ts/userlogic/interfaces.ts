@@ -6,7 +6,7 @@ export interface UserData {
     taskbar: {
       centered: boolean; //done
       labels: boolean; //done
-      pos: "vertical" | "" | "vertical-right" | string;
+      pos: "vertical" | "" | "vertical-right" | "top" | string;
       docked: boolean; //done
       colored: boolean;
       isLauncher: boolean;
