@@ -2,16 +2,14 @@
   position: fixed;
   top: 50px;
   left: 50px;
-  /* background-color: var(--win-bg, #353535); */
-  background-color: var(--glass-bg);
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  backdrop-filter: blur(var(--glass-blur));
+  background-color: var(--win-bg, #353535);
+  /* background-color: var(--glass-bg); */
   color: var(--fg, #ccc);
   border-radius: var(--win-border-rad, 7.5px);
   border: var(--win-border, rgb(107, 107, 107) 1px solid);
   overflow: hidden;
   transition: all 0.3s, width 0s, height 0s, z-index 0s, pointer-events 0s,
-    transform 0s;
+    transform 0s, backdrop-filter 0s;
   opacity: 0;
   visibility: hidden;
   scale: 90%;
@@ -74,7 +72,7 @@ window.custom div.body {
   height: 100%;
 }
 
-.window.glass {
+.window.focused.glass {
   background-color: var(--glass-bg, #353535a2);
   -webkit-backdrop-filter: blur(var(--glass-blur, 10px));
   backdrop-filter: blur(var(--glass-blur));

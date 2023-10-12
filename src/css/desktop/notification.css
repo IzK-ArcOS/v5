@@ -19,6 +19,7 @@ div.notification {
   padding: 15px;
   -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
+  overflow: hidden;
 }
 
 div.notification.launcher {
