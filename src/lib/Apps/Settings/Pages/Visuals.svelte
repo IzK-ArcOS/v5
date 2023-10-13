@@ -1,5 +1,6 @@
 <script lang="ts">
   import { UserData } from "../../../../ts/userlogic/interfaces";
+  import Asterisk from "../../SettingsApp/Asterisk.svelte";
   import OptionSection from "../OptionSection.svelte";
   import AccentColor from "./Personalization/AccentColor.svelte";
 </script>
@@ -32,6 +33,7 @@
 <OptionSection
   title="No Custom Cursors"
   context="Disable the ArcOS custom cursors"
+  asterisk
 >
   <input
     type="checkbox"
@@ -39,5 +41,8 @@
     bind:checked={$UserData.sh.desktop.noCustomCursor}
   />
 </OptionSection>
+<Asterisk>
+  Custom cursors might not always scale with the underlying Operating System.
+</Asterisk>
 <hr />
 <AccentColor />

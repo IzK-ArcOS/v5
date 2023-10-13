@@ -1,5 +1,6 @@
 <script lang="ts">
   import { UserData } from "../../../../ts/userlogic/interfaces";
+  import Asterisk from "../../SettingsApp/Asterisk.svelte";
   import OptionSection from "../OptionSection.svelte";
   import TaskBarPosition from "./Shell/TaskBarPosition.svelte";
 </script>
@@ -20,6 +21,7 @@
   <OptionSection
     title="Center taskbar buttons"
     context="Centers the taskbar app buttons"
+    asterisk
   >
     <input
       type="checkbox"
@@ -31,6 +33,7 @@
   <OptionSection
     title="Taskbar app labels"
     context="Display app names on the taskbar"
+    asterisk
   >
     <input
       type="checkbox"
@@ -43,11 +46,16 @@
   <OptionSection
     title="Taskbar position"
     context="Where do you want the taskbar?"
+    asterisk
   >
     <TaskBarPosition />
   </OptionSection>
   <hr />
-  <OptionSection title="Small start menu" context="Make the start menu smaller">
+  <OptionSection
+    title="Small start menu"
+    context="Make the start menu smaller"
+    asterisk
+  >
     <input
       type="checkbox"
       id="a"
@@ -55,6 +63,7 @@
       bind:checked={$UserData.sh.start.small}
     />
   </OptionSection>
+  <Asterisk>These settings require Launcher Mode to be turned off.</Asterisk>
 {:else}
   <hr />
 {/if}
