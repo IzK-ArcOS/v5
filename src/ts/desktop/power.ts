@@ -1,4 +1,3 @@
-import { get } from "svelte/store";
 import { logoffToken } from "../api/cred";
 import { defaultDirectory } from "../api/interface";
 import {
@@ -7,13 +6,12 @@ import {
   FileBrowserDirContents,
   FileBrowserSelectedFilename,
 } from "../applogic/apps/FileBrowser/main";
-import { closeWindow } from "../applogic/events";
+import { closeAllProgressively } from "../applogic/close";
 import { WindowStore } from "../applogic/store";
 import { ErrorMessages, ErrorWindowStore } from "../errorlogic/app";
 import { selectedMessageId } from "../messaging/main";
 import { NotificationStore } from "../notiflogic/main";
-import { loggingOff, restarting, shuttingDown } from "./main";
-import { closeAllProgressively } from "../applogic/close";
+import { loggingOff, shuttingDown } from "./main";
 
 export function logoff() {
   closeAllProgressively();

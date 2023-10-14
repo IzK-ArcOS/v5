@@ -9,10 +9,12 @@
   } from "../../../../../ts/applogic/pref";
   import { onMount } from "svelte";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
+  import { isIconSpotAvailable } from "../../../../../ts/desktop/icons";
 
   export let app: App;
 
   let position = { x: 0, y: 0 };
+  let previousPosition = { x: 0, y: 0 };
 
   function open() {
     openWindow(app.id);
@@ -31,10 +33,23 @@
   UserData.subscribe(updatePos);
 
   function endDrag(e: CustomEvent<DragEventData>) {
+    const { offsetX, offsetY } = e.detail;
+    const available = isIconSpotAvailable(offsetX, offsetY);
+
+    if (!available) {
+      position = previousPosition;
+
+      return;
+    }
+
     setAppPreference("ArcShell", `icon$${app.id}`, {
-      x: e.detail.offsetX,
-      y: e.detail.offsetY,
+      x: offsetX,
+      y: offsetY,
     });
+  }
+
+  function startDrag(e: CustomEvent<DragEventData>) {
+    previousPosition = { x: e.detail.offsetX, y: e.detail.offsetY };
   }
 </script>
 
@@ -47,10 +62,11 @@
     grid: $UserData.sh.desktop.noIconGrid ? null : [40, 42.5],
     bounds: $UserData.sh.desktop.noIconGrid
       ? { bottom: 80, left: 10, right: 10, top: 10 }
-      : { bottom: 110, left: 0, right: 40, top: 0 },
+      : { bottom: 110, left: 0, right: 80, top: 0 },
     position,
     disabled: $UserData.sh.desktop.lockIcons,
   }}
+  on:neodrag:start={startDrag}
   on:neodrag:end={endDrag}
 >
   <img

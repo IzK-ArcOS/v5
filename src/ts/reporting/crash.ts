@@ -1,11 +1,11 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 import { applyState } from "../state/main";
 import type { ReportOptions, Report } from "./interface";
 import { createReport, sendReport } from "./main";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 
-let CRASHING = false;
+export const CRASHING = writable(false);
 
 const CRASH_BLACKLIST = [
   "NotAllowedError",
@@ -28,7 +28,7 @@ export function isBlackListed(test: string) {
 export function handleWindowError(
   e: (Event & { currentTarget: EventTarget & Element }) | PromiseRejectionEvent
 ) {
-  if (CRASHING)
+  if (get(CRASHING))
     return Log(
       "reporting/crash.ts: handleWindowError",
       "Crash prevented because another crash is already in progress!",
@@ -45,7 +45,7 @@ export function handleWindowError(
       LogLevel.warn
     );
 
-  CRASHING = true;
+  CRASHING.set(true);
 
   Log("ArcOS", `------(#! [ SYSTEM IS CRASHING ] !#)------`, LogLevel.error);
 
@@ -70,7 +70,7 @@ export function handleWindowError(
 
   setTimeout(() => {
     applyState("crash");
-  }, 1500);
+  }, 2000);
 
   if (import.meta.env.DEV)
     return Log(

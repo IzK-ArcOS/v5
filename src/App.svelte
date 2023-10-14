@@ -10,7 +10,7 @@
   import { LogLevel } from "./ts/console/interface";
   import { DESKTOP_MODE, getDesktopMode } from "./ts/desktop/app";
   import { ArcOSVersion, Busy } from "./ts/env/main";
-  import { handleWindowError } from "./ts/reporting/crash";
+  import { CRASHING, handleWindowError } from "./ts/reporting/crash";
   import { applyState, CurrentState } from "./ts/state/main";
   import { committingUserData } from "./ts/userlogic/main";
 
@@ -64,6 +64,7 @@
     class:noani={navigator.userAgent.toLowerCase().includes("firefox")}
     class:cursor-busy={$committingUserData || $Busy}
     class:rotate={ARCOS_MODE == "siege"}
+    class:gray={$CRASHING}
   >
     {#if $CurrentState}
       <svelte:component this={$CurrentState.content} />

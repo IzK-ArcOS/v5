@@ -71,5 +71,9 @@ div.app.floating {
 }
 
 .gray {
-  filter: grayscale(50%) !important;
+  filter: grayscale(100%) !important;
+}
+
+div#app > div.app {
+  transition: filter 3s;
 }

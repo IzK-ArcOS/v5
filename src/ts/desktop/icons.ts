@@ -60,3 +60,28 @@ export async function checkDesktopIconLength() {
 
   // TODO: Properly do this function
 }
+
+export function isIconSpotAvailable(x: number, y: number) {
+  const [IW, IH] = [80, 85];
+  const udata = get(UserData);
+  const shell = udata.appdata["ArcShell"] as {
+    [key: string]: { x: number; y: number };
+  };
+
+  if (!shell) return false;
+
+  const icons = Object.keys(shell).filter((i) => i.startsWith("icon$"));
+
+  for (let i = 0; i < icons.length; i++) {
+    const icon = shell[icons[i]];
+
+    if (
+      icon &&
+      ((x >= icon.x && x < icon.x + IW && y >= icon.y && y < icon.y + IH) ||
+        (icon.x >= x && icon.x < x + IW && icon.y >= y && icon.y < y + IH))
+    )
+      return false;
+  }
+
+  return true;
+}
