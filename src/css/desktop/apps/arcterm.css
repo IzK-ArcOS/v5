@@ -20,6 +20,11 @@ window#ArcTerm {
   --clr-purple-fg: #d597ff;
   --clr-gray-fg: #999;
 }
+
+window#ArcTerm:not(.focused) {
+  background-color: #000;
+}
+
 window#ArcTerm > div.body {
   padding: 5px;
 }
