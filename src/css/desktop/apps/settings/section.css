@@ -21,6 +21,8 @@ window#SettingsApp div.section.collapsible {
   overflow: hidden;
   max-height: 500px;
   margin: 10px 0;
+  max-width: 610px;
+  margin: 10px auto;
 }
 
 window#SettingsApp div.section.opt {
@@ -133,9 +135,17 @@ window#SettingsApp div.section.collapsible.collapsed {
 }
 
 window#SettingsApp div.section.collapsible div.section-content {
-  padding: 10px 0;
+  padding: 0;
   white-space: normal;
   box-sizing: border-box;
+}
+
+window#SettingsApp
+  div.section.collapsible
+  div.section-content
+  > div.section.opt:last-child {
+  padding-bottom: 0;
+  height: fit-content;
 }
 
 window#SettingsApp div.section ul {

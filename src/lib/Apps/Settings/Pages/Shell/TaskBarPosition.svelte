@@ -1,5 +1,6 @@
 <script lang="ts">
   import { UserData as U } from "../../../../../ts/userlogic/interfaces";
+  export let disabled = false;
 
   const options = {
     vertical: "left",
@@ -16,6 +17,7 @@
         class="pos {opt[1]} material-icons-round"
         on:click={() => ($U.sh.taskbar.pos = opt[0])}
         class:selected={$U.sh.taskbar.pos == opt[0]}
+        {disabled}
       >
         vertical_align_bottom
       </button>
@@ -38,6 +40,10 @@
     padding: 0 !important;
     margin: 0 !important;
     border-radius: 0 !important;
+  }
+
+  div.taskbarpos button:disabled {
+    opacity: 0.7;
   }
 
   div.taskbarpos button.selected {

@@ -17,56 +17,55 @@
     bind:checked={$UserData.sh.taskbar.isLauncher}
   />
 </OptionSection>
-{#if !$UserData.sh.taskbar.isLauncher}
-  <OptionSection
-    title="Center taskbar buttons"
-    context="Centers the taskbar app buttons"
-    asterisk
-  >
-    <input
-      type="checkbox"
-      id="a"
-      class="switch"
-      bind:checked={$UserData.sh.taskbar.centered}
-    />
-  </OptionSection>
-  <OptionSection
-    title="Taskbar app labels"
-    context="Display app names on the taskbar"
-    asterisk
-  >
-    <input
-      type="checkbox"
-      id="a"
-      class="switch"
-      bind:checked={$UserData.sh.taskbar.labels}
-      disabled={$UserData.sh.taskbar.pos.includes("vertical")}
-    />
-  </OptionSection>
-  <OptionSection
-    title="Taskbar position"
-    context="Where do you want the taskbar?"
-    asterisk
-  >
-    <TaskBarPosition />
-  </OptionSection>
-  <hr />
-  <OptionSection
-    title="Small start menu"
-    context="Make the start menu smaller"
-    asterisk
-  >
-    <input
-      type="checkbox"
-      id="a"
-      class="switch"
-      bind:checked={$UserData.sh.start.small}
-    />
-  </OptionSection>
-  <Asterisk>These settings require Launcher Mode to be turned off.</Asterisk>
-{:else}
-  <hr />
-{/if}
+<OptionSection
+  title="Center taskbar buttons"
+  context="Centers the taskbar app buttons"
+  asterisk
+>
+  <input
+    type="checkbox"
+    id="a"
+    class="switch"
+    bind:checked={$UserData.sh.taskbar.centered}
+    disabled={$UserData.sh.taskbar.isLauncher}
+  />
+</OptionSection>
+<OptionSection
+  title="Taskbar app labels"
+  context="Display app names on the taskbar"
+  asterisk
+>
+  <input
+    type="checkbox"
+    id="a"
+    class="switch"
+    bind:checked={$UserData.sh.taskbar.labels}
+    disabled={$UserData.sh.taskbar.pos.includes("vertical") ||
+      $UserData.sh.taskbar.isLauncher}
+  />
+</OptionSection>
+<OptionSection
+  title="Taskbar position"
+  context="Where do you want the taskbar?"
+  asterisk
+>
+  <TaskBarPosition disabled={$UserData.sh.taskbar.isLauncher} />
+</OptionSection>
+<hr />
+<OptionSection
+  title="Small start menu"
+  context="Make the start menu smaller"
+  asterisk
+>
+  <input
+    type="checkbox"
+    id="a"
+    class="switch"
+    bind:checked={$UserData.sh.start.small}
+    disabled={$UserData.sh.taskbar.isLauncher}
+  />
+</OptionSection>
+<Asterisk>These settings require Launcher Mode to be turned off.</Asterisk>
 
 <OptionSection title="Dock shell" context="Dock the taskbar and action center">
   <input

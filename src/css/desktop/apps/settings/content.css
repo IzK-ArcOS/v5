@@ -14,7 +14,9 @@ window#SettingsApp div.content {
   right: 0px;
   margin-left: 0px;
   transition: all 0.3s, margin-left 0s;
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 7px;
 }
 
 window#SettingsApp div.content.collapsed {
