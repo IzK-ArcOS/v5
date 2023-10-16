@@ -1,6 +1,6 @@
 window#FileManager div.body div.bottom {
   height: 25px;
-  border-top: var(--win-border);
+  /* border-top: var(--win-border); */
   line-height: 15px;
   display: flex;
   position: absolute;

@@ -1,0 +1,115 @@
+window#FileManager div.filebrowser-home {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+}
+
+window#FileManager div.filebrowser-home div.dirs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
+  padding-bottom: 10px;
+  border-bottom: var(--button-bg) 1px solid;
+  margin-right: 10px;
+}
+
+window#FileManager div.filebrowser-home div.dirs button {
+  flex-grow: 1;
+  max-width: 150px;
+  display: flex;
+  padding: 10px 15px !important;
+  height: 40px;
+  text-align: left;
+}
+
+window#FileManager div.filebrowser-home div.dirs button img {
+  margin-right: 10px;
+  height: 20px;
+}
+
+window#FileManager div.filebrowser-home div.dirs button div {
+  max-width: calc(100% - 45px);
+}
+
+window#FileManager div.filebrowser-home div.dirs button div p {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+window#FileManager div.filebrowser-home div.dirs button div p.parent {
+  opacity: 0.5;
+}
+
+window#FileManager div.filebrowser-home div.files {
+  padding-right: 10px;
+}
+
+window#FileManager div.filebrowser-home div.files button {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  margin: 0;
+  padding: 5px;
+  background-color: transparent;
+  text-align: left;
+  max-width: 850px;
+  box-shadow: none;
+}
+
+window#FileManager div.filebrowser-home div.files button:hover {
+  background-color: var(--button-glass-bg);
+}
+
+window#FileManager div.filebrowser-home div.files button div.image {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+window#FileManager div.filebrowser-home div.files button div {
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+window#FileManager div.filebrowser-home div.files button div.image img {
+  height: 20px;
+}
+
+window#FileManager div.filebrowser-home div.files button div.name {
+  width: 50%;
+}
+
+window#FileManager div.filebrowser-home div.files button div.mime {
+  width: 25%;
+  padding-right: 40px;
+}
+
+window#FileManager div.filebrowser-home div.files button div.options {
+  margin-left: auto;
+  margin-right: 5px;
+  display: none;
+}
+
+window#FileManager
+  div.filebrowser-home
+  div.files
+  button
+  button.material-icons-round {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  font-size: 16px;
+}
+
+window#FileManager
+  div.filebrowser-home
+  div.files
+  button
+  button.material-icons-round:hover {
+  opacity: 0.7;
+}

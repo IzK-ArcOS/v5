@@ -17,6 +17,7 @@
   import SideBar from "./FileBrowser/SideBar.svelte";
   import TileView from "./FileBrowser/TileView.svelte";
   import TopBar from "./FileBrowser/TopBar.svelte";
+  import Home from "./FileBrowser/Home.svelte";
 
   let files: PartialArcFile[] = [];
   let dirs: PartialUserDir[] = [];
@@ -48,8 +49,7 @@
 <SideBar />
 <div class="content">
   {#if $FileBrowserHome}
-    home
-    <button class="suggested">hi</button>
+    <Home />
   {:else if tiledMode}
     <TileView {files} {dirs} />
   {:else}

@@ -81,6 +81,10 @@
   class:selected={$FileBrowserSelectedFilename == file.filename}
   class:cutting={$cutting && $cutting.name == file.filename}
   title={file.scopedPath}
+  data-path={file.scopedPath}
+  data-type="file"
+  data-name={file.filename}
+  data-contextmenu="listitem-file"
 >
   <img src={img} alt={file.filename} />
   <p class="name">{file.filename}</p>

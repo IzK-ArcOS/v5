@@ -20,6 +20,9 @@ window#FileManager > div.body div.content {
   padding: 10px;
   padding-right: 5px;
   z-index: 0;
+  border: var(--win-border);
+  border-right: none;
+  border-radius: var(--win-border-rad) 0 0 var(--win-border-rad);
 }
 
 window#FileManager > div.body div.sidebar {
@@ -30,9 +33,10 @@ window#FileManager > div.body div.sidebar {
   top: 70px;
   left: 0px;
   padding: 7px;
+  padding-top: 0;
   display: flex;
-  flex-direction: column;
-  border-right: var(--win-border);
+  flex-direction: column; /* 
+  border-right: var(--win-border); */
 }
 
 window#FileManager > div.titlebar {
@@ -51,8 +55,8 @@ window#FileManager div.topbar {
   padding: 10px;
   padding-top: 0;
   box-sizing: border-box;
-  display: flex;
-  border-bottom: var(--win-border);
+  display: flex; /* 
+  border-bottom: var(--win-border); */
 }
 
 div.bigtitlebars window#FileManager div.topbar {
