@@ -3,6 +3,7 @@
     fbClass,
     FileBrowserCurrentDir,
     FileBrowserDeletingFilename,
+    FileBrowserHome,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
@@ -63,7 +64,7 @@
 
 <button
   class="material-icons-round"
-  disabled={!$FileBrowserSelectedFilename}
+  disabled={!$FileBrowserSelectedFilename || $FileBrowserHome}
   on:click={deleteSelected}
   title="Delete item"
 >

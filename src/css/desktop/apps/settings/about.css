@@ -38,7 +38,7 @@ div.about-page h3.header {
 div.about-page div.section {
   margin: 0 auto !important;
   margin-bottom: 5px !important;
-  max-width: 450px;
+  max-width: 450px !important;
 }
 
 div.about-page div.section div.row {
@@ -71,4 +71,9 @@ div.about-page div.section div.row button.material-icons-round {
 
 window#SettingsApp div.inner.inner-about {
   height: calc(100% - 40px);
+}
+
+window#SettingsApp div.about-page div.section-content {
+  padding: 10px 0 !important;
+  padding-bottom: 5px !important;
 }

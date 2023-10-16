@@ -5,6 +5,7 @@
   import {
     fbClass,
     FileBrowserCurrentDir,
+    FileBrowserHome,
     FileBrowserUploadFile,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
@@ -82,6 +83,7 @@
   class="material-icons-round"
   on:click={() => uploader.click()}
   title="Upload file"
+  disabled={$FileBrowserHome}
 >
   upload
 </button>

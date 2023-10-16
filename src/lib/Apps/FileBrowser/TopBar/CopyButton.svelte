@@ -2,6 +2,7 @@
   import {
     FileBrowserCopyingFilename,
     FileBrowserCurrentDir,
+    FileBrowserHome,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
 
@@ -16,5 +17,7 @@
 <button
   class="material-icons-round copy"
   on:click={copy}
-  disabled={!$FileBrowserSelectedFilename}>content_copy</button
+  disabled={!$FileBrowserSelectedFilename || $FileBrowserHome}
 >
+  content_copy
+</button>

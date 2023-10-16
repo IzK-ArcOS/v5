@@ -3,6 +3,7 @@
   import {
     fbClass,
     FileBrowserCurrentDir,
+    FileBrowserHome,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
 
   function parentdir() {
@@ -13,7 +14,7 @@
 <button
   class="material-icons-round parentdir"
   on:click={parentdir}
-  disabled={$FileBrowserCurrentDir == "./"}
+  disabled={$FileBrowserCurrentDir == "./" || $FileBrowserHome}
   title="Parent folder"
 >
   arrow_upward

@@ -6,6 +6,7 @@
     FileBrowserCopyingFilename,
     FileBrowserCurrentDir,
     FileBrowserCuttingFilename,
+    FileBrowserHome,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
 
   async function paste() {
@@ -33,6 +34,7 @@
 
 <button
   class="material-icons-round paste"
-  disabled={!$FileBrowserCuttingFilename && !$FileBrowserCopyingFilename}
+  disabled={(!$FileBrowserCuttingFilename && !$FileBrowserCopyingFilename) ||
+    $FileBrowserHome}
   on:click={paste}>content_paste</button
 >

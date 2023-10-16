@@ -37,6 +37,11 @@
     <button class="crumb">Home</button>
   {/if}
 </div>
-<button class="refresh material-icons-round" on:click={() => fbClass.refresh()}>
+
+<button
+  class="refresh material-icons-round"
+  on:click={() => fbClass.refresh()}
+  disabled={$FileBrowserHome}
+>
   refresh
 </button>

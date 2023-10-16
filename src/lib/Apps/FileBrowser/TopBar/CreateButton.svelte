@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { FileBrowserHome } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { showOverlay } from "../../../../ts/window/overlay";
 
   function show() {
@@ -6,4 +7,10 @@
   }
 </script>
 
-<button class="material-icons-round create" on:click={show}> add </button>
+<button
+  class="material-icons-round create"
+  on:click={show}
+  disabled={$FileBrowserHome}
+>
+  add
+</button>

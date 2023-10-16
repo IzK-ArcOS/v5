@@ -11,6 +11,13 @@ import {
 import { get } from "svelte/store";
 import { SEP_ITEM } from "../../../contextmenu/main";
 import { TrashIcon } from "../../../icon/general";
+import { deleteItem } from "../../../api/fs/delete";
+import {
+  isDirPinned,
+  pinDirectory,
+  unpinDirectory,
+} from "../../../api/fs/pins/dir";
+import { isFilePinned, pinFile, unpinFile } from "../../../api/fs/pins/file";
 
 export const FileManagerContextMenu: AppContextMenu = {
   "listitem-dir": [
@@ -25,6 +32,16 @@ export const FileManagerContextMenu: AppContextMenu = {
         fbClass.goToDirectory(path);
       },
     },
+    {
+      icon: "push_pin",
+      caption: "Pin Folder",
+      action: (_: App, data: DOMStringMap) => {
+        if (isDirPinned(data.path)) unpinDirectory(data.path);
+        else pinDirectory(data.path);
+      },
+      isActive: (_: App, data: DOMStringMap) => isDirPinned(data.path),
+    },
+    SEP_ITEM,
     {
       icon: "drive_file_rename_outline",
       caption: "Rename",
@@ -58,9 +75,64 @@ export const FileManagerContextMenu: AppContextMenu = {
         });
       },
     },
+    SEP_ITEM,
+    {
+      image: TrashIcon,
+      caption: "Delete",
+      action: async (_: App, data: DOMStringMap) => {
+        await deleteItem(data.path);
+
+        fbClass.refresh();
+      },
+    },
   ],
   "listitem-file": [
     {
+      icon: "push_pin",
+      caption: "Pin File",
+      action: (_: App, data: DOMStringMap) => {
+        if (isFilePinned(data.path)) unpinFile(data.path);
+        else pinFile(data.path);
+      },
+      isActive: (_: App, data: DOMStringMap) => isFilePinned(data.path),
+    },
+    SEP_ITEM,
+    {
+      icon: "drive_file_rename_outline",
+      caption: "Rename",
+      action: (_: App, data: DOMStringMap) => {
+        FileBrowserSelectedFilename.set(data.name);
+
+        showOverlay("renameItem", "FileManager");
+      },
+    },
+    {
+      icon: "content_copy",
+      caption: "Copy",
+      action: (_: App, data: DOMStringMap) => {
+        FileBrowserSelectedFilename.set(data.name);
+
+        FileBrowserCopyingFilename.set({
+          name: data.name,
+          scopedPath: `${data.path}`,
+        });
+      },
+    },
+    {
+      icon: "content_cut",
+      caption: "Cut",
+      action: (_: App, data: DOMStringMap) => {
+        FileBrowserSelectedFilename.set(data.name);
+
+        FileBrowserCuttingFilename.set({
+          name: data.name,
+          scopedPath: `${data.path}`,
+        });
+      },
+    },
+    SEP_ITEM,
+    {
+      image: TrashIcon,
       caption: "Delete",
       action: (_: App, data: DOMStringMap) => {
         createOverlayableError(

@@ -2,6 +2,7 @@
   import {
     FileBrowserCurrentDir,
     FileBrowserCuttingFilename,
+    FileBrowserHome,
     FileBrowserSelectedFilename,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
 
@@ -16,5 +17,6 @@
 <button
   class="material-icons-round cut"
   on:click={cut}
-  disabled={!$FileBrowserSelectedFilename}>content_cut</button
+  disabled={!$FileBrowserSelectedFilename || $FileBrowserHome}
+  >content_cut</button
 >
