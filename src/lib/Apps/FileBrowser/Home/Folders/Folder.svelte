@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { getDirectory } from "../../../../ts/api/fs/directory";
-  import type { DirectoryGet } from "../../../../ts/api/interface";
-  import { getParentDirectory } from "../../../../ts/api/fs/main";
-  import { FolderIcon } from "../../../../ts/icon/general";
+  import { getDirectory } from "../../../../../ts/api/fs/directory";
+  import type { DirectoryGet } from "../../../../../ts/api/interface";
+  import { getParentDirectory } from "../../../../../ts/api/fs/main";
+  import { FolderIcon } from "../../../../../ts/icon/general";
 
   export let path: string;
 

@@ -1,8 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { PartialArcFile } from "../../../../ts/api/interface";
-  import { FileIcon } from "../../../../ts/icon/general";
-  import { getParentDirectory } from "../../../../ts/api/fs/main";
+  import { getParentDirectory } from "../../../../../ts/api/fs/main";
+  import { FileIcon } from "../../../../../ts/icon/general";
 
   export let path: string;
 
