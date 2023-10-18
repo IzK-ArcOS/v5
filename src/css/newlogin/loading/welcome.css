@@ -1,0 +1,6 @@
+h3.welcome-spinner {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}

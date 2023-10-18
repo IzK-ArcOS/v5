@@ -7,9 +7,9 @@ import { ConnectedServer } from "../api/main";
 import sleep from "../sleep";
 import { applyState } from "../state/main";
 import { loginUsingCreds } from "../api/getter";
-import { fromBase64 } from "../base64";
+import { fromBase64, toBase64 } from "../base64";
 import { applyLoginState } from "../login/main";
-import { UserData, UserName } from "../userlogic/interfaces";
+import { UserData, UserName, UserToken } from "../userlogic/interfaces";
 
 export class Login {
   public CurrentState = writable<State>();
@@ -60,10 +60,10 @@ export class Login {
     if (isFreshApi) {
       if (!currentApi) return applyState("fts");
 
-      return this.navigate("newapiuser");
+      return this.navigate("newuserauth");
     }
 
-    if (!loginState) this.navigate(remembered ? "autologin" : "todesktop");
+    if (!loginState) this.navigate(remembered ? "autologin" : "newuserauth");
     if (!remembered || !stateIsIncoming) return;
 
     const username = fromBase64(remembered).split(":")[0];
@@ -73,7 +73,7 @@ export class Login {
     const userdata = await loginUsingCreds(remembered);
 
     if (!userdata) {
-      applyLoginState("todesktop");
+      applyLoginState("newuserauth");
 
       localStorage.removeItem("arcos-remembered-token");
 
@@ -81,6 +81,20 @@ export class Login {
     }
 
     this.proceed(userdata, username);
+  }
+
+  public async Authenticate(username: string, password: string) {
+    const token = toBase64(`${username}:${password}`);
+    const userdata = await loginUsingCreds(token);
+
+    if (!userdata) return false;
+
+    localStorage.setItem("arcos-remembered-token", token);
+    UserData.set(userdata);
+
+    this.setUser(username);
+
+    return userdata;
   }
 
   public setUser(username: string) {
@@ -92,6 +106,7 @@ export class Login {
       "newlogin/main.ts: Login.proceed",
       `Proceeding to desktop after ${delay / 1000} seconds`
     );
+
     this.UserName.set(username);
 
     this.setUser(username);

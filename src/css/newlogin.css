@@ -2,6 +2,8 @@
 @import url("./newlogin/topbar.css");
 @import url("./newlogin/darken.css");
 @import url("./newlogin/loading.css");
+@import url("./newlogin/page/existinguser.css");
+@import url("./newlogin/password.css");
 
 div.newlogin {
   background-color: #000;

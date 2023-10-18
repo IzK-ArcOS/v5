@@ -1,19 +1,15 @@
+@import url("./loading/button.css");
+@import url("./loading/input.css");
+@import url("./loading/welcome.css");
+
 div.login-loading {
   text-align: center;
+  height: 300px !important;
 }
 
 div.login-loading h1 {
   font-size: 24px;
   margin: 10px;
-  height: 40px;
-  line-height: 40px;
-}
-
-div.login-loading h3 {
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: normal;
-  gap: 1px;
+  height: 38px;
+  line-height: 38px;
 }
