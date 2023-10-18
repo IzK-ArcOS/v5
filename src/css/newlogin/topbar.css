@@ -1,4 +1,4 @@
-div.login div.topbar div.right button.nopad {
+div.newlogin div.topbar div.right button.nopad {
   width: 28px;
   height: 28px;
   box-sizing: border-box;
@@ -8,16 +8,16 @@ div.login div.topbar div.right button.nopad {
   color: #eee;
 }
 
-div.login div.topbar div.right button.nopad:hover {
+div.newlogin div.topbar div.right button.nopad:hover {
   background-color: #0003;
 }
 
-div.login div.topbar div.right button.nopad span.material-icons-round {
+div.newlogin div.topbar div.right button.nopad span.material-icons-round {
   padding: 0;
   margin: 0;
 }
 
-div.login div.topbar {
+div.newlogin div.topbar {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -29,14 +29,15 @@ div.login div.topbar {
   opacity: 0;
   transition: opacity 0.4s, top 0.4s;
   top: -17.5px;
+  z-index: 10;
 }
 
-div.login div.topbar.show {
+div.newlogin div.topbar.show {
   opacity: 1;
   top: 0px;
 }
 
-div.login div.topbar div.clock {
+div.newlogin div.topbar div.clock {
   position: absolute;
   top: 0;
   left: 0;
@@ -44,20 +45,21 @@ div.login div.topbar div.clock {
   text-align: center;
   line-height: 40px;
   font-weight: bold;
+  pointer-events: none;
 }
 
-div.login div.topbar div.right {
+div.newlogin div.topbar div.right {
   position: absolute;
   top: 6px;
   right: 10px;
   font-size: 15px;
 }
 
-div.login div.hostname {
+div.newlogin div.hostname {
   opacity: 0.5;
 }
 
-div.login select.host {
+div.newlogin select.host {
   background-color: transparent;
   border: none;
   font-size: 14px;

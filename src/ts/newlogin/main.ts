@@ -52,6 +52,11 @@ export class Login {
       ? loginState.key != "shutdown" && loginState.key != "restart"
       : true;
 
+    Log(
+      "newlogin/main.ts: Login.onMount",
+      `isFreshApi=${isFreshApi} StateIsIncoming=${stateIsIncoming}`
+    );
+
     if (isFreshApi) {
       if (!currentApi) return applyState("fts");
 
@@ -59,11 +64,13 @@ export class Login {
     }
 
     if (!loginState) this.navigate(remembered ? "autologin" : "todesktop");
-
     if (!remembered || !stateIsIncoming) return;
 
-    const userdata = await loginUsingCreds(remembered);
     const username = fromBase64(remembered).split(":")[0];
+
+    this.setUser(username);
+
+    const userdata = await loginUsingCreds(remembered);
 
     if (!userdata) {
       applyLoginState("todesktop");
@@ -73,13 +80,25 @@ export class Login {
       return;
     }
 
+    this.proceed(userdata, username);
+  }
+
+  public setUser(username: string) {
+    this.UserName.set(username);
+  }
+
+  public async proceed(userdata: Object, username: string, delay = 1900) {
+    Log(
+      "newlogin/main.ts: Login.proceed",
+      `Proceeding to desktop after ${delay / 1000} seconds`
+    );
     this.UserName.set(username);
 
-    UserData.set(userdata);
-    UserName.set(username);
+    this.setUser(username);
+    UserData.set(userdata as UserData);
 
-    await sleep(1900);
-
-    applyState("desktop");
+    await sleep(delay);
+    /* 
+    applyState("desktop"); */
   }
 }
