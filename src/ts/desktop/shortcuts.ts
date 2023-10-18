@@ -69,7 +69,8 @@ export function registerDesktopShortcuts() {
     },
   ]);
 
-  document.addEventListener("keydown", (e) => {
+  // TODO: fix this or remove it completely.
+  /* document.addEventListener("keydown", (e) => {
     const valid = "abcdefghijklmnopqrstuvwxyz0123456789 ";
 
     if (!e.key) return;
@@ -83,5 +84,5 @@ export function registerDesktopShortcuts() {
     startOpened.set(false);
     showArcFind.set(true);
     arcFindValue.set(e.key);
-  });
+  }); */
 }

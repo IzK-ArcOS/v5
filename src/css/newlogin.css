@@ -1,0 +1,38 @@
+@import url("./newlogin/background.css");
+@import url("./newlogin/topbar.css");
+
+div.login {
+  background-color: #000;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+div.login > * {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+div.login.show > * {
+  opacity: 1;
+}
+
+div.login.show {
+  opacity: 1;
+}
+
+div.login *:not(.material-icons-round) {
+  color: #ccc;
+  font-family: var(--font), sans-serif;
+}
+
+div.login div.darken {
+  background-color: #0007;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s, visibility 0.6s;
+}
+
+div.login div.darken.show {
+  opacity: 1;
+  visibility: visible;
+}

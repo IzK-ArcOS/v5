@@ -4,7 +4,7 @@ import Boot from "../../lib/Page/Boot.svelte";
 import Crash from "../../lib/Page/Crash.svelte";
 import Desktop from "../../lib/Page/Desktop.svelte";
 import FirstTimeSetup from "../../lib/Page/FirstTimeSetup.svelte";
-import Login from "../../lib/Page/Login.svelte";
+import NewLogin from "../../lib/Page/NewLogin.svelte";
 import ServerSelect from "../../lib/Page/ServerSelect.svelte";
 import TurnedOff from "../../lib/Page/TurnedOff.svelte";
 
@@ -34,7 +34,7 @@ export const States = new Map<string, State>([
     "login",
     {
       name: "Login",
-      content: Login,
+      content: NewLogin,
       attribs: {},
       key: "login",
     },
@@ -61,7 +61,7 @@ export const States = new Map<string, State>([
     "logoff",
     {
       name: "Logoff",
-      content: Login,
+      content: NewLogin,
       attribs: {},
       onload: () => {
         applyLoginState("logoff");
@@ -74,7 +74,7 @@ export const States = new Map<string, State>([
     "restart",
     {
       name: "Restart",
-      content: Login,
+      content: NewLogin,
       attribs: {},
       onload: () => {
         applyLoginState("restart");
@@ -87,7 +87,7 @@ export const States = new Map<string, State>([
     "shutdown",
     {
       name: "Shutdown",
-      content: Login,
+      content: NewLogin,
       attribs: {},
       onload: () => {
         applyLoginState("shutdown");
