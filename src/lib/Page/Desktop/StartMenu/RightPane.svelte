@@ -7,12 +7,12 @@
     PartialUserDir,
     UserDirectory,
   } from "../../../../ts/api/interface";
-  import { FileBrowserDirContents } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { fbState } from "../../../../ts/applogic/apps/FileBrowser/main";
   import DirLink from "./RightPane/DirLink.svelte";
 
   let dirs: PartialUserDir[] = [];
 
-  FileBrowserDirContents.subscribe(async () => {
+  fbState.subscribe(async () => {
     dirs = sortDirectories(
       ((await getDirectory("./")) as UserDirectory).directories
     );

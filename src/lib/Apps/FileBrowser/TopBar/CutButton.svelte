@@ -1,22 +1,18 @@
 <script lang="ts">
-  import {
-    FileBrowserCurrentDir,
-    FileBrowserCuttingFilename,
-    FileBrowserHome,
-    FileBrowserSelectedFilename,
-  } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { fbState } from "../../../../ts/applogic/apps/FileBrowser/main";
 
   function cut() {
-    FileBrowserCuttingFilename.set({
-      name: $FileBrowserSelectedFilename,
-      scopedPath: `${$FileBrowserCurrentDir}/${$FileBrowserSelectedFilename}`,
-    });
+    $fbState.cuttingFilename = {
+      name: $fbState.selectedFilename,
+      scopedPath: `${$fbState.currentDir}/${$fbState.selectedFilename}`,
+    };
   }
 </script>
 
 <button
   class="material-icons-round cut"
   on:click={cut}
-  disabled={!$FileBrowserSelectedFilename || $FileBrowserHome}
-  >content_cut</button
+  disabled={!$fbState.selectedFilename || $fbState.home}
 >
+  content_cut
+</button>

@@ -3,29 +3,26 @@
   import { renameItem } from "../../../../ts/api/fs/rename";
   import {
     fbClass,
-    FileBrowserCopyingFilename,
-    FileBrowserCurrentDir,
-    FileBrowserCuttingFilename,
-    FileBrowserHome,
+    fbState,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
 
   async function paste() {
-    if ($FileBrowserCopyingFilename) {
-      const name = $FileBrowserCopyingFilename.name;
-      const path = $FileBrowserCopyingFilename.scopedPath;
+    if ($fbState.copyingFilename) {
+      const name = $fbState.copyingFilename.name;
+      const path = $fbState.copyingFilename.scopedPath;
 
-      await copyItem(path, `${$FileBrowserCurrentDir}/${name}`);
+      await copyItem(path, `${$fbState.currentDir}/${name}`);
 
-      FileBrowserCopyingFilename.set(null);
+      $fbState.copyingFilename = null;
     }
 
-    if ($FileBrowserCuttingFilename) {
-      const name = $FileBrowserCuttingFilename.name;
-      const path = $FileBrowserCuttingFilename.scopedPath;
+    if ($fbState.cuttingFilename) {
+      const name = $fbState.cuttingFilename.name;
+      const path = $fbState.cuttingFilename.scopedPath;
 
-      await renameItem(path, `${$FileBrowserCurrentDir}/${name}`);
+      await renameItem(path, `${$fbState.currentDir}/${name}`);
 
-      FileBrowserCuttingFilename.set(null);
+      $fbState.cuttingFilename = null;
     }
 
     fbClass.refresh();
@@ -34,7 +31,9 @@
 
 <button
   class="material-icons-round paste"
-  disabled={(!$FileBrowserCuttingFilename && !$FileBrowserCopyingFilename) ||
-    $FileBrowserHome}
-  on:click={paste}>content_paste</button
+  disabled={(!$fbState.copyingFilename && !$fbState.cuttingFilename) ||
+    $fbState.home}
+  on:click={paste}
 >
+  content_paste
+</button>

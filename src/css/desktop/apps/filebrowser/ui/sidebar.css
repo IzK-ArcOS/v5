@@ -3,6 +3,13 @@ window#FileManager > div.body div.sidebar div.dirs {
   overflow-y: auto;
 }
 
+window#FileManager > div.body div.sidebar div.dirs div.loading {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 window#FileManager > div.body div.sidebar button.folder {
   display: flex;
   width: 100%;
@@ -13,6 +20,7 @@ window#FileManager > div.body div.sidebar button.folder {
   box-sizing: border-box;
   background-color: transparent;
   box-shadow: none;
+  opacity: 1;
 }
 
 window#FileManager > div.body div.sidebar button.folder.selected {

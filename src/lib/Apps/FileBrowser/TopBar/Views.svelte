@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { FileBrowserHome } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { fbState } from "../../../../ts/applogic/apps/FileBrowser/main";
   import type { App } from "../../../../ts/applogic/interface";
   import { ScopedAppData, UserData } from "../../../../ts/userlogic/interfaces";
 
@@ -21,7 +21,7 @@
     class:selected={!appdata.tiled}
     on:click={changeView(false)}
     title="List view"
-    disabled={$FileBrowserHome}
+    disabled={$fbState.home}
   >
     format_list_bulleted
   </button>
@@ -30,7 +30,7 @@
     class:selected={appdata.tiled}
     on:click={changeView(true)}
     title="Tile view"
-    disabled={$FileBrowserHome}
+    disabled={$fbState.home}
   >
     grid_view
   </button>

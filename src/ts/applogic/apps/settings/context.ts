@@ -7,7 +7,7 @@ import { deleteCustomTheme } from "../../../userlogic/themes/main";
 import { showOverlay } from "../../../window/overlay";
 import { openWindow } from "../../events";
 import type { AppContextMenu } from "../../interface";
-import { fbClass, FileBrowserSelectedFilename } from "../FileBrowser/main";
+import { fbClass, fbState } from "../FileBrowser/main";
 
 const saveToFS = {
   caption: "Save to ArcFS",
@@ -28,7 +28,11 @@ const saveToFS = {
     await fbClass.goToDirectory("./Themes");
 
     setTimeout(() => {
-      FileBrowserSelectedFilename.set(filename);
+      fbState.update((v) => {
+        v.selectedFilename = filename;
+
+        return v;
+      });
     });
   },
   icon: "save",

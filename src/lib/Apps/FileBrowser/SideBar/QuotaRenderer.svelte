@@ -2,12 +2,12 @@
   import { defaultQuota, getFSQuota } from "../../../../ts/api/fs/quota";
   import { formatBytes } from "../../../../ts/api/fs/sizes";
   import type { FSQuota } from "../../../../ts/api/interface";
-  import { FileBrowserDirContents } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { fbState } from "../../../../ts/applogic/apps/FileBrowser/main";
 
   let quota: FSQuota = defaultQuota;
   let width = 0;
 
-  FileBrowserDirContents.subscribe(refresh);
+  fbState.subscribe(refresh);
 
   async function refresh() {
     quota = await getFSQuota();

@@ -4,9 +4,7 @@
   import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
   import {
     fbClass,
-    FileBrowserCurrentDir,
-    FileBrowserDirContents,
-    FileBrowserSelectedFilename,
+    fbState,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { PlainMimeIcon } from "../../../../ts/icon/mimetypes";
   import { hideOverlay } from "../../../../ts/window/overlay";
@@ -17,8 +15,8 @@
   let exists = false;
 
   function updateExists() {
-    const directories = $FileBrowserDirContents.directories;
-    const files = $FileBrowserDirContents.files;
+    const directories = $fbState.dirContents.directories;
+    const files = $fbState.dirContents.files;
 
     for (let i = 0; i < directories.length; i++) {
       if (directories[i].name == filename) return (exists = true);
@@ -33,9 +31,9 @@
   }
 
   async function create() {
-    await writeFile(`${$FileBrowserCurrentDir}/${filename}`, new Blob([]));
+    await writeFile(`${$fbState.currentDir}/${filename}`, new Blob([]));
 
-    FileBrowserSelectedFilename.set(filename);
+    $fbState.selectedFilename = filename;
 
     cancel();
 

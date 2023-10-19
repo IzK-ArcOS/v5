@@ -1,15 +1,11 @@
 <script lang="ts">
-  import {
-    fbClass,
-    FileBrowserCurrentDir,
-    FileBrowserHome,
-  } from "../../../ts/applogic/apps/FileBrowser/main";
+  import { fbClass, fbState } from "../../../ts/applogic/apps/FileBrowser/main";
   import Crumb from "./PathCrumbs/Crumb.svelte";
 
   let crumbs: string[] = [];
 
-  FileBrowserCurrentDir.subscribe((v) => {
-    crumbs = v.split("/");
+  fbState.subscribe((v) => {
+    crumbs = v.currentDir.split("/");
   });
 
   function home() {
@@ -27,9 +23,15 @@
   }
 </script>
 
-<button class="home material-icons-round" on:click={home}>home</button>
+<button
+  class="home material-icons-round"
+  on:click={home}
+  disabled={$fbState.refreshing || $fbState.currentDir == "./"}
+>
+  first_page
+</button>
 <div class="addressbar">
-  {#if !$FileBrowserHome}
+  {#if !$fbState.home}
     {#each crumbs as crumb, i}
       <Crumb {crumb} path={generatePath(crumb, i)} />
     {/each}
@@ -41,7 +43,7 @@
 <button
   class="refresh material-icons-round"
   on:click={() => fbClass.refresh()}
-  disabled={$FileBrowserHome}
+  disabled={$fbState.home || $fbState.refreshing}
 >
   refresh
 </button>

@@ -1,9 +1,5 @@
 import axios from "axios";
 import { get, writable } from "svelte/store";
-import {
-  FileBrowserOpenCancelled,
-  FileBrowserUploadProgress,
-} from "../../applogic/apps/FileBrowser/main";
 import { Log } from "../../console";
 import { LogLevel } from "../../console/interface";
 import { UserToken } from "../../userlogic/interfaces";
@@ -13,6 +9,7 @@ import { getAuthcode } from "../authcode";
 import { getServer } from "../server";
 import type { PartialArcFile } from "../interface";
 import { toBase64 } from "../../base64";
+import { fbState } from "../../applogic/apps/FileBrowser/main";
 
 export const abortFileReader = writable<boolean>(false);
 
@@ -56,7 +53,11 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
 
       controller.abort();
 
-      FileBrowserOpenCancelled.set(true);
+      fbState.update((v) => {
+        v.openCancelled = true;
+
+        return v;
+      });
 
       abortFileReader.set(false);
     });
@@ -91,7 +92,11 @@ export async function writeFile(path: string, data: Blob): Promise<boolean> {
     onUploadProgress(progress) {
       const perc = (progress.loaded / progress.total) * 100;
 
-      FileBrowserUploadProgress.set(perc);
+      fbState.update((v) => {
+        v.uploadProgress = perc;
+
+        return v;
+      });
     },
   });
 

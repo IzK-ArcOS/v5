@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { FileBrowserHome } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { fbState } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { showOverlay } from "../../../../ts/window/overlay";
 
   function show() {
@@ -10,7 +10,7 @@
 <button
   class="material-icons-round create"
   on:click={show}
-  disabled={$FileBrowserHome}
+  disabled={$fbState.home}
 >
   add
 </button>

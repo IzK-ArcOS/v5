@@ -4,7 +4,7 @@ import fileIcon from "../../../assets/mimetypes/text-plain.svg";
 import { openUserFile, openWithDialog } from "../../api/fs/open/main";
 import type { PartialArcFile } from "../../api/interface";
 import { ConnectedServer, apiCall } from "../../api/main";
-import { FileBrowserCurrentDir } from "../../applogic/apps/FileBrowser/main";
+import { fbState } from "../../applogic/apps/FileBrowser/main";
 import { WindowStore } from "../../applogic/store";
 import { deleteNotification, makeNotification } from "../../notiflogic/main";
 import { UserToken } from "../../userlogic/interfaces";
@@ -64,6 +64,6 @@ export async function compileSearchableFiles() {
   return result;
 }
 
-FileBrowserCurrentDir.subscribe(() => {
+fbState.subscribe(() => {
   FILE_CACHE = [];
 });

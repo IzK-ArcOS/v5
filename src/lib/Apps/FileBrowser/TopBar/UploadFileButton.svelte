@@ -4,9 +4,7 @@
   import { arrayToBlob } from "../../../../ts/api/fs/file/conversion";
   import {
     fbClass,
-    FileBrowserCurrentDir,
-    FileBrowserHome,
-    FileBrowserUploadFile,
+    fbState,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
   import { UploadIcon } from "../../../../ts/icon/general";
@@ -52,11 +50,11 @@
 
   async function fileUpload(file: File) {
     const content = arrayToBlob(await file.arrayBuffer());
-    const path = `${$FileBrowserCurrentDir}/${file.name}`.split("//").join("/");
+    const path = `${$fbState.currentDir}/${file.name}`.split("//").join("/");
 
     const data = await fileToArcFile(file, path);
 
-    FileBrowserUploadFile.set(data);
+    $fbState.uploadFile = data;
 
     const valid = await writeFile(path, content);
 
@@ -83,7 +81,7 @@
   class="material-icons-round"
   on:click={() => uploader.click()}
   title="Upload file"
-  disabled={$FileBrowserHome}
+  disabled={$fbState.home}
 >
   upload
 </button>

@@ -1,16 +1,4 @@
-import { createOverlayableError } from "../../../errorlogic/overlay";
-import { showOverlay } from "../../../window/overlay";
-import type { App, AppContextMenu, ContextMenuItem } from "../../interface";
-import {
-  fbClass,
-  FileBrowserCopyingFilename,
-  FileBrowserCurrentDir,
-  FileBrowserCuttingFilename,
-  FileBrowserSelectedFilename,
-} from "./main";
 import { get } from "svelte/store";
-import { SEP_ITEM } from "../../../contextmenu/main";
-import { TrashIcon } from "../../../icon/general";
 import { deleteItem } from "../../../api/fs/delete";
 import {
   isDirPinned,
@@ -18,6 +6,12 @@ import {
   unpinDirectory,
 } from "../../../api/fs/pins/dir";
 import { isFilePinned, pinFile, unpinFile } from "../../../api/fs/pins/file";
+import { SEP_ITEM } from "../../../contextmenu/main";
+import { createOverlayableError } from "../../../errorlogic/overlay";
+import { TrashIcon } from "../../../icon/general";
+import { showOverlay } from "../../../window/overlay";
+import type { App, AppContextMenu, ContextMenuItem } from "../../interface";
+import { fbClass, fbState } from "./main";
 
 export const FileManagerContextMenu: AppContextMenu = {
   "listitem-dir": [
@@ -46,7 +40,10 @@ export const FileManagerContextMenu: AppContextMenu = {
       icon: "drive_file_rename_outline",
       caption: "Rename",
       action: (_: App, data: DOMStringMap) => {
-        FileBrowserSelectedFilename.set(data.name);
+        fbState.update((v) => {
+          v.selectedFilename = data.name;
+          return v;
+        });
 
         showOverlay("renameItem", "FileManager");
       },
@@ -55,11 +52,17 @@ export const FileManagerContextMenu: AppContextMenu = {
       icon: "content_copy",
       caption: "Copy",
       action: (_: App, data: DOMStringMap) => {
-        FileBrowserSelectedFilename.set(data.name);
+        fbState.update((v) => {
+          v.selectedFilename = data.name;
+          return v;
+        });
 
-        FileBrowserCopyingFilename.set({
-          name: data.name,
-          scopedPath: `${data.path}`,
+        fbState.update((v) => {
+          v.copyingFilename = {
+            name: data.name,
+            scopedPath: `${data.path}`,
+          };
+          return v;
         });
       },
     },
@@ -67,11 +70,17 @@ export const FileManagerContextMenu: AppContextMenu = {
       icon: "content_cut",
       caption: "Cut",
       action: (_: App, data: DOMStringMap) => {
-        FileBrowserSelectedFilename.set(data.name);
+        fbState.update((v) => {
+          v.selectedFilename = data.name;
+          return v;
+        });
 
-        FileBrowserCuttingFilename.set({
-          name: data.name,
-          scopedPath: `${data.path}`,
+        fbState.update((v) => {
+          v.cuttingFilename = {
+            name: data.name,
+            scopedPath: `${data.path}`,
+          };
+          return v;
         });
       },
     },
@@ -101,7 +110,10 @@ export const FileManagerContextMenu: AppContextMenu = {
       icon: "drive_file_rename_outline",
       caption: "Rename",
       action: (_: App, data: DOMStringMap) => {
-        FileBrowserSelectedFilename.set(data.name);
+        fbState.update((v) => {
+          v.selectedFilename = data.name;
+          return v;
+        });
 
         showOverlay("renameItem", "FileManager");
       },
@@ -110,11 +122,17 @@ export const FileManagerContextMenu: AppContextMenu = {
       icon: "content_copy",
       caption: "Copy",
       action: (_: App, data: DOMStringMap) => {
-        FileBrowserSelectedFilename.set(data.name);
+        fbState.update((v) => {
+          v.selectedFilename = data.name;
+          return v;
+        });
 
-        FileBrowserCopyingFilename.set({
-          name: data.name,
-          scopedPath: `${data.path}`,
+        fbState.update((v) => {
+          v.copyingFilename = {
+            name: data.name,
+            scopedPath: `${data.path}`,
+          };
+          return v;
         });
       },
     },
@@ -122,11 +140,17 @@ export const FileManagerContextMenu: AppContextMenu = {
       icon: "content_cut",
       caption: "Cut",
       action: (_: App, data: DOMStringMap) => {
-        FileBrowserSelectedFilename.set(data.name);
+        fbState.update((v) => {
+          v.selectedFilename = data.name;
+          return v;
+        });
 
-        FileBrowserCuttingFilename.set({
-          name: data.name,
-          scopedPath: `${data.path}`,
+        fbState.update((v) => {
+          v.cuttingFilename = {
+            name: data.name,
+            scopedPath: `${data.path}`,
+          };
+          return v;
         });
       },
     },
@@ -162,26 +186,32 @@ const listitemContext: ContextMenuItem[] = [
   {
     icon: "content_cut",
     action(window, data, scope) {
-      const cdir = get(FileBrowserCurrentDir);
+      const cdir = get(fbState).currentDir;
       const path = `${cdir}/${data["name"]}`;
       const name = data["name"];
 
-      FileBrowserCuttingFilename.set({
-        name,
-        scopedPath: path,
+      fbState.update((v) => {
+        v.cuttingFilename = {
+          name,
+          scopedPath: path,
+        };
+        return v;
       });
     },
   },
   {
     icon: "copy",
     action(window, data, scope) {
-      const cdir = get(FileBrowserCurrentDir);
+      const cdir = get(fbState).currentDir;
       const path = `${cdir}/${data["name"]}`;
       const name = data["name"];
 
-      FileBrowserCopyingFilename.set({
-        name,
-        scopedPath: path,
+      fbState.update((v) => {
+        v.copyingFilename = {
+          name,
+          scopedPath: path,
+        };
+        return v;
       });
     },
   },
@@ -190,13 +220,16 @@ const listitemContext: ContextMenuItem[] = [
     icon: "delete",
     caption: "Delete item",
     action(window, data, scope) {
-      const cdir = get(FileBrowserCurrentDir);
+      const cdir = get(fbState).currentDir;
       const path = `${cdir}/${data["name"]}`;
       const name = data["name"];
 
-      FileBrowserCopyingFilename.set({
-        name,
-        scopedPath: path,
+      fbState.update((v) => {
+        v.copyingFilename = {
+          name,
+          scopedPath: path,
+        };
+        return v;
       });
     },
   },

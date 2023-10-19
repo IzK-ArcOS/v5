@@ -1,22 +1,19 @@
 <script lang="ts">
+  import { deleteItem } from "../../../../ts/api/fs/delete";
   import {
     fbClass,
-    FileBrowserCurrentDir,
-    FileBrowserDeletingFilename,
-    FileBrowserHome,
-    FileBrowserSelectedFilename,
+    fbState,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
-  import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
-  import { deleteItem } from "../../../../ts/api/fs/delete";
   import { ErrorIcon } from "../../../../ts/icon/apps";
   import { TrashIcon } from "../../../../ts/icon/general";
+  import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   function deleteSelected() {
     createOverlayableError(
       {
         title: "Delete item?",
-        message: `Are you sure you want to permanently delete ${$FileBrowserSelectedFilename}?`,
+        message: `Are you sure you want to permanently delete ${$fbState.selectedFilename}?`,
         buttons: [
           {
             caption: "Delete",
@@ -32,9 +29,9 @@
   }
 
   async function confirmDelete() {
-    const path = `${$FileBrowserCurrentDir}/${$FileBrowserSelectedFilename}`;
+    const path = `${$fbState.currentDir}/${$fbState.selectedFilename}`;
 
-    FileBrowserDeletingFilename.set($FileBrowserSelectedFilename);
+    $fbState.deletingFilename = $fbState.selectedFilename;
 
     showOverlay("deletingItem", "FileManager");
 
@@ -52,7 +49,7 @@
         "FileManager"
       );
 
-    FileBrowserSelectedFilename.set(null);
+    $fbState.selectedFilename = null;
 
     fbClass.refresh();
 
@@ -64,7 +61,7 @@
 
 <button
   class="material-icons-round"
-  disabled={!$FileBrowserSelectedFilename || $FileBrowserHome}
+  disabled={!$fbState.selectedFilename || $fbState.home}
   on:click={deleteSelected}
   title="Delete item"
 >

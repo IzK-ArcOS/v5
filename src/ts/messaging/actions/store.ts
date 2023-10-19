@@ -1,9 +1,6 @@
 import { createDirectory } from "../../api/fs/directory";
 import { writeFile } from "../../api/fs/file";
-import {
-  fbClass,
-  FileBrowserSelectedFilename,
-} from "../../applogic/apps/FileBrowser/main";
+import { fbClass, fbState } from "../../applogic/apps/FileBrowser/main";
 import { openWindow } from "../../applogic/events";
 import { createOverlayableError } from "../../errorlogic/overlay";
 import type { Message } from "../interface";
@@ -53,7 +50,11 @@ export const messageItemActions: MessageItemAction[] = [
       await fbClass.goToDirectory("./Messages");
 
       setTimeout(() => {
-        FileBrowserSelectedFilename.set(filename);
+        fbState.update((v) => {
+          v.selectedFilename = filename;
+
+          return v;
+        });
       });
     },
   },

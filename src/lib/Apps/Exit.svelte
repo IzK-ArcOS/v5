@@ -1,20 +1,9 @@
 <script lang="ts">
   import "../../css/desktop/apps/exit.css";
-  import { defaultDirectory } from "../../ts/api/interface";
-  import {
-    FileBrowserCurrentDir,
-    FileBrowserDeletingFilename,
-    FileBrowserDirContents,
-    FileBrowserSelectedFilename,
-  } from "../../ts/applogic/apps/FileBrowser/main";
   import { closeWindow } from "../../ts/applogic/events";
   import type { App } from "../../ts/applogic/interface";
-  import { WindowStore, isFullscreenWindow } from "../../ts/applogic/store";
+  import { isFullscreenWindow } from "../../ts/applogic/store";
   import { restart, shutdown } from "../../ts/desktop/power";
-  import { ErrorMessages, ErrorWindowStore } from "../../ts/errorlogic/app";
-  import { selectedMessageId } from "../../ts/messaging/main";
-  import { NotificationStore } from "../../ts/notiflogic/main";
-  import { applyState } from "../../ts/state/main";
 
   export let app: App;
 

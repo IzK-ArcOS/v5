@@ -2,7 +2,7 @@ import FileBrowser from "../../../lib/Apps/FileBrowser.svelte";
 import { FileManagerIcon } from "../../icon/apps";
 import type { App } from "../interface";
 import { FileManagerContextMenu } from "./FileBrowser/context";
-import { FileBrowserHome, fbClass } from "./FileBrowser/main";
+import { fbState, fbClass } from "./FileBrowser/main";
 import { fbOverlays } from "./FileBrowser/overlays";
 
 export const FileBrowserApp: App = {
@@ -31,7 +31,10 @@ export const FileBrowserApp: App = {
   contextMenu: FileManagerContextMenu,
   events: {
     async open() {
-      FileBrowserHome.set(true);
+      fbState.update((v) => {
+        v.home = true;
+        return v;
+      });
       await fbClass.goToDirectory("./", false);
     },
   },

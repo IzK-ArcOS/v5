@@ -1,8 +1,5 @@
 import { writable } from "svelte/store";
-import {
-  fbClass,
-  FileBrowserUploadFile,
-} from "../applogic/apps/FileBrowser/main";
+import { fbClass, fbState } from "../applogic/apps/FileBrowser/main";
 import { fileToArcFile } from "./fs/convert";
 import { writeFile } from "./fs/file";
 import { Log } from "../console";
@@ -60,7 +57,11 @@ async function fileUpload(file: File, dir: string): Promise<string> {
 
   const data = await fileToArcFile(file, path);
 
-  FileBrowserUploadFile.set(data);
+  fbState.update((v) => {
+    v.uploadFile = data;
+
+    return v;
+  });
 
   const valid = await writeFile(path, content);
 

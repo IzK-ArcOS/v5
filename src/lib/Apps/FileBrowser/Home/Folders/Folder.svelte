@@ -4,6 +4,7 @@
   import type { DirectoryGet } from "../../../../../ts/api/interface";
   import { getParentDirectory } from "../../../../../ts/api/fs/main";
   import { FolderIcon } from "../../../../../ts/icon/general";
+  import { fbClass } from "../../../../../ts/applogic/apps/FileBrowser/main";
 
   export let path: string;
 
@@ -19,10 +20,12 @@
       .trim();
   });
 
-  getDirectory();
+  function open() {
+    fbClass.goToDirectory(path);
+  }
 </script>
 
-<button class="folder">
+<button class="folder" on:click={open}>
   <img src={FolderIcon} alt="" />
   <div>
     <p class="title">{name}</p>

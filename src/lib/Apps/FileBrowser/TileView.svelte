@@ -1,10 +1,10 @@
 <script lang="ts">
   import "../../../css/desktop/apps/filebrowser/tile.css";
   import type {
-    PartialUserDir,
     PartialArcFile,
+    PartialUserDir,
   } from "../../../ts/api/interface";
-  import { FileBrowserRefreshing } from "../../../ts/applogic/apps/FileBrowser/main";
+  import { fbState } from "../../../ts/applogic/apps/FileBrowser/main";
   import Spinner from "../../Spinner.svelte";
   import Dir from "./TileView/Dir.svelte";
   import File from "./TileView/File.svelte";
@@ -17,7 +17,7 @@
 </script>
 
 {#if !dirs.length && !files.length}
-  {#if $FileBrowserRefreshing}
+  {#if $fbState.refreshing}
     <div class="loading">
       <div class="loading-inner">
         <Spinner height={32} />

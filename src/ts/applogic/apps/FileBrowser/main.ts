@@ -1,13 +1,7 @@
 import { get, writable } from "svelte/store";
 import { deleteItem } from "../../../api/fs/delete";
 import { getDirectory } from "../../../api/fs/directory";
-import {
-  ArcFile,
-  PartialArcFile,
-  PartialUserDir,
-  UserDirectory,
-  defaultDirectory,
-} from "../../../api/interface";
+import { defaultDirectory } from "../../../api/interface";
 import { Log } from "../../../console";
 import { LogLevel } from "../../../console/interface";
 import { createOverlayableError } from "../../../errorlogic/overlay";
@@ -15,22 +9,26 @@ import { ErrorIcon } from "../../../icon/apps";
 import { TrashIcon } from "../../../icon/general";
 import { ArcSoundBus } from "../../../sound/main";
 import { hideOverlay, showOverlay } from "../../../window/overlay";
+import type { FileManagerState } from "./interface";
 
-export let FileBrowserCurrentDir = writable<string>("./");
-export let FileBrowserDirContents = writable<UserDirectory>(defaultDirectory);
-export let FileBrowserSelectedFilename = writable<string>(null);
-export let FileBrowserOpeningFile = writable<PartialArcFile>(null);
-export let FileBrowserDeletingFilename = writable<string>(null);
-export let FileBrowserUploadFile = writable<ArcFile>(null);
-export let FileBrowserOpenCancelled = writable<boolean>(false);
-export let FileBrowserRefreshing = writable<boolean>(false);
-export let FileBrowserUploadProgress = writable<number>(0);
-export let FileBrowserCuttingFilename = writable<PartialUserDir>(null);
-export let FileBrowserCopyingFilename = writable<PartialUserDir>(null);
-export let FileBrowserHome = writable<boolean>(false);
+export const fbState = writable<FileManagerState>({
+  currentDir: "./",
+  dirContents: defaultDirectory,
+  selectedFilename: null,
+  openingFile: null,
+  deletingFilename: null,
+  uploadFile: null,
+  openCancelled: false,
+  refreshing: false,
+  uploadProgress: 0,
+  cuttingFilename: null,
+  copyingFilename: null,
+  home: false,
+  populating: false,
+});
 
-FileBrowserOpenCancelled.subscribe((v) => {
-  if (!v) return;
+fbState.subscribe((v) => {
+  if (!v || !v.openCancelled) return;
 
   createOverlayableError(
     {
@@ -41,8 +39,11 @@ FileBrowserOpenCancelled.subscribe((v) => {
     },
     "FileManager"
   );
+  fbState.update((v) => {
+    v.openCancelled = false;
 
-  FileBrowserOpenCancelled.set(false);
+    return v;
+  });
 });
 
 class FileBrowserClass {
@@ -53,38 +54,49 @@ class FileBrowserClass {
       LogLevel.info
     );
 
-    FileBrowserRefreshing.set(true);
+    const state = get(fbState);
+
+    state.refreshing = true;
+    fbState.set(state);
 
     if (clearFirst) {
-      FileBrowserDirContents.set(defaultDirectory);
-      FileBrowserSelectedFilename.set(null);
+      state.dirContents = defaultDirectory;
+      state.selectedFilename = null;
+
+      fbState.set(state);
     }
 
-    const cd = get(FileBrowserCurrentDir);
-
+    const cd = get(fbState).currentDir;
     const req = await getDirectory(cd);
 
-    FileBrowserDirContents.set(req || { ...defaultDirectory, scopedPath: cd });
+    state.dirContents = req || { ...defaultDirectory, scopedPath: cd };
+    state.refreshing = false;
 
-    FileBrowserRefreshing.set(false);
+    fbState.set(state);
   }
 
   public async goToDirectory(path: string, disableHome = true) {
     Log("FileBrowser: goToDirectory", `Navigating to "${path}"`);
 
-    FileBrowserSelectedFilename.set(null);
+    fbState.update((state) => {
+      state.selectedFilename;
+      state.currentDir = path;
 
-    FileBrowserCurrentDir.set(path);
+      ArcSoundBus.playSound("arcos.click");
 
-    ArcSoundBus.playSound("arcos.click");
+      if (disableHome) state.home = false;
+
+      return state;
+    });
 
     await this.refresh();
-
-    if (disableHome) FileBrowserHome.set(false);
   }
 
   public async deleteItem(name: string, path: string) {
-    FileBrowserDeletingFilename.set(name);
+    fbState.update((v) => {
+      v.deletingFilename = name;
+      return v;
+    });
 
     showOverlay("deletingItem", "FileManager");
 
@@ -102,7 +114,10 @@ class FileBrowserClass {
         "FileManager"
       );
 
-    FileBrowserSelectedFilename.set(null);
+    fbState.update((v) => {
+      v.selectedFilename = null;
+      return v;
+    });
 
     fbClass.refresh();
 

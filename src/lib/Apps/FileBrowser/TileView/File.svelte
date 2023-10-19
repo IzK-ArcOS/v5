@@ -6,33 +6,28 @@
     openWithDialog,
   } from "../../../../ts/api/fs/open/main";
   import type { ArcFile, PartialArcFile } from "../../../../ts/api/interface";
-  import {
-    FileBrowserDirContents,
-    FileBrowserOpeningFile,
-    FileBrowserSelectedFilename,
-    FileBrowserCuttingFilename as cutting,
-  } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { fbState } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
-  import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
   import { FileIcon } from "../../../../ts/icon/general";
+  import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   export let file: PartialArcFile;
 
   let img = FileIcon;
 
   function select() {
-    $FileBrowserSelectedFilename = file.filename;
+    $fbState.selectedFilename = file.filename;
   }
 
   async function open() {
-    $FileBrowserOpeningFile = file;
+    $fbState.openingFile = file;
     showOverlay("openingFile", "FileManager");
 
     let openResult = await openUserFile(file);
 
     hideOverlay("openingFile", "FileManager");
 
-    $FileBrowserOpeningFile = null;
+    $fbState.openingFile = null;
 
     if (openResult != true) {
       const x = openResult;
@@ -47,11 +42,11 @@
               action: () => {
                 openResult = null;
               },
+              suggested: true,
             },
             {
               caption: "Open With...",
               action: () => openAny(x),
-              suggested: true,
             },
           ],
           image: FileIcon,
@@ -71,16 +66,19 @@
     img = getMimeIcon(file.filename);
   });
 
-  FileBrowserDirContents.subscribe(() => (img = getMimeIcon(file.filename)));
+  fbState.subscribe(() => {
+    img = getMimeIcon(file.filename);
+  });
 </script>
 
 <button
   class="tile file"
   on:click={select}
   on:dblclick={open}
-  class:selected={$FileBrowserSelectedFilename == file.filename}
-  class:cutting={$cutting && $cutting.name == file.filename}
+  class:selected={$fbState.selectedFilename == file.filename}
   title={file.scopedPath}
+  class:cutting={$fbState.cuttingFilename &&
+    $fbState.cuttingFilename.name == file.filename}
   data-path={file.scopedPath}
   data-type="file"
   data-name={file.filename}
