@@ -39,7 +39,7 @@ export async function loginOnMount() {
   const server = get(ConnectedServer);
 
   setTimeout(() => {
-    if (!state) applyLoginState(remembered ? "autologin" : "todesktop");
+    if (!state) applyLoginState("todesktop");
 
     if (!Object.keys(users).length && !remembered) {
       if (!server) {
@@ -51,29 +51,4 @@ export async function loginOnMount() {
       return;
     }
   }, 100);
-
-  if (
-    remembered &&
-    (state ? state.key != "shutdown" && state.key != "restart" : true)
-  ) {
-    const userdata = await loginUsingCreds(remembered);
-    const username = fromBase64(remembered).split(":")[0];
-
-    if (!userdata) {
-      applyLoginState("todesktop");
-
-      localStorage.removeItem("arcos-remembered-token");
-
-      return;
-    }
-
-    loginUsername.set(username);
-
-    UserData.set(userdata);
-    UserName.set(username);
-
-    setTimeout(() => {
-      applyState("desktop");
-    }, 2000);
-  }
 }

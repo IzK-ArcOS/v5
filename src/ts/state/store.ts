@@ -4,6 +4,7 @@ import Boot from "../../lib/Page/Boot.svelte";
 import Crash from "../../lib/Page/Crash.svelte";
 import Desktop from "../../lib/Page/Desktop.svelte";
 import FirstTimeSetup from "../../lib/Page/FirstTimeSetup.svelte";
+import Login from "../../lib/Page/Login.svelte";
 import NewLogin from "../../lib/Page/NewLogin.svelte";
 import ServerSelect from "../../lib/Page/ServerSelect.svelte";
 import TurnedOff from "../../lib/Page/TurnedOff.svelte";
@@ -30,6 +31,10 @@ export const States = new Map<string, State>([
       attribs: {},
       key: "serverselect",
     },
+  ],
+  [
+    "oldlogin",
+    { name: "Old Login", content: Login, attribs: {}, key: "oldlogin" },
   ],
   [
     "login",
