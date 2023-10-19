@@ -11,4 +11,6 @@ div.login-loading p.incorrect {
   height: 38px;
   margin: 10px 0;
   line-height: 38px;
+  white-space: nowrap;
+  min-width: fit-content;
 }

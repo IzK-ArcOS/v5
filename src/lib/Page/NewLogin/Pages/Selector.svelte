@@ -3,6 +3,7 @@
   import { getUsers } from "../../../../ts/userlogic/main";
   import User from "./Selector/User.svelte";
   import type { Login } from "../../../../ts/newlogin/main";
+  import sleep from "../../../../ts/sleep";
 
   export let runtime: Login;
 
@@ -12,7 +13,11 @@
     users = await getUsers();
   });
 
-  function register() {
+  async function register() {
+    runtime.setUser(null);
+
+    await sleep(0);
+
     runtime.navigate("newuserauth");
   }
 </script>

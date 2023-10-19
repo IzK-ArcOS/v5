@@ -6,6 +6,8 @@ div.login-loading input.field {
   border-radius: 10px;
   backdrop-filter: blur(var(--glass-blur));
   display: block;
+  margin: 0 auto;
+
   margin-bottom: 10px;
   width: 220px;
   padding: 0 10px;

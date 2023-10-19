@@ -3,24 +3,17 @@
   import type { Login } from "../../../../ts/newlogin/main";
   import UserHeader from "../UserHeader.svelte";
   import WelcomeSpinner from "../WelcomeSpinner.svelte";
-  import { createUser } from "../../../../ts/userlogic/mutate";
-  import UserPassword from "./NewUser/UserPassword.svelte";
   import Actions from "./NewUser/Actions.svelte";
-  import Incorrect from "./NewUser/Incorrect.svelte";
   import Confirm from "./NewUser/Confirm.svelte";
-  import { onMount } from "svelte";
+  import Incorrect from "./NewUser/Incorrect.svelte";
+  import UserPassword from "./NewUser/UserPassword.svelte";
 
   export let runtime: Login;
 
   let loading = false;
   let errored = false;
-
   let username = writable("");
   let password = "";
-
-  onMount(() => {
-    runtime.setUser(null);
-  });
 
   username.subscribe((v) => v && runtime.setUser(v));
 </script>

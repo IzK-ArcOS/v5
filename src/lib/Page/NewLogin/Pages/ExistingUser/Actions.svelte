@@ -1,9 +1,14 @@
 <script lang="ts">
   import type { Login } from "../../../../../ts/newlogin/main";
+  import sleep from "../../../../../ts/sleep";
 
   export let runtime: Login;
 
-  function register() {
+  async function register() {
+    runtime.setUser(null);
+
+    await sleep(0);
+
     runtime.navigate("newuserauth");
   }
 

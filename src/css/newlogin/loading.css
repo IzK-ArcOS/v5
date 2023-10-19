@@ -5,6 +5,7 @@
 div.login-loading {
   text-align: center;
   height: 300px !important;
+  width: 265px !important;
 }
 
 div.login-loading h1 {
