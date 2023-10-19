@@ -1,7 +1,6 @@
-import { writable } from "svelte/store";
 import ExitSvelte from "../../../lib/Apps/Exit.svelte";
-import type { App } from "../interface";
 import { ShutdownIcon } from "../../icon/power";
+import type { App } from "../interface";
 
 export const Exit: App = {
   info: {

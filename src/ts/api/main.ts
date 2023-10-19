@@ -1,5 +1,4 @@
 import { get, writable } from "svelte/store";
-import { CurrentState } from "../state/main";
 import { generateCredToken } from "./cred";
 import type { Cred, DefaultResponse, Params } from "./interface";
 import { generateParamStr } from "./params";

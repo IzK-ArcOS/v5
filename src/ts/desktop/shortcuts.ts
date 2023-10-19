@@ -7,12 +7,11 @@ import {
   getWindow,
   isFullscreenWindow,
 } from "../applogic/store";
-import { startOpened } from "./main";
-import { ActionCenterOpened } from "./actioncenter/main";
-import { CurrentNotification } from "../notiflogic/main";
-import { arcFindValue, showArcFind } from "../search/main";
-import { CurrentState } from "../state/main";
 import { closeError } from "../errorlogic/main";
+import { CurrentNotification } from "../notiflogic/main";
+import { showArcFind } from "../search/main";
+import { ActionCenterOpened } from "./actioncenter/main";
+import { startOpened } from "./main";
 
 export function registerDesktopShortcuts() {
   registerShortcuts([
@@ -68,21 +67,4 @@ export function registerDesktopShortcuts() {
       },
     },
   ]);
-
-  // TODO: fix this or remove it completely.
-  /* document.addEventListener("keydown", (e) => {
-    const valid = "abcdefghijklmnopqrstuvwxyz0123456789 ";
-
-    if (!e.key) return;
-
-    const key = e.key.toLowerCase();
-
-    if (!valid.includes(key) || key.length > 1) return;
-
-    if (get(CurrentState).name != "Desktop" || !get(startOpened)) return;
-
-    startOpened.set(false);
-    showArcFind.set(true);
-    arcFindValue.set(e.key);
-  }); */
 }

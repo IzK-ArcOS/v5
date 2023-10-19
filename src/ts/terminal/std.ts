@@ -1,12 +1,10 @@
-import { get, writable } from "svelte/store";
+import { writable } from "svelte/store";
 import type { App } from "../applogic/interface";
 import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 import type { ArcTermEnv } from "./env";
 import type { Color } from "./interface";
 import type { ArcTerm } from "./main";
-import { LogLevel } from "../console/interface";
-import sleep from "../sleep";
-import { focusedWindowId } from "../applogic/store";
 import { ArcTermStdSelect } from "./std/select";
 
 export class ArcTermStd {

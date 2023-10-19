@@ -38,7 +38,7 @@ function processEvent(e: KeyboardEvent) {
 
   unfocusActiveElement();
 
-  if (get(CurrentState).key != "desktop") return;
+  if (CurrentState.key != "desktop") return;
 
   for (let i = 0; i < appShortcuts.length; i++) {
     const entry = appShortcuts[i];

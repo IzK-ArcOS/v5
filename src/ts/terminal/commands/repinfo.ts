@@ -1,10 +1,9 @@
 import { get } from "svelte/store";
-import type { Report } from "../../reporting/interface";
-import { createReport } from "../../reporting/main";
-import type { Command } from "../interface";
-import { LogStore } from "../../console";
-import { switchExists } from "../argv";
 import { writeFile } from "../../api/fs/file";
+import { LogStore } from "../../console";
+import { createReport } from "../../reporting/main";
+import { switchExists } from "../argv";
+import type { Command } from "../interface";
 
 export const RepInfo: Command = {
   keyword: "repinfo",

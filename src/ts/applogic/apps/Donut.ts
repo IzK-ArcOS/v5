@@ -1,9 +1,8 @@
 import { writable } from "svelte/store";
 import Donut from "../../../lib/Apps/Donut.svelte";
 import { ArcOSVersion } from "../../env/main";
-import { openChildWindow } from "../events";
-import type { App } from "../interface";
 import { DonutIcon } from "../../icon/apps";
+import type { App } from "../interface";
 
 export const DonutApp: App = {
   info: {

@@ -48,7 +48,7 @@
   });
 
   const handleKeydown = (event: KeyboardEvent) => {
-    if ($focusedWindowId !== app.id || $CurrentState.key !== "desktop") return;
+    if ($focusedWindowId !== app.id || CurrentState.key !== "desktop") return;
 
     if ($gameState.actions[event.key]) {
       $gameState = $gameState.actions[event.key]($gameState);

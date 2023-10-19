@@ -1,4 +1,3 @@
-import { get } from "svelte/store";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 import { WindowStore } from "./store";

@@ -1,11 +1,10 @@
 import { get } from "svelte/store";
+import { makeNotification } from "../notiflogic/main";
+import sleep from "../sleep";
 import { UserData } from "../userlogic/interfaces";
+import { closeWindow } from "./events";
 import type { App } from "./interface";
 import { getWindow, WindowStore } from "./store";
-import { errorMessage } from "../errorlogic/main";
-import sleep from "../sleep";
-import { closeWindow } from "./events";
-import { makeNotification } from "../notiflogic/main";
 
 export function isLoaded(id: string): boolean {
   const ws = get(WindowStore);

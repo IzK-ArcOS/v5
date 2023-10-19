@@ -1,5 +1,4 @@
 import { Log } from "./console";
-import { LogLevel } from "./console/interface";
 
 export default function (
   url: string,

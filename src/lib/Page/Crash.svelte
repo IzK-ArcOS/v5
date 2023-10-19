@@ -1,9 +1,8 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import { LogStore } from "../../ts/console";
   import { compileStringLog } from "../../ts/console/collector";
-  import { removeApiSensitive } from "../../ts/reporting/obfuscate";
   import { CrashReport } from "../../ts/reporting/crash";
-  import { onMount } from "svelte";
   import sleep from "../../ts/sleep";
 
   let show = false;

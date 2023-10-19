@@ -34,8 +34,7 @@ async function getItems(a: ArcTerm) {
     Processor: `${info.cpu.cores} cores`,
     GPU: `${info.gpu.vendor} ${info.gpu.model}`,
     Memory: `~ ${formatBytes(info.mem.kb)}`,
-    Mode:
-      (desktop ? `Desktop` : `Browser`) + ` (state ${get(CurrentState).key})`,
+    Mode: (desktop ? `Desktop` : `Browser`) + ` (state ${CurrentState.key})`,
     Reference: a.referenceId,
   });
 }

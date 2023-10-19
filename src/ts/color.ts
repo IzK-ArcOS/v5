@@ -1,5 +1,4 @@
 import colorsea from "colorsea";
-import { Log } from "./console";
 
 // @source https://stackoverflow.com/a/59387478
 export function lightenColor(color: string, modifier: number = 0.35) {

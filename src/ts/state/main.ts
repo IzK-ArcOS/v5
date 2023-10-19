@@ -7,8 +7,9 @@ import { States } from "./store";
 import { LogLevel } from "../console/interface";
 import { UserCache } from "../userlogic/cache";
 import { UserToken } from "../userlogic/interfaces";
+import { stateChangeTrigger } from "./watch";
 
-export const CurrentState = writable<State>(States[0]);
+export let CurrentState: State = States[0];
 
 export function applyState(stateKey: string, discontinue = true) {
   if (States.has(stateKey)) {
@@ -22,12 +23,14 @@ export function applyState(stateKey: string, discontinue = true) {
 
     if (state.onload) state.onload();
 
-    CurrentState.set(state);
+    CurrentState = state;
     UserCache.clear();
 
     const t = `ArcOS | ${state.name}`;
 
     document.title = t;
+
+    stateChangeTrigger(CurrentState);
 
     if (stateKey != "desktop" && discontinue && get(UserToken)) logoffToken();
 

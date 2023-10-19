@@ -1,15 +1,15 @@
 import { get, writable } from "svelte/store";
-import { Log } from "../console";
-import type { State } from "../state/interfaces";
-import { LogLevel } from "../console/interface";
-import { getUsers } from "../userlogic/main";
-import { ConnectedServer } from "../api/main";
-import sleep from "../sleep";
-import { applyState } from "../state/main";
 import { loginUsingCreds } from "../api/getter";
+import { ConnectedServer } from "../api/main";
 import { fromBase64, toBase64 } from "../base64";
+import { Log } from "../console";
+import { LogLevel } from "../console/interface";
 import { applyLoginState } from "../login/main";
-import { UserData, UserName, UserToken } from "../userlogic/interfaces";
+import sleep from "../sleep";
+import type { State } from "../state/interfaces";
+import { applyState } from "../state/main";
+import { UserData } from "../userlogic/interfaces";
+import { getUsers } from "../userlogic/main";
 
 export class Login {
   public CurrentState = writable<State>();

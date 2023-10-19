@@ -6,7 +6,7 @@ import { ArcOSVersion } from "../env/main";
 import sleep from "../sleep";
 
 export async function checkReleaseCandidate() {
-  if (get(CurrentState).key != "desktop" || ARCOS_MODE != "rc") return;
+  if (CurrentState.key != "desktop" || ARCOS_MODE != "rc") return;
 
   await sleep(1000);
 

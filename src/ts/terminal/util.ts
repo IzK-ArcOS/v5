@@ -5,7 +5,6 @@ import { UserName } from "../userlogic/interfaces";
 import type { Color } from "./interface";
 import { ArcTermIntro } from "./intro";
 import type { ArcTerm } from "./main";
-import { LogLevel } from "../console/interface";
 
 export class ArcTermUtil {
   term: ArcTerm;

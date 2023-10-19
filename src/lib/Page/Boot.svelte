@@ -7,12 +7,11 @@
   import { BootFail } from "../../ts/boot/fail";
   import { Logo } from "../../ts/branding";
   import { Log } from "../../ts/console";
+  import { isDesktop } from "../../ts/desktop/app";
   import { ArcOSVersion, Busy } from "../../ts/env/main";
   import sleep from "../../ts/sleep";
   import { applyState } from "../../ts/state/main";
   import ApiReveal from "../APIReveal.svelte";
-  import desktop from "../../ts/helpcenter/store/personalization/desktop";
-  import { isDesktop } from "../../ts/desktop/app";
 
   let status = "";
   let bootClass = "";

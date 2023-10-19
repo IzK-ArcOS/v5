@@ -3,7 +3,6 @@ import { LogLevel } from "../console/interface";
 import { Default } from "./commands/default";
 import type { Command } from "./interface";
 import type { ArcTerm } from "./main";
-import { gooseBumpsCommands } from "./store";
 export class ArcTermCommandHandler {
   term: ArcTerm;
   history: string[] = [];

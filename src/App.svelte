@@ -13,14 +13,25 @@
   import { CRASHING, handleWindowError } from "./ts/reporting/crash";
   import { applyState, CurrentState } from "./ts/state/main";
   import { committingUserData } from "./ts/userlogic/main";
+  import { onStateChange } from "./ts/state/watch";
+  import type { State } from "./ts/state/interfaces";
 
   let run = false;
   let logo = "";
+  let state: State = CurrentState;
+
+  $: state;
 
   onMount(async () => {
     await getMode();
     await getDesktopMode();
     await getBuild();
+
+    onStateChange((s) => {
+      if (!s) return;
+
+      state = s;
+    });
 
     Log(
       "ArcOS",
@@ -40,7 +51,7 @@
     };
 
     window.onbeforeunload = () => {
-      const state = get(CurrentState).key;
+      const state = CurrentState.key;
 
       if (
         DESKTOP_MODE !== "desktop" &&
@@ -66,11 +77,8 @@
     class:rotate={ARCOS_MODE == "siege"}
     class:gray={$CRASHING}
   >
-    {#if $CurrentState}
-      <svelte:component
-        this={$CurrentState.content}
-        thisState={$CurrentState}
-      />
+    {#if state}
+      <svelte:component this={state.content} thisState={state} />
     {/if}
     <BugReport />
   </div>
