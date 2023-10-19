@@ -17,13 +17,17 @@ export class Login {
   private _defaultState: string;
   private _states: Map<string, State>;
 
-  constructor(states: Map<string, State>, initialState: string) {
+  constructor(
+    states: Map<string, State>,
+    initialState: string,
+    doOnMount = true
+  ) {
     Log("newlogin/main.ts: Login.constructor", `Creating new login class`);
 
     this._states = states;
     this._defaultState = initialState;
 
-    this.onMount();
+    if (doOnMount) this.onMount();
   }
 
   navigate(state: string, fromInit = false) {
@@ -63,7 +67,7 @@ export class Login {
       return this.navigate("newuserauth");
     }
 
-    if (!loginState) this.navigate(remembered ? "autologin" : "newuserauth");
+    if (!loginState) this.navigate(remembered ? "autologin" : "selector");
     if (!remembered || !stateIsIncoming) return;
 
     const username = fromBase64(remembered).split(":")[0];
@@ -73,7 +77,7 @@ export class Login {
     const userdata = await loginUsingCreds(remembered);
 
     if (!userdata) {
-      applyLoginState("newuserauth");
+      applyLoginState("selector");
 
       localStorage.removeItem("arcos-remembered-token");
 
@@ -101,7 +105,7 @@ export class Login {
     this.UserName.set(username);
   }
 
-  public async proceed(userdata: Object, username: string, delay = 1900) {
+  public async proceed(userdata: Object, username: string, delay = 1500) {
     Log(
       "newlogin/main.ts: Login.proceed",
       `Proceeding to desktop after ${delay / 1000} seconds`
@@ -113,7 +117,7 @@ export class Login {
     UserData.set(userdata as UserData);
 
     await sleep(delay);
-    /* 
-    applyState("desktop"); */
+
+    applyState("desktop");
   }
 }

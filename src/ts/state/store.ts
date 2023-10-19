@@ -9,6 +9,7 @@ import ServerSelect from "../../lib/Page/ServerSelect.svelte";
 import TurnedOff from "../../lib/Page/TurnedOff.svelte";
 
 import { applyLoginState, loginUsername } from "../login/main";
+import { ArcSoundBus } from "../sound/main";
 import type { State } from "./interfaces";
 
 export const States = new Map<string, State>([
@@ -62,12 +63,13 @@ export const States = new Map<string, State>([
     {
       name: "Logoff",
       content: NewLogin,
-      attribs: {},
-      onload: () => {
-        applyLoginState("logoff");
-        loginUsername.set(null);
+      attribs: {
+        continuation: "logoff",
       },
       key: "logoff",
+      onload() {
+        ArcSoundBus.playSound("arcos.system.logoff");
+      },
     },
   ],
   [
@@ -75,12 +77,13 @@ export const States = new Map<string, State>([
     {
       name: "Restart",
       content: NewLogin,
-      attribs: {},
-      onload: () => {
-        applyLoginState("restart");
-        loginUsername.set(null);
+      attribs: {
+        continuation: "restart",
       },
       key: "restart",
+      onload() {
+        ArcSoundBus.playSound("arcos.system.logoff");
+      },
     },
   ],
   [
@@ -88,12 +91,13 @@ export const States = new Map<string, State>([
     {
       name: "Shutdown",
       content: NewLogin,
-      attribs: {},
-      onload: () => {
-        applyLoginState("shutdown");
-        loginUsername.set(null);
+      attribs: {
+        continuation: "shutdown",
       },
       key: "shutdown",
+      onload() {
+        ArcSoundBus.playSound("arcos.system.logoff");
+      },
     },
   ],
   [

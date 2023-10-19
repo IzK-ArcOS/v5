@@ -5,5 +5,5 @@
 </script>
 
 <h3 class="welcome-spinner">
-  <Spinner height={23} /><span>{caption}</span>
+  <Spinner height={25} /><span>{caption}</span>
 </h3>

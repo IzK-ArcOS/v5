@@ -67,7 +67,10 @@
     class:gray={$CRASHING}
   >
     {#if $CurrentState}
-      <svelte:component this={$CurrentState.content} />
+      <svelte:component
+        this={$CurrentState.content}
+        thisState={$CurrentState}
+      />
     {/if}
     <BugReport />
   </div>

@@ -5,9 +5,10 @@
   import WelcomeSpinner from "./WelcomeSpinner.svelte";
 
   export let runtime: Login;
+  export let caption: string;
 </script>
 
 <div class="login-loading">
   <UserHeader {runtime} />
-  <WelcomeSpinner />
+  <WelcomeSpinner {caption} />
 </div>

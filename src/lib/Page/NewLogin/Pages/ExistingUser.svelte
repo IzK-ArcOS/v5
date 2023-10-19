@@ -3,12 +3,13 @@
   import type { Login } from "../../../../ts/newlogin/main";
   import UserHeader from "../UserHeader.svelte";
   import WelcomeSpinner from "../WelcomeSpinner.svelte";
+  import Incorrect from "./ExistingUser/Incorrect.svelte";
+  import Actions from "./ExistingUser/Actions.svelte";
 
   export let runtime: Login;
 
   let loading = false;
   let errored = false;
-
   let password = "";
 
   async function login() {
@@ -27,8 +28,8 @@
     await runtime.proceed(userdata, username);
   }
 
-  function register() {
-    runtime.navigate("newuserauth");
+  function keydown(e: KeyboardEvent) {
+    if (e.key == "Enter") login();
   }
 </script>
 
@@ -37,20 +38,23 @@
   {#if !loading}
     {#if !errored}
       <div class="password-wrapper">
-        <input type="password" bind:value={password} disabled={loading} />
-        <button class="material-icons-round continue" on:click={login}>
+        <input
+          type="password"
+          bind:value={password}
+          disabled={loading}
+          on:keydown={keydown}
+        />
+        <button
+          class="material-icons-round continue"
+          on:click={login}
+          disabled={!password}
+        >
           arrow_forward_ios
         </button>
       </div>
-      <button class="normal switchuser">Switch User</button>
-      <button class="normal link createaccount" on:click={register}
-        >I have no account</button
-      >
+      <Actions {runtime} />
     {:else}
-      <p class="incorrect">The password is incorrect. Try again.</p>
-      <button class="normal switchuser" on:click={() => (errored = false)}
-        >Okay</button
-      >
+      <Incorrect bind:errored />
     {/if}
   {:else}
     <WelcomeSpinner />

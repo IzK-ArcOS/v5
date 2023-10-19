@@ -1,4 +1,4 @@
-div.login-loading button.normal {
+div.newlogin button.normal {
   display: block;
   margin: 5px auto;
   padding: 10px 20px;
@@ -9,11 +9,11 @@ div.login-loading button.normal {
   border: var(--button-glass-bg) 1px solid;
 }
 
-div.login-loading button.normal:hover {
+div.newlogin button.normal:hover {
   background-color: #ffffff11;
 }
 
-div.login-loading button.link {
+div.newlogin button.link {
   background-color: transparent;
   border: none;
   backdrop-filter: unset;

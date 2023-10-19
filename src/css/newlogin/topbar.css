@@ -4,8 +4,10 @@ div.newlogin div.topbar div.right button.nopad {
   box-sizing: border-box;
   border-radius: 200px;
   background-color: transparent;
-  margin-left: 0 px;
+  margin-left: 0px;
   color: #eee;
+  border: none;
+  padding: 0;
 }
 
 div.newlogin div.topbar div.right button.nopad:hover {
@@ -27,7 +29,7 @@ div.newlogin div.topbar {
   box-sizing: border-box;
   padding: 5px 10px;
   opacity: 0;
-  transition: opacity 0.4s, top 0.4s;
+  transition: opacity 0.4s, top 0.4s !important;
   top: -17.5px;
   z-index: 10;
 }

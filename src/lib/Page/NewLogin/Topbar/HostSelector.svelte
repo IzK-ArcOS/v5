@@ -1,5 +1,10 @@
 <script lang="ts">
-  import { getServer, setServer } from "../../../../ts/api/server";
+  import { onMount } from "svelte";
+  import {
+    getAllServers,
+    getServer,
+    setServer,
+  } from "../../../../ts/api/server";
   import type { Login } from "../../../../ts/newlogin/main";
   import sleep from "../../../../ts/sleep";
   import { applyState } from "../../../../ts/state/main";
@@ -8,6 +13,10 @@
 
   let selectedServer = getServer();
   let servers = [];
+
+  onMount(() => {
+    servers = getAllServers();
+  });
 
   async function changeServer() {
     await sleep(0);

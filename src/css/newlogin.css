@@ -3,6 +3,7 @@
 @import url("./newlogin/darken.css");
 @import url("./newlogin/loading.css");
 @import url("./newlogin/page/existinguser.css");
+@import url("./newlogin/page/selector.css");
 @import url("./newlogin/password.css");
 
 div.newlogin {

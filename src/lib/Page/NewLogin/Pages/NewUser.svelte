@@ -4,6 +4,11 @@
   import UserHeader from "../UserHeader.svelte";
   import WelcomeSpinner from "../WelcomeSpinner.svelte";
   import { createUser } from "../../../../ts/userlogic/mutate";
+  import UserPassword from "./NewUser/UserPassword.svelte";
+  import Actions from "./NewUser/Actions.svelte";
+  import Incorrect from "./NewUser/Incorrect.svelte";
+  import Confirm from "./NewUser/Confirm.svelte";
+  import { onMount } from "svelte";
 
   export let runtime: Login;
 
@@ -12,32 +17,10 @@
 
   let username = writable("");
   let password = "";
-  let confirm = "";
 
-  async function createAccount() {
-    loading = true;
-
-    const userdata = await createUser($username, password);
-
-    if (!userdata) {
-      errored = true;
-      loading = false;
-
-      return false;
-    }
-
-    runtime.proceed(userdata, $username);
-
-    return false;
-  }
-
-  function keydown(e: KeyboardEvent) {
-    if (e.key == "Enter") createAccount();
-  }
-
-  function existing() {
-    runtime.navigate("existinguserauth");
-  }
+  onMount(() => {
+    runtime.setUser(null);
+  });
 
   username.subscribe((v) => v && runtime.setUser(v));
 </script>
@@ -46,47 +29,17 @@
   <UserHeader {runtime} />
   {#if !loading}
     {#if !errored}
-      <input
-        type="text"
-        placeholder="Username"
-        class="field"
-        bind:value={$username}
+      <UserPassword {loading} bind:username={$username} bind:password />
+      <Confirm
+        username={$username}
+        {password}
+        bind:loading
+        bind:errored
+        {runtime}
       />
-      <input
-        type="password"
-        placeholder="Password"
-        class="field"
-        bind:value={password}
-        disabled={loading}
-      />
-      <div class="password-wrapper">
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          bind:value={confirm}
-          disabled={loading}
-          on:keydown={keydown}
-        />
-        <button
-          class="material-icons-round continue"
-          on:click={createAccount}
-          disabled={loading ||
-            !username ||
-            !password ||
-            !confirm ||
-            password !== confirm}
-        >
-          arrow_forward_ios
-        </button>
-      </div>
-      <button class="normal link createaccount" on:click={existing}
-        >I have an account</button
-      >
+      <Actions {runtime} />
     {:else}
-      <p class="incorrect">The user already exists.</p>
-      <button class="normal switchuser" on:click={() => (errored = false)}>
-        Okay
-      </button>
+      <Incorrect bind:errored />
     {/if}
   {:else}
     <WelcomeSpinner />

@@ -8,6 +8,10 @@
   import Darken from "./NewLogin/Darken.svelte";
   import Paging from "./NewLogin/Paging.svelte";
   import Topbar from "./NewLogin/Topbar.svelte";
+  import { UserName } from "../../ts/userlogic/interfaces";
+  import sleep from "../../ts/sleep";
+
+  export let thisState: State;
 
   let runtime: Login;
   let state: State;
@@ -15,10 +19,28 @@
   let show = false;
 
   onMount(async () => {
-    runtime = new Login(NewLoginStates, "autologin");
+    runtime = new Login(
+      NewLoginStates,
+      "autologin",
+      !thisState.attribs.continuation
+    );
+
+    await sleep(500);
+
     show = true;
 
-    runtime.CurrentState.subscribe((v) => v && (state = v));
+    if (thisState.attribs.continuation) {
+      runtime.setUser($UserName);
+      runtime.navigate(thisState.attribs.continuation as string);
+    }
+
+    runtime.CurrentState.subscribe((v) => {
+      if (!v) return;
+
+      state = v;
+
+      if (state.onload) state.onload();
+    });
   });
 </script>
 

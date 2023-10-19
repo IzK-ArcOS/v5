@@ -33,13 +33,11 @@
   import WindowStore from "./Desktop/WindowStore.svelte";
   import { darkenColor, invertColor, lightenColor } from "../../ts/color";
 
-  let show = false;
   let classes = "";
   let accent = "";
   let style = "";
 
   desktopClassNames.subscribe((v) => (classes = v));
-  showDesktop.subscribe((v) => (show = v));
 
   onMount(async () => {
     ArcSoundBus.playSound("arcos.system.logon");
@@ -66,8 +64,9 @@
 
     await checkForUpdates();
     await checkReleaseCandidate();
+    await sleep(100);
 
-    setTimeout(() => (show = true), 250);
+    showDesktop.set(true);
   });
 
   UserData.subscribe((v) => {
@@ -101,7 +100,7 @@
     theme-{$UserData.sh.desktop.theme}
     tb-{$UserData.sh.taskbar.pos}
     cursor-{$UserData.sh.desktop.noCustomCursor ? '' : 'custom'}"
-    class:show
+    class:show={$showDesktop}
     {style}
   >
     <WindowStore />
