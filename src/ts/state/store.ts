@@ -8,8 +8,6 @@ import Login from "../../lib/Page/Login.svelte";
 import NewLogin from "../../lib/Page/NewLogin.svelte";
 import ServerSelect from "../../lib/Page/ServerSelect.svelte";
 import TurnedOff from "../../lib/Page/TurnedOff.svelte";
-
-import { applyLoginState, loginUsername } from "../login/main";
 import { ArcSoundBus } from "../sound/main";
 import type { State } from "./interfaces";
 
