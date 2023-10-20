@@ -20,7 +20,7 @@
       !Object.keys($UserData.appdata["ArcShell"]).join(",").includes("icon$")
     ) {
       loading = true;
-      await alignDesktopIcons(true);
+      await alignDesktopIcons();
 
       setTimeout(() => {
         loading = false;

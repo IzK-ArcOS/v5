@@ -1,5 +1,4 @@
 import { get } from "svelte/store";
-import { setAppPreference } from "../applogic/pref";
 import { WindowStore } from "../applogic/store";
 import { Log } from "../console";
 import sleep from "../sleep";
@@ -13,8 +12,12 @@ export async function alignDesktopIcons(overrideLock = false) {
     `Automatically positioning desktop icons (OVERRIDE=${overrideLock}, LOCKED=${LOCKED})`
   );
 
+  const udata = get(UserData);
+
   if (LOCKED && !overrideLock) return;
   if (!overrideLock) LOCKED = true;
+
+  if (!udata.appdata.ArcShell) udata.appdata.ArcShell = {};
 
   await sleep(100); // Wait for the rest of the apps to be loaded
 
@@ -32,10 +35,15 @@ export async function alignDesktopIcons(overrideLock = false) {
 
     if (app.core || app.id == "ExperimentsApp") continue;
 
-    setAppPreference("ArcShell", `icon$${app.id}`, {
+    Log(
+      "desktop/icons.ts: alignDesktopIcons",
+      `Automatically positioning desktop icon for ${app.id}`
+    );
+
+    udata.appdata.ArcShell[`icon$${app.id}`] = {
       x: offsetX * GRIDX,
       y: offsetY * GRIDY,
-    });
+    };
 
     await sleep(1);
 
@@ -46,6 +54,8 @@ export async function alignDesktopIcons(overrideLock = false) {
       offsetY++;
     }
   }
+
+  UserData.set(udata);
 }
 
 export async function checkDesktopIconLength() {
@@ -61,7 +71,7 @@ export async function checkDesktopIconLength() {
 }
 
 export function isIconSpotAvailable(x: number, y: number) {
-  const [IW, IH] = [80, 85];
+  /* const [IW, IH] = [80, 85];
   const udata = get(UserData);
   const shell = udata.appdata["ArcShell"] as {
     [key: string]: { x: number; y: number };
@@ -81,6 +91,6 @@ export function isIconSpotAvailable(x: number, y: number) {
     )
       return false;
   }
-
+ */
   return true;
 }

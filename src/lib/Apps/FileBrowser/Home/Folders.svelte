@@ -16,10 +16,10 @@
   });
 </script>
 
+{#if !folders || !folders.length}
+  <p class="no-folders">Folders you pin will appear here.</p>
+{/if}
 {#if folders}
-  {#if !folders.length}
-    <p class="no-folders">Folders you pin will appear here.</p>
-  {/if}
   <div class="dirs" class:collapsed={!folders.length}>
     {#each folders as folder}
       <Folder path={folder} />
