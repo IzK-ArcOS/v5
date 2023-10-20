@@ -1,6 +1,7 @@
 import { AppList } from "./commands/applist";
 import { ArcFetch } from "./commands/arcfetch";
 import { ATConf } from "./commands/atconf";
+import { BgCommand } from "./commands/bg";
 import { BugRep } from "./commands/bugrep";
 import { Cd } from "./commands/cd";
 import { Clear } from "./commands/clear";
@@ -89,6 +90,7 @@ export const arcCommands: CommandStore = [
   UserAdd,
   SUD,
   SleepCommand,
+  BgCommand,
 ];
 
 /**

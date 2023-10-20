@@ -69,10 +69,6 @@ div.boot div.center img.logo {
   margin-bottom: 20px;
   margin: 0 auto;
 }
-/* 
-div.boot div.center img.logo:not(.color) {
-  filter: grayscale(50%);
-} */
 
 div.slider.userdefined {
   width: 150px;
@@ -91,13 +87,11 @@ div.line.dark {
 
 div.subline.dark.inc {
   background-color: #bbb;
-  /* border-radius: 3.5px; */
   height: 7px;
 }
 
 div.subline.dark.dec {
   background-color: #bbb;
-  /* border-radius: 3.5px; */
   height: 7px;
 }
 

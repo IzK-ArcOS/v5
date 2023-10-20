@@ -10,7 +10,9 @@
   let users;
 
   onMount(async () => {
-    users = await getUsers();
+    runtime.UserCache.subscribe((v) => v && (users = v));
+
+    runtime.UserCache.set(await getUsers());
   });
 
   async function register() {

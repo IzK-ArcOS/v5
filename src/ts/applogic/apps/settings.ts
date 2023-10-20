@@ -6,6 +6,7 @@ import { SettingsPages } from "./SettingsApp/store";
 import { SettingsAppContext } from "./settings/context";
 import AccountPageOverlays from "./settings/overlays/account";
 import DesktopOverlays from "./settings/overlays/desktop";
+import LockScreenOverlays from "./settings/overlays/lockScreen";
 import ProfilePictureOverlays from "./settings/overlays/pfp";
 import { ThemeOverlays } from "./settings/overlays/theme";
 import VisualsOverlays from "./settings/overlays/visuals";
@@ -36,6 +37,7 @@ export const SettingsApp: App = {
     ...AccountPageOverlays,
     ...VisualsOverlays,
     ...DesktopOverlays,
+    ...LockScreenOverlays,
     ...ProfilePictureOverlays,
     ...ThemeOverlays,
   },

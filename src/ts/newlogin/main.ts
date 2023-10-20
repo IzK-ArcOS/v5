@@ -8,12 +8,14 @@ import { applyLoginState } from "../login/main";
 import sleep from "../sleep";
 import type { State } from "../state/interfaces";
 import { applyState } from "../state/main";
-import { UserData } from "../userlogic/interfaces";
+import { AllUsers, UserData } from "../userlogic/interfaces";
 import { getUsers } from "../userlogic/main";
 
 export class Login {
   public CurrentState = writable<State>();
   public UserName = writable<string>();
+  public UserCache = writable<AllUsers>();
+  public userBackground = writable<string>("img15");
   private _defaultState: string;
   private _states: Map<string, State>;
 
@@ -27,7 +29,26 @@ export class Login {
     this._states = states;
     this._defaultState = initialState;
 
+    this.UserCache.subscribe(() => this.updateLoginBackground());
+    this.UserName.subscribe(() => this.updateLoginBackground());
+
     if (doOnMount) this.onMount();
+  }
+
+  private updateLoginBackground(v?: AllUsers) {
+    v = v || get(this.UserCache);
+
+    if (!v) return this.userBackground.set("img15");
+
+    const username = get(this.UserName);
+    const user = v[username];
+
+    console.log("Updating UserLoginBackground", username, user);
+
+    if (!user || !user.acc || !user.acc.loginBackground)
+      return this.userBackground.set("img15");
+
+    this.userBackground.set(user.acc.loginBackground);
   }
 
   navigate(state: string, fromInit = false) {

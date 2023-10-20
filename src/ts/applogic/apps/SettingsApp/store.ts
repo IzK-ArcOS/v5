@@ -2,6 +2,7 @@ import About from "../../../../lib/Apps/Settings/Pages/About.svelte";
 import Account from "../../../../lib/Apps/Settings/Pages/Account.svelte";
 import Apps from "../../../../lib/Apps/Settings/Pages/Apps.svelte";
 import Desktop from "../../../../lib/Apps/Settings/Pages/Desktop.svelte";
+import LockScreen from "../../../../lib/Apps/Settings/Pages/LockScreen.svelte";
 import Shell from "../../../../lib/Apps/Settings/Pages/Shell.svelte";
 import Themes from "../../../../lib/Apps/Settings/Pages/Themes.svelte";
 import Visuals from "../../../../lib/Apps/Settings/Pages/Visuals.svelte";
@@ -16,6 +17,7 @@ import {
   ThemesIcon,
   WindowSettingsIcon,
 } from "../../../icon/general";
+import { LockIcon } from "../../../icon/power";
 import { openWindow } from "../../events";
 import type { SettingsPage } from "./interface";
 import { currentSettingsPage } from "./main";
@@ -36,6 +38,11 @@ export const SettingsPages: SettingsPage[] = [
     name: "Wallpaper",
     icon: DesktopIcon,
     content: Desktop,
+  },
+  {
+    name: "Login",
+    icon: LockIcon,
+    content: LockScreen,
   },
   {
     name: "Visuals",

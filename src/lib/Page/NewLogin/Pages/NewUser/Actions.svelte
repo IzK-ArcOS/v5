@@ -1,9 +1,14 @@
 <script lang="ts">
   import type { Login } from "../../../../../ts/newlogin/main";
+  import sleep from "../../../../../ts/sleep";
 
   export let runtime: Login;
 
-  function existing() {
+  async function existing() {
+    runtime.setUser(null);
+
+    await sleep(0);
+
     runtime.navigate("selector");
   }
 </script>

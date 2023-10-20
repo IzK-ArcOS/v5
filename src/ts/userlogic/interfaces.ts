@@ -13,6 +13,7 @@ export interface UserData {
       clockSecs: boolean;
       clockDate: boolean;
       clock12hr: boolean;
+      accentedStart: boolean;
     };
 
     window: {
@@ -58,6 +59,7 @@ export interface UserData {
     enabled: boolean;
     admin: boolean;
     profilePicture: string | number | null;
+    loginBackground?: string;
   };
   volume: {
     level: number;

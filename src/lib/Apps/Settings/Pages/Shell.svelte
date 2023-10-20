@@ -51,6 +51,19 @@
 >
   <TaskBarPosition disabled={$UserData.sh.taskbar.isLauncher} />
 </OptionSection>
+<OptionSection
+  title="Accented Start Button"
+  context="Match the Start logo to the accent color"
+  asterisk
+>
+  <input
+    type="checkbox"
+    id="a"
+    class="switch"
+    bind:checked={$UserData.sh.taskbar.accentedStart}
+    disabled={$UserData.sh.taskbar.isLauncher}
+  />
+</OptionSection>
 <hr />
 <OptionSection
   title="Small start menu"

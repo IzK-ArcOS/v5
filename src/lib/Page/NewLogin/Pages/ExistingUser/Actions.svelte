@@ -12,7 +12,11 @@
     runtime.navigate("newuserauth");
   }
 
-  function switchUser() {
+  async function switchUser() {
+    runtime.setUser(null);
+
+    await sleep(0);
+
     runtime.navigate("selector");
   }
 </script>

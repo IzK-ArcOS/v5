@@ -4,6 +4,7 @@ import { LogLevel } from "../console/interface";
 import { CurrentState } from "../state/main";
 import ttlFetch from "../ttlFetch";
 import { ConnectedServer, ServerAuthCode } from "./main";
+import { minArcAPI } from "../env/main";
 
 // [https?,port][]
 export const TEST_MODES: [boolean, number][] = [
@@ -38,10 +39,14 @@ export async function testConnection(
         `Got a response from URL ${url}`,
         LogLevel.warn
       );
-      /* 
-      const rev = req.revision || 0;
 
-      if (rev < minArcAPI) return false; */
+      const connectReq = await (
+        await ttlFetch(url.replace("users/get", "connect"), {})
+      ).json();
+
+      const rev = connectReq.revision || 0;
+
+      if (rev < minArcAPI) return false;
 
       if (set) {
         ConnectedServer.set(`${proto}://${server}:${port}`);

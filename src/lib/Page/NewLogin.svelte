@@ -10,6 +10,7 @@
   import Topbar from "./NewLogin/Topbar.svelte";
   import { UserName } from "../../ts/userlogic/interfaces";
   import sleep from "../../ts/sleep";
+  import { getUsers } from "../../ts/userlogic/main";
 
   export let thisState: State;
 
@@ -25,14 +26,16 @@
       !thisState.attribs.continuation
     );
 
-    await sleep(500);
-
-    show = true;
-
     if (thisState.attribs.continuation) {
       runtime.setUser($UserName);
       runtime.navigate(thisState.attribs.continuation as string);
     }
+
+    runtime.UserCache.set(await getUsers());
+
+    await sleep(500);
+
+    show = true;
 
     runtime.CurrentState.subscribe((v) => {
       if (!v) return;
@@ -46,9 +49,9 @@
 
 {#if runtime}
   <div class="newlogin fullscreen" class:show>
-    <Background {state} />
+    <Background {state} {runtime} />
     <Darken {state} />
     <Topbar {state} {runtime} />
-    <Paging {runtime} {state} />
+    <Paging {state} {runtime} />
   </div>
 {/if}

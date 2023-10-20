@@ -5,7 +5,7 @@
   export let wallpaper: [string, Wallpaper];
 
   function change() {
-    $UserData.sh.desktop.wallpaper = wallpaper[0];
+    $UserData.acc.loginBackground = wallpaper[0];
   }
 </script>
 
@@ -17,7 +17,7 @@
   title={wallpaper[0] == "img0"
     ? "(none)"
     : `${wallpaper[1].name} from ${wallpaper[1].author}`}
-  class:selected={$UserData.sh.desktop.wallpaper == wallpaper[0]}
+  class:selected={$UserData.acc.loginBackground == wallpaper[0]}
   on:click={change}
 >
   {#if wallpaper[0] == "img0"}

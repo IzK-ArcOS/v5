@@ -16,7 +16,10 @@ const getters: [string, (id: string) => Wallpaper | Promise<Wallpaper>][] = [
   ["img", (id) => Wallpapers[id] || Wallpapers["img04"]],
 ];
 
-export async function getWallpaper(id: string): Promise<Wallpaper> {
+export async function getWallpaper(
+  id: string,
+  override?: string
+): Promise<Wallpaper> {
   if (!id) return Wallpapers["img04"];
 
   if (id.startsWith("http")) return { author: "The Web", name: id, url: id };
@@ -25,7 +28,7 @@ export async function getWallpaper(id: string): Promise<Wallpaper> {
     if (id.startsWith(getters[i][0])) return await getters[i][1](id);
   }
 
-  return Wallpapers["img04"];
+  return Wallpapers[override || "img04"];
 }
 
 export async function wallpaperFromFS(path: string): Promise<Wallpaper> {

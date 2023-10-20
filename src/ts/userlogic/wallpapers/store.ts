@@ -17,6 +17,13 @@ import img18 from "../../../assets/bg/img18.jpg";
 import img19 from "../../../assets/bg/img19.png";
 import img20 from "../../../assets/bg/img20.jpg";
 import img21 from "../../../assets/bg/img21.jpg";
+import img22 from "../../../assets/bg/img22.png";
+import img23 from "../../../assets/bg/img23.png";
+import img24 from "../../../assets/bg/img24.jpg";
+import img25 from "../../../assets/bg/img25.jpg";
+import img26 from "../../../assets/bg/img26.jpg";
+import img27 from "../../../assets/bg/img27.jpg";
+import img28 from "../../../assets/bg/img28.jpg";
 import type { Wallpaper } from "./interface";
 
 export const Wallpapers: { [key: string]: Wallpaper } = {
@@ -37,6 +44,25 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     url: img21,
     author: "Eversiege",
     name: "Flippin' Trees",
+  },
+  /**Nik Nikovsky */
+  img24: {
+    url: img24,
+    author: "Nik Nikovsky",
+    name: "Camp Forest",
+    source: "Radków, Poland",
+  },
+  img25: {
+    url: img25,
+    author: "Nik Nikovsky",
+    name: "Horses",
+    source: "Radków, Poland",
+  },
+  img26: {
+    url: img26,
+    author: "Nik Nikovsky",
+    name: "Glorified Duck",
+    source: "Radków, Poland",
   },
   /**SWHFotografie */
   img13: { url: img13, author: "SWHFotografie", name: "Agga" },
@@ -64,6 +90,11 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     name: "Long Exposure",
     source: "Slijpe, West-Flanders, Belgium",
   },
+  img27: {
+    url: img27,
+    author: "Matteo Scaringi",
+    name: "Evening Neighborhood",
+  },
   /**Kees van Voorthuizen */
   img14: { url: img14, author: "Kees van Voorthuizen", name: "Scheveningen" },
   img01: {
@@ -78,13 +109,29 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     name: "Sunset in Mykonos",
     source: "Mykonos, Greece",
   },
-
+  /**Saw Ramsson */
+  img22: {
+    url: img22,
+    author: "Saw Ramsson",
+    name: "Evening Lakeside",
+  },
+  img23: {
+    url: img23,
+    author: "Saw Ramsson",
+    name: "Sunny Lake",
+  },
   /**Blocky (Cy) */
   img17: {
     url: img17,
     author: "Blocky (Cy)",
     name: "Sunset Sky",
     source: "Fairfield Bay, US",
+  },
+  img28: {
+    url: img28,
+    author: "Blocky (Cy)",
+    name: "Florida Beach",
+    source: "Florida",
   },
   /**Matteo Scaringi */
   img16: {
