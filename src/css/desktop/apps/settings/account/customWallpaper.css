@@ -1,34 +1,25 @@
-window#SettingsApp window.overlay#customWallpaper div.customwallpaper-wrapper {
+window#SettingsApp window.overlay div.customwallpaper-wrapper {
   display: flex;
   margin: 5px;
 }
 
-window#SettingsApp
-  window.overlay#customWallpaper
-  div.customwallpaper-wrapper
-  div.field {
+window#SettingsApp window.overlay div.customwallpaper-wrapper div.field {
   width: 100%;
 }
 
-window#SettingsApp
-  window.overlay#customWallpaper
-  div.customwallpaper-wrapper
-  img {
+window#SettingsApp window.overlay div.customwallpaper-wrapper img {
   height: 40px;
   width: 40px;
   margin-right: 10px;
 }
 
-window#SettingsApp
-  window.overlay#customWallpaper
-  div.customwallpaper-wrapper
-  input {
+window#SettingsApp window.overlay div.customwallpaper-wrapper input {
   width: 100%;
   margin: 5px 0;
 }
 
 window#SettingsApp
-  window.overlay#customWallpaper
+  window.overlay
   div.customwallpaper-wrapper
   div.field
   div.apply {
@@ -36,7 +27,7 @@ window#SettingsApp
 }
 
 window#SettingsApp
-  window.overlay#customWallpaper
+  window.overlay
   div.customwallpaper-wrapper
   div.field
   div.apply

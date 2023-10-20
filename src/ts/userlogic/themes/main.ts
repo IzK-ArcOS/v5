@@ -40,6 +40,9 @@ export function loadTheme(context: UserTheme) {
     udata.sh.window.centertb = !!context.titlebarCentered;
     udata.sh.taskbar.isLauncher = !!context.isLauncher;
 
+    if (context.loginBackground)
+      udata.acc.loginBackground = context.loginBackground;
+
     return udata;
   });
 }
@@ -57,6 +60,7 @@ export function saveCurrentTheme(name: string) {
       sharp: udata.sh.desktop.sharp,
       theme: udata.sh.desktop.theme,
       wallpaper: udata.sh.desktop.wallpaper,
+      loginBackground: udata.acc.loginBackground || "img15",
       accent: udata.sh.desktop.accent,
       docked: udata.sh.taskbar.docked,
       taskbarCentered: udata.sh.taskbar.centered,

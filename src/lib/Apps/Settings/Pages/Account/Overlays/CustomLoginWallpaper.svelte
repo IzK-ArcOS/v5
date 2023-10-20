@@ -28,7 +28,7 @@
   }
 
   function cancel() {
-    hideOverlay("customWallpaper", "SettingsApp");
+    hideOverlay("customLoginWallpaper", "SettingsApp");
   }
 
   async function checkImage(url): Promise<boolean> {

@@ -8,6 +8,7 @@ export interface UserTheme {
   sharp: boolean;
   theme: string;
   wallpaper: string;
+  loginBackground: string;
   taskbarCentered: boolean;
   taskbarLabels: boolean;
   taskbarPosition: "vertical" | "" | "vertical-right" | string;
