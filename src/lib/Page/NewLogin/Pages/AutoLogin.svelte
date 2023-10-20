@@ -12,10 +12,6 @@
     shutdown: "Shutting down",
     autologin: "Welcome",
   };
-
-  onMount(() => {
-    console.log(runtime);
-  });
 </script>
 
 <Loading {runtime} caption={CAPTIONS[key || "autologin"]} />

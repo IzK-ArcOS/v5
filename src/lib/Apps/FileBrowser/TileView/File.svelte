@@ -1,15 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
+  import type { PartialArcFile } from "../../../../ts/api/interface";
   import {
-    openUserFile,
-    openWithDialog,
-  } from "../../../../ts/api/fs/open/main";
-  import type { ArcFile, PartialArcFile } from "../../../../ts/api/interface";
-  import { fbState } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
+    fbClass,
+    fbState,
+  } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { FileIcon } from "../../../../ts/icon/general";
-  import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   export let file: PartialArcFile;
 
@@ -17,49 +14,6 @@
 
   function select() {
     $fbState.selectedFilename = file.filename;
-  }
-
-  async function open() {
-    $fbState.openingFile = file;
-    showOverlay("openingFile", "FileManager");
-
-    let openResult = await openUserFile(file);
-
-    hideOverlay("openingFile", "FileManager");
-
-    $fbState.openingFile = null;
-
-    if (openResult != true) {
-      const x = openResult;
-      createOverlayableError(
-        {
-          title: `Unable to open ${file.filename}`,
-          message:
-            "You don't have an app or handler that can open this type of file.",
-          buttons: [
-            {
-              caption: "Close",
-              action: () => {
-                openResult = null;
-              },
-              suggested: true,
-            },
-            {
-              caption: "Open With...",
-              action: () => openAny(x),
-            },
-          ],
-          image: FileIcon,
-        },
-        "FileManager"
-      );
-    }
-
-    openResult = null;
-  }
-
-  function openAny(arc: ArcFile) {
-    openWithDialog({ ...arc, anymime: true });
   }
 
   onMount(() => {
@@ -74,7 +28,7 @@
 <button
   class="tile file"
   on:click={select}
-  on:dblclick={open}
+  on:dblclick={() => fbClass.openFile(file)}
   class:selected={$fbState.selectedFilename == file.filename}
   title={file.scopedPath}
   class:cutting={$fbState.cuttingFilename &&

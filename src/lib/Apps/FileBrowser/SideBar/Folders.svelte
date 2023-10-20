@@ -20,9 +20,12 @@
     if (!currentJoin) loading = true;
 
     const unsorted = ((await getDirectory("./")) as UserDirectory).directories;
+
+    if (!unsorted) return (loading = false);
+
     const join = unsorted.map((v) => v.name.toLowerCase()).join("|");
 
-    if (currentJoin == join) return;
+    if (currentJoin == join) return (loading = false);
 
     currentJoin = join;
 

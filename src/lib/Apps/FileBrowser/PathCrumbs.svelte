@@ -26,7 +26,8 @@
 <button
   class="home material-icons-round"
   on:click={home}
-  disabled={$fbState.refreshing || $fbState.currentDir == "./"}
+  disabled={$fbState.refreshing ||
+    ($fbState.currentDir == "./" && !$fbState.home)}
 >
   first_page
 </button>

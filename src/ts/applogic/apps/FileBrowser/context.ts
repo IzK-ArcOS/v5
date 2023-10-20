@@ -1,5 +1,6 @@
-import { get } from "svelte/store";
 import { deleteItem } from "../../../api/fs/delete";
+import { getPartialFile } from "../../../api/fs/file";
+import { getParentDirectory } from "../../../api/fs/main";
 import {
   isDirPinned,
   pinDirectory,
@@ -10,7 +11,7 @@ import { SEP_ITEM } from "../../../contextmenu/main";
 import { createOverlayableError } from "../../../errorlogic/overlay";
 import { TrashIcon } from "../../../icon/general";
 import { showOverlay } from "../../../window/overlay";
-import type { App, AppContextMenu, ContextMenuItem } from "../../interface";
+import type { App, AppContextMenu } from "../../interface";
 import { fbClass, fbState } from "./main";
 
 export const FileManagerContextMenu: AppContextMenu = {
@@ -180,57 +181,74 @@ export const FileManagerContextMenu: AppContextMenu = {
       },
     },
   ],
+  "homepage-folder": [
+    {
+      caption: "Open Folder",
+      icon: "launch",
+      action(_, data) {
+        const path = data.path;
+
+        if (!path) return;
+
+        fbClass.goToDirectory(path);
+      },
+    },
+    {
+      caption: "Find Parent",
+      action(_, data) {
+        const path = data.path;
+
+        if (!path) return;
+
+        const parent = getParentDirectory(path);
+
+        fbClass.goToDirectory(parent || path);
+      },
+    },
+    SEP_ITEM,
+    {
+      caption: "Unpin Folder",
+      icon: "block",
+      action(_, data) {
+        unpinDirectory(data.path);
+      },
+    },
+  ],
+  "homepage-file": [
+    {
+      caption: "Open File",
+      icon: "launch",
+      async action(_, data) {
+        const path = data.path;
+
+        if (!path) return;
+
+        const partial = await getPartialFile(path);
+
+        if (!partial) return;
+
+        fbClass.openFile(partial);
+      },
+    },
+    {
+      caption: "Find Parent",
+      action(_, data) {
+        const path = data.path;
+
+        if (!path) return;
+
+        const parent = getParentDirectory(path);
+
+        fbClass.goToDirectory(parent || path);
+      },
+    },
+    SEP_ITEM,
+    {
+      caption: "Unpin File",
+      icon: "block",
+      action(_, data) {
+        unpinFile(data.path);
+      },
+    },
+  ],
 };
-
-const listitemContext: ContextMenuItem[] = [
-  {
-    icon: "content_cut",
-    action(window, data, scope) {
-      const cdir = get(fbState).currentDir;
-      const path = `${cdir}/${data["name"]}`;
-      const name = data["name"];
-
-      fbState.update((v) => {
-        v.cuttingFilename = {
-          name,
-          scopedPath: path,
-        };
-        return v;
-      });
-    },
-  },
-  {
-    icon: "copy",
-    action(window, data, scope) {
-      const cdir = get(fbState).currentDir;
-      const path = `${cdir}/${data["name"]}`;
-      const name = data["name"];
-
-      fbState.update((v) => {
-        v.copyingFilename = {
-          name,
-          scopedPath: path,
-        };
-        return v;
-      });
-    },
-  },
-  SEP_ITEM,
-  {
-    icon: "delete",
-    caption: "Delete item",
-    action(window, data, scope) {
-      const cdir = get(fbState).currentDir;
-      const path = `${cdir}/${data["name"]}`;
-      const name = data["name"];
-
-      fbState.update((v) => {
-        v.copyingFilename = {
-          name,
-          scopedPath: path,
-        };
-        return v;
-      });
-    },
-  },
-];

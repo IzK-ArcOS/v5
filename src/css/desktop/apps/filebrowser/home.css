@@ -11,7 +11,18 @@ window#FileManager div.filebrowser-home div.dirs {
   grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
   padding-bottom: 10px;
   border-bottom: var(--button-bg) 1px solid;
-  margin-right: 10px;
+}
+
+window#FileManager div.filebrowser-home div.dirs.collapsed {
+  padding: 0 !important;
+}
+
+window#FileManager div.filebrowser-home p.no-folders,
+window#FileManager div.filebrowser-home p.no-files {
+  text-align: center;
+  margin: 10px 0;
+  opacity: 0.4;
+  font-style: italic;
 }
 
 window#FileManager div.filebrowser-home div.dirs button {

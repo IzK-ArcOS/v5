@@ -1,17 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { partialFileToComplete } from "../../../../ts/api/fs/convert";
   import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
-  import {
-    openUserFile,
-    openWithDialog,
-  } from "../../../../ts/api/fs/open/main";
   import { formatBytes } from "../../../../ts/api/fs/sizes";
-  import type { ArcFile, PartialArcFile } from "../../../../ts/api/interface";
-  import { fbState } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
+  import type { PartialArcFile } from "../../../../ts/api/interface";
+  import {
+    fbClass,
+    fbState,
+  } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { FileIcon } from "../../../../ts/icon/general";
-  import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
   export let file: PartialArcFile;
 
@@ -19,63 +15,6 @@
 
   function select() {
     $fbState.selectedFilename = file.filename;
-  }
-
-  async function open() {
-    $fbState.openingFile = file;
-    showOverlay("openingFile", "FileManager");
-
-    let openResult = await openUserFile(file);
-
-    hideOverlay("openingFile", "FileManager");
-
-    $fbState.openingFile = null;
-
-    if (openResult != true) {
-      const x = openResult;
-      createOverlayableError(
-        {
-          title: `Unable to open ${file.filename}`,
-          message:
-            "You don't have an app or handler that can open this type of file.",
-          buttons: [
-            {
-              caption: "Close",
-              action: () => {
-                openResult = null;
-              },
-              suggested: true,
-            },
-            {
-              caption: "Open With...",
-              action: () => openAny(x),
-            },
-          ],
-          image: FileIcon,
-        },
-        "FileManager"
-      );
-    }
-
-    openResult = null;
-  }
-
-  function openAny(arc: ArcFile) {
-    openWithDialog({ ...arc, anymime: true });
-  }
-
-  async function openWith() {
-    $fbState.openingFile = file;
-
-    showOverlay("openingFile", "FileManager");
-
-    const data = await partialFileToComplete(file);
-
-    openAny(data);
-
-    hideOverlay("openingFile", "FileManager");
-
-    $fbState.openingFile = null;
   }
 
   onMount(() => {
@@ -91,7 +30,7 @@
   class="item file"
   on:click={select}
   on:contextmenu={select}
-  on:dblclick={open}
+  on:dblclick={() => fbClass.openFile(file)}
   class:selected={$fbState.selectedFilename == file.filename}
   title={file.scopedPath}
   class:cutting={$fbState.cuttingFilename &&
@@ -106,6 +45,11 @@
   <div class="mime">{file.mime.split("; ")[0].split("/").join(" - ")}</div>
   <div class="size">{formatBytes(file.size)}</div>
   <div class="options">
-    <button class="material-icons-round" on:click={openWith}>launch</button>
+    <button
+      class="material-icons-round"
+      on:click={() => fbClass.openWith(file)}
+    >
+      launch
+    </button>
   </div>
 </button>

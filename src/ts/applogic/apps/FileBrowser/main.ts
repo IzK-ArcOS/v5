@@ -1,14 +1,23 @@
 import { get, writable } from "svelte/store";
+import { partialFileToComplete } from "../../../api/fs/convert";
 import { deleteItem } from "../../../api/fs/delete";
 import { getDirectory } from "../../../api/fs/directory";
-import { defaultDirectory } from "../../../api/interface";
+import { openUserFile, openWithDialog } from "../../../api/fs/open/main";
+import {
+  ArcFile,
+  PartialArcFile,
+  defaultDirectory,
+} from "../../../api/interface";
 import { Log } from "../../../console";
 import { LogLevel } from "../../../console/interface";
-import { createOverlayableError } from "../../../errorlogic/overlay";
-import { ErrorIcon } from "../../../icon/apps";
-import { TrashIcon } from "../../../icon/general";
 import { ArcSoundBus } from "../../../sound/main";
 import { hideOverlay, showOverlay } from "../../../window/overlay";
+import {
+  DeleteFailed,
+  DirectoryNotFound,
+  FileOpenFailed,
+  OpenCancelled,
+} from "./error";
 import type { FileManagerState } from "./interface";
 
 export const fbState = writable<FileManagerState>({
@@ -30,15 +39,8 @@ export const fbState = writable<FileManagerState>({
 fbState.subscribe((v) => {
   if (!v || !v.openCancelled) return;
 
-  createOverlayableError(
-    {
-      title: "Open cancelled",
-      message: "The opening procedure was cancelled by the user.",
-      buttons: [{ caption: "OK", action() {}, suggested: true }],
-      image: ErrorIcon,
-    },
-    "FileManager"
-  );
+  OpenCancelled();
+
   fbState.update((v) => {
     v.openCancelled = false;
 
@@ -68,6 +70,10 @@ class FileBrowserClass {
 
     const cd = get(fbState).currentDir;
     const req = await getDirectory(cd);
+
+    if (!req) {
+      DirectoryNotFound(cd);
+    }
 
     state.dirContents = req || { ...defaultDirectory, scopedPath: cd };
     state.refreshing = false;
@@ -102,17 +108,7 @@ class FileBrowserClass {
 
     const valid = await deleteItem(path);
 
-    if (!valid)
-      createOverlayableError(
-        {
-          title: "Unable to delete item",
-          message:
-            "ArcAPI was not able to delete the item from the file system. A permission error may have occured. Please try again later.",
-          buttons: [{ caption: "OK", action() {}, suggested: true }],
-          image: TrashIcon,
-        },
-        "FileManager"
-      );
+    if (!valid) DeleteFailed();
 
     fbState.update((v) => {
       v.selectedFilename = null;
@@ -124,6 +120,51 @@ class FileBrowserClass {
     setTimeout(() => {
       hideOverlay("deletingItem", "FileManager");
     }, 100);
+  }
+
+  public setOpeningFile(file: PartialArcFile) {
+    fbState.update((v) => {
+      v.openingFile = file;
+
+      return v;
+    });
+  }
+
+  async openFile(file: PartialArcFile) {
+    this.setOpeningFile(file);
+
+    showOverlay("openingFile", "FileManager");
+
+    let openResult = await openUserFile(file);
+
+    hideOverlay("openingFile", "FileManager");
+
+    this.setOpeningFile(null);
+
+    if (openResult != true) {
+      const x = openResult;
+      FileOpenFailed(file, x);
+    }
+
+    openResult = null;
+  }
+
+  public openWithAny(arc: ArcFile) {
+    openWithDialog({ ...arc, anymime: true });
+  }
+
+  public async openWith(file: PartialArcFile) {
+    this.setOpeningFile(file);
+
+    showOverlay("openingFile", "FileManager");
+
+    const data = await partialFileToComplete(file);
+
+    this.openWithAny(data);
+
+    hideOverlay("openingFile", "FileManager");
+
+    this.setOpeningFile(null);
   }
 }
 

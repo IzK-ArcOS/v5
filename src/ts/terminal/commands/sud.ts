@@ -26,8 +26,6 @@ export const SUD: Command = {
     if (!currentValue && typeof currentValue === "undefined")
       return term.std.Error(`Can't find [UserData.${hierarchy}]!`);
 
-    console.log(currentValue, typeof currentValue);
-
     argv.shift(); // Remove the hierarchy from the arguments
 
     let newValue = argv.join(" ").trim();

@@ -67,6 +67,7 @@ export function addServer(server: string, makeDefault = true): void {
   if (!all.includes(server)) all.push(server);
 
   localStorage.setItem("arcos-servers", JSON.stringify(all));
+  localStorage.removeItem("arcos-remembered-token");
 
   if (makeDefault) setServer(server);
 }
@@ -107,5 +108,5 @@ export function migrateToMulti() {
 
 export function setServer(server: string) {
   localStorage.setItem("arcos-current-server", server);
-  localStorage.removeItem("arcos-current-token");
+  localStorage.removeItem("arcos-remembered-token");
 }

@@ -2,6 +2,7 @@ import { get, writable } from "svelte/store";
 import { generateCredToken } from "./cred";
 import type { Cred, DefaultResponse, Params } from "./interface";
 import { generateParamStr } from "./params";
+import { manualCrash } from "../reporting/crash";
 
 export const ConnectedServer = writable<string>(null);
 export const ServerAuthCode = writable<string>(null);
@@ -41,6 +42,15 @@ export async function apiCall(
   const statusCode = req.status;
 
   const txt = await req.text();
+
+  if (statusCode == 500) {
+    manualCrash(
+      "ts/api/main.ts",
+      `Server returned status code 500! Please contact BDT`,
+      `  at apiCall`
+    );
+    return { statusCode, valid: false };
+  }
 
   if (
     !req.ok &&

@@ -10,6 +10,8 @@ import { getServer } from "../server";
 import type { PartialArcFile } from "../interface";
 import { toBase64 } from "../../base64";
 import { fbState } from "../../applogic/apps/FileBrowser/main";
+import { getParentDirectory } from "./main";
+import { getDirectory } from "./directory";
 
 export const abortFileReader = writable<boolean>(false);
 
@@ -101,6 +103,18 @@ export async function writeFile(path: string, data: Blob): Promise<boolean> {
   });
 
   return req.status == 200;
+}
+
+export async function getPartialFile(
+  path: string
+): Promise<PartialArcFile | false> {
+  const parent = getParentDirectory(path);
+
+  const dir = await getDirectory(parent);
+
+  if (!dir) return false;
+
+  return dir.files.filter((f) => f.scopedPath == path)[0];
 }
 
 export function sortFiles(dir: PartialArcFile[]) {
