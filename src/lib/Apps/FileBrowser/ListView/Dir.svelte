@@ -32,5 +32,6 @@
   <div class="image"><img src={FolderIcon} alt={dir.name} /></div>
   <div class="name">{dir.name}</div>
   <div class="mime">Folder</div>
+  <div class="modified">-</div>
   <div class="size">-</div>
 </button>

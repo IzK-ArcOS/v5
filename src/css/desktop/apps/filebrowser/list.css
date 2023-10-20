@@ -36,12 +36,18 @@ window#FileManager div.listview button.item div.image img {
 }
 
 window#FileManager div.listview button.item div.name {
-  width: 50%;
+  width: 35%;
 }
 
 window#FileManager div.listview button.item div.mime {
   width: 25%;
   padding-right: 40px;
+}
+
+window#FileManager div.listview button.item div.modified {
+  width: 15%;
+
+  margin-right: 40px !important;
 }
 
 window#FileManager div.listview button.item div.options {
@@ -102,7 +108,7 @@ window#FileManager div.listview button.item.head * {
 }
 
 window#FileManager div.listview button.item.head div.name {
-  width: calc(50% - 4px);
+  width: calc(35% - 4px);
 }
 
 window#FileManager div.listview button.item.head div.image {

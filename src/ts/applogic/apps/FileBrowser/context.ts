@@ -98,6 +98,20 @@ export const FileManagerContextMenu: AppContextMenu = {
   ],
   "listitem-file": [
     {
+      icon: "launch",
+      caption: "Open File",
+      action: async (_: App, data: DOMStringMap) => {
+        if (!data || !data.path) return;
+
+        const partial = await getPartialFile(data.path);
+
+        if (!partial) return;
+
+        fbClass.openFile(partial);
+      },
+    },
+    SEP_ITEM,
+    {
       icon: "push_pin",
       caption: "Pin File",
       action: (_: App, data: DOMStringMap) => {

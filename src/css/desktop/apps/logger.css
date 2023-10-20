@@ -16,8 +16,6 @@ window#LoggerApp div.sidebar {
 }
 
 window#LoggerApp div.titlebar {
-  /* 
-  background-color: var(--win-bg); */
   border-bottom: var(--win-border);
   opacity: 1 !important;
 }
@@ -25,14 +23,6 @@ window#LoggerApp div.titlebar {
 window#LoggerApp:not(.focused) div.titlebar * {
   opacity: 0.5;
 }
-
-/*div.desktop.bigtitlebars window#LoggerApp div.sidebar {
-  padding-top: 45px;
-}
-
-div.desktop.bigtitlebars window#LoggerApp div.content {
-  padding-top: 40px;
-}*/
 
 window#LoggerApp div.sidebar button {
   display: block;

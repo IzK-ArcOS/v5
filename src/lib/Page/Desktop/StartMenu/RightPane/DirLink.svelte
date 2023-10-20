@@ -1,6 +1,9 @@
 <script lang="ts">
   import type { PartialUserDir } from "../../../../../ts/api/interface";
-  import { fbClass } from "../../../../../ts/applogic/apps/FileBrowser/main";
+  import {
+    fbClass,
+    fbState,
+  } from "../../../../../ts/applogic/apps/FileBrowser/main";
   import { openWindow } from "../../../../../ts/applogic/events";
   import { startOpened } from "../../../../../ts/desktop/main";
   import { FolderIcon } from "../../../../../ts/icon/general";
@@ -12,8 +15,9 @@
     openWindow("FileManager");
 
     setTimeout(() => {
+      //$fbState.home = false;
       fbClass.goToDirectory(dir.scopedPath);
-    });
+    }, 50);
   }
 </script>
 

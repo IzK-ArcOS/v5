@@ -3,7 +3,10 @@
   import { getPartialFile } from "../../../../../ts/api/fs/file";
   import { getParentDirectory } from "../../../../../ts/api/fs/main";
   import { unpinFile } from "../../../../../ts/api/fs/pins/file";
-  import { fbClass } from "../../../../../ts/applogic/apps/FileBrowser/main";
+  import {
+    fbClass,
+    fbState,
+  } from "../../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../../ts/errorlogic/overlay";
   import { ErrorIcon } from "../../../../../ts/icon/apps";
   import { FileIcon } from "../../../../../ts/icon/general";
@@ -55,7 +58,12 @@
   }
 </script>
 
-<button on:click={openFile} data-contextmenu="homepage-file" data-path={path}>
+<button
+  on:click={openFile}
+  data-contextmenu="homepage-file"
+  data-path={path}
+  disabled={$fbState.refreshing}
+>
   <div class="image"><img src={FileIcon} alt={path} /></div>
   <div class="name">{name}</div>
   <div class="parent">In {parent}</div>

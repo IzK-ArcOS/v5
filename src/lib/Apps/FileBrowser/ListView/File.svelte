@@ -8,6 +8,10 @@
     fbState,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { FileIcon } from "../../../../ts/icon/general";
+  import dayjs from "dayjs";
+  import relativeTime from "dayjs/plugin/relativeTime";
+
+  dayjs.extend(relativeTime);
 
   export let file: PartialArcFile;
 
@@ -43,6 +47,7 @@
   <div class="image"><img src={img} alt={file.filename} /></div>
   <div class="name">{file.filename}</div>
   <div class="mime">{file.mime.split("; ")[0].split("/").join(" - ")}</div>
+  <div class="modified">{dayjs(file.dateModified || null).fromNow()}</div>
   <div class="size">{formatBytes(file.size)}</div>
   <div class="options">
     <button
