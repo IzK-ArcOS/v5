@@ -51,7 +51,7 @@ export function FileOpenFailed(file: PartialArcFile, x: ArcFile) {
         },
         {
           caption: "Open With...",
-          action: () => this.openWithAny(x),
+          action: () => fbClass.openWithAny(x),
         },
       ],
       image: FileIcon,
