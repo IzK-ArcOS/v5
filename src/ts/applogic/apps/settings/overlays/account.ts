@@ -1,6 +1,6 @@
 import ChangePassword from "../../../../../lib/Apps/Settings/Pages/Account/Overlays/ChangePassword.svelte";
 import ChangeUsername from "../../../../../lib/Apps/Settings/Pages/Account/Overlays/ChangeUsername.svelte";
-import UserDataExplorer from "../../../../../lib/Page/Desktop/UserDataExplorer.svelte";
+import UserDataExplorer from "../../../../../lib/Apps/Settings/Pages/Account/Overlays/UserDataExplorer.svelte";
 
 const AccountPageOverlays = {
   udataExplorer: {

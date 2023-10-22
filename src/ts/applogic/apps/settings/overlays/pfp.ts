@@ -1,6 +1,6 @@
 import CustomProfilePicture from "../../../../../lib/Apps/Settings/Pages/Account/Overlays/CustomProfilePicture.svelte";
 import ProfilePictureView from "../../../../../lib/Apps/Settings/Pages/Account/Overlays/ProfilePictureView.svelte";
-import ProfilePicture from "../../../../../lib/ProfilePicture.svelte";
+import ProfilePicture from "../../../../../lib/Apps/Settings/Pages/Account/Overlays/ProfilePicture.svelte";
 
 const ProfilePictureOverlays = {
   pfpSel: {
