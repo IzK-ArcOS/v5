@@ -19,7 +19,7 @@ export function loadWindow(id: string, app: App) {
 
   if (isLoaded(id))
     return Log(
-      "AppLogic: loadWindow",
+      "applogic/load.ts: loadWindow",
       `Window ${id} already exists in WindowStore.`,
       LogLevel.error
     );
@@ -62,7 +62,7 @@ export function loadWindow(id: string, app: App) {
     if (app.pos.centered) centerWindow(id);
   }, 300);
 
-  Log("AppLogic: loadWindow", `Loaded ${id} into WindowStore.`);
+  Log("applogic/load.ts: loadWindow", `Loaded ${id} into WindowStore.`);
 }
 
 export function getChildren(app: App, id: string) {
@@ -87,7 +87,7 @@ export function unloadWindow(id: string) {
     for (let i = 0; i < ws.length; i++) {
       if (ws[i].id == id) {
         Log(
-          "AppLogic: unloadWindow",
+          "applogic/load.ts: unloadWindow",
           `Unloading ${id} from WindowStore.`,
           LogLevel.info
         );
