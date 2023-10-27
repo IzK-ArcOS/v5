@@ -1,10 +1,10 @@
 <script lang="ts">
-  import connectIcon from "../../../../assets/fts/connect.svg";
   import "../../../../css/fts/page/connecttocloud.css";
   import { setAuthcode } from "../../../../ts/api/authcode";
   import { addServer } from "../../../../ts/api/server";
   import { testConnection } from "../../../../ts/api/test";
   import { applyFTSState } from "../../../../ts/fts/main";
+  import { ConnectIcon } from "../../../../ts/icon/general";
   import { ArcSoundBus } from "../../../../ts/sound/main";
   import Custom from "./ConnectToCloud/Custom.svelte";
   import Toggle from "./ConnectToCloud/Toggle.svelte";
@@ -38,7 +38,7 @@
 </script>
 
 <div class="header centered">
-  <img src={connectIcon} alt="Mode" />
+  <img src={ConnectIcon} alt="Mode" />
   <h1>Time to get connected</h1>
   <p class="subtitle">Where does your account live?</p>
 </div>

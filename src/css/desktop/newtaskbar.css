@@ -8,11 +8,12 @@ div.taskbar-v {
   border-radius: var(--win-border-rad);
   left: 10px;
   box-sizing: border-box;
-  background-color: var(--glass-ultradark);
+  background-color: var(--startmenu-bg);
   -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
   border: var(--glass-alt-bg) 1px solid;
   display: flex;
+  overflow: hidden;
 }
 
 div.newtb:not(.visible) {
@@ -27,17 +28,50 @@ div.newtb button * {
   vertical-align: middle;
 }
 
+div.newtb button.attention {
+  position: relative;
+}
+
+div.newtb button.attention::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: orange;
+  opacity: 0.3;
+  border-radius: inherit;
+  z-index: -1;
+  animation: blink 1s infinite;
+}
+
 div.newtb button.start {
   height: 100%;
-  border-radius: var(--win-border-rad);
+  border-radius: 5px;
   border: none;
-  background-color: var(--startmenu-applist-item-bg);
+  background-color: transparent;
   color: var(--fg);
   padding: 0;
   margin: 0;
-  width: 43px;
-  height: 43px;
+  width: 35px;
+  height: 35px;
   transition: opacity 0.3s, background-color 0.2s;
+  margin-right: 5px;
+  position: relative;
+}
+
+div.newtb button.start.open::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent);
+  opacity: 0.3;
+  border-radius: inherit;
+  z-index: -1;
 }
 
 div.newtb button.start img {
@@ -49,7 +83,16 @@ div.newtb button.start:not(.open) svg.accented-logo path {
   --accent: #fff5;
 }
 
-div.desktop.theme-light div.newtb {
-  background-color: #fffa;
-  color: #222;
+@keyframes blink {
+  0% {
+    opacity: 0.05;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0.05;
+  }
 }

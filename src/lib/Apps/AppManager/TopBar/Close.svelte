@@ -9,7 +9,11 @@
   }
 </script>
 
-<button class="action" disabled={!$appManSelected} on:click={terminate}>
+<button
+  class="action"
+  disabled={!$appManSelected || $appManSelected.startsWith("error_")}
+  on:click={terminate}
+>
   <span class="material-icons-round">close</span>
   <p class="caption">Close</p>
 </button>

@@ -2,10 +2,9 @@
   import type { PartialUserDir } from "../../../../ts/api/interface";
   import {
     fbClass,
-    FileBrowserCurrentDir,
-    FileBrowserSelectedFilename,
+    fbState,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
+  import { FolderIcon } from "../../../../ts/icon/general";
 
   export let folder: PartialUserDir;
 
@@ -15,14 +14,19 @@
     fbClass.goToDirectory(folder.scopedPath);
   }
 
-  FileBrowserCurrentDir.subscribe((v) => {
-    const path = v.replace("./", "");
+  fbState.subscribe((v) => {
+    const path = v.currentDir.replace("./", "");
 
     selected = path.startsWith(folder.name);
   });
 </script>
 
-<button class="folder" class:selected on:click={switchTo}>
-  <img src={icon} alt={folder.name} />
+<button
+  class="folder"
+  class:selected={selected && !$fbState.home}
+  on:click={switchTo}
+  disabled={$fbState.refreshing}
+>
+  <img src={FolderIcon} alt={folder.name} />
   <p class="name">{folder.name}</p>
 </button>

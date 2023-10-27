@@ -1,10 +1,11 @@
 <script lang="ts">
-  import { WindowStore } from "../../../../ts/applogic/store";
   import { UserData } from "../../../../ts/userlogic/interfaces";
+  import Asterisk from "../../SettingsApp/Asterisk.svelte";
   import OptionSection from "../OptionSection.svelte";
+  import TaskBarPosition from "./Shell/TaskBarPosition.svelte";
 </script>
 
-<h1>Shell</h1>
+<h1 class="page-title">Shell</h1>
 <OptionSection
   title="Launcher Mode"
   context="Use a GNOME-style launcher instead of the taskbar"
@@ -16,73 +17,69 @@
     bind:checked={$UserData.sh.taskbar.isLauncher}
   />
 </OptionSection>
-{#if !$UserData.sh.taskbar.isLauncher}
-  <OptionSection
-    title="Center taskbar buttons"
-    context="Centers the taskbar app buttons"
-  >
-    <input
-      type="checkbox"
-      id="a"
-      class="switch"
-      bind:checked={$UserData.sh.taskbar.centered}
-    />
-  </OptionSection>
-  <OptionSection
-    title="Taskbar app labels"
-    context="Display app names on the taskbar"
-  >
-    <input
-      type="checkbox"
-      id="a"
-      class="switch"
-      bind:checked={$UserData.sh.taskbar.labels}
-      disabled={!!$UserData.sh.taskbar.pos}
-    />
-  </OptionSection>
-  <OptionSection
-    title="Taskbar position"
-    context="Where do you want the taskbar?"
-  >
-    <select bind:value={$UserData.sh.taskbar.pos}>
-      <option value="vertical">Left</option>
-      <option value="">Bottom</option>
-      <option value="vertical-right">Right</option>
-    </select>
-  </OptionSection>
-{/if}
+<OptionSection
+  title="Center taskbar buttons"
+  context="Centers the taskbar app buttons"
+  asterisk
+>
+  <input
+    type="checkbox"
+    id="a"
+    class="switch"
+    bind:checked={$UserData.sh.taskbar.centered}
+    disabled={$UserData.sh.taskbar.isLauncher}
+  />
+</OptionSection>
+<OptionSection
+  title="Taskbar app labels"
+  context="Display app names on the taskbar"
+  asterisk
+>
+  <input
+    type="checkbox"
+    id="a"
+    class="switch"
+    bind:checked={$UserData.sh.taskbar.labels}
+    disabled={$UserData.sh.taskbar.pos.includes("vertical") ||
+      $UserData.sh.taskbar.isLauncher}
+  />
+</OptionSection>
+<OptionSection
+  title="Taskbar position"
+  context="Where do you want the taskbar?"
+  asterisk
+>
+  <TaskBarPosition disabled={$UserData.sh.taskbar.isLauncher} />
+</OptionSection>
+<OptionSection
+  title="Accented Start Button"
+  context="Match the Start logo to the accent color"
+  asterisk
+>
+  <input
+    type="checkbox"
+    id="a"
+    class="switch"
+    bind:checked={$UserData.sh.taskbar.accentedStart}
+    disabled={$UserData.sh.taskbar.isLauncher}
+  />
+</OptionSection>
 <hr />
-<OptionSection title="Small start menu" context="Make the start menu smaller">
+<OptionSection
+  title="Small start menu"
+  context="Make the start menu smaller"
+  asterisk
+>
   <input
     type="checkbox"
     id="a"
     class="switch"
     bind:checked={$UserData.sh.start.small}
+    disabled={$UserData.sh.taskbar.isLauncher}
   />
 </OptionSection>
-<!-- <OptionSection
-  title="Show hidden apps"
-  context="Display hidden apps in the start menu"
->
-  <input
-    type="checkbox"
-    id="a"
-    class="switch"
-    bind:checked={$UserData.sh.showHiddenApps}
-    on:click={() => ($WindowStore = $WindowStore)}
-  />
-</OptionSection> -->
-<!-- <OptionSection
-  title="Hide quick settings"
-  context="Hide quick settings in the action center"
->
-  <input
-    type="checkbox"
-    id="a"
-    class="switch"
-    bind:checked={$UserData.sh.noQuickSettings}
-  />
-</OptionSection> -->
+<Asterisk>These settings require Launcher Mode to be turned off.</Asterisk>
+
 <OptionSection title="Dock shell" context="Dock the taskbar and action center">
   <input
     type="checkbox"

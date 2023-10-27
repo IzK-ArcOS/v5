@@ -6,7 +6,7 @@ import type { Command } from "../interface";
 export const Shutdown: Command = {
   keyword: "shutdown",
   exec(cmd, argv, term) {
-    if (get(CurrentState).key == "desktop") return shutdown();
+    if (CurrentState.key == "desktop") return shutdown();
 
     term.std.writeColor("[SHUTDOWN]: Terminating NOW.", "green");
 

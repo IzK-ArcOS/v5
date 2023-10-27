@@ -1,12 +1,12 @@
 import { get, writable, type Writable } from "svelte/store";
-import icon from "../../../../assets/apps/lightsoff.svg";
+import { LogLevel } from "../../../console/interface";
 import { createOverlayableError } from "../../../errorlogic/overlay";
+import { LightsOffIcon } from "../../../icon/apps";
+import { UserData } from "../../../userlogic/interfaces";
 import type { App } from "../../interface";
 import { AppRuntime } from "../../runtime/main";
 import type { LightsOffGrid } from "./interface";
 import { LightsOffLevels } from "./levels";
-import { UserData } from "../../../userlogic/interfaces";
-import { LogLevel } from "../../../console/interface";
 
 export class LightsOffRuntime extends AppRuntime {
   xModifiers = [-1, 0, +1];
@@ -56,8 +56,8 @@ export class LightsOffRuntime extends AppRuntime {
         title: "You Win!",
         message:
           "You've managed to complete all 8 levels of Lights Off. The game will be reset so you can play it again in the future.",
-        buttons: [{ caption: "OK", action() {} }],
-        image: icon,
+        buttons: [{ caption: "Play again", action() {}, suggested: true }],
+        image: LightsOffIcon,
       },
       "LightsOff"
     );
@@ -116,14 +116,14 @@ export class LightsOffRuntime extends AppRuntime {
     if (get(this.LEVEL) == 0 && !this.containsLights())
       return this.Log("Not saving default state!", "saveData", LogLevel.warn);
 
-    const ud = get(UserData);
+    UserData.update((udata) => {
+      udata.appdata[this.app.id] = {
+        clicks: get(this.Clicks),
+        level: get(this.LEVEL),
+        grid: get(this.Grid),
+      };
 
-    ud.appdata[this.app.id] = {
-      clicks: get(this.Clicks),
-      level: get(this.LEVEL),
-      grid: get(this.Grid),
-    };
-
-    UserData.set(ud);
+      return udata;
+    });
   }
 }

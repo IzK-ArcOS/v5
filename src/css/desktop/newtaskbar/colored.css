@@ -1,22 +1,3 @@
 div.newtb.colored {
-  border: transparent 1px solid !important;
-}
-
-div.newtb::after {
-  content: " ";
-
-  border-radius: inherit;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: -1;
-  opacity: 0.3;
-  margin: -1px;
-  pointer-events: none;
-}
-
-div.newtb.colored::after {
-  background-color: var(--accent);
+  border: var(--accent-light-transparent) 1px solid;
 }

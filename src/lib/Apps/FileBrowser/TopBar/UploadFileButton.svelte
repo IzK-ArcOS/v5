@@ -1,14 +1,13 @@
 <script lang="ts">
-  import upload from "../../../../assets/apps/filemanager/upload.svg";
   import { fileToArcFile } from "../../../../ts/api/fs/convert";
   import { writeFile } from "../../../../ts/api/fs/file";
   import { arrayToBlob } from "../../../../ts/api/fs/file/conversion";
   import {
     fbClass,
-    FileBrowserCurrentDir,
-    FileBrowserUploadFile,
+    fbState,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { createOverlayableError } from "../../../../ts/errorlogic/overlay";
+  import { UploadIcon } from "../../../../ts/icon/general";
   import { makeNotification } from "../../../../ts/notiflogic/main";
   import { hideOverlay, showOverlay } from "../../../../ts/window/overlay";
 
@@ -23,8 +22,8 @@
           title: "Too many files",
           message:
             "You are only allowed to upload 80 files at a time to prevent overloading.",
-          buttons: [{ caption: "Understood", action() {} }],
-          image: upload,
+          buttons: [{ caption: "Understood", action() {}, suggested: true }],
+          image: UploadIcon,
         },
         "FileManager"
       );
@@ -51,11 +50,11 @@
 
   async function fileUpload(file: File) {
     const content = arrayToBlob(await file.arrayBuffer());
-    const path = `${$FileBrowserCurrentDir}/${file.name}`.split("//").join("/");
+    const path = `${$fbState.currentDir}/${file.name}`.split("//").join("/");
 
     const data = await fileToArcFile(file, path);
 
-    FileBrowserUploadFile.set(data);
+    $fbState.uploadFile = data;
 
     const valid = await writeFile(path, content);
 
@@ -65,7 +64,7 @@
         message:
           "The server could not parse the file or it could not be written to the ArcFS",
         buttons: [],
-        image: upload,
+        image: UploadIcon,
       });
   }
 </script>
@@ -82,6 +81,7 @@
   class="material-icons-round"
   on:click={() => uploader.click()}
   title="Upload file"
+  disabled={$fbState.home}
 >
   upload
 </button>

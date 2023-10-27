@@ -14,26 +14,15 @@ div.desktop div.contextmenu {
   padding: 5px;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.2s, visibility 0.2s, top 0s, left 0s !important;
+  overflow: hidden;
+  transition: all 0.3s, top 0s, left 0s !important;
+  display: flex;
+  flex-direction: column;
+  transform: scaleY(0%);
 }
 
-div.desktop div.contextmenu::after {
-  content: " ";
-
-  border-radius: inherit;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: -1;
-  opacity: 0.3;
-  margin: -1px;
-  pointer-events: none;
-}
-
-div.desktop div.contextmenu.colored::after {
-  background-color: var(--accent);
+div.desktop div.contextmenu.colored {
+  border: var(--accent-light-transparent) 1px solid;
 }
 
 div.desktop div.contextmenu * {
@@ -47,6 +36,7 @@ div.desktop div.contextmenu.show * {
 div.desktop div.contextmenu.show {
   opacity: 1;
   visibility: visible;
+  transform: scaleY(100%);
 }
 
 div.desktop div.contextmenu button.contextmenu-item {
@@ -60,6 +50,7 @@ div.desktop div.contextmenu button.contextmenu-item {
   padding: 5px;
   line-height: 18px;
   align-items: center;
+  transform: unset;
 }
 
 div.desktop div.contextmenu button.contextmenu-item::after {
@@ -86,11 +77,26 @@ div.desktop div.contextmenu button.contextmenu-item:hover {
   background-color: var(--button-glass-bg);
 }
 
+div.desktop div.contextmenu button.contextmenu-item div.icon {
+  width: 24px;
+}
+
 div.desktop div.contextmenu button.contextmenu-item div.icon * {
   vertical-align: middle;
   margin: 0;
   width: 18px;
   font-size: 18px;
+}
+
+div.desktop div.contextmenu.colored button.contextmenu-item:hover {
+  background-color: var(--accent-light-transparent);
+  box-shadow: 0 1px 2px 1px #0000001c;
+}
+
+div.desktop div.contextmenu.colored button.contextmenu-item:active {
+  background-color: var(--accent-dark);
+  color: var(--accent-light);
+  box-shadow: none;
 }
 
 div.desktop div.contextmenu button.contextmenu-item * {

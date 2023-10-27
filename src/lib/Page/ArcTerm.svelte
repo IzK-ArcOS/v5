@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import "../../css/arctermonly.css";
   import "../../css/terminal/main.css";
-  import { rememberedLogin } from "../../ts/api/getter";
   import { ArcTerm } from "../../ts/terminal/main";
   import { arcTermModeIntro } from "../../ts/terminal/mode";
   import { arcCommands } from "../../ts/terminal/store";
@@ -28,6 +27,7 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div id="target" class="terminal-renderer" bind:this={target} on:click={focus}>
   authenticating with ArcAPI...
 </div>

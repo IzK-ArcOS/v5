@@ -14,10 +14,15 @@ window#BugReports div.sidebar button {
   margin: 0;
   margin-bottom: 0px;
   padding: 8px;
+  box-shadow: none;
 }
 
 window#BugReports div.sidebar button:not(.selected) {
   background-color: transparent;
+}
+
+window#BugReports div.sidebar button:hover {
+  background-color: var(--button-glass-hover-bg);
 }
 
 window#BugReports div.sidebar button img {
@@ -37,7 +42,7 @@ window#BugReports div.sidebar button button.delete {
 }
 
 window#BugReports div.sidebar div.list {
-  height: calc(100% - 40px);
+  height: calc(100% - 50px);
   padding: 5px;
   overflow-y: auto;
 }
@@ -46,14 +51,14 @@ window#BugReports div.sidebar div.bottom {
   border-top: var(--win-border);
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 10px;
   gap: 10px;
-  height: 40px;
+  height: 50px;
 }
 
 window#BugReports div.sidebar div.bottom button {
   padding: 0;
-  height: 20px;
+  height: 30px;
   display: flex;
   align-items: center;
 }
@@ -69,16 +74,21 @@ window#BugReports div.sidebar div.bottom button:not(.material-icons-round) {
   gap: 5px;
 }
 
+window#BugReports div.sidebar div.bottom button:hover {
+  background-color: var(--button-glass-hover-bg);
+}
+
 window#BugReports div.sidebar div.bottom button span.material-icons-round {
   margin: 0;
   font-size: 20px;
 }
 
 window#BugReports div.sidebar div.bottom button.material-icons-round {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   padding: 0;
   text-align: center;
   display: block;
   font-size: 18px;
+  margin-left: auto;
 }

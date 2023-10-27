@@ -1,14 +1,12 @@
 <script lang="ts">
-  import defaultIcon from "../../../../assets/mimetypes/text-plain.svg";
   import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
   import { writeFile } from "../../../../ts/api/fs/file";
   import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
   import {
     fbClass,
-    FileBrowserCurrentDir,
-    FileBrowserDirContents,
-    FileBrowserSelectedFilename,
+    fbState,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { PlainMimeIcon } from "../../../../ts/icon/mimetypes";
   import { hideOverlay } from "../../../../ts/window/overlay";
 
   let filename = "";
@@ -17,8 +15,8 @@
   let exists = false;
 
   function updateExists() {
-    const directories = $FileBrowserDirContents.directories;
-    const files = $FileBrowserDirContents.files;
+    const directories = $fbState.dirContents.directories;
+    const files = $fbState.dirContents.files;
 
     for (let i = 0; i < directories.length; i++) {
       if (directories[i].name == filename) return (exists = true);
@@ -29,13 +27,13 @@
     }
 
     exists = false;
-    img = getMimeIcon(filename) || defaultIcon;
+    img = getMimeIcon(filename) || PlainMimeIcon;
   }
 
   async function create() {
-    await writeFile(`${$FileBrowserCurrentDir}/${filename}`, new Blob([]));
+    await writeFile(`${$fbState.currentDir}/${filename}`, new Blob([]));
 
-    FileBrowserSelectedFilename.set(filename);
+    $fbState.selectedFilename = filename;
 
     cancel();
 
@@ -49,7 +47,7 @@
 </script>
 
 <div class="fb-overlay-mutator-wrapper">
-  <div class="image"><img src={img || defaultIcon} alt="" /></div>
+  <div class="image"><img src={img || PlainMimeIcon} alt="" /></div>
   <div>
     <p>Enter a name for the new file:</p>
     <input type="text" bind:value={filename} on:input={updateExists} />

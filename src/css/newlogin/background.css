@@ -1,0 +1,11 @@
+div.newlogin div.background {
+  background-image: var(--bg);
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.5s, background-image 0.4s !important;
+}
+
+div.newlogin div.background.zoom {
+  transform: scale(1.2);
+  filter: brightness(0.9);
+}

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import warning from "../../../../../assets/apps/error.svg";
   import { createOverlayableError } from "../../../../../ts/errorlogic/overlay";
+  import { ErrorIcon } from "../../../../../ts/icon/apps";
   import { deleteUser } from "../../../../../ts/userlogic/main";
   import { showOverlay } from "../../../../../ts/window/overlay";
   import OptionSection from "../../OptionSection.svelte";
@@ -11,10 +11,10 @@
         title: "Delete ArcOS Account",
         message:
           "Are you sure you want to delete your ArcOS account? This will delete any and all user data associated with this account. These changes cannot be reverted.",
-        image: warning,
+        image: ErrorIcon,
         buttons: [
           { action: () => deleteUser(), caption: "Proceed" },
-          { action: () => {}, caption: "Back to safety" },
+          { action: () => {}, caption: "Back to safety", suggested: true },
         ],
       },
       "SettingsApp"

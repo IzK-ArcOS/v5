@@ -1,4 +1,3 @@
-import { closeWindow } from "../../applogic/events";
 import type { Command } from "../interface";
 
 export const End: Command = {

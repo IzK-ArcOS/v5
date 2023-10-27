@@ -1,0 +1,7 @@
+div.launcher-topbar.docked {
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+}

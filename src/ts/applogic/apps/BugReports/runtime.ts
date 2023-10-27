@@ -1,7 +1,7 @@
 import { get, writable } from "svelte/store";
-import errorIcon from "../../../../assets/apps/bugreports.svg";
 import { LogLevel } from "../../../console/interface";
 import { createOverlayableError } from "../../../errorlogic/overlay";
+import { BugRepIcon } from "../../../icon/apps";
 import type { LocalReportData, Report } from "../../../reporting/interface";
 import { getReport, reportExists } from "../../../reporting/main";
 import sleep from "../../../sleep";
@@ -49,9 +49,10 @@ export class BugReportsRuntime extends AppRuntime {
               action: () => {
                 this.deleteReport(id);
               },
+              suggested: true,
             },
           ],
-          image: errorIcon,
+          image: BugRepIcon,
         },
         "BugReports"
       );

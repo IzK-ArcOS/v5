@@ -1,38 +1,34 @@
 <script lang="ts">
-  import icon from "../../../../assets/apps/filemanager/upload.svg";
   import "../../../../css/desktop/apps/filebrowser/overlays/uploadingfile.css";
-  import { getServer } from "../../../../ts/api/server";
-  import {
-    FileBrowserUploadFile,
-    FileBrowserUploadProgress,
-  } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { fbState } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { UploadIcon } from "../../../../ts/icon/general";
   import ApiReveal from "../../../APIReveal.svelte";
 </script>
 
-{#if $FileBrowserUploadFile}
+{#if $fbState.uploadFile}
   <div class="uploadingfile-wrapper">
-    <div class="icon"><img src={icon} alt="" /></div>
+    <div class="icon"><img src={UploadIcon} alt="" /></div>
     <div class="caption">
-      Uploading {$FileBrowserUploadFile.name}...
+      Uploading {$fbState.uploadFile.name}...
     </div>
   </div>
   <div class="progress-wrapper">
     <div class="progress">
       <div
         class="inner"
-        style="width: {Math.floor($FileBrowserUploadProgress)}%"
+        style="width: {Math.floor($fbState.uploadProgress)}%"
       />
     </div>
-    <div class="percentage">{$FileBrowserUploadProgress.toFixed(0)}%</div>
+    <div class="percentage">{$fbState.uploadProgress.toFixed(0)}%</div>
   </div>
   <table class="openfile-details">
     <tr>
       <td class="key">Path</td>
-      <td>{$FileBrowserUploadFile.path}</td>
+      <td>{$fbState.uploadFile.path}</td>
     </tr>
     <tr>
       <td class="key">Type</td>
-      <td>{$FileBrowserUploadFile.mime}</td>
+      <td>{$fbState.uploadFile.mime}</td>
     </tr>
     <tr>
       <td class="key">Target</td>

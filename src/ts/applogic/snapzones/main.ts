@@ -96,22 +96,22 @@ function snapLeft() {
 
   let [x, y, w, h] = [0, 0, 0, 0];
 
-  const ws = get(WindowStore);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      const W = ws[i];
 
-  for (let i = 0; i < ws.length; i++) {
-    const W = ws[i];
+      if (W.id == id) {
+        W.pos.x = x = gB.lZone.xStart;
+        W.pos.y = y = gB.lZone.yStart;
+        W.size.w = w = gB.lZone.xEnd;
+        W.size.h = h = gB.lZone.yEnd;
 
-    if (W.id == id) {
-      W.pos.x = x = gB.lZone.xStart;
-      W.pos.y = y = gB.lZone.yStart;
-      W.size.w = w = gB.lZone.xEnd;
-      W.size.h = h = gB.lZone.yEnd;
-
-      W.snapped = true;
+        W.snapped = true;
+      }
     }
-  }
 
-  WindowStore.set(ws);
+    return ws;
+  });
 
   commitWindow(wE, x, y, w, h);
 }
@@ -131,22 +131,22 @@ function snapRight() {
 
   let [x, y, w, h] = [0, 0, 0, 0];
 
-  const ws = get(WindowStore);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      const W = ws[i];
 
-  for (let i = 0; i < ws.length; i++) {
-    const W = ws[i];
+      if (W.id == id) {
+        W.pos.x = x = gB.rZone.xStart;
+        W.pos.y = y = gB.rZone.yStart;
+        W.size.w = w = gB.rZone.xEnd - gB.rZone.xStart;
+        W.size.h = h = gB.rZone.yEnd - gB.rZone.yStart;
 
-    if (W.id == id) {
-      W.pos.x = x = gB.rZone.xStart;
-      W.pos.y = y = gB.rZone.yStart;
-      W.size.w = w = gB.rZone.xEnd - gB.rZone.xStart;
-      W.size.h = h = gB.rZone.yEnd - gB.rZone.yStart;
-
-      W.snapped = true;
+        W.snapped = true;
+      }
     }
-  }
 
-  WindowStore.set(ws);
+    return ws;
+  });
 
   commitWindow(wE, x, y, w, h);
 }

@@ -33,9 +33,9 @@
 </script>
 
 <div class="content" class:collapsed={appdata.collapsed}>
-  <div class="inner {cName}">
-    {#if settingsPage}
+  {#if settingsPage}
+    <div class="inner {cName} {settingsPage.className || ''}">
       <svelte:component this={settingsPage.content} />
-    {/if}
-  </div>
+    </div>
+  {/if}
 </div>

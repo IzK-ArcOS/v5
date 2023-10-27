@@ -20,6 +20,11 @@ window#ArcTerm {
   --clr-purple-fg: #d597ff;
   --clr-gray-fg: #999;
 }
+
+window#ArcTerm:not(.focused) {
+  background-color: #000;
+}
+
 window#ArcTerm > div.body {
   padding: 5px;
 }
@@ -38,6 +43,7 @@ window#ArcTerm > div.body div.terminal-renderer * {
   word-break: break-all;
   white-space: break-spaces;
   max-width: 100%;
+  box-shadow: none !important;
 }
 
 window#ArcTerm.fullscreen {

@@ -3,6 +3,7 @@ import { UserToken } from "../../userlogic/interfaces";
 import { apiCall, ConnectedServer } from "../main";
 import { Log } from "../../console";
 import { LogLevel } from "../../console/interface";
+import { toBase64 } from "../../base64";
 
 export async function renameItem(oldPath: string, newPath: string) {
   Log(
@@ -18,7 +19,7 @@ export async function renameItem(oldPath: string, newPath: string) {
   const req = await apiCall(
     server,
     "fs/rename",
-    { oldpath: btoa(oldPath), newpath: btoa(newPath) },
+    { oldpath: toBase64(oldPath), newpath: toBase64(newPath) },
     get(UserToken)
   );
 

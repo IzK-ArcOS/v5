@@ -11,6 +11,21 @@ window.window div.body button:not(.reset) {
   margin: 2px;
 }
 
+window.window div.body button:not(.reset).suggested {
+  background-color: var(--accent-light);
+  color: var(--accent-darkest);
+  min-width: 80px;
+  box-shadow: 0 1px 2px 1px #0000001c;
+}
+
+window.window div.body button:not(.reset).suggested:hover {
+  background-color: var(--accent-lighter);
+}
+
+window.window div.body button:not(.reset).suggested:active {
+  background-color: var(--accent);
+}
+
 window.glass div.body button:not(.reset) {
   background-color: var(--button-glass-bg, #fff1);
 }
@@ -25,6 +40,12 @@ window.glass div.body button:not(.reset):active {
 
 window.window div.body button:not(.reset):hover {
   background-color: var(--button-hover-bg, #555555);
+}
+
+window div.body button:not(.reset):not(.material-icons-round):hover,
+window div.body input:hover,
+window div.body select:hover {
+  box-shadow: 0 1px 2px 1px #00000033;
 }
 
 window.window div.body button:not(.reset):active {
@@ -77,10 +98,9 @@ window.window input.fullwidth {
 }
 
 window.window a {
-  color: var(--accent);
+  color: var(--accent-light);
   text-decoration: underline;
   text-underline-offset: 3px;
-  filter: var(--elevated-accent-filter);
 }
 
 window.window div.body code {

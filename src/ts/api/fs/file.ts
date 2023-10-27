@@ -1,9 +1,5 @@
 import axios from "axios";
 import { get, writable } from "svelte/store";
-import {
-  FileBrowserOpenCancelled,
-  FileBrowserUploadProgress,
-} from "../../applogic/apps/FileBrowser/main";
 import { Log } from "../../console";
 import { LogLevel } from "../../console/interface";
 import { UserToken } from "../../userlogic/interfaces";
@@ -12,6 +8,10 @@ import { generateParamStr } from "../params";
 import { getAuthcode } from "../authcode";
 import { getServer } from "../server";
 import type { PartialArcFile } from "../interface";
+import { toBase64 } from "../../base64";
+import { fbState } from "../../applogic/apps/FileBrowser/main";
+import { getParentDirectory } from "./main";
+import { getDirectory } from "./directory";
 
 export const abortFileReader = writable<boolean>(false);
 
@@ -34,7 +34,7 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
   };
 
   const controller = new AbortController();
-  const params = generateParamStr({ ac: authCode, path: btoa(path) });
+  const params = generateParamStr({ ac: authCode, path: toBase64(path) });
 
   try {
     let req = await fetch(`${server}/fs/file/get${params}`, {
@@ -55,7 +55,11 @@ export async function readFile(path: string): Promise<ArrayBuffer | false> {
 
       controller.abort();
 
-      FileBrowserOpenCancelled.set(true);
+      fbState.update((v) => {
+        v.openCancelled = true;
+
+        return v;
+      });
 
       abortFileReader.set(false);
     });
@@ -81,7 +85,7 @@ export async function writeFile(path: string, data: Blob): Promise<boolean> {
 
   if (!server) return false;
 
-  const params = generateParamStr({ path: btoa(path), ac: authCode });
+  const params = generateParamStr({ path: toBase64(path), ac: authCode });
 
   const req = await axios.post(`${server}/fs/file/write${params}`, data, {
     headers: {
@@ -90,11 +94,27 @@ export async function writeFile(path: string, data: Blob): Promise<boolean> {
     onUploadProgress(progress) {
       const perc = (progress.loaded / progress.total) * 100;
 
-      FileBrowserUploadProgress.set(perc);
+      fbState.update((v) => {
+        v.uploadProgress = perc;
+
+        return v;
+      });
     },
   });
 
   return req.status == 200;
+}
+
+export async function getPartialFile(
+  path: string
+): Promise<PartialArcFile | false> {
+  const parent = getParentDirectory(path);
+
+  const dir = await getDirectory(parent);
+
+  if (!dir) return false;
+
+  return dir.files.filter((f) => f.scopedPath == path)[0];
 }
 
 export function sortFiles(dir: PartialArcFile[]) {

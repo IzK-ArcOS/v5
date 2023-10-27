@@ -1,0 +1,26 @@
+div[class*="tb-vertical"] div.actioncenter:not(.launcher) {
+  height: calc(100% - 20px);
+}
+
+div[class*="tb-vertical"] div.actioncenter.docked:not(.launcher) {
+  height: 100%;
+  border-right: unset;
+}
+
+div[class*="tb-top"] div.actioncenter:not(.launcher) {
+  height: calc(100% - 75px);
+  top: 65px;
+}
+
+div[class*="tb-top"] div.actioncenter.docked:not(.launcher) {
+  top: 46px;
+  height: calc(100% - 46px);
+}
+
+div.tb-vertical-right div.actioncenter.opened.docked:not(.launcher) {
+  right: 45px;
+}
+
+div.tb-vertical-right div.actioncenter.opened:not(.launcher) {
+  right: 65px;
+}

@@ -10,6 +10,7 @@ import { errorMessage } from "../../../errorlogic/main";
 import type { ArcFile, PartialArcFile, UserFileLoader } from "../../interface";
 import { partialFileToComplete } from "../convert";
 import { FileLoaders } from "./loader";
+import sleep from "../../../sleep";
 
 export function findAppToOpen(mime: string): string[] {
   Log(
@@ -30,6 +31,23 @@ export function findAppToOpen(mime: string): string[] {
     const mimes = window.fileMimes.join("||").toLowerCase();
 
     if (mimes.includes(mime)) ids.push(ws[i].id);
+  }
+
+  return ids;
+}
+
+export function findAppToOpenByExt(filename: string) {
+  const ids: string[] = [];
+  const ws = get(WindowStore);
+
+  for (let i = 0; i < ws.length; i++) {
+    const window = ws[i];
+
+    if (!window.fileExts) continue;
+
+    for (let j = 0; j < window.fileExts.length; j++) {
+      if (filename.endsWith(window.fileExts[j])) ids.push(window.id);
+    }
   }
 
   return ids;
@@ -72,20 +90,22 @@ export function getAllFileHandlers(): string[] {
   return ids;
 }
 
-export function openWithDialog(file: ArcFile) {
+export async function openWithDialog(file: ArcFile) {
   if (isDisabled("OpenWithApp")) {
     return errorMessage(
       "Can't open file",
       `The OpenWithApp application is disabled, so you can't choose an app to open ${file.name}.`,
       null,
       null,
-      { caption: "OK", action() {} },
+      { caption: "Okay", action() {}, suggested: true },
       {
         caption: "Enable OpenWithApp",
-        action() {
+        async action() {
           enableApp("OpenWithApp");
 
           OpenWithFile.set(file);
+
+          await sleep(10);
 
           openWindow("OpenWithApp");
         },
@@ -100,6 +120,8 @@ export function openWithDialog(file: ArcFile) {
   );
 
   OpenWithFile.set(file);
+
+  await sleep(10);
 
   openWindow("OpenWithApp");
 }
@@ -131,7 +153,10 @@ export function openWith(
     openWindow(appId);
     focusedWindowId.set(appId);
 
-    if (window.events && window.events.openFile) window.events.openFile(window);
+    setTimeout(() => {
+      if (window.events && window.events.openFile)
+        window.events.openFile(window);
+    }, 10);
 
     return true;
   }
@@ -150,7 +175,11 @@ export async function openUserFile(
 
   let data = await partialFileToComplete(file);
 
-  const apps = findAppToOpen(file.mime);
+  const apps = [
+    ...findAppToOpenByExt(file.filename),
+    ...findAppToOpen(file.mime),
+  ];
+
   const loaders = findLoaderToOpen(file.filename);
 
   if (!(apps.length > 0) && !(loaders.length > 1)) return data;

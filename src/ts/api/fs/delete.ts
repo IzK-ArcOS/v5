@@ -3,6 +3,7 @@ import { LogLevel } from "../../console/interface";
 import { ConnectedServer, apiCall } from "../main";
 import { Log } from "../../console";
 import { UserToken } from "../../userlogic/interfaces";
+import { toBase64 } from "../../base64";
 
 export async function deleteItem(path: string) {
   Log(
@@ -18,7 +19,7 @@ export async function deleteItem(path: string) {
   const req = await apiCall(
     server,
     "fs/rm",
-    { path: btoa(path) },
+    { path: toBase64(path) },
     get(UserToken),
     null,
     null,

@@ -8,6 +8,7 @@ import type {
 } from "../interface";
 import { apiCall, ConnectedServer } from "../main";
 import { LogLevel } from "../../console/interface";
+import { toBase64 } from "../../base64";
 
 export async function getDirectory(path: string = "./"): DirectoryGet {
   Log(
@@ -23,7 +24,7 @@ export async function getDirectory(path: string = "./"): DirectoryGet {
   const req = (await apiCall(
     server,
     "fs/dir/get",
-    { path: path ? btoa(path) : null },
+    { path: path ? toBase64(path) : null },
     get(UserToken)
   )) as DirReadResponse;
 
@@ -49,7 +50,7 @@ export async function createDirectory(path: string): Promise<boolean> {
   const req = await apiCall(
     server,
     "fs/dir/create",
-    { path: btoa(path) },
+    { path: toBase64(path) },
     get(UserToken)
   );
 

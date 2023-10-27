@@ -57,9 +57,21 @@ div.tileview div.files button {
   vertical-align: top;
   padding: 2px 5px !important;
   margin: 0 !important;
-  border-radius: 5px;
-  word-break: break-all;
   margin-bottom: 12px !important;
+
+  border-radius: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @supports (-webkit-line-clamp: 2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
 }
 
 div.tileview div.files button:not(:active):not(:hover):not(.selected) {

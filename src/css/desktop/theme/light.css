@@ -10,6 +10,7 @@
   --glass-ultradark: rgba(232, 232, 232, 0.64);
   --darkened-overlay: #0001;
   --darkened-overlay-alt: #0003;
+  --startmenu-bg: var(--glass-bg);
   --startmenu-applist-item-bg: transparent;
   --startmenu-applist-item-bg-hover: #00000005;
   --startmenu-applist-item-bg-active: rgba(0, 0, 0, 0.067);
@@ -32,6 +33,7 @@
   --clr-blue-fg: #1566a0;
   --clr-aqua-bg: #ddfff3;
   --clr-aqua-fg: #39a17d;
+  --accent-darken: brightness(0.7);
 }
 
 :root .theme-light.noglass {
@@ -40,7 +42,7 @@
   --glass-ultralight: #eeeeee;
   --glass-ultradark: #bbbbbb;
 }
-
+/* 
 .theme-light div.newtb::after {
   opacity: 0.7;
-}
+} */

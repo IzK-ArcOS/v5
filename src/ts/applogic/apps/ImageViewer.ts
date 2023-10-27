@@ -1,7 +1,6 @@
-import { get, writable } from "svelte/store";
-import logo from "../../../assets/apps/imageviewer.svg";
 import ImageView from "../../../lib/Apps/ImageView.svelte";
-import TextView from "../../../lib/Apps/TextView.svelte";
+import { toBase64 } from "../../base64";
+import { ImageViewerIcon } from "../../icon/apps";
 import { UserData } from "../../userlogic/interfaces";
 import type { App } from "../interface";
 import { setTitleSuffix } from "../title";
@@ -14,7 +13,7 @@ export const ImageViewer: App = {
     version: "2.0.1",
     author: "Izaak Kuipers",
     hidden: true,
-    icon: logo,
+    icon: ImageViewerIcon,
     appGroup: "entertainment",
   },
   size: { w: 500, h: 400 },
@@ -52,11 +51,11 @@ export const ImageViewer: App = {
         caption: "Set as wallpaper",
         icon: "image",
         action(window, data, scope) {
-          const udata = get(UserData);
+          UserData.update((udata) => {
+            udata.sh.desktop.wallpaper = `@local:${toBase64(data["path"])}`;
 
-          udata.sh.desktop.wallpaper = `@local:${btoa(data["path"])}`;
-
-          UserData.set(udata);
+            return udata;
+          });
         },
       },
     ],

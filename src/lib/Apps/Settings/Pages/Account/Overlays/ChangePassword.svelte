@@ -1,9 +1,9 @@
 <script lang="ts">
-  import passwordIcon from "../../../../../../assets/apps/settings/password.svg";
   import "../../../../../../css/desktop/apps/settings/account/changePswd.css";
-  import { changePassword } from "../../../../../../ts/api/cred";
+  import { changePassword } from "../../../../../../ts/api/cred/mutate";
   import type { App } from "../../../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
+  import { PasswordIcon } from "../../../../../../ts/icon/general";
   import {
     UserData,
     UserName,
@@ -43,8 +43,8 @@
           title: "Couldn't change password",
           message:
             "An error occured while changing your password. Please make sure the entered information is correct, and then try again.",
-          buttons: [{ caption: "OK", action: reset }],
-          image: passwordIcon,
+          buttons: [{ caption: "OK", action: reset, suggested: true }],
+          image: PasswordIcon,
         },
         app.id
       );
@@ -53,8 +53,8 @@
       {
         title: "Password changed.",
         message: "Your password has been updated successfully.",
-        buttons: [{ caption: "OK", action: closeThis }],
-        image: passwordIcon,
+        buttons: [{ caption: "OK", action: closeThis, suggested: true }],
+        image: PasswordIcon,
       },
       app.id
     );

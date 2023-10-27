@@ -3,6 +3,7 @@ import { apiCall, ConnectedServer } from "../api/main";
 import { UserToken } from "../userlogic/interfaces";
 import type { Message, PartiallyExtendedMessage } from "./interface";
 import { getMessage, getMessages } from "./main";
+import { toBase64 } from "../base64";
 
 export async function getFullTree(): Promise<PartiallyExtendedMessage[]> {
   const server = get(ConnectedServer);
@@ -26,7 +27,7 @@ export async function getPartialTree(
   const req = await apiCall(
     server,
     "messages/thread",
-    { id: btoa(id) },
+    { id: toBase64(id) },
     get(UserToken)
   );
 

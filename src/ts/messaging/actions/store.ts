@@ -1,9 +1,6 @@
 import { createDirectory } from "../../api/fs/directory";
 import { writeFile } from "../../api/fs/file";
-import {
-  fbClass,
-  FileBrowserSelectedFilename,
-} from "../../applogic/apps/FileBrowser/main";
+import { fbClass, fbState } from "../../applogic/apps/FileBrowser/main";
 import { openWindow } from "../../applogic/events";
 import { createOverlayableError } from "../../errorlogic/overlay";
 import type { Message } from "../interface";
@@ -11,9 +8,9 @@ import { creatingMessage, replyMessageId, selectedMessageId } from "../main";
 import { deleteMessage } from "../mutate";
 import { messageUpdateTrigger } from "../updates";
 import type { MessageItemAction, MsgAppActions } from "./interface";
-import icon from "../../../assets/apps/error.svg";
 import { get } from "svelte/store";
 import { UserName } from "../../userlogic/interfaces";
+import { ErrorIcon } from "../../icon/apps";
 
 export const messageSidebarActions: MsgAppActions = [
   {
@@ -53,7 +50,11 @@ export const messageItemActions: MessageItemAction[] = [
       await fbClass.goToDirectory("./Messages");
 
       setTimeout(() => {
-        FileBrowserSelectedFilename.set(filename);
+        fbState.update((v) => {
+          v.selectedFilename = filename;
+
+          return v;
+        });
       });
     },
   },
@@ -67,8 +68,8 @@ export const messageItemActions: MessageItemAction[] = [
             title: "Well that's not good",
             message: `Unfortunately you have to be the owner of a message in order to delete it. Please ask <b>${message.sender}</b> to delete the message for you.`,
 
-            image: icon,
-            buttons: [{ caption: "Okay", action() {} }],
+            image: ErrorIcon,
+            buttons: [{ caption: "Okay", action() {}, suggested: true }],
           },
           "MessagingApp"
         );
@@ -79,7 +80,7 @@ export const messageItemActions: MessageItemAction[] = [
         {
           title: "Delete message?",
           message: `Are you sure you want to delete this message from ${message.sender}? This cannot be undone.`,
-          image: icon,
+          image: ErrorIcon,
           buttons: [
             {
               caption: "Delete",
@@ -88,6 +89,7 @@ export const messageItemActions: MessageItemAction[] = [
                 messageUpdateTrigger();
                 selectedMessageId.set(null);
               },
+              suggested: true,
             },
             { caption: "Cancel", action: () => {} },
           ],

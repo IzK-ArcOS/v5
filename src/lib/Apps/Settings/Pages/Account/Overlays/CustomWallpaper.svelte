@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { applyCustomPfp } from "../../../../../../ts/userlogic/pfp";
-  import { hideOverlay } from "../../../../../../ts/window/overlay";
-  import "../../../../../../css/desktop/apps/settings/account/customWallpaper.css";
-  import desktop from "../../../../../../assets/apps/settings/desktop.svg";
-  import { UserData } from "../../../../../../ts/userlogic/interfaces";
   import { onMount } from "svelte";
+  import "../../../../../../css/desktop/apps/settings/account/customWallpaper.css";
+  import { DesktopIcon } from "../../../../../../ts/icon/general";
+  import { UserData } from "../../../../../../ts/userlogic/interfaces";
+  import { hideOverlay } from "../../../../../../ts/window/overlay";
   let valid = false;
   let url: string;
 
@@ -55,7 +54,7 @@
 </script>
 
 <div class="customwallpaper-wrapper">
-  <div><img src={desktop} alt="" /></div>
+  <div><img src={DesktopIcon} alt="" /></div>
   <div class="field">
     <p>Enter the URL to a custom wallpaper:</p>
     <input
@@ -67,7 +66,9 @@
     <div class="apply">
       <div>
         <button on:click={cancel}>Cancel</button>
-        <button on:click={load} disabled={!url || !valid}>Apply</button>
+        <button on:click={load} disabled={!url || !valid} class="suggested">
+          Apply
+        </button>
       </div>
     </div>
   </div>

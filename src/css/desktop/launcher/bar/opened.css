@@ -11,8 +11,7 @@ div.launcher-bar > div.opened-apps button.activated::after {
   width: 5px;
   height: 5px;
   border-radius: 10px;
-  background-color: var(--accent);
-  filter: var(--elevated-accent-filter);
+  background-color: var(--accent-light);
 }
 
 div.launcher-bar > div.opened-apps button.minimized {
@@ -23,5 +22,9 @@ div.launcher-bar > div.opened-apps {
   display: flex;
   gap: 10px;
   padding-left: 10px;
-  border-left: var(--win-border-light);
+  border-left: var(--button-glass-hover-bg) 1px solid;
+}
+
+div.launcher-bar.colored {
+  border: var(--accent-light-transparent) 1px solid;
 }

@@ -9,7 +9,6 @@
  */
 
 import type { CalculatorOverrides } from "./interface";
-import { CalculatorClass, CalculatorValue } from "./main";
 
 class CS {
   public Source = "Calculator/main.ts:";

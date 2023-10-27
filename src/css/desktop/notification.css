@@ -9,7 +9,7 @@ div.notification {
   -webkit-transform: translateX(-50%);
   background-color: var(--glass-bg);
   border-radius: var(--win-border-rad);
-  border: var(--win-border);
+  border: var(--glass-alt-bg) 1px solid;
   transition: margin-top 0.3s, opacity 0.3s, visibility 0.3s;
   min-width: 300px;
   min-height: 100px;
@@ -19,6 +19,7 @@ div.notification {
   padding: 15px;
   -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
+  overflow: hidden;
 }
 
 div.notification.launcher {
@@ -29,27 +30,15 @@ div.notification:not(.nobutt) {
   padding-bottom: 65px;
 }
 
-div.notification:not(.ac)::after {
-  content: " ";
-
-  border-radius: inherit;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: -1;
-  opacity: 0.3;
-  margin: -1px;
-  pointer-events: none;
+div.tb-top.tbdocked div.notification:not(.ac) {
+  top: 55px;
+}
+div.tb-top:not(.tbdocked) div.notification:not(.ac) {
+  top: 65px;
 }
 
 div.notification:not(.ac).colored {
-  border: var(--glass-ultradark) 1px solid;
-}
-
-div.notification:not(.ac).colored::after {
-  background-color: var(--accent);
+  border: var(--accent-light-transparent) 1px solid;
 }
 
 div.notification.ac {

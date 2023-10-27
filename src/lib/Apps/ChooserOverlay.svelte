@@ -10,11 +10,11 @@
   import File from "./ChooserOverlay/File.svelte";
   import TopBar from "./ChooserOverlay/TopBar.svelte";
   import "../../css/desktop/chooseroverlay.css";
-  import icon from "../../assets/apps/filemanager/file.svg";
   import Spinner from "../Spinner.svelte";
   import Tiled from "./ChooserOverlay/Tiled.svelte";
   import SideBar from "./ChooserOverlay/SideBar.svelte";
   import TopRow from "./FileBrowser/ListView/TopRow.svelte";
+  import { FileIcon } from "../../ts/icon/general";
 
   export let overlay: OverlayableApp;
 
@@ -37,7 +37,7 @@
   }
 </script>
 
-{#if overlay}
+{#if overlay && $currentDir}
   <TopBar {currentPath} {refresh} {setDir} bind:tiled />
   <div class="content">
     <SideBar {currentDir} {setDir} {currentPath} />
@@ -59,7 +59,7 @@
       <div class="processing-overlay">
         <div class="processing-content">
           <div class="processing">
-            <img src={icon} alt="" />
+            <img src={FileIcon} alt="" />
             <p class="caption">Opening {$selected}...</p>
             <Spinner height={30} />
           </div>

@@ -8,7 +8,7 @@ div.serverselect div.selector {
   flex-direction: column;
 }
 
-div.serverselect div.selector button {
+div.serverselect div.selector button.option {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -21,23 +21,28 @@ div.serverselect div.selector button {
   border-radius: 5px;
 }
 
-div.serverselect div.selector button.selected {
+div.serverselect div.selector button.option.selected {
   background-color: var(--button-glass-bg);
 }
 
-div.serverselect div.selector div.options button + button {
+div.serverselect div.selector div.options button.option + button.option {
   margin-top: 10px;
 }
 
-div.serverselect div.selector button:hover {
+div.serverselect div.selector button.option:hover {
   background-color: var(--button-glass-bg);
 }
 
-div.serverselect div.selector button p {
+div.serverselect div.selector button.option:active {
+  transform: scale(1);
+  opacity: 0.5;
+}
+
+div.serverselect div.selector button.option p {
   margin: 0;
 }
 
-div.serverselect div.selector button span.material-icons-round {
+div.serverselect div.selector button.option span.material-icons-round {
   margin-left: auto;
 }
 
@@ -46,4 +51,28 @@ div.serverselect div.selector div.options {
   max-height: calc(100% - 70px);
   overflow-y: auto;
   padding: 20px;
+}
+
+div.serverselect div.selector div.right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+div.serverselect
+  div.selector
+  button.option:not(.selected)
+  div.right
+  button.delete {
+  display: none;
+}
+
+div.serverselect div.selector div.right button.delete {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  color: var(--clr-red-fg);
+  margin-right: 5px;
 }

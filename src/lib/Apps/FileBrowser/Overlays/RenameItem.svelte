@@ -1,16 +1,13 @@
 <script lang="ts">
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
-  import { createDirectory } from "../../../../ts/api/fs/directory";
+  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
+  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
+  import { renameItem } from "../../../../ts/api/fs/rename";
   import {
     fbClass,
-    FileBrowserCurrentDir,
-    FileBrowserDirContents,
-    FileBrowserSelectedFilename,
+    fbState,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { FolderIcon } from "../../../../ts/icon/general";
   import { hideOverlay } from "../../../../ts/window/overlay";
-  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
-  import { renameItem } from "../../../../ts/api/fs/rename";
-  import { getMimeIcon } from "../../../../ts/api/fs/icon/main";
 
   let newName = "";
   let img = "";
@@ -19,13 +16,13 @@
   let exists = false;
 
   function updateExists() {
-    const directories = $FileBrowserDirContents.directories;
-    const files = $FileBrowserDirContents.files;
+    const directories = $fbState.dirContents.directories;
+    const files = $fbState.dirContents.files;
 
     isDir = checkIsDir();
 
     for (let i = 0; i < directories.length; i++) {
-      if (directories[i].name == $FileBrowserCurrentDir) isDir = true;
+      if (directories[i].name == $fbState.currentDir) isDir = true;
     }
 
     for (let j = 0; j < files.length; j++) {
@@ -35,18 +32,18 @@
     exists = false;
   }
 
-  FileBrowserSelectedFilename.subscribe((v) => {
-    if (!v) return;
+  fbState.subscribe((v) => {
+    if (!v || !v.selectedFilename) return;
 
     isDir = checkIsDir();
-    img = getMimeIcon(v);
+    img = getMimeIcon(v.selectedFilename);
   });
 
   function checkIsDir() {
-    const directories = $FileBrowserDirContents.directories;
+    const directories = $fbState.dirContents.directories;
 
     for (let i = 0; i < directories.length; i++) {
-      if (directories[i].name == $FileBrowserSelectedFilename) return true;
+      if (directories[i].name == $fbState.selectedFilename) return true;
     }
 
     return false;
@@ -54,11 +51,11 @@
 
   async function rename() {
     await renameItem(
-      `${$FileBrowserCurrentDir}/${$FileBrowserSelectedFilename}`,
-      `${$FileBrowserCurrentDir}/${newName}`
+      `${$fbState.currentDir}/${$fbState.selectedFilename}`,
+      `${$fbState.currentDir}/${newName}`
     );
 
-    FileBrowserSelectedFilename.set(newName);
+    $fbState.selectedFilename = newName;
 
     cancel();
 
@@ -73,14 +70,14 @@
 </script>
 
 <div class="fb-overlay-mutator-wrapper">
-  <div class="image"><img src={isDir ? icon : img} alt="" /></div>
+  <div class="image"><img src={isDir ? FolderIcon : img} alt="" /></div>
   <div>
-    <p>Enter a new name for {$FileBrowserSelectedFilename}:</p>
+    <p>Enter a new name for {$fbState.selectedFilename}:</p>
     <input
       type="text"
       bind:value={newName}
       on:input={updateExists}
-      placeholder={$FileBrowserSelectedFilename}
+      placeholder={$fbState.selectedFilename}
     />
     <div class="actions">
       <div class="inner">

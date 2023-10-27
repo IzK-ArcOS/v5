@@ -1,14 +1,13 @@
 <script lang="ts">
-  import { get } from "svelte/store";
   import "../../../../css/desktop/apps/settings/desktop.css";
   import { createDirectory } from "../../../../ts/api/fs/directory";
   import { directSingleUpload } from "../../../../ts/api/upload";
+  import { toBase64 } from "../../../../ts/base64";
+  import { UserData } from "../../../../ts/userlogic/interfaces";
+  import { Wallpapers } from "../../../../ts/userlogic/wallpapers/store";
   import { showOverlay } from "../../../../ts/window/overlay";
   import Current from "./Desktop/Current.svelte";
   import ImageSelector from "./Desktop/ImageSelector.svelte";
-  import { UserData } from "../../../../ts/userlogic/interfaces";
-  import FilesystemWallpapers from "./Desktop/FilesystemWallpapers.svelte";
-  import { Wallpapers } from "../../../../ts/userlogic/wallpapers/store";
 
   function custom() {
     showOverlay("customWallpaper", "SettingsApp");
@@ -22,11 +21,11 @@
       "image/png, image/jpeg, image/gif, image/svg+xml"
     );
 
-    const udata = get(UserData);
+    UserData.update((udata) => {
+      udata.sh.desktop.wallpaper = `@local:${toBase64(path)}`;
 
-    udata.sh.desktop.wallpaper = `@local:${btoa(path)}`;
-
-    UserData.set(udata);
+      return udata;
+    });
   }
 </script>
 

@@ -34,7 +34,7 @@
       {
         title: "Report Sent",
         message: `Thank you! Report ${id} has been sent to the Reports server. Keep in mind that an issue may be created on GitHub referencing your report by an ArcOS team member.`,
-        buttons: [{ caption: "Understood", action() {} }],
+        buttons: [{ caption: "Understood", action() {}, suggested: true }],
       },
       "BugReports"
     );
@@ -60,6 +60,7 @@
             action() {
               locked = false;
             },
+            suggested: true,
           },
           { caption: "Decline", action: hide },
         ],

@@ -1,17 +1,18 @@
 <script lang="ts">
   import { get } from "svelte/store";
   import { UserData } from "../../../../../../ts/userlogic/interfaces";
+  import { toBase64 } from "../../../../../../ts/base64";
 
   export let wallpaper: { url: string; path: string };
 
-  const wallString = (path: string) => `@local:${btoa(path)}`;
+  const wallString = (path: string) => `@local:${toBase64(path)}`;
 
   function apply() {
-    const udata = get(UserData);
+    UserData.update((udata) => {
+      udata.sh.desktop.wallpaper = wallString(wallpaper.path);
 
-    udata.sh.desktop.wallpaper = wallString(wallpaper.path);
-
-    UserData.set(udata);
+      return udata;
+    });
   }
 </script>
 

@@ -1,10 +1,10 @@
 import { get } from "svelte/store";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
-import { minArcAPI } from "../env/main";
 import { CurrentState } from "../state/main";
 import ttlFetch from "../ttlFetch";
 import { ConnectedServer, ServerAuthCode } from "./main";
+import { minArcAPI } from "../env/main";
 
 // [https?,port][]
 export const TEST_MODES: [boolean, number][] = [
@@ -23,7 +23,7 @@ export async function testConnection(
   for (let i = 0; i < TEST_MODES.length; i++) {
     const proto = `http${TEST_MODES[i][0] ? "s" : ""}`;
     const port = TEST_MODES[i][1];
-    const url = `${proto}://${server}:${port}/connect?ac=${authCode}`;
+    const url = `${proto}://${server}:${port}/users/get?ac=${authCode}`;
 
     Log(
       "api/test.ts: testConnection",
@@ -40,7 +40,11 @@ export async function testConnection(
         LogLevel.warn
       );
 
-      const rev = req.revision || 0;
+      const connectReq = await (
+        await ttlFetch(url.replace("users/get", "connect"), {})
+      ).json();
+
+      const rev = connectReq.revision || 0;
 
       if (rev < minArcAPI) return false;
 
@@ -64,7 +68,7 @@ export async function testConnection(
   Log(
     "api/test.ts: testConnection",
     `Can't connect to server ${server}: none of the modes match`,
-    get(CurrentState).key != "fts" ? LogLevel.critical : LogLevel.error
+    CurrentState.key != "fts" ? LogLevel.critical : LogLevel.error
   );
 
   return false;

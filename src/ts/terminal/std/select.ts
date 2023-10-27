@@ -27,15 +27,14 @@ export class ArcTermStdSelect {
 
   private getStr(index: number, string: number): string {
     const current = index == this._index;
+    const sent = get(this._sent) && current;
     const prefix = current ? "> [" : "  ";
-    const suffix = current ? "]" : "";
+    const suffix = `${current ? "]" : ""}${sent ? " <" : ""}`;
 
     return `${prefix}${index + 1}. ${string}${suffix}`;
   }
 
   private draw() {
-    if (get(this._sent)) return;
-
     for (let i = 0; i < this._elements.length; i++) {
       const element = this._elements[i];
 

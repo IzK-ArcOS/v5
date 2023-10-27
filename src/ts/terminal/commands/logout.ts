@@ -1,4 +1,4 @@
-import { UserData, UserName } from "../../userlogic/interfaces";
+import { UserName } from "../../userlogic/interfaces";
 import type { Command } from "../interface";
 
 export const Logout: Command = {

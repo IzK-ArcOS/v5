@@ -10,7 +10,6 @@
     versionBigger,
   } from "../../../../updates/main";
   import { ArcOSVersion } from "../../../../ts/env/main";
-  import { Logo } from "../../../../ts/branding";
 
   let checking = true;
   let release: Version = [0, 0, 0];

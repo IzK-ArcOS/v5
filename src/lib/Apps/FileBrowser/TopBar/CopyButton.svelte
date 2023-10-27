@@ -1,20 +1,18 @@
 <script lang="ts">
-  import {
-    FileBrowserCopyingFilename,
-    FileBrowserCurrentDir,
-    FileBrowserSelectedFilename,
-  } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { fbState } from "../../../../ts/applogic/apps/FileBrowser/main";
 
   function copy() {
-    FileBrowserCopyingFilename.set({
-      name: $FileBrowserSelectedFilename,
-      scopedPath: `${$FileBrowserCurrentDir}/${$FileBrowserSelectedFilename}`,
-    });
+    $fbState.copyingFilename = {
+      name: $fbState.selectedFilename,
+      scopedPath: `${$fbState.currentDir}/${$fbState.selectedFilename}`,
+    };
   }
 </script>
 
 <button
   class="material-icons-round copy"
   on:click={copy}
-  disabled={!$FileBrowserSelectedFilename}>content_copy</button
+  disabled={!$fbState.selectedFilename || $fbState.home}
 >
+  content_copy
+</button>

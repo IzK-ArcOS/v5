@@ -3,7 +3,7 @@
 
   export let collapsible = false;
   export let header: string;
-  export let collapsed = true;
+  export let collapsed = false;
   export let opt = false;
 
   currentCollapsibleT.subscribe((v) => {

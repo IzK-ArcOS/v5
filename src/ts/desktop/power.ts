@@ -1,49 +1,32 @@
-import { get } from "svelte/store";
 import { logoffToken } from "../api/cred";
-import { defaultDirectory } from "../api/interface";
-import {
-  FileBrowserCurrentDir,
-  FileBrowserDeletingFilename,
-  FileBrowserDirContents,
-  FileBrowserSelectedFilename,
-} from "../applogic/apps/FileBrowser/main";
-import { closeWindow } from "../applogic/events";
-import { WindowStore } from "../applogic/store";
-import { ErrorMessages, ErrorWindowStore } from "../errorlogic/app";
-import { selectedMessageId } from "../messaging/main";
-import { NotificationStore } from "../notiflogic/main";
-import { restarting, shuttingDown } from "./main";
 import { closeAllProgressively } from "../applogic/close";
+import sleep from "../sleep";
+import { applyState } from "../state/main";
+import { showDesktop } from "./main";
 
-export function logoff() {
-  closeAllProgressively();
+export async function shutdown() {
+  await closeAllProgressively();
 
-  FileBrowserCurrentDir.set("./");
-  FileBrowserSelectedFilename.set(null);
-  FileBrowserDirContents.set(defaultDirectory);
-  FileBrowserDeletingFilename.set(null);
-  NotificationStore.set({});
-  ErrorWindowStore.set([]);
-  ErrorMessages.set([]);
-  WindowStore.set([]);
-  selectedMessageId.set(null);
-}
+  showDesktop.set(false);
 
-export function shutdown() {
-  closeAllProgressively();
+  await sleep(300);
 
   logoffToken();
 
-  shuttingDown.set(true);
+  applyState("shutdown");
 }
 
-export function restart(eraseToken = false) {
-  closeAllProgressively();
+export async function restart(eraseToken = false) {
+  await closeAllProgressively();
+
+  showDesktop.set(false);
+
+  await sleep(300);
 
   if (eraseToken) {
     localStorage.removeItem("arcos-remembered-token");
     logoffToken();
   }
 
-  restarting.set(true);
+  applyState(eraseToken ? "logoff" : "restart");
 }

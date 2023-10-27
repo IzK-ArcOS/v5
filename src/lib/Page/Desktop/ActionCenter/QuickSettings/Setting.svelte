@@ -6,6 +6,7 @@
   let active = false;
 
   export let setting: QuickSetting;
+
   function click() {
     setting.setter($UserData);
 
@@ -21,7 +22,9 @@
   });
 </script>
 
-<button class="setting material-icons-round" class:active on:click={click}>
-  {active ? setting.icon : setting.iconOff}
+<button class="setting" class:active on:click={click}>
+  <span class="material-icons-round">
+    {active ? setting.icon : setting.iconOff}
+  </span>
   <p class="caption">{setting.caption}</p>
 </button>

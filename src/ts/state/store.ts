@@ -5,10 +5,10 @@ import Crash from "../../lib/Page/Crash.svelte";
 import Desktop from "../../lib/Page/Desktop.svelte";
 import FirstTimeSetup from "../../lib/Page/FirstTimeSetup.svelte";
 import Login from "../../lib/Page/Login.svelte";
+import NewLogin from "../../lib/Page/NewLogin.svelte";
 import ServerSelect from "../../lib/Page/ServerSelect.svelte";
 import TurnedOff from "../../lib/Page/TurnedOff.svelte";
-
-import { applyLoginState, loginUsername } from "../login/main";
+import { ArcSoundBus } from "../sound/main";
 import type { State } from "./interfaces";
 
 export const States = new Map<string, State>([
@@ -31,10 +31,14 @@ export const States = new Map<string, State>([
     },
   ],
   [
+    "oldlogin",
+    { name: "Old Login", content: Login, attribs: {}, key: "oldlogin" },
+  ],
+  [
     "login",
     {
       name: "Login",
-      content: Login,
+      content: NewLogin,
       attribs: {},
       key: "login",
     },
@@ -61,39 +65,42 @@ export const States = new Map<string, State>([
     "logoff",
     {
       name: "Logoff",
-      content: Login,
-      attribs: {},
-      onload: () => {
-        applyLoginState("logoff");
-        loginUsername.set(null);
+      content: NewLogin,
+      attribs: {
+        continuation: "logoff",
       },
       key: "logoff",
+      onload() {
+        ArcSoundBus.playSound("arcos.system.logoff");
+      },
     },
   ],
   [
     "restart",
     {
       name: "Restart",
-      content: Login,
-      attribs: {},
-      onload: () => {
-        applyLoginState("restart");
-        loginUsername.set(null);
+      content: NewLogin,
+      attribs: {
+        continuation: "restart",
       },
       key: "restart",
+      onload() {
+        ArcSoundBus.playSound("arcos.system.logoff");
+      },
     },
   ],
   [
     "shutdown",
     {
       name: "Shutdown",
-      content: Login,
-      attribs: {},
-      onload: () => {
-        applyLoginState("shutdown");
-        loginUsername.set(null);
+      content: NewLogin,
+      attribs: {
+        continuation: "shutdown",
       },
       key: "shutdown",
+      onload() {
+        ArcSoundBus.playSound("arcos.system.logoff");
+      },
     },
   ],
   [

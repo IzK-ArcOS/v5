@@ -20,6 +20,8 @@ export const DefaultThemes: ThemeStore = {
     titlebarLarge: false,
     titlebarLeft: false,
     taskbarColored: false,
+    titlebarCentered: false,
+    isLauncher: false,
   },
   arcLight: {
     author: "ArcOS Team",
@@ -40,6 +42,8 @@ export const DefaultThemes: ThemeStore = {
     titlebarLarge: false,
     titlebarLeft: false,
     taskbarColored: false,
+    titlebarCentered: false,
+    isLauncher: false,
   },
   theHague: {
     author: "Aron Wagener",
@@ -60,6 +64,8 @@ export const DefaultThemes: ThemeStore = {
     titlebarLarge: true,
     titlebarLeft: false,
     taskbarColored: false,
+    titlebarCentered: false,
+    isLauncher: false,
   },
   wacky: {
     author: "Izaak Kuipers",
@@ -80,6 +86,8 @@ export const DefaultThemes: ThemeStore = {
     titlebarLarge: true,
     titlebarLeft: true,
     taskbarColored: false,
+    titlebarCentered: false,
+    isLauncher: false,
   },
   performance: {
     author: "ArcOS Team",
@@ -100,6 +108,8 @@ export const DefaultThemes: ThemeStore = {
     titlebarLarge: false,
     titlebarLeft: false,
     taskbarColored: false,
+    titlebarCentered: false,
+    isLauncher: false,
   },
   wandelbos: {
     version: "1.0.0",
@@ -120,6 +130,8 @@ export const DefaultThemes: ThemeStore = {
     titlebarLarge: false,
     titlebarLeft: false,
     taskbarColored: true,
+    titlebarCentered: false,
+    isLauncher: false,
   },
   scheveningen: {
     version: "1.0.0",
@@ -140,5 +152,7 @@ export const DefaultThemes: ThemeStore = {
     titlebarLarge: false,
     titlebarLeft: false,
     taskbarColored: true,
+    titlebarCentered: false,
+    isLauncher: false,
   },
 };

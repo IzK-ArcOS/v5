@@ -1,0 +1,16 @@
+@import url("./loading/button.css");
+@import url("./loading/input.css");
+@import url("./loading/welcome.css");
+
+div.login-loading {
+  text-align: center;
+  height: 300px !important;
+  width: 265px !important;
+}
+
+div.login-loading h1 {
+  font-size: 24px;
+  margin: 10px;
+  height: 38px;
+  line-height: 38px;
+}

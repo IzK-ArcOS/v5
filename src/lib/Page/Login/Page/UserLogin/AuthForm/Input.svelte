@@ -12,6 +12,7 @@
     UserData,
     UserName,
   } from "../../../../../../ts/userlogic/interfaces";
+  import { toBase64 } from "../../../../../../ts/base64";
 
   export let authenticating: boolean;
 
@@ -46,7 +47,7 @@
 
     localStorage.setItem(
       "arcos-remembered-token",
-      btoa(`${$loginUsername}:${password}`)
+      toBase64(`${$loginUsername}:${password}`)
     );
 
     UserData.set(userdata);

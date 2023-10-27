@@ -1,21 +1,9 @@
 <script lang="ts">
   import "../../css/desktop/apps/exit.css";
-  import { defaultDirectory } from "../../ts/api/interface";
-  import { ExitShowAT } from "../../ts/applogic/apps/Exit";
-  import {
-    FileBrowserCurrentDir,
-    FileBrowserDeletingFilename,
-    FileBrowserDirContents,
-    FileBrowserSelectedFilename,
-  } from "../../ts/applogic/apps/FileBrowser/main";
   import { closeWindow } from "../../ts/applogic/events";
   import type { App } from "../../ts/applogic/interface";
-  import { WindowStore, isFullscreenWindow } from "../../ts/applogic/store";
+  import { isFullscreenWindow } from "../../ts/applogic/store";
   import { restart, shutdown } from "../../ts/desktop/power";
-  import { ErrorMessages, ErrorWindowStore } from "../../ts/errorlogic/app";
-  import { selectedMessageId } from "../../ts/messaging/main";
-  import { NotificationStore } from "../../ts/notiflogic/main";
-  import { applyState } from "../../ts/state/main";
 
   export let app: App;
 
@@ -23,20 +11,6 @@
     isFullscreenWindow.set(false);
 
     closeWindow(app.id);
-  }
-
-  function arcterm() {
-    FileBrowserCurrentDir.set("./");
-    FileBrowserSelectedFilename.set(null);
-    FileBrowserDirContents.set(defaultDirectory);
-    FileBrowserDeletingFilename.set(null);
-    NotificationStore.set({});
-    ErrorWindowStore.set([]);
-    ErrorMessages.set([]);
-    WindowStore.set([]);
-    selectedMessageId.set(null);
-
-    applyState("arcterm");
   }
 </script>
 
@@ -55,12 +29,6 @@
       <span class="material-icons-round">refresh</span>
       <p class="caption">Restart</p>
     </button>
-    {#if $ExitShowAT}
-      <button class="option" on:click={arcterm}>
-        <span class="material-icons-round">terminal</span>
-        <p class="caption">ArcTerm</p>
-      </button>
-    {/if}
     <button class="cancel" on:click={cancel}>Cancel</button>
   </div>
 </div>

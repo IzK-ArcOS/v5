@@ -1,11 +1,13 @@
 <script lang="ts">
   import { getServer } from "../ts/api/server";
+
+  export let api = "";
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <span class="reveal">
-  <span class="api">{getServer() || location.hostname}</span>
-  <span class="place">Hover to show ArcAPI</span>
+  <span class="api">{api || getServer() || location.hostname}</span>
+  <span class="placeholder" />
 </span>
 
 <style scoped>
@@ -17,18 +19,38 @@
     text-overflow: ellipsis;
     height: inherit;
     display: inline-flex;
+    align-items: center;
   }
 
   span span {
-    display: none;
+    display: inline-block;
+  }
+
+  span.reveal:not(:hover) span.api {
+    opacity: 0;
+    visibility: hidden;
   }
 
   span.reveal:hover span.api {
-    display: inline-block;
+    opacity: 1;
+    visibility: visible;
   }
 
-  span.reveal:not(:hover) span.place {
+  span.reveal:hover span.placeholder {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  span.reveal span.placeholder {
     display: inline-block;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    line-height: inherit;
+    background-color: currentColor;
   }
   /* 
   span.reveal:not(:hover) span.place {

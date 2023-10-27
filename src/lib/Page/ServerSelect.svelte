@@ -2,11 +2,11 @@
   import { onMount } from "svelte";
   import "../../css/serverselect.css";
   import type { ServerSelectOption } from "../../ts/api/interface";
-  import Logo from "../../assets/fts/connect.svg";
   import sleep from "../../ts/sleep";
   import Selector from "./ServerSelect/Selector.svelte";
   import { getAllServers, getServer } from "../../ts/api/server";
   import { applyState } from "../../ts/state/main";
+  import { ConnectIcon } from "../../ts/icon/general";
 
   let selected = "";
   let servers: ServerSelectOption[] = [];
@@ -25,10 +25,10 @@
   });
 </script>
 
-<div class="serverselect" class:show>
+<div class="serverselect theme-amoled" class:show>
   <div class="ss-inner">
     <div class="left">
-      <img src={Logo} alt="" class="logo" />
+      <img src={ConnectIcon} alt="" class="logo" />
       <h1 class="header">Select Server</h1>
     </div>
     <Selector bind:selected bind:servers />

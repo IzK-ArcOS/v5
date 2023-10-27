@@ -11,6 +11,7 @@
   import { getWindowElementByEvent } from "../../../ts/window/main";
   import Item from "./ContextMenu/Item.svelte";
   import { UserData } from "../../../ts/userlogic/interfaces";
+  import sleep from "../../../ts/sleep";
 
   let x = 0;
   let y = 0;
@@ -33,7 +34,6 @@
 
   function handleEvent(e: MouseEvent) {
     show = false;
-    items = [];
 
     e.preventDefault();
 
@@ -49,10 +49,16 @@
 
     const contextmenu = el?.dataset.contextmenu;
 
-    setTimeout(() => {
-      items = getContextEntry(windowElement.id, contextmenu) || [];
+    setTimeout(async () => {
+      const newItems = getContextEntry(windowElement.id, contextmenu) || [];
 
-      if (!items.length) return;
+      if (!newItems.length) return;
+
+      items = [];
+
+      await sleep(0); // wait for next frame
+
+      items = newItems;
 
       scope = contextmenu;
       window = windowData;
@@ -71,7 +77,7 @@
 </script>
 
 <div
-  class="contextmenu"
+  class="contextmenu shell-colored"
   class:show
   class:compact={$UserData.sh.compactContext}
   class:colored={$UserData.sh.taskbar.colored}

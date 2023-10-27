@@ -52,7 +52,7 @@ export const FileLoaders: { [key: string]: UserFileLoader } = {
           "The theme file is invalid, or it could not be parsed. Please make sure you are trying to load a theme, and then try again.",
           loadThemeIcon,
           null,
-          { caption: "OK", action() {} }
+          { caption: "Okay", action() {}, suggested: true }
         );
 
       loadTheme(json as UserTheme);
@@ -73,6 +73,8 @@ export const FileLoaders: { [key: string]: UserFileLoader } = {
     name: "Download",
     description: "Open file in a new tab to download it",
     loader: (file) => {
+      if (!file) return;
+
       const f = arrayToBlob(file.data, file.mime.split(";")[0]);
 
       window.open(URL.createObjectURL(f), "_blank");

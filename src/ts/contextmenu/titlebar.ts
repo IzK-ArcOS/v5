@@ -1,7 +1,13 @@
-import { maximizeWindow, minimizeWindow, openWindow } from "../applogic/events";
+import { AppInfoId } from "../applogic/apps/AppInfo";
+import {
+  closeWindow,
+  maximizeWindow,
+  minimizeWindow,
+  openWindow,
+} from "../applogic/events";
 import type { ContextMenuItem } from "../applogic/interface";
+import { AppManIcon } from "../icon/apps";
 import { SEP_ITEM } from "./main";
-import appManIcon from "../../assets/apps/appmanager.svg";
 
 export const titleBarContextMenu: ContextMenuItem[] = [
   {
@@ -27,10 +33,22 @@ export const titleBarContextMenu: ContextMenuItem[] = [
   },
   SEP_ITEM,
   {
+    caption: "App Info",
+    action(window) {
+      closeWindow("AppInfo");
+      setTimeout(() => {
+        AppInfoId.set(window.id);
+        openWindow("AppInfo");
+      }, 300);
+    },
+    icon: "info",
+  },
+  SEP_ITEM,
+  {
     caption: "Application Manager",
     action() {
       openWindow("AppMan");
     },
-    image: appManIcon,
+    image: AppManIcon,
   },
 ];

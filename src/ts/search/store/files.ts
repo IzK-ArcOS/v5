@@ -1,18 +1,14 @@
-import type { PartialArcFile } from "../../api/interface";
-import { ConnectedServer, apiCall } from "../../api/main";
-import {
-  closeNotification,
-  deleteNotification,
-  makeNotification,
-} from "../../notiflogic/main";
-import type { SearchItem } from "../interface";
+import { get } from "svelte/store";
 import searchIcon from "../../../assets/arcfind.svg";
 import fileIcon from "../../../assets/mimetypes/text-plain.svg";
-import { get } from "svelte/store";
-import { UserToken } from "../../userlogic/interfaces";
 import { openUserFile, openWithDialog } from "../../api/fs/open/main";
+import type { PartialArcFile } from "../../api/interface";
+import { ConnectedServer, apiCall } from "../../api/main";
+import { fbState } from "../../applogic/apps/FileBrowser/main";
 import { WindowStore } from "../../applogic/store";
-import { FileBrowserCurrentDir } from "../../applogic/apps/FileBrowser/main";
+import { deleteNotification, makeNotification } from "../../notiflogic/main";
+import { UserToken } from "../../userlogic/interfaces";
+import type { SearchItem } from "../interface";
 
 let FILE_CACHE: SearchItem[] = [];
 let FILES_FAILED = false;
@@ -68,6 +64,6 @@ export async function compileSearchableFiles() {
   return result;
 }
 
-FileBrowserCurrentDir.subscribe(() => {
+fbState.subscribe(() => {
   FILE_CACHE = [];
 });

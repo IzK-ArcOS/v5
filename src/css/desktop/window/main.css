@@ -2,19 +2,17 @@
   position: fixed;
   top: 50px;
   left: 50px;
-  /* background-color: var(--win-bg, #353535); */
-  background-color: var(--glass-bg);
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  backdrop-filter: blur(var(--glass-blur));
+  background-color: var(--win-bg, #353535);
+  /* background-color: var(--glass-bg); */
   color: var(--fg, #ccc);
   border-radius: var(--win-border-rad, 7.5px);
   border: var(--win-border, rgb(107, 107, 107) 1px solid);
   overflow: hidden;
-  transition: all 0.25s, width 0s, height 0s, top 0s, left 0s, z-index 0s,
-    pointer-events 0s;
+  transition: all 0.3s, width 0s, height 0s, z-index 0s, pointer-events 0s,
+    transform 0s, backdrop-filter 0s;
   opacity: 0;
   visibility: hidden;
-  transform: scale(90%);
+  scale: 90%;
   font-size: 13px;
   box-shadow: 0px 5px 15px 5px #0003;
   margin-top: 50px;
@@ -39,6 +37,7 @@ window.window.snapped {
   min-height: unset !important;
   max-width: unset !important;
   max-height: unset !important;
+  transform: unset !important;
   border-radius: 0 !important;
   resize: none;
 }
@@ -55,6 +54,7 @@ window.custom {
   left: 0px !important;
   bottom: 0px !important;
   right: 0px !important;
+  transform: none !important;
   position: absolute;
 }
 
@@ -72,7 +72,7 @@ window.custom div.body {
   height: 100%;
 }
 
-.window.glass {
+.window.focused.glass {
   background-color: var(--glass-bg, #353535a2);
   -webkit-backdrop-filter: blur(var(--glass-blur, 10px));
   backdrop-filter: blur(var(--glass-blur));
@@ -86,7 +86,8 @@ window.custom div.body {
   border-radius: 0 !important;
   border: transparent 0px solid;
   resize: none !important;
-  transition: all 0.2s;
+  transform: translate3d(0px, 0px, 0px) !important;
+  transition: all 0.3s !important;
 }
 
 div.desktop:not(.is-launcher):not([class*="tb-vertical"]) .window.max {
@@ -101,6 +102,16 @@ div.desktop:not(.is-launcher).tb-vertical .window.max {
   left: 65px !important;
 }
 
+div.desktop:not(.is-launcher):not(.tbdocked).tb-top .window.max {
+  top: 65px !important;
+  left: 0px !important;
+  height: calc(100% - 65px) !important;
+}
+div.desktop:not(.is-launcher).tbdocked.tb-top .window.max {
+  top: 45px !important;
+  left: 0px !important;
+  height: calc(100% - 45px) !important;
+}
 div.desktop:not(.is-launcher)[class*="tb-vertical"] .window.max {
   height: 100% !important;
   width: calc(100% - 65px) !important;
@@ -122,8 +133,13 @@ div.desktop.is-launcher .window.max:not(.fullscreen) {
 .window.visible {
   opacity: 1;
   visibility: visible;
-  transform: scale(1);
-  margin-top: 00px;
+  scale: 1;
+  margin-top: 0px;
+}
+
+.window:not(.visible),
+.window:not(.visible) * {
+  pointer-events: none !important;
 }
 
 .window.visible,

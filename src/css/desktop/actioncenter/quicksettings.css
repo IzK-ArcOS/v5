@@ -1,0 +1,83 @@
+div.actioncenter.noquick div.quicksettings {
+  opacity: 0;
+  pointer-events: none;
+}
+
+div.actioncenter.noquick div.notifications {
+  height: calc(100% - 50px);
+}
+
+div.actioncenter div.quicksettings {
+  height: 200px;
+}
+
+div.actioncenter div.quicksettings-toggle {
+  display: flex;
+}
+
+div.actioncenter div.quicksettings-toggle button.toggle {
+  margin-left: auto;
+  background-color: transparent;
+  color: var(--fg);
+  border: none;
+}
+
+div.actioncenter div.quicksettings-toggle button.toggle:hover {
+  opacity: 0.7;
+}
+
+div.actioncenter div.quicksettings-toggle button.toggle:active {
+  opacity: 0.4;
+  transform: scale(0.9);
+}
+
+div.actioncenter div.quicksettings {
+  display: grid;
+  grid-template-columns: repeat(3, 121px);
+  grid-template-rows: repeat(3, 66px);
+  margin-top: 15px;
+}
+
+div.actioncenter div.quicksettings button.setting {
+  background-color: var(--button-glass-bg);
+  border: none;
+  border-radius: 5px;
+  color: var(--fg);
+  height: 60px;
+  margin: 0 3px;
+}
+
+div.actioncenter div.quicksettings button.setting.active {
+  background-color: var(--accent-light);
+  color: var(--accent-dark);
+}
+
+div.actioncenter div.quicksettings button.setting.active p.caption {
+  color: var(--accent-darkest);
+}
+
+div.actioncenter div.quicksettings button.setting p.caption {
+  font-size: 13px;
+  margin: 0;
+  margin-top: 5px;
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0px;
+  margin-top: 0;
+  transition: all 0.3s, opacity 0.2s;
+}
+
+div.actioncenter div.quicksettings button.setting:hover {
+  padding-top: 0px;
+}
+
+div.actioncenter div.quicksettings button.setting:active {
+  transform: scale(0.95);
+}
+
+div.actioncenter div.quicksettings button.setting:hover p.caption {
+  opacity: 1;
+  max-height: 16px;
+  margin-top: 5px;
+  transition: all 0.3s, opacity 0.5s 0.1s;
+}

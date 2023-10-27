@@ -1,11 +1,8 @@
-import { get } from "svelte/store";
 import { Log } from "../console";
 import { errorMessage } from "../errorlogic/main";
 import { UserData } from "../userlogic/interfaces";
-import { closeWindow } from "./events";
-import { updateStores, WindowStore } from "./store";
 import { SystemApps } from "./imports/store";
-import { LogLevel } from "../console/interface";
+import { updateStores, WindowStore } from "./store";
 
 export function disableApp(id: string) {
   Log("enabling.ts: disableApp", `Disabling app ${id}`);
@@ -16,24 +13,23 @@ export function disableApp(id: string) {
       `App "${id}" is a system application. System applications are core to ArcOS and cannot be disabled without breaking certain functionality.`,
       null,
       "AppLogic",
-      { caption: "OK", action: () => {} }
+      { caption: "Okay", action: () => {}, suggested: true }
     );
   }
 
-  const udata = get(UserData);
+  UserData.update((udata) => {
+    if (!udata.disabledApps.includes(id)) udata.disabledApps.push(id);
 
-  closeWindow(id);
+    return udata;
+  });
 
-  if (!udata.disabledApps.includes(id)) udata.disabledApps.push(id);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      if (ws[i].id == id) ws[i].disabled = true;
+    }
 
-  const ws = get(WindowStore);
-
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == id) ws[i].disabled = true;
-  }
-
-  UserData.set(udata);
-  WindowStore.set(ws);
+    return ws;
+  });
 
   updateStores();
 }
@@ -41,20 +37,21 @@ export function disableApp(id: string) {
 export function enableApp(id: string) {
   Log("enabling.ts: enableApp", `Enabling app ${id}`);
 
-  const udata = get(UserData);
+  UserData.update((udata) => {
+    for (let i = 0; i < udata.disabledApps.length; i++) {
+      if (udata.disabledApps[i] == id) udata.disabledApps.splice(i, 1);
+    }
 
-  for (let i = 0; i < udata.disabledApps.length; i++) {
-    if (udata.disabledApps[i] == id) udata.disabledApps.splice(i, 1);
-  }
+    return udata;
+  });
 
-  const ws = get(WindowStore);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      if (ws[i].id == id) ws[i].disabled = false;
+    }
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == id) ws[i].disabled = false;
-  }
-
-  WindowStore.set(ws);
-  UserData.set(udata);
+    return ws;
+  });
 
   updateStores();
 }

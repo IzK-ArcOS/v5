@@ -1,0 +1,16 @@
+div.login-loading button.switchuser {
+  margin-top: 30px;
+}
+
+div.login-loading button.createaccount {
+  margin-top: 30px;
+  color: #ccc8;
+}
+
+div.login-loading p.incorrect {
+  height: 38px;
+  margin: 10px 0;
+  line-height: 38px;
+  white-space: nowrap;
+  min-width: fit-content;
+}

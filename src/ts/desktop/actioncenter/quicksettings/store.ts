@@ -1,6 +1,7 @@
 import { openWindow } from "../../../applogic/events";
 import { showArcFind } from "../../../search/main";
 import { UserData } from "../../../userlogic/interfaces";
+import { ActionCenterOpened } from "../main";
 import type { QuickSetting } from "./interface";
 
 export const QuickSettings: QuickSetting[] = [
@@ -67,37 +68,47 @@ export const QuickSettings: QuickSetting[] = [
     caption: "Dark mode",
   },
   {
-    icon: "",
-    iconOff: "",
-    getter() {
-      return false;
+    icon: "invert_colors",
+    iconOff: "invert_colors_off",
+    getter(udata) {
+      return udata.sh.taskbar.colored;
     },
-    setter() {
-      return false;
+    setter(udata) {
+      udata.sh.taskbar.colored = !udata.sh.taskbar.colored;
+
+      UserData.set(udata);
+
+      return udata.sh.taskbar.colored;
     },
-    caption: "",
+    caption: "Colored Shell",
   },
   {
-    icon: "",
-    iconOff: "",
+    icon: "settings",
+    iconOff: "settings",
     getter() {
       return false;
     },
     setter() {
+      openWindow("SettingsApp");
+      ActionCenterOpened.set(false);
       return false;
     },
-    caption: "",
+    caption: "Settings",
   },
   {
-    icon: "",
-    iconOff: "",
-    getter() {
-      return false;
+    icon: "rocket_launch",
+    iconOff: "rocket",
+    getter(udata) {
+      return udata.sh.taskbar.isLauncher;
     },
-    setter() {
-      return false;
+    setter(udata) {
+      udata.sh.taskbar.isLauncher = !udata.sh.taskbar.isLauncher;
+
+      UserData.set(udata);
+
+      return udata.sh.taskbar.isLauncher;
     },
-    caption: "",
+    caption: "Launcher",
   },
   {
     icon: "search",

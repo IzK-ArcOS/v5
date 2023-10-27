@@ -1,7 +1,10 @@
 div.taskbar-h div.buttons {
-  height: 44px;
+  height: 43px;
   box-sizing: border-box;
   transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 div.taskbar-h.centered div.buttons {
@@ -11,36 +14,42 @@ div.taskbar-h.centered div.buttons {
 }
 
 div.taskbar-h div.buttons button {
-  /* min-width: 43px; */
-  height: 43px;
+  width: 35px;
+  height: 35px;
   border: none;
   background-color: transparent;
-  padding: 10px; /* 
-  margin-right: 10px; */
+  padding: 0 10px;
   color: var(--fg);
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 5px;
+  position: relative;
 }
 
 div.taskbar-h div.buttons button.activated {
   background-color: var(--button-glass-bg);
 }
 
-div.taskbar-h:not(.top) div.buttons button {
-  border-bottom: transparent 2px solid;
-}
-
-div.taskbar-h:not(.top) div.buttons button.activated {
-  border-bottom: var(--accent) 2px solid;
+div.taskbar-h:not(.top) div.buttons button.activated::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent);
+  opacity: 0.2;
+  border-radius: inherit;
+  z-index: -1;
 }
 
 div.taskbar-h.top div.buttons button {
   border-top: transparent 2px solid;
 }
 
-div.taskbar-h.top div.buttons button.activated {
-  border-top: var(--accent) 2px solid;
+div.taskbar-h div.buttons button.labels {
+  width: fit-content !important;
 }
 
 div.taskbar-h div.buttons button.minimized {
@@ -55,11 +64,6 @@ div.taskbar-h div.buttons button:active {
   background-color: var(--startmenu-applist-item-bg-active);
 }
 
-div.taskbar-h div.buttons button img + span {
-  height: 20px;
-  vertical-align: middle;
-}
-
 div.taskbar-h div.buttons button img {
   height: 20px;
 }
@@ -69,6 +73,5 @@ div.taskbar-h div.buttons button img + span {
 }
 
 div.taskbar-h div.buttons button span {
-  line-height: 20px;
   vertical-align: middle;
 }

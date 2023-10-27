@@ -8,7 +8,7 @@ div.arcfind-wrapper div.arcfind {
   width: 500px;
   height: 50px;
   background-color: var(--glass-bg);
-  border: var(--accent) 1px solid;
+  border: var(--accent-light) 1px solid;
   border-radius: var(--win-border-rad);
   margin-top: 5%;
   display: flex;
@@ -40,7 +40,7 @@ div.arcfind-wrapper div.arcfind form input {
   padding: 20px;
   box-sizing: border-box;
   color: var(--fg);
-  font-family: "Nunito Sans", sans-serif;
+  font-family: var(--font), sans-serif;
 }
 
 div.arcfind-wrapper div.arcfind form input::placeholder {

@@ -1,7 +1,7 @@
-import logo from "../../../assets/apps/mediaplayer.svg";
 import MediaPlayer from "../../../lib/Apps/MediaPlayer.svelte";
 import { createTrayIcon, disposeTrayIcon } from "../../desktop/tray/main";
-import { closeWindow, openWindow } from "../events";
+import { MediaPlayerIcon } from "../../icon/apps";
+import { openWindow } from "../events";
 import type { App } from "../interface";
 
 export const MediaPlayerApp: App = {
@@ -11,13 +11,14 @@ export const MediaPlayerApp: App = {
     builtin: true,
     version: "2.0.0",
     author: "Izaak Kuipers",
-    icon: logo,
+    icon: MediaPlayerIcon,
     hidden: true,
     appGroup: "entertainment",
+    requiresFile: true,
   },
   size: { w: 442, h: NaN },
   pos: { x: 100, y: 100 },
-  minSize: { w: 442, h: NaN },
+  minSize: { w: 442, h: 121 },
   maxSize: { w: 442, h: NaN },
   controls: { min: true, max: false, cls: true },
   state: {
@@ -45,7 +46,7 @@ export const MediaPlayerApp: App = {
         onOpen() {
           openWindow("MediaPlayerApp");
         },
-        image: logo,
+        image: MediaPlayerIcon,
         identifier: "MediaPlayerApp",
       });
     },

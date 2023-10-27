@@ -34,7 +34,7 @@ export const fbOverlays: { [key: string]: OverlayableApp } = {
       author: "ArcOS Team",
     },
     content: CreateFolder,
-    size: { w: 350, h: 115 },
+    size: { w: 350, h: 120 },
     show: false,
   },
   createFile: {
@@ -44,7 +44,7 @@ export const fbOverlays: { [key: string]: OverlayableApp } = {
       author: "ArcOS Team",
     },
     content: CreateFile,
-    size: { w: 350, h: 115 },
+    size: { w: 350, h: 120 },
     show: false,
   },
   uploadingFile: {
@@ -64,7 +64,7 @@ export const fbOverlays: { [key: string]: OverlayableApp } = {
       author: "ArcOS Team",
     },
     content: RenameItem,
-    size: { w: 350, h: 115 },
+    size: { w: 350, h: 120 },
     show: false,
   },
 };

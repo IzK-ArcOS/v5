@@ -1,8 +1,8 @@
 <script lang="ts">
-  import clear from "../../../../../assets/apps/logger/clear.svg";
   import type { App } from "../../../../../ts/applogic/interface";
   import { Log, LogStore } from "../../../../../ts/console";
   import { LogItem, LogLevel } from "../../../../../ts/console/interface";
+  import { TrashIcon } from "../../../../../ts/icon/general";
   import {
     ScopedAppData,
     UserData,
@@ -52,7 +52,7 @@
     on:click={() => clearCategory(currentSource)}
     disabled={!currentSource}
   >
-    <img src={clear} alt="Clear" />
+    <img src={TrashIcon} alt="Clear" />
     Clear
   </button>
   <div class="sep" />

@@ -1,10 +1,10 @@
 <script lang="ts">
-  import pfp from "../../../../../assets/pfp/null.png";
   import { Busy } from "../../../../../ts/env/main";
   import { loginUsername } from "../../../../../ts/login/main";
   import { applyState } from "../../../../../ts/state/main";
   import { UserData, UserName } from "../../../../../ts/userlogic/interfaces";
   import { createUser } from "../../../../../ts/userlogic/mutate";
+  import { ProfilePictures } from "../../../../../ts/userlogic/pfp";
   import ProfilePicture from "../../../../ProfilePicture.svelte";
 
   export let loading: boolean;
@@ -43,7 +43,7 @@
   }
 </script>
 
-<ProfilePicture src={pfp} height={151} />
+<ProfilePicture src={ProfilePictures.def} height={151} />
 <h1>New user</h1>
 <form on:submit={createAccount}>
   <input

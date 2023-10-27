@@ -1,4 +1,3 @@
-import { get } from "svelte/store";
 import pfp1 from "../../assets/pfp/1.png";
 import pfp10 from "../../assets/pfp/10.png";
 import pfp11 from "../../assets/pfp/11.png";
@@ -71,9 +70,9 @@ export function getProfilePicture(id: number | string) {
 }
 
 export async function applyCustomPfp(url: string) {
-  const udata = get(UserData);
+  UserData.update((udata) => {
+    udata.acc.profilePicture = url;
 
-  udata.acc.profilePicture = url;
-
-  UserData.set(udata);
+    return udata;
+  });
 }

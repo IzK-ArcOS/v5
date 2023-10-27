@@ -1,8 +1,7 @@
 <script lang="ts">
+  import { ArcFindIcon } from "../../../../ts/icon/general";
   import type { SearchItem } from "../../../../ts/search/interface";
-  import searchIcon from "../../../../assets/arcfind.svg";
   import { showArcFind } from "../../../../ts/search/main";
-  import { closeWindow } from "../../../../ts/applogic/events";
 
   export let result: SearchItem;
   export let index: number;
@@ -16,7 +15,7 @@
 
 <button class="result" on:click={trigger} class:selected={index == resultIndex}>
   <div class="image">
-    <img src={result.image || searchIcon} alt={result.caption} />
+    <img src={result.image || ArcFindIcon} alt={result.caption} />
   </div>
   <div class="context">
     <p class="title">{result.caption}</p>

@@ -95,6 +95,8 @@ export class ArcTermInput {
   }
 
   private async processInputEvent(e: KeyboardEvent, input: HTMLInputElement) {
+    if (!e || !input) return;
+
     const split = input.value.split("&&");
     const key = e.key.toLowerCase();
 

@@ -5,12 +5,14 @@
 </script>
 
 <div
-  class="taskbar-h newtb"
+  class="taskbar-h newtb shell-colored"
   style="z-index: {$maxZIndex + 5};"
   class:docked={$UserData.sh.taskbar.docked}
   class:centered={$UserData.sh.taskbar.centered}
   class:colored={$UserData.sh.taskbar.colored}
-  class:visible={$UserData.sh.taskbar.pos == "" && !$isFullscreenWindow}
+  class:visible={($UserData.sh.taskbar.pos == "" ||
+    $UserData.sh.taskbar.pos == "top") &&
+    !$isFullscreenWindow}
   data-contextmenu="shell-taskbar"
 >
   <slot />

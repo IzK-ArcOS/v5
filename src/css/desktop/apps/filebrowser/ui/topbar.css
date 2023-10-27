@@ -3,7 +3,6 @@ window#FileManager div.topbar div.addressbar {
   flex-grow: 1;
   height: 30px;
   padding: 0;
-
   overflow-x: auto;
   overflow-y: none;
   white-space: nowrap;

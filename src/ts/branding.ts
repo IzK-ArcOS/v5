@@ -5,10 +5,11 @@ import admin from "../assets/branding/adminIcon.png";
 import siege from "../assets/branding/siegeIcon.png";
 import rc from "../assets/branding/rc.png";
 import uwu from "../assets/branding/uwuIcon.png";
+import esr from "../assets/branding/esr.png";
 import { Log } from "./console";
 import { LogLevel } from "./console/interface";
 
-const MODES = { release, development, unstable, admin, siege, rc, uwu };
+const MODES = { release, development, unstable, admin, siege, rc, uwu, esr };
 export let ARCOS_MODE = "release";
 
 export async function getMode() {

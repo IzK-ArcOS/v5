@@ -6,6 +6,8 @@
   import { getWindow } from "../../../ts/applogic/store";
   import { getChooserTarget, setTargetFile } from "../../../ts/chooser/store";
   import { hideOverlay } from "../../../ts/window/overlay";
+  import { Log } from "../../../ts/console";
+  import { LogLevel } from "../../../ts/console/interface";
 
   export let currentDir: Writable<UserDirectory>;
   export let currentPath: Writable<string>;
@@ -37,6 +39,13 @@
     const targetWindow = getWindow(targetId);
 
     hideOverlay(overlay.id, targetId);
+
+    if (!targetWindow)
+      return Log(
+        "ChooserOverlay: dispose",
+        `Could not get target window ${targetId}`,
+        LogLevel.warn
+      );
 
     setTargetFile(overlay.id, targetWindow.openedFile);
   }

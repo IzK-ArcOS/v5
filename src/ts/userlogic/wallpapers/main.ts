@@ -6,16 +6,20 @@ import { UserName } from "../interfaces";
 import type { Wallpaper } from "./interface";
 import { Wallpapers } from "./store";
 import { arrayToBlob } from "../../api/fs/file/conversion";
+import { fromBase64 } from "../../base64";
 
 const getters: [string, (id: string) => Wallpaper | Promise<Wallpaper>][] = [
   [
     "@local:",
-    async (id) => await wallpaperFromFS(atob(id.replace("@local:", ""))),
+    async (id) => await wallpaperFromFS(fromBase64(id.replace("@local:", ""))),
   ],
   ["img", (id) => Wallpapers[id] || Wallpapers["img04"]],
 ];
 
-export async function getWallpaper(id: string): Promise<Wallpaper> {
+export async function getWallpaper(
+  id: string,
+  override?: string
+): Promise<Wallpaper> {
   if (!id) return Wallpapers["img04"];
 
   if (id.startsWith("http")) return { author: "The Web", name: id, url: id };
@@ -24,7 +28,7 @@ export async function getWallpaper(id: string): Promise<Wallpaper> {
     if (id.startsWith(getters[i][0])) return await getters[i][1](id);
   }
 
-  return Wallpapers["img04"];
+  return Wallpapers[override || "img04"];
 }
 
 export async function wallpaperFromFS(path: string): Promise<Wallpaper> {

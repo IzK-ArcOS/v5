@@ -1,51 +1,16 @@
 <script lang="ts">
-  import dayjs from "dayjs";
-  import { onMount } from "svelte";
-  import {
-    ActionCenterOpened,
-    toggleActionCenter,
-  } from "../../../../ts/desktop/actioncenter/main";
-  import { trayIcons } from "../../../../ts/desktop/tray/main";
-  import { committingUserData } from "../../../../ts/userlogic/main";
-  import upload from "../../../../assets/upload.svg";
+  import ActionCenterbutton from "./Tray/ActionCenterbutton.svelte";
+  import Clock from "./Tray/Clock.svelte";
+  import Committer from "./Tray/Committer.svelte";
+  import Icons from "./Tray/Icons.svelte";
 
   export let hasClock = true;
-
-  let time = "";
-
-  onMount(() => {
-    setInterval(() => {
-      time = dayjs().format("HH:mm");
-    }, 500);
-  });
 </script>
 
 <div class="tray">
-  {#each $trayIcons as icon}
-    <button
-      class="icon"
-      on:click={() => icon.onOpen(icon)}
-      title={icon.title || ""}
-    >
-      {#if icon.icon}
-        <span class="material-icons-round">{icon.icon}</span>
-      {:else}
-        <img src={icon.image} alt={icon.identifier} />
-      {/if}
-    </button>
-  {/each}
-  <button class="icon committer" class:inactive={!$committingUserData}>
-    <img src={upload} alt="Committing" />
-  </button>
-  {#if hasClock}
-    <div class="clock">{time}</div>
-  {/if}
-  <button
-    class="material-icons-round ac-open"
-    on:click={toggleActionCenter}
-    class:opened={$ActionCenterOpened}
-  >
-    notifications
-  </button>
+  <Icons />
+  <Committer />
+  <Clock {hasClock} />
+  <ActionCenterbutton />
   <slot />
 </div>

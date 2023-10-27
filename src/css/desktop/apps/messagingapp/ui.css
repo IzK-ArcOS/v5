@@ -12,13 +12,13 @@ window#MessagingApp > div.body > div {
 window#MessagingApp > div.body > div.sidebar {
   min-width: 40px !important;
   width: 50px !important;
-  border-right: var(--win-border-light);
+  border-right: var(--win-border);
 }
 
 window#MessagingApp > div.body > div.listbar {
   min-width: 250px !important;
   width: 250px !important;
-  border-right: var(--win-border-light);
+  border-right: var(--win-border);
   padding: 5px;
 }
 

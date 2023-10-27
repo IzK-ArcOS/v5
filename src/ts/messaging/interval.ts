@@ -1,12 +1,11 @@
 import { get } from "svelte/store";
 import { getUserPfp } from "../api/pfp";
-import { isOpened } from "../applogic/checks";
-import { openWindow } from "../applogic/events";
+import { openWindow, requestUserAttention } from "../applogic/events";
 import { makeNotification } from "../notiflogic/main";
+import { CurrentState } from "../state/main";
 import { UserName } from "../userlogic/interfaces";
 import { getUnreadMessages } from "./get";
 import { messageUpdateTrigger } from "./updates";
-import { CurrentState } from "../state/main";
 
 let interval;
 
@@ -19,7 +18,7 @@ export function startMessageCheckInterval() {
 }
 
 async function tick() {
-  if (!get(UserName) || get(CurrentState).name != "Desktop")
+  if (!get(UserName) || CurrentState.name != "Desktop")
     return stopMessageCheckInterval();
 
   messageUpdateTrigger();
@@ -32,14 +31,11 @@ async function tick() {
 
   const message = unreads[0];
 
-  if (
-    !message ||
-    isOpened("MessagingApp") ||
-    pollBlockList.includes(message.id)
-  )
-    return;
+  if (!message || pollBlockList.includes(message.id)) return;
 
   pollBlockList.push(message.id);
+
+  requestUserAttention("MessagingApp");
 
   makeNotification({
     title: `New message from ${message.sender}`,

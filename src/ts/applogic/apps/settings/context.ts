@@ -1,13 +1,13 @@
-import theme from "../../../../assets/apps/settings/themes.svg";
 import { createDirectory } from "../../../api/fs/directory";
 import { writeFile } from "../../../api/fs/file";
 import { getServer } from "../../../api/server";
 import { createOverlayableError } from "../../../errorlogic/overlay";
+import { ThemesIcon } from "../../../icon/general";
 import { deleteCustomTheme } from "../../../userlogic/themes/main";
 import { showOverlay } from "../../../window/overlay";
 import { openWindow } from "../../events";
 import type { AppContextMenu } from "../../interface";
-import { fbClass, FileBrowserSelectedFilename } from "../FileBrowser/main";
+import { fbClass, fbState } from "../FileBrowser/main";
 
 const saveToFS = {
   caption: "Save to ArcFS",
@@ -28,7 +28,11 @@ const saveToFS = {
     await fbClass.goToDirectory("./Themes");
 
     setTimeout(() => {
-      FileBrowserSelectedFilename.set(filename);
+      fbState.update((v) => {
+        v.selectedFilename = filename;
+
+        return v;
+      });
     });
   },
   icon: "save",
@@ -43,13 +47,14 @@ export const SettingsAppContext: AppContextMenu = {
           {
             title: "Delete theme?",
             message: "Are you sure you want to delete this theme?",
-            image: theme,
+            image: ThemesIcon,
             buttons: [
               {
                 caption: "Delete",
                 action() {
                   deleteCustomTheme(data["id"]);
                 },
+                suggested: true,
               },
               { caption: "Cancel", action() {} },
             ],

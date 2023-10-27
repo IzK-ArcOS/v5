@@ -19,8 +19,8 @@
 </script>
 
 <div class="fts fullscreen" class:show>
-  <div class="center-absolute">
-    <Left/>
+  <div class="fts-content">
+    <Left />
     <Right />
   </div>
 </div>

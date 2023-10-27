@@ -52,20 +52,20 @@
     opacity: 0.2;
   }
   button:disabled {
-    background-color: var(--button-active-bg);
-    border: var(--button-active-bg);
+    background-color: var(--button-bg) !important;
+    border: var(--button-hover-bg) 0.5px solid !important;
   }
 
-  button.traffic-cls {
+  button.traffic-cls:not(:disabled) {
     border: #d04e41 0.5px solid !important;
     background-color: #ec695e !important;
   }
-  button.traffic-min {
+  button.traffic-min:not(:disabled) {
     border: #d59f3c 0.5px solid !important;
     background-color: #f5c14f !important;
   }
 
-  button.traffic-max {
+  button.traffic-max:not(:disabled) {
     border: #4fa63b 0.5px solid !important;
     background-color: #61c654 !important;
   }

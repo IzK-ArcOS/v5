@@ -1,0 +1,16 @@
+div.startframe {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+  /* -webkit-backdrop-filter: blur(2px); */
+  /* background-color: #0006; */
+}
+
+div.startframe.present {
+  visibility: visible;
+  opacity: 1;
+}
+
+div.startmenu.present * {
+  pointer-events: initial;
+}

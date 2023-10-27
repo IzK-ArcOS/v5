@@ -10,6 +10,7 @@
   import sleep from "../../../../ts/sleep";
   import AppListItem from "./AppListItem.svelte";
   import Group from "./LeftPane/Group.svelte";
+  import { UserData } from "../../../../ts/userlogic/interfaces";
 
   let groups = writable<CompiledAppGroupStore>({});
   let rest: string[] = [];
@@ -26,13 +27,21 @@
   });
 </script>
 
-<div class="left">
-  {#each Object.values($groups) as entry}
-    <Group group={entry} />
-  {/each}
-  {#each rest as window}
-    {#if isPopulatable(getWindow(window))}
-      <AppListItem app={getWindow(window)} />
-    {/if}
-  {/each}
+<div class="left" data-contextmenu="startmenu-applist">
+  {#if !$UserData.sh.start.noGroups}
+    {#each Object.values($groups) as entry}
+      <Group group={entry} />
+    {/each}
+    {#each rest as window}
+      {#if isPopulatable(getWindow(window))}
+        <AppListItem app={getWindow(window)} />
+      {/if}
+    {/each}
+  {:else}
+    {#each $WindowStore as window}
+      {#if isPopulatable(window)}
+        <AppListItem app={window} />
+      {/if}
+    {/each}
+  {/if}
 </div>

@@ -9,7 +9,7 @@ div.serverselect {
   text-align: center;
   background-position: center;
   background-size: cover;
-  background-image: url("../assets/bg/img16.jpg");
+  /* background-image: url("../assets/bg/img15.jpg"); */
   opacity: 0;
   transition: opacity 1s;
 }
@@ -19,7 +19,7 @@ div.serverselect div.ss-inner {
   border-radius: 15px;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5);
   padding: 0;
-  color: #ccc;
+  color: var(--fg);
   background-color: var(--glass-bg);
   overflow: hidden;
   border: var(--win-border);

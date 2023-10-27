@@ -1,0 +1,20 @@
+div.newlogin button.normal {
+  display: block;
+  margin: 5px auto;
+  padding: 10px 20px;
+  background-color: #ffffff08;
+  color: #ccc;
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: 7.5px;
+  border: var(--button-glass-bg) 1px solid;
+}
+
+div.newlogin button.normal:hover {
+  background-color: #ffffff11;
+}
+
+div.newlogin button.link {
+  background-color: transparent;
+  border: none;
+  backdrop-filter: unset;
+}

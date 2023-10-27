@@ -37,8 +37,9 @@
   }
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
-  class="launcher-bar"
+  class="launcher-bar shell-colored"
   class:colored={$UserData.sh.taskbar.colored}
   class:visible
   style="z-index: {$maxZIndex + 31}"

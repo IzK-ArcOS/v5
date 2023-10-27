@@ -1,8 +1,16 @@
 window#FileManager > div.body div.sidebar div.dirs {
   height: calc(100% - 80px);
+  overflow-y: auto;
 }
 
-window#FileManager > div.body div.sidebar div.dirs button {
+window#FileManager > div.body div.sidebar div.dirs div.loading {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+window#FileManager > div.body div.sidebar button.folder {
   display: flex;
   width: 100%;
   text-align: left;
@@ -11,18 +19,20 @@ window#FileManager > div.body div.sidebar div.dirs button {
   line-height: 20px;
   box-sizing: border-box;
   background-color: transparent;
+  box-shadow: none;
+  opacity: 1;
 }
 
-window#FileManager > div.body div.sidebar div.dirs button.selected {
+window#FileManager > div.body div.sidebar button.folder.selected {
   background-color: var(--button-glass-bg);
 }
 
-window#FileManager > div.body div.sidebar div.dirs button img {
+window#FileManager > div.body div.sidebar button.folder img {
   height: 20px;
   margin-right: 10px;
 }
 
-window#FileManager > div.body div.sidebar div.dirs button p {
+window#FileManager > div.body div.sidebar button.folder p {
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -43,8 +53,7 @@ window#FileManager > div.body div.sidebar div.quota-renderer div.bar {
 window#FileManager > div.body div.sidebar div.quota-renderer div.bar div.inner {
   height: 5px;
   border-radius: 2.5px;
-  background-color: var(--accent);
-  filter: var(--elevated-accent-filter);
+  background-color: var(--accent-light);
 }
 
 window#FileManager > div.body div.sidebar div.quota-renderer div.stat {
@@ -71,4 +80,10 @@ window#FileManager
   div.stat
   div.right {
   margin-left: auto;
+}
+
+window#FileManager > div.body div.sidebar div.home {
+  border-bottom: var(--button-glass-bg) 1px solid;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }

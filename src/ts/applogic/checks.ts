@@ -1,5 +1,8 @@
 import { get } from "svelte/store";
+import { makeNotification } from "../notiflogic/main";
+import sleep from "../sleep";
 import { UserData } from "../userlogic/interfaces";
+import { closeWindow } from "./events";
 import type { App } from "./interface";
 import { getWindow, WindowStore } from "./store";
 
@@ -39,4 +42,23 @@ export function isPopulatable(app: App) {
     return true;
 
   return !app.disabled && !app.info.hidden && !app.info.custom;
+}
+
+export async function checkFileRequirement(appId: string) {
+  const app = getWindow(appId);
+
+  if (!app.info.requiresFile) return;
+
+  await sleep(100);
+
+  if (app.openedFile) return;
+
+  makeNotification({
+    icon: "warning",
+    title: "Could not open app",
+    message: `${app.info.name} requires a file to be able to open, it cannot be opened this way.`,
+    buttons: [],
+  });
+
+  closeWindow(app.id);
 }

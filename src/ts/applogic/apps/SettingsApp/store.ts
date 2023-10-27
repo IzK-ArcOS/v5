@@ -1,19 +1,23 @@
-import accountIcon from "../../../../assets/apps/settings/account.svg";
-import appsIcon from "../../../../assets/apps/settings/apps.svg";
-import desktopIcon from "../../../../assets/apps/settings/desktop.svg";
-import visualsIcon from "../../../../assets/apps/settings/personalization.svg";
-import shellIcon from "../../../../assets/apps/settings/taskbar.svg";
-import windowsIcon from "../../../../assets/apps/settings/windows.svg";
-import themesIcon from "../../../../assets/apps/settings/themes.svg";
 import About from "../../../../lib/Apps/Settings/Pages/About.svelte";
 import Account from "../../../../lib/Apps/Settings/Pages/Account.svelte";
 import Apps from "../../../../lib/Apps/Settings/Pages/Apps.svelte";
 import Desktop from "../../../../lib/Apps/Settings/Pages/Desktop.svelte";
+import LockScreen from "../../../../lib/Apps/Settings/Pages/LockScreen.svelte";
 import Shell from "../../../../lib/Apps/Settings/Pages/Shell.svelte";
 import Themes from "../../../../lib/Apps/Settings/Pages/Themes.svelte";
 import Visuals from "../../../../lib/Apps/Settings/Pages/Visuals.svelte";
 import Windows from "../../../../lib/Apps/Settings/Pages/Windows.svelte";
 import { Logo } from "../../../branding";
+import {
+  AccountIcon,
+  AppsIcon,
+  DesktopIcon,
+  PersonalizationIcon,
+  TaskBarIcon,
+  ThemesIcon,
+  WindowSettingsIcon,
+} from "../../../icon/general";
+import { LockIcon } from "../../../icon/power";
 import { openWindow } from "../../events";
 import type { SettingsPage } from "./interface";
 import { currentSettingsPage } from "./main";
@@ -21,39 +25,44 @@ import { currentSettingsPage } from "./main";
 export const SettingsPages: SettingsPage[] = [
   {
     name: "Account",
-    icon: accountIcon,
+    icon: AccountIcon,
     content: Account,
     sep: true,
   },
   {
     name: "Themes",
-    icon: themesIcon,
+    icon: ThemesIcon,
     content: Themes,
   },
   {
     name: "Wallpaper",
-    icon: desktopIcon,
+    icon: DesktopIcon,
     content: Desktop,
   },
   {
+    name: "Login",
+    icon: LockIcon,
+    content: LockScreen,
+  },
+  {
     name: "Visuals",
-    icon: visualsIcon,
+    icon: PersonalizationIcon,
     content: Visuals,
     sep: true,
   },
   {
     name: "Shell",
-    icon: shellIcon,
+    icon: TaskBarIcon,
     content: Shell,
   },
   {
     name: "Windows",
-    icon: windowsIcon,
+    icon: WindowSettingsIcon,
     content: Windows,
   },
   {
     name: "Apps",
-    icon: appsIcon,
+    icon: AppsIcon,
     content: Apps,
     sep: true,
   },
@@ -61,6 +70,7 @@ export const SettingsPages: SettingsPage[] = [
     name: "About",
     icon: Logo(),
     content: About,
+    className: "inner-about",
   },
 ];
 
@@ -83,5 +93,5 @@ export function openByKey(key: string) {
 
   setTimeout(() => {
     currentSettingsPage.set(page);
-  });
+  }, 10);
 }

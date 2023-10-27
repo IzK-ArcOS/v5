@@ -7,6 +7,7 @@
   import { BootFail } from "../../ts/boot/fail";
   import { Logo } from "../../ts/branding";
   import { Log } from "../../ts/console";
+  import { isDesktop } from "../../ts/desktop/app";
   import { ArcOSVersion, Busy } from "../../ts/env/main";
   import sleep from "../../ts/sleep";
   import { applyState } from "../../ts/state/main";
@@ -19,6 +20,14 @@
   let running = false;
 
   onMount(async () => {
+    if (isDesktop()) {
+      await sleep(500);
+
+      bootClass = "fadein";
+
+      return startBooting();
+    }
+
     status = "Press a key or click to start";
 
     document.addEventListener("click", startBooting, { once: true });

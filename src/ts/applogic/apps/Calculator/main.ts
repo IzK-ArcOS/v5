@@ -7,9 +7,9 @@
  *
  * Original filename: src/ts/applogic/apps/Calculator/main.ts
  */
-import math from "math.js";
 import { get, writable } from "svelte/store";
 import { Log } from "../../../console";
+import { LogLevel } from "../../../console/interface";
 import type { AppKeyCombinations } from "../../keyboard/interface";
 import type {
   CalculatorKey,
@@ -17,7 +17,6 @@ import type {
   CalculatorOverrides,
 } from "./interface";
 import { CalculatorStore as Store } from "./store";
-import { LogLevel } from "../../../console/interface";
 
 export const CalculatorValue = writable<string>("");
 
@@ -78,6 +77,7 @@ class CL {
 
   // Tests the current value plus the new input to evaluate if it's valid.
   private isValid(input: string) {
+    if (!input || typeof input !== "string") return;
     Log(
       `${Store.Source} isValid`,
       `Verifying input "${input}"...`,

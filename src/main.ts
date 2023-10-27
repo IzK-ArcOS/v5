@@ -10,8 +10,9 @@ preventAnchorRedirects();
 document.addEventListener("contextmenu", (e) => e.preventDefault());
 
 console.warn = (content: string, ...a: any) =>
-  !content.includes("unknown prop") &&
-  Log("Console", content + a.join(" "), LogLevel.warn);
+  !content.includes("expected prop") ||
+  (!content.includes("unknown prop") &&
+    Log("Console", content + a.join(" "), LogLevel.warn));
 
 console.error = (content: string, ...a: any[]) =>
   Log("Console", content + a.join(" "), LogLevel.error);

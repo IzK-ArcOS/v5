@@ -1,5 +1,5 @@
-import logo from "../../../assets/apps/logger.svg";
 import Logger from "../../../lib/Apps/Logger.svelte";
+import { LoggerIcon } from "../../icon/apps";
 import type { App } from "../interface";
 
 export const LoggerApp: App = {
@@ -9,7 +9,7 @@ export const LoggerApp: App = {
     builtin: true,
     version: "1.0.0",
     author: "ArcOS Team",
-    icon: logo,
+    icon: LoggerIcon,
     appGroup: "systemTools",
   },
   size: { w: 900, h: 600 },

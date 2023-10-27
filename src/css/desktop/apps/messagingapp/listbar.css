@@ -7,7 +7,7 @@ window#MessagingApp div.body div.listbar {
 window#MessagingApp div.body div.listbar div.header {
   height: 38px;
   min-height: 38px;
-  border-bottom: var(--win-border-light);
+  border-bottom: var(--win-border);
   line-height: 30px;
   padding: 0 10px;
   box-sizing: border-box;

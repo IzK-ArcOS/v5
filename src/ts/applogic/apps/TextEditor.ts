@@ -1,6 +1,6 @@
-import logo from "../../../assets/apps/apppoker.svg";
 import TextView from "../../../lib/Apps/TextView.svelte";
 import SaveNewFile from "../../../lib/Apps/TextView/overlays/SaveNewFile.svelte";
+import { AppPokerIcon } from "../../icon/apps";
 import type { App } from "../interface";
 
 export const TextEditor: App = {
@@ -11,7 +11,7 @@ export const TextEditor: App = {
     version: "1.0.0",
     author: "Izaak Kuipers",
     hidden: false,
-    icon: logo,
+    icon: AppPokerIcon,
     appGroup: "utilities",
   },
   size: { w: 700, h: 550 },

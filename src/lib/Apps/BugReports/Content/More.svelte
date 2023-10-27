@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { MODE_CAPTIONS } from "../../../../ts/branding/mode";
   import type { Report } from "../../../../ts/reporting/interface";
 
   export let report: Report;
@@ -9,12 +10,12 @@
   <p class="subtitle">Below follows more information about this bug report.</p>
   <div class="info">
     <p class="name">ArcOS Version</p>
-    <p class="value">{report.version}</p>
+    <p class="value">v{report.version}-{report.mode_file}</p>
   </div>
   <div class="info">
     <p class="name">Mode</p>
-    <p class="value">
-      {report.mode_file || "<unknown>"}
+    <p class="value" title={report.mode_file}>
+      {MODE_CAPTIONS[report.mode_file || "release"] || report.mode_file}
     </p>
   </div>
   <div class="info">
@@ -25,8 +26,16 @@
   </div>
   <div class="info">
     <p class="name">User Agent</p>
-    <p class="value">
+    <p class="value useragent">
       {report.useragent || "Not provided"}
     </p>
   </div>
 </div>
+
+<style scoped>
+  p.useragent {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>

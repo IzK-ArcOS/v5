@@ -1,3 +1,52 @@
-window[id*="error#"] {
-  height: max-content !important;
+window[id*="error_"] {
+  height: fit-content !important;
+  max-width: 450px !important;
+  /* max-height: 350px; */
+  min-height: 120px !important;
+}
+
+window[id*="error_"] > div.body {
+  padding: 0;
+}
+
+window[id*="error_"].focused > div.body {
+  border-top: var(--win-border) !important;
+}
+
+window[id*="error_"] div.error-dialog {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+}
+
+window[id*="error_"] div.error-dialog img {
+  height: 40px;
+}
+
+window[id*="error_"] div.error-dialog h3 {
+  margin: 5px 0;
+}
+window[id*="error_"] div.error-dialog p {
+  margin: 3px 0;
+}
+
+window[id*="error_"] div.error-buttons {
+  display: flex;
+  margin-top: 10px;
+  justify-content: flex-end;
+  border-top: var(--win-border);
+  padding: 10px;
+  background-color: var(--button-glass-bg);
+}
+
+window[id*="error_"] div.error-buttons div.inner {
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+window[id*="error_"] div.error-buttons div.inner button {
+  min-width: 70px;
+  margin: 0;
 }

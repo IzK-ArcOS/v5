@@ -2,15 +2,14 @@
   import type { PartialUserDir } from "../../../../ts/api/interface";
   import {
     fbClass,
-    FileBrowserCuttingFilename as cutting,
-    FileBrowserSelectedFilename,
+    fbState,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
+  import { FolderIcon } from "../../../../ts/icon/general";
 
   export let dir: PartialUserDir;
 
   function select() {
-    $FileBrowserSelectedFilename = dir.name;
+    $fbState.selectedFilename = dir.name;
   }
 
   function open() {
@@ -22,15 +21,17 @@
   class="item dir"
   on:click={select}
   on:dblclick={open}
-  class:selected={$FileBrowserSelectedFilename == dir.name}
-  class:cutting={$cutting && $cutting.name == dir.name}
+  class:selected={$fbState.selectedFilename == dir.name}
+  class:cutting={$fbState.cuttingFilename &&
+    $fbState.cuttingFilename.name == dir.name}
   data-path={dir.scopedPath}
   data-type="dir"
   data-name={dir.name}
   data-contextmenu="listitem-dir"
 >
-  <div class="image"><img src={icon} alt={dir.name} /></div>
+  <div class="image"><img src={FolderIcon} alt={dir.name} /></div>
   <div class="name">{dir.name}</div>
   <div class="mime">Folder</div>
+  <div class="modified">-</div>
   <div class="size">-</div>
 </button>

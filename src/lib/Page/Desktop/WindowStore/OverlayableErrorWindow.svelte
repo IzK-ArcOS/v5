@@ -59,7 +59,10 @@
       <div class="error-overlay-buttons">
         <div class="inner">
           {#each error.buttons as button}
-            <button on:click={() => e(button.action)}>{button.caption}</button>
+            <button
+              on:click={() => e(button.action)}
+              class:suggested={button.suggested}>{button.caption}</button
+            >
           {/each}
         </div>
       </div>

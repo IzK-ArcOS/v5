@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { FileBrowserSelectedFilename } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { fbState } from "../../../../ts/applogic/apps/FileBrowser/main";
   import { showOverlay } from "../../../../ts/window/overlay";
 
   function click() {
@@ -9,7 +9,7 @@
 
 <button
   class="material-icons-round"
-  disabled={!$FileBrowserSelectedFilename}
+  disabled={!$fbState.selectedFilename || $fbState.home}
   title="Rename item"
   on:click={click}
 >

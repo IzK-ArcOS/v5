@@ -1,0 +1,19 @@
+.shell-colored::after {
+  content: " ";
+
+  /* border-radius: inherit; */
+  width: calc(100%);
+  height: calc(100%);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  opacity: 0.3;
+  /* margin: -1px; */
+  pointer-events: none;
+  transition: all 0.3s !important;
+}
+
+.shell-colored.colored::after {
+  background-color: var(--accent);
+}

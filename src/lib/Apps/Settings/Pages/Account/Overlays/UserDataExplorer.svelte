@@ -12,7 +12,7 @@
 </script>
 
 <CloseButton {app} {id} />
-{#if $UserData}
+{#if $UserName}
   <div class="overlay-head">
     <h2 class="header">User Data for {$UserName}</h2>
     <p class="subheader">Below is a tree view of your user data:</p>

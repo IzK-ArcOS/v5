@@ -1,4 +1,4 @@
-:root .desktop.theme-hc {
+:root .theme-hc {
   --glass-blur: 0px;
   --fg: #ff0;
   --win-bg: #000;
@@ -11,6 +11,7 @@
   --glass-ultradark: #000;
   --darkened-overlay: #0004;
   --darkened-overlay-alt: #0004;
+  --startmenu-bg: var(--glass-ultradark);
   --startmenu-applist-item-bg: transparent;
   --startmenu-applist-item-bg-hover: #ffffff05;
   --startmenu-applist-item-bg-active: #0001;
@@ -38,86 +39,86 @@
   --accent-light: #0aa;
 }
 
-.desktop.theme-hc {
+.theme-hc {
   font-family: "Source Code Pro", monospace;
 }
 
-.desktop.theme-hc window div.body button {
+.theme-hc window div.body button {
   border-radius: 0;
 }
 
-.desktop.theme-hc window div.body button.material-icons-round {
+.theme-hc window div.body button.material-icons-round {
   color: #0ff !important;
 }
 
-.desktop.theme-hc window div.body button:not(.material-icons-round),
-.desktop.theme-hc div.actioncenter div.quicksettings button {
+.theme-hc window div.body button:not(.material-icons-round),
+.theme-hc div.actioncenter div.quicksettings button {
   border: #3f3 1px solid !important;
 }
 
-.desktop.theme-hc window div.body button.selected:not(.material-icons-round),
-.desktop.theme-hc window#SettingsApp div.wallpaper,
-.desktop.theme-hc window#SettingsApp button.themerenderer,
-.desktop.theme-hc window#SettingsApp div.about-page div.section {
+.theme-hc window div.body button.selected:not(.material-icons-round),
+.theme-hc window#SettingsApp div.wallpaper,
+.theme-hc window#SettingsApp button.themerenderer,
+.theme-hc window#SettingsApp div.about-page div.section {
   border: #ff0 1px solid !important;
 }
 
-.desktop.theme-hc window#DesktopWallpaper div.wallpaper {
+.theme-hc window#DesktopWallpaper div.wallpaper {
   background-image: none !important;
   background-color: #021;
 }
 
-.desktop.theme-hc window,
-.desktop.theme-hc window div.body input,
-.desktop.theme-hc window div.body select {
+.theme-hc window,
+.theme-hc window div.body input,
+.theme-hc window div.body select {
   border: #0ff 1px solid !important;
 }
 
-.desktop.theme-hc window div.titlebar {
+.theme-hc window div.titlebar {
   background-color: #006;
 }
 
-.desktop.theme-hc h1,
-.desktop.theme-hc h2,
-.desktop.theme-hc h3,
-.desktop.theme-hc h4,
-.desktop.theme-hc h5 {
+.theme-hc h1,
+.theme-hc h2,
+.theme-hc h3,
+.theme-hc h4,
+.theme-hc h5 {
   color: #0f0 !important;
   font-weight: 900 !important;
 }
 
-.desktop.theme-hc div.newtb,
-.desktop.theme-hc div.actioncenter,
-.desktop.theme-hc div.startmenu,
-.desktop.theme-hc div.startmenu > * {
+.theme-hc div.newtb,
+.theme-hc div.actioncenter,
+.theme-hc div.startmenu,
+.theme-hc div.startmenu > * {
   border: #0ff 1px solid !important;
 }
 
-.desktop.theme-hc > div.wallpaper {
+.theme-hc > div.wallpaper {
   background-image: none !important;
 }
 
-.desktop.theme-hc hr {
+.theme-hc hr {
   border: #0ff 1px solid !important;
 }
 
-.desktop.theme-hc window#FileManager div.topbar {
+.theme-hc window#FileManager div.topbar {
   background-color: #003 !important;
 }
 
-.desktop.theme-hc div.startmenu div.left button.expander {
+.theme-hc div.startmenu div.left button.expander {
   border: #0f0 1px solid !important;
 }
 
-.desktop.theme-hc div.startmenu div.left button:disabled {
+.theme-hc div.startmenu div.left button:disabled {
   color: #f0f !important;
   opacity: 1 !important;
   filter: unset;
 }
 
-.desktop.theme-hc div.arcfind-wrapper div.apps button {
+.theme-hc div.arcfind-wrapper div.apps button {
   border: #ff0 1px solid;
 }
-.desktop.theme-hc window:not(.custom):not(.headless):not(.glass) div.body {
+.theme-hc window:not(.custom):not(.headless):not(.glass) div.body {
   border-top: #0ff 1px solid !important;
 }

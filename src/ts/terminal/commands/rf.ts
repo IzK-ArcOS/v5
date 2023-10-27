@@ -11,6 +11,8 @@ export const Rf: Command = {
     const fn = argv.join(" ").trim();
     const dir = (await getDirectory(path)) as UserDirectory;
 
+    if (!dir) return term.std.Error("Could not read the current directory!");
+
     for (let i = 0; i < dir.files.length; i++) {
       const file = dir.files[i];
 

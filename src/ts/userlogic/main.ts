@@ -44,7 +44,7 @@ export async function deleteUser() {
 
   apiCall(server, "user/delete", {}, token);
 
-  if (get(CurrentState).name == "Desktop") restart();
+  if (CurrentState.name == "Desktop") restart();
 }
 
 export async function getUserdata(name: string) {

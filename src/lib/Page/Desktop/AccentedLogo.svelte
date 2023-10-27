@@ -39,7 +39,6 @@
 
 <style scoped>
   svg .part {
-    fill: var(--accent);
-    filter: var(--elevated-accent-filter);
+    fill: var(--accent-light);
   }
 </style>

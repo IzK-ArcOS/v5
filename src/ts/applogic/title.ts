@@ -1,20 +1,18 @@
-import { get } from "svelte/store";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
 import { WindowStore } from "./store";
 
 export function setTitleSuffix(content: string, appId: string) {
-  const ws = get(WindowStore);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      if (ws[i].id == appId) {
+        if (!Originals[appId]) Originals[appId] = `${ws[i].info.titleSuffix}`;
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == appId) {
-      if (!Originals[appId]) Originals[appId] = `${ws[i].info.titleSuffix}`;
-
-      ws[i].info.titleSuffix = content;
+        ws[i].info.titleSuffix = content;
+      }
     }
-  }
-
-  WindowStore.set(ws);
+    return ws;
+  });
 }
 
 export function resetTitleSuffix(appId: string) {
@@ -26,17 +24,17 @@ export function resetTitleSuffix(appId: string) {
 
   if (!Originals[appId]) return;
 
-  const ws = get(WindowStore);
+  WindowStore.subscribe((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      if (ws[i].id == appId) {
+        ws[i].info.titleSuffix = Originals[appId];
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == appId) {
-      ws[i].info.titleSuffix = Originals[appId];
-
-      delete Originals[appId];
+        delete Originals[appId];
+      }
     }
-  }
 
-  WindowStore.set(ws);
+    return ws;
+  });
 }
 
 const Originals: { [key: string]: string } = {};

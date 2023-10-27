@@ -33,10 +33,10 @@ export function composePosition(
   let x = e.clientX;
   let y = e.clientY;
 
-  if (x + mW > dW) x = dW - mW;
-  if (y + mH > dH) y = dH - mH;
-  if (x < 0) x = 0;
-  if (y < 0) y = 0;
+  if (x + mW > dW) x = dW - mW - 10;
+  if (y + mH > dH) y = dH - mH - 10;
+  if (x < 0) x = 10;
+  if (y < 0) y = 10;
 
   return [x, y];
 }

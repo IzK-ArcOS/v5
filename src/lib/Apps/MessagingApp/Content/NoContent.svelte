@@ -1,5 +1,5 @@
 <script lang="ts">
-  import icon from "../../../../assets/apps/messaging.svg";
+  import { MessagingIcon } from "../../../../ts/icon/apps";
   import { creatingMessage } from "../../../../ts/messaging/main";
 
   function newMessage() {
@@ -9,7 +9,7 @@
 
 <div class="no-content-wrapper">
   <div class="no-content">
-    <img src={icon} alt="Messaging" />
+    <img src={MessagingIcon} alt="Messaging" />
     <p class="header">No content.</p>
     <p>Please select a message or create a new one.</p>
     <br />

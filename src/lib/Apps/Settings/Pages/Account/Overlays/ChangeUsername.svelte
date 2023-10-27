@@ -1,9 +1,9 @@
 <script lang="ts">
-  import usericon from "../../../../../../assets/apps/settings/account.svg";
   import "../../../../../../css/desktop/apps/settings/account/changeUname.css";
-  import { changeUsername } from "../../../../../../ts/api/cred";
+  import { changeUsername } from "../../../../../../ts/api/cred/mutate";
   import type { App } from "../../../../../../ts/applogic/interface";
   import { createOverlayableError } from "../../../../../../ts/errorlogic/overlay";
+  import { AccountIcon } from "../../../../../../ts/icon/general";
   import {
     UserData,
     UserName,
@@ -30,10 +30,10 @@
         message:
           "Changing your username will only update the credentials on this ArcOS instance on this device. You'll have to log in again on all other devices. Proceed?",
         buttons: [
-          { caption: "Change it", action: change },
+          { caption: "Change it", action: change, suggested: true },
           { caption: "Cancel", action() {} },
         ],
-        image: usericon,
+        image: AccountIcon,
       },
       "SettingsApp"
     );
@@ -48,8 +48,8 @@
           title: "Can't rename user",
           message:
             "An error occured while trying to rename your account. Please make sure the information is correct, and then try again.",
-          buttons: [{ caption: "OK", action: reset }],
-          image: usericon,
+          buttons: [{ caption: "OK", action: reset, suggested: true }],
+          image: AccountIcon,
         },
         "SettingsApp"
       );
@@ -58,8 +58,8 @@
       {
         title: "Username changed.",
         message: "Your username has been updated successfully.",
-        buttons: [{ caption: "OK", action: closeThis }],
-        image: usericon,
+        buttons: [{ caption: "OK", action: closeThis, suggested: true }],
+        image: AccountIcon,
       },
       "SettingsApp"
     );

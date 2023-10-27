@@ -1,8 +1,8 @@
 <script lang="ts">
-  import folderIcon from "../../../../../assets/apps/filemanager/folder.svg";
   import { isPopulatable } from "../../../../../ts/applogic/checks";
   import type { CompiledAppGroup } from "../../../../../ts/applogic/groups/interface";
   import { getWindow } from "../../../../../ts/applogic/store";
+  import { FolderIcon } from "../../../../../ts/icon/general";
   import AppListItem from "../AppListItem.svelte";
 
   export let group: CompiledAppGroup;
@@ -15,7 +15,7 @@
 {#if group}
   <div class="group" class:expand>
     <button class="expander" on:click={toggle}>
-      <img src={folderIcon} alt="" />
+      <img src={FolderIcon} alt="" />
       <span class="capt">{group.name}</span>
     </button>
     <div class="apps">

@@ -1,9 +1,8 @@
-import { get } from "svelte/store";
+import { Log } from "../console";
 import { LogLevel } from "../console/interface";
+import { UnknownIcon } from "../icon/apps";
 import type { App } from "./interface";
 import { WindowStore } from "./store";
-import def from "../../assets/apps/unknown.svg";
-import { Log } from "../console";
 
 export function hotSwapAppIcon(icon: string, appId: string) {
   Log(
@@ -12,17 +11,17 @@ export function hotSwapAppIcon(icon: string, appId: string) {
     LogLevel.info
   );
 
-  const ws = get(WindowStore);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      if (ws[i].id == appId) {
+        if (!Originals[appId]) Originals[appId] = `${getAppIcon(ws[i])}`;
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == appId) {
-      if (!Originals[appId]) Originals[appId] = `${getAppIcon(ws[i])}`;
-
-      ws[i].info.icon = icon;
+        ws[i].info.icon = icon;
+      }
     }
-  }
 
-  WindowStore.set(ws);
+    return ws;
+  });
 }
 
 export function getOriginalIcon(appId: string) {
@@ -34,21 +33,21 @@ export function resetAppIcon(appId: string) {
 
   if (!Originals[appId]) return;
 
-  const ws = get(WindowStore);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      if (ws[i].id == appId) {
+        ws[i].info.icon = Originals[appId];
 
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == appId) {
-      ws[i].info.icon = Originals[appId];
-
-      delete Originals[appId];
+        delete Originals[appId];
+      }
     }
-  }
 
-  WindowStore.set(ws);
+    return ws;
+  });
 }
 
 export function getAppIcon(app: App): string {
-  if (!app.info.builtin) return def;
+  if (!app.info.builtin) return UnknownIcon;
 
   return app.info.icon;
 }

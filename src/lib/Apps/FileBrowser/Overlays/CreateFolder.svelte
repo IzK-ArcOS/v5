@@ -1,22 +1,20 @@
 <script lang="ts">
-  import icon from "../../../../assets/apps/filemanager/folder.svg";
+  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
   import { createDirectory } from "../../../../ts/api/fs/directory";
   import {
     fbClass,
-    FileBrowserCurrentDir,
-    FileBrowserDirContents,
-    FileBrowserSelectedFilename,
+    fbState,
   } from "../../../../ts/applogic/apps/FileBrowser/main";
+  import { FolderIcon } from "../../../../ts/icon/general";
   import { hideOverlay } from "../../../../ts/window/overlay";
-  import "../../../../css/desktop/apps/filebrowser/overlays/mutator.css";
 
   let folderName = "";
 
   let exists = false;
 
   function updateExists() {
-    const directories = $FileBrowserDirContents.directories;
-    const files = $FileBrowserDirContents.files;
+    const directories = $fbState.dirContents.directories;
+    const files = $fbState.dirContents.files;
 
     for (let i = 0; i < directories.length; i++) {
       if (directories[i].name == folderName) return (exists = true);
@@ -30,9 +28,9 @@
   }
 
   async function create() {
-    await createDirectory(`${$FileBrowserCurrentDir}/${folderName}`);
+    await createDirectory(`${$fbState.currentDir}/${folderName}`);
 
-    FileBrowserSelectedFilename.set(folderName);
+    $fbState.selectedFilename = folderName;
 
     cancel();
 
@@ -46,7 +44,7 @@
 </script>
 
 <div class="fb-overlay-mutator-wrapper">
-  <div class="image"><img src={icon} alt="" /></div>
+  <div class="image"><img src={FolderIcon} alt="" /></div>
   <div>
     <p>Enter a name for the new folder:</p>
     <input type="text" bind:value={folderName} on:input={updateExists} />

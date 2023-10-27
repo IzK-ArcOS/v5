@@ -3,6 +3,7 @@ import { UserToken } from "../../userlogic/interfaces";
 import { apiCall, ConnectedServer } from "../main";
 import { Log } from "../../console";
 import { LogLevel } from "../../console/interface";
+import { toBase64 } from "../../base64";
 
 export async function copyItem(sourcePath: string, targetPath: string) {
   Log(
@@ -18,7 +19,7 @@ export async function copyItem(sourcePath: string, targetPath: string) {
   await apiCall(
     server,
     "fs/cp",
-    { path: btoa(sourcePath), target: btoa(targetPath) },
+    { path: toBase64(sourcePath), target: toBase64(targetPath) },
     get(UserToken)
   );
 

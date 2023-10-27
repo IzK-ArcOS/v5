@@ -22,6 +22,7 @@ export interface App {
   errorOverlays?: OverlayableError[];
   children?: { [key: string]: App };
   fileMimes?: string[];
+  fileExts?: string[];
   openedFile?: ArcFile;
   contextMenu?: AppContextMenu;
   disabledWarning?: { title: string; message: string };
@@ -58,6 +59,8 @@ export interface GeneralAppInfo {
   icon: string;
   custom?: boolean;
   appGroup?: string;
+  preloaded?: boolean;
+  requiresFile?: boolean;
 }
 
 export interface OverlayableAppInfo {

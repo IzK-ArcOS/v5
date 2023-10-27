@@ -46,8 +46,7 @@
   }
 
   button:hover {
-    color: var(--accent);
-    filter: var(--elevated-accent-filter);
+    color: var(--accent-light);
   }
 
   button:disabled {

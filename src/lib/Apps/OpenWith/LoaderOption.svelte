@@ -3,9 +3,9 @@
   import { OpenWithFile } from "../../../ts/applogic/apps/OpenWith";
   import { closeWindow } from "../../../ts/applogic/events";
   import type { App } from "../../../ts/applogic/interface";
+  import sleep from "../../../ts/sleep";
 
   export let loader: UserFileLoader;
-  export let file: ArcFile;
   export let selected = "";
   export let loaderOptions: UserFileLoader[];
   export let options: App[];
@@ -14,13 +14,14 @@
     selected = loader.name;
   }
 
-  function openThis() {
-    loader.loader(file);
+  async function openThis() {
+    loader.loader($OpenWithFile);
     /* 
     setTimeout(() => {
       OpenWithFile.set(null);
     }, 1000);
  */
+    await sleep(100);
     closeWindow("OpenWithApp");
 
     loaderOptions = [];

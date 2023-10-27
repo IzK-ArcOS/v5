@@ -7,6 +7,7 @@ import { DonutApp } from "../apps/Donut";
 import { ErrorCreator } from "../apps/ErrorCreator";
 import { Exit } from "../apps/Exit";
 import { FileBrowserApp } from "../apps/FileBrowser";
+import { IconLibrary } from "../apps/IconLibrary";
 import { ImageViewer } from "../apps/ImageViewer";
 import { LightsOff } from "../apps/LightsOff";
 import { LoggerApp } from "../apps/Logger";
@@ -15,6 +16,8 @@ import { MediaPlayerApp } from "../apps/MediaPlayer";
 import { MessagingApp } from "../apps/MessagingApp";
 import { OpenWithApp } from "../apps/OpenWith";
 import { TextEditor } from "../apps/TextEditor";
+import { TwentyFourtyEight } from "../apps/TwentyFourtyEight";
+import { UpdateNotice } from "../apps/UpdateNotice";
 import { ExperimentsApp } from "../apps/experiments";
 import { SettingsApp } from "../apps/settings";
 import { ArcShell } from "../apps/shell";
@@ -46,6 +49,9 @@ export const DefaultApps: { [key: string]: App } = {
   DesktopWallpaper,
   BugReports,
   ExperimentsApp,
+  UpdateNotice,
+  TwentyFourtyEight,
+  IconLibrary,
 };
 
 export const SystemApps: string[] = [

@@ -1,29 +1,38 @@
 import { get } from "svelte/store";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
+import { titleBarContextMenu } from "../contextmenu/titlebar";
 import { makeNotification } from "../notiflogic/main";
 import { UserData } from "../userlogic/interfaces";
 import { centerWindow } from "./center";
 import { isLoaded } from "./checks";
+import { SystemApps } from "./imports/store";
 import type { App } from "./interface";
 import { registerAppShortcuts } from "./keyboard/main";
 import { WindowStore, updateStores } from "./store";
-import { SystemApps } from "./imports/store";
-import { titleBarContextMenu } from "../contextmenu/titlebar";
 
 export function loadWindow(id: string, app: App) {
-  if (isLoaded(id))
-    return Log(
-      "AppLogic: loadWindow",
-      `Window ${id} already exists in WindowStore.`,
-      LogLevel.error
-    );
-
-  const ws = get(WindowStore);
   const data = { ...app, id };
   const children = getChildren(app, id);
   const userdata = get(UserData);
   const disabledList = userdata ? userdata.disabledApps : [];
+
+  if (isLoaded(id))
+    return Log(
+      "applogic/load.ts: loadWindow",
+      `Window ${id} already exists in WindowStore.`,
+      LogLevel.error
+    );
+
+  WindowStore.update((ws) => {
+    ws.push(data);
+
+    for (let i = 0; i < children.length; i++) {
+      ws.push(children[i]);
+    }
+
+    return ws;
+  });
 
   data.contextMenu = {
     ...data.contextMenu,
@@ -37,14 +46,6 @@ export function loadWindow(id: string, app: App) {
 
   if (disabledList.includes(id) && !SystemApps.includes(id))
     data.disabled = true;
-
-  ws.push(data);
-
-  for (let i = 0; i < children.length; i++) {
-    ws.push(children[i]);
-  }
-
-  WindowStore.set(ws);
 
   registerAppShortcuts(id, app);
 
@@ -61,7 +62,7 @@ export function loadWindow(id: string, app: App) {
     if (app.pos.centered) centerWindow(id);
   }, 300);
 
-  Log("AppLogic: loadWindow", `Loaded ${id} into WindowStore.`);
+  Log("applogic/load.ts: loadWindow", `Loaded ${id} into WindowStore.`);
 }
 
 export function getChildren(app: App, id: string) {
@@ -82,19 +83,20 @@ export function getChildren(app: App, id: string) {
 }
 
 export function unloadWindow(id: string) {
-  const ws = get(WindowStore);
-
-  for (let i = 0; i < ws.length; i++) {
-    if (ws[i].id == id) {
-      Log(
-        "AppLogic: unloadWindow",
-        `Unloading ${id} from WindowStore.`,
-        LogLevel.info
-      );
-      ws.splice(i, 1);
+  WindowStore.update((ws) => {
+    for (let i = 0; i < ws.length; i++) {
+      if (ws[i].id == id) {
+        Log(
+          "applogic/load.ts: unloadWindow",
+          `Unloading ${id} from WindowStore.`,
+          LogLevel.info
+        );
+        ws.splice(i, 1);
+      }
     }
-  }
 
-  WindowStore.set(ws);
+    return ws;
+  });
+
   updateStores();
 }

@@ -1,6 +1,7 @@
 import { AppList } from "./commands/applist";
 import { ArcFetch } from "./commands/arcfetch";
 import { ATConf } from "./commands/atconf";
+import { BgCommand } from "./commands/bg";
 import { BugRep } from "./commands/bugrep";
 import { Cd } from "./commands/cd";
 import { Clear } from "./commands/clear";
@@ -26,6 +27,7 @@ import { Ls } from "./commands/ls";
 import { Mkdir } from "./commands/mkdir";
 import { oa } from "./commands/oa";
 import { Open } from "./commands/open";
+import { Poke } from "./commands/poke";
 import { Read } from "./commands/read";
 import { Reload } from "./commands/reload";
 import { RepInfo } from "./commands/repinfo";
@@ -38,9 +40,12 @@ import { Run } from "./commands/run";
 import { Servers } from "./commands/servers";
 import { Set } from "./commands/set";
 import { Shutdown } from "./commands/shutdown";
+import { SleepCommand } from "./commands/sleep";
 import { SoundBusCommand } from "./commands/soundbus";
 import { StateCommand } from "./commands/state";
+import { SUD } from "./commands/sud";
 import { UDD } from "./commands/udd";
+import { UserAdd } from "./commands/useradd";
 import { Users } from "./commands/users";
 import { Vars } from "./commands/vars";
 import { Ver } from "./commands/ver";
@@ -82,6 +87,10 @@ export const arcCommands: CommandStore = [
   Goto,
   End,
   Goose,
+  UserAdd,
+  SUD,
+  SleepCommand,
+  BgCommand,
 ];
 
 /**
@@ -110,4 +119,6 @@ export const desktopSpecific: CommandStore = [
   oa,
   Open,
   Run,
+
+  Poke,
 ];

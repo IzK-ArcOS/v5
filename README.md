@@ -14,7 +14,7 @@ Welcome to the frontend for ArcOS! This repository is a rewrite of the original 
 
 To use ArcOS, you can use the current Electron implementation found in the [releases tab](https://github.com/IzK-ArcOS/ArcOS-Frontend/releases/). You can also manually compile the desktop application with **ArcOS Electron Compiler**. All information about building the Electron application is contained on [ArcOS Electron Compiler GitHub repository](https://github.com/IzK-ArcOS/ArcOS-Electron-Compiler) (currently in beta).
 
-It is also recommended to use the web frontend, found [here](https://web.izk-arcos.nl/).
+You can also use the web frontend, found [here](https://web.izk-arcos.nl/).
 
 If you want to compile the ArcOS frontend from the source, you may do so by following the steps of the [Getting Started](docs/Getting%20Started.md) page in the repository.
 
@@ -32,7 +32,8 @@ I want to thank all of these authors for providing their photos, images and othe
 | Wallpaper `img13` | SWHFotografie                                        | the Hague, the Netherlands                                                       |
 | Wallpaper `img14` | [@keesvv](https://github.com/keesvv)                 | Scheveningen, the Netherlands                                                    |
 | Wallpaper `img15` | [@matteoscaringi](https://github.com/matteoscaringi) | Corfu, Greece                                                                    |
-| Wallpaper `img17` | [@Blockyheadman](https://github.com/blockyheadman)  m| Fairfield Bay, US                                                                |
+| Wallpaper `img17` | [@Blockyheadman](https://github.com/blockyheadman)   | Fairfield Bay, US                                                                |
+| Wallpaper `img17` | [@Blockyheadman](https://github.com/blockyheadman)   | Fairfield Bay, US                                                                |
 | ArcOS Sounds      | @dragonlazer/@calligrafix                            | Original                                                                         |
 | Cursors           | [@PosyMusic](https://www.youtube.com/@PosyMusic)     | [Home > Other > Posy's improved cursors](http://www.michieldb.nl/other/cursors/) |
 

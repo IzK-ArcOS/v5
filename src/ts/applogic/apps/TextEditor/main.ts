@@ -43,7 +43,13 @@ export async function doLoadError(title: string, message: string) {
     {
       title: title,
       message: message,
-      buttons: [{ caption: "Close", action: () => closeWindow("TextEditor") }],
+      buttons: [
+        {
+          caption: "Close",
+          action: () => closeWindow("TextEditor"),
+          suggested: true,
+        },
+      ],
     },
     "TextEditor"
   );

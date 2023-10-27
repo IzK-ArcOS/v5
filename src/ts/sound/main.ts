@@ -51,7 +51,9 @@ export class SoundBus {
 
     this._bus[id].push(element);
 
-    element.onended = () => delete this._bus[id];
+    setTimeout(() => {
+      element.onended = () => delete this._bus[id];
+    }, 10);
 
     return true;
   }

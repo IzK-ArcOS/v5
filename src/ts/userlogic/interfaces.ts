@@ -6,10 +6,14 @@ export interface UserData {
     taskbar: {
       centered: boolean; //done
       labels: boolean; //done
-      pos: "vertical" | "" | "vertical-right";
+      pos: "vertical" | "" | "vertical-right" | "top" | string;
       docked: boolean; //done
       colored: boolean;
       isLauncher: boolean;
+      clockSecs: boolean;
+      clockDate: boolean;
+      clock12hr: boolean;
+      accentedStart: boolean;
     };
 
     window: {
@@ -29,10 +33,13 @@ export interface UserData {
       pinnedFolders: string[];
       pinnedFiles: string[];
       noCustomCursor: boolean;
+      noIconGrid: boolean;
+      lockIcons: boolean;
     };
 
     start: {
       small: boolean; //done
+      noGroups: boolean;
     };
 
     anim: boolean; //done
@@ -52,6 +59,7 @@ export interface UserData {
     enabled: boolean;
     admin: boolean;
     profilePicture: string | number | null;
+    loginBackground?: string;
   };
   volume: {
     level: number;

@@ -8,6 +8,8 @@ export const Users: Command = {
   async exec(cmd, argv, term) {
     term.std.Warning("Clearing [UserCache]!");
 
+    term.std.writeLine("\n");
+
     UserCache.clear();
 
     const users = (await getUsers()) as AllUsers;
@@ -30,5 +32,5 @@ function getMaxLength(users: string[]) {
     if (users[i].length > length) length = users[i].length;
   }
 
-  return length + 5;
+  return length + 2;
 }

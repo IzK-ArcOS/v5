@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import account from "../../../../assets/fts/account.svg";
   import { generateCredToken } from "../../../../ts/api/cred";
   import { loginUsingCreds } from "../../../../ts/api/getter";
   import { applyFTSState } from "../../../../ts/fts/main";
   import { getUsers } from "../../../../ts/userlogic/main";
   import Spinner from "../../../Spinner.svelte";
   import { Busy } from "../../../../ts/env/main";
+  import { AccountIcon } from "../../../../ts/icon/general";
 
   let username = "";
   let password = "";
@@ -53,7 +53,7 @@
 
 {#if !loading}
   <div class="header centered">
-    <img src={account} alt="Login" />
+    <img src={AccountIcon} alt="Login" />
     <h1>Who are you?</h1>
     <p class="subtitle">Let's get you logged in</p>
   </div>

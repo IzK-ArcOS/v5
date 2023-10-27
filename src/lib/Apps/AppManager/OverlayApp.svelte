@@ -1,7 +1,7 @@
 <script lang="ts">
-  import overlays from "../../../assets/apps/default.svg";
   import { isOpened } from "../../../ts/applogic/checks";
   import type { App, OverlayableApp } from "../../../ts/applogic/interface";
+  import { DefaultIcon } from "../../../ts/icon/apps";
 
   export let id: string;
   export let overlay: OverlayableApp;
@@ -12,7 +12,7 @@
   {#if overlay && isOpened(parent.id)}
     <div class="appinstance" class:closed={!overlay.show}>
       <div>
-        <img src={overlays} alt="" />
+        <img src={DefaultIcon} alt="" />
       </div>
       <div class="appname">{overlay.info.name}</div>
       <div class="id">

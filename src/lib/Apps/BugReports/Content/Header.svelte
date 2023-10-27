@@ -1,5 +1,5 @@
 <script lang="ts">
-  import icon from "../../../../assets/apps/filemanager/file.svg";
+  import { FileIcon } from "../../../../ts/icon/general";
   import type { Report } from "../../../../ts/reporting/interface";
   import { showOverlay } from "../../../../ts/window/overlay";
 
@@ -12,7 +12,7 @@
 </script>
 
 <div class="header">
-  <img src={icon} alt="" />
+  <img src={FileIcon} alt="" />
   <div>
     <h1 data-contextmenu="report-export" data-id={id}>
       {report.title || `Report from ${report.author}`}

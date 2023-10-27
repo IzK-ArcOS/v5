@@ -1,6 +1,5 @@
 import { get } from "svelte/store";
 import { applyState, CurrentState } from "../../state/main";
-import { States } from "../../state/store";
 import type { Command } from "../interface";
 
 export const StateCommand: Command = {
@@ -9,7 +8,7 @@ export const StateCommand: Command = {
     const state = argv.join(" ");
 
     if (!state) {
-      const s = get(CurrentState);
+      const s = CurrentState;
 
       return term.std.writeColor(
         `Current state: [${s.name}] (ArcOS.state.[${s.key}])`,
