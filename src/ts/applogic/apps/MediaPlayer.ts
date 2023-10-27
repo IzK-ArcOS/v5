@@ -19,7 +19,7 @@ export const MediaPlayerApp: App = {
   size: { w: 442, h: NaN },
   pos: { x: 100, y: 100 },
   minSize: { w: 442, h: 121 },
-  maxSize: { w: 442, h: 131 },
+  maxSize: { w: 442, h: NaN },
   controls: { min: true, max: false, cls: true },
   state: {
     headless: false,
