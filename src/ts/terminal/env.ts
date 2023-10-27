@@ -9,7 +9,7 @@ export class ArcTermEnv {
   config: ArcTermConfig;
   prompt = "[$username]: [~/$pwd] $ ";
   promptColor: Color = "green";
-  greeting = `ArcTerm & ArcOS v${ArcOSVersion}\n\nLicensed under GPLv3. Created by the ArcOS team.`;
+  greeting = `ArcTerm & ArcOS v$version\n\nLicensed under GPLv3. Created by the ArcOS team.`;
   logo: boolean = true;
   gooseBumps: boolean = false;
 

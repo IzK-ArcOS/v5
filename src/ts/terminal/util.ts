@@ -43,13 +43,7 @@ export class ArcTermUtil {
 
     ArcTermIntro(this.term);
 
-    const username = get(UserName);
-    const server = getServer();
-    const path = (this.term.path || "./").replace("./", "");
-    const out = this.term.env.greeting
-      .replace("&u", username)
-      .replace("&s", server)
-      .replace("&p", path);
+    const out = this.term.vars.replace(this.term.env.greeting);
 
     this.term.std.writeColor(`${out}\n\n`, this.term.env.promptColor as Color);
   }
