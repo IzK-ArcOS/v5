@@ -42,7 +42,9 @@ export async function deleteUser() {
 
   if (!server) return;
 
-  apiCall(server, "user/delete", {}, token);
+  await apiCall(server, "user/delete", {}, token);
+
+  localStorage.removeItem("arcos-remembered-token");
 
   if (CurrentState.name == "Desktop") restart();
 }
