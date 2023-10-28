@@ -49,20 +49,6 @@ export async function deleteUser() {
   if (CurrentState.name == "Desktop") restart();
 }
 
-export async function getUserdata(name: string) {
-  Log(
-    "userlogic/main.ts: getUserdata",
-    `Getting userdata for "${name}"`,
-    LogLevel.info
-  );
-
-  const users = await getUsers();
-
-  if (users[name]) return users[name];
-
-  return;
-}
-
 export async function setUserdata(data: UserData): Promise<boolean> {
   const server = get(ConnectedServer);
 
