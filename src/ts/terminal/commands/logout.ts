@@ -15,5 +15,5 @@ export const Logout: Command = {
       term.initialize();
     });
   },
-  description: "Logout ArcTerm Mode",
+  description: "Logout ArcOS",
 };
