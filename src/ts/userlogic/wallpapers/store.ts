@@ -24,6 +24,9 @@ import img25 from "../../../assets/bg/img25.jpg";
 import img26 from "../../../assets/bg/img26.jpg";
 import img27 from "../../../assets/bg/img27.jpg";
 import img28 from "../../../assets/bg/img28.jpg";
+import img29 from "../../../assets/bg/img29.png";
+import img30 from "../../../assets/bg/img30.jpg";
+import img31 from "../../../assets/bg/img31.jpg";
 import type { Wallpaper } from "./interface";
 
 export const Wallpapers: { [key: string]: Wallpaper } = {
@@ -141,6 +144,21 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     source: "Corfu, Greece",
   },
   /**Izaak Kuipers */
+  img29: {
+    url: img29,
+    author: "Computer Clan",
+    name: "Connections",
+  },
+  img30: {
+    url: img30,
+    author: "Computer Clan",
+    name: "Blades",
+  },
+  img31: {
+    url: img31,
+    author: "Computer Clan",
+    name: "Flaming Peddles",
+  },
   img06: { url: img06, author: "Izaak Kuipers", name: "ArcOS Beta Dark" },
   img07: { url: img07, author: "Izaak Kuipers", name: "ArcOS Beta Light" },
   /* img09: { url: img09, author: "Unknown", name: "Login Background" }, */
