@@ -143,7 +143,7 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     name: "Login Background - Blurred",
     source: "Corfu, Greece",
   },
-  /**Izaak Kuipers */
+  /**Computer Clan */
   img29: {
     url: img29,
     author: "Computer Clan",
@@ -159,6 +159,7 @@ export const Wallpapers: { [key: string]: Wallpaper } = {
     author: "Computer Clan",
     name: "Flaming Peddles",
   },
+  /**Izaak Kuipers */
   img06: { url: img06, author: "Izaak Kuipers", name: "ArcOS Beta Dark" },
   img07: { url: img07, author: "Izaak Kuipers", name: "ArcOS Beta Light" },
   /* img09: { url: img09, author: "Unknown", name: "Login Background" }, */
