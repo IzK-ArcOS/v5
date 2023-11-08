@@ -10,12 +10,21 @@
     versionBigger,
   } from "../../../../updates/main";
   import { ArcOSVersion } from "../../../../ts/env/main";
+  import { Log } from "../../../../ts/console";
+  import { LogLevel } from "../../../../ts/console/interface";
 
   let checking = true;
   let release: Version = [0, 0, 0];
 
   onMount(async () => {
-    if (!DESKTOP_MODE) return applyFTSState("license");
+    if (DESKTOP_MODE !== "desktop") {
+      Log(
+        "FirstTimeSetup: Update",
+        'Not checking for updates: DESKTOP_MODE is not "desktop".',
+        LogLevel.warn
+      );
+      return applyFTSState("license");
+    }
 
     release = await getLatestVersion();
     const version = parseVersion(ArcOSVersion);
@@ -33,6 +42,10 @@
 
     window.open(RELEASE_URL, "_blank");
   }
+
+  function skip() {
+    applyFTSState("license");
+  }
 </script>
 
 <div class="center-flex">
@@ -47,6 +60,9 @@
       <h1 class="center-header">Update available</h1>
       <p class="center">ArcOS version {release.join(".")} is available.</p>
       <button on:click={update}>Download</button>
+      <button class="centered flat" on:click={skip}>
+        Continue with {ArcOSVersion}
+      </button>
     </div>
   {/if}
 </div>
