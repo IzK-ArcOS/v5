@@ -7,12 +7,14 @@
   export let runtime: AppRuntime;
 </script>
 
-<div class="body">
-  <svelte:component
-    this={app.content}
-    {app}
-    {runtime}
-    appdata={$UserData ? $UserData.appdata[app.id] || {} : {}}
-  />
-  <slot />
-</div>
+{#if ((!app.runtime ? true : runtime) && (app.opened || app.core || app.info.preloaded)) || (app && app.id.startsWith("error_"))}
+  <div class="body">
+    <svelte:component
+      this={app.content}
+      {app}
+      {runtime}
+      appdata={$UserData ? $UserData.appdata[app.id] || {} : {}}
+    />
+    <slot />
+  </div>
+{/if}

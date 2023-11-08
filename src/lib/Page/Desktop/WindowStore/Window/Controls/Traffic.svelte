@@ -8,6 +8,8 @@
   export let min: () => void;
   export let max: () => void;
   export let cls: () => void;
+
+  export let canMax: boolean;
 </script>
 
 <button
@@ -24,7 +26,7 @@
 <button
   class="traffic-max reset"
   on:click={max}
-  disabled={!app.controls.max || isBoot}
+  disabled={!app.controls.max || isBoot || !canMax}
 />
 
 <style scoped>

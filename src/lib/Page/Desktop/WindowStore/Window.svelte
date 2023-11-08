@@ -1,17 +1,16 @@
 <script lang="ts">
   import { DragEventData, draggable } from "@neodrag/svelte";
   import { onMount } from "svelte";
+  import { isDisabled } from "../../../../ts/applogic/checks";
   import { generateCSS } from "../../../../ts/applogic/css";
   import type { App } from "../../../../ts/applogic/interface";
   import type { AppRuntime } from "../../../../ts/applogic/runtime/main";
   import { WindowStore, focusedWindowId } from "../../../../ts/applogic/store";
   import { ArcSoundBus } from "../../../../ts/sound/main";
   import { UserData } from "../../../../ts/userlogic/interfaces";
-  import OverlayableErrorWindow from "./OverlayableErrorWindow.svelte";
-  import OverlayableWindow from "./OverlayableWindow.svelte";
   import Content from "./Window/Content.svelte";
+  import Overlays from "./Window/Overlays.svelte";
   import Titlebar from "./Window/Titlebar.svelte";
-  import { isDisabled } from "../../../../ts/applogic/checks";
 
   export let app: App = null;
   export let visible = false;
@@ -114,26 +113,9 @@
     <div class="accent" />
 
     <Titlebar {app} bind:exttransition bind:titlebar {isBoot} />
-    {#if ((!app.runtime ? true : runtime) && (app.opened || app.core || app.info.preloaded)) || (app && app.id.startsWith("error_"))}
-      <Content {app} {runtime}>
-        <slot />
-      </Content>
-    {/if}
-    {#if app && app.overlays && (!app.runtime ? true : runtime)}
-      {#each Object.entries(app.overlays) as overlay}
-        <OverlayableWindow
-          {runtime}
-          {app}
-          overlay={overlay[1]}
-          id={overlay[0]}
-        />
-      {/each}
-    {/if}
-
-    {#if app && app.errorOverlays}
-      {#each app.errorOverlays as error}
-        <OverlayableErrorWindow {error} {app} />
-      {/each}
-    {/if}
+    <Content {app} {runtime}>
+      <slot />
+    </Content>
+    <Overlays {app} {runtime} />
   </window>
 {/if}

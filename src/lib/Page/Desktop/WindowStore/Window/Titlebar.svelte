@@ -2,7 +2,8 @@
   import { closeWindow } from "../../../../../ts/applogic/events";
   import { getAppIcon } from "../../../../../ts/applogic/icon";
   import type { App } from "../../../../../ts/applogic/interface";
-  import { updateStores } from "../../../../../ts/applogic/store";
+  import { canMaximize } from "../../../../../ts/applogic/maximize";
+  import { WindowStore, updateStores } from "../../../../../ts/applogic/store";
   import { closeError } from "../../../../../ts/errorlogic/main";
   import { UserData } from "../../../../../ts/userlogic/interfaces";
   import { titlebarButtons } from "../../../../../ts/window/titlebar/store";
@@ -12,6 +13,14 @@
   export let titlebar: HTMLDivElement;
   export let app: App;
   export let isBoot = false;
+
+  let canMax = true;
+
+  WindowStore.subscribe(() => {
+    if (!app) return;
+
+    canMax = canMaximize(app);
+  });
 
   function min() {
     app.state.windowState.min = !app.state.windowState.min;
@@ -72,9 +81,10 @@
         {max}
         {app}
         {isBoot}
+        {canMax}
       />
     {:else}
-      <Default {app} {cls} {min} {max} {isBoot} />
+      <Default {app} {cls} {min} {max} {isBoot} {canMax} />
     {/if}
   </div>
 </div>
