@@ -41,6 +41,15 @@ export async function apiCall(
 
   const statusCode = req.status;
 
+  if (statusCode == 429) {
+    manualCrash(
+      "ts/api/main.ts",
+      `Rate limited! This should not happen on its own.`
+    );
+
+    return {};
+  }
+
   const txt = await req.text();
 
   if (statusCode == 500) {
