@@ -68,7 +68,7 @@ export async function testConnection(
   Log(
     "api/test.ts: testConnection",
     `Can't connect to server ${server}: none of the modes match`,
-    CurrentState.key != "fts" ? LogLevel.critical : LogLevel.error
+    /* CurrentState.key != "fts" ? LogLevel.critical :  */ LogLevel.error
   );
 
   return false;
