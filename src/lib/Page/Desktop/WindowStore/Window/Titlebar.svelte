@@ -1,6 +1,5 @@
 <script lang="ts">
   import { closeWindow } from "../../../../../ts/applogic/events";
-  import { getAppIcon } from "../../../../../ts/applogic/icon";
   import type { App } from "../../../../../ts/applogic/interface";
   import { canMaximize } from "../../../../../ts/applogic/maximize";
   import { WindowStore, updateStores } from "../../../../../ts/applogic/store";
@@ -8,6 +7,7 @@
   import { UserData } from "../../../../../ts/userlogic/interfaces";
   import { titlebarButtons } from "../../../../../ts/window/titlebar/store";
   import Default from "./Controls/Default.svelte";
+  import Title from "./TitleBar/Title.svelte";
 
   export let exttransition = false;
   export let titlebar: HTMLDivElement;
@@ -65,13 +65,7 @@
   data-contextmenu="window-titlebar"
   data-appid={app.id}
 >
-  <div class="centeredtitle">{app.info.name}{app.info.titleSuffix || ""}</div>
-  <p class="title">
-    <img class="icon" src={getAppIcon(app)} alt={app.info.name} />
-    <span>
-      {app.info.name}{app.info.titleSuffix || ""}
-    </span>
-  </p>
+  <Title {app} />
   <div class="controls">
     {#if $UserData && $UserData.sh.window.buttons}
       <svelte:component

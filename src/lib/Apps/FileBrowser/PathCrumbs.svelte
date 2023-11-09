@@ -8,7 +8,7 @@
     crumbs = v.currentDir.split("/");
   });
 
-  function home() {
+  function topMost() {
     fbClass.goToDirectory("./");
   }
 
@@ -25,7 +25,7 @@
 
 <button
   class="home material-icons-round"
-  on:click={home}
+  on:click={topMost}
   disabled={$fbState.refreshing ||
     ($fbState.currentDir == "./" && !$fbState.home)}
 >

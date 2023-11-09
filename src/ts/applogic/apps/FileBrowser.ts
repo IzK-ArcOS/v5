@@ -35,7 +35,7 @@ export const FileBrowserApp: App = {
         v.home = true;
         return v;
       });
-      await fbClass.goToDirectory("./", false);
+      /* await fbClass.goToDirectory("./", false); */
     },
   },
 };
