@@ -50,8 +50,6 @@ export async function apiCall(
     return {};
   }
 
-  const txt = await req.text();
-
   if (statusCode == 500) {
     manualCrash(
       "ts/api/main.ts",
@@ -68,6 +66,8 @@ export async function apiCall(
   ) {
     return { statusCode, valid: false };
   }
+
+  const txt = await req.text();
 
   if (!noBody) {
     try {
