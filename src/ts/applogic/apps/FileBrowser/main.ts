@@ -19,6 +19,7 @@ import {
   OpenCancelled,
 } from "./error";
 import type { FileManagerState } from "./interface";
+import { setTitleSuffix } from "../../title";
 
 export const fbState = writable<FileManagerState>({
   currentDir: "./",
@@ -85,7 +86,7 @@ class FileBrowserClass {
     Log("FileBrowser: goToDirectory", `Navigating to "${path}"`);
 
     fbState.update((state) => {
-      state.selectedFilename;
+      state.selectedFilename = null;
       state.currentDir = path;
 
       ArcSoundBus.playSound("arcos.click");
@@ -94,6 +95,8 @@ class FileBrowserClass {
 
       return state;
     });
+
+    setTitleSuffix(` - ${path}`, `FileManager`);
 
     await this.refresh();
   }
