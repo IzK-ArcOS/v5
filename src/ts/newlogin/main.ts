@@ -34,38 +34,6 @@ export class Login {
     if (doOnMount) this.onMount();
   }
 
-  private updateLoginBackground(v?: AllUsers) {
-    v = v || get(this.UserCache);
-
-    if (!v) return this.userBackground.set("img15");
-
-    const username = get(this.UserName);
-    const user = v[username];
-
-    console.log("Updating UserLoginBackground", username, user);
-
-    if (!user || !user.acc || !user.acc.loginBackground)
-      return this.userBackground.set("img15");
-
-    this.userBackground.set(user.acc.loginBackground);
-  }
-
-  navigate(state: string, fromInit = false) {
-    if (!this._states.has(state) && !fromInit) {
-      if (!fromInit) return this.navigate(this._defaultState);
-
-      return Log(
-        "newlogin/main.ts: Login.navigate",
-        `Can't use non-existent initial state ${this._defaultState}!`,
-        LogLevel.critical
-      );
-    }
-
-    Log("newlogin/main.ts: Login.navigate", `Navigating to ${state}`);
-
-    this.CurrentState.set(this._states.get(state));
-  }
-
   private async onMount() {
     const allUsers = await getUsers();
     const remembered = localStorage.getItem("arcos-remembered-token");
@@ -107,6 +75,22 @@ export class Login {
     this.proceed(userdata, username);
   }
 
+  private updateLoginBackground(v?: AllUsers) {
+    v = v || get(this.UserCache);
+
+    if (!v) return this.userBackground.set("img15");
+
+    const username = get(this.UserName);
+    const user = v[username];
+
+    console.log("Updating UserLoginBackground", username, user);
+
+    if (!user || !user.acc || !user.acc.loginBackground)
+      return this.userBackground.set("img15");
+
+    this.userBackground.set(user.acc.loginBackground);
+  }
+
   public async Authenticate(username: string, password: string) {
     const token = toBase64(`${username}:${password}`);
     const userdata = await loginUsingCreds(token);
@@ -119,10 +103,6 @@ export class Login {
     this.setUser(username);
 
     return userdata;
-  }
-
-  public setUser(username: string) {
-    this.UserName.set(username);
   }
 
   public async proceed(userdata: Object, username: string, delay = 1500) {
@@ -139,5 +119,25 @@ export class Login {
     await sleep(delay);
 
     applyState("desktop");
+  }
+
+  public setUser(username: string) {
+    this.UserName.set(username);
+  }
+
+  navigate(state: string, fromInit = false) {
+    if (!this._states.has(state) && !fromInit) {
+      if (!fromInit) return this.navigate(this._defaultState);
+
+      return Log(
+        "newlogin/main.ts: Login.navigate",
+        `Can't use non-existent initial state ${this._defaultState}!`,
+        LogLevel.critical
+      );
+    }
+
+    Log("newlogin/main.ts: Login.navigate", `Navigating to ${state}`);
+
+    this.CurrentState.set(this._states.get(state));
   }
 }
