@@ -4,7 +4,6 @@ import { ConnectedServer } from "../api/main";
 import { fromBase64, toBase64 } from "../base64";
 import { Log } from "../console";
 import { LogLevel } from "../console/interface";
-import { applyLoginState } from "../login/main";
 import sleep from "../sleep";
 import type { State } from "../state/interfaces";
 import { applyState } from "../state/main";
@@ -98,7 +97,7 @@ export class Login {
     const userdata = await loginUsingCreds(remembered);
 
     if (!userdata) {
-      applyLoginState("selector");
+      this.navigate("selector");
 
       localStorage.removeItem("arcos-remembered-token");
 
