@@ -83,8 +83,6 @@ export class Login {
     const username = get(this.UserName);
     const user = v[username];
 
-    console.log("Updating UserLoginBackground", username, user);
-
     if (!user || !user.acc || !user.acc.loginBackground)
       return this.userBackground.set("img15");
 

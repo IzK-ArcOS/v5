@@ -1,12 +1,18 @@
 <script lang="ts">
   import { getServer } from "../ts/api/server";
 
-  export let api = "";
+  export let api = getServer();
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <span class="reveal">
-  <span class="api">{api || getServer() || location.hostname}</span>
+  <span class="api">
+    {#if api}
+      {api || "(Not connected)"}
+    {:else}
+      <slot />
+    {/if}
+  </span>
   <span class="placeholder" />
 </span>
 

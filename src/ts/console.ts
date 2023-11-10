@@ -2,8 +2,19 @@ import dayjs from "dayjs";
 import { writable } from "svelte/store";
 import { LogLevel, LogLevelData, type LogItem } from "./console/interface";
 import { sendReport } from "./reporting/main";
+import { ARCOS_MODE } from "./branding";
 
 export const LogStore = writable<LogItem[]>([]);
+export const CurrentLogItem = writable<LogItem>({
+  level: LogLevel.info,
+  source: "Console",
+  msg: "Idle",
+});
+
+CurrentLogItem.subscribe((v) => {
+  if (ARCOS_MODE != "development") return;
+  document.title = `ArcOS | ${v.source} - ${v.msg}`;
+});
 
 export function Log(source: string, msg: string, level = LogLevel.info) {
   const data: LogItem = { source, msg, level };
@@ -15,6 +26,8 @@ export function Log(source: string, msg: string, level = LogLevel.info) {
 
   LogStore.update((currentLog) => {
     currentLog.push(data);
+
+    CurrentLogItem.set(data);
 
     return currentLog;
   });

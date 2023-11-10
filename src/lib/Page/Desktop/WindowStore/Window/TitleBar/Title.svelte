@@ -9,7 +9,6 @@
   let caption = "%title";
 
   function update() {
-    console.log(`${app.id}: Updating`, app.info);
     caption = `${app.info.name}${app.info.titleSuffix || ""}`;
   }
 
