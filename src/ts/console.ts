@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
 import { writable } from "svelte/store";
+import { ARCOS_MODE } from "./branding";
 import { LogLevel, LogLevelData, type LogItem } from "./console/interface";
 import { sendReport } from "./reporting/main";
-import { ARCOS_MODE } from "./branding";
 
 export const LogStore = writable<LogItem[]>([]);
 export const CurrentLogItem = writable<LogItem>({

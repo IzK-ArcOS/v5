@@ -135,7 +135,7 @@ export function createErrorAppData(data: ErrorMessage) {
 
     if (!el)
       return Log(
-        "ErrorLogic: createErrorAppData",
+        "errorlogic/main.ts: createErrorAppData",
         `Can't bring window ${error.id} to front, no associated element could be found.`,
         LogLevel.error
       );
