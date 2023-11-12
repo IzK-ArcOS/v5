@@ -1,11 +1,13 @@
 import App from "./App.svelte";
 import { migrateToMulti } from "./ts/api/server";
+import { injectExposedAPIs } from "./ts/applogic/sideloading/inject";
 import { Log } from "./ts/console";
 import { LogLevel } from "./ts/console/interface";
 import { preventAnchorRedirects } from "./ts/ui/anchor";
 
 migrateToMulti();
 preventAnchorRedirects();
+injectExposedAPIs();
 
 document.addEventListener("contextmenu", (e) => e.preventDefault());
 

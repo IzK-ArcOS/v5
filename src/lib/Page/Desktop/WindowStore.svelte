@@ -1,6 +1,8 @@
 <script lang="ts">
   import app from "../../../main";
+  import { isOpened } from "../../../ts/applogic/checks";
   import type { App } from "../../../ts/applogic/interface";
+  import { SideloadedStore } from "../../../ts/applogic/sideloading/store";
 
   import {
     focusedWindowId,
@@ -11,6 +13,7 @@
     WindowStore,
   } from "../../../ts/applogic/store";
   import { getWindowElement } from "../../../ts/window/main";
+  import SideloadedWindow from "./WindowStore/SideloadedWindow.svelte";
   import Window from "./WindowStore/Window.svelte";
 
   let oa: App[] = [];
@@ -62,7 +65,11 @@
 <div class="winstore">
   {#each oa as app}
     {#if app}
-      <Window {app} />
+      {#if app.sideloaded}
+        <SideloadedWindow tag={app.id} {app} />
+      {:else}
+        <Window {app} />
+      {/if}
     {/if}
   {/each}
 </div>

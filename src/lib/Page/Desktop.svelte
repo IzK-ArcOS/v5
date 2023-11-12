@@ -32,6 +32,8 @@
   import ErrorDialogStore from "./Desktop/ErrorDialogStore.svelte";
   import WindowStore from "./Desktop/WindowStore.svelte";
   import { darkenColor, invertColor, lightenColor } from "../../ts/color";
+  import { Sideload } from "../../ts/applogic/sideloading/main";
+  import { DefaultIcon } from "../../ts/icon/apps";
 
   let classes = "";
   let accent = "";

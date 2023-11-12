@@ -47,7 +47,7 @@ export function resetAppIcon(appId: string) {
 }
 
 export function getAppIcon(app: App): string {
-  if (!app.info.builtin) return UnknownIcon;
+  //if (!app.info.builtin) return UnknownIcon;
 
   return app.info.icon;
 }

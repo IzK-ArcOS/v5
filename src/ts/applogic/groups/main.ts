@@ -9,8 +9,9 @@ export function getAppGroups(): {
   rest: string[];
 } {
   const ws = get(WindowStore);
-  let result: CompiledAppGroupStore = {};
   const grouped = [];
+
+  let result: CompiledAppGroupStore = {};
   let rest = [];
 
   for (let i = 0; i < ws.length; i++) {

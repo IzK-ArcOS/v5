@@ -19,11 +19,9 @@ import {
 export function openWindow(id: string, openChild = false) {
   Log("events.ts: openWindow", `Opening ${id}`);
 
-  if (isDisabled(id)) return;
-
   const window = getWindow(id);
 
-  if (window && window.core) return;
+  if (isDisabled(id) || (window && window.core)) return;
 
   const el = getWindowElement(window);
 
