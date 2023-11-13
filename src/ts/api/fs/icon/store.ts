@@ -1,5 +1,6 @@
 import { ArcTermIcon, MarkDownViewerIcon } from "../../../icon/apps";
 import { ThemesIcon } from "../../../icon/general";
+import { LoadAppModuleIcon } from "../../../icon/handlers";
 import {
   ArcAppMimeIcon,
   AudioMimeIcon,
@@ -56,5 +57,9 @@ export const extensionIcons: ExtMimes = [
   {
     extensions: ["arcterm.conf"],
     image: ArcTermIcon,
+  },
+  {
+    extensions: [".appmod"],
+    image: LoadAppModuleIcon,
   },
 ];

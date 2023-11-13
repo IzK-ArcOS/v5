@@ -4,7 +4,10 @@ import openInNewIcon from "../../../../assets/handlers/openinnew.svg";
 import pdfOpenerIcon from "../../../../assets/handlers/pdfopener.svg";
 import experimentsIcon from "../../../../assets/update.svg";
 import { openWindow } from "../../../applogic/events";
+import { Sideload } from "../../../applogic/sideloading/main";
 import { errorMessage } from "../../../errorlogic/main";
+import { LoadAppModuleIcon } from "../../../icon/handlers";
+import { tryParse } from "../../../json";
 import type { UserTheme } from "../../../userlogic/themes/interface";
 import { loadTheme, verifyTheme } from "../../../userlogic/themes/main";
 import type { UserFileLoader } from "../../interface";
@@ -12,6 +15,22 @@ import { arrayToBlob, arrayToText } from "../file/conversion";
 import { openWith } from "./main";
 
 export const FileLoaders: { [key: string]: UserFileLoader } = {
+  loadAppModule: {
+    name: "Load App",
+    description: "Experimental: load app module",
+    loader: (file) => {
+      if (!file) return;
+
+      const text = arrayToText(file.data);
+      const json = tryParse(text);
+
+      if (typeof json != "object" || !json.tag || !json.module) return;
+
+      Sideload({ ...json });
+    },
+    icon: LoadAppModuleIcon,
+    extensions: [".appmod"],
+  },
   pdfOpener: {
     name: "Open In New Tab",
     description: "Open a PDF file in a new browser tab",
