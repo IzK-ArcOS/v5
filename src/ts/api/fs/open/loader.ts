@@ -1,104 +1,16 @@
-import textEditorIcon from "../../../../assets/apps/apppoker.svg";
-import loadThemeIcon from "../../../../assets/handlers/loadtheme.svg";
-import openInNewIcon from "../../../../assets/handlers/openinnew.svg";
-import pdfOpenerIcon from "../../../../assets/handlers/pdfopener.svg";
-import experimentsIcon from "../../../../assets/update.svg";
-import { openWindow } from "../../../applogic/events";
-import { Sideload } from "../../../applogic/sideloading/main";
-import { errorMessage } from "../../../errorlogic/main";
-import { LoadAppModuleIcon } from "../../../icon/handlers";
-import { tryParse } from "../../../json";
-import type { UserTheme } from "../../../userlogic/themes/interface";
-import { loadTheme, verifyTheme } from "../../../userlogic/themes/main";
 import type { UserFileLoader } from "../../interface";
-import { arrayToBlob, arrayToText } from "../file/conversion";
-import { openWith } from "./main";
+import appmod from "./loader/appmod";
+import download from "./loader/download";
+import edit from "./loader/edit";
+import experiments from "./loader/experiments";
+import loadtheme from "./loader/loadtheme";
+import pdf from "./loader/pdf";
 
 export const FileLoaders: { [key: string]: UserFileLoader } = {
-  loadAppModule: {
-    name: "Load App",
-    description: "Experimental: load app module",
-    loader: (file) => {
-      if (!file) return;
-
-      const text = arrayToText(file.data);
-      const json = tryParse(text);
-
-      if (typeof json != "object" || !json.tag || !json.module) return;
-
-      Sideload({ ...json });
-    },
-    icon: LoadAppModuleIcon,
-    extensions: [".appmod"],
-  },
-  pdfOpener: {
-    name: "Open In New Tab",
-    description: "Open a PDF file in a new browser tab",
-    icon: pdfOpenerIcon,
-    loader: (file) => {
-      const f = arrayToBlob(file.data, "application/pdf");
-
-      window.open(URL.createObjectURL(f), "_blank");
-    },
-    extensions: [".pdf"],
-  },
-  experiments: {
-    name: "Experiments",
-    description: "Spooky spooky experiments",
-    extensions: [".experiments"],
-    icon: experimentsIcon,
-    loader: () => {
-      openWindow("ExperimentsApp");
-    },
-  },
-  loadTheme: {
-    name: "Load theme file",
-    description: "Apply theme file to ArcOS",
-    loader: (file) => {
-      const str = arrayToText(file.data);
-
-      let json;
-
-      try {
-        json = JSON.parse(str);
-      } catch {
-        json = false;
-      }
-
-      if (!json || !verifyTheme(json))
-        return errorMessage(
-          "Unable to load theme",
-          "The theme file is invalid, or it could not be parsed. Please make sure you are trying to load a theme, and then try again.",
-          loadThemeIcon,
-          null,
-          { caption: "Okay", action() {}, suggested: true }
-        );
-
-      loadTheme(json as UserTheme);
-    },
-    icon: loadThemeIcon,
-    extensions: [".arctheme"],
-  },
-  editFile: {
-    name: "Edit config file",
-    description: "Open file in Text Editor",
-    icon: textEditorIcon,
-    loader(file) {
-      openWith("TextEditor", file, true);
-    },
-    extensions: [".conf"],
-  },
-  openInNew: {
-    name: "Download",
-    description: "Open file in a new tab to download it",
-    loader: (file) => {
-      if (!file) return;
-
-      const f = arrayToBlob(file.data, file.mime.split(";")[0]);
-
-      window.open(URL.createObjectURL(f), "_blank");
-    },
-    icon: openInNewIcon,
-    extensions: [],
-  },
+  appmod,
+  download,
+  edit,
+  experiments,
+  loadtheme,
+  pdf,
 };
