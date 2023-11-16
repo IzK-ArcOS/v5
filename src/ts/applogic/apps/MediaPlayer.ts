@@ -37,11 +37,6 @@ export const MediaPlayerApp: App = {
   ],
   events: {
     open: (app: App) => {
-      /*  if (!app.openedFile) {
-        disposeTrayIcon("MediaPlayerApp");
-        return closeWindow("MediaPlayerApp");
-      } */
-
       createTrayIcon({
         onOpen() {
           openWindow("MediaPlayerApp");
