@@ -1,4 +1,6 @@
+import { partialFileToComplete } from "../../../api/fs/convert";
 import { deleteItem } from "../../../api/fs/delete";
+import { DownloadFile } from "../../../api/fs/download";
 import { getPartialFile } from "../../../api/fs/file";
 import { getParentDirectory } from "../../../api/fs/main";
 import {
@@ -10,7 +12,8 @@ import { isFilePinned, pinFile, unpinFile } from "../../../api/fs/pins/file";
 import { SEP_ITEM } from "../../../contextmenu/main";
 import { createOverlayableError } from "../../../errorlogic/overlay";
 import { TrashIcon } from "../../../icon/general";
-import { showOverlay } from "../../../window/overlay";
+import { OpenInNewIcon } from "../../../icon/handlers";
+import { hideOverlay, showOverlay } from "../../../window/overlay";
 import type { App, AppContextMenu } from "../../interface";
 import { fbClass, fbState } from "./main";
 
@@ -108,6 +111,29 @@ export const FileManagerContextMenu: AppContextMenu = {
         if (!partial) return;
 
         fbClass.openFile(partial);
+      },
+    },
+    {
+      image: OpenInNewIcon,
+      caption: "Download",
+      action: async (_: App, data: DOMStringMap) => {
+        if (!data || !data.path) return;
+
+        showOverlay("openingFile", "FileManager");
+
+        const partial = await getPartialFile(data.path);
+
+        if (!partial) return;
+
+        fbClass.setOpeningFile(partial);
+        showOverlay("openingFile", "FileManager");
+
+        const full = await partialFileToComplete(partial);
+
+        DownloadFile(full);
+
+        fbClass.setOpeningFile(null);
+        hideOverlay("openingFile", "FileManager");
       },
     },
     SEP_ITEM,

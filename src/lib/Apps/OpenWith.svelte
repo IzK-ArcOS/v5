@@ -60,9 +60,9 @@
       for (let i = 0; i < loaderOptions.length; i++) {
         if (loaderOptions[i].name == selected)
           loaderOptions[i].loader($OpenWithFile);
-
-        $OpenWithFile = null;
       }
+
+      $OpenWithFile = null;
     }
 
     setTimeout(() => {
@@ -97,13 +97,7 @@
       {/if}
       <p class="category">Handlers</p>
       {#each loaderOptions as loader}
-        <LoaderOption
-          {loader}
-          file={$OpenWithFile}
-          bind:loaderOptions
-          bind:options
-          bind:selected
-        />
+        <LoaderOption {loader} bind:loaderOptions bind:options bind:selected />
       {/each}
       {#if !loaderOptions.length}
         <p class="noitems">No handlers found</p>

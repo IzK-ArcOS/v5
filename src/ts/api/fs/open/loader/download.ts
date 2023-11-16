@@ -1,16 +1,14 @@
 import { OpenInNewIcon } from "../../../../icon/handlers";
 import type { UserFileLoader } from "../../../interface";
-import { arrayToBlob } from "../../file/conversion";
+import { DownloadFile } from "../../download";
 
 const loader: UserFileLoader = {
   name: "Download",
   description: "Open file in a new tab to download it",
-  loader: (file) => {
-    if (!file) return;
+  loader: async (file) => {
+    if (!file) return console.log(file);
 
-    const f = arrayToBlob(file.data, file.mime.split(";")[0]);
-
-    window.open(URL.createObjectURL(f), "_blank");
+    DownloadFile(file);
   },
   icon: OpenInNewIcon,
   extensions: [],
