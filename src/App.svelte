@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { get } from "svelte/store";
   import "./css/main.css";
   import BugReport from "./lib/BugReport.svelte";
   import { logoffToken } from "./ts/api/cred";
@@ -11,10 +10,10 @@
   import { DESKTOP_MODE, getDesktopMode } from "./ts/desktop/app";
   import { ArcOSVersion, Busy } from "./ts/env/main";
   import { CRASHING, handleWindowError } from "./ts/reporting/crash";
-  import { applyState, CurrentState } from "./ts/state/main";
-  import { committingUserData } from "./ts/userlogic/main";
-  import { onStateChange } from "./ts/state/watch";
   import type { State } from "./ts/state/interfaces";
+  import { applyState, CurrentState } from "./ts/state/main";
+  import { onStateChange } from "./ts/state/watch";
+  import { committingUserData } from "./ts/userlogic/main";
 
   let run = false;
   let logo = "";
