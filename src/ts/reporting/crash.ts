@@ -48,7 +48,7 @@ export function handleWindowError(
   )
     return Log(
       "reporting/crash.ts: handleWindowError",
-      `Not making a report for ${rejection.reason.name}`,
+      `Not making a report for ${rejection.reason.name} or failed app sideload`,
       LogLevel.warn
     );
 
