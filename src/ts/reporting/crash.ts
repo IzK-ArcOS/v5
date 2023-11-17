@@ -37,8 +37,15 @@ export function handleWindowError(
 
   const error = e as unknown as ErrorEvent;
   const rejection = e as PromiseRejectionEvent;
+  const filename = error.filename || rejection.reason.name;
+  const position = error.lineno ? `(${error.lineno}:${error.colno})` : "";
+  const message = error.message || rejection.reason.message;
+  const stack = error.error?.stack || rejection.reason.stack;
 
-  if (rejection && rejection.reason && isBlackListed(rejection.reason.name))
+  if (
+    (rejection && rejection.reason && isBlackListed(rejection.reason.name)) ||
+    (message && message.includes("dynamically imported module"))
+  )
     return Log(
       "reporting/crash.ts: handleWindowError",
       `Not making a report for ${rejection.reason.name}`,
@@ -48,11 +55,6 @@ export function handleWindowError(
   CRASHING.set(true);
 
   Log("ArcOS", `------(#! [ SYSTEM IS CRASHING ] !#)------`, LogLevel.error);
-
-  const filename = error.filename || rejection.reason.name;
-  const position = error.lineno ? `(${error.lineno}:${error.colno})` : "";
-  const message = error.message || rejection.reason.message;
-  const stack = error.error?.stack || rejection.reason.stack;
 
   const options: ReportOptions = {
     includeUserData: false,
