@@ -36,8 +36,8 @@ export class QlorbRuntime extends AppRuntime {
     return boxProps;
   }
 
-  public createRandomBox(useOffset = true, forsePositive = false): Box {
-    const values = !forsePositive
+  public createRandomBox(useOffset = true, forcePositive = false): Box {
+    const values = !forcePositive
       ? this.BOX_VALUES
       : this.BOX_VALUES.filter((v) => v > 0);
     const modifier = values[this.random(values.length)];
