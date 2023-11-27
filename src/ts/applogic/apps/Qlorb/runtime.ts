@@ -3,25 +3,29 @@ import type { App } from "../../interface";
 import { AppRuntime } from "../../runtime/main";
 
 export class QlorbRuntime extends AppRuntime {
-  public random = (m: number) => Math.floor(Math.random() * m);
-  public Boxes = writable<Box[]>([]);
-  public BoxesOffset = writable<number>(0);
-  public Clicks = writable<number>(0);
-  public Score = writable<number>(0);
-  public OldScore = writable<number>(0);
-  public OldClicks = writable<number>(0);
-  public BOX_SIZE = 30;
-  public BOX_VALUES = [1, -1, -1, 5, 2, -5, -4, 1, -2];
+  public readonly random = (m: number) => Math.floor(Math.random() * m);
+  public readonly Boxes = writable<Box[]>([]);
+  public readonly BoxesOffset = writable<number>(0);
+  public readonly Clicks = writable<number>(0);
+  public readonly Score = writable<number>(0);
+  public readonly OldScore = writable<number>(0);
+  public readonly OldClicks = writable<number>(0);
+  public readonly BOX_SIZE = 30;
+  public readonly BOX_VALUES = [1, -1, -1, 5, 2, -5, -4, 1, -2];
 
   constructor(app: App) {
     super(app);
+
+    setInterval(() => {
+      if (get(this.Boxes).length - get(this.Clicks) < 21) this.spawnBox();
+    }, 300);
   }
 
   public spawnBox(
     props?: Nullable<Box>,
     useOffset?: boolean,
     forcePositive = false
-  ) {
+  ): Box {
     const boxProps: Box =
       props || this.createRandomBox(useOffset, forcePositive);
 
@@ -36,7 +40,7 @@ export class QlorbRuntime extends AppRuntime {
     return boxProps;
   }
 
-  public createRandomBox(useOffset = true, forcePositive = false): Box {
+  private createRandomBox(useOffset = true, forcePositive = false): Box {
     const values = !forcePositive
       ? this.BOX_VALUES
       : this.BOX_VALUES.filter((v) => v > 0);
@@ -52,7 +56,7 @@ export class QlorbRuntime extends AppRuntime {
     return box;
   }
 
-  public findBoxClass(mod: number): string {
+  private findBoxClass(mod: number): string {
     if (mod > 3) return "golden";
     if (mod < 0) return "bad";
     if (mod == 1) return "good";
@@ -61,7 +65,7 @@ export class QlorbRuntime extends AppRuntime {
     return "good";
   }
 
-  public ScorePoints(box: Box, button?: HTMLButtonElement) {
+  public ScorePoints(box: Box, button?: HTMLButtonElement): void {
     if (box.modifier < 0) return this.clickReset();
 
     this.Score.update((v) => v + box.modifier);
@@ -72,11 +76,11 @@ export class QlorbRuntime extends AppRuntime {
     if (button) button.blur();
   }
 
-  public ScoreNegativePoints(box: Box, button?: HTMLButtonElement) {
+  public ScoreNegativePoints(box: Box, button?: HTMLButtonElement): void {
     this.ScorePoints({ ...box, modifier: -box.modifier }, button);
   }
 
-  public levelDown() {
+  private levelDown(): void {
     const score = get(this.Score);
 
     if (score < 100) return this.Score.set(0);
@@ -84,14 +88,23 @@ export class QlorbRuntime extends AppRuntime {
     return this.Score.set(score - 100);
   }
 
-  public clickReset() {
+  public clickReset(): void {
     this.saveOldScore();
     this.Clicks.set(0);
     this.levelDown();
   }
 
-  public saveOldScore() {
+  private saveOldScore(): void {
     this.OldScore.set(get(this.Score));
     this.OldClicks.set(get(this.Clicks));
+  }
+
+  public flushStores(): void {
+    this.Score.set(0);
+    this.OldScore.set(0);
+    this.Clicks.set(0);
+    this.OldClicks.set(0);
+    this.Boxes.set([]);
+    this.BoxesOffset.set(0);
   }
 }

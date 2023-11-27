@@ -24,11 +24,6 @@
 
   onMount(() => {
     runtime.spawnBox(null, false, true);
-
-    setInterval(() => {
-      if (get(runtime.Boxes).length - get(runtime.Clicks) < 21)
-        runtime.spawnBox();
-    }, 300);
   });
 
   function fail(e?: Event) {

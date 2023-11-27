@@ -15,6 +15,11 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+#QlorbApp div.game div.boxes .box:not(.golden):hover {
+  box-shadow: none;
+}
+
 #QlorbApp div.game div.boxes .box:hover {
   scale: 0.75;
   rotate: 10deg;

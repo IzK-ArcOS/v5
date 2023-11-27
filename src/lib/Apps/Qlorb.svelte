@@ -10,6 +10,7 @@
   let level = 0;
 
   onMount(() => {
+    runtime.flushStores();
     runtime.Score.subscribe((v) => (level = Math.floor(v / 100)));
   });
 </script>
