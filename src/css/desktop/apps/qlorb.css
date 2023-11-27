@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+@import url("./qlorb/background.css");
+@import url("./qlorb/osd.css");
+@import url("./qlorb/game.css");
+
+#QlorbApp .game *,
+#QlorbApp .game *::before,
+#QlorbApp .game *::after {
+  border-radius: 5px;
+}
+
+#QlorbApp .body * {
+  font-family: "Kdam Thmor Pro", sans-serif !important;
+  box-sizing: initial;
+}
+
+#QlorbApp .body {
+  padding: 0;
+  box-sizing: initial;
+}

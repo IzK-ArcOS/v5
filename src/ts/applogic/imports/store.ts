@@ -15,6 +15,7 @@ import { MarkDownViewer } from "../apps/MarkDownViewer";
 import { MediaPlayerApp } from "../apps/MediaPlayer";
 import { MessagingApp } from "../apps/MessagingApp";
 import { OpenWithApp } from "../apps/OpenWith";
+import { QlorbApp } from "../apps/Qlorb";
 import { TextEditor } from "../apps/TextEditor";
 import { TwentyFourtyEight } from "../apps/TwentyFourtyEight";
 import { UpdateNotice } from "../apps/UpdateNotice";
@@ -52,6 +53,7 @@ export const DefaultApps: { [key: string]: App } = {
   UpdateNotice,
   TwentyFourtyEight,
   IconLibrary,
+  QlorbApp,
 };
 
 export const SystemApps: string[] = [

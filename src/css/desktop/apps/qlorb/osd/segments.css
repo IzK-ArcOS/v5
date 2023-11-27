@@ -1,0 +1,22 @@
+#QlorbApp div.osd > div {
+  position: fixed;
+}
+#QlorbApp div.osd > div.topleft {
+  top: 30px;
+  left: 30px;
+}
+
+#QlorbApp div.osd > div.topright {
+  top: 30px;
+  right: 30px;
+}
+
+#QlorbApp div.osd > div.bottomleft {
+  bottom: 30px;
+  left: 30px;
+}
+
+#QlorbApp div.osd > div.bottomright {
+  bottom: 30px;
+  right: 30px;
+}

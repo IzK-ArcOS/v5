@@ -18,6 +18,7 @@ export { default as MarkDownViewerIcon } from "../../assets/apps/markdownviewer.
 export { default as MediaPlayerIcon } from "../../assets/apps/mediaplayer.svg";
 export { default as MessagingIcon } from "../../assets/apps/messaging.svg";
 export { default as PfpSelectorIcon } from "../../assets/apps/pfpselector.svg";
+export { default as QlorbIcon } from "../../assets/apps/qlorb.svg";
 export { default as SettingsIcon } from "../../assets/apps/settings.svg";
 export { default as TestAppIcon } from "../../assets/apps/testapp.svg";
 export { default as UnknownIcon } from "../../assets/apps/unknown.svg";

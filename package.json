@@ -36,6 +36,8 @@
     "svelte-click-outside": "^1.0.0",
     "svelte-markdown": "^0.2.3",
     "svelte-preprocess-markdown": "^2.7.3",
+    "tsparticles": "^2.12.0",
+    "tsparticles-preset-fire": "^2.12.0",
     "vite-plugin-markdown": "^2.1.0"
   }
 }

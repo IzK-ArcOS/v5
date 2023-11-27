@@ -1,0 +1,97 @@
+#QlorbApp div.game div.boxes .box {
+  width: var(--boxsize);
+  height: var(--boxsize);
+  background-color: #fff3;
+  border: none;
+  position: relative;
+  top: var(--offset);
+  font-family: "Kdam Thmor Pro", sans-serif;
+  color: white;
+  border: #fff3 2px solid;
+  transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: oscillate 7s infinite;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+#QlorbApp div.game div.boxes .box:hover {
+  scale: 0.75;
+  rotate: 10deg;
+}
+
+#QlorbApp div.game div.boxes .box.triggered {
+  opacity: 0.2;
+}
+
+#QlorbApp div.game div.boxes .box span.modifier-floaty {
+  position: relative;
+  top: -50px;
+  opacity: 0;
+}
+
+#QlorbApp div.game div.boxes .box.triggered span.modifier-floaty {
+  animation: displayfloaty 1s forwards;
+}
+
+#QlorbApp div.game div.boxes .box span.modifier-floaty.positive {
+  color: lime;
+}
+
+#QlorbApp div.game div.boxes .box span.modifier-floaty.negative {
+  color: red;
+}
+
+#QlorbApp div.game div.boxes .box.good {
+  border: #8f83 2px solid;
+  background-color: #8f83;
+}
+
+#QlorbApp div.game div.boxes .box.bad {
+  border: #f883 2px solid;
+  background-color: #f883;
+}
+
+#QlorbApp div.game div.boxes .box.golden {
+  border: #fa0a 2px solid;
+  background-color: #fa0a;
+  box-shadow: 0 0 10px 5px #fa0a;
+}
+
+#QlorbApp div.game div.boxes .box.golden.triggered {
+  box-shadow: none;
+}
+
+@keyframes displayfloaty {
+  0% {
+    top: -20px;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    top: -60px;
+  }
+}
+
+@keyframes oscillate {
+  0% {
+    margin-top: -200px;
+  }
+
+  25% {
+    margin-top: 200px;
+  }
+
+  50% {
+    margin-top: 75px;
+  }
+
+  100% {
+    margin-top: -200px;
+  }
+}

@@ -1,0 +1,17 @@
+#QlorbApp div.osd #QlorbApp div.credits {
+  opacity: 0.15;
+  font-size: 16px;
+}
+
+#QlorbApp div.osd div.credits,
+#QlorbApp div.osd div.credits * {
+  color: #fff;
+}
+
+#QlorbApp div.osd div.credits a {
+  text-underline-offset: 3px;
+}
+
+#QlorbApp div.osd div.credits p {
+  margin: 0;
+}

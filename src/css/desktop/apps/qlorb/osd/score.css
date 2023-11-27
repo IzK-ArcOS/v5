@@ -1,0 +1,54 @@
+#QlorbApp div.osd div.score {
+  height: fit-content;
+  color: #fff7;
+  padding: 25px 20px;
+  padding-bottom: 15px;
+  font-size: 16px;
+}
+
+#QlorbApp div.osd div.score::before,
+#QlorbApp div.osd div.score::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 30px;
+}
+
+#QlorbApp div.osd div.score::before {
+  top: 0;
+  left: 0;
+  border-left: #fff2 2px solid;
+  border-top: #fff2 2px solid;
+}
+#QlorbApp div.osd div.score::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: #fff2 2px solid;
+  border-right: #fff2 2px solid;
+}
+
+#QlorbApp div.osd div.score span.current {
+  font-size: 60px;
+  line-height: 40px;
+}
+
+#QlorbApp div.osd div.score div.top {
+  opacity: 0.7;
+  display: flex;
+  gap: 10px;
+}
+
+#QlorbApp div.osd div.score div.top div.stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#QlorbApp div.osd div.score div.top div.stat + div.stat {
+  padding-left: 10px;
+  border-left: #fff2 2px solid;
+}
+
+#QlorbApp div.osd div.score div.top div.stat span.label {
+  opacity: 0.6;
+  font-weight: bold;
+}

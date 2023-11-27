@@ -1,0 +1,52 @@
+@import url("./game/box.css");
+
+#QlorbApp div.game::before,
+#QlorbApp div.game::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: calc(50% - 25px);
+  height: 100%;
+  background: linear-gradient(to right, var(--bg-end) 0%, #0000 60%);
+  z-index: 1000;
+  transform: translateY(-50%);
+}
+
+#QlorbApp div.game::after {
+  right: 0;
+  left: unset;
+  background: linear-gradient(to left, var(--bg-end) 0%, #0000 60%);
+
+  border-left: #fff1 3px solid;
+}
+
+#QlorbApp div.game::before {
+  border-right: #fff1 3px solid;
+}
+
+#QlorbApp div.game div.boxes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  --gap: calc(var(--boxsize) / 2);
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  box-sizing: border-box;
+  transform: translate(calc(var(--boxes-offset) * 2), -50%);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  height: 400px;
+  box-sizing: border-box;
+}
+
+#QlorbApp div.game button.misclick-trigger {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}

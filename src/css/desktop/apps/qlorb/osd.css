@@ -1,0 +1,13 @@
+@import url("./osd/segments.css");
+@import url("./osd/credits.css");
+@import url("./osd/score.css");
+
+#QlorbApp div.osd {
+  box-sizing: border-box;
+  z-index: 10000;
+  pointer-events: none !important;
+}
+
+#QlorbApp div.titlebar {
+  z-index: 20000;
+}

@@ -1,0 +1,55 @@
+#QlorbApp div.bg {
+  background: linear-gradient(to top, var(--bg-start) 0%, var(--bg-end) 100%);
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+:root #QlorbApp {
+  --bg-start: rgb(7, 5, 20);
+  --bg-end: #1b1653;
+}
+
+:root #QlorbApp .level-1 {
+  --bg-start: rgb(20, 5, 5);
+  --bg-end: #531616;
+}
+:root #QlorbApp .level-2 {
+  --bg-start: rgb(20, 10, 5);
+  --bg-end: #533116;
+}
+:root #QlorbApp .level-3 {
+  --bg-start: rgb(20, 19, 5);
+  --bg-end: #534a16;
+}
+:root #QlorbApp .level-4 {
+  --bg-start: rgb(15, 20, 5);
+  --bg-end: #3e5316;
+}
+:root #QlorbApp .level-5 {
+  --bg-start: rgb(5, 20, 6);
+  --bg-end: #16531b;
+}
+:root #QlorbApp .level-6 {
+  --bg-start: rgb(5, 20, 16);
+  --bg-end: #165341;
+}
+:root #QlorbApp .level-7 {
+  --bg-start: rgb(5, 18, 20);
+  --bg-end: #164053;
+}
+:root #QlorbApp .level-8 {
+  --bg-start: rgb(7, 5, 20);
+  --bg-end: #1b1653;
+}
+:root #QlorbApp .level-9 {
+  --bg-start: rgb(14, 5, 20);
+  --bg-end: #351653;
+}
+:root #QlorbApp .level-10 {
+  --bg-start: rgb(20, 5, 19);
+  --bg-end: #511653;
+}
+
+#QlorbApp .bg canvas {
+  background-image: none !important;
+}
