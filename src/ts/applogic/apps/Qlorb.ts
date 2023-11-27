@@ -18,7 +18,7 @@ export const QlorbApp: App = {
   pos: { x: 100, y: 100 },
   minSize: { w: 890, h: 600 },
   maxSize: { w: 1200, h: NaN },
-  controls: { min: true, max: false, cls: true },
+  controls: { min: true, max: true, cls: true },
   state: {
     headless: false,
     resizable: true,
