@@ -1,6 +1,19 @@
+#SettingsApp #changeUsername div.body {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 window#SettingsApp window.overlay#changeUsername div.changename-wrapper {
   display: flex;
-  margin: 5px;
+  flex-direction: column;
+  height: 100%;
+}
+
+#SettingsApp #changeUsername div.top {
+  display: flex;
+  margin: 15px;
+  gap: 15px;
 }
 
 window#SettingsApp
@@ -34,29 +47,31 @@ window#SettingsApp window.overlay#changeUsername div.changename-wrapper .pfp {
   background-color: var(--button-bg);
   overflow-clip-margin: 0px;
   overflow: hidden;
-  margin-right: 10px;
 }
 
 window#SettingsApp window.overlay#changeUsername div.changename-wrapper input {
   width: 100%;
-  margin: 5px 0;
-  margin-top: 10px;
+  margin: 0;
+  margin-top: 5px;
 }
 
-window#SettingsApp
-  window.overlay#changeUsername
-  div.changename-wrapper
-  div.field
-  div.apply {
+#SettingsApp #changeUsername div.apply {
   display: flex;
+  justify-content: flex-end;
+  border-top: var(--win-border);
+  padding: 10px;
+  background-color: var(--button-glass-bg);
+  margin-top: auto;
 }
 
-window#SettingsApp
-  window.overlay#changeUsername
-  div.changename-wrapper
-  div.field
-  div.apply
-  div {
-  margin: 5px 0;
+#SettingsApp #changeUsername div.apply div {
+  margin: 0;
+  display: flex;
+  gap: 10px;
   margin-left: auto;
+}
+
+#SettingsApp #changeUsername div.apply div button {
+  min-width: 70px;
+  margin: 0;
 }

@@ -10,7 +10,7 @@ const ProfilePictureOverlays = {
       author: "ArcOS Team",
     },
     content: ProfilePicture,
-    size: { w: 382, h: 410 },
+    size: { w: 382, h: 440 },
     show: false,
   },
   customPfp: {
@@ -20,7 +20,7 @@ const ProfilePictureOverlays = {
       author: "ArcOS Team",
     },
     content: CustomProfilePicture,
-    size: { w: 350, h: 125 },
+    size: { w: 350, h: 140 },
     show: false,
   },
   largePfp: {

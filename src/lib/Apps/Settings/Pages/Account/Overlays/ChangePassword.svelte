@@ -68,36 +68,39 @@
 </script>
 
 <div class="changepswd-wrapper">
-  <div><ProfilePicture src={img} height={50} /></div>
-  <div class="field">
-    <p>Fill out this form to change your password:</p>
-    <input
-      type="password"
-      name="current"
-      placeholder="Current password"
-      bind:value={oldPswd}
-    />
-    <input
-      type="password"
-      name="current"
-      placeholder="New password"
-      bind:value={newPswd}
-    />
-    <input
-      type="password"
-      name="current"
-      placeholder="Confirm new password"
-      bind:value={confirm}
-    />
-    <div class="apply">
-      <div>
-        <button on:click={cancel}>Cancel</button>
-        <button
-          on:click={apply}
-          disabled={newPswd != confirm || !newPswd || !confirm}
-          type="button">Change</button
-        >
-      </div>
+  <div class="top">
+    <div><ProfilePicture src={img} height={50} /></div>
+    <div class="field">
+      <p>Fill out this form to change your password:</p>
+      <input
+        type="password"
+        name="current"
+        placeholder="Current password"
+        bind:value={oldPswd}
+      />
+      <input
+        type="password"
+        name="current"
+        placeholder="New password"
+        bind:value={newPswd}
+      />
+      <input
+        type="password"
+        name="current"
+        placeholder="Confirm new password"
+        bind:value={confirm}
+      />
+    </div>
+  </div>
+  <div class="apply">
+    <div>
+      <button on:click={cancel}>Cancel</button>
+      <button
+        on:click={apply}
+        disabled={newPswd != confirm || !newPswd || !confirm}
+        class:suggested={newPswd == confirm && newPswd && confirm}
+        type="button">Change</button
+      >
     </div>
   </div>
 </div>

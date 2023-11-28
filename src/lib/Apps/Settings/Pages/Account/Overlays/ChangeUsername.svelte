@@ -80,23 +80,30 @@
 </script>
 
 <div class="changename-wrapper">
-  <div><ProfilePicture src={img} height={50} /></div>
-  <div class="field">
-    <p class="username">{$UserName}</p>
-    <p>Enter a new username</p>
-    <input
-      type="text"
-      name="current"
-      placeholder="New username"
-      bind:value={newName}
-    />
-    <div class="apply">
-      <div>
-        <button on:click={cancel}>Cancel</button>
-        <button on:click={confirmChange} disabled={!newName} type="button">
-          Change
-        </button>
-      </div>
+  <div class="top">
+    <div><ProfilePicture src={img} height={50} /></div>
+    <div class="field">
+      <p class="username">{$UserName}</p>
+      <p>Enter a new username</p>
+      <input
+        type="text"
+        name="current"
+        placeholder="New username"
+        bind:value={newName}
+      />
+    </div>
+  </div>
+  <div class="apply">
+    <div>
+      <button on:click={cancel}>Cancel</button>
+      <button
+        on:click={confirmChange}
+        disabled={!newName}
+        type="button"
+        class:suggested={newName}
+      >
+        Change
+      </button>
     </div>
   </div>
 </div>

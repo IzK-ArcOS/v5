@@ -1,10 +1,36 @@
+#SettingsApp #changePswd div.body {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 window#SettingsApp window.overlay#changePswd div.changepswd-wrapper {
   display: flex;
-  margin: 5px;
+  flex-direction: column;
+  height: 100%;
+}
+
+#SettingsApp #changePswd div.top {
+  display: flex;
+  margin: 15px;
+  gap: 15px;
 }
 
 window#SettingsApp window.overlay#changePswd div.changepswd-wrapper div.field {
   width: 100%;
+}
+
+window#SettingsApp window.overlay#changePswd div.changepswd-wrapper p.username {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+window#SettingsApp
+  window.overlay#changePswd
+  div.changepswd-wrapper
+  p.username
+  + p {
+  opacity: 0.5;
 }
 
 window#SettingsApp window.overlay#changePswd div.changepswd-wrapper .pfp {
@@ -15,28 +41,31 @@ window#SettingsApp window.overlay#changePswd div.changepswd-wrapper .pfp {
   background-color: var(--button-bg);
   overflow-clip-margin: 0px;
   overflow: hidden;
-  margin-right: 10px;
 }
 
 window#SettingsApp window.overlay#changePswd div.changepswd-wrapper input {
   width: 100%;
-  margin: 5px 0;
+  margin: 0;
+  margin-top: 5px;
 }
 
-window#SettingsApp
-  window.overlay#changePswd
-  div.changepswd-wrapper
-  div.field
-  div.apply {
+#SettingsApp #changePswd div.apply {
   display: flex;
+  justify-content: flex-end;
+  border-top: var(--win-border);
+  padding: 10px;
+  background-color: var(--button-glass-bg);
+  margin-top: auto;
 }
 
-window#SettingsApp
-  window.overlay#changePswd
-  div.changepswd-wrapper
-  div.field
-  div.apply
-  div {
-  margin: 5px 0;
+#SettingsApp #changePswd div.apply div {
+  margin: 0;
+  display: flex;
+  gap: 10px;
   margin-left: auto;
+}
+
+#SettingsApp #changePswd div.apply div button {
+  min-width: 70px;
+  margin: 0;
 }

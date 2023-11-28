@@ -1,13 +1,24 @@
-window#SettingsApp window.overlay#customPfp div.custompfp-wrapper {
-  display: flex;
-  margin: 5px;
+window#SettingsApp window.overlay#customPfp div.body {
+  padding: 0;
 }
 
-window#SettingsApp window.overlay#customPfp div.custompfp-wrapper div.field {
+#SettingsApp #customPfp div.custompfp-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#SettingsApp #customPfp div.top {
+  display: flex;
+  margin: 15px;
+  gap: 15px;
+}
+
+#SettingsApp #customPfp div.field {
   width: 100%;
 }
 
-window#SettingsApp window.overlay#customPfp div.custompfp-wrapper .pfp {
+#SettingsApp #customPfp .pfp {
   height: 50px;
   width: 50px;
   border: none;
@@ -15,28 +26,31 @@ window#SettingsApp window.overlay#customPfp div.custompfp-wrapper .pfp {
   background-color: var(--button-bg);
   overflow-clip-margin: 0px;
   overflow: hidden;
-  margin-right: 10px;
 }
 
-window#SettingsApp window.overlay#customPfp div.custompfp-wrapper input {
+#SettingsApp #customPfp input {
   width: 100%;
-  margin: 5px 0;
+  margin: 0;
+  margin-top: 5px;
 }
 
-window#SettingsApp
-  window.overlay#customPfp
-  div.custompfp-wrapper
-  div.field
-  div.apply {
+#SettingsApp #customPfp div.apply {
   display: flex;
+  justify-content: flex-end;
+  border-top: var(--win-border);
+  padding: 10px;
+  background-color: var(--button-glass-bg);
+  margin-top: auto;
 }
 
-window#SettingsApp
-  window.overlay#customPfp
-  div.custompfp-wrapper
-  div.field
-  div.apply
-  div {
-  margin: 5px 0;
+#SettingsApp #customPfp div.apply div {
+  margin: 0;
+  display: flex;
+  gap: 10px;
   margin-left: auto;
+}
+
+#SettingsApp #customPfp div.apply div button {
+  min-width: 70px;
+  margin: 0;
 }

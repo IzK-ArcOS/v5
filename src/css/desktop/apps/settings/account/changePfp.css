@@ -1,0 +1,73 @@
+#SettingsApp #pfpSel div.body {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#SettingsApp #pfpSel div.wrapper button img {
+  height: 50px;
+}
+
+#SettingsApp #pfpSel div.wrapper {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(6, 60px);
+  grid-template-rows: repeat(5, 60px);
+  text-align: center;
+  margin: auto;
+}
+
+#SettingsApp #pfpSel .overlay-head {
+  margin-bottom: 0;
+  padding: 15px;
+}
+
+#SettingsApp #pfpSel div.wrapper button {
+  margin-bottom: 5px;
+  padding: 0 !important;
+  /* overflow: hidden; */
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin: 5px; /* 
+  transition: filter 0.1s; */
+  background-color: transparent;
+}
+
+#SettingsApp #pfpSel div.wrapper button:hover {
+  filter: brightness(0.8);
+}
+
+#SettingsApp #pfpSel div.wrapper button:active {
+  filter: brightness(0.6);
+}
+
+#SettingsApp #pfpSel div.wrapper button img {
+  border-radius: 5px;
+}
+
+#SettingsApp #pfpSel div.wrapper button.selected img {
+  filter: brightness(1.2);
+  outline: var(--accent-light) 3px solid !important;
+}
+
+#SettingsApp #pfpSel div.cancel-wrapper {
+  display: flex;
+  margin-top: 15px;
+  justify-content: flex-end;
+  border-top: var(--win-border);
+  padding: 10px;
+  background-color: var(--button-glass-bg);
+}
+
+#SettingsApp #pfpSel div.cancel-wrapper div.inner {
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+#SettingsApp #pfpSel div.cancel-wrapper button {
+  min-width: 70px;
+  margin: 0;
+}

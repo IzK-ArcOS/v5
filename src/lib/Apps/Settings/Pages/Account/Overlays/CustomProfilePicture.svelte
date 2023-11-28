@@ -46,22 +46,26 @@
 </script>
 
 <div class="custompfp-wrapper">
-  <div>
-    <ProfilePicture src={valid ? img : ProfilePictures.def} height={50} />
+  <div class="top">
+    <div>
+      <ProfilePicture src={valid ? img : ProfilePictures.def} height={50} />
+    </div>
+    <div class="field">
+      <p>Enter the URL to a custom profile picture:</p>
+      <input
+        type="url"
+        placeholder="https://example.com/image.png"
+        bind:value={img}
+        on:input={check}
+      />
+    </div>
   </div>
-  <div class="field">
-    <p>Enter the URL to a custom profile picture:</p>
-    <input
-      type="url"
-      placeholder="https://example.com/image.png"
-      bind:value={img}
-      on:input={check}
-    />
-    <div class="apply">
-      <div>
-        <button on:click={cancel}>Cancel</button>
-        <button on:click={apply} disabled={!img || !valid}>Apply</button>
-      </div>
+  <div class="apply">
+    <div>
+      <button on:click={cancel}>Cancel</button>
+      <button on:click={apply} class="suggested" disabled={!img || !valid}
+        >Apply</button
+      >
     </div>
   </div>
 </div>

@@ -20,7 +20,7 @@ const AccountPageOverlays = {
       author: "ArcOS Team",
     },
     content: ChangePassword,
-    size: { w: 370, h: 195 },
+    size: { w: 370, h: 205 },
     show: false,
   },
   changeUsername: {
@@ -30,7 +30,7 @@ const AccountPageOverlays = {
       author: "ArcOS Team",
     },
     content: ChangeUsername,
-    size: { w: 370, h: 155 },
+    size: { w: 370, h: 170 },
     show: false,
   },
 };
