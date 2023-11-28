@@ -90,6 +90,7 @@ export class QlorbRuntime extends AppRuntime {
 
   public clickReset(): void {
     this.saveOldScore();
+    this.Clicks.set(1); // Set it to 1 first to force the subscribers to update
     this.Clicks.set(0);
     this.levelDown();
   }
