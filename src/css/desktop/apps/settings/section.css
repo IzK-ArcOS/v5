@@ -124,11 +124,11 @@ window#SettingsApp div.section.collapsible > div.header {
 
 window#SettingsApp div.section.collapsible + section.collapsible {
   margin-top: -8px;
-}
+} /* 
 
 window#SettingsApp div.section.collapsible * {
   vertical-align: middle;
-}
+} */
 
 window#SettingsApp div.section.collapsible.collapsed {
   max-height: 40px;

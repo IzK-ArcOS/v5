@@ -8,7 +8,7 @@ export const VisualsOverlays = {
       author: "ArcOS Team",
     },
     content: CustomAccentColor,
-    size: { w: 450, h: 170 },
+    size: { w: 340, h: 150 },
     show: false,
   },
 };

@@ -1,0 +1,102 @@
+#SettingsApp #customAccentColor div.body {
+  padding: 0;
+}
+
+#SettingsApp #customAccentColor div.wrapper {
+  display: flex;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+#SettingsApp #customAccentColor div.wrapper div.top {
+  display: flex;
+  padding: 15px;
+  gap: 15px;
+}
+
+#SettingsApp #customAccentColor img {
+  height: 40px;
+}
+
+#SettingsApp #customAccentColor div.right {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#SettingsApp #customAccentColor div.right p {
+  margin: 0;
+}
+
+#SettingsApp #customAccentColor div.hex-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: var(--win-border);
+  padding: 5px 10px;
+  border-radius: 5px;
+  padding-right: 20px;
+  width: 250px;
+}
+
+#SettingsApp #customAccentColor div.hex-wrapper input {
+  border: none;
+  box-shadow: none !important;
+  font-family: "Source Code Pro", monospace;
+  flex-grow: 1;
+  height: 25px;
+}
+
+#SettingsApp #customAccentColor div.hex-wrapper input.picker {
+  border: none;
+  width: 0px;
+  height: 0px;
+  padding: 0;
+  min-width: unset !important;
+  flex-grow: 0;
+  margin-left: -20px;
+}
+
+#SettingsApp #customAccentColor div.hex-wrapper input::-webkit-color-swatch {
+  display: none;
+}
+
+#SettingsApp #customAccentColor div.hex-wrapper button.color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  min-width: unset;
+  aspect-ratio: 1/1;
+  padding: 0;
+}
+
+#SettingsApp #customAccentColor div.hex-wrapper :first-child {
+  opacity: 0.5;
+  margin-left: 5px;
+}
+
+#SettingsApp #customAccentColor div.buttons {
+  display: flex;
+  margin-top: auto;
+  justify-content: flex-end;
+  border-top: var(--win-border);
+  padding: 10px;
+  background-color: var(--button-glass-bg);
+  width: 100%;
+}
+
+#SettingsApp #customAccentColor div.buttons div.inner {
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+#SettingsApp #customAccentColor div.buttons div.inner button {
+  min-width: 70px;
+  margin: 0;
+}

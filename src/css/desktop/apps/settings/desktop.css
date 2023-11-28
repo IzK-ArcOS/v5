@@ -72,7 +72,6 @@ window#SettingsApp div.desktop-page div.current div.fake-taskbar {
   border-radius: 3px;
   -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
-  border: var(--win-border-light);
 }
 
 window#SettingsApp div.desktop-page div.current div.fake-taskbar.docked {
@@ -82,9 +81,13 @@ window#SettingsApp div.desktop-page div.current div.fake-taskbar.docked {
   border-radius: 0;
 }
 
+window#SettingsApp div.desktop-page div.current div.fake-taskbar::after {
+  border-radius: 3px;
+}
+/* 
 window#SettingsApp div.desktop-page div.current div.fake-taskbar.colored {
   border: var(--glass-ultradark) 1px solid;
-}
+} */
 
 window#SettingsApp div.desktop-page div.current div.fake-window {
   position: absolute;
@@ -92,7 +95,7 @@ window#SettingsApp div.desktop-page div.current div.fake-window {
   left: 20px;
   width: 80px;
   height: 60px;
-  border-radius: 3px;
+  border-radius: 4px;
   background-color: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
   border: var(--win-border);

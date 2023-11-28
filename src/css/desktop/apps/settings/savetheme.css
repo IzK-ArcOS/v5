@@ -1,23 +1,28 @@
-window#SettingsApp window.overlay#saveTheme div.current {
-  border: #000 5px solid !important;
-  height: 80px;
-  border-radius: 5px;
-  margin-right: 10px;
-  position: relative;
-}
-
-window#SettingsApp window.overlay#saveTheme div.body {
+window#SettingsApp window.overlay#saveTheme div.top {
   display: flex;
-}
-
-window#SettingsApp window.overlay#saveTheme div.desktop-page {
-  display: flex;
-  justify-content: center;
   align-items: center;
 }
 
+window#SettingsApp window.overlay#saveTheme div.current {
+  border: #000 5px solid !important;
+  height: 120px;
+  border-radius: 5px;
+  position: relative;
+  margin: 0;
+}
+
+window#SettingsApp window.overlay#saveTheme > div.body {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+window#SettingsApp window.overlay#saveTheme div.desktop-page {
+  padding: 15px;
+}
+
 window#SettingsApp window.overlay#saveTheme div.current div.fake-taskbar {
-  display: none;
+  border: none;
 }
 
 window#SettingsApp window.overlay#saveTheme div.current div.fake-window * {
@@ -26,8 +31,8 @@ window#SettingsApp window.overlay#saveTheme div.current div.fake-window * {
 
 window#SettingsApp window.overlay#saveTheme div.current div.fake-window {
   position: absolute;
-  bottom: 7.5px;
-  right: 7.5px;
+  bottom: 30px;
+  right: 10px;
   top: unset;
   left: unset;
   height: 50px;
@@ -35,18 +40,19 @@ window#SettingsApp window.overlay#saveTheme div.current div.fake-window {
 }
 
 window#SettingsApp window.overlay#saveTheme div.current div.fake-window::after {
-  width: 30px;
-  border-radius: 2px;
+  width: 20px;
+  height: 5px;
+  border-radius: 2.5px;
 }
 
 window#SettingsApp window.overlay#saveTheme div.form {
   flex-grow: 1;
-  padding: 0 10px;
-  padding-right: 20px;
-  margin: 10px;
-  margin-right: 20px;
-  margin-left: 0;
+  margin: 0;
+  padding: 15px;
   border-right: var(--button-bg) 1px solid;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 window#SettingsApp window.overlay#saveTheme div.form h3 {
@@ -55,16 +61,29 @@ window#SettingsApp window.overlay#saveTheme div.form h3 {
 
 window#SettingsApp window.overlay#saveTheme div.form input {
   width: 100%;
-  margin-top: 10px;
+  margin-top: auto;
 }
 
 window#SettingsApp window.overlay#saveTheme div.form p {
   opacity: 0.6;
 }
 
-window#SettingsApp window.overlay#saveTheme div.form div.actions button {
+#SettingsApp #saveTheme div.actions {
+  display: flex;
   margin: 0;
-  margin-top: 25px;
-  margin-right: 5px;
-  margin-bottom: 0;
+  justify-content: flex-end;
+  border-top: var(--win-border);
+  padding: 10px;
+  background-color: var(--button-glass-bg);
+}
+
+#SettingsApp #saveTheme div.actions div.inner {
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+#SettingsApp #saveTheme div.actions div.inner button {
+  min-width: 70px;
+  margin: 0;
 }

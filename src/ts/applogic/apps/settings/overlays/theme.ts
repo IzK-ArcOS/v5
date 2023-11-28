@@ -8,7 +8,7 @@ export const ThemeOverlays = {
       author: "ArcOS Team",
     },
     content: SaveTheme,
-    size: { w: 450, h: 170 },
+    size: { w: 520, h: 200 },
     show: false,
   },
 };

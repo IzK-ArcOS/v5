@@ -61,6 +61,14 @@ window.window div.body button:not(.reset):disabled {
   opacity: 0.3;
 }
 
+window.window div.body button.link {
+  padding: 0;
+  margin: 0;
+  display: inline;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
 window.window div.body input,
 window.window div.body select {
   background-color: var(--win-bg);
@@ -97,10 +105,16 @@ window.window input.fullwidth {
   margin-bottom: 5px;
 }
 
-window.window a {
+window.window a,
+window.window div.body button.link {
   color: var(--accent-light);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+window.window a:hover,
+window.window div.body button.link:hover {
+  color: var(--accent-lighter) !important;
 }
 
 window.window div.body code {

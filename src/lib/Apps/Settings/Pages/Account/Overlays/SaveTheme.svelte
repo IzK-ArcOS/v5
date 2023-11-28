@@ -16,16 +16,24 @@
   }
 </script>
 
-<div class="form">
-  <h3 class="header">Save theme</h3>
-  <p>Choose a name for your theme:</p>
-  <input type="text" bind:value={name} />
-  <div class="actions">
-    <button disabled={!name} on:click={save}>Save</button>
-    <button on:click={closeThis}>Cancel</button>
+<div class="top">
+  <div class="form">
+    <h3 class="header">Save theme</h3>
+    <p>Choose a name for your theme.</p>
+    <input
+      type="text"
+      bind:value={name}
+      placeholder="Example: Beautiful Sunset"
+    />
+  </div>
+  <div class="desktop-page">
+    <Current />
   </div>
 </div>
-
-<div class="desktop-page">
-  <Current />
+<div class="actions">
+  <div class="inner">
+    <button on:click={closeThis}>Cancel</button>
+    <button disabled={!name} on:click={save} class:suggested={name}>Save</button
+    >
+  </div>
 </div>
