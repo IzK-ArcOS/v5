@@ -29,6 +29,11 @@
   width: 100%;
   height: 100%;
 }
+div.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 div#app *:not(.window):not(.ol) {
   user-select: none;

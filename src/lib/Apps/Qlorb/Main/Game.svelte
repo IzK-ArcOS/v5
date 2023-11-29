@@ -1,9 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-
+  import type { QlorbRuntime } from "../../../../ts/applogic/apps/Qlorb/runtime";
   import BoxComponent from "./Game/Box.svelte";
-  import type { QlorbRuntime } from "../../../ts/applogic/apps/Qlorb/runtime";
-  import { get } from "svelte/store";
   export let runtime: QlorbRuntime;
 
   let offset = 0;

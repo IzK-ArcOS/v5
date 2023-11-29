@@ -12,12 +12,6 @@ div.newlogin {
   opacity: 0;
 }
 
-div.newlogin div.center-flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 div.newlogin > * {
   opacity: 0;
   transition: opacity 0.4s;

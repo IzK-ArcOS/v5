@@ -27,6 +27,8 @@ export function registerDesktopShortcuts() {
         } else {
           const window = getWindow(get(focusedWindowId));
 
+          if (!window) return;
+
           if (window.state.windowState.fll) isFullscreenWindow.set(false);
 
           closeWindow(get(focusedWindowId));
