@@ -67,7 +67,7 @@
   <link rel="icon" href={logo} />
 </svelte:head>
 
-{#if run}
+{#if run && !navigator.userAgent.toLowerCase().includes("firefox")}
   <div
     class="app fullscreen theme-dark"
     class:noglass={navigator.userAgent.toLowerCase().includes("firefox")}
