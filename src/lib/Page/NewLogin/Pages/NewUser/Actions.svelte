@@ -9,7 +9,7 @@
 
     await sleep(0);
 
-    runtime.navigate("selector");
+    runtime.navigate("existinguserauth");
   }
 </script>
 

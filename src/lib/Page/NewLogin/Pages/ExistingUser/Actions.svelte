@@ -21,7 +21,7 @@
   }
 </script>
 
-<button class="normal switchuser" on:click={switchUser}>Switch User</button>
+<button class="normal switchuser" on:click={switchUser}>Show Picker</button>
 <button class="normal link createaccount" on:click={register}>
   I have no account
 </button>

@@ -55,7 +55,8 @@ export class Login {
       return this.navigate("newuserauth");
     }
 
-    if (!loginState) this.navigate(remembered ? "autologin" : "selector");
+    if (!loginState)
+      this.navigate(remembered ? "autologin" : "existinguserauth");
     if (!remembered || !stateIsIncoming) return;
 
     const username = fromBase64(remembered).split(":")[0];
@@ -65,7 +66,7 @@ export class Login {
     const userdata = await loginUsingCreds(remembered);
 
     if (!userdata) {
-      this.navigate("selector");
+      this.navigate("existinguserauth");
 
       localStorage.removeItem("arcos-remembered-token");
 

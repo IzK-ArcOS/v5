@@ -15,7 +15,7 @@
   let username = writable("");
   let password = "";
 
-  username.subscribe((v) => v && runtime.setUser(v));
+  //username.subscribe((v) => v && runtime.setUser(v));
 </script>
 
 <div class="login-loading">

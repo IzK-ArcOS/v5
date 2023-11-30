@@ -32,7 +32,7 @@
   }
 </script>
 
-<div class="password-wrapper">
+<div class="field-wrapper">
   <input
     type="password"
     placeholder="Confirm Password"

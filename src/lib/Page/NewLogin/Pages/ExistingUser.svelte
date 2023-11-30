@@ -3,12 +3,13 @@
   import type { Login } from "../../../../ts/newlogin/main";
   import UserHeader from "../UserHeader.svelte";
   import WelcomeSpinner from "../WelcomeSpinner.svelte";
-  import Incorrect from "./ExistingUser/Incorrect.svelte";
   import Actions from "./ExistingUser/Actions.svelte";
+  import Incorrect from "./ExistingUser/Incorrect.svelte";
 
   export let runtime: Login;
 
   let loading = false;
+  let username = get(runtime.UserName);
   let errored = false;
   let password = "";
 
@@ -28,6 +29,10 @@
     await runtime.proceed(userdata, username);
   }
 
+  function setUsername() {
+    runtime.UserName.set(username);
+  }
+
   function keydown(e: KeyboardEvent) {
     if (e.key == "Enter") login();
   }
@@ -37,7 +42,16 @@
   <UserHeader {runtime} />
   {#if !loading}
     {#if !errored}
-      <div class="password-wrapper">
+      <div class="field-wrapper">
+        <input
+          type="text"
+          disabled={loading}
+          on:keydown={keydown}
+          on:keyup={setUsername}
+          bind:value={username}
+        />
+      </div>
+      <div class="field-wrapper">
         <input
           type="password"
           bind:value={password}
