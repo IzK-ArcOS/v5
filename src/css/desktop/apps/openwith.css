@@ -8,8 +8,9 @@ window#OpenWithApp div.nofile {
 }
 
 window#OpenWithApp {
-  background-color: #0008;
-  -webkit-backdrop-filter: unset;
+  background-color: #0008 !important;
+  -webkit-backdrop-filter: unset !important;
+  backdrop-filter: unset !important;
 }
 
 window#OpenWithApp div.body {
@@ -19,7 +20,7 @@ window#OpenWithApp div.body {
 }
 
 window#OpenWithApp div.content {
-  background-color: var(--glass-bg);
+  background-color: var(--glass-ultradark);
   -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
   box-shadow: 0px 5px 15px 5px #0003;
