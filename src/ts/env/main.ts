@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
 import sleep from "../sleep";
 
-export const ArcOSVersion = "5.0.11";
+export const ArcOSVersion = "5.0.12";
 export const minArcAPI = 2;
 export const Busy = writable<boolean>(false);
 
