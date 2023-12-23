@@ -2,8 +2,10 @@
   import type { QlorbRuntime } from "../../../ts/applogic/apps/Qlorb/runtime";
   import { closeWindow } from "../../../ts/applogic/events";
   import type { App } from "../../../ts/applogic/interface";
+  import { createOverlayableError } from "../../../ts/errorlogic/overlay";
   import Page from "../../Page/Desktop/WindowStore/Window/Page.svelte";
   import Background from "./Main/Background.svelte";
+  import Help from "./Start/Help.svelte";
   export let runtime: QlorbRuntime;
   export let app: App;
 
@@ -11,7 +13,14 @@
     runtime.switchPage("game");
   }
   function help() {
-    runtime.switchPage("help");
+    createOverlayableError(
+      {
+        title: "Qlorb Help",
+        component: Help,
+        buttons: [{ caption: "Understood", action() {}, suggested: true }],
+      },
+      "QlorbApp"
+    );
   }
 
   function exit() {
