@@ -25,7 +25,6 @@ import { LogDump } from "./commands/logdump";
 import { Logout } from "./commands/logout";
 import { Ls } from "./commands/ls";
 import { Mkdir } from "./commands/mkdir";
-import { oa } from "./commands/oa";
 import { Open } from "./commands/open";
 import { Poke } from "./commands/poke";
 import { Read } from "./commands/read";
@@ -116,7 +115,6 @@ export const desktopSpecific: CommandStore = [
   AppList,
   ATConf,
   Kill,
-  oa,
   Open,
   Run,
 
