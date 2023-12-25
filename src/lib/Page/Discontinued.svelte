@@ -1,6 +1,7 @@
 <script lang="ts">
   import "../../css/discontinued.css";
   import { UserToken } from "../../ts/userlogic/interfaces";
+  import ApiReveal from "../APIReveal.svelte";
 
   function restart() {
     location.reload();
@@ -16,7 +17,8 @@
   </p>
   <p class="token">
     <span class="title">User Token</span>
-    <span class="value">{$UserToken}</span>
+    <span class="sep" />
+    <span class="value"><ApiReveal api={$UserToken} /></span>
   </p>
   <button class="restart" on:click={restart}>Restart</button>
 </div>

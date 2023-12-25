@@ -14,8 +14,7 @@ div.discontinued span.blocked {
 }
 
 div.discontinued h1 {
-  margin: 5px 0;
-  margin-bottom: 10px;
+  margin: 15px 0;
 }
 
 div.discontinued p {
@@ -25,8 +24,37 @@ div.discontinued p {
 }
 div.discontinued p.token {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
 }
 
-div.discontinued p.token div.title {
+div.discontinued p.token span {
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+div.discontinued p.token span.sep {
+  display: block;
+  width: 2px;
+  min-width: 2px;
+  height: 30px;
+  background-color: #fff2;
+}
+
+div.discontinued p.token span.title {
+  opacity: 0.8;
+}
+
+div.discontinued button.restart {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #fff2;
+  color: #fff;
+  margin-top: 30px;
+  border: #fff2 2px solid;
+}
+
+div.discontinued button.restart:hover {
+  background-color: #fff3;
 }
