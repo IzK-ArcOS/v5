@@ -10,7 +10,6 @@
   } from "../../ts/applogic/store";
   import { checkReleaseCandidate } from "../../ts/branding/rc";
   import { checkDesktopFile } from "../../ts/desktop/app";
-  import { checkFirefox } from "../../ts/desktop/browser";
   import { getExperiments } from "../../ts/desktop/experiments/main";
   import {
     assignDesktopListeners,
@@ -62,7 +61,6 @@
     startKeyListener();
     startMessageCheckInterval();
     checkDesktopFile();
-    checkFirefox();
 
     await checkForUpdates();
     await checkReleaseCandidate();
