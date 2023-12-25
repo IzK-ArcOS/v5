@@ -4,7 +4,6 @@ export { default as ArcFindIcon } from "../../assets/arcfind.svg";
 export { default as ConnectIcon } from "../../assets/connect.svg";
 export { default as DesktopIcon } from "../../assets/desktop.svg";
 export { default as FileIcon } from "../../assets/file.svg";
-export { default as FireFoxIcon } from "../../assets/firefox.png";
 export { default as FlagIcon } from "../../assets/flag.svg";
 export { default as FolderIcon } from "../../assets/folder.svg";
 export { default as HomeIcon } from "../../assets/home.svg";

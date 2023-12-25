@@ -11,11 +11,7 @@ export function setDesktopClassNameListener() {
 
       if (udata.sh.taskbar.docked) classes += `tbdocked `;
       if (!udata.sh.anim) classes += `noani `;
-      if (
-        udata.sh.noGlass ||
-        navigator.userAgent.toLowerCase().includes("firefox")
-      )
-        classes += `noglass `;
+      if (udata.sh.noGlass) classes += `noglass `;
       if (udata.sh.window.bigtb) classes += `bigtitlebars `;
       if (udata.sh.desktop.sharp) classes += `sharp `;
       if (udata.sh.taskbar.isLauncher) classes += `is-launcher `;
