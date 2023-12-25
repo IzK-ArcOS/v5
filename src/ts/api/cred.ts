@@ -5,6 +5,7 @@ import { UserToken } from "../userlogic/interfaces";
 import type { Cred } from "./interface";
 import { ConnectedServer, apiCall } from "./main";
 import { toBase64 } from "../base64";
+import { applyState } from "../state/main";
 
 export function generateCredToken(cred: Cred) {
   if (!cred) return "";
@@ -28,6 +29,8 @@ export async function logoffToken() {
   if (!token || !server) return;
 
   UserToken.set(null);
+
+  applyState("discontinued")
 
   return await apiCall(server, "logoff", {}, token);
 }

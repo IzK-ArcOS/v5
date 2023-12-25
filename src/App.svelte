@@ -40,8 +40,6 @@
 
     applyState("boot");
 
-    window.addEventListener("beforeunload", logoffToken);
-
     logo = Logo();
     run = true;
 
@@ -55,8 +53,10 @@
       if (
         DESKTOP_MODE !== "desktop" &&
         (state == "desktop" || state == "arcterm")
-      )
+      ) {
+        logoffToken();
         return false;
+      }
     };
   });
 </script>
