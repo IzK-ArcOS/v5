@@ -39,7 +39,7 @@
   }
 
   button + button {
-    margin-left: 8px;
+    margin-left: 4px;
   }
 
   button:last-child {
