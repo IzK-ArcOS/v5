@@ -1,3 +1,5 @@
+# Please keep in mind that production for V5 ended as of Feburary 20th 2024
+
 # ArcOS Frontend
 
 [![MadeWithSvelte.com](https://madewithsvelte.com/storage/repo-shields/4407-shield.svg)](https://madewithsvelte.com/p/arcos/shield-link)
