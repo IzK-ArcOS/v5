@@ -1,4 +1,4 @@
-# Please keep in mind that production for V5 ended as of Feburary 20th 2024
+# v5 development ceased on February 20th, 2024.
 
 # ArcOS Frontend
 
