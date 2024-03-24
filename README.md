@@ -3,7 +3,7 @@
 # ArcOS Frontend
 
 [![MadeWithSvelte.com](https://madewithsvelte.com/storage/repo-shields/4407-shield.svg)](https://madewithsvelte.com/p/arcos/shield-link)
-[![Chat](https://img.shields.io/discord/1082383732637450320?label=Community&logo=discord)](https://discord.gg/ARjRM6uNqf)
+[![Chat](https://img.shields.io/discord/1082383732637450320?label=Community&logo=discord)](https://discord.gg/S3fTadu88C)
 [![Contributors](https://img.shields.io/github/contributors/IzK-ArcOS/ArcOS-Frontend)](https://github.com/IzK-ArcOS/ArcOS-Frontend/graphs/contributors)
 [![Releases](https://raster.shields.io/github/v/release/IzK-ArcOS/ArcOS-Frontend.svg)](https://github.com/IzK-ArcOS/ArcOS-Frontend/releases)
 [![Pulse](https://img.shields.io/github/commit-activity/m/IzK-ArcOS/ArcOS-Frontend)](https://github.com/badges/IzK-ArcOS/ArcOS-Frontend)
