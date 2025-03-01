@@ -19,7 +19,7 @@
     connecting = true;
     connectionError = false;
 
-    const api = foreign ? server.trim() : "community.arcapi.nl";
+    const api = foreign ? server.trim() : "legacy.arcapi.nl";
 
     const testSuccess = await testConnection(api.trim(), authCode.trim());
 
@@ -56,7 +56,7 @@
     disabled={connecting}
     on:click={connect}
   >
-    {connecting ? "Hang on..." : "Continue using Community API"}
+    {connecting ? "Hang on..." : "Continue using Legacy API"}
   </button>
 {/if}
 <Toggle bind:foreign bind:connectionError />
